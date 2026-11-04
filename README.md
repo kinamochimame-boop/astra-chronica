@@ -48,3 +48,17 @@ localStorageの `astra-chronica:v1` に開始状態・戦闘回数・勝利回�
 相対ベースパス設定済みで、`dist/` は任意の静的ホスティングに配置できます。GitHubの Settings → Pages → Source を **GitHub Actions** に設定してください。付属ワークフローはmainへのpushでテスト・ビルド後にPagesへデプロイします。PRではテストとビルドのみ実施します。初回はPagesの有効化が必要です。この実装作業では公開操作は行っていません。
 
 iPhone実機での検証は別途必要です。音声、正式画像、装備変更、レベルアップ、戦闘中断セーブは未実装です。
+
+## 公開作業とiPhoneでの確認
+
+1. work → mainのPull Requestのテスト・ビルドを確認し、マージします。
+2. リポジトリの Settings → Pages → Build and deployment → Source で **GitHub Actions** を選択します。
+3. Actions → Validate and deploy Pages を開きます。mainの実行がなければ Run workflow → Branch: main → Run workflow を選びます。
+4. build・deployが両方成功し、Settings → Pages に公開先が表示されることを確認します。承認待ちの場合はActionsの Review deployments で github-pages を承認します。
+5. Pages画面の Visit site を開いて動作確認し、そのURLをiPhoneのSafariで開きます。
+
+このリポジトリは確認時点で非公開です。非公開リポジトリからPagesを利用するには対応するGitHubプランが必要です。Pages画面でプラン制限が表示された場合は、対応プランを利用するか、所有者がソースコード公開の可否を判断して公開リポジトリに変更する必要があります。リポジトリの公開範囲は自動変更しません。Pagesの公開サイトはソースリポジトリとは別に一般公開される場合があります。
+
+iPhoneでは縦画面で「ゲーム開始」→「戦闘開始」→味方と敵をタップ→「攻撃」を繰り返して勝利画面まで確認してください。下の操作ボタンが見えない場合は縦にスクロールできます。ホームに戻りページを再読み込みし、勝利数が保持されることも確認してください。撤退すると敗北画面を確認できます。
+
+本番ビルドでタッチ操作を再検証する場合は `npm run build` → `npm run preview` の後、別ターミナルで `BASE_URL=http://localhost:4173 npm run test:browser` を実行します。自動テストはタッチ対応Chromiumでの確認で、iPhone実機Safariの検証は含みません。
