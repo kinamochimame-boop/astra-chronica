@@ -50,13 +50,18 @@ try{
  }
  await page.getByRole('heading',{name:'星明かりの勝利'}).waitFor();
  assert.ok(healUsed&&guardUsed&&fireUsed,'skill commands exercised');
+ await page.getByText(/一人につき経験値 120 獲得/).waitFor();
  await page.getByRole('button',{name:'ホームへ戻る'}).tap();
  await page.reload();await page.getByRole('button',{name:'ゲーム開始 · 続きから'}).tap();
  await page.getByText('勝利 1回',{exact:true}).waitFor();
+ assert.ok((await page.locator('.names').textContent()).includes('Lv.2'));
+ await page.getByRole('button',{name:'編成を見る'}).tap();await page.getByRole('heading',{name:/アステル Lv.2/}).waitFor();await page.getByText(/HP 192 · MP 27/).waitFor();await page.getByRole('button',{name:'ホームへ戻る'}).tap();
+ const earned=await page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')).party);
  // Retreat during animation and immediately restart: old callbacks must not act in the new fight.
  await page.getByRole('button',{name:'戦闘開始'}).tap();await page.getByRole('button',{name:'通常攻撃を実行'}).tap();
  await page.getByRole('button',{name:'撤退する（敗北）'}).tap();
  await page.getByRole('heading',{name:'まだ、旅は終わらない'}).waitFor();
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')).party),earned);
  await page.getByRole('button',{name:'もう一度挑む'}).tap();await page.waitForTimeout(1500);
  await page.locator('.turn-banner').filter({hasText:'コマンドを選択：アステル'}).waitFor();
  await page.setViewportSize({width:320,height:568});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
