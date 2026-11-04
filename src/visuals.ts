@@ -35,7 +35,7 @@ export class Stage extends Phaser.Scene {
  if(actor&&!reduced){this.tweens.killTweensOf(actor);this.tweens.add({targets:actor,x:actor.x+12,duration:120,yoyo:true});}
  if(target){
  if(!reduced&&event.kind==='damage')this.tweens.add({targets:target,alpha:.3,duration:90,yoyo:true,repeat:2});
- const label=event.kind==='heal'?`+${event.amount}`:event.kind==='damage'?`${event.critical?'クリティカル!\n':''}${event.amount}`:event.command==='cover'?'かばう':event.command==='guard'?'ガード':'防御';
+ const label=event.label??(event.kind==='heal'?`+${event.amount}`:event.kind==='damage'?`${event.critical?'クリティカル!\n':''}${event.amount}`:event.command==='cover'?'かばう':event.command==='guard'?'ガード':'防御');
  const text=this.add.text(target.x,target.y-55,label,{fontFamily:'sans-serif',fontSize:'22px',fontStyle:'bold',color:event.kind==='heal'?'#9ff0c3':event.critical?'#ffe19b':'#ffffff',stroke:'#10243c',strokeThickness:4,align:'center'}).setOrigin(.5).setDepth(10);
  this.tweens.add({targets:text,y:text.y-(reduced?0:28),alpha:0,duration:800,onComplete:()=>text.destroy()});
  }
