@@ -13,7 +13,8 @@
     "test:modifiers": "node tests/attack-modifier.e2e.mjs",
     "test:lab": "node tests/lab-v04.e2e.mjs",
     "test:ui": "node tests/battle-ui.e2e.mjs",
-    "test:skills": "node tests/skills-v06.e2e.mjs"
+    "test:skills": "node tests/skills-v06.e2e.mjs",
+    "test:equipment": "node tests/equipment-v07.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

@@ -8,7 +8,7 @@ export interface Modifier { stat: Stat; amount: number; remaining: number }
 export interface Unit {
   id: string; name: string; role: string; weapons: string[];
   maxHp: number; hp: number; maxMp: number; mp: number;
-  attack: number; defense: number; speed: number; color: number; texture?: string;
+  attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string;
   level: number; star:number; tauntRounds?:number; barrierCharges?:number; attackElement: Element; affinities: Partial<Record<Element, number>>;
   statusResistance: Partial<Record<StatusId, number>>;
   statuses: StatusInstance[]; modifiers: Modifier[]; commands: Command[];

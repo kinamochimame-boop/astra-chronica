@@ -1,3 +1,6 @@
+import {mountEquipment} from './equipment-view';
+import {equippedUnit} from './equipment';
+import type {HeroId} from './data/weapons';
 import Phaser from 'phaser';
 import {Battle,heroes,skills,commandsFor,type Unit,type Command,type ActionResult} from './battle';
 import {BALANCE} from './balance';
@@ -17,25 +20,25 @@ let turnTimer:number|undefined;
 let battleView:BattleView|undefined;
 let actingId:string|undefined,actionRound=1;
 let screen='title';let storageOK=true;
-app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 0.6</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
+app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 0.7</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
 const content=document.querySelector<HTMLElement>('#content')!;
 const stage=new Stage();
 const game=new Phaser.Game({type:Phaser.AUTO,width:390,height:310,transparent:true,scene:stage,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},banner:false,parent:document.createElement('div')});
 const canvasHost=game.config.parent as HTMLElement;canvasHost.className='stage';canvasHost.setAttribute('aria-label','図形で描かれたパーティと戦場');
 const resizeStage=()=>{if(!game.isBooted||!canvasHost.clientWidth||!canvasHost.clientHeight)return;const height=Math.round(390*canvasHost.clientHeight/canvasHost.clientWidth);if(game.scale.gameSize.height!==height)game.scale.resize(390,height)};
 new ResizeObserver(resizeStage).observe(canvasHost);game.events.once(Phaser.Core.Events.READY,resizeStage);
-function persist(){storageOK=save(progress)}
+function persist(){storageOK=save(progress);return storageOK}
 function button(label:string,action:()=>void,cls='primary'){const b=document.createElement('button');b.textContent=label;b.className=cls;b.onclick=action;content.append(b);return b}
-function partyUnits(){return heroes.map(h=>growUnit(cloneUnit(h),progress.party[h.id]))}
+function partyUnits(){return heroes.map(h=>equippedUnit(growUnit(cloneUnit(h),progress.party[h.id]),progress.equipment.equipped[h.id as HeroId]))}
 function draw(units=partyUnits()){content.append(canvasHost);game.events.emit('stage',units,selected,screen==='battle'?battle.units.findIndex(u=>u.id===targetId):-1)}
 function heading(kicker:string,title:string){if(screen!=='battle'){battleView?.dispose();battleView=undefined;}content.classList.remove('result-screen');content.classList.toggle('in-battle',screen==='battle');content.innerHTML=`<p class="eyebrow">${kicker}</p><h1>${title}</h1>`}
 function home(){screen='home';busy=false;heading('STARGAZER’S CAMP','星灯りの野営地');content.insertAdjacentHTML('beforeend',`<p class="intro">失われた星の記憶を、もう一度。</p>`);draw();content.insertAdjacentHTML('beforeend',`<div class="names">${heroes.map(h=>`<span>${h.name}<small>${h.role} Lv.${progress.party[h.id].level}</small></span>`).join('')}</div><article><span class="eyebrow">CHAPTER 01 · PROLOGUE</span><h2>約束のはじまり</h2><p>「星が消えても、約束は消えない」<br>星詠みの言葉を胸に、三人は霧の森へ踏み出す。</p></article><div class="stats">戦闘 ${progress.battles}回 <span>勝利 ${progress.wins}回</span></div>`);
- button('戦闘開始　→',start);button('編成を見る',formation,'secondary');button('戦闘基盤テスト（保存なし）',()=>{cancelTurn();screen='lab';mountLab(content,home)},'secondary');button('タイトルへ',title,'text-button');status();}
+ button('戦闘開始　→',start);button('編成を見る',formation,'secondary');button('装備',()=>{screen='equipment';mountEquipment(content,progress,persist,home)},'secondary');button('戦闘基盤テスト（保存なし）',()=>{cancelTurn();screen='lab';mountLab(content,home)},'secondary');button('タイトルへ',title,'text-button');status();}
 function status(){content.insertAdjacentHTML('beforeend',`<p class="save-note">${storageOK?'進行はこのブラウザに自動保存されます':'保存できません。現在のプレイは続行できます'}</p>`)}
 function title(){screen='title';heading('A PROMISE WRITTEN IN THE STARS','アストラ<br>クロニカ');content.insertAdjacentHTML('beforeend','<p class="subtitle">〜星詠みの遺した約束〜</p>');draw();content.insertAdjacentHTML('beforeend','<p class="prologue">あの日、星に誓った。<br>もう一度、君と夜明けを見ると。</p>');button(progress.started?'ゲーム開始 · 続きから':'ゲーム開始',()=>{progress.started=true;persist();home()});status()}
-function formation(){screen='formation';heading('PARTY','旅の仲間');draw();content.insertAdjacentHTML('beforeend',`<article><p>編成は仮画面です。三人の役割は固定です。</p>${partyUnits().map(h=>`<h2>${h.name} Lv.${h.level} <small>${h.role}</small></h2><p>使用武器：${h.weapons.join('／')}<br>HP ${h.maxHp} · MP ${h.maxMp}<br>攻撃力 ${h.attack} · 防御力 ${h.defense} · 素早さ ${h.speed}</p>`).join('')}<p>武器の変更機能は未実装です。</p></article>`);button('ホームへ戻る',home)}
+function formation(){screen='formation';heading('PARTY','旅の仲間');draw();content.insertAdjacentHTML('beforeend',`<article><p>編成は仮画面です。三人の役割は固定です。</p>${partyUnits().map(h=>`<h2>${h.name} Lv.${h.level} <small>${h.role}</small></h2><p>使用武器：${h.weapons.join('／')}<br>HP ${h.maxHp} · MP ${h.maxMp}<br>攻撃力 ${h.attack} · 防御力 ${h.defense} · 素早さ ${h.speed}</p>`).join('')}<p>武器はホームの「装備」から変更できます。</p></article>`);button('ホームへ戻る',home)}
 function cancelTurn(){battleSession++;if(turnTimer!==undefined)window.clearTimeout(turnTimer);turnTimer=undefined}
-function start(){cancelTurn();battleView?.dispose();battleView=undefined;actingId=undefined;battle=new Battle(Math.random,progress.party);selected=0;busy=false;command='attack';targetId=battle.enemies[0].id;screen='battle';renderBattle();scheduleEnemy()}
+function start(){cancelTurn();battleView?.dispose();battleView=undefined;actingId=undefined;battle=new Battle(Math.random,progress.party,undefined,progress.equipment);selected=0;busy=false;command='attack';targetId=battle.enemies[0].id;screen='battle';renderBattle();scheduleEnemy()}
 function chooseCommand(next:Command){
  if(busy||!battle.current)return;
  command=next;if(skills[command].target==='allAllies'){targetId='all-allies';renderBattle();return}

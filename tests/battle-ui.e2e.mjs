@@ -34,7 +34,7 @@ try{
  await configure({statuses:[{target:'astel',id:'poison',turns:1}]});await execute();assert.match(await page.locator('.battle-notification').textContent(),/毒を解除/);
  await configure({units:{enemy0:{hp:1},enemy1:{hp:0},enemy2:{hp:0}}});await execute();assert.equal(await page.locator('.turn-chip').count(),1);assert.equal(await page.locator('.turn-chip').getAttribute('data-unit-id'),'astel');
  await configure();await page.getByRole('button',{name:'戦闘ログを開く'}).tap();assert.match(await page.locator('.battle-dialog').textContent(),/霧の森/);await skill('閉じる');await execute();await page.getByRole('button',{name:'戦闘メニュー'}).tap();await skill('撤退する（敗北）');await page.getByRole('heading',{name:'撤退済み'}).waitFor();
- await page.emulateMedia({reducedMotion:'reduce'});await configure();await execute();assert.equal(await page.locator('.combat-fx').evaluate(el=>getComputedStyle(el).animationName),'none');
+ await page.emulateMedia({reducedMotion:'reduce'});await configure();const reducedAnimation=await page.evaluate(()=>{document.querySelector('.execute-command').click();return getComputedStyle(document.querySelector('.combat-fx')).animationName});assert.equal(reducedAnimation,'none');
  await page.setViewportSize({width:320,height:568});await configure();await page.locator('.execute-command').scrollIntoViewIfNeeded();await execute();assert.ok((await snapshot()).event);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
  assert.deepEqual(errors,[]);console.log('Battle UI touch checks passed: layouts 320/390/430, actor commands, HP/MP, targets, reasons, icons, real effects, input lock, menus, reduced motion.');
 }finally{await browser.close()}

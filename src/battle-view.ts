@@ -1,3 +1,4 @@
+import {equippedWeapon} from './equipment';
 import {skills,commandsFor,type Battle,type Unit,type Command,type BattleEvent} from './battle';
 import {badges,commandReason,targetReason,visibleOrder,effectPresentation} from './battle-presentation';
 
@@ -54,7 +55,7 @@ export class BattleView {
   }else commands.innerHTML='<p class="enemy-wait">◆ 敵が行動しています</p>';
   const skill=skills[command],target=b.units.find(u=>u.id===targetId);
   const reason=commandReason(b,actor,command,busy)||targetReason(b,command,targetId);
-  this.get('.hint').textContent=selectable?`${skill.name} · ${skill.starCost?`星力${skill.starCost}`:`MP${skill.cost}`}｜${skill.description}。対象：${skill.target==='allAllies'?`生存する味方全体（${b.targets(command).length}人）`:target?.name||'選択してください'}${reason?` — ${reason}`:''}`:busy?'行動を処理しています…':b.blocked?'状態異常で行動をスキップします':'敵の行動を待っています…';
+  this.get('.hint').textContent=selectable?`${skill.name} · ${skill.starCost?`星力${skill.starCost}`:`MP${skill.cost}`}｜${skill.description}${equippedWeapon(actor)?`（装備：${equippedWeapon(actor)!.name}${command==='attack'&&equippedWeapon(actor)?.effects.normalHits===2?'・0.5倍×2ヒット':''}）`:''}。対象：${skill.target==='allAllies'?`生存する味方全体（${b.targets(command).length}人）`:target?.name||'選択してください'}${reason?` — ${reason}`:''}`:busy?'行動を処理しています…':b.blocked?'状態異常で行動をスキップします':'敵の行動を待っています…';
   const execute=this.get<HTMLButtonElement>('.execute-command');execute.disabled=!selectable||!!reason;execute.textContent=selectable?`${skill.name}を実行`:'行動中…';
   this.get('.battle-log').textContent=this.lastSummary||b.log.at(-1)||'';
  }
