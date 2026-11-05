@@ -4,6 +4,7 @@ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'
 const url=process.env.BASE_URL||'http://localhost:5173';
 try{
  const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ await page.addInitScript(()=>{Math.random=()=>0.99});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(url);
  await page.getByRole('button',{name:'ゲーム開始',exact:true}).tap();
