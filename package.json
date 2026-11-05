@@ -9,7 +9,9 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "vitest run",
     "test:browser": "node tests/browser.e2e.mjs",
-    "test:foundation": "node tests/foundation.e2e.mjs"
+    "test:foundation": "node tests/foundation.e2e.mjs",
+    "test:modifiers": "node tests/attack-modifier.e2e.mjs",
+    "test:lab": "node tests/lab-v04.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

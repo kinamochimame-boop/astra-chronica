@@ -22,9 +22,13 @@ export interface Skill {
   element: Element; power?: number; attackScale?: number;
   statuses?: StatusEffect[]; modifiers?: ModifierEffect[];
 }
+export interface DamageTrace {
+  power:number; effectiveAttack:number; effectiveDefense:number; defenseMultiplier:number;
+  elementMultiplier:number; guardMultiplier:number; coverMultiplier:number; criticalMultiplier:number;
+}
 export interface BattleEvent {
   actor: string; target: string; command: Command; amount: number;
   kind: 'damage' | 'heal' | 'status'; critical: boolean; covered: boolean; logs: string[];
-  label?: string; element?: Element; affinity?: number;
+  label?: string; element?: Element; affinity?: number; damageTrace?:DamageTrace;
 }
 export type ActionResult = { ok: true; event: BattleEvent } | { ok: false; reason: string };

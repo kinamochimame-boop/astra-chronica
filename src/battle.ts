@@ -13,6 +13,7 @@ export class Battle {
   blocked: StatusId | undefined;
   round = 1;
   private queue: string[] = [];
+  private decision:{id:string;speed:number}[]=[];
   readonly log: string[] = ['霧の森で、三体の魔物が立ちはだかった。'];
   constructor(private readonly random: () => number = Math.random, party?:PartyProgress) {
     this.allies=heroes.map(h=>growUnit(cloneUnit(h),party?.[h.id]));
@@ -29,6 +30,14 @@ export class Battle {
   clearStatus(targetId:string,id?:StatusId){const u=this.units.find(u=>u.id===targetId);if(u){clearStatus(u,id);if(u===this.current&&(!id||id===this.blocked))this.prepareTurn()}}
   applyModifier(targetId:string,effect:ModifierEffect):boolean {
     const u=this.units.find(u=>u.id===targetId);return !this.result&&!!u&&modify(u,effect);
+  }
+  clearModifiers(targetId:string){const unit=this.units.find(u=>u.id===targetId);if(unit)unit.modifiers=[]}
+  /** Manual simulation only: consume an opportunity without dealing damage. */
+  waitTurn():ActionResult {
+    const actor=this.current;
+    if(!actor)return {ok:false,reason:'戦闘は終了しています。'};
+    if(this.blocked)return this.skipTurn();
+    return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'待機',logs:[`${actor.name}は検証用に待機した。`]});
   }
   private prepareTurn(){
     const actor=this.current;this.blocked=actor?blockingStatus(actor,this.random):undefined;
@@ -54,7 +63,10 @@ export class Battle {
     if(this.result) return [];
     return [...this.queue.slice(1).map(id => this.units.find(u => u.id === id)!).filter(u => u.hp > 0), ...this.order()].slice(0, 6);
   }
-  private refill() { this.queue = this.order().map(u => u.id); }
+  get roundOrder(){return this.decision.map(entry=>({...entry}))}
+  get remainingOrder(){return this.queue.map(id=>this.units.find(u=>u.id===id)!).filter(u=>u.hp>0)}
+  get projectedOrder(){return this.order().map(u=>({id:u.id,speed:statValue(u,'speed')}))}
+  private refill() { this.decision=this.projectedOrder;this.queue = this.decision.map(u => u.id); }
   targets(command: Command, actor = this.current): Unit[] {
     if (!actor) return [];
     const targetKind = skills[command].target;
@@ -120,6 +132,10 @@ export class Battle {
     event.kind = 'damage'; event.critical = this.random() < BALANCE.criticalChance;
     const reduction = target.guarding === 'guard' ? BALANCE.guardMultiplier : target.guarding ? BALANCE.defendMultiplier : 1;
     event.amount = Math.max(1, Math.round(power * (EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense'))) * event.affinity * reduction * (event.critical ? BALANCE.criticalMultiplier : 1)));
+    event.damageTrace={power,effectiveAttack:statValue(actor,'attack'),effectiveDefense:statValue(target,'defense'),
+      defenseMultiplier:EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense')),
+      elementMultiplier:event.affinity,guardMultiplier:reduction,coverMultiplier:event.covered?BALANCE.coverMultiplier:1,
+      criticalMultiplier:event.critical?BALANCE.criticalMultiplier:1};
     if(event.affinity===0)event.amount=0;
     target.hp = Math.max(0, target.hp - event.amount);
     if(event.amount>0){

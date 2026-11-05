@@ -4,6 +4,7 @@ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'
 const url=process.env.BASE_URL||'http://localhost:5173';
 try{
  const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ await page.addInitScript(()=>{Math.random=()=>0.99});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(url);
  await page.getByRole('button',{name:'ゲーム開始',exact:true}).tap();
@@ -23,7 +24,8 @@ try{
  await page.getByRole('button',{name:'かばうを実行',exact:true}).tap();
  await page.getByText('MP 26 / 30',{exact:true}).waitFor();
  let healUsed=false,guardUsed=false,fireUsed=false;
- for(let i=0;i<1200;i++){
+ for(let i=0;i<100;i++){
+  await page.waitForFunction(()=>document.querySelector('h1')?.textContent==='星明かりの勝利'||document.querySelector('h1')?.textContent==='まだ、旅は終わらない'||document.querySelector('.turn-banner')?.textContent?.includes('コマンドを選択'),undefined,{timeout:60000});
   if(await page.getByRole('heading',{name:'星明かりの勝利'}).count())break;
   assert.equal(await page.getByRole('heading',{name:'まだ、旅は終わらない'}).count(),0,'strategy should win');
   const banner=await page.evaluate(()=>document.querySelector('.turn-banner')?.textContent);
@@ -46,7 +48,10 @@ try{
   }else if(banner.includes('アステル')){if(!await tapSkill('強撃 MP6'))await tapSkill('通常攻撃')}
   else await tapSkill('通常攻撃');
   const execute=page.getByRole('button',{name:/を実行$/});
-  if(await execute.isEnabled())await execute.tap();else await page.waitForTimeout(100);
+  assert.equal(await execute.isEnabled(),true,`selected command must be executable: ${await page.locator('.hint').last().textContent()}`);
+  const before=await page.evaluate(()=>({banner:document.querySelector('.turn-banner')?.textContent,log:document.querySelector('.battle-log')?.textContent,round:document.querySelector('.eyebrow')?.textContent}));
+  await execute.tap();
+  await page.waitForFunction(previous=>document.querySelector('.turn-banner')?.textContent!==previous.banner||document.querySelector('.battle-log')?.textContent!==previous.log||document.querySelector('.eyebrow')?.textContent!==previous.round,before,{timeout:60000});
  }
  await page.getByRole('heading',{name:'星明かりの勝利'}).waitFor();
  assert.ok(healUsed&&guardUsed&&fireUsed,'skill commands exercised');
