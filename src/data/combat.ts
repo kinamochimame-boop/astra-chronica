@@ -1,6 +1,8 @@
 import {BALANCE} from '../balance';
 import type {Command,Skill,Unit} from '../types';
 export const skills: Record<Command, Skill> = {
+ potion:{name:'星露の小瓶',cost:0,target:'ally',kind:'itemHp',element:'none',power:100,description:'所持品を1個消費し、生存する味方のHP100回復。1行動を使用'},
+ ether:{name:'灯火の雫',cost:0,target:'ally',kind:'itemMp',element:'none',power:30,description:'所持品を1個消費し、生存する味方のMP30回復。1行動を使用'},
   attack: { kind:'physical',element:'none',attackScale:1, name: '通常攻撃', cost: 0, target: 'enemy', description: '敵単体に攻撃' },
   strong: { kind:'physical',element:'none',attackScale:BALANCE.strongPower, name: '強撃', cost: 6, target: 'enemy', description: '通常攻撃の2倍の威力' },
   guard: { kind:'guard',element:'none', name: 'ガード', cost: 3, target: 'self', description: '次の自分の行動まで被ダメージ75%軽減' },
