@@ -1,3 +1,4 @@
+import {withSkillTree} from './skill-tree';
 import {heroes,cloneUnit} from './data/combat';
 import {HERO_IDS,WEAPON_FAMILIES,weapons,weaponById,type HeroId} from './data/weapons';
 import {equipReason,equipWeapon,equippedUnit,equippedWeapon,unlockTestWeapons} from './equipment';
@@ -11,13 +12,13 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
  const write=(message:string)=>{notice=message+(persist()?'（保存済み）':'（保存できません。現在の装備はこの画面内で有効です）');render()};
  function render(){
   const template=heroes.find(h=>h.id===hero)!,base=growUnit(cloneUnit(template),progress.party[hero]);
-  const current=equippedUnit(base,state.equipped[hero]),next=equippedUnit(base,candidate),weapon=weaponById(candidate);
+  const current=withSkillTree(equippedUnit(base,state.equipped[hero]),progress.skillTree[hero]),next=withSkillTree(equippedUnit(base,candidate),progress.skillTree[hero]),weapon=weaponById(candidate);
   const reason=equipReason(state,hero,candidate),same=candidate===state.equipped[hero];
   host.classList.add('equipment-screen');
   host.innerHTML=`<p class="eyebrow">EQUIPMENT</p><h1>星旅の装備</h1><p class="hint">装備は戦闘外で変更できます。所持数には装備中の分も含みます。</p><nav class="equipment-heroes" aria-label="装備キャラクター"></nav>
   <section class="equipment-current"><h2>${template.name} Lv.${base.level}の現在装備</h2><p id="equipment-current-name"></p></section>
   <h2>所持武器・武器図鑑</h2><div class="weapon-list" role="group" aria-label="武器選択"></div>
-  <section class="equipment-preview"><h2>装備前 → 装備後</h2><p id="equipment-selected"></p><table><caption>能力値比較（一時的な能力補正を含みません）</caption><thead><tr><th>能力</th><th>現在</th><th>変更後</th><th>差分</th></tr></thead><tbody></tbody></table><p id="equipment-description"></p><p id="equipment-reason" role="status"></p><button id="equipment-equip" class="primary">装備する</button><button id="equipment-remove" class="secondary">装備を解除</button></section>
+  <section class="equipment-preview"><h2>装備前 → 装備後</h2><p id="equipment-selected"></p><table><caption>能力値比較（星脈を含む・一時補正を除く）</caption><thead><tr><th>能力</th><th>現在</th><th>変更後</th><th>差分</th></tr></thead><tbody></tbody></table><p id="equipment-description"></p><p id="equipment-reason" role="status"></p><button id="equipment-equip" class="primary">装備する</button><button id="equipment-remove" class="secondary">装備を解除</button></section>
   <p id="equipment-notice" role="status"></p><details class="equipment-test"><summary>装備検証用の武器解放</summary><p>9種類を各1個以上所持できるようにします。戦績・レベルは変わりません。追加分は本編の所持品として保存されます。繰り返しても増殖しません。</p><button id="equipment-unlock" class="secondary">検証用武器9種を解放・保存</button></details><button id="equipment-back" class="secondary">ホームへ戻る</button>`;
   const get=<T extends HTMLElement=HTMLElement>(selector:string)=>host.querySelector<T>(selector)!;
   for(const id of HERO_IDS){const button=document.createElement('button');button.textContent=heroes.find(h=>h.id===id)!.name;button.setAttribute('aria-pressed',String(hero===id));button.onclick=()=>{hero=id;candidate=state.equipped[id];render()};get('.equipment-heroes').append(button)}

@@ -1,3 +1,4 @@
+import type {TreeEffect,TreeStat} from './data/skill-tree';
 export type Element = 'fire' | 'water' | 'wind' | 'earth' | 'light' | 'dark' | 'none';
 export type StatusId = 'poison' | 'paralysis' | 'sleep' | 'blind' | 'silence' | 'burn' | 'freeze';
 export type Stat = 'attack' | 'defense' | 'speed';
@@ -9,6 +10,7 @@ export interface Unit {
   id: string; name: string; role: string; weapons: string[];
   maxHp: number; hp: number; maxMp: number; mp: number;
   attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string; enemyPattern?:'mistGuardian';
+  treeEffects?:TreeEffect[]; treeBonuses?:Partial<Record<TreeStat,number>>;
   level: number; star:number; tauntRounds?:number; barrierCharges?:number; attackElement: Element; affinities: Partial<Record<Element, number>>;
   statusResistance: Partial<Record<StatusId, number>>;
   statuses: StatusInstance[]; modifiers: Modifier[]; commands: Command[];
@@ -25,7 +27,7 @@ export interface Skill {
 }
 export interface DamageTrace {
   power:number; effectiveAttack:number; effectiveDefense:number; defenseMultiplier:number;
-  elementMultiplier:number; guardMultiplier:number; coverMultiplier:number; criticalMultiplier:number; barrierMultiplier?:number;
+  elementMultiplier:number; guardMultiplier:number; coverMultiplier:number; criticalMultiplier:number; barrierMultiplier?:number; treeMultiplier?:number;
 }
 export interface BattleEvent {
   actor: string; target: string; command: Command; amount: number;
