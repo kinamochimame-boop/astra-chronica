@@ -3,7 +3,7 @@ export type HeroId='astel'|'rina'|'mei';
 export type WeaponFamily='sword'|'bow'|'dualBlades'|'shieldSpear'|'shieldFlail'|'shieldRapier'|'wand'|'rod'|'mace';
 export interface Weapon {
  id:string;name:string;family:WeaponFamily;owner:HeroId;bonuses:Partial<Record<Stat|'maxHp',number>>;
- effects:{normalHits?:number;healingRate?:number;magicRate?:number};description:string;
+ effects:{normalHits?:number;healingRate?:number;magicRate?:number;coverReduction?:number};description:string;
 }
 export const WEAPON_FAMILIES:Record<WeaponFamily,string>={sword:'剣',bow:'弓',dualBlades:'双剣',shieldSpear:'盾＆槍',shieldFlail:'盾＆フレイル',shieldRapier:'盾＆突剣',wand:'ワンド',rod:'ロッド',mace:'メイス'};
 /** Bonuses are the complete totals. Family labels never add stats a second time. */
@@ -23,7 +23,12 @@ export const chapterWeapons:readonly Weapon[]=[
  {id:'ashward-shield-spear',name:'灰守りの槍盾',family:'shieldSpear',owner:'rina',bonuses:{attack:3,defense:7},effects:{},description:'街の守り手の槍盾。攻撃＋3、防御＋7。'},
  {id:'lamplight-rod',name:'灯火のロッド',family:'rod',owner:'mei',bonuses:{attack:4},effects:{magicRate:1.15},description:'鐘楼の光を宿すロッド。攻撃＋4、属性攻撃魔法＋15%。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons];
+export const chapterThreeWeapons:readonly Weapon[]=[
+ {id:'windsplit-dual',name:'風裂きの双剣',family:'dualBlades',owner:'astel',bonuses:{attack:8},effects:{normalHits:2},description:'攻撃＋8。通常攻撃は0.5倍×2ヒット。途中撃破で打切り。'},
+ {id:'heavenward-shield-spear',name:'天守の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:4,defense:9},effects:{coverReduction:0.05},description:'攻撃＋4、防御＋9。かばうの被ダメージ倍率−0.05。'},
+ {id:'starwind-wand',name:'星風のワンド',family:'wand',owner:'mei',bonuses:{attack:5},effects:{magicRate:1.18,healingRate:1.1},description:'攻撃＋5。属性攻撃魔法＋18%、回復量＋10%。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

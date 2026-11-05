@@ -1,0 +1,14 @@
+import {chapters,type Chapter} from './data/chapter-one';
+import {chapterOpen,chapterState} from './adventure';
+import {sideQuests} from './data/side-quests';
+import type {Progress} from './save';
+export function explorationRecord(p:Progress,c:Chapter){
+ const state=chapterState(p.adventure,c),history=p.adventure.exploration?.[c.id];
+ const confirmed=new Set([...(history?.visited??[]),...(p.adventure.chapters[c.id]?[state.currentLocationId]:[]),...c.events.filter(e=>state.completed.includes(e.id)).map(e=>e.locationId)]);
+ const visited=c.locations.filter(l=>confirmed.has(l.id)).map(l=>l.id),unknown=!!p.adventure.chapters[c.id]&&!history?.complete&&visited.length<c.locations.length;
+ const quests=sideQuests.filter(q=>q.chapterId===c.id),questDone=quests.filter(q=>p.quests[q.id]?.claimed).length;
+ const done=c.events.filter(e=>state.completed.includes(e.id)),treasures=c.events.filter(e=>e.kind==='treasure'),bosses=c.events.filter(e=>e.kind==='boss');
+ const denominator=c.locations.length+c.events.length+quests.length,numerator=visited.length+done.length+questDone;
+ return {chapter:c,open:chapterOpen(p.adventure,c),visited,unknown,events:done.length,totalEvents:c.events.length,treasures:treasures.filter(e=>state.completed.includes(e.id)).length,totalTreasures:treasures.length,bosses:bosses.map(e=>({name:e.name,defeated:state.completed.includes(e.id)})),quests:questDone,totalQuests:quests.length,numerator,denominator,percent:Math.floor(numerator/denominator*100)};
+}
+export function mountExplorationRecords(host:HTMLElement,p:Progress,onBack:()=>void,backLabel='ホームへ戻る'){host.classList.add('records-screen');host.innerHTML='<p class="eyebrow">EXPLORATION RECORDS</p><h1>章別探索記録</h1>';for(const c of chapters){const r=explorationRecord(p,c),card=document.createElement('article');card.dataset.recordChapter=c.id;const title=document.createElement('h2');title.textContent=`${c.name}${r.open?'':'（未解放）'}`;const summary=document.createElement('p');summary.textContent=`確認済み地点 ${r.visited.length}/${c.locations.length} ｜ メイン ${r.events}/${r.totalEvents} ｜ 宝箱 ${r.treasures}/${r.totalTreasures} ｜ 依頼 ${r.quests}/${r.totalQuests} ｜ ${r.unknown?'達成率（確認済み下限）':'探索達成率'} ${r.percent}% (${r.numerator}/${r.denominator})`;card.append(title,summary);for(const l of c.locations){const line=document.createElement('p');line.textContent=`${r.visited.includes(l.id)?'✓ 確認済み':r.unknown?'？ 訪問未確認':'・未訪問'}：${l.name}`;card.append(line)}for(const b of r.bosses){const line=document.createElement('p');line.textContent=`${b.name}：${b.defeated?'撃破済み':'未撃破'}`;card.append(line)}if(r.unknown){const note=document.createElement('p');note.className='hint';note.textContent='旧セーブの過去の訪問は完全には復元できません。現在地点・完了イベントで確認できる分を表示し、それ以外を未訪問とは断定しません。';card.append(note)}host.append(card)}const back=document.createElement('button');back.className='secondary';back.textContent=backLabel;back.onclick=()=>{host.classList.remove('records-screen');onBack()};host.append(back)}

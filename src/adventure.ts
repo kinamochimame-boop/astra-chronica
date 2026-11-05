@@ -6,7 +6,7 @@ import {grantWeapon} from './equipment';
 import {gainExperience} from './progression';
 import type {Progress} from './save';
 export interface ChapterProgress {currentLocationId:string;completed:string[]}
-export interface AdventureProgress {chapters:Record<string,ChapterProgress>;serial:number;resolved:number;selectedChapterId?:string;pending?:{serial:number;chapterId:string;eventId:string}}
+export interface AdventureProgress {chapters:Record<string,ChapterProgress>;serial:number;resolved:number;selectedChapterId?:string;exploration?:Record<string,{visited:string[];complete:boolean}>;pending?:{serial:number;chapterId:string;eventId:string}}
 export const initialAdventure=():AdventureProgress=>({chapters:{},serial:0,resolved:0});
 export const chapterState=(state:AdventureProgress,c:Chapter):ChapterProgress=>state.chapters[c.id]??{currentLocationId:c.locations[0].id,completed:[]};
 export const eventOpen=(state:ChapterProgress,e:AdventureEvent)=>e.requires.every(id=>state.completed.includes(id));
@@ -30,6 +30,7 @@ export function normalizeAdventure(raw:unknown):AdventureProgress {
   if(typeof saved.currentLocationId==='string'&&locationOpen(progress,c,saved.currentLocationId))progress.currentLocationId=saved.currentLocationId;
   state.chapters[c.id]=progress;
  }
+ if(record(raw.exploration))for(const c of chapters){const h=raw.exploration[c.id];if(!chapterOpen(state,c)||!record(h)||!Array.isArray(h.visited))continue;const visited=c.locations.filter(l=>h.visited instanceof Array&&h.visited.includes(l.id)&&locationOpen(chapterState(state,c),c,l.id)).map(l=>l.id);(state.exploration??={})[c.id]={visited,complete:h.complete===true&&visited.includes(chapterState(state,c).currentLocationId)&&c.events.filter(e=>chapterState(state,c).completed.includes(e.id)).every(e=>visited.includes(e.locationId))};}
  const selected=chapters.find(c=>c.id===raw.selectedChapterId);if(selected&&chapterOpen(state,selected))state.selectedChapterId=selected.id;
  const p=raw.pending;
  if(record(p)&&integer(p.serial)&&p.serial>state.resolved&&p.serial<=state.serial){
@@ -40,13 +41,14 @@ export function normalizeAdventure(raw:unknown):AdventureProgress {
 }
 export function visitLocation(state:AdventureProgress,c:Chapter,id:string):boolean {
  const progress=chapterState(state,c);if(!chapterOpen(state,c)||!locationOpen(progress,c,id))return false;
+ const started=!!state.chapters[c.id],old=state.exploration?.[c.id];(state.exploration??={})[c.id]={visited:c.locations.filter(l=>new Set([...(old?.visited??[]),id]).has(l.id)).map(l=>l.id),complete:old?.complete??!started};
  progress.currentLocationId=id;state.chapters[c.id]=progress;return true;
 }
 export function completeEvent(p:Progress,c:Chapter,id:string,answer?:string[]):{ok:boolean;message:string} {
  const state=chapterState(p.adventure,c),event=c.events.find(e=>e.id===id);
  if(!chapterOpen(p.adventure,c)||!event||!eventOpen(state,event)||['battle','boss'].includes(event.kind))return {ok:false,message:'このイベントはまだ完了できません。'};
  if(state.completed.includes(id))return {ok:false,message:'初回の完了・報酬は取得済みです。'};
- if(event.puzzle&&(!answer||answer.length!==event.puzzle.solution.length||!event.puzzle.solution.every((id,i)=>answer[i]===id)))return {ok:false,message:'断片の順番が違います。ヒントを見て何度でも組み直せます。'};
+ if(event.puzzle&&(!answer||answer.length!==event.puzzle.solution.length||!event.puzzle.solution.every((id,i)=>answer[i]===id)))return {ok:false,message:event.puzzle.mode==='rotate'?'結晶の向きが違います。ヒントを見て何度でも回せます。':'断片の順番が違います。ヒントを見て何度でも組み直せます。'};
  if(event.itemReward&&!grantConsumable(p.consumables,event.itemReward.id,event.itemReward.count))return {ok:false,message:'回復品の所持上限に達しています。'};
  if(event.weaponReward&&!grantWeapon(p.equipment,event.weaponReward))return {ok:false,message:'所持数の上限に達しています。報酬を受け取れないため未完了のままです。'};
  state.completed.push(id);p.adventure.chapters[c.id]=state;
