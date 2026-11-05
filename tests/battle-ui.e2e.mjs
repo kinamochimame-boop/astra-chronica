@@ -1,0 +1,40 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+try{
+ const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`${process.env.UI_TEST_URL||'http://localhost:5173'}/tests/battle-ui.fixture.html`);await page.waitForFunction(()=>window.battleFixture?.ready());
+ const configure=async(config={})=>{await page.evaluate(c=>window.battleFixture.configure(c),config);await page.waitForTimeout(70)};
+ const snapshot=()=>page.evaluate(()=>window.battleFixture.snapshot());
+ const skill=async(name)=>page.getByRole('button',{name,exact:true}).tap();
+ const execute=()=>page.locator('.execute-command').tap();
+ const card=id=>page.locator(`.unit-card[data-unit-id="${id}"]`);
+ // Layout and touch controls remain accessible at all requested widths.
+ for(const width of [320,390,430]){await page.setViewportSize({width,height:844});await configure();assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight),true);const box=await page.locator('.execute-command').boundingBox();assert.ok(box.y+box.height<=844);assert.equal(await page.locator('.ally').count(),3)}
+ await page.setViewportSize({width:390,height:844});await configure();
+ const art=await page.locator('.battle-art canvas').boundingBox();await page.touchscreen.tap(art.x+art.width*(320/390),art.y+art.height*.25);assert.equal((await snapshot()).targetId,'enemy2');
+ await page.locator('.enemy').nth(1).tap();assert.equal((await snapshot()).targetId,'enemy1');assert.equal(await page.locator('.enemy').nth(1).getAttribute('aria-pressed'),'true');
+ await skill('強撃 MP6');await execute();let s=await snapshot();assert.equal(s.event.actor,'astel');assert.equal(s.event.target,'enemy1');assert.equal(s.units[0].mp,18);assert.equal(await page.getByRole('progressbar',{name:'アステル MP',exact:true}).getAttribute('aria-valuenow'),'18');assert.equal(await page.getByRole('progressbar',{name:'霧の番人 HP',exact:true}).getAttribute('aria-valuenow'),'196');const order=await page.evaluate(()=>{const state=window.battleFixture.snapshot();return {busy:state.busy,actor:state.actor,acting:state.event.actor,ids:[...document.querySelectorAll('.turn-chip')].map(el=>el.dataset.unitId)}});assert.equal(order.ids[0],order.busy?order.acting:order.actor);assert.equal(order.ids[order.busy?1:0],order.actor);
+ await page.evaluate(()=>{for(let i=0;i<8;i++)document.querySelector('.execute-command').click()});assert.equal((await snapshot()).units[0].mp,18);assert.equal((await snapshot()).event.amount,64);
+ await configure({actor:'rina'});assert.equal(await page.getByRole('button',{name:'強撃 MP6',exact:true}).count(),0);await skill('かばう MP4');await page.locator('.ally').nth(2).tap();await execute();s=await snapshot();assert.equal(s.event.actor,'rina');assert.equal(s.units[1].covering,'mei');assert.equal(s.units[1].mp,26);
+ await configure({actor:'mei',units:{rina:{hp:150}}});await skill('ヒール MP8');await page.locator('.ally').nth(1).tap();await execute();s=await snapshot();assert.equal(s.units[1].hp,235);assert.equal(s.units[2].mp,40);assert.equal(await page.locator('.combat-fx.heal .fx-value').textContent(),'+85');assert.equal(await page.getByRole('progressbar',{name:'リナ HP',exact:true}).getAttribute('aria-valuenow'),'235');
+ await configure({actor:'mei'});assert.equal(await page.getByRole('button',{name:'ヒール MP8',exact:true}).isDisabled(),true);assert.match(await page.locator('.commands').textContent(),/回復できる味方/);assert.equal((await snapshot()).units[2].mp,48);
+ await configure({actor:'mei',units:{mei:{mp:0}}});assert.equal(await page.getByRole('button',{name:'ファイア MP7',exact:true}).isDisabled(),true);assert.match(await page.locator('.commands').textContent(),/MP不足/);assert.equal((await snapshot()).units[2].mp,0);
+ await configure({actor:'mei',statuses:[{target:'mei',id:'silence',turns:3}]});assert.equal(await page.getByRole('button',{name:'ファイア MP7',exact:true}).isDisabled(),true);assert.match(await page.locator('.commands').textContent(),/沈黙/);assert.equal(await page.getByRole('button',{name:'通常攻撃',exact:true}).isEnabled(),true);
+ await configure({actor:'mei',units:{astel:{hp:0},rina:{hp:200},enemy0:{hp:0}}});assert.equal(await card('astel').getAttribute('class').then(c=>c.includes('fallen')),true);await skill('ヒール MP8');assert.equal(await page.locator('.ally').nth(0).isDisabled(),true);assert.equal(await page.locator('.enemy').nth(0).isDisabled(),true);assert.equal(await page.locator('.turn-chip[data-unit-id="astel"]').count(),0);assert.equal(await page.locator('.turn-chip[data-unit-id="enemy0"]').count(),0);
+ // Every status and both modifier directions have compact icons and readable details.
+ const states=['poison','sleep','paralysis','blind','silence','burn','freeze'];await configure({statuses:states.map(id=>({target:'rina',id,turns:3})),modifiers:[{target:'rina',stat:'defense',amount:0.25,turns:3},{target:'rina',stat:'speed',amount:-0.25,turns:2}]});
+ await card('rina').locator('.status-details').tap();for(const name of ['毒','睡眠','麻痺','暗闇','沈黙','火傷','凍結'])assert.ok((await page.locator('.battle-dialog').textContent()).includes(name));assert.match(await page.locator('.battle-dialog').textContent(),/残り3行動/);assert.match(await page.locator('.battle-dialog').textContent(),/防御力\+25%/);await skill('閉じる');
+ // Effect values and labels are taken from actual model events, not sample constants.
+ for(const [multiplier,tag,damage] of [[1.5,'WEAK',48],[0.5,'RESIST',16]]){await configure({units:{astel:{attackElement:'fire'},enemy0:{affinities:{fire:multiplier}}}});await execute();assert.equal((await snapshot()).event.amount,damage);assert.equal(await page.locator('.fx-value').textContent(),String(damage));assert.match(await page.locator('.fx-tags').textContent(),new RegExp(tag))}
+ await configure({random:0});await execute();assert.equal(await page.locator('.combat-fx.critical .fx-value').textContent(),'48');assert.match(await page.locator('.fx-tags').textContent(),/CRITICAL/);
+ await configure({statuses:[{target:'astel',id:'blind',turns:3}]});await execute();assert.equal(await page.locator('.fx-value').textContent(),'MISS');assert.equal((await snapshot()).event.amount,0);
+ await configure({actor:'mei',random:0,target:'enemy1'});await skill('ファイア MP7');await execute();assert.match(await page.locator('.battle-notification').textContent(),/火傷を付与/);
+ await configure({statuses:[{target:'astel',id:'poison',turns:1}]});await execute();assert.match(await page.locator('.battle-notification').textContent(),/毒を解除/);
+ await configure({units:{enemy0:{hp:1},enemy1:{hp:0},enemy2:{hp:0}}});await execute();assert.equal(await page.locator('.turn-chip').count(),1);assert.equal(await page.locator('.turn-chip').getAttribute('data-unit-id'),'astel');
+ await configure();await page.getByRole('button',{name:'戦闘ログを開く'}).tap();assert.match(await page.locator('.battle-dialog').textContent(),/霧の森/);await skill('閉じる');await execute();await page.getByRole('button',{name:'戦闘メニュー'}).tap();await skill('撤退する（敗北）');await page.getByRole('heading',{name:'撤退済み'}).waitFor();
+ await page.emulateMedia({reducedMotion:'reduce'});await configure();await execute();assert.equal(await page.locator('.combat-fx').evaluate(el=>getComputedStyle(el).animationName),'none');
+ await page.setViewportSize({width:320,height:568});await configure();await page.locator('.execute-command').scrollIntoViewIfNeeded();await execute();assert.ok((await snapshot()).event);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+ assert.deepEqual(errors,[]);console.log('Battle UI touch checks passed: layouts 320/390/430, actor commands, HP/MP, targets, reasons, icons, real effects, input lock, menus, reduced motion.');
+}finally{await browser.close()}

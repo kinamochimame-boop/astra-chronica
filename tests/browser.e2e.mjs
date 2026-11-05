@@ -12,7 +12,7 @@ try{
  await page.getByText('使用武器：剣／弓／双剣').waitFor();
  await page.getByRole('button',{name:'ホームへ戻る'}).tap();
  await page.getByRole('button',{name:'戦闘開始'}).tap();
- await page.getByText('次の行動：',{exact:false}).waitFor();
+ await page.getByRole('list',{name:'行動順'}).waitFor();
  // Explicit target switching and MP cost on the first turn.
  await page.getByRole('button',{name:'強撃 MP6',exact:true}).tap();
  await page.locator('.enemy').nth(1).tap();
@@ -64,7 +64,7 @@ try{
  const earned=await page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')).party);
  // Retreat during animation and immediately restart: old callbacks must not act in the new fight.
  await page.getByRole('button',{name:'戦闘開始'}).tap();await page.getByRole('button',{name:'通常攻撃を実行'}).tap();
- await page.getByRole('button',{name:'撤退する（敗北）'}).tap();
+ await page.getByRole('button',{name:'戦闘メニュー'}).tap();await page.getByRole('button',{name:'撤退する（敗北）'}).tap();
  await page.getByRole('heading',{name:'まだ、旅は終わらない'}).waitFor();
  assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')).party),earned);
  await page.getByRole('button',{name:'もう一度挑む'}).tap();await page.waitForTimeout(1500);

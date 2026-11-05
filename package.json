@@ -11,7 +11,8 @@
     "test:browser": "node tests/browser.e2e.mjs",
     "test:foundation": "node tests/foundation.e2e.mjs",
     "test:modifiers": "node tests/attack-modifier.e2e.mjs",
-    "test:lab": "node tests/lab-v04.e2e.mjs"
+    "test:lab": "node tests/lab-v04.e2e.mjs",
+    "test:ui": "node tests/battle-ui.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"
