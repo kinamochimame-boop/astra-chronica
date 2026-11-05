@@ -23,7 +23,7 @@ export function commandReason(b:Battle,actor:Unit,c:Command,busy=false):string {
  if(!b.isLearned(actor,c))return `未習得（Lv.${skills[c].unlockLevel??1}）`;
  if(isSilenced(actor)&&['magic','heal'].includes(skills[c].kind))return '沈黙で使用不可';
  if(actor.star<(skills[c].starCost??0))return '星力不足';
- if(actor.mp<skills[c].cost)return 'MP不足';
+ if(actor.mp<b.mpCost(c,actor))return 'MP不足';
  if(!b.targets(c).length)return '有効な対象がいません';
  if(skills[c].kind==='heal'&&b.targets(c).every(u=>u.hp===u.maxHp&&(!skills[c].cleanse||!u.statuses.length)))return '回復できる味方がいません';
  return b.canUse(c)?'':'今は使用できません';

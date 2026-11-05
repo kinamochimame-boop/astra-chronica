@@ -48,15 +48,15 @@ export class BattleView {
    const allCommands=commandsFor(actor),list=[...allCommands.filter(c=>skills[c].starCost),...allCommands.filter(c=>!skills[c].starCost)];commands.style.setProperty('--command-count',String(Math.min(4,allCommands.filter(c=>!skills[c].starCost).length)));if(this.commandActor!==`${actor.id}:${b.round}`){commands.scrollTop=0;this.commandActor=`${actor.id}:${b.round}`}
    list.forEach(c=>{
     const cell=document.createElement('div');cell.className=`command-cell ${skills[c].starCost?'ultimate-cell':''}`;const reason=commandReason(b,actor,c,busy);
-    const button=document.createElement('button');button.className=`command ${c===command?'selected':''} ${skills[c].starCost?'ultimate-command':''}`;button.disabled=!!reason;button.dataset.command=c;button.setAttribute('aria-pressed',String(c===command));button.setAttribute('aria-label',`${skills[c].name}${skills[c].starCost?` 星力${skills[c].starCost}`:skills[c].cost?` MP${skills[c].cost}`:''}`);button.setAttribute('aria-describedby',`reason-${c}`);
-    button.innerHTML=`<strong>${skills[c].starCost?'★ 必殺 · ':''}${skills[c].name}</strong><small>${skills[c].starCost?`星力 ${skills[c].starCost}`:skills[c].cost?`MP ${skills[c].cost}`:c==='attack'?'ATTACK':'MP 0'}</small>`;button.onclick=()=>{if(!this.state.busy)this.actions.choose(c)};
+    const button=document.createElement('button');button.className=`command ${c===command?'selected':''} ${skills[c].starCost?'ultimate-command':''}`;button.disabled=!!reason;button.dataset.command=c;button.setAttribute('aria-pressed',String(c===command));button.setAttribute('aria-label',`${skills[c].name}${skills[c].starCost?` 星力${skills[c].starCost}`:b.mpCost(c,actor)?` MP${b.mpCost(c,actor)}`:''}`);button.setAttribute('aria-describedby',`reason-${c}`);
+    button.innerHTML=`<strong>${skills[c].starCost?'★ 必殺 · ':''}${skills[c].name}</strong><small>${skills[c].starCost?`星力 ${skills[c].starCost}`:b.mpCost(c,actor)?`MP ${b.mpCost(c,actor)}`:c==='attack'?'ATTACK':'MP 0'}</small>`;button.onclick=()=>{if(!this.state.busy)this.actions.choose(c)};
     const info=document.createElement('small');info.id=`reason-${c}`;info.className='command-reason';info.textContent=reason;
     cell.append(button,info);commands.append(cell);
    });
   }else commands.innerHTML='<p class="enemy-wait">◆ 敵が行動しています</p>';
   const skill=skills[command],target=b.units.find(u=>u.id===targetId);
   const reason=commandReason(b,actor,command,busy)||targetReason(b,command,targetId);
-  this.get('.hint').textContent=selectable?`${skill.name} · ${skill.starCost?`星力${skill.starCost}`:`MP${skill.cost}`}｜${skill.description}${equippedWeapon(actor)?`（装備：${equippedWeapon(actor)!.name}${command==='attack'&&equippedWeapon(actor)?.effects.normalHits===2?'・0.5倍×2ヒット':''}）`:''}。対象：${skill.target==='allAllies'?`生存する味方全体（${b.targets(command).length}人）`:target?.name||'選択してください'}${reason?` — ${reason}`:''}`:busy?'行動を処理しています…':b.blocked?'状態異常で行動をスキップします':'敵の行動を待っています…';
+  this.get('.hint').textContent=selectable?`${skill.name} · ${skill.starCost?`星力${skill.starCost}`:`MP${b.mpCost(command,actor)}`}｜${skill.description}${equippedWeapon(actor)?`（装備：${equippedWeapon(actor)!.name}${command==='attack'&&equippedWeapon(actor)?.effects.normalHits===2?'・0.5倍×2ヒット':''}）`:''}。対象：${skill.target==='allAllies'?`生存する味方全体（${b.targets(command).length}人）`:target?.name||'選択してください'}${reason?` — ${reason}`:''}`:busy?'行動を処理しています…':b.blocked?'状態異常で行動をスキップします':'敵の行動を待っています…';
   const execute=this.get<HTMLButtonElement>('.execute-command');execute.disabled=!selectable||!!reason;execute.textContent=selectable?`${skill.name}を実行`:'行動中…';
   this.get('.battle-log').textContent=this.lastSummary||b.log.at(-1)||'';
  }

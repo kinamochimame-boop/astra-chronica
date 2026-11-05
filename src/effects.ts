@@ -1,3 +1,4 @@
+import {treeValue,TREE_LIMITS} from './skill-tree';
 import type { Element, ModifierEffect, Stat, StatusId, Unit } from './types';
 import { EFFECT_RULES, statusDefinitions } from './data/effects';
 export { ELEMENTS, statusDefinitions } from './data/effects';
@@ -12,7 +13,7 @@ export function affinity(target:Unit,element:Element):number {
 }
 export function inflict(u:Unit,id:StatusId,random:()=>number,chance=statusDefinitions[id].chance,turns=statusDefinitions[id].turns):boolean {
  if(u.hp<=0||!Number.isFinite(chance)||!Number.isSafeInteger(turns)||turns<1||turns>EFFECT_RULES.maxDuration)return false;
- const probability=clamp(chance,0,1)*(1-clamp(u.statusResistance[id]??0,0,1));
+ const probability=clamp(chance,0,1)*(1-clamp((u.statusResistance[id]??0)+Math.min(TREE_LIMITS.resistance,treeValue(u,'resistance',e=>e.status===id)),0,1));
  if(random()>=probability)return false;
  const previous=u.statuses.find(s=>s.id===id);
  if(previous)previous.remaining=Math.max(previous.remaining,turns);else u.statuses.push({id,remaining:turns});
