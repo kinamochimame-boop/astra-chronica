@@ -66,6 +66,7 @@ export class LabSession {
   const event=result.event,target=this.battle.units.find(u=>u.id===event.target)!;
   this.append(`[行動] ${actor!.name} → ${target.name}：${event.label||skills[event.command].name}`);
   if(blocked)this.append(`[行動制限] ${actor!.name}：${statusDefinitions[blocked].name}によりスキップ`);
+  else if(before.find(u=>u.id===actor!.id)!.statuses.some(s=>s.id==='paralysis'))this.append(`[行動制限判定] ${actor!.name}：麻痺の行動不能は不発`);
   this.append(...event.logs);
   const t=event.damageTrace;
   if(t)this.append(`[計算] 実効攻撃${t.effectiveAttack.toFixed(1)} / 防御${t.effectiveDefense.toFixed(1)}。入力威力${t.power.toFixed(2)}（かばう倍率${t.coverMultiplier}反映済） × 防御補正${t.defenseMultiplier.toFixed(3)} × 属性${t.elementMultiplier} × ガード${t.guardMultiplier} × 会心${t.criticalMultiplier} → ${event.amount}ダメージ（丸め・最低値適用）`);
@@ -78,6 +79,7 @@ export class LabSession {
  }
  step(command:Command='attack',waitAll=false):ActionResult {
   this.syncTargets(command);
+  if(!waitAll&&!this.battle.blocked&&this.battle.phase==='player'&&this.battle.current?.statuses.some(s=>s.id==='silence')&&['magic','heal'].includes(skills[command].kind))this.append(`[行動制限] ${this.battle.current.name}：沈黙で${skills[command].name}を使用不可（MP・期限は消費しません）`);
   return this.execute(()=>this.battle.blocked?this.battle.skipTurn():waitAll?this.battle.waitTurn():this.battle.phase==='enemy'?(this.enemyAttacksEnabled?this.battle.enemyAct():this.battle.waitTurn()):this.battle.act(command,skills[command].target==='ally'?this.allyTarget:this.attackTarget));
  }
  targetOpportunity():ActionResult {

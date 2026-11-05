@@ -27,7 +27,7 @@ describe('v0.4 deterministic lab scenarios',()=>{
  });
  it('silence blocks three magic opportunities, never consumes MP on rejection, and allows the fourth',()=>{
   const s=lab();s.effectTarget='mei';s.inflict('silence',1,3);s.attackTarget='enemy0';
-  for(let n=0;n<3;n++){toActor(s,'mei');expect(s.battle.canUse('fire')).toBe(false);const mp=s.battle.current!.mp;expect(s.step('fire').ok).toBe(false);expect(s.battle.current!.mp).toBe(mp);s.targetOpportunity()}
+  for(let n=0;n<3;n++){toActor(s,'mei');expect(s.battle.canUse('fire')).toBe(false);const mp=s.battle.current!.mp;expect(s.step('fire').ok).toBe(false);expect(s.logs.join(' ')).toContain('沈黙でファイアを使用不可');expect(s.battle.current!.mp).toBe(mp);s.targetOpportunity()}
   toActor(s,'mei');expect(s.battle.canUse('fire')).toBe(true);expect(s.step('fire').ok).toBe(true);
  });
  it('stacks attack buffs and expires them without changing base stats',()=>{
