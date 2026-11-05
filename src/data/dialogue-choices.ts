@@ -1,0 +1,7 @@
+export interface DialogueChoice {id:string;eventId:string;chapterId:string;name:string;options:{id:string;label:string;speaker:string;response:string}[]}
+export const dialogueChoices:readonly DialogueChoice[]=[
+ {id:'c4-first-meeting',eventId:'c4-serena',chapterId:'chapter-04',name:'セレナとの初対面',options:[{id:'ask-records',label:'星詠みの記録について聞く',speaker:'セレナ',response:'書庫をご案内しましょう。ただ、まだお話しできない記録もあります。'},{id:'ask-people',label:'街の人々を気遣う',speaker:'セレナ',response:'人々のことを先に……。ありがとう。静けさの理由を、順にお話しします。'}]},
+ {id:'c4-mei-reading',eventId:'c4-starseer-record',chapterId:'chapter-04',name:'メイの解釈',options:[{id:'magic-as-care',label:'魔法は人を支えるためのもの',speaker:'メイ',response:'古い魔法も今の魔法も、使う人が何を支えたいかで変わるのかもしれない。'},{id:'keep-the-record',label:'記録を残して判断を託す',speaker:'メイ',response:'消さずに残そう。私たちの読み方だけが、正解とは限らないから。'}]},
+ {id:'c4-rina-judgment',eventId:'c4-lake-judgment',chapterId:'chapter-04',name:'リナの判断',options:[{id:'listen-first',label:'一人ずつ願いを聞く',speaker:'リナ',response:'皆を守るためにこそ、目の前の一人の声から聞きたい。'},{id:'prepare-safety',label:'目覚めを支える準備をする',speaker:'リナ',response:'目覚めてから困らないように、食事と休む場所を整える。選ぶ時間を守ろう。'}]},
+ {id:'c4-last-promise',eventId:'c4-final-promise',chapterId:'chapter-04',name:'祭壇の約束',options:[{id:'remember-together',label:'痛みも一緒に覚えていよう',speaker:'セレナ',response:'一人では覚えていられなかったことも、一緒なら。歌の輪を解く手伝いをします。'},{id:'make-new-promise',label:'これから守る約束を結ぼう',speaker:'セレナ',response:'もう、静けさだけを守りはしません。目覚めた人の声を聞くと、約束します。'}]},
+];

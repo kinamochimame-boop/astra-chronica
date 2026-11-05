@@ -4,7 +4,8 @@ import {chapterTwo} from '../src/data/chapter-two';
 import {chapterThree as c} from '../src/data/chapter-three';
 import {valleyEnemies,valleyEncounters} from '../src/data/chapter-three-enemies';
 import {chapterThreeWeapons} from '../src/data/weapons';
-import {sideQuests} from '../src/data/side-quests';
+import {sideQuests as allSideQuests} from '../src/data/side-quests';
+const sideQuests=allSideQuests.filter(q=>q.chapterId==='chapter-03');
 import {chapterOpen,chapterCleared,chapterState,visitLocation,completeEvent,beginAdventureBattle,resolveAdventureBattle} from '../src/adventure';
 import {acceptQuest,collectQuestObjective,claimQuest,questProgress,normalizeQuests} from '../src/side-quests';
 import {explorationRecord} from '../src/exploration-records';
@@ -31,7 +32,7 @@ function fight(b:Battle){for(let n=0;n<450&&!b.result;n++){
  ev(b.act(cmd,target));for(const a of b.allies){expect(a.hp).toBeGreaterThanOrEqual(0);expect(a.mp).toBeGreaterThanOrEqual(0);expect(a.star).toBeLessThanOrEqual(100)}
  }expect(b.result).not.toBeNull();return b.result!}
 describe('chapter-three registration and progression',()=>{
- it('registers 12 ordered locations and keeps Fio an NPC in the fixed three-hero party',()=>{expect(chapters.at(-1)!.id).toBe(c.id);expect(c.locations).toHaveLength(12);expect(new Set(c.events.map(e=>e.id)).size).toBe(c.events.length);expect(c.events.some(e=>e.pages.some(p=>p.speaker==='フィオ'))).toBe(true);expect(new Battle().allies.map(u=>u.id)).toEqual(['astel','rina','mei']);for(const l of c.locations)expect(c.events.some(e=>e.locationId===l.id&&e.pages.length)).toBe(true)});
+ it('registers 12 ordered locations and keeps Fio an NPC in the fixed three-hero party',()=>{expect(chapters.find(ch=>ch.id===c.id)).toBe(c);expect(c.locations).toHaveLength(12);expect(new Set(c.events.map(e=>e.id)).size).toBe(c.events.length);expect(c.events.some(e=>e.pages.some(p=>p.speaker==='フィオ'))).toBe(true);expect(new Battle().allies.map(u=>u.id)).toEqual(['astel','rina','mei']);for(const l of c.locations)expect(c.events.some(e=>e.locationId===l.id&&e.pages.length)).toBe(true)});
  it('opens only after chapter two clear and rejects locked APIs',()=>{const p=fresh();complete(p,chapterOne);expect(chapterOpen(p.adventure,c)).toBe(false);expect(visitLocation(p.adventure,c,'c3-road')).toBe(false);expect(completeEvent(p,c,'c3-arrival').ok).toBe(false);expect(beginAdventureBattle(p,c,'c3-guardian')).toBeUndefined();complete(p,chapterTwo);expect(chapterOpen(p.adventure,c)).toBe(true)});
  it('visits all 12 in sequence and clears without accepting any quest',()=>{const p=ready(),previous=structuredClone(p.adventure.chapters);complete(p,c,undefined,true);expect(chapterCleared(p.adventure,c)).toBe(true);expect(p.quests).toEqual({});expect(p.adventure.chapters['chapter-01']).toEqual(previous['chapter-01']);expect(p.adventure.chapters['chapter-02']).toEqual(previous['chapter-02']);expect(p.adventure.exploration![c.id].visited).toHaveLength(12)});
  it('supports a failed battle, interrupted attempt and exactly one replacement reward',()=>{const p=ready();complete(p,c,'c3-rest');const a=beginAdventureBattle(p,c,'c3-bridge-fight')!;resolveAdventureBattle(p,a,'defeat');expect(chapterState(p.adventure,c).completed).not.toContain('c3-bridge-fight');const b=beginAdventureBattle(p,c,'c3-bridge-fight')!;const q=load({getItem:()=>JSON.stringify(p)}),r=beginAdventureBattle(q,c,'c3-bridge-fight')!;expect(resolveAdventureBattle(q,b,'victory').applied).toBe(false);expect(resolveAdventureBattle(q,r,'victory').applied).toBe(true);const before=structuredClone(q);expect(resolveAdventureBattle(q,r,'victory').applied).toBe(false);expect(q).toEqual(before)});

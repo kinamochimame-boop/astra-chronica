@@ -9,7 +9,7 @@ export interface Modifier { stat: Stat; amount: number; remaining: number }
 export interface Unit {
   id: string; name: string; role: string; weapons: string[];
   maxHp: number; hp: number; maxMp: number; mp: number;
-  attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string; enemyPattern?:'mistGuardian'|'canalKeeper'|'bellGuardian'|'ruinSoldier'|'windWarden'|'skyGuardian'; evasion?:number;normalAttackHits?:number;
+  attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string; enemyPattern?:'mistGuardian'|'canalKeeper'|'bellGuardian'|'ruinSoldier'|'windWarden'|'skyGuardian'|'resonanceMachine'|'echoria';enemyMagic?:{power:number;element:Element}; evasion?:number;normalAttackHits?:number;
   treeEffects?:TreeEffect[]; treeBonuses?:Partial<Record<TreeStat,number>>;
   level: number; star:number; tauntRounds?:number; barrierCharges?:number; attackElement: Element; affinities: Partial<Record<Element, number>>;
   statusResistance: Partial<Record<StatusId, number>>;
@@ -32,6 +32,6 @@ export interface DamageTrace {
 export interface BattleEvent {
   actor: string; target: string; command: Command; amount: number;
   kind: 'damage' | 'heal' | 'status'; critical: boolean; covered: boolean; logs: string[];
-  resource?:'hp'|'mp'; hint?:string; label?: string; element?: Element; affinity?: number; damageTrace?:DamageTrace; effects?:BattleEvent[]; hpLoss?:number; ultimate?:boolean; taunted?:boolean; hitIndex?:number;
+  actionName?:string;resource?:'hp'|'mp'; hint?:string; label?: string; element?: Element; affinity?: number; damageTrace?:DamageTrace; effects?:BattleEvent[]; hpLoss?:number; ultimate?:boolean; taunted?:boolean; hitIndex?:number;
 }
 export type ActionResult = { ok: true; event: BattleEvent } | { ok: false; reason: string };

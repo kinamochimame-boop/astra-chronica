@@ -36,4 +36,4 @@ export const enemyTemplates: Unit[] = ['星喰いの影', '霧の番人', '夜�
   maxMp: 0, mp: 0, attack: 18 + i * 2, speed: [22, 18, 14][i], color: 0x7c83b8,
 }));
 
-export function cloneUnit(unit:Unit):Unit {return {...unit,treeEffects:unit.treeEffects?.map(e=>({...e})),treeBonuses:unit.treeBonuses?{...unit.treeBonuses}:undefined,attackStatuses:unit.attackStatuses?.map(s=>({...s})),weapons:[...unit.weapons],commands:[...unit.commands],affinities:{...unit.affinities},statusResistance:{...unit.statusResistance},statuses:unit.statuses.map(s=>({...s})),modifiers:unit.modifiers.map(m=>({...m}))};}
+export function cloneUnit(unit:Unit):Unit {return {...unit,...(unit.enemyMagic?{enemyMagic:{...unit.enemyMagic}}:{}),treeEffects:unit.treeEffects?.map(e=>({...e})),treeBonuses:unit.treeBonuses?{...unit.treeBonuses}:undefined,attackStatuses:unit.attackStatuses?.map(s=>({...s})),weapons:[...unit.weapons],commands:[...unit.commands],affinities:{...unit.affinities},statusResistance:{...unit.statusResistance},statuses:unit.statuses.map(s=>({...s})),modifiers:unit.modifiers.map(m=>({...m}))};}
