@@ -161,13 +161,22 @@ export class Battle {
     const action=(this.enemyActions.get(actor.id)??0)+1;this.enemyActions.set(actor.id,action);
     if(actor.enemyPattern==='mistGuardian'&&action%3===2)return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'霧の吸収',hint:'次は霧裂き！ 防御やガードで備えよう。',logs:[`${actor.name}は霧を吸い込んでいる！ 次の行動は強烈な「霧裂き」。防御やガードで備えよう。`]});
     if(actor.enemyPattern==='canalKeeper'&&action%3===2){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'防御態勢',hint:'番人が盾を閉じた。次の本人の行動まで被ダメージ半減。回復や防御で備えよう。',logs:[`${actor.name}は防御態勢に入った。盾が開くタイミングを待とう。`]})}
-    const phase=actor.enemyPattern==='bellGuardian'?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
+    let valleyPower=1;
+    if(actor.enemyPattern==='ruinSoldier'||actor.enemyPattern==='windWarden'){
+      const ready=this.charged.get(actor.id);
+      if(ready){valleyPower=ready;this.charged.delete(actor.id)}
+      else if(actor.enemyPattern==='windWarden'&&action%3===1){actor.guarding='defend';this.charged.set(actor.id,1.65);return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'風鎧と予兆',hint:'盾を閉じて蓄風！ 次は風圧剣。次の行動で盾が開く。',logs:[`${actor.name}は風鎧で守り、風圧剣を準備した。次は強攻撃、その後は凪の隙！`]})}
+      else if(actor.enemyPattern==='ruinSoldier'&&action%3===2){this.charged.set(actor.id,1.55);return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'自動兵の予兆',hint:'自動兵が蓄光！ 次は重斬撃。防御で備えよう。',logs:[`${actor.name}は次の行動で重斬撃を放つ！`]})}
+      else if(actor.enemyPattern==='windWarden')valleyPower=0.8;
+    }
+    const sky=actor.enemyPattern==='skyGuardian';
+    const phase=actor.enemyPattern==='bellGuardian'||sky?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
     let bellPower=1;
     if(phase){
       const ready=this.charged.get(actor.id);
       if(ready){bellPower=ready;this.charged.delete(actor.id)}
-      else if(phase>=2&&action%2===0){this.charged.set(actor.id,phase===3?1.9:1.4);return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:phase===3?'終鐘の予兆':'警鐘の予兆',hint:phase===3?'第3段階：次は終鐘！ 防御・ガードで備えよう。':'第2段階：次は警鐘波！ 防御と回復を整えよう。',logs:[`${actor.name}は第${phase}段階。次の行動で${phase===3?'終鐘':'警鐘波'}を放つ！`]})}
-      else if(phase===3)bellPower=1.15;
+      else if(phase>=2&&(sky?action%3===2:action%2===0)){this.charged.set(actor.id,sky?(phase===3?1.85:1.45):(phase===3?1.9:1.4));return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:sky?(phase===3?'天穹の予兆':'風圧の予兆'):phase===3?'終鐘の予兆':'警鐘の予兆',hint:sky?(phase===3?'第3段階：次は天穹の嵐！ 防御で備えよう。':'第2段階：次は風圧波！ 回復と防御を整えよう。'):phase===3?'第3段階：次は終鐘！ 防御・ガードで備えよう。':'第2段階：次は警鐘波！ 防御と回復を整えよう。',logs:[`${actor.name}は第${phase}段階。次の行動で${sky?(phase===3?'天穹の嵐':'風圧波'):phase===3?'終鐘':'警鐘波'}を放つ！`]})}
+      else if(phase===3)bellPower=sky?1.12:1.15;
     }
     const heavy=actor.enemyPattern==='mistGuardian'&&action%3===0;
     const living = this.allies.filter(u => u.hp > 0);
@@ -178,10 +187,12 @@ export class Battle {
     const event: BattleEvent = { actor: actor.id, target: target.id, command: 'attack', amount: 0, kind: 'damage', critical: false, covered: !!protector, logs: [] };
     if(taunter){event.taunted=true;event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`)}
     if (protector) event.logs.push(`${protector.name}が${original.name}をかばった！`);
-    if(phase)event.logs.push(`${actor.name} 第${phase}段階${bellPower>=1.4?bellPower>=1.9?'：終鐘！':'：警鐘波！':'：基本攻撃。'}`);
+    if(valleyPower>1)event.logs.push(`${actor.name}の${actor.enemyPattern==='windWarden'?'風圧剣':'重斬撃'}！`);
+    if(phase)event.logs.push(`${actor.name} 第${phase}段階${sky?(bellPower>=1.8?'：天穹の嵐！':bellPower>=1.4?'：風圧波！':'：基本攻撃。'):bellPower>=1.4?bellPower>=1.9?'：終鐘！':'：警鐘波！':'：基本攻撃。'}`);
     if(heavy)event.logs.push(`${actor.name}の霧裂き！ 溜めた霧を放つ強攻撃！`);
-    this.damage(event, actor, target, statValue(actor,'attack') * bellPower * (heavy?1.7:1) * (protector ? Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')) : 1));
-    this.applyEffects(event,actor,target,skills.attack);
+    const hits=actor.normalAttackHits??1,power=statValue(actor,'attack')*valleyPower*bellPower*(heavy?1.7:1)*(hits>1?0.55:1)*(protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1);
+    if(hits>1){const parts:BattleEvent[]=[];for(let hit=0;hit<hits&&target.hp>0;hit++){const part:BattleEvent={...this.makeEvent(actor,target,'attack'),covered:!!protector,hitIndex:hit+1};part.logs.push(`${actor.name} 第${hit+1}撃`);this.damage(part,actor,target,power);this.applyEffects(part,actor,target,skills.attack);parts.push(part)}event.effects=parts;event.amount=parts.reduce((sum,p)=>sum+p.amount,0);event.critical=parts.some(p=>p.critical);event.logs.push(...parts.flatMap(p=>p.logs));}
+    else{this.damage(event,actor,target,power);this.applyEffects(event,actor,target,skills.attack)}
     return this.complete(event);
   }
   private applyEffects(event:BattleEvent,actor:Unit,target:Unit,skill:Skill){
@@ -195,6 +206,7 @@ export class Battle {
     if(skill.kind==='physical'&&actor.statuses.some(s=>s.id==='blind')&&this.random()>=statusDefinitions.blind.accuracy!){
       event.label='ミス';event.kind='status';event.logs.push(`${actor.name}の攻撃は暗闇で外れた。`);return;
     }
+    if(skill.kind==='physical'&&(target.evasion??0)>0&&this.random()<Math.min(0.5,target.evasion??0)){event.label='ミス';event.kind='status';event.logs.push(`${target.name}が身をかわした！`);return}
     event.element=skill.kind==='physical'?actor.attackElement:skill.element;
     event.affinity=affinity(target,event.element);
     event.kind = 'damage'; event.critical = this.random() < Math.min(TREE_LIMITS.criticalRate,BALANCE.criticalChance+treeValue(actor,'criticalRate'));
@@ -205,7 +217,7 @@ export class Battle {
     event.amount = Math.max(1, Math.round(power * treeRate * (EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense'))) * event.affinity * reduction * barrier * (event.critical ? criticalRate : 1)));
     event.damageTrace={power,effectiveAttack:statValue(actor,'attack'),effectiveDefense:statValue(target,'defense'),
       defenseMultiplier:EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense')),
-      elementMultiplier:event.affinity,guardMultiplier:reduction,coverMultiplier:event.covered?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(target,'coverReduction')):1,
+      elementMultiplier:event.affinity,guardMultiplier:reduction,coverMultiplier:event.covered?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(target,'coverReduction')-(equippedWeapon(target)?.effects.coverReduction??0)):1,
       criticalMultiplier:event.critical?criticalRate:1,barrierMultiplier:barrier,treeMultiplier:treeRate};
     if(event.affinity===0)event.amount=0;
     const beforeHp=target.hp;target.hp = Math.max(0, target.hp - event.amount);event.hpLoss=beforeHp-target.hp;

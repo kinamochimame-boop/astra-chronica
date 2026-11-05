@@ -1,0 +1,31 @@
+import type {Chapter,Dialogue} from './chapter-one';
+const p=(speaker:string,text:string):Dialogue=>({speaker,text});
+export const chapterThree:Chapter={id:'chapter-03',requiresChapterId:'chapter-02',name:'風の峡谷と空渡りの遺跡',setting:'エアリア渓谷',preview:'第4章予告：雲の向こうに見えた、灯を抱く砂の都。星詠みの足跡は、乾いた大地へ続く。',locations:[
+ {id:'c3-road',name:'風鳴りの街道',icon:'≋',description:'取り戻した星図が風に震える。街の灰は遠ざかり、峡谷の笛のような音が近づく。'},
+ {id:'c3-entry',name:'エアリア渓谷入口',icon:'⌁',description:'崖の上で少女が風を読んでいる。雲の間には、途切れた古代回廊が浮かぶ。'},
+ {id:'c3-camp',name:'崖上の野営地',icon:'♨',description:'岩陰の焚き火。風に流されないよう、小さな石で鍋を囲んだ。'},
+ {id:'c3-bridge',name:'風切りの吊り橋',icon:'∩',description:'風が止む一瞬を待って橋を渡る。欄干の先に小さな包みが引っかかっている。'},
+ {id:'c3-mine',name:'結晶採掘跡',icon:'◇',description:'空を支えた結晶の採掘場。落石の間に古い道具と結晶片が残っている。'},
+ {id:'c3-watch',name:'風車の見張り台',icon:'✣',description:'動かない風見鶏の下で、見張りのトルが空を気にしている。'},
+ {id:'c3-corridor',name:'空渡りの回廊',icon:'═',description:'古い風鎧の番人が回廊を封鎖している。盾の隙間から風が漏れる。'},
+ {id:'c3-garden',name:'浮遊石の庭園',icon:'◈',description:'三つの風の結晶が、異なる向きへ光を放っている。正しい風路が足場を支える。'},
+ {id:'c3-observatory',name:'星詠みの観測所',icon:'✧',description:'壁の記録には、崩れた橋と、それを渡る人々の姿が刻まれていた。'},
+ {id:'c3-broken',name:'崩落した空中橋',icon:'⌇',description:'橋は半ば崩れている。対岸で自動兵の目が光り、雲の影が足場を横切る。'},
+ {id:'c3-altar',name:'天穹の祭壇',icon:'△',description:'風の結晶を置く台座。フィオの読んだ風が、最後の道を指し示す。'},
+ {id:'c3-memory',name:'風の記憶の間',icon:'♜',description:'遺跡を守る巨大な獣が目を開く。失われた結晶の光が、その翼の内に渦巻いている。'},
+],events:[
+ {id:'c3-arrival',locationId:'c3-road',kind:'story',name:'鐘の先、風の道',requires:[],pages:[p('メイ','ルミナスで戻った星図が、今度は上を指している。あの回廊、空に浮いているんだね。'),p('アステル','上か……。旅の荷物、もう少し軽くしておけばよかった。'),p('リナ','パンを全部食べれば軽くなる、は却下。休憩まで待ちなさい。')]},
+ {id:'c3-fio',locationId:'c3-entry',kind:'story',name:'風を読む少女',requires:['c3-arrival'],pages:[p('フィオ','そこ、踏み出さないで。あと三つ数えて……今。風が足場を押し上げるから。'),p('リナ','助かったわ。あなたが、この峡谷の案内人？'),p('フィオ','フィオ。風の流れは読めるけど、遺跡には行かない。約束したの。もう誰も危険な場所へ連れていかないって。'),p('アステル','無理に案内は頼まないよ。でも、君が何を守ろうとしているのか、聞いてもいいかな。')]},
+ {id:'c3-rest',locationId:'c3-camp',kind:'rest',name:'石囲みの焚き火',requires:['c3-fio'],pages:[p('フィオ','昔、私が合図を間違えて、兄が回廊から落ちかけた。助かったけど……あの時の風の音が、まだ離れない。'),p('リナ','怖さを覚えているのは、大切なことよ。でも、守ることは、ずっと足を止めることだけじゃないと思う。'),p('メイ','次の戦いもHPとMPは全快で始まるよ。ここで呼吸を整えよう。'),p('アステル','ところで、この鍋は風に飛ばない？'),p('フィオ','鍋より先に、あなたのパンが飛びそう。')]},
+ {id:'c3-bridge-fight',locationId:'c3-bridge',kind:'battle',name:'吊り橋の空喰い',requires:['c3-rest'],encounter:'valley-bridge',pages:[p('フィオ','風羽トカゲは素早く身をかわす。魔法なら風の隙間へ届くはず。'),p('メイ','バードは続けて攻撃するみたい。HPを見ながら、一体ずつ減らそう。')]},
+ {id:'c3-mine-fight',locationId:'c3-mine',kind:'battle',name:'結晶を守る殻',requires:['c3-bridge-fight'],encounter:'valley-mine',pages:[p('メイ','結晶スライムは風に弱いけれど火には強い。サンダーは既存の風属性系統だから使えそう。')]},
+ {id:'c3-dual-chest',locationId:'c3-mine',kind:'treasure',name:'採掘者の護身具',requires:['c3-mine-fight'],weaponReward:'windsplit-dual',pages:[p('採掘者ロロ','道を開けてくれた礼だ。風裂きの双剣を持っていきな。力を二つに分け、同じ敵へ続けて打ち込める。'),p('アステル','ありがとう。採掘道具は、必要なら探しておくよ。')]},
+ {id:'c3-watch-story',locationId:'c3-watch',kind:'story',name:'風見鶏の沈黙',requires:['c3-dual-chest'],pages:[p('見張りのトル','風見鶏が壊れて、古い回廊の風が読めなくなった。修理や結晶集めを手伝えるなら、依頼の記録を見てくれ。'),p('フィオ','私の忘れ物も、まだ橋の近くにあるかもしれない。でも、急がなくていい。先へ進む道は、依頼を終えなくても開いているよ。')]},
+ {id:'c3-warden',locationId:'c3-corridor',kind:'boss',name:'風鎧の番人',requires:['c3-watch-story'],encounter:'valley-warden',pages:[p('リナ','盾を閉じながら力を溜めている。次は強攻撃、その後は守りが解ける。防御と攻撃の間を読もう。'),p('フィオ','風は三つの拍で戻ってくる。閉じる、放つ、凪ぐ……今なら、私にも分かる。')]},
+ {id:'c3-wind-crystals',locationId:'c3-garden',kind:'story',name:'風の結晶の向き',requires:['c3-warden'],puzzle:{mode:'rotate',pieces:[{id:'west-crystal',name:'西の結晶'},{id:'center-crystal',name:'中央の結晶'},{id:'east-crystal',name:'東の結晶'}],solution:['east','north','west'],hint:'左は東（→）、中央は北（↑）、右は西（←）。結晶をタップして北→東→南→西の順に回します。'},pages:[p('メイ','三つの結晶に風路の印がある。左の風を東へ、中央を北へ、右を西へ集めればよさそう。'),p('フィオ','何度回しても大丈夫。足場は私が見ている。失敗したら、また風を読めばいいんだ。')]},
+ {id:'c3-observatory-story',locationId:'c3-observatory',kind:'story',name:'記録に残らない一歩',requires:['c3-wind-crystals'],pages:[p('メイ','「約束とは、道を閉ざす鎖ではない。迷った者が、帰る場所を覚えるための灯である」……星詠みの記録だ。'),p('フィオ','あの時、兄は言ったの。次は一緒に、ゆっくり読もうって。私は、失敗した音の方ばかり覚えていた。'),p('リナ','危険を忘れる必要はないわ。一人で全部を背負わず、確かめ合って守る方法もある。'),p('アステル','次の一歩は、僕たちも一緒に確かめる。フィオが読んだ風を、信じるよ。')]},
+ {id:'c3-broken-fight',locationId:'c3-broken',kind:'battle',name:'途切れた橋の先',requires:['c3-observatory-story'],encounter:'valley-broken',pages:[p('メイ','自動兵が光を集めたら、次は強い攻撃。予兆を見て防御してね。'),p('フィオ','雲が抜けたら合図する。三人とも、同じ足場を見て！')]},
+ {id:'c3-altar-gift',locationId:'c3-altar',kind:'story',name:'守るための合図',requires:['c3-broken-fight'],weaponReward:'heavenward-shield-spear',pages:[p('フィオ','祭壇に残っていた天守の盾槍。守り手が、仲間をかばうために使ったものだって。リナに預けたい。'),p('リナ','ありがとう。守る人も、一人じゃない。この盾を構える時は、皆の合図を聞くわ。'),p('フィオ','私、最後の風路まで行く。昔をなかったことにするためじゃなく、今度の合図を伝えるために。')]},
+ {id:'c3-guardian',locationId:'c3-memory',kind:'boss',name:'天穹の守護獣',requires:['c3-altar-gift'],encounter:'valley-sky',weaponReward:'starwind-wand',pages:[p('天穹の守護獣','――翼の奥で、失われた風の結晶が輝く。'),p('アステル','僕たちは、ここを壊しに来たんじゃない。もう一度、渡れる道を取り戻しに来た！')]},
+ {id:'c3-clear',locationId:'c3-memory',kind:'clear',name:'空を渡る約束',requires:['c3-guardian'],pages:[p('メイ','結晶が台座へ戻っていく。守護獣の翼から、星風のワンドが残された……。'),p('フィオ','風がつながった。あの時と違う音がする。怖さは消えないけど、次は立ち止まって、確かめて、それから進める。'),p('リナ','それでいいと思う。約束は、一緒に守り直せるものだから。'),p('アステル','次に来る時は、フィオの兄さんにも会いたいな。パンは飛ばされないように持ってくる。'),p('メイ','星図の続きは、雲の向こうの砂の都。星詠みは、そこで何を見たんだろう。')]},
+]};

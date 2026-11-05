@@ -1,12 +1,13 @@
+import {initialQuests,normalizeQuests,type QuestState} from './side-quests';
 import {initialConsumables,normalizeConsumables,type Consumables} from './consumables';
 import {initialSkillTree,normalizeSkillTree,type SkillTreeState} from './skill-tree';
 import {initialAdventure,normalizeAdventure,type AdventureProgress} from './adventure';
 import {initialEquipment,normalizeEquipment,type EquipmentState} from './equipment';
 import {initialParty,PROGRESSION,requiredExperience,type PartyProgress} from './progression';
-export interface Progress {version:2; started:boolean; wins:number; battles:number; party:PartyProgress; equipment:EquipmentState; adventure:AdventureProgress; skillTree:SkillTreeState; consumables:Consumables}
+export interface Progress {version:2; started:boolean; wins:number; battles:number; party:PartyProgress; equipment:EquipmentState; adventure:AdventureProgress; skillTree:SkillTreeState; consumables:Consumables;quests:QuestState}
 /** Keep the original key so existing v1 progress can be read without losing counts. */
 export const SAVE_KEY='astra-chronica:v1';
-export const fresh=():Progress=>({version:2,started:false,wins:0,battles:0,party:initialParty(),equipment:initialEquipment(),adventure:initialAdventure(),skillTree:initialSkillTree(),consumables:initialConsumables()});
+export const fresh=():Progress=>({version:2,started:false,wins:0,battles:0,party:initialParty(),equipment:initialEquipment(),adventure:initialAdventure(),skillTree:initialSkillTree(),consumables:initialConsumables(),quests:initialQuests()});
 export function load(storage?:Pick<Storage,'getItem'>):Progress{
  try{
   const p=JSON.parse((storage??localStorage).getItem(SAVE_KEY)||'null');
@@ -16,7 +17,8 @@ export function load(storage?:Pick<Storage,'getItem'>):Progress{
    const h=p.party?.[id];
    if(h&&Number.isSafeInteger(h.level)&&h.level>=1&&h.level<=PROGRESSION.maxLevel&&Number.isSafeInteger(h.experience)&&h.experience>=0&&h.experience<requiredExperience(h.level))party[id]={level:h.level,experience:h.level===PROGRESSION.maxLevel?0:h.experience};
   }
-  return {version:2,started:p.started,wins:p.wins,battles:p.battles,party,equipment:normalizeEquipment(p.equipment),adventure:normalizeAdventure(p.adventure),skillTree:normalizeSkillTree(p.skillTree,party),consumables:normalizeConsumables(p.consumables)};
+  const adventure=normalizeAdventure(p.adventure);
+  return {version:2,started:p.started,wins:p.wins,battles:p.battles,party,equipment:normalizeEquipment(p.equipment),adventure,skillTree:normalizeSkillTree(p.skillTree,party),consumables:normalizeConsumables(p.consumables),quests:normalizeQuests(p.quests,adventure)};
  }catch{return fresh()}
 }
 export function save(p:Progress,storage?:Pick<Storage,'setItem'>):boolean{try{(storage??localStorage).setItem(SAVE_KEY,JSON.stringify(p));return true}catch{return false}}
