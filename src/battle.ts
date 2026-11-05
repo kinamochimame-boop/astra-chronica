@@ -30,6 +30,7 @@ export class Battle {
   applyModifier(targetId:string,effect:ModifierEffect):boolean {
     const u=this.units.find(u=>u.id===targetId);return !this.result&&!!u&&modify(u,effect);
   }
+  clearModifiers(targetId:string){const unit=this.units.find(u=>u.id===targetId);if(unit)unit.modifiers=[]}
   private prepareTurn(){
     const actor=this.current;this.blocked=actor?blockingStatus(actor,this.random):undefined;
     if(actor){actor.guarding=undefined;actor.covering=undefined}
