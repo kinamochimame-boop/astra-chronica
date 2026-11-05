@@ -9,6 +9,8 @@ export function badges(u:Unit):Badge[]{
   ...u.statuses.map(s=>({symbol:STATUS_ICONS[s.id],name:statusDefinitions[s.id].name,detail:`残り${s.remaining}行動`,kind:'status' as const})),
   ...u.modifiers.map(m=>({symbol:`${m.stat==='attack'?'攻':m.stat==='defense'?'防':'速'}${m.amount>0?'↑':'↓'}`,name:`${stats[m.stat]}${m.amount>0?'+':''}${Math.round(m.amount*100)}%`,detail:`残り${m.remaining}行動`,kind:m.amount>0?'buff' as const:'debuff' as const})),
   ...(u.guarding?[{symbol:'盾',name:u.guarding==='guard'?'ガード':'防御',detail:'次の本人の行動開始まで',kind:'guard' as const}]:[]),
+  ...((u.tauntRounds??0)>0?[{symbol:'挑',name:'挑発',detail:`残り${u.tauntRounds}ラウンド`,kind:'guard' as const}]:[]),
+  ...((u.barrierCharges??0)>0?[{symbol:'壁',name:'不落の誓盾',detail:`直接攻撃を残り${u.barrierCharges}回50%軽減`,kind:'guard' as const}]:[]),
   ...(u.covering?[{symbol:'庇',name:'かばう',detail:'選んだ味方を次の本人の行動開始まで守る',kind:'guard' as const}]:[]),
  ];
 }
@@ -18,13 +20,16 @@ export function commandReason(b:Battle,actor:Unit,c:Command,busy=false):string {
  if(b.current!==actor||b.phase!=='player')return '行動待ち';
  if(b.blocked)return `${statusDefinitions[b.blocked].name}で行動不能`;
  if(!commandsFor(actor).includes(c))return 'このキャラクターは使用不可';
+ if(!b.isLearned(actor,c))return `未習得（Lv.${skills[c].unlockLevel??1}）`;
  if(isSilenced(actor)&&['magic','heal'].includes(skills[c].kind))return '沈黙で使用不可';
+ if(actor.star<(skills[c].starCost??0))return '星力不足';
  if(actor.mp<skills[c].cost)return 'MP不足';
  if(!b.targets(c).length)return '有効な対象がいません';
- if(c==='heal'&&b.targets(c).every(u=>u.hp===u.maxHp))return '回復できる味方がいません';
+ if(skills[c].kind==='heal'&&b.targets(c).every(u=>u.hp===u.maxHp&&(!skills[c].cleanse||!u.statuses.length)))return '回復できる味方がいません';
  return b.canUse(c)?'':'今は使用できません';
 }
 export function targetReason(b:Battle,c:Command,id:string):string {
+ if(skills[c].target==='allAllies')return b.targets(c).length?'':'生存している味方がいません';
  const target=b.units.find(u=>u.id===id);
  if(!target||target.hp<=0)return '生存している対象を選んでください';
  if(!b.targets(c).includes(target))return c==='cover'&&target===b.current?'自分自身はかばえません':'コマンドに合う対象を選んでください';

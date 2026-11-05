@@ -17,7 +17,7 @@ let turnTimer:number|undefined;
 let battleView:BattleView|undefined;
 let actingId:string|undefined,actionRound=1;
 let screen='title';let storageOK=true;
-app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 0.5</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
+app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 0.6</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
 const content=document.querySelector<HTMLElement>('#content')!;
 const stage=new Stage();
 const game=new Phaser.Game({type:Phaser.AUTO,width:390,height:310,transparent:true,scene:stage,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},banner:false,parent:document.createElement('div')});
@@ -38,7 +38,8 @@ function cancelTurn(){battleSession++;if(turnTimer!==undefined)window.clearTimeo
 function start(){cancelTurn();battleView?.dispose();battleView=undefined;actingId=undefined;battle=new Battle(Math.random,progress.party);selected=0;busy=false;command='attack';targetId=battle.enemies[0].id;screen='battle';renderBattle();scheduleEnemy()}
 function chooseCommand(next:Command){
  if(busy||!battle.current)return;
- command=next;const targets=battle.targets(command);
+ command=next;if(skills[command].target==='allAllies'){targetId='all-allies';renderBattle();return}
+ const targets=battle.targets(command);
  targetId=targets.some(u=>u.id===targetId)?targetId:(command==='heal'?targets.find(u=>u.hp<u.maxHp)?.id:undefined)||targets[0]?.id||'';
  renderBattle();
 }
@@ -46,7 +47,7 @@ function renderBattle(){
  if(!battleView){
   battleView=new BattleView(content,canvasHost,{
    choose:chooseCommand,
-   target:id=>{if(!busy&&battle.targets(command).some(u=>u.id===id)){targetId=id;renderBattle()}},
+   target:id=>{if(!busy&&skills[command].target!=='allAllies'&&battle.targets(command).some(u=>u.id===id)){targetId=id;renderBattle()}},
    execute:()=>{
     if(busy||screen!=='battle'||battle.phase!=='player'||!battle.current)return;
     const before=statusSnapshot(battle.units),round=battle.round;
@@ -57,9 +58,9 @@ function renderBattle(){
  }
  if(!busy)selected=battle.units.findIndex(u=>u.id===battle.current?.id);
  battleView.update({battle,command,targetId,busy,actingId,actionRound});
- game.events.emit('stage',battle.units,selected,battle.units.findIndex(u=>u.id===targetId));
+ game.events.emit('stage',battle.units,selected,battle.units.findIndex(u=>u.id===targetId),skills[command].target==='allAllies'?battle.allies.filter(u=>u.hp>0).map(u=>u.id):[]);
 }
-game.events.on('unit-tap',(id:string)=>{if(screen==='battle'&&!busy&&battle.targets(command).some(u=>u.id===id)){targetId=id;renderBattle()}});
+game.events.on('unit-tap',(id:string)=>{if(screen==='battle'&&!busy&&skills[command].target!=='allAllies'&&battle.targets(command).some(u=>u.id===id)){targetId=id;renderBattle()}});
 function perform(result:ActionResult,before:ReturnType<typeof statusSnapshot>,round:number){
  if(screen!=='battle'||busy)return;
  if(!result.ok){battle.log.push(result.reason);renderBattle();return}
@@ -81,5 +82,5 @@ function scheduleEnemy(){
  const session=battleSession,actor=battle.current!.id;
  turnTimer=window.setTimeout(()=>{if(session!==battleSession||screen!=='battle'||busy)return;const before=statusSnapshot(battle.units),round=battle.round;perform(battle.blocked?battle.skipTurn():battle.enemyAct(actor),before,round)},450);
 }
-function finish(result:'victory'|'defeat'){if(screen!=='battle')return;cancelTurn();screen='result';busy=false;progress.battles++;let rewardText='';if(result==='victory'){progress.wins++;const xp=battle.experienceReward;rewardText=`一人につき経験値 ${xp} 獲得。<br>`+battle.allies.map(h=>{const p=progress.party[h.id];const levels=gainExperience(p,xp);return `${h.name} Lv.${p.level}${levels?`（${levels}レベルアップ！）`:''} EXP ${p.experience}/${requiredExperience(p.level)}`}).join('<br>')}persist();heading(result==='victory'?'VICTORY':'DEFEAT',result==='victory'?'星明かりの勝利':'まだ、旅は終わらない');draw(battle.allies);content.classList.add('result-screen');content.insertAdjacentHTML('beforeend',`<article><h2>${result==='victory'?'約束へ、一歩。':'もう一度、星を見上げて。'}</h2><p>${result==='victory'?'アステルたちは霧を払い、森の奥に小さな星の欠片を見つけた。':'三人は野営地に戻り、次の旅に備える。'}</p><p>${rewardText}</p><p>累計勝利 ${progress.wins}回</p></article>`);button('ホームへ戻る',home);button('もう一度挑む',start,'secondary');status()}
+function finish(result:'victory'|'defeat'){if(screen!=='battle')return;cancelTurn();battle.resetBattleResources();screen='result';busy=false;progress.battles++;let rewardText='';if(result==='victory'){progress.wins++;const xp=battle.experienceReward;rewardText=`一人につき経験値 ${xp} 獲得。<br>`+battle.allies.map(h=>{const p=progress.party[h.id];const levels=gainExperience(p,xp);return `${h.name} Lv.${p.level}${levels?`（${levels}レベルアップ！）`:''} EXP ${p.experience}/${requiredExperience(p.level)}`}).join('<br>')}persist();heading(result==='victory'?'VICTORY':'DEFEAT',result==='victory'?'星明かりの勝利':'まだ、旅は終わらない');draw(battle.allies);content.classList.add('result-screen');content.insertAdjacentHTML('beforeend',`<article><h2>${result==='victory'?'約束へ、一歩。':'もう一度、星を見上げて。'}</h2><p>${result==='victory'?'アステルたちは霧を払い、森の奥に小さな星の欠片を見つけた。':'三人は野営地に戻り、次の旅に備える。'}</p><p>${rewardText}</p><p>累計勝利 ${progress.wins}回</p></article>`);button('ホームへ戻る',home);button('もう一度挑む',start,'secondary');status()}
 title();

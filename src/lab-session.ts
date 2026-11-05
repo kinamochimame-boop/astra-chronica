@@ -1,3 +1,4 @@
+import type {PartyProgress} from './progression';
 import {Battle,skills} from './battle';
 import {statValue,statusDefinitions} from './effects';
 import type {ActionResult,Command,ModifierEffect,StatusId,Unit} from './types';
@@ -13,7 +14,7 @@ export class LabSession {
  effectTarget='astel';attackTarget='enemy0';allyTarget='astel';enemyAttacksEnabled=true;
  readonly logs:string[]=[];
  lastOpportunity='まだ行動していません。';
- constructor(random:()=>number=Math.random){this.battle=new Battle(random)}
+ constructor(random:()=>number=Math.random,party?:PartyProgress){this.battle=new Battle(random,party)}
  append(...lines:string[]){this.logs.push(...lines);if(this.logs.length>1200)this.logs.splice(0,this.logs.length-1200)}
  syncTargets(command:Command='attack'){
   const enemies=this.battle.enemies.filter(u=>u.hp>0);
@@ -25,14 +26,14 @@ export class LabSession {
   const allies=skills[command].target==='ally'?this.battle.targets(command):this.battle.allies.filter(u=>u.hp>0);
   if(!allies.some(u=>u.id===this.allyTarget))this.allyTarget=allies[0]?.id||'';
  }
- private changes(before:Snapshot,actorId?:string,damageTarget?:string){
+ private changes(before:Snapshot,actorId?:string,damageTarget?:string,cleanse=false){
   for(const old of before){
    const now=this.battle.units.find(u=>u.id===old.id)!;
    for(const s of old.statuses){
     const after=now.statuses.find(a=>a.id===s.id);
     if(after?.remaining!==s.remaining)this.append(`[持続] ${old.name} ${statusDefinitions[s.id].name}：${s.remaining} → ${after?.remaining??0}`);
     if(!after){
-     const reason=now.hp===0?'戦闘不能':damageTarget===old.id&&statusDefinitions[s.id].breakOnDamage?'被攻撃':actorId===old.id&&s.remaining===1?'期限切れ':'手動解除';
+     const reason=now.hp===0?'戦闘不能':damageTarget===old.id&&statusDefinitions[s.id].breakOnDamage?'被攻撃':actorId===old.id&&s.remaining===1?'期限切れ':cleanse?'スキル解除':'手動解除';
      this.append(`[解除理由] ${old.name} ${statusDefinitions[s.id].name}：${reason}`);
     }
    }
@@ -64,13 +65,14 @@ export class LabSession {
   const result=action();
   if(!result.ok){this.append(`[操作不可] ${actor?.name??'戦闘終了'}：${result.reason}`);return result}
   const event=result.event,target=this.battle.units.find(u=>u.id===event.target)!;
-  this.append(`[行動] ${actor!.name} → ${target.name}：${event.label||skills[event.command].name}`);
+  this.append(`[行動] ${actor!.name} → ${skills[event.command].target==='allAllies'?'生存する味方全体':target.name}：${event.label||skills[event.command].name}`);
   if(blocked)this.append(`[行動制限] ${actor!.name}：${statusDefinitions[blocked].name}によりスキップ`);
   else if(before.find(u=>u.id===actor!.id)!.statuses.some(s=>s.id==='paralysis'))this.append(`[行動制限判定] ${actor!.name}：麻痺の行動不能は不発`);
   this.append(...event.logs);
-  const t=event.damageTrace;
-  if(t)this.append(`[計算] 実効攻撃${t.effectiveAttack.toFixed(1)} / 防御${t.effectiveDefense.toFixed(1)}。入力威力${t.power.toFixed(2)}（かばう倍率${t.coverMultiplier}反映済） × 防御補正${t.defenseMultiplier.toFixed(3)} × 属性${t.elementMultiplier} × ガード${t.guardMultiplier} × 会心${t.criticalMultiplier} → ${event.amount}ダメージ（丸め・最低値適用）`);
-  this.changes(before,event.actor,event.kind==='damage'&&event.amount>0?event.target:undefined);
+  for(const part of event.effects??[event]){const t=part.damageTrace;
+   if(t)this.append(`[計算${part.hitIndex?` 第${part.hitIndex}撃`:''}] 実効攻撃${t.effectiveAttack.toFixed(1)} / 防御${t.effectiveDefense.toFixed(1)}。入力威力${t.power.toFixed(2)}（かばう倍率${t.coverMultiplier}反映済） × 防御補正${t.defenseMultiplier.toFixed(3)} × 属性${t.elementMultiplier} × ガード${t.guardMultiplier} × 誓盾${t.barrierMultiplier??1} × 会心${t.criticalMultiplier} → ${part.amount}ダメージ（丸め・最低値適用）`);
+  }
+  this.changes(before,event.actor,event.kind==='damage'&&event.amount>0?event.target:undefined,!!skills[event.command].cleanse);
   const prev=before.find(u=>u.id===event.actor)!;
   const states=prev.statuses.map(s=>`${statusDefinitions[s.id].name} ${s.remaining} → ${actor!.statuses.find(a=>a.id===s.id)?.remaining??0}`).join(' / ')||'状態異常なし';
   this.lastOpportunity=`${actor!.name}の行動機会 前後：${states}`;
