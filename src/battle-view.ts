@@ -45,11 +45,11 @@ export class BattleView {
   const commands=this.get('.commands');commands.replaceChildren();
   const isAlly=b.allies.includes(actor);
   if(isAlly){
-   const allCommands=commandsFor(actor),list=[...allCommands.filter(c=>skills[c].starCost),...allCommands.filter(c=>!skills[c].starCost)];commands.style.setProperty('--command-count',String(Math.min(4,allCommands.filter(c=>!skills[c].starCost).length)));if(this.commandActor!==`${actor.id}:${b.round}`){commands.scrollTop=0;this.commandActor=`${actor.id}:${b.round}`}
+   const allCommands=b.availableCommands(actor),list=[...allCommands.filter(c=>skills[c].starCost),...allCommands.filter(c=>!skills[c].starCost)];commands.style.setProperty('--command-count',String(Math.min(4,allCommands.filter(c=>!skills[c].starCost).length)));if(this.commandActor!==`${actor.id}:${b.round}`){commands.scrollTop=0;this.commandActor=`${actor.id}:${b.round}`}
    list.forEach(c=>{
     const cell=document.createElement('div');cell.className=`command-cell ${skills[c].starCost?'ultimate-cell':''}`;const reason=commandReason(b,actor,c,busy);
     const button=document.createElement('button');button.className=`command ${c===command?'selected':''} ${skills[c].starCost?'ultimate-command':''}`;button.disabled=!!reason;button.dataset.command=c;button.setAttribute('aria-pressed',String(c===command));button.setAttribute('aria-label',`${skills[c].name}${skills[c].starCost?` 星力${skills[c].starCost}`:b.mpCost(c,actor)?` MP${b.mpCost(c,actor)}`:''}`);button.setAttribute('aria-describedby',`reason-${c}`);
-    button.innerHTML=`<strong>${skills[c].starCost?'★ 必殺 · ':''}${skills[c].name}</strong><small>${skills[c].starCost?`星力 ${skills[c].starCost}`:b.mpCost(c,actor)?`MP ${b.mpCost(c,actor)}`:c==='attack'?'ATTACK':'MP 0'}</small>`;button.onclick=()=>{if(!this.state.busy)this.actions.choose(c)};
+    button.innerHTML=`<strong>${skills[c].starCost?'★ 必殺 · ':''}${skills[c].name}</strong><small>${skills[c].starCost?`星力 ${skills[c].starCost}`:c==='potion'||c==='ether'?`所持 ${b.itemInventory()[c]}個`:b.mpCost(c,actor)?`MP ${b.mpCost(c,actor)}`:c==='attack'?'ATTACK':'MP 0'}</small>`;button.onclick=()=>{if(!this.state.busy)this.actions.choose(c)};
     const info=document.createElement('small');info.id=`reason-${c}`;info.className='command-reason';info.textContent=reason;
     cell.append(button,info);commands.append(cell);
    });
@@ -93,8 +93,9 @@ export class BattleView {
    const tags=document.createElement('small');tags.textContent=[...(part.hitIndex?[`${part.hitIndex} HIT`]:[]),...fx.tags].join(' ');tags.className='fx-tags';const number=document.createElement('strong');number.textContent=fx.value;number.className='fx-value';popup.append(tags,number);this.effects.append(popup);
   });
   this.get('.battle-notification').textContent=[...(event.hint?[event.hint]:[]),...notices].slice(0,2).join(' / ');
+  this.get('.battle-art').classList.toggle('bell-warning',!!event.hint?.includes('段階'));
   this.get('.battle-art').classList.toggle('ultimate-cast',!!event.ultimate);this.get('.ultimate-banner').textContent=event.ultimate?`★ ${skills[event.command].name}`:'';
  }
- clearEffects(){this.effects.replaceChildren();this.get('.battle-notification').textContent='';this.get('.ultimate-banner').textContent='';this.get('.battle-art').classList.remove('ultimate-cast')}
+ clearEffects(){this.effects.replaceChildren();this.get('.battle-notification').textContent='';this.get('.ultimate-banner').textContent='';this.get('.battle-art').classList.remove('ultimate-cast','bell-warning')}
  dispose(){if(this.dialog.open)this.dialog.close();this.host.closest('.shell')?.classList.remove('battle-mode');this.host.className='';this.effects.replaceChildren()}
 }

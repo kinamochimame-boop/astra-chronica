@@ -1,6 +1,6 @@
 import {withSkillTree} from './skill-tree';
 import {heroes,cloneUnit} from './data/combat';
-import {HERO_IDS,WEAPON_FAMILIES,weapons,weaponById,type HeroId} from './data/weapons';
+import {HERO_IDS,WEAPON_FAMILIES,allWeapons,weaponById,type HeroId} from './data/weapons';
 import {equipReason,equipWeapon,equippedUnit,equippedWeapon,unlockTestWeapons} from './equipment';
 import {growUnit} from './progression';
 import type {Progress} from './save';
@@ -23,7 +23,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   const get=<T extends HTMLElement=HTMLElement>(selector:string)=>host.querySelector<T>(selector)!;
   for(const id of HERO_IDS){const button=document.createElement('button');button.textContent=heroes.find(h=>h.id===id)!.name;button.setAttribute('aria-pressed',String(hero===id));button.onclick=()=>{hero=id;candidate=state.equipped[id];render()};get('.equipment-heroes').append(button)}
   get('#equipment-current-name').textContent=weaponById(current.weaponId)?.name??'装備なし';
-  for(const w of weapons){
+  for(const w of allWeapons){
    const card=document.createElement('button');card.className='weapon-choice';card.dataset.weaponId=w.id;card.setAttribute('aria-pressed',String(candidate===w.id));
    const used=HERO_IDS.filter(id=>state.equipped[id]===w.id).length,why=equipReason(state,hero,w.id);
    // Unusable weapons remain inspectable; the equip action below is disabled with a reason.

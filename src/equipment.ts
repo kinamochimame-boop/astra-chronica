@@ -1,4 +1,4 @@
-import {DEFAULT_WEAPONS,HERO_IDS,weapons,weaponById,type HeroId} from './data/weapons';
+import {DEFAULT_WEAPONS,HERO_IDS,weapons,allWeapons,weaponById,type HeroId} from './data/weapons';
 import {cloneUnit} from './data/combat';
 import type {Unit} from './types';
 export interface EquipmentState {inventory:Record<string,number>;equipped:Record<HeroId,string|null>}
@@ -9,7 +9,7 @@ const object=(v:unknown):v is Record<string,unknown>=>!!v&&typeof v==='object'&&
 export function normalizeEquipment(raw:unknown):EquipmentState {
  if(!object(raw)||!object(raw.inventory))return initialEquipment();
  const state:EquipmentState={inventory:{},equipped:{astel:null,rina:null,mei:null}};
- for(const w of weapons){const n=raw.inventory[w.id];if(typeof n==='number'&&Number.isSafeInteger(n)&&n>0&&n<=MAX_ITEM_COUNT)state.inventory[w.id]=n}
+ for(const w of allWeapons){const n=raw.inventory[w.id];if(typeof n==='number'&&Number.isSafeInteger(n)&&n>0&&n<=MAX_ITEM_COUNT)state.inventory[w.id]=n}
  const slots=object(raw.equipped)?raw.equipped:{};
  for(const hero of HERO_IDS){const id=Object.hasOwn(slots,hero)?slots[hero]:DEFAULT_WEAPONS[hero];if(typeof id==='string'&&!equipReason(state,hero,id))state.equipped[hero]=id}
  return state;

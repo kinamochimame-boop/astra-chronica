@@ -1,38 +1,46 @@
-import {chapterOne as chapter,type AdventureEvent} from './data/chapter-one';
-import {chapterState,chapterCleared,locationOpen,eventOpen,visitLocation,completeEvent} from './adventure';
+import {chapterOne,chapters,type Chapter,type AdventureEvent} from './data/chapter-one';
+import {chapterState,chapterCleared,locationOpen,eventOpen,visitLocation,completeEvent,chapterOpen} from './adventure';
 import type {Progress} from './save';
 import './adventure.css';
-export function mountAdventure(host:HTMLElement,p:Progress,persist:()=>boolean,onBattle:(id:string)=>void,onBack:()=>void){
- let dialogue:AdventureEvent|undefined,index=0,notice='';
+export function mountAdventure(host:HTMLElement,p:Progress,persist:()=>boolean,onBattle:(id:string)=>void,onBack:()=>void,chapter:Chapter=chapterOne,onChapter?:(c:Chapter)=>void){
+ if(!chapterOpen(p.adventure,chapter)){onBack();return}
+ let dialogue:AdventureEvent|undefined,puzzleEvent:AdventureEvent|undefined,pieces:string[]=[],index=0,notice='';
+ const number=chapters.findIndex(c=>c.id===chapter.id)+1;
  const state=()=>chapterState(p.adventure,chapter);
  visitLocation(p.adventure,chapter,state().currentLocationId);if(!persist())notice='保存できません。再読込すると保存前の状態へ戻ります。';
  const store=()=>{if(!persist())notice+=' 保存できません。再読込すると保存前の状態へ戻ります。'};
  function render(){
   const progress=state(),location=chapter.locations.find(l=>l.id===progress.currentLocationId)!,cleared=chapterCleared(p.adventure,chapter);
-  host.classList.add('adventure-screen');host.innerHTML=`<p class="eyebrow">CHAPTER 01 · MISTWOOD</p><h1>約束のはじまり</h1><p class="chapter-progress" role="status">${cleared?'第1章クリア済み':`イベント ${progress.completed.length} / ${chapter.events.length}`}</p><nav class="location-list" aria-label="探索地点"></nav><section class="location-scene"><div class="location-icon" aria-hidden="true">${location.icon}</div><h2>${location.name}</h2><p>${location.description}</p></section><section class="adventure-content"></section><p id="adventure-notice" role="status"></p><button id="adventure-home" class="secondary">ホームへ戻る</button>`;
+  host.classList.add('adventure-screen');host.innerHTML=`<p class="eyebrow">${chapter.id===chapterOne.id?'CHAPTER 01 · MISTWOOD':'CHAPTER 02 · LUMINAS'}</p><h1>${chapter.name}</h1><p class="chapter-progress" role="status">${cleared?`第${number}章クリア済み`:`イベント ${progress.completed.length} / ${chapter.events.length}`}</p><nav class="location-list" aria-label="探索地点"></nav><section class="location-scene ${number===2?'city-scene':''} ${location.id==='c2-clock'||location.id==='c2-belfry'?'bell-scene':''}"><div class="location-icon" aria-hidden="true">${location.icon}</div><h2>${location.name}</h2><p>${location.description}</p></section><section class="adventure-content"></section><p id="adventure-notice" role="status"></p><button id="adventure-home" class="secondary">ホームへ戻る</button>`;
   const get=<T extends HTMLElement=HTMLElement>(q:string)=>host.querySelector<T>(q)!;
   for(const [n,l] of chapter.locations.entries()){
    const open=locationOpen(progress,chapter,l.id),done=chapter.events.filter(e=>e.locationId===l.id).every(e=>progress.completed.includes(e.id));
    const button=document.createElement('button');button.className='location-button';button.dataset.locationId=l.id;button.disabled=!open;button.setAttribute('aria-current',String(l.id===location.id));button.textContent=`${n+1}. ${l.name} ${!open?'🔒 未解放':done?'✓ 完了':'◇ 未完了'}`;
-   button.onclick=()=>{if(visitLocation(p.adventure,chapter,l.id)){dialogue=undefined;notice='';store();render()}};get('.location-list').append(button);
+   button.onclick=()=>{if(visitLocation(p.adventure,chapter,l.id)){dialogue=undefined;puzzleEvent=undefined;notice='';store();render()}};get('.location-list').append(button);
   }
   const panel=get('.adventure-content');
-  if(dialogue){
-   const page=dialogue.pages[index],box=document.createElement('article');box.className='dialogue';box.innerHTML='<p class="dialogue-count"></p><h2 class="dialogue-speaker"></h2><p class="dialogue-text"></p>';
+  if(puzzleEvent?.puzzle){
+   const e=puzzleEvent,puzzle=e.puzzle!,box=document.createElement('article');box.className='star-puzzle';box.innerHTML='<h2>星図の断片を組み合わせる</h2><p>灯をともす → 道をたどる → 鐘へ至る</p><p class="puzzle-order" role="status"></p><div class="puzzle-pieces"></div>';
+   box.querySelector('.puzzle-order')!.textContent=pieces.map(id=>puzzle.pieces.find(p=>p.id===id)!.name).join(' → ')||'3枚の断片を順番に選んでください';
+   for(const piece of puzzle.pieces){const button=document.createElement('button');button.className='secondary';button.dataset.pieceId=piece.id;button.textContent=piece.name;button.disabled=pieces.includes(piece.id);button.onclick=()=>{pieces.push(piece.id);render()};box.querySelector('.puzzle-pieces')!.append(button)}
+   const solve=document.createElement('button');solve.className='primary';solve.id='puzzle-solve';solve.textContent='星図を確かめる';solve.disabled=pieces.length!==puzzle.pieces.length;solve.onclick=()=>{const result=completeEvent(p,chapter,e.id,pieces);notice=result.ok?'星図が光り、地下水路への道が読めた。':result.message;if(result.ok){puzzleEvent=undefined;store()}render()};
+   const reset=document.createElement('button');reset.className='secondary';reset.id='puzzle-reset';reset.textContent='断片を並べ直す';reset.onclick=()=>{pieces=[];render()};const hint=document.createElement('p');hint.textContent=puzzle.hint;box.append(solve,reset,hint);panel.append(box);
+  }else if(dialogue){
+   const page=dialogue.pages[index],box=document.createElement('article');box.className='dialogue';box.dataset.eventId=dialogue.id;box.innerHTML='<p class="dialogue-count"></p><h2 class="dialogue-speaker"></h2><p class="dialogue-text"></p>';
    box.querySelector('.dialogue-count')!.textContent=`${dialogue.name} ｜ ${index+1} / ${dialogue.pages.length}`;box.querySelector('.dialogue-speaker')!.textContent=page.speaker;box.querySelector('.dialogue-text')!.textContent=page.text;
    const next=document.createElement('button');next.className='primary';next.id='dialogue-next';next.textContent=index+1<dialogue.pages.length?'次へ':['battle','boss'].includes(dialogue.kind)?'戦闘を開始':'会話を終える';
-   next.onclick=()=>{if(!dialogue)return;if(++index<dialogue.pages.length){render();return}const e=dialogue;dialogue=undefined;index=0;if(['battle','boss'].includes(e.kind)){host.classList.remove('adventure-screen');onBattle(e.id);return}const result=completeEvent(p,chapter,e.id);notice=result.message;if(result.ok)store();render()};box.append(next);panel.append(box);
+   next.onclick=()=>{if(!dialogue)return;if(++index<dialogue.pages.length){render();return}const e=dialogue;dialogue=undefined;index=0;if(['battle','boss'].includes(e.kind)){host.classList.remove('adventure-screen');onBattle(e.id);return}if(e.puzzle&&!state().completed.includes(e.id)){puzzleEvent=e;pieces=[];render();return}const result=completeEvent(p,chapter,e.id);notice=result.message;if(result.ok)store();render()};box.append(next);panel.append(box);
    const close=document.createElement('button');close.className='secondary';close.textContent='会話を中断して探索へ戻る';close.onclick=()=>{dialogue=undefined;render()};panel.append(close);
   }else{
-   if(p.adventure.pending){const pending=document.createElement('p');pending.textContent='中断した戦闘は開始前から再挑戦できます。未確定の経験値や報酬は付与していません。';panel.append(pending)}
+   if(p.adventure.pending?.chapterId===chapter.id){const pending=document.createElement('p');pending.textContent='中断した戦闘は開始前から再挑戦できます。未確定の経験値や報酬は付与していません。';panel.append(pending)}
    for(const e of chapter.events.filter(e=>e.locationId===location.id)){
     const done=progress.completed.includes(e.id),open=eventOpen(progress,e),card=document.createElement('article');card.className='event-card';card.dataset.eventId=e.id;
-    const title=document.createElement('h2');title.textContent=`${e.name} ${done?'✓ 完了':''}`;const detail=document.createElement('p');detail.textContent=done&&['battle','boss','treasure'].includes(e.kind)?'初回の報酬・進行は確定済みです。':e.kind==='rest'?'ここでひと休み。戦闘開始時にはHP・MPが全快します。':e.kind==='boss'?'霧を吸い込む予兆の後は強攻撃。防御と回復で備えましょう。':e.kind==='treasure'?'初回限定の武器を入手できます。':'三人の言葉を聞き、道を進みましょう。';
+    const title=document.createElement('h2');title.textContent=`${e.name} ${done?'✓ 完了':''}`;const detail=document.createElement('p');detail.textContent=done&&['battle','boss','treasure'].includes(e.kind)?'初回の報酬・進行は確定済みです。':e.kind==='rest'?'ここでひと休み。戦闘開始時にはHP・MPが全快します。':e.kind==='boss'?'相手の予兆・防御態勢を読み、回復と防御で備えましょう。':e.kind==='treasure'?'初回限定の所持品を入手できます。':'三人の言葉を聞き、道を進みましょう。';
     const action=document.createElement('button');action.className='primary';action.dataset.eventAction=e.id;action.disabled=!open||(done&&['battle','boss','treasure'].includes(e.kind));action.textContent=!open?'先のイベントを完了してください':done&&['battle','boss','treasure'].includes(e.kind)?'完了済み':e.kind==='treasure'?'宝箱を開ける':e.kind==='rest'?'泉で休む':['battle','boss'].includes(e.kind)?'会話を読んで戦闘へ':done?'会話を読み返す':'物語を読む';action.onclick=()=>{dialogue=e;index=0;notice='';render()};card.append(title,detail,action);panel.append(card);
    }
    const nextLocation=chapter.locations[chapter.locations.findIndex(l=>l.id===location.id)+1];
    if(nextLocation){const button=document.createElement('button');button.className='primary';button.id='adventure-next-location';button.disabled=!locationOpen(progress,chapter,nextLocation.id);button.textContent=`次の地点へ：${nextLocation.name}`;button.onclick=()=>{visitLocation(p.adventure,chapter,nextLocation.id);notice='';store();render()};panel.append(button)}
-   if(cleared){const preview=document.createElement('p');preview.className='chapter-preview';preview.textContent=chapter.preview+'（第2章は未実装です）';panel.append(preview)}
+   if(cleared){const preview=document.createElement('p');preview.className='chapter-preview';preview.textContent=chapter.preview+(number===2?'（第3章以降は今後の更新予定です）':'');panel.append(preview);const next=chapters[number];if(next&&onChapter){const button=document.createElement('button');button.className='primary';button.textContent=`第${number+1}章へ進む`;button.onclick=()=>{host.classList.remove('adventure-screen');onChapter(next)};panel.append(button)}}
   }
   get('#adventure-notice').textContent=notice;
   get('#adventure-home').onclick=()=>{host.classList.remove('adventure-screen');onBack()};

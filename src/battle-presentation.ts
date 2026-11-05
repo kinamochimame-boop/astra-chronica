@@ -19,7 +19,7 @@ export function commandReason(b:Battle,actor:Unit,c:Command,busy=false):string {
  if(actor.hp<=0)return '戦闘不能';
  if(b.current!==actor||b.phase!=='player')return '行動待ち';
  if(b.blocked)return `${statusDefinitions[b.blocked].name}で行動不能`;
- if(!commandsFor(actor).includes(c))return 'このキャラクターは使用不可';
+ if(!b.availableCommands(actor).includes(c))return 'このキャラクターは使用不可';
  if(!b.isLearned(actor,c))return `未習得（Lv.${skills[c].unlockLevel??1}）`;
  if(isSilenced(actor)&&['magic','heal'].includes(skills[c].kind))return '沈黙で使用不可';
  if(actor.star<(skills[c].starCost??0))return '星力不足';
@@ -49,7 +49,7 @@ export function effectPresentation(event:BattleEvent){
   if((event.affinity??1)>1)tags.push('WEAK');
   if((event.affinity??1)<1)tags.push('RESIST');
  }
- const value=event.label==='ミス'?'MISS':event.kind==='heal'?`+${event.amount}`:event.kind==='damage'?String(event.amount):event.label||skills[event.command].name;
+ const value=event.label==='ミス'?'MISS':event.kind==='heal'?`+${event.amount}${event.resource==='mp'?' MP':''}`:event.kind==='damage'?String(event.amount):event.label||skills[event.command].name;
  return {value,tags,tone:event.kind==='heal'?'heal':event.critical?'critical':event.kind==='damage'?'damage':'status'};
 }
 export function statusSnapshot(units:Unit[]){return units.map(u=>({id:u.id,name:u.name,ids:u.statuses.map(s=>s.id)}))}

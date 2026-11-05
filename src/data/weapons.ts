@@ -18,6 +18,12 @@ export const weapons:readonly Weapon[]=[
  {id:'azurecrystal-rod',name:'蒼晶のロッド',family:'rod',owner:'mei',bonuses:{attack:3},effects:{magicRate:1.1},description:'攻撃＋3。属性魔法（回復を除く）の威力＋10%。'},
  {id:'prayer-mace',name:'祈りのメイス',family:'mace',owner:'mei',bonuses:{attack:4,maxHp:15},effects:{},description:'攻撃＋4、最大HP＋15。'},
 ];
-export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?weapons.find(w=>w.id===id):undefined;
+export const chapterWeapons:readonly Weapon[]=[
+ {id:'starsteel-sword',name:'星鉄の剣',family:'sword',owner:'astel',bonuses:{attack:7},effects:{},description:'工房に遺された剣。攻撃＋7。'},
+ {id:'ashward-shield-spear',name:'灰守りの槍盾',family:'shieldSpear',owner:'rina',bonuses:{attack:3,defense:7},effects:{},description:'街の守り手の槍盾。攻撃＋3、防御＋7。'},
+ {id:'lamplight-rod',name:'灯火のロッド',family:'rod',owner:'mei',bonuses:{attack:4},effects:{magicRate:1.15},description:'鐘楼の光を宿すロッド。攻撃＋4、属性攻撃魔法＋15%。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons];
+export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};
