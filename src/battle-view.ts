@@ -13,7 +13,7 @@ export class BattleView {
  private commandActor='';
  constructor(private host:HTMLElement,canvasHost:HTMLElement,private actions:BattleViewActions){
   host.className='battle-screen';host.closest('.shell')!.classList.add('battle-mode');
-  host.innerHTML=`<div class="battle-top"><div><p class="eyebrow">MISTWOOD · ROUND <span id="ui-round"></span></p><h1>霧の森の遭遇</h1></div><button class="menu-button" aria-label="戦闘メニュー">☰ <span>メニュー</span></button></div>
+  host.innerHTML=`<div class="battle-top"><div><p class="eyebrow">BATTLE · ROUND <span id="ui-round"></span></p><h1>霧の森の遭遇</h1></div><button class="menu-button" aria-label="戦闘メニュー">☰ <span>メニュー</span></button></div>
   <div class="initiative"><p class="turn-banner" role="status"></p><div class="turn-order" role="list" aria-label="行動順"><span class="sr-only">次の行動：</span><div class="turn-chips"></div></div></div>
   <section class="enemies" aria-label="敵と攻撃対象"></section>
   <section class="battle-art" aria-label="敵と三人の味方"><div class="stage-slot"></div><div class="combat-effects" aria-live="polite" aria-atomic="true"></div><p class="ultimate-banner" aria-live="polite"></p><p class="battle-notification" aria-live="polite"></p></section>
@@ -84,7 +84,7 @@ export class BattleView {
   const parts=event.effects??[event],actor=this.state.battle.units.find(u=>u.id===event.actor)!,target=this.state.battle.units.find(u=>u.id===event.target)!;
   const group=skills[event.command].target==='allAllies';
   const values=parts.map(p=>effectPresentation(p).value).join(' / ');
-  this.lastSummary=`${actor.name} → ${group?'生存する味方全体':target.name}${event.covered?'（かばう）':''}：${skills[event.command].name} ${values}${event.hint?` ｜${event.hint}`:''}`;this.get('.battle-log').textContent=this.lastSummary;
+  this.lastSummary=`${actor.name} → ${group?'生存する味方全体':target.name}${event.covered?'（かばう）':''}：${event.actionName??skills[event.command].name} ${values}${event.hint?` ｜${event.hint}`:''}`;this.get('.battle-log').textContent=this.lastSummary;
   this.effects.replaceChildren();
   parts.forEach((part,i)=>{
    const fx=effectPresentation(part),index=this.state.battle.units.findIndex(u=>u.id===part.target);

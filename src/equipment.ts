@@ -38,8 +38,9 @@ export function unlockTestWeapons(state:EquipmentState):boolean {
 /** Derived copy, separate from temporary modifiers. Reapplying replaces the old flat bonus. */
 export function equippedUnit(base:Unit,id:string|null|undefined):Unit {
  const unit=cloneUnit(base),previous=weaponById(unit.weaponId),next=weaponById(id);
- for(const stat of ['attack','defense','speed','maxHp'] as const)unit[stat]=unit[stat]-(previous?.bonuses[stat]??0)+(next?.owner===base.id?next.bonuses[stat]??0:0);
+ for(const stat of ['attack','defense','speed','maxHp','maxMp'] as const)unit[stat]=unit[stat]-(previous?.bonuses[stat]??0)+(next?.owner===base.id?next.bonuses[stat]??0:0);
  unit.hp=Math.min(unit.maxHp,Math.max(0,unit.hp+unit.maxHp-base.maxHp));
+ unit.mp=Math.min(unit.maxMp,Math.max(0,unit.mp+unit.maxMp-base.maxMp));
  unit.weaponId=next?.owner===base.id?next.id:undefined;return unit;
 }
 export function equippedWeapon(unit:Unit){const w=weaponById(unit.weaponId);return w?.owner===unit.id?w:undefined}

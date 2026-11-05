@@ -1,0 +1,20 @@
+export interface JournalEntry {id:string;chapterId:string;eventId:string;kind:'summary'|'npc'|'record';title:string;text:string}
+export const journalEntries:readonly JournalEntry[]=[
+ {id:'j1-start',chapterId:'chapter-01',eventId:'c1-departure',kind:'summary',title:'星灯りから',text:'星詠みの遺した約束を胸に、三人は霧の森へ出発した。'},
+ {id:'j1-record',chapterId:'chapter-01',eventId:'c1-stele-story',kind:'record',title:'古びた石碑',text:'森の石碑に、星詠みの足跡と約束に関わる印を見つけた。'},
+ {id:'j1-clear',chapterId:'chapter-01',eventId:'c1-clear',kind:'summary',title:'霧の向こうへ',text:'守護獣は静かに眠り、霧が晴れた。欠片の線は、さらに遠くへ続いていた。'},
+ {id:'j2-arrival',chapterId:'chapter-02',eventId:'c2-arrival',kind:'summary',title:'灰の街',text:'三人は星図の手掛かりを求め、ルミナス旧市街へ入った。'},
+ {id:'j2-people',chapterId:'chapter-02',eventId:'c2-residents',kind:'npc',title:'ナナとオルト',text:'ナナは旅人にパンを分け、時計直しのオルトは止まった時計と夜の鐘、皆が見る夢について教えてくれた。'},
+ {id:'j2-sera',chapterId:'chapter-02',eventId:'c2-fragments',kind:'npc',title:'星図師セラ',text:'工房の星図が白紙になったと語る星図師。残された三枚の断片を調べた。'},
+ {id:'j2-pico',chapterId:'chapter-02',eventId:'c2-rest',kind:'npc',title:'配達人ピコ',text:'地下水路を抜けた三人を、温かなスープで迎えてくれた。'},
+ {id:'j2-record',chapterId:'chapter-02',eventId:'c2-library-clue',kind:'record',title:'忘却の書庫の手掛かり',text:'書庫の記録が星図と鐘楼への道を示した。'},
+ {id:'j2-clear',chapterId:'chapter-02',eventId:'c2-clear',kind:'summary',title:'取り戻した星図',text:'鐘が静まり、星図が戻った。三人は風の峡谷へ向かう。'},
+ {id:'j3-fio',chapterId:'chapter-03',eventId:'c3-fio',kind:'npc',title:'風を読む少女フィオ',text:'風を読むフィオに助けられた。彼女は、もう誰も危険な場所へ案内しないと語った。'},
+ {id:'j3-record',chapterId:'chapter-03',eventId:'c3-observatory-story',kind:'record',title:'記録に残らない一歩',text:'星詠みは、約束を道を閉ざす鎖ではなく、帰る場所を覚える灯と記していた。'},
+ {id:'j3-clear',chapterId:'chapter-03',eventId:'c3-clear',kind:'summary',title:'空を渡る約束',text:'フィオと合図を確かめ合い、風路を取り戻した。星図は砂の都を示す。'},
+ {id:'j4-arrival',chapterId:'chapter-04',eventId:'c4-arrival',kind:'summary',title:'水晶都市への迂回路',text:'崩れた道を迂回し、三人は地下のクリスタリアにたどり着いた。'},
+ {id:'j4-serena',chapterId:'chapter-04',eventId:'c4-serena',kind:'npc',title:'管理人セレナ',text:'都市の管理人。眠る人々を気遣うが、星詠みの記録の一部については語らない。'},
+ {id:'j4-iris',chapterId:'chapter-04',eventId:'c4-workshop-story',kind:'npc',title:'工房番イリス',text:'眠る人々が帰る場所を保つ工房番。水晶灯や共鳴石の依頼を掲げている。'},
+ {id:'j4-record',chapterId:'chapter-04',eventId:'c4-starseer-record',kind:'record',title:'消された一節',text:'歌は永遠の封印として作られたのではなかった。帰る道の名を残す、という追記がある。'},
+ {id:'j4-clear',chapterId:'chapter-04',eventId:'c4-clear',kind:'summary',title:'朝を待つ歌',text:'歌の輪が解け、人々は目覚め始めた。セレナは一人ずつ声を聞く道を選ぶ。失われた最後の一節は、砂の都への新しい謎となった。'},
+];

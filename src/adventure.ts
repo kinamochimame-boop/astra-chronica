@@ -48,7 +48,8 @@ export function completeEvent(p:Progress,c:Chapter,id:string,answer?:string[]):{
  const state=chapterState(p.adventure,c),event=c.events.find(e=>e.id===id);
  if(!chapterOpen(p.adventure,c)||!event||!eventOpen(state,event)||['battle','boss'].includes(event.kind))return {ok:false,message:'このイベントはまだ完了できません。'};
  if(state.completed.includes(id))return {ok:false,message:'初回の完了・報酬は取得済みです。'};
- if(event.puzzle&&(!answer||answer.length!==event.puzzle.solution.length||!event.puzzle.solution.every((id,i)=>answer[i]===id)))return {ok:false,message:event.puzzle.mode==='rotate'?'結晶の向きが違います。ヒントを見て何度でも回せます。':'断片の順番が違います。ヒントを見て何度でも組み直せます。'};
+ if(event.choiceId&&!p.choices[event.choiceId])return {ok:false,message:'会話の選択肢を選んでください。'};
+ if(event.puzzle&&(!answer||answer.length!==event.puzzle.solution.length||!event.puzzle.solution.every((id,i)=>answer[i]===id)))return {ok:false,message:event.puzzle.mode==='cycle'?'音律が違います。文字のヒントを見て何度でも試せます。':event.puzzle.mode==='rotate'?'結晶の向きが違います。ヒントを見て何度でも回せます。':'断片の順番が違います。ヒントを見て何度でも組み直せます。'};
  if(event.itemReward&&!grantConsumable(p.consumables,event.itemReward.id,event.itemReward.count))return {ok:false,message:'回復品の所持上限に達しています。'};
  if(event.weaponReward&&!grantWeapon(p.equipment,event.weaponReward))return {ok:false,message:'所持数の上限に達しています。報酬を受け取れないため未完了のままです。'};
  state.completed.push(id);p.adventure.chapters[c.id]=state;

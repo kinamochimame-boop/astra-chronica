@@ -32,7 +32,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   }
   get('#equipment-selected').textContent=`選択：${weapon?.name??'装備なし'}`;
   const rate=(u:typeof base,key:'healingRate'|'magicRate')=>Math.round(((equippedWeapon(u)?.effects[key]??1)-1)*100);
-  const rows:[string,number,number,string][]=[['攻撃力',current.attack,next.attack,''],['防御力',current.defense,next.defense,''],['素早さ',current.speed,next.speed,''],['最大HP',current.maxHp,next.maxHp,''],['回復量補正',rate(current,'healingRate'),rate(next,'healingRate'),'%'],['属性魔法補正',rate(current,'magicRate'),rate(next,'magicRate'),'%']];
+  const rows:[string,number,number,string][]=[['攻撃力',current.attack,next.attack,''],['防御力',current.defense,next.defense,''],['素早さ',current.speed,next.speed,''],['最大HP',current.maxHp,next.maxHp,''],['最大MP',current.maxMp,next.maxMp,''],['回復量補正',rate(current,'healingRate'),rate(next,'healingRate'),'%'],['属性魔法補正',rate(current,'magicRate'),rate(next,'magicRate'),'%']];
   for(const [name,before,after,suffix] of rows){const row=document.createElement('tr');row.dataset.stat=name;for(const value of [name,`${before}${suffix}`,`${after}${suffix}`,`${after-before>0?'+':''}${after-before}${suffix}`]){const cell=document.createElement('td');cell.textContent=value;row.append(cell)}get('tbody').append(row)}
   get('#equipment-description').textContent=weapon?.description??'武器補正と武器特性がなくなります。';
   get('#equipment-reason').textContent=reason||(same?'現在装備中です':'装備できます');

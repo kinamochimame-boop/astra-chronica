@@ -2,8 +2,8 @@ import type {Stat} from '../types';
 export type HeroId='astel'|'rina'|'mei';
 export type WeaponFamily='sword'|'bow'|'dualBlades'|'shieldSpear'|'shieldFlail'|'shieldRapier'|'wand'|'rod'|'mace';
 export interface Weapon {
- id:string;name:string;family:WeaponFamily;owner:HeroId;bonuses:Partial<Record<Stat|'maxHp',number>>;
- effects:{normalHits?:number;healingRate?:number;magicRate?:number;coverReduction?:number};description:string;
+ id:string;name:string;family:WeaponFamily;owner:HeroId;bonuses:Partial<Record<Stat|'maxHp'|'maxMp',number>>;
+ effects:{normalHits?:number;healingRate?:number;magicRate?:number;criticalRate?:number;guardReduction?:number;coverReduction?:number};description:string;
 }
 export const WEAPON_FAMILIES:Record<WeaponFamily,string>={sword:'剣',bow:'弓',dualBlades:'双剣',shieldSpear:'盾＆槍',shieldFlail:'盾＆フレイル',shieldRapier:'盾＆突剣',wand:'ワンド',rod:'ロッド',mace:'メイス'};
 /** Bonuses are the complete totals. Family labels never add stats a second time. */
@@ -28,7 +28,12 @@ export const chapterThreeWeapons:readonly Weapon[]=[
  {id:'heavenward-shield-spear',name:'天守の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:4,defense:9},effects:{coverReduction:0.05},description:'攻撃＋4、防御＋9。かばうの被ダメージ倍率−0.05。'},
  {id:'starwind-wand',name:'星風のワンド',family:'wand',owner:'mei',bonuses:{attack:5},effects:{magicRate:1.18,healingRate:1.1},description:'攻撃＋5。属性攻撃魔法＋18%、回復量＋10%。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons];
+export const chapterFourWeapons:readonly Weapon[]=[
+ {id:'crystal-edge-sword',name:'晶刃の剣',family:'sword',owner:'astel',bonuses:{attack:8},effects:{criticalRate:0.04},description:'攻撃＋8、会心率＋4ポイント（既存上限まで）。単発の剣。'},
+ {id:'resonance-shield-flail',name:'共鳴の盾槌',family:'shieldFlail',owner:'rina',bonuses:{attack:6,defense:8},effects:{guardReduction:0.05},description:'盾＆フレイル系。攻撃＋6、防御＋8。ガードの被ダメージ倍率−0.05（防御には適用しない）。'},
+ {id:'mooncrystal-rod',name:'月晶のロッド',family:'rod',owner:'mei',bonuses:{attack:5,maxMp:8},effects:{magicRate:1.18},description:'攻撃＋5、最大MP＋8、属性攻撃魔法＋18%。回復量の補正なし。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

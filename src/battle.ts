@@ -159,6 +159,7 @@ export class Battle {
     const actor = this.current;
     if (this.phase !== 'enemy' || this.blocked || !actor || actor.id !== expectedActor) return { ok: false, reason: '敵の行動ではありません。' };
     const action=(this.enemyActions.get(actor.id)??0)+1;this.enemyActions.set(actor.id,action);
+    if(actor.enemyMagic||actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='echoria')return this.crystalAct(actor,action);
     if(actor.enemyPattern==='mistGuardian'&&action%3===2)return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'霧の吸収',hint:'次は霧裂き！ 防御やガードで備えよう。',logs:[`${actor.name}は霧を吸い込んでいる！ 次の行動は強烈な「霧裂き」。防御やガードで備えよう。`]});
     if(actor.enemyPattern==='canalKeeper'&&action%3===2){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'防御態勢',hint:'番人が盾を閉じた。次の本人の行動まで被ダメージ半減。回復や防御で備えよう。',logs:[`${actor.name}は防御態勢に入った。盾が開くタイミングを待とう。`]})}
     let valleyPower=1;
@@ -195,25 +196,45 @@ export class Battle {
     else{this.damage(event,actor,target,power);this.applyEffects(event,actor,target,skills.attack)}
     return this.complete(event);
   }
+  private crystalAct(actor:Unit,action:number):ActionResult {
+    const machine=actor.enemyPattern==='resonanceMachine',singer=actor.enemyPattern==='echoria';
+    const phase=singer?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
+    const reserved=this.charged.get(actor.id);
+    if(!reserved&&((machine&&action%3===2)||(singer&&phase>=2&&action%3===2))){
+      if(machine)actor.guarding='defend';
+      const power=machine?65:phase===3?82:62;this.charged.set(actor.id,power);
+      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
+    }
+    if(reserved)this.charged.delete(actor.id);
+    const magical=!!actor.enemyMagic||!!reserved||(singer&&action%2===0);
+    const skill:Skill=magical?{...skills.fire,name:machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光',element:actor.enemyMagic?.element??'light',power:reserved??actor.enemyMagic?.power??(phase===3?52:44),statuses:singer&&phase>=2?[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]:[]}:skills.attack;
+    const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),original=taunter??living[Math.min(living.length-1,Math.floor(this.random()*living.length))],protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
+    const event=this.makeEvent(actor,target,magical?'fire':'attack');event.actionName=skill.name;event.covered=!!protector;event.taunted=!!taunter;
+    if(taunter)event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`);
+    if(protector)event.logs.push(`${protector.name}が${original.name}をかばった！`);
+    if(singer)event.logs.push(`${actor.name} 第${phase}段階。${skill.name}！`);
+    const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;
+    this.damage(event,actor,target,(magical?skill.power!:statValue(actor,'attack')*(phase===3?1.15:1))*cover,skill);
+    this.applyEffects(event,actor,target,skill);return this.complete(event);
+  }
   private applyEffects(event:BattleEvent,actor:Unit,target:Unit,skill:Skill){
     if(target.hp<=0||event.label==='ミス')return;
     const effects=[...(skill.statuses??[]),...(skill.kind==='physical'?actor.attackStatuses??[]:[])];
     for(const effect of effects)if(inflict(target,effect.id,this.random,Math.min(1,effect.chance+treeValue(actor,'statusChance',e=>e.command===event.command)),effect.turns))event.logs.push(`${target.name}に${statusDefinitions[effect.id].name}を付与！`);
     for(const effect of skill.modifiers??[])if(modify(target,{...effect,amount:effect.amount+treeValue(actor,'modifierStrength',e=>e.command===event.command),turns:effect.turns+treeValue(actor,'modifierDuration',e=>e.command===event.command)}))event.logs.push(`${target.name}の能力値が変化した。`);
   }
-  private damage(event: BattleEvent, actor: Unit, target: Unit, power: number) {
-    const skill=skills[event.command];
+  private damage(event: BattleEvent, actor: Unit, target: Unit, power: number, skill:Skill=skills[event.command]) {
     if(skill.kind==='physical'&&actor.statuses.some(s=>s.id==='blind')&&this.random()>=statusDefinitions.blind.accuracy!){
       event.label='ミス';event.kind='status';event.logs.push(`${actor.name}の攻撃は暗闇で外れた。`);return;
     }
     if(skill.kind==='physical'&&(target.evasion??0)>0&&this.random()<Math.min(0.5,target.evasion??0)){event.label='ミス';event.kind='status';event.logs.push(`${target.name}が身をかわした！`);return}
     event.element=skill.kind==='physical'?actor.attackElement:skill.element;
     event.affinity=affinity(target,event.element);
-    event.kind = 'damage'; event.critical = this.random() < Math.min(TREE_LIMITS.criticalRate,BALANCE.criticalChance+treeValue(actor,'criticalRate'));
+    event.kind = 'damage'; event.critical = this.random() < Math.min(TREE_LIMITS.criticalRate,BALANCE.criticalChance+treeValue(actor,'criticalRate')+(equippedWeapon(actor)?.effects.criticalRate??0));
     const treeRate=treePowerRate(actor,event.command,event.element??'none')*treeReduction(target);
     const criticalRate=Math.min(TREE_LIMITS.criticalDamage,BALANCE.criticalMultiplier+treeValue(actor,'criticalDamage'));
     const barrier=(target.barrierCharges??0)>0?0.5:1;
-    const reduction = target.guarding === 'guard' ? Math.max(TREE_LIMITS.guardMinimum,BALANCE.guardMultiplier-treeValue(target,'guardReduction')) : target.guarding ? Math.max(TREE_LIMITS.guardMinimum,BALANCE.defendMultiplier-treeValue(target,'defendReduction')) : 1;
+    const reduction = target.guarding === 'guard' ? Math.max(TREE_LIMITS.guardMinimum,BALANCE.guardMultiplier-treeValue(target,'guardReduction')-(equippedWeapon(target)?.effects.guardReduction??0)) : target.guarding ? Math.max(TREE_LIMITS.guardMinimum,BALANCE.defendMultiplier-treeValue(target,'defendReduction')) : 1;
     event.amount = Math.max(1, Math.round(power * treeRate * (EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense'))) * event.affinity * reduction * barrier * (event.critical ? criticalRate : 1)));
     event.damageTrace={power,effectiveAttack:statValue(actor,'attack'),effectiveDefense:statValue(target,'defense'),
       defenseMultiplier:EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense')),
@@ -226,7 +247,7 @@ export class Battle {
       for(const state of [...target.statuses])if(statusDefinitions[state.id].breakOnDamage){clearStatus(target,state.id);event.logs.push(`${target.name}の${statusDefinitions[state.id].name}がダメージで解除された。`)}
     }
     if(event.affinity!==1)event.logs.push(event.affinity>1?'弱点を突いた！':'属性耐性で軽減された。');
-    event.logs.push(`${actor.name}の${skills[event.command].name}！ ${target.name}に${event.amount}ダメージ。${event.critical ? ' クリティカル！' : ''}`);
+    event.logs.push(`${actor.name}の${skill.name}！ ${target.name}に${event.amount}ダメージ。${event.critical ? ' クリティカル！' : ''}`);
     if (target.hp === 0) {target.statuses=[];target.modifiers=[];target.guarding=undefined;target.covering=undefined;target.tauntRounds=undefined;target.barrierCharges=undefined;}
     if (target.hp === 0) event.logs.push(`${target.name}は${this.enemies.includes(target) ? '撃破された' : '戦闘不能になった'}。`);
   }
