@@ -1,3 +1,4 @@
+import {equippedUnit,equippedWeapon,normalizeEquipment,type EquipmentState} from './equipment';
 import {isSkillLearned,type SkillAccess} from './learning';
 import {STAR_POWER} from './star-power';
 import { BALANCE } from './balance';
@@ -17,8 +18,9 @@ export class Battle {
   private queue: string[] = [];
   private decision:{id:string;speed:number}[]=[];
   readonly log: string[] = ['霧の森で、三体の魔物が立ちはだかった。'];
-  constructor(private readonly random: () => number = Math.random, party?:PartyProgress,private readonly skillAccess:SkillAccess=isSkillLearned) {
-    this.allies=heroes.map(h=>({...growUnit(cloneUnit(h),party?.[h.id]),star:0,tauntRounds:undefined,barrierCharges:undefined}));
+  constructor(private readonly random: () => number = Math.random, party?:PartyProgress,private readonly skillAccess:SkillAccess=isSkillLearned,equipment?:EquipmentState) {
+    const slots=equipment?normalizeEquipment(equipment).equipped:undefined;
+    this.allies=heroes.map(h=>({...equippedUnit(growUnit(cloneUnit(h),party?.[h.id]),slots?.[h.id as keyof EquipmentState['equipped']]),star:0,tauntRounds:undefined,barrierCharges:undefined}));
     this.refill();this.prepareTurn();
   }
   isLearned(unit:Unit,command:Command){return commandsFor(unit).includes(command)&&this.skillAccess(unit,command)}
@@ -87,7 +89,7 @@ export class Battle {
   act(command: Command, targetId?: string, expectedActor = this.current?.id): ActionResult {
     const actor = this.current;
     if (!actor || actor.id !== expectedActor || !this.canUse(command)) return { ok: false, reason: '今はそのコマンドを使えません。' };
-    const skill=skills[command],all=skill.target==='allAllies';
+    const skill=skills[command],all=skill.target==='allAllies',weapon=equippedWeapon(actor),hits=command==='attack'?(weapon?.effects.normalHits??1):(skill.hits??1);
     const targets=all?this.targets(command):skill.target==='self'?[actor]:this.targets(command).filter(u=>u.id===targetId);
     if(!targets.length)return {ok:false,reason:'生存している対象を選んでください。'};
     if(skill.kind==='heal'&&!targets.some(u=>u.hp<u.maxHp||(skill.cleanse&&u.statuses.length>0)))return {ok:false,reason:'HPが満タンです。別の味方を選んでください。'};
@@ -103,11 +105,11 @@ export class Battle {
     }else{
       const parts:BattleEvent[]=[];
       for(const recipient of targets){
-        for(let hit=0;hit<(skill.hits??1)&&recipient.hp>0;hit++){
-          const part=all||(skill.hits??1)>1?this.makeEvent(actor,recipient,command):event;
-          if((skill.hits??1)>1){part.hitIndex=hit+1;part.logs.push(`${skill.name} 第${hit+1}撃`)}
+        for(let hit=0;hit<hits&&recipient.hp>0;hit++){
+          const part=all||hits>1?this.makeEvent(actor,recipient,command):event;
+          if(hits>1){part.hitIndex=hit+1;part.logs.push(`${skill.name} 第${hit+1}撃`)}
           if(skill.kind==='heal'){
-            part.kind='heal';part.amount=Math.min(skill.power??0,recipient.maxHp-recipient.hp);recipient.hp+=part.amount;
+            part.kind='heal';part.amount=Math.min(Math.round((skill.power??0)*(weapon?.effects.healingRate??1)),recipient.maxHp-recipient.hp);recipient.hp+=part.amount;
             part.logs.push(`${actor.name}の${skill.name}！ ${recipient.name}のHPが${part.amount}回復。`);
             if(skill.cleanse){const names=recipient.statuses.map(s=>statusDefinitions[s.id].name);clearStatus(recipient);if(names.length)part.logs.push(`${recipient.name}の${names.join('・')}を解除。`)}
           }else if(skill.kind==='barrier'){
@@ -115,12 +117,12 @@ export class Battle {
           }else if(skill.kind==='buff'){
             part.label='防御力上昇';
           }else{
-            this.damage(part,actor,recipient,skill.power??statValue(actor,'attack')*(skill.attackScale??1));
+            this.damage(part,actor,recipient,skill.power!==undefined?skill.power*(skill.kind==='magic'&&skill.element!=='none'?(weapon?.effects.magicRate??1):1):statValue(actor,'attack')*(skill.attackScale??1)/(command==='attack'?hits:1));
           }
           this.applyEffects(part,actor,recipient,skill);parts.push(part);
         }
       }
-      if(all||(skill.hits??1)>1){
+      if(all||hits>1){
         event.effects=parts;event.kind=skill.kind==='heal'?'heal':skill.kind==='physical'||skill.kind==='magic'?'damage':'status';
         event.amount=parts.reduce((sum,p)=>sum+p.amount,0);event.critical=parts.some(p=>p.critical);event.affinity=parts[0]?.affinity;
         event.logs.push(...parts.flatMap(p=>p.logs));
