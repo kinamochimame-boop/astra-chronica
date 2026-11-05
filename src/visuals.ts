@@ -3,11 +3,14 @@ import {heroes,type Unit,type BattleEvent} from './battle';
 /** Set Unit.texture to a preloaded asset key to replace the placeholder. */
 export class Stage extends Phaser.Scene {
  figures=new Map<string,Phaser.GameObjects.Container>();
+ private generation=0;
+ targets:string[]=[];
  units:Unit[]=heroes; selected=0; enemy=-1;
  constructor(){super('stage')}
  create(){this.paint();this.scale.on('resize',this.paint,this);this.events.once('shutdown',()=>this.scale.off('resize',this.paint,this));this.game.events.on('battle-effect',this.effect,this);this.events.once('shutdown',()=>this.game.events.off('battle-effect',this.effect,this));this.game.events.on('stage',this.show,this);this.events.once('shutdown',()=>this.game.events.off('stage',this.show,this));}
- show(units:Unit[],selected=0,enemy=-1){this.units=units;this.selected=selected;this.enemy=enemy;this.paint()}
+ show(units:Unit[],selected=0,enemy=-1,targets:string[]=[]){this.targets=targets;this.units=units;this.selected=selected;this.enemy=enemy;this.paint()}
  paint(){
+ this.generation++;
  const height=this.scale.gameSize.height;
  this.figures.clear();this.tweens.killAll();this.children.removeAll(true);const g=this.add.graphics();g.fillGradientStyle(0x112846,0x112846,0x1d3c50,0x1d3c50,1);g.fillRect(0,0,390,height);
  for(let i=0;i<35;i++){g.fillStyle(0xcbd8eb,0.25+(i%3)*.2);g.fillCircle((i*73+19)%390,(i*47)%Math.max(1,height*.7),1)}
@@ -15,7 +18,7 @@ export class Stage extends Phaser.Scene {
  g.lineStyle(1,0xbda474,.3);g.strokeEllipse(195,height*.86,350,height*.22);g.strokeEllipse(195,height*.86,300,height*.15);
  this.units.forEach((u,i)=>{
  const enemies=this.units.length>3;const x=70+(i%3)*125,y=enemies?(i<3?height*.72:height*.25):height*.63;
- const active=i===this.selected,targeted=i===this.enemy;
+ const active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id);
  const c=this.add.container(x,y).setScale(enemies?Math.min(1,height/250):1).setAlpha(u.hp>0?1:.25);
  this.figures.set(u.id,c);
  if(u.hp>0)c.setSize(80,110).setInteractive().on('pointerup',()=>this.game.events.emit('unit-tap',u.id));
@@ -36,16 +39,21 @@ export class Stage extends Phaser.Scene {
  if(u.hp>0&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)this.tweens.add({targets:figure,y:figure.y-(active?4:2),duration:1000+index*90,yoyo:true,repeat:-1});
  }
  effect(event:BattleEvent){
- const actor=this.figures.get(event.actor),target=this.figures.get(event.target);
+ const generation=this.generation;
+ const parts=event.effects??[event],actor=this.figures.get(event.actor);
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(actor&&!reduced&&(event.kind==='damage'||event.label==='ミス')){
+ if(actor&&!reduced&&parts.some(p=>p.kind==='damage'||p.label==='ミス')){
   this.tweens.killTweensOf(actor);const direction=this.units.findIndex(u=>u.id===event.actor)<3?-1:1;
   this.tweens.add({targets:actor,y:actor.y+direction*13,duration:140,yoyo:true});
  }
- if(target&&event.kind==='damage'&&!reduced)this.tweens.add({targets:target,alpha:.12,duration:70,yoyo:true,repeat:2});
- if(target&&event.kind==='heal'){
-  const glow=this.add.graphics();glow.lineStyle(5,0x94e9ba,.9);glow.strokeEllipse(target.x,target.y,74,85);
-  if(reduced)this.time.delayedCall(650,()=>glow.destroy());else this.tweens.add({targets:glow,alpha:0,duration:650,onComplete:()=>glow.destroy()});
- }
+ parts.forEach((part,index)=>this.time.delayedCall(index*90,()=>{
+  if(generation!==this.generation)return;
+  const target=this.figures.get(part.target);if(!target?.active)return;
+  if(part.kind==='damage'&&!reduced)this.tweens.add({targets:target,alpha:.12,duration:60,yoyo:true,repeat:1});
+  if(part.kind==='heal'){
+   const glow=this.add.graphics();glow.lineStyle(5,0x94e9ba,.9);glow.strokeEllipse(target.x,target.y,74,85);
+   if(reduced)this.time.delayedCall(550,()=>glow.destroy());else this.tweens.add({targets:glow,alpha:0,duration:550,onComplete:()=>glow.destroy()});
+  }
+ }));
  }
 }

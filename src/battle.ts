@@ -1,3 +1,5 @@
+import {isSkillLearned,type SkillAccess} from './learning';
+import {STAR_POWER} from './star-power';
 import { BALANCE } from './balance';
 import {heroes,enemyTemplates,skills,commandsFor,cloneUnit} from './data/combat';
 import type {Unit,Command,ActionResult,BattleEvent,StatusId,ModifierEffect,Skill} from './types';
@@ -15,10 +17,13 @@ export class Battle {
   private queue: string[] = [];
   private decision:{id:string;speed:number}[]=[];
   readonly log: string[] = ['霧の森で、三体の魔物が立ちはだかった。'];
-  constructor(private readonly random: () => number = Math.random, party?:PartyProgress) {
-    this.allies=heroes.map(h=>growUnit(cloneUnit(h),party?.[h.id]));
+  constructor(private readonly random: () => number = Math.random, party?:PartyProgress,private readonly skillAccess:SkillAccess=isSkillLearned) {
+    this.allies=heroes.map(h=>({...growUnit(cloneUnit(h),party?.[h.id]),star:0,tauntRounds:undefined,barrierCharges:undefined}));
     this.refill();this.prepareTurn();
   }
+  isLearned(unit:Unit,command:Command){return commandsFor(unit).includes(command)&&this.skillAccess(unit,command)}
+  resetBattleResources(){for(const u of this.units){u.star=0;u.tauntRounds=undefined;u.barrierCharges=undefined}}
+  private gainStar(unit:Unit,amount:number){if(this.allies.includes(unit))unit.star=Math.min(STAR_POWER.max,unit.star+amount)}
   get experienceReward(){return this.enemies.reduce((sum,e)=>sum+e.experienceReward,0)}
   applyStatus(targetId:string,id:StatusId,chance?:number,turns?:number):boolean {
     const target=this.units.find(u=>u.id===targetId);if(!target||this.result)return false;
@@ -71,46 +76,77 @@ export class Battle {
     if (!actor) return [];
     const targetKind = skills[command].target;
     if (targetKind === 'self') return [actor];
+    if (targetKind === 'allAllies') return this.allies.filter(u=>u.hp>0);
     const pool = targetKind === 'enemy' ? this.enemies : this.allies;
     return pool.filter(u => u.hp > 0 && (command !== 'cover' || u !== actor));
   }
   canUse(command: Command): boolean {
     const actor = this.current;
-    return this.phase === 'player' && !this.blocked && !!actor && commandsFor(actor).includes(command) && actor.mp >= skills[command].cost && !(isSilenced(actor)&&['magic','heal'].includes(skills[command].kind)) && this.targets(command).length > 0;
+    return this.phase === 'player' && !this.blocked && !!actor && this.isLearned(actor,command) && actor.star>=(skills[command].starCost??0) && actor.mp >= skills[command].cost && !(isSilenced(actor)&&['magic','heal'].includes(skills[command].kind)) && this.targets(command).length > 0 && !(skills[command].target==='allAllies'&&skills[command].kind==='heal'&&!this.targets(command).some(u=>u.hp<u.maxHp||(skills[command].cleanse&&u.statuses.length>0)));
   }
   act(command: Command, targetId?: string, expectedActor = this.current?.id): ActionResult {
     const actor = this.current;
     if (!actor || actor.id !== expectedActor || !this.canUse(command)) return { ok: false, reason: '今はそのコマンドを使えません。' };
-    const target = skills[command].target === 'self' ? actor : this.targets(command).find(u => u.id === targetId);
-    if (!target) return { ok: false, reason: '生存している対象を選んでください。' };
-    if (command === 'heal' && target.hp === target.maxHp) return { ok: false, reason: 'HPが満タンです。別の味方を選んでください。' };
-    actor.mp -= skills[command].cost;
-    const event: BattleEvent = { actor: actor.id, target: target.id, command, amount: 0, kind: 'status', critical: false, covered: false, logs: [] };
-    const skill=skills[command];
-    if (skill.kind === 'guard') {
-      actor.guarding = command==='guard'?'guard':'defend';
-      event.logs.push(`${actor.name}は${skills[command].name}！ 次の行動まで身を守る。`);
-    } else if (skill.kind === 'cover') {
-      actor.covering = target.id;
-      event.logs.push(`${actor.name}は${target.name}をかばう！`);
-    } else if (skill.kind === 'heal') {
-      event.kind = 'heal'; event.amount = Math.min(skill.power??0, target.maxHp - target.hp);
-      target.hp += event.amount; event.logs.push(`${actor.name}のヒール！ ${target.name}のHPが${event.amount}回復。`);
-    } else {
-      const power = skill.power??statValue(actor,'attack')*(skill.attackScale??1);
-      this.damage(event, actor, target, power);
+    const skill=skills[command],all=skill.target==='allAllies';
+    const targets=all?this.targets(command):skill.target==='self'?[actor]:this.targets(command).filter(u=>u.id===targetId);
+    if(!targets.length)return {ok:false,reason:'生存している対象を選んでください。'};
+    if(skill.kind==='heal'&&!targets.some(u=>u.hp<u.maxHp||(skill.cleanse&&u.statuses.length>0)))return {ok:false,reason:'HPが満タンです。別の味方を選んでください。'};
+    actor.mp-=skill.cost;actor.star-=skill.starCost??0;
+    const target=targets[0],event=this.makeEvent(actor,target,command);
+    if(skill.starCost)event.logs.push(`${actor.name}の必殺技 ${skill.name}！ 星力${skill.starCost}消費。`);
+    if(skill.kind==='guard'){
+      actor.guarding=command==='guard'?'guard':'defend';event.logs.push(`${actor.name}は${skill.name}！ 次の行動まで身を守る。`);
+    }else if(skill.kind==='cover'){
+      actor.covering=target.id;event.logs.push(`${actor.name}は${target.name}をかばう！`);
+    }else if(skill.kind==='taunt'){
+      actor.tauntRounds=2;event.label='挑発';event.logs.push(`${actor.name}は挑発！ 発動ラウンドと次ラウンドの単体攻撃を引き受ける。`);
+    }else{
+      const parts:BattleEvent[]=[];
+      for(const recipient of targets){
+        for(let hit=0;hit<(skill.hits??1)&&recipient.hp>0;hit++){
+          const part=all||(skill.hits??1)>1?this.makeEvent(actor,recipient,command):event;
+          if((skill.hits??1)>1){part.hitIndex=hit+1;part.logs.push(`${skill.name} 第${hit+1}撃`)}
+          if(skill.kind==='heal'){
+            part.kind='heal';part.amount=Math.min(skill.power??0,recipient.maxHp-recipient.hp);recipient.hp+=part.amount;
+            part.logs.push(`${actor.name}の${skill.name}！ ${recipient.name}のHPが${part.amount}回復。`);
+            if(skill.cleanse){const names=recipient.statuses.map(s=>statusDefinitions[s.id].name);clearStatus(recipient);if(names.length)part.logs.push(`${recipient.name}の${names.join('・')}を解除。`)}
+          }else if(skill.kind==='barrier'){
+            recipient.barrierCharges=1;part.label='誓盾';part.logs.push(`${recipient.name}に1回限りの50%軽減を付与。`);
+          }else if(skill.kind==='buff'){
+            part.label='防御力上昇';
+          }else{
+            this.damage(part,actor,recipient,skill.power??statValue(actor,'attack')*(skill.attackScale??1));
+          }
+          this.applyEffects(part,actor,recipient,skill);parts.push(part);
+        }
+      }
+      if(all||(skill.hits??1)>1){
+        event.effects=parts;event.kind=skill.kind==='heal'?'heal':skill.kind==='physical'||skill.kind==='magic'?'damage':'status';
+        event.amount=parts.reduce((sum,p)=>sum+p.amount,0);event.critical=parts.some(p=>p.critical);event.affinity=parts[0]?.affinity;
+        event.logs.push(...parts.flatMap(p=>p.logs));
+      }
     }
-    this.applyEffects(event,actor,target,skill);
+    if(['guard','cover','taunt'].includes(skill.kind))this.applyEffects(event,actor,target,skill);
+    for(const effect of skill.selfModifiers??[])if(modify(actor,effect))event.logs.push(`${actor.name}の能力値が変化した。`);
+    if(!skill.starCost){
+      if(command==='attack'){if((event.effects??[event]).some(hit=>(hit.hpLoss??0)>0))this.gainStar(actor,STAR_POWER.attack)}
+      else this.gainStar(actor,skill.kind==='guard'?STAR_POWER.defend:STAR_POWER.skill);
+    }
     return this.complete(event);
+  }
+  private makeEvent(actor:Unit,target:Unit,command:Command):BattleEvent {
+    return {actor:actor.id,target:target.id,command,amount:0,kind:'status',critical:false,covered:false,logs:[],...(skills[command].starCost?{ultimate:true}:{})};
   }
   enemyAct(expectedActor = this.current?.id): ActionResult {
     const actor = this.current;
     if (this.phase !== 'enemy' || this.blocked || !actor || actor.id !== expectedActor) return { ok: false, reason: '敵の行動ではありません。' };
     const living = this.allies.filter(u => u.hp > 0);
-    const original = living[Math.min(living.length - 1, Math.floor(this.random() * living.length))];
+    const taunter=living.find(u=>(u.tauntRounds??0)>0);
+    const original = taunter||living[Math.min(living.length - 1, Math.floor(this.random() * living.length))];
     const protector = this.allies.find(u => u.hp > 0 && u.covering === original.id);
     const target = protector || original;
     const event: BattleEvent = { actor: actor.id, target: target.id, command: 'attack', amount: 0, kind: 'damage', critical: false, covered: !!protector, logs: [] };
+    if(taunter){event.taunted=true;event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`)}
     if (protector) event.logs.push(`${protector.name}が${original.name}をかばった！`);
     this.damage(event, actor, target, statValue(actor,'attack') * (protector ? BALANCE.coverMultiplier : 1));
     this.applyEffects(event,actor,target,skills.attack);
@@ -130,28 +166,35 @@ export class Battle {
     event.element=skill.kind==='physical'?actor.attackElement:skill.element;
     event.affinity=affinity(target,event.element);
     event.kind = 'damage'; event.critical = this.random() < BALANCE.criticalChance;
+    const barrier=(target.barrierCharges??0)>0?0.5:1;
     const reduction = target.guarding === 'guard' ? BALANCE.guardMultiplier : target.guarding ? BALANCE.defendMultiplier : 1;
-    event.amount = Math.max(1, Math.round(power * (EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense'))) * event.affinity * reduction * (event.critical ? BALANCE.criticalMultiplier : 1)));
+    event.amount = Math.max(1, Math.round(power * (EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense'))) * event.affinity * reduction * barrier * (event.critical ? BALANCE.criticalMultiplier : 1)));
     event.damageTrace={power,effectiveAttack:statValue(actor,'attack'),effectiveDefense:statValue(target,'defense'),
       defenseMultiplier:EFFECT_RULES.defenseReference/Math.max(EFFECT_RULES.minimumDefense,statValue(target,'defense')),
       elementMultiplier:event.affinity,guardMultiplier:reduction,coverMultiplier:event.covered?BALANCE.coverMultiplier:1,
-      criticalMultiplier:event.critical?BALANCE.criticalMultiplier:1};
+      criticalMultiplier:event.critical?BALANCE.criticalMultiplier:1,barrierMultiplier:barrier};
     if(event.affinity===0)event.amount=0;
-    target.hp = Math.max(0, target.hp - event.amount);
+    const beforeHp=target.hp;target.hp = Math.max(0, target.hp - event.amount);event.hpLoss=beforeHp-target.hp;
+    if(event.hpLoss>0){this.gainStar(target,STAR_POWER.damage);if(barrier<1){target.barrierCharges=0;event.logs.push(`${target.name}の誓盾がダメージを50%軽減して消えた。`)}}
     if(event.amount>0){
       for(const state of [...target.statuses])if(statusDefinitions[state.id].breakOnDamage){clearStatus(target,state.id);event.logs.push(`${target.name}の${statusDefinitions[state.id].name}がダメージで解除された。`)}
     }
     if(event.affinity!==1)event.logs.push(event.affinity>1?'弱点を突いた！':'属性耐性で軽減された。');
     event.logs.push(`${actor.name}の${skills[event.command].name}！ ${target.name}に${event.amount}ダメージ。${event.critical ? ' クリティカル！' : ''}`);
-    if (target.hp === 0) {target.statuses=[];target.modifiers=[];target.guarding=undefined;target.covering=undefined;}
+    if (target.hp === 0) {target.statuses=[];target.modifiers=[];target.guarding=undefined;target.covering=undefined;target.tauntRounds=undefined;target.barrierCharges=undefined;}
     if (target.hp === 0) event.logs.push(`${target.name}は${this.enemies.includes(target) ? '撃破された' : '戦闘不能になった'}。`);
   }
   private complete(event: BattleEvent): ActionResult {
     const actor=this.units.find(u=>u.id===event.actor)!;
-    event.logs.push(...endTurn(actor));
+    event.logs.push(...endTurn(actor,()=>this.gainStar(actor,STAR_POWER.damage)));
+    if(actor.hp===0){actor.tauntRounds=undefined;actor.barrierCharges=undefined;}
     this.log.push(...event.logs); if (this.log.length > 100) this.log.splice(0, this.log.length - 100);
     this.queue.shift(); this.queue = this.queue.filter(id => this.units.some(u => u.id === id && u.hp > 0));
-    if (!this.result && !this.queue.length) { this.round++; this.refill(); }
+    if (!this.result && !this.queue.length) {
+      for(const u of this.units)if((u.tauntRounds??0)>0){u.tauntRounds=(u.tauntRounds??0)-1;if(u.tauntRounds===0){const line=`${u.name}の挑発が期限切れで解除された。`;event.logs.push(line);this.log.push(line)}}
+      this.round++; this.refill();
+    }
+    if(this.result)this.resetBattleResources();
     // Effects expire at the start of their owner's next turn, including skipped dead units.
     this.prepareTurn();
     return { ok: true, event };

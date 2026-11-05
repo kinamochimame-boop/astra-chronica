@@ -35,19 +35,19 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
  <label>乱数（変更時に戦闘リセット）<select id="lab-random"><option value="normal">通常乱数</option><option value="seed">固定seed42（再現用）</option><option value="high">固定0.99（非会心・麻痺不発）</option><option value="low">固定0（会心・麻痺発生）</option></select></label>
  <label>検証条件<select id="lab-scenario"><option value="sleep-natural">睡眠の自然解除・持続3</option><option value="freeze-natural">凍結の自然解除・持続3</option><option value="sleep-hit">睡眠の被攻撃解除</option><option value="freeze-hit">凍結の被攻撃解除</option><option value="speed">素早さ検証・メイ+50%</option></select></label>
  <button id="lab-preset" class="lab-wide">条件をセット（検証戦闘リセット）</button>
- <button id="lab-reset">戦闘をリセット</button><button id="lab-xp">経験値120を試す（保存なし）</button></div>
+ <label>検証レベル（変更時リセット）<select id="lab-level"><option>1</option><option>3</option><option>5</option><option>7</option><option>10</option></select></label><button id="lab-star">効果付与対象の星力を100に（保存なし）</button><button id="lab-reset">戦闘をリセット</button><button id="lab-xp">経験値120を試す（保存なし）</button></div>
  <p id="lab-notice" role="status"></p><p id="lab-current"></p><p id="lab-duration"></p>
  <section class="lab-orders"><h2>素早さと行動順</h2><p id="lab-order-fixed"></p><p id="lab-order-remaining"></p><p id="lab-order-projected"></p><p class="hint">順番はラウンド開始時に確定。途中の素早さ変更は次ラウンドから反映します。候補は現時点の能力で仮計算し、次ラウンドまでの期限切れで変わる場合があります。同速は元の登録順です。</p></section>
  <div id="lab-units"></div><h2>検証専用ログ</h2><pre id="lab-log"></pre><p id="lab-growth"></p><button id="lab-back" class="secondary">ホームへ戻る</button>`;
  const el=<T extends HTMLElement=HTMLElement>(id:string)=>host.querySelector<T>(`#lab-${id}`)!;
  const value=(id:string)=>el<HTMLSelectElement>(id).value;
  const statNames:Record<Stat,string>={attack:'攻撃力',defense:'防御力',speed:'素早さ'};
- const newSession=()=>{const mode=value('random');session=new LabSession(mode==='seed'?seededRandom():mode==='high'?()=>0.99:mode==='low'?()=>0:Math.random);session.enemyAttacksEnabled=!el<HTMLInputElement>('stop-enemies').checked;el<HTMLSelectElement>('target').value='astel'};
+ const newSession=()=>{const mode=value('random'),party=initialParty();for(const hero of Object.values(party))hero.level=Number(value('level'));session=new LabSession(mode==='seed'?seededRandom():mode==='high'?()=>0.99:mode==='low'?()=>0:Math.random,party);session.enemyAttacksEnabled=!el<HTMLInputElement>('stop-enemies').checked;el<HTMLSelectElement>('target').value='astel'};
  const populate=(id:string,units:{id:string;name:string}[],selected:string)=>{const field=el<HTMLSelectElement>(id);field.innerHTML=options(Object.fromEntries(units.map(u=>[u.id,u.name])));field.value=selected;field.disabled=units.length===0};
  function render(){
   const battle=session.battle,current=battle.current;
   const command=el<HTMLSelectElement>('command'),previous=command.value;
-  command.innerHTML=current?options(Object.fromEntries(commandsFor(current).map(c=>[c,`${skills[c].name} MP${skills[c].cost}`]))):'';
+  command.innerHTML=current?options(Object.fromEntries(commandsFor(current).map(c=>[c,`${skills[c].name} ${skills[c].starCost?'星力'+skills[c].starCost:'MP'+skills[c].cost}${battle.isLearned(current,c)?'':' 未習得Lv.'+skills[c].unlockLevel}`]))):'';
   if(Array.from(command.options).some(o=>o.value===previous))command.value=previous;
   const cmd=(command.value||'attack') as Command;session.syncTargets(cmd);
   populate('action-target',battle.enemies.filter(u=>u.hp>0),session.attackTarget);
@@ -59,7 +59,7 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
   el('order-fixed').textContent=`第${battle.round}ラウンド確定順（開始時の実効素早さ）：${order(battle.roundOrder)}`;
   el('order-remaining').textContent=`残りの確定順：${battle.remainingOrder.map(u=>u.name).join(' → ')||'なし'}`;
   el('order-projected').textContent=`現時点の能力で次ラウンド候補：${order(battle.projectedOrder)}`;
-  el('units').replaceChildren(...battle.units.map(u=>{const p=document.createElement('p');p.dataset.unitId=u.id;p.textContent=`${u.name} HP ${u.hp}/${u.maxHp} MP ${u.mp}/${u.maxMp}｜攻 ${statValue(u,'attack').toFixed(1)} 防 ${statValue(u,'defense').toFixed(1)} 速 ${statValue(u,'speed').toFixed(1)}（基礎速${u.speed.toFixed(1)}）｜${u.statuses.map(s=>`${statusDefinitions[s.id].name}(${s.remaining})`).join(' ')||'状態異常なし'}｜基礎攻 ${u.attack.toFixed(1)}｜${u.modifiers.map(m=>`${m.stat} ${Math.round(m.amount*100)}%(${m.remaining})`).join(' ')}`;return p}));
+  el('units').replaceChildren(...battle.units.map(u=>{const p=document.createElement('p');p.dataset.unitId=u.id;p.textContent=`${u.name} Lv.${u.level} 星力${u.star}/100 HP ${u.hp}/${u.maxHp} MP ${u.mp}/${u.maxMp}｜攻 ${statValue(u,'attack').toFixed(1)} 防 ${statValue(u,'defense').toFixed(1)} 速 ${statValue(u,'speed').toFixed(1)}（基礎速${u.speed.toFixed(1)}）｜${u.statuses.map(s=>`${statusDefinitions[s.id].name}(${s.remaining})`).join(' ')||'状態異常なし'}｜基礎攻 ${u.attack.toFixed(1)}｜${u.modifiers.map(m=>`${m.stat} ${Math.round(m.amount*100)}%(${m.remaining})`).join(' ')}`;return p}));
   el('log').textContent=session.logs.join('\n');
   el<HTMLButtonElement>('step').disabled=!!battle.result;
   el<HTMLButtonElement>('opportunity').disabled=!!battle.result;
@@ -71,12 +71,14 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
  el('command').onchange=render;
  el('stop-enemies').onchange=()=>{session.enemyAttacksEnabled=!el<HTMLInputElement>('stop-enemies').checked;notice=session.enemyAttacksEnabled?'敵の攻撃を再開しました。':'敵の攻撃を停止しました。行動機会・期限処理は進みます。';session.append(`[検証設定] ${notice}`);render()};
  el('random').onchange=()=>{newSession();notice='乱数条件を変更し、検証戦闘をリセットしました。';session.append(`[乱数] ${value('random')}`);render()};
+ el('level').onchange=()=>{newSession();notice='検証レベルを変更しました。本編のレベルは変更しません。';session.append(`[検証設定] レベル${value('level')}`);render()};
+ el('star').onclick=()=>{const u=session.battle.allies.find(u=>u.id===session.effectTarget);notice=u&&u.hp>0?`${u.name}の星力を検証用に100へ設定しました。`:'生存する味方を効果付与対象に選んでください。';if(u&&u.hp>0)u.star=100;session.append(`[検証設定] ${notice}`);render()};
  el('inflict').onclick=()=>{const id=value('status') as StatusId,ok=session.inflict(id,Number(value('chance')),Number(value('turns')));notice=`${statusDefinitions[id].name}：${ok?'付与成功':'付与失敗'}（${session.battle.units.find(u=>u.id===session.effectTarget)!.name}）`;render()};
  el('clear').onclick=()=>{session.clearStatuses();notice='効果付与対象の全状態異常を手動解除しました。';render()};
  el('modify').onclick=()=>{const target=session.battle.units.find(u=>u.id===session.effectTarget)!,stat=value('stat') as Stat,before=statValue(target,stat),amount=Number(value('amount'));const ok=session.modify({stat,amount,turns:Number(value('turns'))});notice=ok?`${target.name}に${statNames[stat]}${amount>0?'+':''}${amount*100}%を付与しました。実効値 ${before.toFixed(1)} → ${statValue(target,stat).toFixed(1)}。同符号は加算・75%上限、持続は長い方へ更新。`:'付与できません。';render()};
  el('clear-modifiers').onclick=()=>{session.clearModifiers();notice='効果付与対象の能力補正を手動解除しました。';render()};
  el('element-apply').onclick=()=>{const battle=session.battle,element=value('element') as Element,target=battle.units.find(u=>u.id===session.effectTarget)!;if(battle.current){battle.current.attackElement=element;target.affinities[element]=Number(value('affinity'));notice=`${ELEMENTS[element]}属性を設定。相性対象：${target.name}。攻撃対象は独立して選択してください。`;session.append(`[属性設定] ${battle.current.name}の攻撃属性=${ELEMENTS[element]}、${target.name}の倍率=${value('affinity')}`)}render()};
- el('step').onclick=()=>{const result=session.step(value('command') as Command);notice=result.ok?result.event.logs.join(' '):result.reason;if(result.ok&&result.event.damageTrace&&skills[result.event.command].kind==='physical'){const trace=result.event.damageTrace;const actor=session.battle.units.find(u=>u.id===result.event.actor)!;notice+=` 実行時の攻撃力：基礎 ${actor.attack.toFixed(1)} → 実効 ${trace.effectiveAttack.toFixed(1)}。`}render()};
+ el('step').onclick=()=>{const result=session.step(value('command') as Command);notice=result.ok?result.event.logs.join(' '):result.reason;if(result.ok&&(result.event.damageTrace||result.event.effects?.[0]?.damageTrace)&&skills[result.event.command].kind==='physical'){const trace=(result.event.damageTrace||result.event.effects![0].damageTrace)!;const actor=session.battle.units.find(u=>u.id===result.event.actor)!;notice+=` 実行時の攻撃力：基礎 ${actor.attack.toFixed(1)} → 実効 ${trace.effectiveAttack.toFixed(1)}。`}render()};
  el('opportunity').onclick=()=>{const result=session.targetOpportunity();notice=result.ok?session.lastOpportunity:result.reason;render()};
  el('next-round').onclick=()=>{session.nextRound();notice=`第${session.battle.round}ラウンドの順番を確認してください。全員待機で進めました。`;render()};
  el('preset').onclick=()=>{

@@ -32,11 +32,11 @@ export function blockingStatus(u:Unit,random:()=>number):StatusId|undefined {
  return u.statuses.find(s=>{const chance=statusDefinitions[s.id].skipChance;return chance!==undefined&&random()<chance})?.id;
 }
 export function isSilenced(u:Unit){return u.statuses.some(s=>statusDefinitions[s.id].silence)}
-export function endTurn(u:Unit):string[] {
+export function endTurn(u:Unit,onDamage?:(hpLoss:number)=>void):string[] {
  const logs:string[]=[];
  for(const s of u.statuses){
   const def=statusDefinitions[s.id];
-  if(u.hp>0&&def.damageRate){const amount=Math.max(1,Math.floor(u.maxHp*def.damageRate));u.hp=Math.max(0,u.hp-amount);logs.push(`${u.name}は${def.name}で${amount}ダメージ。`);if(u.hp===0)logs.push(`${u.name}は戦闘不能になった。`)}
+  if(u.hp>0&&def.damageRate){const amount=Math.max(1,Math.floor(u.maxHp*def.damageRate));const before=u.hp;u.hp=Math.max(0,u.hp-amount);if(before>u.hp)onDamage?.(before-u.hp);logs.push(`${u.name}は${def.name}で${amount}ダメージ。`);if(u.hp===0)logs.push(`${u.name}は戦闘不能になった。`)}
   s.remaining--;if(s.remaining===0)logs.push(`${u.name}の${def.name}が解除された。`);
  }
  u.statuses=u.statuses.filter(s=>s.remaining>0);
