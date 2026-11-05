@@ -6,7 +6,7 @@ import {chapterFour as c} from '../src/data/chapter-four';
 import {crystalEnemies} from '../src/data/chapter-four-enemies';
 import {chapterFourWeapons} from '../src/data/weapons';
 import {sideQuests as allQuests} from '../src/data/side-quests';
-import {dialogueChoices} from '../src/data/dialogue-choices';
+import {dialogueChoices as allDialogueChoices} from '../src/data/dialogue-choices';
 import {recordChoice} from '../src/dialogue-choices';
 import {journalFor} from '../src/journal';
 import {journalEntries} from '../src/data/journal';
@@ -19,6 +19,7 @@ import {equipWeapon,equippedUnit} from '../src/equipment';
 import {heroes,cloneUnit} from '../src/data/combat';
 import {seededRandom,LabSession} from '../src/lab-session';
 import {explorationRecord} from '../src/exploration-records';
+const dialogueChoices=allDialogueChoices.filter(c=>c.chapterId==='chapter-04');
 const sideQuests=allQuests.filter(q=>q.chapterId==='chapter-04');
 const ev=(r:ActionResult)=>{expect(r.ok).toBe(true);if(!r.ok)throw Error(r.reason);return r.event};
 function until(b:Battle,id:string){for(let n=0;n<30&&!b.result&&b.current?.id!==id;n++)b.waitTurn();expect(b.current?.id).toBe(id)}
@@ -37,7 +38,7 @@ function fight(b:Battle){for(let n=0;n<450&&!b.result;n++){
  ev(b.act(cmd,target));for(const a of b.allies){expect(a.hp).toBeGreaterThanOrEqual(0);expect(a.mp).toBeGreaterThanOrEqual(0);expect(a.star).toBeLessThanOrEqual(100)}
  }expect(b.result).not.toBeNull();return b.result!}
 describe('chapter four data and sequential adventure',()=>{
- it('registers only four chapters, 13 locations and 17 unique main events',()=>{expect(chapters.map(c=>c.id)).toEqual(['chapter-01','chapter-02','chapter-03','chapter-04']);expect(c.locations).toHaveLength(13);expect(c.events).toHaveLength(17);expect(new Set(c.events.map(e=>e.id)).size).toBe(17);for(const l of c.locations)expect(c.events.some(e=>e.locationId===l.id)).toBe(true);expect(new Battle().allies.map(u=>u.id)).toEqual(['astel','rina','mei'])});
+ it('registers chapter four in the growing registry, with 13 locations and 17 unique main events',()=>{expect(chapters.map(c=>c.id)).toEqual(['chapter-01','chapter-02','chapter-03','chapter-04','chapter-05']);expect(c.locations).toHaveLength(13);expect(c.events).toHaveLength(17);expect(new Set(c.events.map(e=>e.id)).size).toBe(17);for(const l of c.locations)expect(c.events.some(e=>e.locationId===l.id)).toBe(true);expect(new Battle().allies.map(u=>u.id)).toEqual(['astel','rina','mei'])});
  it('requires chapter three clear and refuses locked chapter/location/choice/battle',()=>{const p=fresh();complete(p,chapterOne);complete(p,chapterTwo);expect(chapterOpen(p.adventure,c)).toBe(false);expect(visitLocation(p.adventure,c,'c4-stairs')).toBe(false);expect(completeEvent(p,c,'c4-arrival').ok).toBe(false);expect(beginAdventureBattle(p,c,'c4-echoria')).toBeUndefined();expect(recordChoice(p,'c4-first-meeting','ask-people')).toBe(false);complete(p,chapterThree);expect(chapterOpen(p.adventure,c)).toBe(true);expect(visitLocation(p.adventure,c,'c4-chamber')).toBe(false)});
  it('completes all places without optional quests and preserves earlier progress',()=>{const p=ready(),before=structuredClone(p.adventure.chapters);complete(p,c,undefined,true);expect(chapterCleared(p.adventure,c)).toBe(true);expect(p.adventure.exploration![c.id].visited).toHaveLength(13);for(const ch of [chapterOne,chapterTwo,chapterThree])expect(p.adventure.chapters[ch.id]).toEqual(before[ch.id]);expect(p.quests).toEqual({});expect(Object.keys(p.choices)).toHaveLength(4)});
  it('defeat, reload and a superseding retry award exactly one victory',()=>{let p=ready();complete(p,c,'c4-silence',true);const a=beginAdventureBattle(p,c,'c4-market-fight')!;resolveAdventureBattle(p,a,'defeat');const b=beginAdventureBattle(p,c,'c4-market-fight')!;p=load({getItem:()=>JSON.stringify(p)});const d=beginAdventureBattle(p,c,'c4-market-fight')!;expect(resolveAdventureBattle(p,b,'victory').applied).toBe(false);expect(resolveAdventureBattle(p,d,'victory').applied).toBe(true);const before=structuredClone(p);expect(resolveAdventureBattle(p,d,'victory').applied).toBe(false);expect(p).toEqual(before)});

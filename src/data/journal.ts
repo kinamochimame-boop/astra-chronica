@@ -17,4 +17,10 @@ export const journalEntries:readonly JournalEntry[]=[
  {id:'j4-iris',chapterId:'chapter-04',eventId:'c4-workshop-story',kind:'npc',title:'工房番イリス',text:'眠る人々が帰る場所を保つ工房番。水晶灯や共鳴石の依頼を掲げている。'},
  {id:'j4-record',chapterId:'chapter-04',eventId:'c4-starseer-record',kind:'record',title:'消された一節',text:'歌は永遠の封印として作られたのではなかった。帰る道の名を残す、という追記がある。'},
  {id:'j4-clear',chapterId:'chapter-04',eventId:'c4-clear',kind:'summary',title:'朝を待つ歌',text:'歌の輪が解け、人々は目覚め始めた。セレナは一人ずつ声を聞く道を選ぶ。失われた最後の一節は、砂の都への新しい謎となった。'},
+ {id:'j5-arrival',chapterId:'chapter-05',eventId:'c5-arrival',kind:'summary',title:'砂海への地下出口',text:'セレナが開いた道を越え、エコーリアの記録の続きを求めてサハリアへ向かう。'},
+ {id:'j5-nadia',chapterId:'chapter-05',eventId:'c5-nadia',kind:'npc',title:'案内人ナディア',text:'失った商隊を探す若い案内人。古い地図を信じて案内を誤った過去を語った。'},
+ {id:'j5-rashid',chapterId:'chapter-05',eventId:'c5-rashid',kind:'npc',title:'天文官ラシード',text:'星砂の配分と羅針盤の働きを知る天文官。失われた歌の写しを受け取っていたが、送り主の名は明かさない。'},
+ {id:'j5-record',chapterId:'chapter-05',eventId:'c5-compass-puzzle',kind:'record',title:'四方に帰る歌',text:'歌の写しと風読み印を手掛かりに、古代術式の四つの方位環を合わせた。記録は命令ではなく、今の流れを読むための手掛かりだった。'},
+ {id:'j5-zaira',chapterId:'chapter-05',eventId:'c5-shield-gift',kind:'npc',title:'砂海の守護者ザイラ',text:'王都だけに集まる星砂が砂海を枯らすことを恐れ、羅針盤の流れを止めた守護者。暴走する嵐は彼女にも止めきれなかった。'},
+ {id:'j5-clear',chapterId:'chapter-05',eventId:'c5-clear',kind:'summary',title:'羅針盤の空白',text:'王都と砂海へ星砂を分け、嵐を鎮めた。失われた歌の写しは北の霜境を示し、原本と歌い手の名の謎は残る。ナディアは確かめた複数の道を地図に残した。'},
 ];
