@@ -1,3 +1,4 @@
+import {battleEventParts} from './types';
 import {equippedWeapon} from './equipment';
 import {skills,commandsFor,type Battle,type Unit,type Command,type BattleEvent} from './battle';
 import {badges,commandReason,targetReason,visibleOrder,effectPresentation} from './battle-presentation';
@@ -81,9 +82,9 @@ export class BattleView {
  private openLog(){this.open('戦闘ログ');const lines=document.createElement('div');lines.className='normal-log-history';for(const line of this.state.battle.log){const p=document.createElement('p');p.textContent=line;lines.append(p)}this.get('.dialog-body').append(lines)}
  private openMenu(){this.open('戦闘メニュー');const note=document.createElement('p');note.textContent='撤退すると敗北として記録されます。';const retreat=document.createElement('button');retreat.className='secondary';retreat.textContent='撤退する（敗北）';retreat.onclick=()=>{this.dialog.close();this.actions.retreat()};this.get('.dialog-body').append(note,retreat)}
  present(event:BattleEvent,notices:string[]){
-  const parts=event.effects??[event],actor=this.state.battle.units.find(u=>u.id===event.actor)!,target=this.state.battle.units.find(u=>u.id===event.target)!;
+  const parts=battleEventParts(event),actor=this.state.battle.units.find(u=>u.id===event.actor)!,target=this.state.battle.units.find(u=>u.id===event.target)!;
   const group=skills[event.command].target==='allAllies';
-  const values=parts.map(p=>effectPresentation(p).value).join(' / ');
+  const values=parts.map(p=>`${p.actionName==='反撃'?'反撃 ':''}${effectPresentation(p).value}`).join(' / ');
   this.lastSummary=`${actor.name} → ${group?'生存する味方全体':target.name}${event.covered?'（かばう）':''}：${event.actionName??skills[event.command].name} ${values}${event.hint?` ｜${event.hint}`:''}`;this.get('.battle-log').textContent=this.lastSummary;
   this.effects.replaceChildren();
   parts.forEach((part,i)=>{

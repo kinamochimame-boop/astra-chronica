@@ -1,3 +1,4 @@
+import {battleEventParts} from './types';
 import Phaser from 'phaser';
 import {heroes,type Unit,type BattleEvent} from './battle';
 /** Set Unit.texture to a preloaded asset key to replace the placeholder. */
@@ -40,7 +41,7 @@ export class Stage extends Phaser.Scene {
  }
  effect(event:BattleEvent){
  const generation=this.generation;
- const parts=event.effects??[event],actor=this.figures.get(event.actor);
+ const parts=battleEventParts(event),actor=this.figures.get(event.actor);
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(actor&&!reduced&&parts.some(p=>p.kind==='damage'||p.label==='ミス')){
   this.tweens.killTweensOf(actor);const direction=this.units.findIndex(u=>u.id===event.actor)<3?-1:1;

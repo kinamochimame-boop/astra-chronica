@@ -18,6 +18,7 @@
     "test:adventure": "node tests/adventure-v08.e2e.mjs",
     "test:tree": "node tests/skill-tree-v09.e2e.mjs",
     "test:chapter-two": "node tests/chapter-two-v10.e2e.mjs",
+    "test:chapter-five": "node tests/chapter-five-v13.e2e.mjs && node tests/chapter-five-ui-v13.e2e.mjs",
     "test:chapter-four": "node tests/chapter-four-v12.e2e.mjs && node tests/chapter-four-ui-v12.e2e.mjs",
     "test:chapter-three": "node tests/chapter-three-v11.e2e.mjs && node tests/chapter-three-layout-v11.e2e.mjs"
   },

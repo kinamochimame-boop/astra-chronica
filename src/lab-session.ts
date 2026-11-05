@@ -1,3 +1,4 @@
+import {battleEventParts} from './types';
 import type {PartyProgress} from './progression';
 import {Battle,skills} from './battle';
 import {statValue,statusDefinitions} from './effects';
@@ -69,7 +70,7 @@ export class LabSession {
   if(blocked)this.append(`[行動制限] ${actor!.name}：${statusDefinitions[blocked].name}によりスキップ`);
   else if(before.find(u=>u.id===actor!.id)!.statuses.some(s=>s.id==='paralysis'))this.append(`[行動制限判定] ${actor!.name}：麻痺の行動不能は不発`);
   this.append(...event.logs);
-  for(const part of event.effects??[event]){const t=part.damageTrace;
+  for(const part of battleEventParts(event)){const t=part.damageTrace;
    if(t)this.append(`[計算${part.hitIndex?` 第${part.hitIndex}撃`:''}] 実効攻撃${t.effectiveAttack.toFixed(1)} / 防御${t.effectiveDefense.toFixed(1)}。入力威力${t.power.toFixed(2)}（かばう倍率${t.coverMultiplier}反映済） × 防御補正${t.defenseMultiplier.toFixed(3)} × 属性${t.elementMultiplier} × ガード${t.guardMultiplier} × 誓盾${t.barrierMultiplier??1} × 会心${t.criticalMultiplier} → ${part.amount}ダメージ（丸め・最低値適用）`);
   }
   this.changes(before,event.actor,event.kind==='damage'&&event.amount>0?event.target:undefined,!!skills[event.command].cleanse);

@@ -8,6 +8,8 @@ export function badges(u:Unit):Badge[]{
  return [
   ...u.statuses.map(s=>({symbol:STATUS_ICONS[s.id],name:statusDefinitions[s.id].name,detail:`残り${s.remaining}行動`,kind:'status' as const})),
   ...u.modifiers.map(m=>({symbol:`${m.stat==='attack'?'攻':m.stat==='defense'?'防':'速'}${m.amount>0?'↑':'↓'}`,name:`${stats[m.stat]}${m.amount>0?'+':''}${Math.round(m.amount*100)}%`,detail:`残り${m.remaining}行動`,kind:m.amount>0?'buff' as const:'debuff' as const})),
+  ...(u.hp>0&&u.counterReady?[{symbol:'反',name:'反撃待機',detail:'次の本人の行動機会まで、最初の物理被弾に1回反撃。魔法には反撃しない。',kind:'guard' as const}]:[]),
+  ...(u.hp>0&&u.phaseEvasion&&u.hp/u.maxHp<=u.phaseEvasion.threshold?[{symbol:'幻',name:'幻影',detail:`物理回避${Math.round(u.phaseEvasion.chance*100)}%。魔法には適用しない。`,kind:'guard' as const}]:[]),
   ...(u.guarding?[{symbol:'盾',name:u.guarding==='guard'?'ガード':'防御',detail:'次の本人の行動開始まで',kind:'guard' as const}]:[]),
   ...((u.tauntRounds??0)>0?[{symbol:'挑',name:'挑発',detail:`残り${u.tauntRounds}ラウンド`,kind:'guard' as const}]:[]),
   ...((u.barrierCharges??0)>0?[{symbol:'壁',name:'不落の誓盾',detail:`直接攻撃を残り${u.barrierCharges}回50%軽減`,kind:'guard' as const}]:[]),

@@ -33,7 +33,12 @@ export const chapterFourWeapons:readonly Weapon[]=[
  {id:'resonance-shield-flail',name:'共鳴の盾槌',family:'shieldFlail',owner:'rina',bonuses:{attack:6,defense:8},effects:{guardReduction:0.05},description:'盾＆フレイル系。攻撃＋6、防御＋8。ガードの被ダメージ倍率−0.05（防御には適用しない）。'},
  {id:'mooncrystal-rod',name:'月晶のロッド',family:'rod',owner:'mei',bonuses:{attack:5,maxMp:8},effects:{magicRate:1.18},description:'攻撃＋5、最大MP＋8、属性攻撃魔法＋18%。回復量の補正なし。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons];
+export const chapterFiveWeapons:readonly Weapon[]=[
+ {id:'sandstar-duals',name:'砂星の双剣',family:'dualBlades',owner:'astel',bonuses:{attack:9,speed:3},effects:{normalHits:2},description:'攻撃＋9、速度＋3。通常攻撃は0.5倍×2。連牙斬等のヒット数は増やさない。'},
+ {id:'saharia-guard-spear',name:'王都守護の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:4,defense:11},effects:{guardReduction:0.05},description:'攻撃＋4、防御＋11。ガード被ダメージ倍率−0.05（共通防御には適用しない）。'},
+ {id:'mirage-wand',name:'蜃気楼のワンド',family:'wand',owner:'mei',bonuses:{attack:5,maxMp:10},effects:{magicRate:1.18},description:'攻撃＋5、最大MP＋10。属性攻撃魔法＋18%。回復補正なし。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

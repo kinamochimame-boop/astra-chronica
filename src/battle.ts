@@ -36,7 +36,7 @@ export class Battle {
     this.refill();this.prepareTurn();
   }
   isLearned(unit:Unit,command:Command){return this.availableCommands(unit).includes(command)&&this.skillAccess(unit,command)}
-  resetBattleResources(){for(const u of this.units){u.star=0;u.tauntRounds=undefined;u.barrierCharges=undefined}}
+  resetBattleResources(){for(const u of this.units){u.star=0;u.tauntRounds=undefined;u.barrierCharges=undefined;if(u.counterReady)u.counterReady=false}}
   private gainStar(unit:Unit,amount:number){if(this.allies.includes(unit))unit.star=Math.min(STAR_POWER.max,unit.star+amount+Math.min(TREE_LIMITS.starBonus,treeValue(unit,'starGain')))}
   get experienceReward(){return this.enemies.reduce((sum,e)=>sum+e.experienceReward,0)}
   applyStatus(targetId:string,id:StatusId,chance?:number,turns?:number):boolean {
@@ -60,7 +60,7 @@ export class Battle {
   }
   private prepareTurn(){
     const actor=this.current;this.blocked=actor?blockingStatus(actor,this.random):undefined;
-    if(actor){actor.guarding=undefined;actor.covering=undefined}
+    if(actor){actor.guarding=undefined;actor.covering=undefined;if(actor.counterReady)actor.counterReady=false}
   }
   skipTurn():ActionResult {
     const actor=this.current;
@@ -121,7 +121,7 @@ export class Battle {
     }else{
       const parts:BattleEvent[]=[];
       for(const recipient of targets){
-        for(let hit=0;hit<hits&&recipient.hp>0;hit++){
+        for(let hit=0;hit<hits&&recipient.hp>0&&actor.hp>0;hit++){
           const part=all||hits>1?this.makeEvent(actor,recipient,command):event;
           if(hits>1){part.hitIndex=hit+1;part.logs.push(`${skill.name} 第${hit+1}撃`)}
           if(skill.kind==='heal'){
@@ -159,7 +159,8 @@ export class Battle {
     const actor = this.current;
     if (this.phase !== 'enemy' || this.blocked || !actor || actor.id !== expectedActor) return { ok: false, reason: '敵の行動ではありません。' };
     const action=(this.enemyActions.get(actor.id)??0)+1;this.enemyActions.set(actor.id,action);
-    if(actor.enemyMagic||actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='echoria')return this.crystalAct(actor,action);
+    if(actor.enemyPattern==='sandSoldier'&&action%3===2){actor.guarding='defend';actor.counterReady=true;return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'反撃態勢',hint:'砂兵が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。',logs:[`${actor.name}は盾を構えた。最初の物理被弾に1回反撃する。`]})}
+    if(actor.enemyMagic||actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='echoria'||actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira')return this.crystalAct(actor,action);
     if(actor.enemyPattern==='mistGuardian'&&action%3===2)return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'霧の吸収',hint:'次は霧裂き！ 防御やガードで備えよう。',logs:[`${actor.name}は霧を吸い込んでいる！ 次の行動は強烈な「霧裂き」。防御やガードで備えよう。`]});
     if(actor.enemyPattern==='canalKeeper'&&action%3===2){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'防御態勢',hint:'番人が盾を閉じた。次の本人の行動まで被ダメージ半減。回復や防御で備えよう。',logs:[`${actor.name}は防御態勢に入った。盾が開くタイミングを待とう。`]})}
     let valleyPower=1;
@@ -197,17 +198,17 @@ export class Battle {
     return this.complete(event);
   }
   private crystalAct(actor:Unit,action:number):ActionResult {
-    const machine=actor.enemyPattern==='resonanceMachine',singer=actor.enemyPattern==='echoria';
+    const desert=actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira',machine=actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='gardion',singer=actor.enemyPattern==='echoria'||actor.enemyPattern==='zaira';
     const phase=singer?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
     const reserved=this.charged.get(actor.id);
     if(!reserved&&((machine&&action%3===2)||(singer&&phase>=2&&action%3===2))){
       if(machine)actor.guarding='defend';
-      const power=machine?65:phase===3?82:62;this.charged.set(actor.id,power);
-      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
+      const power=desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);
+      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
     }
     if(reserved)this.charged.delete(actor.id);
     const magical=!!actor.enemyMagic||!!reserved||(singer&&action%2===0);
-    const skill:Skill=magical?{...skills.fire,name:machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光',element:actor.enemyMagic?.element??'light',power:reserved??actor.enemyMagic?.power??(phase===3?52:44),statuses:singer&&phase>=2?[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]:[]}:skills.attack;
+    const skill:Skill=magical?{...skills.fire,name:desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光',element:actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),statuses:singer&&phase>=2?(desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:skills.attack;
     const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),original=taunter??living[Math.min(living.length-1,Math.floor(this.random()*living.length))],protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
     const event=this.makeEvent(actor,target,magical?'fire':'attack');event.actionName=skill.name;event.covered=!!protector;event.taunted=!!taunter;
     if(taunter)event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`);
@@ -221,13 +222,15 @@ export class Battle {
     if(target.hp<=0||event.label==='ミス')return;
     const effects=[...(skill.statuses??[]),...(skill.kind==='physical'?actor.attackStatuses??[]:[])];
     for(const effect of effects)if(inflict(target,effect.id,this.random,Math.min(1,effect.chance+treeValue(actor,'statusChance',e=>e.command===event.command)),effect.turns))event.logs.push(`${target.name}に${statusDefinitions[effect.id].name}を付与！`);
-    for(const effect of skill.modifiers??[])if(modify(target,{...effect,amount:effect.amount+treeValue(actor,'modifierStrength',e=>e.command===event.command),turns:effect.turns+treeValue(actor,'modifierDuration',e=>e.command===event.command)}))event.logs.push(`${target.name}の能力値が変化した。`);
+    for(const effect of [...(skill.modifiers??[]),...(skill.kind==='physical'?actor.attackModifiers??[]:[])])if(modify(target,{...effect,amount:effect.amount+treeValue(actor,'modifierStrength',e=>e.command===event.command),turns:effect.turns+treeValue(actor,'modifierDuration',e=>e.command===event.command)}))event.logs.push(`${target.name}の能力値が変化した。`);
   }
-  private damage(event: BattleEvent, actor: Unit, target: Unit, power: number, skill:Skill=skills[event.command]) {
+  private damage(event: BattleEvent, actor: Unit, target: Unit, power: number, skill:Skill=skills[event.command],allowReaction=true) {
+    const wasAsleep=target.statuses.some(s=>s.id==='sleep'||s.id==='freeze');
     if(skill.kind==='physical'&&actor.statuses.some(s=>s.id==='blind')&&this.random()>=statusDefinitions.blind.accuracy!){
       event.label='ミス';event.kind='status';event.logs.push(`${actor.name}の攻撃は暗闇で外れた。`);return;
     }
-    if(skill.kind==='physical'&&(target.evasion??0)>0&&this.random()<Math.min(0.5,target.evasion??0)){event.label='ミス';event.kind='status';event.logs.push(`${target.name}が身をかわした！`);return}
+    const evasion=target.phaseEvasion&&target.hp/target.maxHp<=target.phaseEvasion.threshold?target.phaseEvasion.chance:target.evasion??0;
+    if(skill.kind==='physical'&&evasion>0&&this.random()<Math.min(0.5,evasion)){event.label='ミス';event.kind='status';event.logs.push(`${target.name}${target.phaseEvasion?'の幻影が攻撃をかわした！':'が身をかわした！'}`);return}
     event.element=skill.kind==='physical'?actor.attackElement:skill.element;
     event.affinity=affinity(target,event.element);
     event.kind = 'damage'; event.critical = this.random() < Math.min(TREE_LIMITS.criticalRate,BALANCE.criticalChance+treeValue(actor,'criticalRate')+(equippedWeapon(actor)?.effects.criticalRate??0));
@@ -249,12 +252,24 @@ export class Battle {
     if(event.affinity!==1)event.logs.push(event.affinity>1?'弱点を突いた！':'属性耐性で軽減された。');
     event.logs.push(`${actor.name}の${skill.name}！ ${target.name}に${event.amount}ダメージ。${event.critical ? ' クリティカル！' : ''}`);
     if (target.hp === 0) {target.statuses=[];target.modifiers=[];target.guarding=undefined;target.covering=undefined;target.tauntRounds=undefined;target.barrierCharges=undefined;}
+    if(target.hp===0&&target.counterReady)target.counterReady=false;
     if (target.hp === 0) event.logs.push(`${target.name}は${this.enemies.includes(target) ? '撃破された' : '戦闘不能になった'}。`);
+    if(allowReaction&&target.counterReady&&this.enemies.includes(target)&&this.allies.includes(actor)&&skill.kind==='physical'&&(event.hpLoss??0)>0&&target.hp>0&&actor.hp>0)this.react(event,target,actor,wasAsleep);
+  }
+  private react(event:BattleEvent,defender:Unit,attacker:Unit,wasAsleep:boolean){
+    defender.counterReady=false;
+    if(wasAsleep||blockingStatus(defender,this.random)){event.logs.push(`${defender.name}は行動制限により反撃できなかった。`);return}
+    const protector=this.allies.find(u=>u.hp>0&&u.covering===attacker.id),target=protector??attacker;
+    const reaction=this.makeEvent(defender,target,'attack');reaction.actionName='反撃';reaction.covered=!!protector;
+    if(protector)reaction.logs.push(`${protector.name}が${attacker.name}への反撃をかばった！`);
+    const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;
+    this.damage(reaction,defender,target,statValue(defender,'attack')*0.8*cover,skills.attack,false);
+    reaction.logs.unshift(`${defender.name}の反撃！`);event.reactions=[reaction];event.logs.push(...reaction.logs);
   }
   private complete(event: BattleEvent): ActionResult {
     const actor=this.units.find(u=>u.id===event.actor)!;
     event.logs.push(...endTurn(actor,()=>this.gainStar(actor,STAR_POWER.damage)));
-    if(actor.hp===0){actor.tauntRounds=undefined;actor.barrierCharges=undefined;}
+    if(actor.hp===0){actor.tauntRounds=undefined;actor.barrierCharges=undefined;if(actor.counterReady)actor.counterReady=false;}
     this.log.push(...event.logs); if (this.log.length > 100) this.log.splice(0, this.log.length - 100);
     this.queue.shift(); this.queue = this.queue.filter(id => this.units.some(u => u.id === id && u.hp > 0));
     if (!this.result && !this.queue.length) {
