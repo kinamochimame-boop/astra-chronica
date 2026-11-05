@@ -1,9 +1,10 @@
+import {initialAdventure,normalizeAdventure,type AdventureProgress} from './adventure';
 import {initialEquipment,normalizeEquipment,type EquipmentState} from './equipment';
 import {initialParty,PROGRESSION,requiredExperience,type PartyProgress} from './progression';
-export interface Progress {version:2; started:boolean; wins:number; battles:number; party:PartyProgress; equipment:EquipmentState}
+export interface Progress {version:2; started:boolean; wins:number; battles:number; party:PartyProgress; equipment:EquipmentState; adventure:AdventureProgress}
 /** Keep the original key so existing v1 progress can be read without losing counts. */
 export const SAVE_KEY='astra-chronica:v1';
-export const fresh=():Progress=>({version:2,started:false,wins:0,battles:0,party:initialParty(),equipment:initialEquipment()});
+export const fresh=():Progress=>({version:2,started:false,wins:0,battles:0,party:initialParty(),equipment:initialEquipment(),adventure:initialAdventure()});
 export function load(storage?:Pick<Storage,'getItem'>):Progress{
  try{
   const p=JSON.parse((storage??localStorage).getItem(SAVE_KEY)||'null');
@@ -13,7 +14,7 @@ export function load(storage?:Pick<Storage,'getItem'>):Progress{
    const h=p.party?.[id];
    if(h&&Number.isSafeInteger(h.level)&&h.level>=1&&h.level<=PROGRESSION.maxLevel&&Number.isSafeInteger(h.experience)&&h.experience>=0&&h.experience<requiredExperience(h.level))party[id]={level:h.level,experience:h.level===PROGRESSION.maxLevel?0:h.experience};
   }
-  return {version:2,started:p.started,wins:p.wins,battles:p.battles,party,equipment:normalizeEquipment(p.equipment)};
+  return {version:2,started:p.started,wins:p.wins,battles:p.battles,party,equipment:normalizeEquipment(p.equipment),adventure:normalizeAdventure(p.adventure)};
  }catch{return fresh()}
 }
 export function save(p:Progress,storage?:Pick<Storage,'setItem'>):boolean{try{(storage??localStorage).setItem(SAVE_KEY,JSON.stringify(p));return true}catch{return false}}

@@ -32,6 +32,7 @@ export class BattleView {
  update(state:BattleViewState){
   this.state=state;const {battle:b,command,targetId,busy}=state;
   const actor=b.units.find(u=>u.id===(busy?state.actingId:b.current?.id));if(!actor)return;
+  this.get('.battle-top h1').textContent=b.encounterName;
   this.host.dataset.actorId=actor.id;this.host.dataset.phase=busy?'animating':b.phase;this.host.dataset.round=String(b.round);
   this.get('#ui-round').textContent=String(busy?state.actionRound??b.round:b.round);
   this.get('.turn-banner').textContent=`${busy?'行動中':b.blocked?'行動不能':b.phase==='enemy'?'敵の行動':'コマンドを選択'}：${actor.name}${busy&&state.actionRound!==b.round?` ｜次はROUND ${b.round}`:''}`;
@@ -83,7 +84,7 @@ export class BattleView {
   const parts=event.effects??[event],actor=this.state.battle.units.find(u=>u.id===event.actor)!,target=this.state.battle.units.find(u=>u.id===event.target)!;
   const group=skills[event.command].target==='allAllies';
   const values=parts.map(p=>effectPresentation(p).value).join(' / ');
-  this.lastSummary=`${actor.name} → ${group?'生存する味方全体':target.name}${event.covered?'（かばう）':''}：${skills[event.command].name} ${values}`;this.get('.battle-log').textContent=this.lastSummary;
+  this.lastSummary=`${actor.name} → ${group?'生存する味方全体':target.name}${event.covered?'（かばう）':''}：${skills[event.command].name} ${values}${event.hint?` ｜${event.hint}`:''}`;this.get('.battle-log').textContent=this.lastSummary;
   this.effects.replaceChildren();
   parts.forEach((part,i)=>{
    const fx=effectPresentation(part),index=this.state.battle.units.findIndex(u=>u.id===part.target);
@@ -91,7 +92,7 @@ export class BattleView {
    popup.style.animationDelay=`${i*70}ms`;if(part.hitIndex)popup.style.marginLeft=`${(i-(parts.length-1)/2)*30}px`;
    const tags=document.createElement('small');tags.textContent=[...(part.hitIndex?[`${part.hitIndex} HIT`]:[]),...fx.tags].join(' ');tags.className='fx-tags';const number=document.createElement('strong');number.textContent=fx.value;number.className='fx-value';popup.append(tags,number);this.effects.append(popup);
   });
-  this.get('.battle-notification').textContent=notices.slice(0,2).join(' / ');
+  this.get('.battle-notification').textContent=[...(event.hint?[event.hint]:[]),...notices].slice(0,2).join(' / ');
   this.get('.battle-art').classList.toggle('ultimate-cast',!!event.ultimate);this.get('.ultimate-banner').textContent=event.ultimate?`★ ${skills[event.command].name}`:'';
  }
  clearEffects(){this.effects.replaceChildren();this.get('.battle-notification').textContent='';this.get('.ultimate-banner').textContent='';this.get('.battle-art').classList.remove('ultimate-cast')}

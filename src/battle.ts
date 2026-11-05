@@ -10,15 +10,20 @@ import {growUnit,type PartyProgress} from './progression';
 export {heroes,enemyTemplates,skills,commandsFor} from './data/combat';
 export type {Unit,Command,ActionResult,BattleEvent} from './types';
 /** Each successful action advances exactly once. Invalid commands never consume a turn or MP. */
+export interface BattleSetup {name:string;enemies:readonly Unit[]}
 export class Battle {
+  readonly encounterName:string;
+  private enemyActions=new Map<string,number>();
   readonly allies:Unit[];
-  readonly enemies = enemyTemplates.map(cloneUnit);
+  readonly enemies:Unit[];
   blocked: StatusId | undefined;
   round = 1;
   private queue: string[] = [];
   private decision:{id:string;speed:number}[]=[];
   readonly log: string[] = ['霧の森で、三体の魔物が立ちはだかった。'];
-  constructor(private readonly random: () => number = Math.random, party?:PartyProgress,private readonly skillAccess:SkillAccess=isSkillLearned,equipment?:EquipmentState) {
+  constructor(private readonly random: () => number = Math.random, party?:PartyProgress,private readonly skillAccess:SkillAccess=isSkillLearned,equipment?:EquipmentState,setup?:BattleSetup) {
+    this.enemies=(setup?.enemies??enemyTemplates).map(cloneUnit);this.encounterName=setup?.name??'霧の森の遭遇';
+    if(setup)this.log[0]=`${setup.name}で、${this.enemies.length}体の魔物が立ちはだかった。`;
     const slots=equipment?normalizeEquipment(equipment).equipped:undefined;
     this.allies=heroes.map(h=>({...equippedUnit(growUnit(cloneUnit(h),party?.[h.id]),slots?.[h.id as keyof EquipmentState['equipped']]),star:0,tauntRounds:undefined,barrierCharges:undefined}));
     this.refill();this.prepareTurn();
@@ -142,6 +147,9 @@ export class Battle {
   enemyAct(expectedActor = this.current?.id): ActionResult {
     const actor = this.current;
     if (this.phase !== 'enemy' || this.blocked || !actor || actor.id !== expectedActor) return { ok: false, reason: '敵の行動ではありません。' };
+    const action=(this.enemyActions.get(actor.id)??0)+1;this.enemyActions.set(actor.id,action);
+    if(actor.enemyPattern==='mistGuardian'&&action%3===2)return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'霧の吸収',hint:'次は霧裂き！ 防御やガードで備えよう。',logs:[`${actor.name}は霧を吸い込んでいる！ 次の行動は強烈な「霧裂き」。防御やガードで備えよう。`]});
+    const heavy=actor.enemyPattern==='mistGuardian'&&action%3===0;
     const living = this.allies.filter(u => u.hp > 0);
     const taunter=living.find(u=>(u.tauntRounds??0)>0);
     const original = taunter||living[Math.min(living.length - 1, Math.floor(this.random() * living.length))];
@@ -150,7 +158,8 @@ export class Battle {
     const event: BattleEvent = { actor: actor.id, target: target.id, command: 'attack', amount: 0, kind: 'damage', critical: false, covered: !!protector, logs: [] };
     if(taunter){event.taunted=true;event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`)}
     if (protector) event.logs.push(`${protector.name}が${original.name}をかばった！`);
-    this.damage(event, actor, target, statValue(actor,'attack') * (protector ? BALANCE.coverMultiplier : 1));
+    if(heavy)event.logs.push(`${actor.name}の霧裂き！ 溜めた霧を放つ強攻撃！`);
+    this.damage(event, actor, target, statValue(actor,'attack') * (heavy?1.7:1) * (protector ? BALANCE.coverMultiplier : 1));
     this.applyEffects(event,actor,target,skills.attack);
     return this.complete(event);
   }
