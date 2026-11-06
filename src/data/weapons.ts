@@ -38,7 +38,12 @@ export const chapterFiveWeapons:readonly Weapon[]=[
  {id:'saharia-guard-spear',name:'王都守護の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:4,defense:11},effects:{guardReduction:0.05},description:'攻撃＋4、防御＋11。ガード被ダメージ倍率−0.05（共通防御には適用しない）。'},
  {id:'mirage-wand',name:'蜃気楼のワンド',family:'wand',owner:'mei',bonuses:{attack:5,maxMp:10},effects:{magicRate:1.18},description:'攻撃＋5、最大MP＋10。属性攻撃魔法＋18%。回復補正なし。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons];
+export const chapterSixWeapons:readonly Weapon[]=[
+ {id:'froststar-bow',name:'霜星の弓',family:'bow',owner:'astel',bonuses:{attack:10,speed:5},effects:{},description:'攻撃＋10、速度＋5。軽い弓で先手を取る。通常攻撃は1ヒット。'},
+ {id:'timeward-shield-rapier',name:'時守の盾突剣',family:'shieldRapier',owner:'rina',bonuses:{attack:5,defense:12,speed:2},effects:{guardReduction:0.05},description:'攻撃＋5、防御＋12、速度＋2。ガード被ダメージ倍率−0.05（共通防御には適用しない）。'},
+ {id:'dawncrystal-rod',name:'暁晶のロッド',family:'rod',owner:'mei',bonuses:{attack:6,maxMp:12},effects:{magicRate:1.2},description:'攻撃＋6、最大MP＋12。属性攻撃魔法＋20%。回復補正なし。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

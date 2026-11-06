@@ -23,4 +23,11 @@ export const journalEntries:readonly JournalEntry[]=[
  {id:'j5-record',chapterId:'chapter-05',eventId:'c5-compass-puzzle',kind:'record',title:'四方に帰る歌',text:'歌の写しと風読み印を手掛かりに、古代術式の四つの方位環を合わせた。記録は命令ではなく、今の流れを読むための手掛かりだった。'},
  {id:'j5-zaira',chapterId:'chapter-05',eventId:'c5-shield-gift',kind:'npc',title:'砂海の守護者ザイラ',text:'王都だけに集まる星砂が砂海を枯らすことを恐れ、羅針盤の流れを止めた守護者。暴走する嵐は彼女にも止めきれなかった。'},
  {id:'j5-clear',chapterId:'chapter-05',eventId:'c5-clear',kind:'summary',title:'羅針盤の空白',text:'王都と砂海へ星砂を分け、嵐を鎮めた。失われた歌の写しは北の霜境を示し、原本と歌い手の名の謎は残る。ナディアは確かめた複数の道を地図に残した。'},
+ {id:'j6-arrival',chapterId:'chapter-06',eventId:'c6-arrival',kind:'summary',title:'北の霜境へ',text:'サハリアの羅針盤と地図を手に、三人は北の雪原へ入った。'},
+ {id:'j6-eil',chapterId:'chapter-06',eventId:'c6-eil',kind:'npc',title:'案内人エイル',text:'時間異常に巻き込まれた姉ミラを探す案内人。明るい振る舞いの裏に、引き返すと言えなかった後悔がある。'},
+ {id:'j6-loop',chapterId:'chapter-06',eventId:'c6-loop-story',kind:'summary',title:'繰り返す短い朝',text:'クロノリアの人々は完全には止まらず、夜明け直前の短い断片を繰り返していた。'},
+ {id:'j6-orphen',chapterId:'chapter-06',eventId:'c6-orphen',kind:'npc',title:'時計技師オルフェン',text:'修復方法を知るが、記憶の順序が戻らないことを恐れ、手を止めた技師。代償を隠さず伝える道を探す。'},
+ {id:'j6-clock',chapterId:'chapter-06',eventId:'c6-clock-puzzle',kind:'record',title:'朝へ渡す歌の間隔',text:'歌は同じ朝を保存する命令ではなく、帰る人を数える間隔を含んでいた。四つの盤を夕刻から夜明けへ合わせた。'},
+ {id:'j6-luciel',chapterId:'chapter-06',eventId:'c6-luciel-truth',kind:'npc',title:'観測者ルシエルの願い',text:'災厄の夜、失うことを恐れる人々の願いを保存した観測者。閉じた朝に帰還者も閉じ込めた。ラシードへの写しは彼女の保管記録の一部だった。'},
+ {id:'j6-clear',chapterId:'chapter-06',eventId:'c6-clear',kind:'summary',title:'初めての次の朝',text:'観測の輪を開き、エイルはミラと再会した。人々は異なる記憶を抱いて暮らしを再開する。東の樹海の印を託されたが、原本の歌い手の名はまだ明らかでない。'},
 ];

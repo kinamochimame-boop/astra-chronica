@@ -1,3 +1,4 @@
+import {enemyScripts} from './data/enemy-scripts';
 import {isItem,normalizeConsumables,initialConsumables,type Consumables} from './consumables';
 import {withSkillTree,treeValue,treePowerRate,treeHealingRate,treeReduction,skillMpCost,TREE_LIMITS,type SkillTreeState} from './skill-tree';
 import {equippedUnit,equippedWeapon,normalizeEquipment,type EquipmentState} from './equipment';
@@ -159,8 +160,8 @@ export class Battle {
     const actor = this.current;
     if (this.phase !== 'enemy' || this.blocked || !actor || actor.id !== expectedActor) return { ok: false, reason: '敵の行動ではありません。' };
     const action=(this.enemyActions.get(actor.id)??0)+1;this.enemyActions.set(actor.id,action);
-    if(actor.enemyPattern==='sandSoldier'&&action%3===2){actor.guarding='defend';actor.counterReady=true;return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'反撃態勢',hint:'砂兵が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。',logs:[`${actor.name}は盾を構えた。最初の物理被弾に1回反撃する。`]})}
-    if(actor.enemyMagic||actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='echoria'||actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira')return this.crystalAct(actor,action);
+    if((actor.enemyPattern==='sandSoldier'||actor.enemyPattern==='gearGuard')&&action%3===2){actor.guarding='defend';actor.counterReady=true;return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'反撃態勢',hint:actor.enemyPattern==='gearGuard'?'守衛が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。':'砂兵が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。',logs:[`${actor.name}は盾を構えた。最初の物理被弾に1回反撃する。`]})}
+    if(actor.enemyMagic||actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='echoria'||actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira'||!!enemyScripts[actor.enemyPattern??''])return this.crystalAct(actor,action);
     if(actor.enemyPattern==='mistGuardian'&&action%3===2)return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'霧の吸収',hint:'次は霧裂き！ 防御やガードで備えよう。',logs:[`${actor.name}は霧を吸い込んでいる！ 次の行動は強烈な「霧裂き」。防御やガードで備えよう。`]});
     if(actor.enemyPattern==='canalKeeper'&&action%3===2){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'防御態勢',hint:'番人が盾を閉じた。次の本人の行動まで被ダメージ半減。回復や防御で備えよう。',logs:[`${actor.name}は防御態勢に入った。盾が開くタイミングを待とう。`]})}
     let valleyPower=1;
@@ -198,17 +199,18 @@ export class Battle {
     return this.complete(event);
   }
   private crystalAct(actor:Unit,action:number):ActionResult {
-    const desert=actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira',machine=actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='gardion',singer=actor.enemyPattern==='echoria'||actor.enemyPattern==='zaira';
+    const script=enemyScripts[actor.enemyPattern??''];
+    const desert=actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira',machine=actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='gardion'||!!script&&!script.observer,singer=actor.enemyPattern==='echoria'||actor.enemyPattern==='zaira'||!!script?.observer;
     const phase=singer?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
     const reserved=this.charged.get(actor.id);
     if(!reserved&&((machine&&action%3===2)||(singer&&phase>=2&&action%3===2))){
-      if(machine)actor.guarding='defend';
-      const power=desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);
-      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
+      if(script?script.guardOnCharge:machine)actor.guarding='defend';
+      const power=script?(phase===3?script.finalChargePower:script.chargePower):desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);
+      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script?`${phase===3?script.finalCharge:script.charge}の予兆`:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:script?`${singer?`第${phase}段階：`:''}${script.guardOnCharge?'防御態勢！ ':''}次は${phase===3?script.finalCharge:script.charge}。防御と回復で備えよう。`:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${script?(phase===3?script.finalCharge:script.charge):desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
     }
     if(reserved)this.charged.delete(actor.id);
     const magical=!!actor.enemyMagic||!!reserved||(singer&&action%2===0);
-    const skill:Skill=magical?{...skills.fire,name:desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光',element:actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),statuses:singer&&phase>=2?(desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:skills.attack;
+    const skill:Skill=magical?{...skills.fire,name:actor.enemyMagic?.name??(script?(reserved?(reserved===script.finalChargePower?script.finalCharge:script.charge):script.spell):desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光'),element:script?.element??actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??(script?(phase===3?script.finalNormalPower:script.normalPower):undefined)??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),statuses:singer&&phase>=2?(script?script.statuses:desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:skills.attack;
     const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),original=taunter??living[Math.min(living.length-1,Math.floor(this.random()*living.length))],protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
     const event=this.makeEvent(actor,target,magical?'fire':'attack');event.actionName=skill.name;event.covered=!!protector;event.taunted=!!taunter;
     if(taunter)event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`);
