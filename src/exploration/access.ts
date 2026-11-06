@@ -1,3 +1,4 @@
+import {tidalMap} from './tide';
 import type {Progress} from '../save';
 import type {SymbolContact} from './types';
 import {mapById,objectForEvent,symbolForEvent,walkMaps} from './map-data';
@@ -7,7 +8,7 @@ export function validSymbolContact(p:Progress,eventId:string,source?:SymbolConta
  const found=symbolForEvent(eventId);if(!found)return !source;
  if(!source||!p.world||p.world.mapId!==found.map.id||source.mapId!==found.map.id||source.symbolId!==found.symbol.id||p.adventure.chapters[found.map.chapterId]?.currentLocationId!==found.map.locationId)return false;
  if(p.adventure.pending&&p.world.returnInfo?.serial===p.adventure.pending.serial)return false;
- return clearCircle(found.map,p.world)&&clearCircle(found.map,source.position,found.symbol.radius)&&distance(found.symbol,source.position)<=found.symbol.leash+1&&closeEnough(p.world,source.position,10+found.symbol.radius+.5);
+ return clearCircle(tidalMap(found.map,p.adventure),p.world)&&clearCircle(tidalMap(found.map,p.adventure),source.position,found.symbol.radius)&&distance(found.symbol,source.position)<=found.symbol.leash+1&&closeEnough(p.world,source.position,10+found.symbol.radius+.5);
 }
 /** Event completion is the authority; arrays are receipts for rendering/save inspection only. */
 export function syncWorldProgress(p:Progress){if(!p.world)return;const done=(chapterId:string)=>p.adventure.chapters[chapterId]?.completed??[];p.world.defeated=walkMaps.flatMap(m=>m.symbols.filter(s=>done(m.chapterId).includes(s.eventId)).map(s=>s.id));p.world.opened=walkMaps.flatMap(m=>m.objects.filter(o=>o.kind==='chest'&&o.eventId&&done(m.chapterId).includes(o.eventId)).map(o=>o.id));}

@@ -203,7 +203,7 @@ export class Battle {
     const desert=actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira',machine=actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='gardion'||!!script&&!script.observer,singer=actor.enemyPattern==='echoria'||actor.enemyPattern==='zaira'||!!script?.observer;
     const phase=singer?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
     const reserved=this.charged.get(actor.id);
-    if(script?.guardFirst&&phase===1&&action%3===1&&!reserved){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'記憶の封護',hint:'第1段階：記憶を守る防御姿勢。回復や次の準備を整えよう。',logs:[`${actor.name}は記憶の封護を展開した。`]})}
+    if(script?.guardFirst&&phase===1&&action%3===1&&!reserved){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script.guardLabel??'記憶の封護',hint:script.guardLabel?'第1段階：星灯を守る防御姿勢。回復や次の準備を整えよう。':'第1段階：記憶を守る防御姿勢。回復や次の準備を整えよう。',logs:[`${actor.name}は${script.guardLabel??'記憶の封護'}を展開した。`]})}
     if(!reserved&&((machine&&action%3===2)||(singer&&phase>=2&&action%3===2))){
       if(script?script.guardOnCharge:machine)actor.guarding='defend';if(script?.counterOnCharge)actor.counterReady=true;
       const power=script?(phase===3?script.finalChargePower:script.chargePower):desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);

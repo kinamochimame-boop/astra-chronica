@@ -58,7 +58,12 @@ export const chapterNineWeapons:readonly Weapon[]=[
  {id:'crystalwall-shield-rapier',name:'晶壁の盾突剣',family:'shieldRapier',owner:'rina',bonuses:{attack:8,defense:16,speed:3},effects:{guardReduction:.01},description:'結晶の盾と細い剣。フレイルの攻撃・HPと引き換えに防御と速度を高める。'},
  {id:'memory-crystal-mace',name:'記憶晶のメイス',family:'mace',owner:'mei',bonuses:{attack:12,maxHp:30,maxMp:6},effects:{healingRate:1.08},description:'記録を守る結晶の槌。ロッドの魔法補正とMPを減らし、HP・物理・回復を支える。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons];
+export const chapterTenWeapons:readonly Weapon[]=[
+ {id:'tidestar-bow',name:'潮星の弓',family:'bow',owner:'astel',bonuses:{attack:13,speed:7},effects:{},description:'岸へ合図を届ける弓。双剣の連撃と引き換えに速度を高める。'},
+ {id:'azure-tide-shield-spear',name:'蒼潮の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:9,defense:18,maxHp:10},effects:{guardReduction:.01},description:'潮門を支える盾と槍。突剣の速度と引き換えに防御とHPを得る。'},
+ {id:'starlamp-rod',name:'星灯のロッド',family:'rod',owner:'mei',bonuses:{attack:12,maxMp:10},effects:{magicRate:1.24},description:'変化を知らせる光のロッド。メイスのHPと回復補正を失い、属性魔法とMPを高める。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};
