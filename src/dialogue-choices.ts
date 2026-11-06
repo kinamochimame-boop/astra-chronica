@@ -1,3 +1,4 @@
+import {mapEventReason} from './exploration/access';
 import {dialogueChoices} from './data/dialogue-choices';
 import {chapters} from './data/chapter-one';
 import {chapterOpen,chapterState,eventOpen,type AdventureProgress} from './adventure';
@@ -13,6 +14,6 @@ export function normalizeChoices(raw:unknown,adventure:AdventureProgress):Choice
 export function recordChoice(p:Progress,id:string,optionId:string):boolean {
  const choice=dialogueChoices.find(c=>c.id===id);if(!choice||p.choices[id]||!choice.options.some(o=>o.id===optionId))return false;
  const c=chapters.find(c=>c.id===choice.chapterId)!,e=c.events.find(e=>e.id===choice.eventId)!,state=chapterState(p.adventure,c);
- if(!chapterOpen(p.adventure,c)||!eventOpen(state,e)||state.currentLocationId!==e.locationId)return false;
+ if(mapEventReason(p,e.id)||!chapterOpen(p.adventure,c)||!eventOpen(state,e)||state.currentLocationId!==e.locationId)return false;
  p.choices[id]=optionId;return true;
 }
