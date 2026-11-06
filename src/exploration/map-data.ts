@@ -1,3 +1,5 @@
+import {additionalMaps} from './additional-maps';
+import {veinMaps} from './chapter-nine-maps';
 import {skyMaps} from './chapter-eight-maps';
 import {grid} from './map-grid';
 import type {WalkMap,Point} from './types';
@@ -7,6 +9,7 @@ export const walkMaps:readonly WalkMap[]=[
   {id:'fine',name:'フィーネ',kind:'npc',...at(6,12),eventId:'c7-fine'},
   {id:'campfire',name:'焚き火',kind:'npc',...at(12,14),eventId:'c7-camp-rest'},
   {id:'camp-sign',name:'森の道標',kind:'inspect',...at(4,5),text:'小径へは東。足元をタップして歩き、近くの人や物を調べられます。'},
+  {id:'camp-village',name:'樹上の集落へ',kind:'exit',...at(14,22),targetMap:'grove-village'},
   {id:'camp-east',name:'小径へ',kind:'exit',...at(26,12),targetMap:'grove-trail'},
  ],symbols:[]},
  {id:'grove-trail',chapterId:'chapter-07',locationId:'c7-trail',name:'木漏れ日の小径',kind:'field',tile,width:28,height:24,entry:{...at(3,12),facing:'right'},grid:grid(28,24,[{x:9,y:1,w:3,h:9,type:'~'},{x:9,y:13,w:3,h:10,type:'~'},{x:17,y:8,w:6,h:3},{x:4,y:17,w:3,h:3},{x:15,y:3,w:4,h:2}]),objects:[
@@ -20,12 +23,13 @@ export const walkMaps:readonly WalkMap[]=[
   {id:'observation-disk',name:'観測盤',kind:'npc',...at(5,9),eventId:'c7-ruins-record'},
   {id:'ruins-chest',name:'古い宝箱',kind:'chest',...at(24,23),eventId:'c7-dual-chest'},
   {id:'oath-stone',name:'古い誓いの碑',kind:'inspect',...at(6,22),questId:'sq-guardian-oath',objectiveId:'oath-stone'},
+  {id:'ruins-garden',name:'星の庭へ',kind:'exit',...at(14,24),targetMap:'grove-garden'},
   {id:'ruins-pond',name:'記憶の水鏡へ',kind:'exit',...at(26,23),targetLocation:'c7-pond'},
  ],symbols:[
   {id:'ruins-sentry',name:'古木の歩哨',mode:'idle',...at(12,12),speed:0,radius:11,aggro:0,leash:0,route:[],eventId:'c7-ruins-fight',encounterId:'grove-sentry'},
   {id:'ruins-chaser',name:'根脈の追跡者',mode:'chase',...at(21,14),speed:58,radius:10,aggro:150,leash:210,route:[],eventId:'c7-orb-fight',encounterId:'grove-orb'},
  ]},
- ...skyMaps,
+ ...skyMaps,...additionalMaps,...veinMaps,
 ];
 export const mapById=(id:unknown)=>typeof id==='string'?walkMaps.find(m=>m.id===id):undefined;
 export const mapForLocation=(chapterId:string,locationId:string)=>walkMaps.find(m=>m.chapterId===chapterId&&m.locationId===locationId);

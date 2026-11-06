@@ -29,7 +29,11 @@
     "test:sideview": "node tests/sideview-v16.e2e.mjs",
     "test:sideview-smoke": "node tests/sideview-v16.smoke.mjs",
     "test:exploration-v16": "node tests/exploration-ui-v16.e2e.mjs",
-    "test:sideview-lab": "node tests/sideview-lab-v16.e2e.mjs"
+    "test:sideview-lab": "node tests/sideview-lab-v16.e2e.mjs",
+    "test:chapter-nine": "node tests/chapter-nine-v17.e2e.mjs",
+    "test:exploration-v17": "node tests/exploration-v17.e2e.mjs",
+    "test:exploration-v17-smoke": "node tests/exploration-v17.smoke.mjs",
+    "test:chapter-nine-equipment": "node tests/chapter-nine-equipment.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

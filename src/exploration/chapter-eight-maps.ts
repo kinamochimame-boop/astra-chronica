@@ -6,6 +6,7 @@ export const skyMaps:readonly WalkMap[]=[
  {id:'arka',name:'アルカ',kind:'npc',...at(6,12),eventId:'c8-arka'},
  {id:'port-lamp',name:'帰港の灯り',kind:'npc',...at(12,14),eventId:'c8-port-rest'},
  {id:'port-sign',name:'搭乗案内',kind:'inspect',...at(4,5),text:'桟橋から甲板へ。飛行後は東の出口で風の庭へ渡れます。'},
+ {id:'port-town',name:'雲上の居住区へ',kind:'exit',...at(26,20),targetMap:'sky-town'},
  {id:'port-island',name:'風の庭へ',kind:'exit',...at(26,12),targetMap:'sky-island'},
  {id:'port-deck',name:'飛行艇の甲板へ',kind:'exit',icon:'ship',...at(14,22),targetLocation:'c8-deck'},
  ],symbols:[]},
@@ -20,6 +21,7 @@ export const skyMaps:readonly WalkMap[]=[
  {id:'sky-disk',name:'航路の観測盤',kind:'npc',...at(5,9),eventId:'c8-ruins-record'},
  {id:'sky-chest',name:'帰還者の箱',kind:'chest',...at(24,23),eventId:'c8-sword-chest'},
  {id:'wing-tablet',name:'翼の航路片',kind:'inspect',...at(6,22),questId:'sq-wing-records',objectiveId:'wing-tablet'},
+ {id:'ruins-tower',name:'天空観測塔へ',kind:'exit',...at(14,24),targetMap:'sky-tower'},
  {id:'ruins-reactor',name:'浮遊炉の外郭へ',kind:'exit',...at(26,23),targetLocation:'c8-reactor'},
  ],symbols:[
  {id:'sky-sentry',name:'浮遊甲冑',mode:'idle',...at(12,12),speed:0,radius:11,aggro:0,leash:0,route:[],eventId:'c8-ruins-fight',encounterId:'sky-sentry'},

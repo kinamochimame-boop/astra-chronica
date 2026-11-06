@@ -4,7 +4,7 @@ import {weaponById,type WeaponFamily} from './data/weapons';
 export type Silhouette='knight'|'mage'|'beast'|'slime'|'wing'|'machine'|'spirit';
 export function actorStyle(u:Unit,ally:boolean){
  const family:WeaponFamily=weaponById(u.weaponId)?.family??(u.id==='rina'?'shieldSpear':u.id==='mei'?'wand':'sword');
- const silhouette:Silhouette=ally?(u.id==='mei'?'mage':'knight'):/スライム/.test(u.name)?'slime':/鳥|蛾|ハーピー|コウモリ|使い/.test(u.name)?'wing':/球|機|ドローン|甲冑|兵|歩哨|ガード|番人/.test(u.name)?'machine':/狼|ウルフ|獣|ジャッカル/.test(u.name)?'beast':'spirit';
+ const silhouette:Silhouette=ally?(u.id==='mei'?'mage':'knight'):/スライム/.test(u.name)?'slime':/鳥|蛾|ハーピー|コウモリ|バット|使い/.test(u.name)?'wing':/球|機|ドローン|甲冑|兵|歩哨|ガード|番人/.test(u.name)?'machine':/狼|ウルフ|獣|ジャッカル|モール/.test(u.name)?'beast':'spirit';
  return {family,silhouette,facing:ally?1:-1};
 }
 /** Texture replacement is isolated here; combat state is never modified by a visual. */

@@ -53,7 +53,12 @@ export const chapterEightWeapons:readonly Weapon[]=[
  {id:'azurewing-shield-flail',name:'蒼翼の盾フレイル',family:'shieldFlail',owner:'rina',bonuses:{attack:9,defense:13,maxHp:5},effects:{},description:'蒼い盾と鎖の槌。盾槍の防御特性と引き換えに攻撃を高める。'},
  {id:'starwind-rod',name:'星風のロッド',family:'rod',owner:'mei',bonuses:{attack:7,maxMp:14},effects:{magicRate:1.22},description:'空の航路を映すロッド。ワンドの回復特性と引き換えに魔法とMPを高める。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons];
+export const chapterNineWeapons:readonly Weapon[]=[
+ {id:'starvein-duals',name:'星脈の双剣',family:'dualBlades',owner:'astel',bonuses:{attack:14,speed:3},effects:{normalHits:2},description:'星脈をなぞる二振り。剣の防御補正と引き換えに速度と連撃を得る。'},
+ {id:'crystalwall-shield-rapier',name:'晶壁の盾突剣',family:'shieldRapier',owner:'rina',bonuses:{attack:8,defense:16,speed:3},effects:{guardReduction:.01},description:'結晶の盾と細い剣。フレイルの攻撃・HPと引き換えに防御と速度を高める。'},
+ {id:'memory-crystal-mace',name:'記憶晶のメイス',family:'mace',owner:'mei',bonuses:{attack:12,maxHp:30,maxMp:6},effects:{healingRate:1.08},description:'記録を守る結晶の槌。ロッドの魔法補正とMPを減らし、HP・物理・回復を支える。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};
