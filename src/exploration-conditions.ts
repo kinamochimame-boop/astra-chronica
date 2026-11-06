@@ -1,5 +1,8 @@
-import {sandstorms} from './data/exploration-conditions';
+import {explorationRules,timeDevices,type TimeMode} from './data/exploration-conditions';
 import type {AdventureProgress} from './adventure';
-/** Weather is derived from committed events/landmarks, never elapsed time or random rolls. */
-export function sandstormState(state:AdventureProgress,chapterId:string,locationId:string){const rule=sandstorms.find(r=>r.chapterId===chapterId&&r.locationId===locationId),done=state.chapters[chapterId]?.completed??[];if(!rule||!done.includes(rule.appearsAfter))return;return {rule,active:!(rule.clearedByEvent&&done.includes(rule.clearedByEvent))&&!(rule.clearedByLandmark&&state.landmarks?.includes(rule.clearedByLandmark))}}
-export function explorationRestriction(state:AdventureProgress,chapterId:string,locationId:string,actionId:string){const storm=sandstormState(state,chapterId,locationId);return storm?.active&&(storm.rule.restrictedActions as readonly string[]).includes(actionId)?`${storm.rule.reason} 解除条件：${storm.rule.release}`:''}
+/** Shared deterministic conditions: no device clock, random rolls, timers or rollback. */
+export function timeMode(state:AdventureProgress,id:string):TimeMode{const device=timeDevices.find(d=>d.id===id);return device&&state.chapters[device.chapterId]?.completed.includes(device.settledByEvent)?'flowing':state.timeStates?.[id]==='flowing'?'flowing':'stopped'}
+export function explorationState(state:AdventureProgress,chapterId:string,locationId:string){const rule=explorationRules.find(r=>r.chapterId===chapterId&&r.locationId===locationId),done=state.chapters[chapterId]?.completed??[];if(!rule||!done.includes(rule.appearsAfter))return;const active=rule.kind==='time'?timeMode(state,rule.timeDevice!)==='stopped':!(rule.clearedByEvent&&done.includes(rule.clearedByEvent))&&!(rule.clearedByLandmark&&state.landmarks?.includes(rule.clearedByLandmark));return {rule,active}}
+/** Compatibility facade for v1.3 consumers. */
+export function sandstormState(state:AdventureProgress,chapterId:string,locationId:string){const condition=explorationState(state,chapterId,locationId);return condition?.rule.kind==='sandstorm'?condition:undefined}
+export function explorationRestriction(state:AdventureProgress,chapterId:string,locationId:string,actionId:string,historical=false){const condition=explorationState(state,chapterId,locationId);if(historical&&condition?.rule.kind==='time')return '';return condition?.active&&condition.rule.restrictedActions.includes(actionId)?`${condition.rule.reason} 解除条件：${condition.rule.release}`:''}

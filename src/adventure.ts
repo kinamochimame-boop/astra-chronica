@@ -1,4 +1,4 @@
-import {landmarks} from './data/exploration-conditions';
+import {timeDevices,type TimeMode,landmarks} from './data/exploration-conditions';
 import {explorationRestriction} from './exploration-conditions';
 import {grantConsumable} from './consumables';
 import {weaponById} from './data/weapons';
@@ -8,7 +8,7 @@ import {grantWeapon} from './equipment';
 import {gainExperience} from './progression';
 import type {Progress} from './save';
 export interface ChapterProgress {currentLocationId:string;completed:string[]}
-export interface AdventureProgress {chapters:Record<string,ChapterProgress>;serial:number;resolved:number;selectedChapterId?:string;landmarks?:string[];exploration?:Record<string,{visited:string[];complete:boolean}>;pending?:{serial:number;chapterId:string;eventId:string}}
+export interface AdventureProgress {chapters:Record<string,ChapterProgress>;serial:number;resolved:number;selectedChapterId?:string;landmarks?:string[];timeStates?:Record<string,TimeMode>;exploration?:Record<string,{visited:string[];complete:boolean}>;pending?:{serial:number;chapterId:string;eventId:string}}
 export const initialAdventure=():AdventureProgress=>({chapters:{},serial:0,resolved:0});
 export const chapterState=(state:AdventureProgress,c:Chapter):ChapterProgress=>state.chapters[c.id]??{currentLocationId:c.locations[0].id,completed:[]};
 export const eventOpen=(state:ChapterProgress,e:AdventureEvent)=>e.requires.every(id=>state.completed.includes(id));
@@ -34,6 +34,7 @@ export function normalizeAdventure(raw:unknown):AdventureProgress {
  }
  if(record(raw.exploration))for(const c of chapters){const h=raw.exploration[c.id];if(!chapterOpen(state,c)||!record(h)||!Array.isArray(h.visited))continue;const visited=c.locations.filter(l=>h.visited instanceof Array&&h.visited.includes(l.id)&&locationOpen(chapterState(state,c),c,l.id)).map(l=>l.id);(state.exploration??={})[c.id]={visited,complete:h.complete===true&&visited.includes(chapterState(state,c).currentLocationId)&&c.events.filter(e=>chapterState(state,c).completed.includes(e.id)).every(e=>visited.includes(e.locationId))};}
  if(Array.isArray(raw.landmarks))state.landmarks=landmarks.filter(l=>{const c=chapters.find(c=>c.id===l.chapterId)!;return raw.landmarks instanceof Array&&raw.landmarks.includes(l.id)&&chapterOpen(state,c)&&chapterState(state,c).completed.includes(l.requiresEvent)&&locationOpen(chapterState(state,c),c,l.locationId)}).map(l=>l.id);
+ if(record(raw.timeStates)){const modes:Record<string,TimeMode>={};for(const d of timeDevices){const c=chapters.find(c=>c.id===d.chapterId)!;if(!chapterOpen(state,c)||!chapterState(state,c).completed.includes(d.requiresEvent)||!locationOpen(chapterState(state,c),c,d.locationId))continue;const value=raw.timeStates[d.id];if(value==='stopped'||value==='flowing')modes[d.id]=chapterState(state,c).completed.includes(d.settledByEvent)?'flowing':value;}state.timeStates=modes;}
  const selected=chapters.find(c=>c.id===raw.selectedChapterId);if(selected&&chapterOpen(state,selected))state.selectedChapterId=selected.id;
  const p=raw.pending;
  if(record(p)&&integer(p.serial)&&p.serial>state.resolved&&p.serial<=state.serial){
@@ -49,6 +50,9 @@ export function visitLocation(state:AdventureProgress,c:Chapter,id:string):boole
 }
 export function discoverLandmark(state:AdventureProgress,id:string):boolean {
  const l=landmarks.find(l=>l.id===id),c=chapters.find(c=>c.id===l?.chapterId);if(!l||!c||!chapterOpen(state,c)||state.landmarks?.includes(id))return false;const progress=chapterState(state,c);if(progress.currentLocationId!==l.locationId||!progress.completed.includes(l.requiresEvent)||!locationOpen(progress,c,l.locationId))return false;(state.landmarks??=[]).push(id);return true;
+}
+export function changeTimeState(state:AdventureProgress,id:string,mode:TimeMode):boolean {
+ const device=timeDevices.find(d=>d.id===id),c=chapters.find(c=>c.id===device?.chapterId);if(!device||!c||!['stopped','flowing'].includes(mode)||!chapterOpen(state,c))return false;const progress=chapterState(state,c);if(progress.currentLocationId!==device.locationId||!locationOpen(progress,c,device.locationId)||!progress.completed.includes(device.requiresEvent)||progress.completed.includes(device.settledByEvent)||(state.timeStates?.[id]??'stopped')===mode)return false;(state.timeStates??={})[id]=mode;return true;
 }
 export function completeEvent(p:Progress,c:Chapter,id:string,answer?:string[]):{ok:boolean;message:string} {
  const state=chapterState(p.adventure,c),event=c.events.find(e=>e.id===id);
