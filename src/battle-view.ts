@@ -1,3 +1,4 @@
+import {battleAnchor} from './battle-layout';
 import {battleEventParts} from './types';
 import {equippedWeapon} from './equipment';
 import {skills,commandsFor,type Battle,type Unit,type Command,type BattleEvent} from './battle';
@@ -41,7 +42,7 @@ export class BattleView {
    const now=i===0&&u.id===actor.id;const chip=document.createElement('span');chip.setAttribute('role','listitem');chip.className=`turn-chip ${b.allies.includes(u)?'friend':'foe'} ${now?'now':''}`;chip.dataset.unitId=u.id;chip.setAttribute('aria-label',`${now?'現在':'次'}：${b.allies.includes(u)?'味方':'敵'} ${u.name}`);chip.innerHTML=`<small>${b.allies.includes(u)?'味':'敵'}${now?' ▶':''}</small><span>${u.name}</span>`;return chip;
   }));
   const selectable=b.phase==='player'&&!busy&&!b.blocked;
-  this.get('.enemies').replaceChildren(...b.enemies.map(u=>this.card(u,false,actor.id,selectable)));
+  const enemies=this.get('.enemies'),scroll=enemies.scrollLeft;enemies.replaceChildren(...b.enemies.map(u=>this.card(u,false,actor.id,selectable)));enemies.scrollLeft=scroll;const chosen=Array.from(enemies.children).find(el=>(el as HTMLElement).dataset.unitId===targetId) as HTMLElement|undefined;if(chosen){const r=chosen.getBoundingClientRect(),bounds=enemies.getBoundingClientRect();if(r.left<bounds.left)enemies.scrollLeft-=bounds.left-r.left;else if(r.right>bounds.right)enemies.scrollLeft+=r.right-bounds.right;}
   this.get('.party').replaceChildren(...b.allies.map(u=>this.card(u,true,actor.id,selectable)));
   const commands=this.get('.commands');commands.replaceChildren();
   const isAlly=b.allies.includes(actor);
@@ -89,9 +90,9 @@ export class BattleView {
   this.effects.replaceChildren();
   parts.forEach((part,i)=>{
    const fx=effectPresentation(part),index=this.state.battle.units.findIndex(u=>u.id===part.target);
-   const popup=document.createElement('div');popup.className=`combat-fx ${fx.tone}`;popup.dataset.kind=part.kind;popup.dataset.targetId=part.target;popup.dataset.hitIndex=String(part.hitIndex??1);popup.style.left=`${(70+(index%3)*125)/390*100}%`;popup.style.top=index<3?'62%':'20%';
+   const popup=document.createElement('div');popup.className=`combat-fx ${fx.tone} ${part.actionName==='反撃'?'counter':''}`;popup.dataset.kind=part.kind;popup.dataset.targetId=part.target;popup.dataset.hitIndex=String(part.hitIndex??1);const anchor=battleAnchor(index,100,true,'side',this.state.battle.enemies.length);popup.style.left=`${anchor.x/390*100}%`;popup.style.top=`${anchor.y}%`;
    popup.style.animationDelay=`${i*70}ms`;if(part.hitIndex)popup.style.marginLeft=`${(i-(parts.length-1)/2)*30}px`;
-   const tags=document.createElement('small');tags.textContent=[...(part.hitIndex?[`${part.hitIndex} HIT`]:[]),...fx.tags].join(' ');tags.className='fx-tags';const number=document.createElement('strong');number.textContent=fx.value;number.className='fx-value';popup.append(tags,number);this.effects.append(popup);
+   const tags=document.createElement('small');tags.textContent=[...(part.hitIndex?[`${part.hitIndex} HIT`]:[]),...(part.actionName==='反撃'?['COUNTER 反撃']:[]),...(part.damageTrace&&part.damageTrace.guardMultiplier<1?['GUARD']:[]),...(part.covered?['かばう']:[]),...(part.kind==='damage'&&part.amount===0&&!part.label?['無効']:[]),...fx.tags].join(' ');tags.className='fx-tags';const number=document.createElement('strong');number.textContent=fx.value;number.className='fx-value';popup.append(tags,number);this.effects.append(popup);
   });
   this.get('.battle-notification').textContent=[...(event.hint?[event.hint]:[]),...notices].slice(0,2).join(' / ');
   this.get('.battle-art').classList.toggle('bell-warning',!!event.hint?.includes('段階'));

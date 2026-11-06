@@ -1,3 +1,4 @@
+import type {Unit,BattleEvent} from './types';
 import {skills,commandsFor} from './battle';
 import {ELEMENTS,statusDefinitions,statValue} from './effects';
 import {gainExperience,growUnit,initialParty} from './progression';
@@ -6,14 +7,14 @@ import {LabSession,seededRandom} from './lab-session';
 import type {Command,Element,Stat,StatusId} from './types';
 
 /** Independent lab: manually stepped, no references to the player's progress or save storage. */
-export function mountLab(host:HTMLElement,onBack:()=>void){
+export function mountLab(host:HTMLElement,onBack:()=>void,visual?:{host:HTMLElement;show:(units:Unit[],selected:number,target?:string,targets?:string[])=>void;effect:(event:BattleEvent)=>void}){
  let session=new LabSession(),notice='検証専用です。本編の戦績・レベル・保存データには影響しません。';
  const xp=initialParty();
  const options=(items:Record<string,string>)=>Object.entries(items).map(([id,name])=>`<option value="${id}">${name}</option>`).join('');
  host.classList.remove('in-battle','result-screen');
  host.innerHTML=`<p class="eyebrow">BATTLE LAB · v0.4 · 保存なし</p><h1>戦闘基盤テスト</h1>
  <p class="hint">本編と同じ戦闘処理を1行動ずつ実行します。効果付与対象と攻撃対象は独立しています。敵の対象は通常どおりランダムです。</p>
- <div class="lab-form">
+ <div id="lab-sideview" aria-label="保存なしサイドビュー"></div><div class="lab-form">
  <label>効果付与対象（解除・相性も共通）<select id="lab-target">${options(Object.fromEntries(session.battle.units.map(u=>[u.id,u.name])))}</select></label>
  <label>状態異常<select id="lab-status">${options(Object.fromEntries(Object.entries(statusDefinitions).map(([id,s])=>[id,s.name])))}</select></label>
  <label>付与確率<select id="lab-chance"><option value="1">100%</option><option value="0.5">50%</option><option value="0">0%</option></select></label>
@@ -49,7 +50,7 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
   const command=el<HTMLSelectElement>('command'),previous=command.value;
   command.innerHTML=current?options(Object.fromEntries(commandsFor(current).map(c=>[c,`${skills[c].name} ${skills[c].starCost?'星力'+skills[c].starCost:'MP'+skills[c].cost}${battle.isLearned(current,c)?'':' 未習得Lv.'+skills[c].unlockLevel}`]))):'';
   if(Array.from(command.options).some(o=>o.value===previous))command.value=previous;
-  const cmd=(command.value||'attack') as Command;session.syncTargets(cmd);
+  const cmd=(command.value||'attack') as Command;session.syncTargets(cmd);visual?.show(battle.units,battle.units.indexOf(current!),skills[cmd].target==='self'?current?.id:skills[cmd].target==='ally'?session.allyTarget:session.attackTarget,skills[cmd].target==='allAllies'?battle.allies.filter(u=>u.hp>0).map(u=>u.id):[]);
   populate('action-target',battle.enemies.filter(u=>u.hp>0),session.attackTarget);
   populate('ally-target',skills[cmd].target==='ally'?battle.targets(cmd):battle.allies.filter(u=>u.hp>0),session.allyTarget);
   el('notice').textContent=notice;
@@ -66,8 +67,8 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
   el<HTMLButtonElement>('next-round').disabled=!!battle.result;
  }
  el('target').onchange=()=>{session.effectTarget=value('target')};
- el('action-target').onchange=()=>{session.attackTarget=value('action-target')};
- el('ally-target').onchange=()=>{session.allyTarget=value('ally-target')};
+ el('action-target').onchange=()=>{session.attackTarget=value('action-target');render()};
+ el('ally-target').onchange=()=>{session.allyTarget=value('ally-target');render()};
  el('command').onchange=render;
  el('stop-enemies').onchange=()=>{session.enemyAttacksEnabled=!el<HTMLInputElement>('stop-enemies').checked;notice=session.enemyAttacksEnabled?'敵の攻撃を再開しました。':'敵の攻撃を停止しました。行動機会・期限処理は進みます。';session.append(`[検証設定] ${notice}`);render()};
  el('random').onchange=()=>{newSession();notice='乱数条件を変更し、検証戦闘をリセットしました。';session.append(`[乱数] ${value('random')}`);render()};
@@ -78,7 +79,7 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
  el('modify').onclick=()=>{const target=session.battle.units.find(u=>u.id===session.effectTarget)!,stat=value('stat') as Stat,before=statValue(target,stat),amount=Number(value('amount'));const ok=session.modify({stat,amount,turns:Number(value('turns'))});notice=ok?`${target.name}に${statNames[stat]}${amount>0?'+':''}${amount*100}%を付与しました。実効値 ${before.toFixed(1)} → ${statValue(target,stat).toFixed(1)}。同符号は加算・75%上限、持続は長い方へ更新。`:'付与できません。';render()};
  el('clear-modifiers').onclick=()=>{session.clearModifiers();notice='効果付与対象の能力補正を手動解除しました。';render()};
  el('element-apply').onclick=()=>{const battle=session.battle,element=value('element') as Element,target=battle.units.find(u=>u.id===session.effectTarget)!;if(battle.current){battle.current.attackElement=element;target.affinities[element]=Number(value('affinity'));notice=`${ELEMENTS[element]}属性を設定。相性対象：${target.name}。攻撃対象は独立して選択してください。`;session.append(`[属性設定] ${battle.current.name}の攻撃属性=${ELEMENTS[element]}、${target.name}の倍率=${value('affinity')}`)}render()};
- el('step').onclick=()=>{const result=session.step(value('command') as Command);notice=result.ok?result.event.logs.join(' '):result.reason;if(result.ok&&(result.event.damageTrace||result.event.effects?.[0]?.damageTrace)&&skills[result.event.command].kind==='physical'){const trace=(result.event.damageTrace||result.event.effects![0].damageTrace)!;const actor=session.battle.units.find(u=>u.id===result.event.actor)!;notice+=` 実行時の攻撃力：基礎 ${actor.attack.toFixed(1)} → 実効 ${trace.effectiveAttack.toFixed(1)}。`}render()};
+ el('step').onclick=()=>{const result=session.step(value('command') as Command);notice=result.ok?result.event.logs.join(' '):result.reason;if(result.ok&&(result.event.damageTrace||result.event.effects?.[0]?.damageTrace)&&skills[result.event.command].kind==='physical'){const trace=(result.event.damageTrace||result.event.effects![0].damageTrace)!;const actor=session.battle.units.find(u=>u.id===result.event.actor)!;notice+=` 実行時の攻撃力：基礎 ${actor.attack.toFixed(1)} → 実効 ${trace.effectiveAttack.toFixed(1)}。`}render();if(result.ok)visual?.effect(result.event)};
  el('opportunity').onclick=()=>{const result=session.targetOpportunity();notice=result.ok?session.lastOpportunity:result.reason;render()};
  el('next-round').onclick=()=>{session.nextRound();notice=`第${session.battle.round}ラウンドの順番を確認してください。全員待機で進めました。`;render()};
  el('preset').onclick=()=>{
@@ -89,5 +90,5 @@ export function mountLab(host:HTMLElement,onBack:()=>void){
  };
  el('reset').onclick=()=>{newSession();notice='新しい検証戦闘に戻しました。';render()};
  el('xp').onclick=()=>{for(const h of Object.values(xp))gainExperience(h,120);el('growth').textContent=heroes.map(h=>{const u=growUnit(cloneUnit(h),xp[h.id]);return `${u.name} Lv.${u.level} EXP ${xp[h.id].experience} HP ${u.maxHp} MP ${u.maxMp} 攻${u.attack} 防${u.defense} 速${u.speed}`}).join(' ／ ');notice='各人に経験値120を付与しました（本編には保存しません）。';render()};
- el('back').onclick=onBack;render();
+ if(visual)host.querySelector('#lab-sideview')!.append(visual.host);el('back').onclick=onBack;render();
 }
