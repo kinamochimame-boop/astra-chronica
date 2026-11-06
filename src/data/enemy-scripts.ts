@@ -1,7 +1,11 @@
 import type {Element,StatusEffect} from '../types';
 /** Data-only profiles consumed by the existing charge/phase AI. Reservations store their power. */
-export interface EnemyScript {observer:boolean;alwaysMagic?:boolean;guardOnCharge:boolean;element:Element;normalPower:number;finalNormalPower:number;chargePower:number;finalChargePower:number;spell:string;charge:string;finalCharge:string;statuses:StatusEffect[]}
+export interface EnemyScript {observer:boolean;alwaysMagic?:boolean;chargeAll?:boolean;counterOnCharge?:boolean;guardFirst?:boolean;guardOnCharge:boolean;element:Element;normalPower:number;finalNormalPower:number;chargePower:number;finalChargePower:number;spell:string;charge:string;finalCharge:string;statuses:StatusEffect[]}
 export const enemyScripts:Record<string,EnemyScript>={
+ starOrb:{observer:false,alwaysMagic:true,guardOnCharge:false,element:'light',normalPower:80,finalNormalPower:80,chargePower:104,finalChargePower:104,spell:'星脈光',charge:'脈動砲',finalCharge:'脈動砲',statuses:[]},
+ recordGuardian:{observer:false,guardOnCharge:true,counterOnCharge:true,chargeAll:true,element:'earth',normalPower:0,finalNormalPower:0,chargePower:88,finalChargePower:88,spell:'記録守域',charge:'封域波',finalCharge:'封域波',statuses:[]},
+ memoria:{observer:true,guardFirst:true,guardOnCharge:true,element:'earth',normalPower:84,finalNormalPower:100,chargePower:118,finalChargePower:145,spell:'記憶の反響',charge:'封印の奔流',finalCharge:'星脈の記憶',statuses:[{id:'sleep',chance:.15,turns:2},{id:'silence',chance:.2,turns:2}]},
+
  skyDrone:{observer:false,alwaysMagic:true,guardOnCharge:false,element:'light',normalPower:66,finalNormalPower:66,chargePower:86,finalChargePower:86,spell:'航路光弾',charge:'翼光砲',finalCharge:'翼光砲',statuses:[]},
  aeroGuard:{observer:false,guardOnCharge:true,element:'wind',normalPower:0,finalNormalPower:0,chargePower:100,finalChargePower:100,spell:'守域術',charge:'旋風砲',finalCharge:'旋風砲',statuses:[]},
  astraeia:{observer:true,guardOnCharge:true,element:'wind',normalPower:72,finalNormalPower:88,chargePower:108,finalChargePower:132,spell:'星翼風',charge:'帰還の嵐',finalCharge:'天穹の星翼',statuses:[{id:'blind',chance:.2,turns:2},{id:'silence',chance:.15,turns:2}]},

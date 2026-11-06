@@ -9,7 +9,7 @@ export interface Modifier { stat: Stat; amount: number; remaining: number }
 export interface Unit {
   id: string; name: string; role: string; weapons: string[];
   maxHp: number; hp: number; maxMp: number; mp: number;
-  attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string; enemyPattern?:'mistGuardian'|'canalKeeper'|'bellGuardian'|'ruinSoldier'|'windWarden'|'skyGuardian'|'resonanceMachine'|'echoria'|'gardion'|'zaira'|'sandSoldier'|'clockDrone'|'clockGuard'|'luciel'|'gearGuard'|'groveGuard'|'rootOrb'|'granGuard'|'seles'|'skyDrone'|'skyGuard'|'aeroGuard'|'astraeia';enemyMagic?:{name?:string;power:number;element:Element;statuses?:StatusEffect[]};phaseEvasion?:{threshold:number;chance:number};counterReady?:boolean; evasion?:number;normalAttackHits?:number;
+  attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string; enemyPattern?:'mistGuardian'|'canalKeeper'|'bellGuardian'|'ruinSoldier'|'windWarden'|'skyGuardian'|'resonanceMachine'|'echoria'|'gardion'|'zaira'|'sandSoldier'|'clockDrone'|'clockGuard'|'luciel'|'gearGuard'|'groveGuard'|'rootOrb'|'granGuard'|'seles'|'skyDrone'|'skyGuard'|'aeroGuard'|'astraeia'|'archiveGuard'|'starOrb'|'recordGuardian'|'memoria';enemyMagic?:{name?:string;power:number;element:Element;statuses?:StatusEffect[]};phaseEvasion?:{threshold:number;chance:number};counterReady?:boolean; evasion?:number;normalAttackHits?:number;
   treeEffects?:TreeEffect[]; treeBonuses?:Partial<Record<TreeStat,number>>;
   level: number; star:number; tauntRounds?:number; barrierCharges?:number; attackElement: Element; affinities: Partial<Record<Element, number>>;
   statusResistance: Partial<Record<StatusId, number>>;

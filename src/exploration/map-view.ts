@@ -1,3 +1,5 @@
+import {drawTerrain} from './map-art';
+import {transitionReason,objectConditionReason} from './transitions';
 import Phaser from 'phaser';
 import type {Progress} from '../save';
 import {chapterState,eventOpen,locationOpen} from '../adventure';
@@ -32,9 +34,9 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
   if(disposed||runtime.paused||runtime.locked)return;
   if(!closeEnough(runtime.hero,o)){say('対象の近くへ歩いてから調べてください。');return}
   runtime.stop();sync(0,true);
+  const condition=objectConditionReason(p,map,o);if(condition){say(condition);return}
   if(o.kind==='exit'){
-   if(o.targetMap){const target=mapById(o.targetMap)!;if(!mapOpen(p.adventure,target)){say('先の地点のメインイベントを完了すると、この出口が開きます。');return}flush();actions.travel(target.id);}
-   else if(o.targetLocation){if(!locationOpen(chapterState(p.adventure,chapter),chapter,o.targetLocation)){say('この地点のメインイベントを完了してください。');return}flush();actions.location(o.targetLocation);}return;
+   const reason=transitionReason(p,map,o);if(reason){say(reason);return}flush();if(o.targetMap)actions.travel(o.targetMap);else if(o.targetLocation)actions.location(o.targetLocation);return;
   }
   if(o.questId&&o.objectiveId){if(collectQuestObjective(p,o.questId,o.objectiveId)){say('依頼の手掛かりを調べました。');flush()}else say(p.quests[o.questId]?.objectives.includes(o.objectiveId)?'この手掛かりは調査済みです。':'依頼を受注し、必要な手掛かりを先に調べてください。');return;}
   if(!o.eventId){say(o.text??o.name);return}
@@ -49,9 +51,9 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
   if(disposed)return;if(p.world!.x!==runtime.hero.x||p.world!.y!==runtime.hero.y||p.world!.facing!==runtime.hero.facing)dirty=true;Object.assign(p.world!,{x:runtime.hero.x,y:runtime.hero.y,facing:runtime.hero.facing});saveElapsed+=dt;lastPublished+=dt;
   if(saveElapsed>=.75){saveElapsed=0;if(dirty)flush()}
   if(!force&&lastPublished<.1)return;lastPublished=0;
-  viewport.dataset.state=JSON.stringify({mapId:map.id,hero:{x:runtime.hero.x,y:runtime.hero.y,facing:runtime.hero.facing,moving:!!runtime.hero.path.length},camera:runtime.camera,width:390,height:scene.scale?.gameSize.height??480,paused:runtime.paused,locked:runtime.locked,tile:map.tile,grid:map.grid,objects:map.objects,symbols:runtime.symbols.map(s=>({id:s.definition.id,x:s.x,y:s.y,state:s.state,updates:s.updates,eventId:s.definition.eventId}))});
+  viewport.dataset.state=JSON.stringify({mapId:map.id,chapterId:map.chapterId,locationId:map.locationId,hero:{x:runtime.hero.x,y:runtime.hero.y,facing:runtime.hero.facing,moving:!!runtime.hero.path.length},camera:runtime.camera,width:390,height:scene.scale?.gameSize.height??480,paused:runtime.paused,locked:runtime.locked,tile:map.tile,grid:map.grid,objects:map.objects,symbols:runtime.symbols.map(s=>({id:s.definition.id,x:s.x,y:s.y,state:s.state,updates:s.updates,eventId:s.definition.eventId}))});
   const objects=map.objects.filter(o=>closeEnough(runtime.hero,o)),key=objects.map(o=>o.id+(o.eventId?String(done().includes(o.eventId)):'')).join('|');
-  if(key!==nearKey){nearKey=key;nearby.replaceChildren();for(const o of objects){const b=document.createElement('button');b.className='secondary';b.dataset.worldObject=o.id;b.textContent=o.kind==='exit'?o.name:`${o.name}を調べる`;b.disabled=o.kind==='chest'&&!!o.eventId&&done().includes(o.eventId);if(b.disabled)b.textContent=`${o.name} · 開封済み`;b.onclick=()=>inspect(o);nearby.append(b)}}
+  if(key!==nearKey){nearKey=key;nearby.replaceChildren();for(const o of objects){const b=document.createElement('button');b.className='secondary';b.dataset.worldObject=o.id;b.textContent=o.kind==='exit'?`↗ ${o.name}`:`${o.name}を調べる`;b.disabled=o.kind==='chest'&&!!o.eventId&&done().includes(o.eventId);if(b.disabled)b.textContent=`${o.name} · 開封済み`;b.onclick=()=>inspect(o);nearby.append(b)}}
   if(wasMoving&&!runtime.hero.path.length&&dirty){saveElapsed=0;flush()}wasMoving=!!runtime.hero.path.length;
  }
  class WalkScene extends Phaser.Scene {
@@ -62,11 +64,10 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
    // Phaser ignores an already prevented event, so process it before suppressing its synthetic click.
    finishTouch=event=>{original(event);if(event.cancelable)event.preventDefault()};
    touchCanvas.removeEventListener('touchend',original);touchCanvas.addEventListener('touchend',finishTouch,{passive:false});
-   this.cameras.main.setBounds(0,0,map.width*map.tile,map.height*map.tile);const g=this.add.graphics();
-   for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++){const t=map.grid[y][x],floor=map.theme==='sky'?[0x3b5667,0x405f71]:map.kind==='dungeon'?[0x263d3a,0x2c4440]:[0x234934,0x294f38];g.fillStyle(t==='~'?(map.theme==='sky'?0x91b9d0:0x28596b):t==='#'?(map.theme==='sky'?0x293e59:0x102c25):floor[(x+y)%2]);g.fillRect(x*32,y*32,32,32);if(t==='#'){g.lineStyle(1,0x547e57,.5);g.strokeRect(x*32+3,y*32+3,26,26);if(map.kind!=='dungeon'&&map.theme!=='sky'){g.fillStyle(0x346344);g.fillCircle(x*32+16,y*32+13,12)}}}
+   this.cameras.main.setBounds(0,0,map.width*map.tile,map.height*map.tile);drawTerrain(this,map);
    for(const o of map.objects){const c=this.add.container(o.x,o.y);const a=this.add.graphics();a.fillStyle(o.kind==='chest'?0xc7a25f:o.kind==='exit'?0x95c7b2:0x8cadd0);a.fillRoundedRect(-12,-12,24,24,5);if(o.kind==='npc'){a.fillStyle(0xf1d5b5);a.fillCircle(0,-17,9)}if(o.icon==='ship'){a.fillStyle(0xd8bd80);a.fillTriangle(-25,0,25,0,12,16);a.lineStyle(3,0xe5d4b3);a.lineBetween(0,0,0,-35);a.fillStyle(0xd6eefa);a.fillTriangle(2,-34,2,-5,28,-7)}c.add(a);const label=this.add.text(0,18,o.name,{fontSize:'10px',fontFamily:'sans-serif',color:'#f5ead0',backgroundColor:'#112b25'}).setOrigin(.5,0);c.add(label);this.objects.set(o.id,c)}
    this.hero=this.figure(0x71b4e1);this.hero.setDepth(10);
-   for(const s of runtime.symbols){const c=this.figure(0xc98c88);c.setScale(.7);c.setDepth(9);c.add(this.add.text(0,25,s.definition.name,{fontSize:'12px',fontFamily:'sans-serif',color:'#ffe3d1',backgroundColor:'#2b2020'}).setOrigin(.5,0));this.enemies.set(s.definition.id,c)}
+   for(const s of runtime.symbols){const c=this.figure(0xc98c88);c.setScale(s.definition.radius/10);const contact=this.add.graphics();contact.lineStyle(1,0xf4a795,.8);contact.strokeCircle(0,0,10);c.addAt(contact,0);c.setDepth(9);c.add(this.add.text(0,25,`${s.definition.name} · ${{idle:'待',patrol:'巡',chase:'追'}[s.definition.mode]}`,{fontSize:'10px',fontFamily:'sans-serif',color:'#ffe3d1',backgroundColor:'#2b2020'}).setOrigin(.5,0));this.enemies.set(s.definition.id,c)}
    this.input.on('pointerdown',(pointer:Phaser.Input.Pointer)=>{this.pointerStart={x:pointer.x,y:pointer.y}});
    this.input.on('pointerup',(pointer:Phaser.Input.Pointer)=>{const start=this.pointerStart;this.pointerStart=undefined;if(!start||Math.hypot(start.x-pointer.x,start.y-pointer.y)>10||runtime.paused||runtime.locked)return;const point={x:pointer.x+runtime.camera.x,y:pointer.y+runtime.camera.y},object=map.objects.find(o=>distance(point,o)<19);if(object)inspect(object);else {runtime.moveTo(point);say(runtime.notice);sync(0,true)}});
    this.input.on('pointerupoutside',()=>{this.pointerStart=undefined});this.input.on('gameout',()=>{this.pointerStart=undefined});
@@ -74,7 +75,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
   /** Future SD textures can replace only this factory; movement uses world poses, not sprite bounds. */
   figure(color:number){const c=this.add.container(0,0),g=this.add.graphics();g.fillStyle(0x000000,.25);g.fillEllipse(0,12,25,10);g.fillStyle(color);g.fillRoundedRect(-8,-1,16,18,5);g.fillStyle(0xf1d5b5);g.fillCircle(0,-9,10);g.fillStyle(color);g.fillEllipse(0,-15,22,9);g.fillStyle(0x192e32);g.fillCircle(-3,-9,1.5);g.fillCircle(3,-9,1.5);c.add(g);const arrow=this.add.triangle(0,22,-4,0,4,0,0,5,0xf1d797);arrow.name='direction';c.add(arrow);return c;}
   update(_:number,delta:number){if(disposed)return;const contact=runtime.step(delta/1000,390,this.scale.gameSize.height),reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;frame+=Math.min(delta,250);this.hero.setPosition(runtime.hero.x,runtime.hero.y+(runtime.hero.path.length&&!reduced?Math.sin(frame/85)*2:0));const arrow=this.hero.getByName('direction') as Phaser.GameObjects.Triangle;arrow.setRotation(({down:0,left:Math.PI/2,up:Math.PI,right:-Math.PI/2})[runtime.hero.facing]);
-   for(const s of runtime.symbols){const c=this.enemies.get(s.definition.id)!;c.setPosition(s.x,s.y);c.setVisible(s.state!=='hidden'&&s.state!=='defeated')}for(const o of map.objects)this.objects.get(o.id)!.setAlpha(o.kind==='chest'&&p.world!.opened.includes(o.id)?.4:1);
+   for(const s of runtime.symbols){const c=this.enemies.get(s.definition.id)!;c.setPosition(s.x,s.y);c.setVisible(s.state!=='hidden'&&s.state!=='defeated')}for(const o of map.objects){const c=this.objects.get(o.id)!;c.setAlpha(o.kind==='chest'&&p.world!.opened.includes(o.id)?.4:1);c.setScale(closeEnough(runtime.hero,o)?1.08:1)}
    this.cameras.main.setScroll(runtime.camera.x,runtime.camera.y);sync(Math.min(delta/1000,.25));if(contact){sync(0,true);flush();viewport.classList.add('encounter-flash');say('敵に接触しました。戦闘へ移ります。');transitionTimer=window.setTimeout(()=>{if(!disposed)actions.battle(contact)},reduced?0:160);}
   }
  }

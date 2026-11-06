@@ -7,7 +7,7 @@ import {syncWorldProgress} from './access';
 import type {Facing,Pose,WalkMap,WorldSave} from './types';
 const record=(v:unknown):v is Record<string,unknown>=>!!v&&typeof v==='object'&&!Array.isArray(v);
 const face=(v:unknown):Facing=>['up','down','left','right'].includes(v as string)?v as Facing:'down';
-export function mapOpen(adventure:AdventureProgress,map:WalkMap){const c=chapters.find(c=>c.id===map.chapterId)!;return chapterOpen(adventure,c)&&locationOpen(chapterState(adventure,c),c,map.locationId)}
+export function mapOpen(adventure:AdventureProgress,map:WalkMap){const c=chapters.find(c=>c.id===map.chapterId)!;return !!c&&chapterOpen(adventure,c)&&locationOpen(chapterState(adventure,c),c,map.locationId)&&(map.requires??[]).every(id=>chapterState(adventure,c).completed.includes(id))}
 function recordedPose(map:WalkMap,raw:unknown):Pose {return record(raw)&&typeof raw.x==='number'&&typeof raw.y==='number'&&clearCircle(map,{x:raw.x,y:raw.y})?{x:raw.x,y:raw.y,facing:face(raw.facing)}:{...map.entry}}
 export function safePose(map:WalkMap,raw:unknown,adventure:AdventureProgress):Pose {
  if(!record(raw)||typeof raw.x!=='number'||typeof raw.y!=='number'||!clearCircle(map,{x:raw.x,y:raw.y}))return {...map.entry};

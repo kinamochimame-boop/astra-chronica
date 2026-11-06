@@ -13,7 +13,7 @@ import {beginAdventureBattle,resolveAdventureBattle,completeEvent,chapterState} 
 import {recordChoice} from '../src/dialogue-choices';
 import {acceptQuest,collectQuestObjective} from '../src/side-quests';
 import type {Point} from '../src/exploration/types';
-const walkMaps=allWalkMaps.filter(m=>m.chapterId==='chapter-07');
+const walkMaps=allWalkMaps.filter(m=>['grove-camp','grove-trail','grove-ruins'].includes(m.id));
 const camp=walkMaps[0],trail=walkMaps[1],ruins=walkMaps[2];
 const opened=()=>{const p=ready();complete(p,c,'c7-camp-rest');enterMap(p,camp.id);return p};
 describe('real maps, collision and movement',()=>{

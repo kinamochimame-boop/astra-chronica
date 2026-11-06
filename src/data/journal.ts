@@ -44,4 +44,12 @@ export const journalEntries:readonly JournalEntry[]=[
  {"id":"j8-repair","chapterId":"chapter-08","eventId":"c8-repair","kind":"record","title":"二本の供給路","text":"居住区と古い観測航路への流れを分け、人々の灯りを取り戻した。"},
  {"id":"j8-elysia","chapterId":"chapter-08","eventId":"c8-records","kind":"npc","title":"記録管理者エリシア","text":"戻らなかった便の宛先だけを守っている。記録は持ち主の代わりではないと語った。"},
  {"id":"j8-clear","chapterId":"chapter-08","eventId":"c8-clear","kind":"summary","title":"帰る場所から飛び立つ","text":"アルカは迎える翼を選び、アストレイアは今の空を支える。次の観測港は海の下にある。"},
+ {"id":"j9-arrival","chapterId":"chapter-09","eventId":"c9-arrival","kind":"summary","title":"空と地底の循環","text":"海底観測港の記録から、地下都市へ流れる星脈を辿った。"},
+ {"id":"j9-gald","chapterId":"chapter-09","eventId":"c9-gate-meeting","kind":"npc","title":"防衛隊長ガルド","text":"過去の封印を開けば今の暮らしが壊れると警告した。"},
+ {"id":"j9-noa","chapterId":"chapter-09","eventId":"c9-city-noa","kind":"npc","title":"案内人ノア","text":"出生の記録を探す若い案内人。今の街の思い出も大切にしている。"},
+ {"id":"j9-market","chapterId":"chapter-09","eventId":"c9-market-memory","kind":"record","title":"分けられた記憶","text":"技術は覚えていても、教わった人を思い出せない住民がいる。"},
+ {"id":"j9-token","chapterId":"chapter-09","eventId":"c9-mine-token","kind":"record","title":"灯りのそばへ運ばれた子","text":"避難札はノアが誰かに守られてこの街へ届けられたことを示す。詳しい出発地はまだ分からない。"},
+ {"id":"j9-lucia","chapterId":"chapter-09","eventId":"c9-archive-entry","kind":"npc","title":"管理者リュシア","text":"住民の求めで研究の記憶を封じた管理者。読むかどうかを本人が選べると語る。"},
+ {"id":"j9-buffer","chapterId":"chapter-09","eventId":"c9-archive-record","kind":"record","title":"選んで開く記憶","text":"封印は負荷を分ける緩衝路だった。今を守りながら、異なる速さで読める仕組みを選んだ。"},
+ {"id":"j9-clear","chapterId":"chapter-09","eventId":"c9-clear","kind":"summary","title":"忘れず、急がず、選ぶ街","text":"メモリアは緩衝路の見守りへ戻り、街は記憶を開く範囲を住民が決める。次の記録は東の海辺の観測所を指す。"},
 ];
