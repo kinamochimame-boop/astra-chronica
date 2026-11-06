@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {walkMaps,mapById} from '../src/exploration/map-data';
+import {walkMaps as allWalkMaps,mapById} from '../src/exploration/map-data';
 import {clearCircle,center,distance,cameraFor} from '../src/exploration/collision';
 import {findPath} from '../src/exploration/pathfinding';
 import {MapRuntime} from '../src/exploration/map-runtime';
@@ -9,7 +9,8 @@ import {transitionReason,objectConditionReason} from '../src/exploration/transit
 import {chapters} from '../src/data/chapter-one';
 import {ready,complete} from './v15-helpers';
 import {chapterNine} from '../src/data/chapter-nine';
-const full=()=>{const p=ready();for(const c of chapters.slice(6))complete(p,c);return p};
+const walkMaps=allWalkMaps.slice(0,18);
+const full=()=>{const p=ready();for(const c of chapters.slice(6,9))complete(p,c);return p};
 describe('eighteen genuine shared walking maps',()=>{
  it('defines five seventh, five eighth and eight ninth maps with stable unique IDs',()=>{expect(walkMaps).toHaveLength(18);expect(new Set(walkMaps.map(m=>m.id)).size).toBe(18);expect([7,8,9].map(n=>walkMaps.filter(m=>m.chapterId===`chapter-0${n}`).length)).toEqual([5,5,8]);expect(walkMaps.filter(m=>m.chapterId==='chapter-09').map(m=>m.id)).toEqual(['star-cave','star-path','star-city','star-market','star-waterway','star-mine','star-archive','star-core'])});
  it.each(walkMaps)('$id entry, objects, exits, enemies and patrol waypoints are all reachable',m=>{expect(m.grid.length).toBe(m.height);expect(m.grid.every(row=>row.length===m.width)).toBe(true);expect(clearCircle(m,m.entry)).toBe(true);for(const o of [...m.objects,...m.symbols,...m.symbols.flatMap(s=>s.route)]){expect(clearCircle(m,o)).toBe(true);const path=findPath(m,m.entry,o);expect(path,`${m.id}/${JSON.stringify(o)}`).toBeDefined();const r=new MapRuntime({...m,symbols:[]},m.entry,()=>false,()=>false);r.moveTo(o);for(let n=0;n<1500&&r.hero.path.length;n++){r.step(1/30,390,440);expect(clearCircle(m,r.hero)).toBe(true)}expect(distance(r.hero,path!.at(-1)!)).toBeLessThan(.01)}for(const o of m.objects.filter(o=>o.kind==='exit')){if(o.targetMap)expect(mapById(o.targetMap)).toBeDefined();else expect(chapters.find(c=>c.id===m.chapterId)!.locations.some(l=>l.id===o.targetLocation)).toBe(true)}});

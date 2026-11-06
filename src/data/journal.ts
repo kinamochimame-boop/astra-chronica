@@ -52,4 +52,12 @@ export const journalEntries:readonly JournalEntry[]=[
  {"id":"j9-lucia","chapterId":"chapter-09","eventId":"c9-archive-entry","kind":"npc","title":"管理者リュシア","text":"住民の求めで研究の記憶を封じた管理者。読むかどうかを本人が選べると語る。"},
  {"id":"j9-buffer","chapterId":"chapter-09","eventId":"c9-archive-record","kind":"record","title":"選んで開く記憶","text":"封印は負荷を分ける緩衝路だった。今を守りながら、異なる速さで読める仕組みを選んだ。"},
  {"id":"j9-clear","chapterId":"chapter-09","eventId":"c9-clear","kind":"summary","title":"忘れず、急がず、選ぶ街","text":"メモリアは緩衝路の見守りへ戻り、街は記憶を開く範囲を住民が決める。次の記録は東の海辺の観測所を指す。"},
+ {"id":"j10-1","chapterId":"chapter-10","eventId":"c10-arrival","kind":"summary","title":"潮見の町への道","text":"地下都市の記録を頼りに、星灯の消えた海辺を訪れた。"},
+ {"id":"j10-2","chapterId":"chapter-10","eventId":"c10-roan","kind":"npc","title":"案内役ロアン","text":"漁師ロアンは、船と岸で待つ人の両方の合図を守っている。"},
+ {"id":"j10-3","chapterId":"chapter-10","eventId":"c10-sera","kind":"npc","title":"観測員セラ","text":"星灯は海を命令するものではなく、変化を知らせる合図だった。"},
+ {"id":"j10-4","chapterId":"chapter-10","eventId":"c10-fiona","kind":"npc","title":"灯守の少女フィオナ","text":"消したいという怖さも抱えながら、灯りを渡す相手を考えている。"},
+ {"id":"j10-5","chapterId":"chapter-10","eventId":"c10-low-tide","kind":"record","title":"手順で戻した干潮","text":"塔の信号を分け、時間待ちではなく安全な手順で海底の道を開いた。"},
+ {"id":"j10-6","chapterId":"chapter-10","eventId":"c10-cave-record","kind":"record","title":"灯守の手紙","text":"光を消した理由は、帰る船を諦めたことではなかった。"},
+ {"id":"j10-7","chapterId":"chapter-10","eventId":"c10-ruins-tablet","kind":"record","title":"選ぶ人へ知らせる光","text":"事故を命令で防ぐのではなく、危険を伝えて帰り方を選べるようにする。"},
+ {"id":"j10-8","chapterId":"chapter-10","eventId":"c10-clear","kind":"summary","title":"帰る人へ渡す星灯","text":"ルミナリアは観測の合図へ戻り、町の人が記録を共有する。次の手掛かりは内陸の白い平原。"},
 ];
