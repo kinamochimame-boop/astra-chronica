@@ -30,4 +30,11 @@ export const journalEntries:readonly JournalEntry[]=[
  {id:'j6-clock',chapterId:'chapter-06',eventId:'c6-clock-puzzle',kind:'record',title:'朝へ渡す歌の間隔',text:'歌は同じ朝を保存する命令ではなく、帰る人を数える間隔を含んでいた。四つの盤を夕刻から夜明けへ合わせた。'},
  {id:'j6-luciel',chapterId:'chapter-06',eventId:'c6-luciel-truth',kind:'npc',title:'観測者ルシエルの願い',text:'災厄の夜、失うことを恐れる人々の願いを保存した観測者。閉じた朝に帰還者も閉じ込めた。ラシードへの写しは彼女の保管記録の一部だった。'},
  {id:'j6-clear',chapterId:'chapter-06',eventId:'c6-clear',kind:'summary',title:'初めての次の朝',text:'観測の輪を開き、エイルはミラと再会した。人々は異なる記憶を抱いて暮らしを再開する。東の樹海の印を託されたが、原本の歌い手の名はまだ明らかでない。'},
+ {id:'j7-arrival',chapterId:'chapter-07',eventId:'c7-arrival',kind:'summary',title:'東の観測印',text:'クロノリアの印を追い、三人は翠影の樹海へ入った。'},
+ {id:'j7-fine',chapterId:'chapter-07',eventId:'c7-fine',kind:'npc',title:'薬草師フィーネ',text:'森の異変と、育ち方の違う苗を調べる若い薬草師。一人で抱えず、調査を分け合う道を選ぶ。'},
+ {id:'j7-gran',chapterId:'chapter-07',eventId:'c7-gran',kind:'npc',title:'森の番人グラン',text:'外からの願いに森が傷ついたことを覚える古参の番人。森を残すという誓いの意味に迷っている。'},
+ {id:'j7-observer',chapterId:'chapter-07',eventId:'c7-ruins-record',kind:'record',title:'次の枝への記録',text:'観測盤に、記録を閉じず次の枝へ分けるという注記があった。'},
+ {id:'j7-rings',chapterId:'chapter-07',eventId:'c7-rings',kind:'record',title:'歌と年輪の余白',text:'歌の間隔と年輪は、違う時間の声を重ねるために空白を残していた。'},
+ {id:'j7-seles',chapterId:'chapter-07',eventId:'c7-seles-truth',kind:'npc',title:'管理者セレス',text:'記憶を消さないため庭を閉じたが、新しい命の声を聞けなくなっていた管理者。歌い手の名は記録に残っていない。'},
+ {id:'j7-clear',chapterId:'chapter-07',eventId:'c7-clear',kind:'summary',title:'忘れずに芽吹く庭',text:'記録を次の根へ分け、庭は異なる形の若葉を育て始めた。セレスは管理者として残り、西の海の観測印を託した。'},
 ];

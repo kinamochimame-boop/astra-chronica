@@ -1,3 +1,8 @@
+import {mountMap} from './exploration/map-view';
+import {mapForLocation,mapById,symbolForEvent} from './exploration/map-data';
+import {enterMap} from './exploration/exploration-save';
+import type {SymbolContact} from './exploration/types';
+import {visitLocation,chapterState} from './adventure';
 import './chapter-six.css';
 import './chapter-five.css';
 import {mountJournal} from './journal';
@@ -38,8 +43,9 @@ let battleView:BattleView|undefined;
 let actingId:string|undefined,actionRound=1;
 let activeChapter:Chapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapterOne;
 let adventureBattle:{serial:number;eventId:string}|undefined;
+let worldDispose:(()=>void)|undefined;
 let screen='title';let storageOK=true;
-app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 1.4</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
+app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 1.5</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
 const content=document.querySelector<HTMLElement>('#content')!;
 const stage=new Stage();
 const game=new Phaser.Game({type:Phaser.AUTO,width:390,height:310,transparent:true,scene:stage,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},banner:false,parent:document.createElement('div')});
@@ -50,7 +56,8 @@ function persist(){storageOK=save(progress);return storageOK}
 function button(label:string,action:()=>void,cls='primary'){const b=document.createElement('button');b.textContent=label;b.className=cls;b.onclick=action;content.append(b);return b}
 function partyUnits(){return heroes.map(h=>withSkillTree(equippedUnit(growUnit(cloneUnit(h),progress.party[h.id]),progress.equipment.equipped[h.id as HeroId]),progress.skillTree[h.id as HeroId]))}
 function draw(units=partyUnits()){content.append(canvasHost);game.events.emit('stage',units,selected,screen==='battle'?battle.units.findIndex(u=>u.id===targetId):-1)}
-function heading(kicker:string,title:string){if(screen!=='battle'){battleView?.dispose();battleView=undefined;}content.classList.remove('result-screen','city-clear','wind-clear','crystal-clear','desert-clear','dawn-clear');content.classList.toggle('in-battle',screen==='battle');content.innerHTML=`<p class="eyebrow">${kicker}</p><h1>${title}</h1>`}
+function leaveWorld(){if(worldDispose){const dispose=worldDispose;worldDispose=undefined;dispose();game.loop.wake();}}
+function heading(kicker:string,title:string){if(screen!=='world')leaveWorld();if(screen!=='battle'){battleView?.dispose();battleView=undefined;}content.classList.remove('result-screen','city-clear','wind-clear','crystal-clear','desert-clear','dawn-clear');content.classList.toggle('in-battle',screen==='battle');content.innerHTML=`<p class="eyebrow">${kicker}</p><h1>${title}</h1>`}
 function home(){screen='home';busy=false;heading('STARGAZER’S CAMP','星灯りの野営地');content.insertAdjacentHTML('beforeend',`<p class="intro">失われた星の記憶を、もう一度。</p>`);draw();content.insertAdjacentHTML('beforeend',`<div class="names">${heroes.map(h=>`<span>${h.name}<small>${h.role} Lv.${progress.party[h.id].level}</small></span>`).join('')}</div><article><span class="eyebrow">CHAPTER 01 · PROLOGUE</span><h2>約束のはじまり</h2><p>「星が消えても、約束は消えない」<br>星詠みの言葉を胸に、三人は霧の森へ踏み出す。</p></article><div class="stats">戦闘 ${progress.battles}回 <span>勝利 ${progress.wins}回</span></div><p class="hint">所持品：星露の小瓶 ${progress.consumables.potion}個 ／ 灯火の雫 ${progress.consumables.ether}個</p>`);
  button('冒険へ出発',adventure);button('章選択',chapterSelection,'secondary');button('サブクエスト',()=>showQuests(home),'secondary');button('探索記録',()=>showRecords(home),'secondary');button('冒険手帳',()=>showJournal(home),'secondary');button('戦闘開始　→',start);button('編成を見る',formation,'secondary');button('スキルツリー',()=>{screen='skill-tree';mountSkillTree(content,progress,persist,home)},'secondary');button('装備',()=>{screen='equipment';mountEquipment(content,progress,persist,home)},'secondary');button('戦闘基盤テスト（保存なし）',()=>{cancelTurn();screen='lab';mountLab(content,home)},'secondary');button('タイトルへ',title,'text-button');status();}
 function status(){content.insertAdjacentHTML('beforeend',`<p class="save-note">${storageOK?'進行はこのブラウザに自動保存されます':'保存できません。現在のプレイは続行できます'}</p>`)}
@@ -62,10 +69,14 @@ function showRecords(back:()=>void){cancelTurn();screen='records';heading('RECOR
 function showJournal(back:()=>void){cancelTurn();screen='journal';heading('JOURNAL','冒険手帳');mountJournal(content,progress,back,back===home?'ホームへ戻る':'探索へ戻る')}
 function chapterSelection(){cancelTurn();screen='chapters';heading('CHAPTERS','冒険の記録');mountChapterSelection(content,progress,selectChapter,home)}
 function selectChapter(c:Chapter){activeChapter=c;progress.adventure.selectedChapterId=c.id;persist();adventure()}
-function adventure(){cancelTurn();screen='adventure';heading('ADVENTURE',activeChapter.name);mountAdventure(content,progress,persist,startAdventure,home,activeChapter,selectChapter,()=>showQuests(adventure),()=>showRecords(adventure),()=>showJournal(adventure))}
-function startAdventure(eventId:string){const e=activeChapter.events.find(e=>e.id===eventId);const serial=beginAdventureBattle(progress,activeChapter,eventId);if(serial===undefined||!e?.encounter){adventure();return}adventureBattle={serial,eventId};persist();launchBattle(encounterSetup(e.encounter))}
+function adventure(){showAdventure(false)}
+function locationList(){showAdventure(true)}
+function showAdventure(list:boolean){const m=mapForLocation(activeChapter.id,chapterState(progress.adventure,activeChapter).currentLocationId);if(m&&!list){openMap(m.id);return}cancelTurn();screen='adventure';heading('ADVENTURE',activeChapter.name);mountAdventure(content,progress,persist,startAdventure,home,activeChapter,selectChapter,()=>showQuests(adventure),()=>showRecords(adventure),()=>showJournal(adventure),activeChapter.id==='chapter-07'?{onMapLocation:openMap}:undefined)}
+function openMap(id:string){leaveWorld();content.classList.remove('adventure-screen');if(!enterMap(progress,id)){showAdventure(true);return}activeChapter=chapters.find(c=>c.id===mapById(id)!.chapterId)!;persist();cancelTurn();screen='world';heading('EXPLORATION',mapById(id)!.name);game.loop.sleep();worldDispose=mountMap(content,progress,persist,{battle:contact=>{const symbol=mapById(contact.mapId)!.symbols.find(s=>s.id===contact.symbolId)!;startAdventure(symbol.eventId,contact)},travel:openMap,location:id=>{if(visitLocation(progress.adventure,activeChapter,id)){persist();adventure()}},list:locationList,home,equipment:()=>{screen='equipment';heading('EQUIPMENT','装備');mountEquipment(content,progress,persist,adventure)},tree:()=>{screen='skill-tree';heading('SKILL TREE','スキルツリー');mountSkillTree(content,progress,persist,adventure)},quests:()=>showQuests(adventure),journal:()=>showJournal(adventure),records:()=>showRecords(adventure)});}
+
+function startAdventure(eventId:string,source?:SymbolContact){const e=activeChapter.events.find(e=>e.id===eventId);const serial=beginAdventureBattle(progress,activeChapter,eventId,source);if(serial===undefined||!e?.encounter){adventure();return}adventureBattle={serial,eventId};persist();launchBattle(encounterSetup(e.encounter))}
 function start(){adventureBattle=undefined;launchBattle()}
-function launchBattle(setup?:BattleSetup){cancelTurn();battleView?.dispose();battleView=undefined;actingId=undefined;battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);selected=0;busy=false;command='attack';targetId=battle.enemies[0].id;screen='battle';renderBattle();scheduleEnemy()}
+function launchBattle(setup?:BattleSetup){leaveWorld();cancelTurn();battleView?.dispose();battleView=undefined;actingId=undefined;battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);selected=0;busy=false;command='attack';targetId=battle.enemies[0].id;screen='battle';renderBattle();scheduleEnemy()}
 function chooseCommand(next:Command){
  if(busy||!battle.current)return;
  command=next;if(skills[command].target==='allAllies'){targetId='all-allies';renderBattle();return}
@@ -118,11 +129,11 @@ function finishAdventure(result:'victory'|'defeat'){
  if(screen!=='battle'||!adventureBattle)return;
  const context=adventureBattle;cancelTurn();battle.resetBattleResources();screen='result';busy=false;
  const settled=resolveAdventureBattle(progress,context.serial,result);persist();
- heading(settled.cleared?'CHAPTER CLEAR':result==='victory'?'VICTORY':'RETRY',settled.cleared?`第${chapters.indexOf(activeChapter)+1}章クリア`:result==='victory'?(activeChapter.id===chapterOne.id?'霧の先へ、一歩':activeChapter.id==='chapter-02'?'灰の先へ、一歩':activeChapter.id==='chapter-03'?'風の先へ、一歩':activeChapter.id==='chapter-04'?'歌の先へ、一歩':activeChapter.id==='chapter-05'?'砂の先へ、一歩':'朝の先へ、一歩'):'野営地で立て直そう');draw(battle.allies);content.classList.add('result-screen');
+ heading(settled.cleared?'CHAPTER CLEAR':result==='victory'?'VICTORY':'RETRY',settled.cleared?`第${chapters.indexOf(activeChapter)+1}章クリア`:result==='victory'?(activeChapter.id===chapterOne.id?'霧の先へ、一歩':activeChapter.id==='chapter-02'?'灰の先へ、一歩':activeChapter.id==='chapter-03'?'風の先へ、一歩':activeChapter.id==='chapter-04'?'歌の先へ、一歩':activeChapter.id==='chapter-05'?'砂の先へ、一歩':activeChapter.id==='chapter-06'?'朝の先へ、一歩':'若葉の先へ、一歩'):'野営地で立て直そう');draw(battle.allies);content.classList.add('result-screen');
  const text=document.createElement('article');const message=document.createElement('p');message.textContent=result==='victory'?`一人につき経験値 ${settled.xp} 獲得。`:'地点は未クリアのままです。装備を整え、もう一度挑戦できます。';text.append(message);
  if(result==='victory')for(const hero of battle.allies){const line=document.createElement('p');line.textContent=`${hero.name} Lv.${progress.party[hero.id].level}${settled.levels[hero.id]?'（レベルアップ！）':''}`;text.append(line)}
- if(settled.cleared){const line=document.createElement('p');line.textContent=(activeChapter.id===chapterOne.id?'守護獣は静かに眠り、森の霧が晴れていく。':activeChapter.id==='chapter-02'?'鐘が静まり、星図が街へ戻った。灯火のロッドを入手した。':activeChapter.id==='chapter-03'?'風路がつながり、空渡りの道が戻った。星風のワンドを入手した。':activeChapter.id==='chapter-04'?'セレナ「歌が変わり、人々が目覚め始めました。一人ずつ声を聞きに行きます」。月晶のロッドを入手した。':activeChapter.id==='chapter-05'?'ザイラ「星砂は王都と砂海の両方へ流れた」。嵐が収まり、商隊が帰り始めた。蜃気楼のワンドを入手した。':'エイルがミラと再会し、クロノリアに次の朝が来た。ルシエルは記録を守り、旅の続きを託す。暁晶のロッドを入手した。')+activeChapter.preview;text.append(line)}
- if(settled.cleared&&activeChapter.id==='chapter-02')content.classList.add('city-clear');if(settled.cleared&&activeChapter.id==='chapter-03')content.classList.add('wind-clear');if(settled.cleared&&activeChapter.id==='chapter-04')content.classList.add('crystal-clear');if(settled.cleared&&activeChapter.id==='chapter-05')content.classList.add('desert-clear');if(settled.cleared&&activeChapter.id==='chapter-06')content.classList.add('dawn-clear');content.append(text);button('冒険へ戻る',adventure);if(result==='defeat')button('この地点に再挑戦',()=>startAdventure(context.eventId),'secondary');button('ホームへ戻る',home,'secondary');status();
+ if(settled.cleared){const line=document.createElement('p');line.textContent=(activeChapter.id===chapterOne.id?'守護獣は静かに眠り、森の霧が晴れていく。':activeChapter.id==='chapter-02'?'鐘が静まり、星図が街へ戻った。灯火のロッドを入手した。':activeChapter.id==='chapter-03'?'風路がつながり、空渡りの道が戻った。星風のワンドを入手した。':activeChapter.id==='chapter-04'?'セレナ「歌が変わり、人々が目覚め始めました。一人ずつ声を聞きに行きます」。月晶のロッドを入手した。':activeChapter.id==='chapter-05'?'ザイラ「星砂は王都と砂海の両方へ流れた」。嵐が収まり、商隊が帰り始めた。蜃気楼のワンドを入手した。':activeChapter.id==='chapter-06'?'エイルがミラと再会し、クロノリアに次の朝が来た。ルシエルは記録を守り、旅の続きを託す。暁晶のロッドを入手した。':'星樹の根が記録を分け、新しい苗が葉を開いた。セレスは庭に残り、旅人へ西の海の観測印を託す。星樹のワンドを入手した。')+activeChapter.preview;text.append(line)}
+ if(settled.cleared&&activeChapter.id==='chapter-02')content.classList.add('city-clear');if(settled.cleared&&activeChapter.id==='chapter-03')content.classList.add('wind-clear');if(settled.cleared&&activeChapter.id==='chapter-04')content.classList.add('crystal-clear');if(settled.cleared&&activeChapter.id==='chapter-05')content.classList.add('desert-clear');if(settled.cleared&&activeChapter.id==='chapter-06')content.classList.add('dawn-clear');content.append(text);button('冒険へ戻る',adventure);if(result==='defeat')symbolForEvent(context.eventId)?button('探索から再挑戦',adventure,'secondary'):button('この地点に再挑戦',()=>startAdventure(context.eventId),'secondary');button('ホームへ戻る',home,'secondary');status();
 }
 
 title();

@@ -43,7 +43,12 @@ export const chapterSixWeapons:readonly Weapon[]=[
  {id:'timeward-shield-rapier',name:'時守の盾突剣',family:'shieldRapier',owner:'rina',bonuses:{attack:5,defense:12,speed:2},effects:{guardReduction:0.05},description:'攻撃＋5、防御＋12、速度＋2。ガード被ダメージ倍率−0.05（共通防御には適用しない）。'},
  {id:'dawncrystal-rod',name:'暁晶のロッド',family:'rod',owner:'mei',bonuses:{attack:6,maxMp:12},effects:{magicRate:1.2},description:'攻撃＋6、最大MP＋12。属性攻撃魔法＋20%。回復補正なし。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons];
+export const chapterSevenWeapons:readonly Weapon[]=[
+ {id:'verdant-star-duals',name:'翠星の双剣',family:'dualBlades',owner:'astel',bonuses:{attack:10,speed:3},effects:{normalHits:2},description:'攻撃＋10、速度＋3。通常攻撃0.5倍×2。霜星の弓より速度を抑えた連撃型。'},
+ {id:'groveward-shield-spear',name:'樹護の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:4,defense:14,maxHp:8},effects:{guardReduction:0.03},description:'攻撃＋4、防御＋14、最大HP＋8。ガード倍率−0.03。時守の盾突剣より耐久重視、速度補正なし。'},
+ {id:'startree-wand',name:'星樹のワンド',family:'wand',owner:'mei',bonuses:{attack:5,maxMp:8},effects:{healingRate:1.15,magicRate:1.12},description:'攻撃＋5、最大MP＋8。回復量＋15%、属性魔法＋12%。暁晶のロッドより回復重視。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

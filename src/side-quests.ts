@@ -1,3 +1,4 @@
+import {mapObjectiveReason} from './exploration/access';
 import {explorationRestriction} from './exploration-conditions';
 import {sideQuests,type SideQuest} from './data/side-quests';
 import {chapters} from './data/chapter-one';
@@ -20,7 +21,7 @@ export function acceptQuest(p:Progress,id:string):boolean{const q=sideQuests.fin
 export function collectQuestObjective(p:Progress,id:string,objectiveId:string):boolean{
  const q=sideQuests.find(q=>q.id===id),s=questProgress(p.quests,id),o=q?.objectives.find(o=>o.id===objectiveId),c=chapters.find(c=>c.id===q?.chapterId);
  if(!q||!c||!o||!questAvailable(p,q)||!s.accepted||s.claimed||s.objectives.includes(o.id)||chapterState(p.adventure,c).currentLocationId!==o.locationId||!locationOpen(chapterState(p.adventure,c),c,o.locationId)||!o.requires.every(id=>s.objectives.includes(id)))return false;
- if(explorationRestriction(p.adventure,c.id,o.locationId,o.id))return false;s.objectives.push(o.id);return true;
+ if(mapObjectiveReason(p,o.id)||explorationRestriction(p.adventure,c.id,o.locationId,o.id))return false;s.objectives.push(o.id);return true;
 }
 export function questClaimReason(p:Progress,q:SideQuest):string{const s=questProgress(p.quests,q.id),c=chapters.find(c=>c.id===q.chapterId)!;if(!questAvailable(p,q))return '章が未解放です';if(s.claimed)return '報酬受取済み';if(!questReady(s,q))return '依頼の目的が未達成です';if(chapterState(p.adventure,c).currentLocationId!==q.returnLocation)return `報告場所：${c.locations.find(l=>l.id===q.returnLocation)!.name}`;if(q.reward.item&&(p.consumables[q.reward.item]+q.reward.count!>99))return '所持上限のため報酬を受け取れません';return ''}
 export function claimQuest(p:Progress,id:string):{ok:boolean;message:string}{const q=sideQuests.find(q=>q.id===id);if(!q)return {ok:false,message:'依頼がありません'};const reason=questClaimReason(p,q);if(reason)return {ok:false,message:reason};if(q.reward.item&&!grantConsumable(p.consumables,q.reward.item,q.reward.count!))return {ok:false,message:'報酬を受け取れませんでした'};if(q.reward.experience)for(const h of Object.values(p.party))gainExperience(h,q.reward.experience);p.quests[id].claimed=true;return {ok:true,message:q.reward.item?`${itemDefinitions[q.reward.item].name}を${q.reward.count}個受け取りました。`:`一人につき経験値${q.reward.experience}を受け取りました。`}}

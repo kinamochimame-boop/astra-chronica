@@ -1,3 +1,4 @@
+import {groveEncounters} from './chapter-seven-enemies';
 import {chronoEncounters} from './chapter-six-enemies';
 import {saharaEncounters} from './chapter-five-enemies';
 import {crystalEncounters} from './chapter-four-enemies';
@@ -13,7 +14,7 @@ export const forestEnemies={
  guardian:{...enemy('mist-guardian','霧喰らいの守護獣',920,22,17,180),enemyPattern:'mistGuardian' as const,affinities:{fire:1.25,water:0.75},color:0x9a86c6},
 };
 export const encounters:Record<string,{name:string;enemies:Unit[]}>= {
- ...cityEncounters,...valleyEncounters,...crystalEncounters,...saharaEncounters,...chronoEncounters,
+ ...cityEncounters,...valleyEncounters,...crystalEncounters,...saharaEncounters,...chronoEncounters,...groveEncounters,
  'forest-entry':{name:'霧の森・入口',enemies:[forestEnemies.slime,forestEnemies.bat,forestEnemies.wolf]},
  'forest-fork':{name:'森の分かれ道',enemies:[forestEnemies.wolf,forestEnemies.bat,forestEnemies.wolf].map(u=>({...cloneUnit(u),experienceReward:50}))},
  'forest-guardian':{name:'霧の森・最深部',enemies:[forestEnemies.guardian]},

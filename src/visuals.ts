@@ -1,9 +1,11 @@
+import {battleAnchor,attackOffset,type BattleLayout} from './battle-layout';
 import {battleEventParts} from './types';
 import Phaser from 'phaser';
 import {heroes,type Unit,type BattleEvent} from './battle';
 /** Set Unit.texture to a preloaded asset key to replace the placeholder. */
 export class Stage extends Phaser.Scene {
  figures=new Map<string,Phaser.GameObjects.Container>();
+ layout:BattleLayout='rows';
  private generation=0;
  targets:string[]=[];
  units:Unit[]=heroes; selected=0; enemy=-1;
@@ -18,7 +20,7 @@ export class Stage extends Phaser.Scene {
  g.fillStyle(0x152e3c);g.fillTriangle(0,height*.85,95,height*.35,180,height*.85);g.fillTriangle(100,height*.85,260,height*.25,390,height*.85);
  g.lineStyle(1,0xbda474,.3);g.strokeEllipse(195,height*.86,350,height*.22);g.strokeEllipse(195,height*.86,300,height*.15);
  this.units.forEach((u,i)=>{
- const enemies=this.units.length>3;const x=70+(i%3)*125,y=enemies?(i<3?height*.72:height*.25):height*.63;
+ const enemies=this.units.length>3;const {x,y}=battleAnchor(i,height,enemies,this.layout);
  const active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id);
  const c=this.add.container(x,y).setScale(enemies?Math.min(1,height/250):1).setAlpha(u.hp>0?1:.25);
  this.figures.set(u.id,c);
@@ -44,8 +46,8 @@ export class Stage extends Phaser.Scene {
  const parts=battleEventParts(event),actor=this.figures.get(event.actor);
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(actor&&!reduced&&parts.some(p=>p.kind==='damage'||p.label==='ミス')){
-  this.tweens.killTweensOf(actor);const direction=this.units.findIndex(u=>u.id===event.actor)<3?-1:1;
-  this.tweens.add({targets:actor,y:actor.y+direction*13,duration:140,yoyo:true});
+  this.tweens.killTweensOf(actor);const offset=attackOffset(this.units.findIndex(u=>u.id===event.actor)<3,this.layout);
+  this.tweens.add({targets:actor,x:actor.x+offset.x,y:actor.y+offset.y,duration:140,yoyo:true});
  }
  parts.forEach((part,index)=>this.time.delayedCall(index*90,()=>{
   if(generation!==this.generation)return;
