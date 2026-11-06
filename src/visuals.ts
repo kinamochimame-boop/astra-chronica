@@ -1,62 +1,41 @@
-import {battleAnchor,attackOffset,type BattleLayout} from './battle-layout';
+import {battleAnchor,type BattleLayout} from './battle-layout';
 import {battleEventParts} from './types';
+import {actorStyle,drawActor} from './battle-actors';
+import {animationPlan,elementColor} from './battle-animations';
 import Phaser from 'phaser';
 import {heroes,type Unit,type BattleEvent} from './battle';
-/** Set Unit.texture to a preloaded asset key to replace the placeholder. */
+/** Shared side-view scene, including the save-free lab. No calculations or turn progression live here. */
 export class Stage extends Phaser.Scene {
- figures=new Map<string,Phaser.GameObjects.Container>();
- layout:BattleLayout='rows';
- private generation=0;
- targets:string[]=[];
- units:Unit[]=heroes; selected=0; enemy=-1;
+ figures=new Map<string,Phaser.GameObjects.Container>();private homes=new Map<string,{x:number;y:number}>();layout:BattleLayout='side';private generation=0;
+ targets:string[]=[];units:Unit[]=heroes;selected=0;enemy=-1;
  constructor(){super('stage')}
- create(){this.paint();this.scale.on('resize',this.paint,this);this.events.once('shutdown',()=>this.scale.off('resize',this.paint,this));this.game.events.on('battle-effect',this.effect,this);this.events.once('shutdown',()=>this.game.events.off('battle-effect',this.effect,this));this.game.events.on('stage',this.show,this);this.events.once('shutdown',()=>this.game.events.off('stage',this.show,this));}
+ create(){this.paint();this.scale.on('resize',this.paint,this);this.events.once('shutdown',()=>{this.scale.off('resize',this.paint,this);this.time.removeAllEvents();this.tweens.killAll()});this.game.events.on('battle-effect',this.effect,this);this.game.events.on('stage',this.show,this);this.events.once('shutdown',()=>{this.game.events.off('battle-effect',this.effect,this);this.game.events.off('stage',this.show,this)})}
  show(units:Unit[],selected=0,enemy=-1,targets:string[]=[]){this.targets=targets;this.units=units;this.selected=selected;this.enemy=enemy;this.paint()}
  paint(){
- this.generation++;
- const height=this.scale.gameSize.height;
- this.figures.clear();this.tweens.killAll();this.children.removeAll(true);const g=this.add.graphics();g.fillGradientStyle(0x112846,0x112846,0x1d3c50,0x1d3c50,1);g.fillRect(0,0,390,height);
- for(let i=0;i<35;i++){g.fillStyle(0xcbd8eb,0.25+(i%3)*.2);g.fillCircle((i*73+19)%390,(i*47)%Math.max(1,height*.7),1)}
- g.fillStyle(0x152e3c);g.fillTriangle(0,height*.85,95,height*.35,180,height*.85);g.fillTriangle(100,height*.85,260,height*.25,390,height*.85);
- g.lineStyle(1,0xbda474,.3);g.strokeEllipse(195,height*.86,350,height*.22);g.strokeEllipse(195,height*.86,300,height*.15);
- this.units.forEach((u,i)=>{
- const enemies=this.units.length>3;const {x,y}=battleAnchor(i,height,enemies,this.layout);
- const active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id);
- const c=this.add.container(x,y).setScale(enemies?Math.min(1,height/250):1).setAlpha(u.hp>0?1:.25);
- this.figures.set(u.id,c);
- if(u.hp>0)c.setSize(80,110).setInteractive().on('pointerup',()=>this.game.events.emit('unit-tap',u.id));
- const s=this.add.graphics();s.fillStyle(0x000000,.25);s.fillEllipse(0,43,63,15);
- if(u.hp>0&&targeted){s.lineStyle(3,0xe6c780,.95);s.strokeEllipse(0,43,74,20)}
- if(u.hp>0&&active){s.lineStyle(3,0x8edcfa,.95);s.strokeCircle(0,0,34)}
- c.add(s);
- if(u.texture&&this.textures.exists(u.texture)){c.add(this.add.image(0,0,u.texture).setDisplaySize(70,95));this.idle(c,u,active,i);return;}
- const b=this.add.graphics();b.fillStyle(u.color);b.fillRoundedRect(-19,0,38,39,10);b.fillStyle(0x253652);b.fillRoundedRect(-18,32,13,15,3);b.fillRoundedRect(5,32,13,15,3);
- b.fillStyle(i<3?0xf3d7bd:0xa5adce);b.fillCircle(0,-17,24);b.fillStyle(u.color);b.fillEllipse(0,-33,49,20);b.fillTriangle(-24,-30,-17,0,-6,-30);
- b.fillStyle(0x13243b);b.fillCircle(-8,-16,2.5);b.fillCircle(8,-16,2.5);
- b.lineStyle(4,0xe5cd91);b.lineBetween(25,20,34,-17);b.fillStyle(0xdcc282);b.fillCircle(34,-20,5);
- if(u.id==='rina'){b.fillStyle(0xe1b86c);b.fillRoundedRect(-34,8,22,30,6)}
- c.add(b);this.idle(c,u,active,i);
- });
- }
- private idle(figure:Phaser.GameObjects.Container,u:Unit,active:boolean,index:number){
- if(u.hp>0&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)this.tweens.add({targets:figure,y:figure.y-(active?4:2),duration:1000+index*90,yoyo:true,repeat:-1});
+ this.generation++;this.time.removeAllEvents();this.figures.clear();this.homes.clear();this.tweens.killAll();this.children.removeAll(true);
+ const height=this.scale.gameSize.height,hasEnemies=this.units.length>3,enemyCount=this.units.length-3,g=this.add.graphics();g.fillStyle(0x102b40);g.fillRect(0,0,390,height);g.lineStyle(1,0x809dba,.15);for(let y=15;y<height;y+=35)g.lineBetween(0,y,390,y+30);g.lineStyle(1,0xdbc68a,.2);g.lineBetween(195,5,195,height-5);
+ const models=this.units.map((u,i)=>{
+  const anchor=battleAnchor(i,height,hasEnemies,this.layout,enemyCount),active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id),style=actorStyle(u,i<3),c=drawActor(this,u,i<3).setPosition(anchor.x,anchor.y).setScale(hasEnemies?Math.min(.9,height/300)*(i>=3&&(u.experienceReward??0)>=800?1.12:1):1).setAlpha(u.hp>0?1:.25);this.figures.set(u.id,c);this.homes.set(u.id,anchor);
+  if(u.hp>0)c.setSize(90,94).setInteractive().on('pointerup',()=>this.game.events.emit('unit-tap',u.id));
+  const ring=this.add.graphics();ring.lineStyle(3,targeted?0xf2d58c:0x8cddec,targeted||active?1:.2);ring.strokeEllipse(0,30,70,14);if(targeted){ring.fillStyle(0xf6d98c);ring.fillTriangle(-5,-53,5,-53,0,-45)}c.addAt(ring,0);
+  if(u.guarding||u.covering){const shield=this.add.graphics();shield.lineStyle(3,0x9cdcf2,.8);shield.strokeRoundedRect(12,-36,28,63,9);c.add(shield)}
+  if(u.hp>0&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)this.tweens.add({targets:c,y:c.y-(active?3:1.5),duration:900+i*80,yoyo:true,repeat:-1});
+  return {id:u.id,...anchor,side:i<3?'ally':'enemy',alive:u.hp>0,targeted,active,...style};
+ });this.game.canvas.dataset.actors=JSON.stringify(models);this.game.canvas.dataset.layout=hasEnemies?this.layout:'portraits';
  }
  effect(event:BattleEvent){
- const generation=this.generation;
- const parts=battleEventParts(event),actor=this.figures.get(event.actor);
- const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(actor&&!reduced&&parts.some(p=>p.kind==='damage'||p.label==='ミス')){
-  this.tweens.killTweensOf(actor);const offset=attackOffset(this.units.findIndex(u=>u.id===event.actor)<3,this.layout);
-  this.tweens.add({targets:actor,x:actor.x+offset.x,y:actor.y+offset.y,duration:140,yoyo:true});
- }
- parts.forEach((part,index)=>this.time.delayedCall(index*90,()=>{
-  if(generation!==this.generation)return;
-  const target=this.figures.get(part.target);if(!target?.active)return;
-  if(part.kind==='damage'&&!reduced)this.tweens.add({targets:target,alpha:.12,duration:60,yoyo:true,repeat:1});
-  if(part.kind==='heal'){
-   const glow=this.add.graphics();glow.lineStyle(5,0x94e9ba,.9);glow.strokeEllipse(target.x,target.y,74,85);
-   if(reduced)this.time.delayedCall(550,()=>glow.destroy());else this.tweens.add({targets:glow,alpha:0,duration:550,onComplete:()=>glow.destroy()});
-  }
- }));
+ const generation=this.generation,reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,plans=animationPlan(event,this.units);this.game.canvas.dataset.effects=JSON.stringify(plans);
+ const later=(ms:number,fn:()=>void)=>this.time.delayedCall(ms,()=>{if(generation===this.generation)fn()});
+ for(const [i,plan] of plans.entries())later(reduced?0:plan.delay,()=>{
+  const actor=this.figures.get(plan.actor),target=this.figures.get(plan.target);if(!actor||!target)return;
+  if(!reduced&&plan.attack&&!plan.selfEffect&&!plan.ranged){const home=this.homes.get(plan.actor)!;this.tweens.killTweensOf(actor);actor.setPosition(home.x,home.y);this.tweens.add({targets:actor,x:home.x+plan.direction*22,duration:100,yoyo:true})}
+  if((plan.covered||plan.castCover)&&!reduced){const protector=plan.castCover?actor:target,victim=plan.castCover?target:this.figures.get(this.units.find(u=>u.id===plan.target)?.covering??'');const home=this.homes.get(plan.castCover?plan.actor:plan.target)!;this.tweens.killTweensOf(protector);protector.setPosition(home.x,home.y);this.tweens.add({targets:protector,x:home.x+30,y:victim?.y??home.y,duration:100,yoyo:true})}
+  if(plan.ranged||plan.kind==='heal'){const cast=this.add.graphics();cast.lineStyle(3,elementColor(plan.element),.75);cast.strokeCircle(actor.x,actor.y,26);later(reduced?150:280,()=>cast.destroy())}
+  const fx=this.add.graphics(),color=plan.critical?0xffd978:plan.kind==='heal'?0x8de9ad:elementColor(plan.element);fx.lineStyle(plan.counter?5:3,color,.95);
+  if(plan.ranged&&!reduced){fx.fillStyle(color);fx.fillCircle(0,0,plan.element==='none'?3:7);fx.setPosition(actor.x,actor.y);this.tweens.add({targets:fx,x:target.x,y:target.y,duration:130,onComplete:()=>fx.destroy()})}
+  else {if(plan.kind==='heal')fx.strokeEllipse(target.x,target.y,62,70);else if(plan.kind==='status')fx.strokeRoundedRect(target.x-30,target.y-35,60,65,8);else if(plan.missed)fx.strokeCircle(target.x,target.y,25);else{fx.lineBetween(target.x-18,target.y+18,target.x+18,target.y-18);fx.lineBetween(target.x-12,target.y-18,target.x+12,target.y+18)}later(reduced?180:300,()=>fx.destroy())}
+  if(plan.kind==='damage'&&!plan.missed&&!reduced)this.tweens.add({targets:target,alpha:.15,duration:60,yoyo:true,repeat:1,onComplete:()=>target.setAlpha(this.units.find(u=>u.id===plan.target)!.hp>0?1:.25)});
+  if(plan.ultimate){const halo=this.add.graphics();halo.lineStyle(5,0xffdf91,.8);halo.strokeEllipse(actor.x,actor.y,95,90);later(400,()=>halo.destroy())}
+ });
  }
 }

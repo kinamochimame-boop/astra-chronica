@@ -48,7 +48,12 @@ export const chapterSevenWeapons:readonly Weapon[]=[
  {id:'groveward-shield-spear',name:'樹護の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:4,defense:14,maxHp:8},effects:{guardReduction:0.03},description:'攻撃＋4、防御＋14、最大HP＋8。ガード倍率−0.03。時守の盾突剣より耐久重視、速度補正なし。'},
  {id:'startree-wand',name:'星樹のワンド',family:'wand',owner:'mei',bonuses:{attack:5,maxMp:8},effects:{healingRate:1.15,magicRate:1.12},description:'攻撃＋5、最大MP＋8。回復量＋15%、属性魔法＋12%。暁晶のロッドより回復重視。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons];
+export const chapterEightWeapons:readonly Weapon[]=[
+ {id:'skysoar-sword',name:'天翔の剣',family:'sword',owner:'astel',bonuses:{attack:13,defense:1,speed:1},effects:{},description:'帰る道を照らす剣。双剣より速度を落とし、単発の攻撃を高める。'},
+ {id:'azurewing-shield-flail',name:'蒼翼の盾フレイル',family:'shieldFlail',owner:'rina',bonuses:{attack:9,defense:13,maxHp:5},effects:{},description:'蒼い盾と鎖の槌。盾槍の防御特性と引き換えに攻撃を高める。'},
+ {id:'starwind-rod',name:'星風のロッド',family:'rod',owner:'mei',bonuses:{attack:7,maxMp:14},effects:{magicRate:1.22},description:'空の航路を映すロッド。ワンドの回復特性と引き換えに魔法とMPを高める。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

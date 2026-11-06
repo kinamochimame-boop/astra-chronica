@@ -1,6 +1,7 @@
+import {skyMaps} from './chapter-eight-maps';
+import {grid} from './map-grid';
 import type {WalkMap,Point} from './types';
 const tile=32,at=(x:number,y:number):Point=>({x:(x+.5)*tile,y:(y+.5)*tile});
-function grid(width:number,height:number,blocks:{x:number;y:number;w:number;h:number;type?:string}[]){const rows:string[][]=Array.from({length:height},(_,y)=>Array.from({length:width},(_,x)=>x===0||y===0||x===width-1||y===height-1?'#':'.'));for(const b of blocks)for(let y=b.y;y<b.y+b.h;y++)for(let x=b.x;x<b.x+b.w;x++)rows[y][x]=b.type??'#';return rows.map(row=>row.join(''))}
 export const walkMaps:readonly WalkMap[]=[
  {id:'grove-camp',chapterId:'chapter-07',locationId:'c7-camp',name:'樹海の野営地',kind:'camp',tile,width:28,height:24,entry:{...at(4,12),facing:'down'},grid:grid(28,24,[{x:7,y:5,w:4,h:4},{x:16,y:6,w:4,h:5,type:'~'},{x:8,y:16,w:4,h:3},{x:20,y:17,w:3,h:3}]),objects:[
   {id:'fine',name:'フィーネ',kind:'npc',...at(6,12),eventId:'c7-fine'},
@@ -24,6 +25,7 @@ export const walkMaps:readonly WalkMap[]=[
   {id:'ruins-sentry',name:'古木の歩哨',mode:'idle',...at(12,12),speed:0,radius:11,aggro:0,leash:0,route:[],eventId:'c7-ruins-fight',encounterId:'grove-sentry'},
   {id:'ruins-chaser',name:'根脈の追跡者',mode:'chase',...at(21,14),speed:58,radius:10,aggro:150,leash:210,route:[],eventId:'c7-orb-fight',encounterId:'grove-orb'},
  ]},
+ ...skyMaps,
 ];
 export const mapById=(id:unknown)=>typeof id==='string'?walkMaps.find(m=>m.id===id):undefined;
 export const mapForLocation=(chapterId:string,locationId:string)=>walkMaps.find(m=>m.chapterId===chapterId&&m.locationId===locationId);

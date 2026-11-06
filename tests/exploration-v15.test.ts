@@ -1,6 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {ready,complete,arrange,c} from './v15-helpers';
-import {walkMaps,mapById,objectForEvent,symbolForEvent} from '../src/exploration/map-data';
+import {walkMaps as allWalkMaps,mapById,objectForEvent,symbolForEvent} from '../src/exploration/map-data';
 import {findPath} from '../src/exploration/pathfinding';
 import {clearCircle,center,cell,distance,cameraFor} from '../src/exploration/collision';
 import {advance,type Mover} from '../src/exploration/movement';
@@ -13,6 +13,7 @@ import {beginAdventureBattle,resolveAdventureBattle,completeEvent,chapterState} 
 import {recordChoice} from '../src/dialogue-choices';
 import {acceptQuest,collectQuestObjective} from '../src/side-quests';
 import type {Point} from '../src/exploration/types';
+const walkMaps=allWalkMaps.filter(m=>m.chapterId==='chapter-07');
 const camp=walkMaps[0],trail=walkMaps[1],ruins=walkMaps[2];
 const opened=()=>{const p=ready();complete(p,c,'c7-camp-rest');enterMap(p,camp.id);return p};
 describe('real maps, collision and movement',()=>{

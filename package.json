@@ -24,7 +24,12 @@
     "test:chapter-five": "node tests/chapter-five-v13.e2e.mjs && node tests/chapter-five-ui-v13.e2e.mjs",
     "test:chapter-four": "node tests/chapter-four-v12.e2e.mjs && node tests/chapter-four-ui-v12.e2e.mjs",
     "test:chapter-three": "node tests/chapter-three-v11.e2e.mjs && node tests/chapter-three-layout-v11.e2e.mjs",
-    "test:exploration-ui": "node tests/exploration-ui-v15.e2e.mjs"
+    "test:exploration-ui": "node tests/exploration-ui-v15.e2e.mjs",
+    "test:chapter-eight": "node tests/chapter-eight-v16.e2e.mjs",
+    "test:sideview": "node tests/sideview-v16.e2e.mjs",
+    "test:sideview-smoke": "node tests/sideview-v16.smoke.mjs",
+    "test:exploration-v16": "node tests/exploration-ui-v16.e2e.mjs",
+    "test:sideview-lab": "node tests/sideview-lab-v16.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

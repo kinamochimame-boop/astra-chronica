@@ -37,4 +37,11 @@ export const journalEntries:readonly JournalEntry[]=[
  {id:'j7-rings',chapterId:'chapter-07',eventId:'c7-rings',kind:'record',title:'歌と年輪の余白',text:'歌の間隔と年輪は、違う時間の声を重ねるために空白を残していた。'},
  {id:'j7-seles',chapterId:'chapter-07',eventId:'c7-seles-truth',kind:'npc',title:'管理者セレス',text:'記憶を消さないため庭を閉じたが、新しい命の声を聞けなくなっていた管理者。歌い手の名は記録に残っていない。'},
  {id:'j7-clear',chapterId:'chapter-07',eventId:'c7-clear',kind:'summary',title:'忘れずに芽吹く庭',text:'記録を次の根へ分け、庭は異なる形の若葉を育て始めた。セレスは管理者として残り、西の海の観測印を託した。'},
+ {"id":"j8-arrival","chapterId":"chapter-08","eventId":"c8-arrival","kind":"summary","title":"空を渡る観測施設","text":"セレスの西海の印が、山脈上空の浮島の航路を示した。"},
+ {"id":"j8-arka","chapterId":"chapter-08","eventId":"c8-arka","kind":"npc","title":"操縦士アルカ","text":"自由を愛するが、誰かを乗せて戻る責任を恐れていた操縦士。"},
+ {"id":"j8-valto","chapterId":"chapter-08","eventId":"c8-residents","kind":"npc","title":"整備長ヴァルト","text":"住民の暮らしと古い機構の両方を支えようとする整備長。"},
+ {"id":"j8-route","chapterId":"chapter-08","eventId":"c8-ruins-record","kind":"record","title":"帰港を待つ航路","text":"浮島は記録を別の観測者へ渡すために飛んでいた。最後の便は戻らなかった。"},
+ {"id":"j8-repair","chapterId":"chapter-08","eventId":"c8-repair","kind":"record","title":"二本の供給路","text":"居住区と古い観測航路への流れを分け、人々の灯りを取り戻した。"},
+ {"id":"j8-elysia","chapterId":"chapter-08","eventId":"c8-records","kind":"npc","title":"記録管理者エリシア","text":"戻らなかった便の宛先だけを守っている。記録は持ち主の代わりではないと語った。"},
+ {"id":"j8-clear","chapterId":"chapter-08","eventId":"c8-clear","kind":"summary","title":"帰る場所から飛び立つ","text":"アルカは迎える翼を選び、アストレイアは今の空を支える。次の観測港は海の下にある。"},
 ];

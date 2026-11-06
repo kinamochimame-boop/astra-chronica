@@ -17,3 +17,11 @@
 @media(prefers-reduced-motion:reduce){.combat-fx{animation:none}.battle-screen .hp i{transition:none}}
 /* v0.6: bounded skill list and battle-only star resource. */
 .battle-screen .commands{min-height:128px;max-height:128px;overflow-y:auto;overscroll-behavior:contain;align-content:start;padding:1px 3px 2px 0;scrollbar-width:thin;scrollbar-color:#c8ae70 #10263c;scroll-padding-top:58px}.battle-screen .command-cell{min-height:57px}.battle-screen .ultimate-cell{grid-column:1/-1;position:sticky;top:0;z-index:2;background:#0d2339}.battle-screen .ultimate-command{display:flex;justify-content:space-between;align-items:center;padding:5px 9px;border-color:#c7a969;background:linear-gradient(110deg,#3a3752,#173950)}.battle-screen .ultimate-command small{margin:0;color:#f4d98e}.battle-screen .star i{background:linear-gradient(90deg,#9b7948,#f2d28d)}.ultimate-banner{position:absolute;top:42%;left:0;right:0;z-index:3;margin:0;color:#ffe4a7;background:#14223edb;text-align:center;font-size:14px;line-height:2;pointer-events:none}.ultimate-banner:empty{display:none}.ultimate-cast{animation:ultimate-shine .7s ease-out}.ultimate-cast::after{content:'✧';position:absolute;right:10px;top:6px;font-size:36px;color:#ffe2a0;pointer-events:none}@keyframes ultimate-shine{0%,100%{box-shadow:none}35%{box-shadow:inset 0 0 50px #efd08a88}}@media(max-width:350px){.battle-screen .commands{grid-template-columns:repeat(3,minmax(0,1fr))}.battle-screen .ultimate-command strong{font-size:10px}}@media(max-height:790px){.shell.battle-mode{height:auto;min-height:100svh;overflow:visible}#content.battle-screen{height:auto;min-height:790px}.battle-art{height:120px;flex:none}}@media(prefers-reduced-motion:reduce){.ultimate-cast{animation:none}}
+
+/* v1.6: side-view silhouettes need three distinct vertical lanes. */
+.battle-art{min-height:155px}.battle-art canvas{touch-action:manipulation}.combat-fx .fx-value{font-size:22px}
+/* Keep command controls visible even with more than three opponents. */
+.battle-screen .enemies{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+.battle-screen .enemy-card{flex:0 0 calc((100% - 12px)/3)}
+
+.combat-fx.counter{color:#f3d898}.combat-fx.counter .fx-tags{border-bottom:1px dashed currentColor}
