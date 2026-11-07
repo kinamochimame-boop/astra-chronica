@@ -68,7 +68,12 @@ export const chapterElevenWeapons:readonly Weapon[]=[
  {id:'pilgrim-shield-flail',name:'巡礼守の盾フレイル',family:'shieldFlail',owner:'rina',bonuses:{attack:13,defense:15,maxHp:25},effects:{guardReduction:.01},description:'帰り道を守る盾と鎖球。盾槍より防御を抑え、攻撃とHPを支える。'},
  {id:'starvoice-wand',name:'星声のワンド',family:'wand',owner:'mei',bonuses:{attack:10,maxMp:12},effects:{healingRate:1.25},description:'声の主を待つ杖。ロッドの属性魔法補正と引き換えに回復を強化する。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons];
+export const chapterTwelveWeapons:readonly Weapon[]=[
+ {id:'startree-sword',name:'星樹の剣',family:'sword',owner:'astel',bonuses:{attack:16,defense:3},effects:{},description:'未来へ道を開く剣。双剣の連撃や弓の速さと引き換えに、一撃と守りを支える。'},
+ {id:'emerald-shield-spear',name:'翠星の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:10,defense:20,maxHp:20},effects:{guardReduction:.02},description:'受け渡す光を守る盾と槍。フレイルより攻撃とHPを抑え、防御を重視する。'},
+ {id:'eldertree-rod',name:'古樹のロッド',family:'rod',owner:'mei',bonuses:{attack:13,maxMp:14},effects:{magicRate:1.27},description:'年輪の間隔を伝える杖。ワンドの回復補正と引き換えに属性魔法を強める。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

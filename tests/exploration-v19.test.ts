@@ -6,7 +6,7 @@ import {resonancePhase} from '../src/exploration/resonance';
 import {canInteract} from '../src/exploration/collision';
 import {routeGuidance} from '../src/exploration/navigation';
 import {ready as beforeSeven,complete} from './v15-helpers';
-import {walkMaps,mapById} from '../src/exploration/map-data';
+import {walkMaps as allWalkMaps,mapById} from '../src/exploration/map-data';
 import {tidalMap,tidePhase,tideReason} from '../src/exploration/tide';
 import {mainObjective} from '../src/exploration/objective';
 import {approachPoint} from '../src/exploration/approach';
@@ -17,6 +17,7 @@ import {findPath} from '../src/exploration/pathfinding';
 import {MapRuntime} from '../src/exploration/map-runtime';
 import {createSymbols,stepSymbol} from '../src/exploration/enemy-symbols';
 import {load,save} from '../src/save';
+const walkMaps=allWalkMaps.slice(0,34);
 const ready=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,10))complete(p,ch);return p};
 const full=()=>{const p=ready();complete(p,c);return p};
 describe('thirty-four shared maps and approach policy',()=>{
