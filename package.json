@@ -51,7 +51,14 @@
     "test:exploration-v20-smoke": "node tests/exploration-v20.smoke.mjs",
     "test:minimap": "node tests/minimap-v20.e2e.mjs",
     "test:browser-all": "node tests/browser-suite.mjs",
-    "test:browser-v20": "node tests/browser-suite.mjs --v20"
+    "test:browser-v20": "node tests/browser-suite.mjs --v20",
+    "test:chapter-thirteen": "node tests/chapter-thirteen-v21.e2e.mjs",
+    "test:chapter-thirteen-ui": "node tests/chapter-thirteen-ui.e2e.mjs",
+    "test:chapter-thirteen-equipment": "node tests/chapter-thirteen-equipment.e2e.mjs",
+    "test:exploration-v21": "node tests/exploration-v21.e2e.mjs",
+    "test:exploration-v21-smoke": "node tests/exploration-v21.smoke.mjs",
+    "test:railway": "node tests/railway-v21.e2e.mjs",
+    "test:browser-v21": "node tests/browser-suite.mjs --v21"
   },
   "dependencies": {
     "phaser": "^3.90.0"
