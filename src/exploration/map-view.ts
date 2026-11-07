@@ -1,6 +1,10 @@
+import {activeMap} from './active-map';
+import {resonancePhase,resonanceLabel} from './resonance';
+import {routeGuidance} from './navigation';
+import {makePaleEffects} from './pale-effects';
 import {mainObjective} from './objective';
 import {approachPoint} from './approach';
-import {tidalMap,tidePhase,tideLabel} from './tide';
+import {tidePhase,tideLabel} from './tide';
 import {makeSeaEffects} from './sea-effects';
 import {drawTerrain} from './map-art';
 import {transitionReason,objectConditionReason} from './transitions';
@@ -12,14 +16,14 @@ import {mountAdventure} from '../adventure-view';
 import {collectQuestObjective} from '../side-quests';
 import {mapById} from './map-data';
 import {mapOpen} from './exploration-save';
-import {closeEnough,distance,cell,center} from './collision';
+import {closeEnough,distance,cell,center,canInteract} from './collision';
 import {MapRuntime} from './map-runtime';
 import type {MapObject,SymbolContact} from './types';
 import './exploration.css';
 export interface MapActions {battle:(source:SymbolContact)=>void;travel:(mapId:string)=>void;location:(id:string)=>void;list:()=>void;home:()=>void;equipment:()=>void;tree:()=>void;quests:()=>void;journal:()=>void;records:()=>void}
 /** One view owns one Phaser scene, all listeners and timers. No battle logic lives here. */
 export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions:MapActions){
- const saved=p.world!,map=tidalMap(mapById(saved.mapId)!,p.adventure),initialTide=tidePhase(p.adventure),chapter=chapters.find(c=>c.id===map.chapterId)!;
+ const saved=p.world!,map=activeMap(mapById(saved.mapId)!,p.adventure),initialTide=tidePhase(p.adventure)+resonancePhase(p.adventure),chapter=chapters.find(c=>c.id===map.chapterId)!;
  const done=()=>chapterState(p.adventure,chapter).completed;
  const available=(id:string)=>{const e=chapter.events.find(e=>e.id===id);return !!e&&eventOpen(chapterState(p.adventure,chapter),e)&&!done().includes(id)};
  const runtime=new MapRuntime(map,saved,available,id=>p.world!.defeated.includes(id),.65);
@@ -29,7 +33,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  // Keep native drag scrolling, but prevent a touch-end's synthetic click hitting a newly mounted screen.
  let finishTouch:((event:TouchEvent)=>void)|undefined;
  let approachTarget:MapObject|undefined;let objectiveKey='';
- const refreshObjective=()=>{const goal=mainObjective(p.adventure,chapter),key=goal.title+goal.destination+goal.action+tidePhase(p.adventure);if(key===objectiveKey)return false;objectiveKey=key;host.querySelector<HTMLElement>('#world-objective')!.textContent=`目的：${goal.title} ｜ ${goal.destination} — ${goal.action}${chapter.id==='chapter-10'?` 潮位：${tideLabel(tidePhase(p.adventure))}`:''}`;return true};
+ const refreshObjective=()=>{const goal=mainObjective(p.adventure,chapter),key=goal.title+goal.destination+goal.action+tidePhase(p.adventure)+resonancePhase(p.adventure)+routeGuidance(p,map,runtime.hero,runtime.symbols);if(key===objectiveKey)return false;objectiveKey=key;host.querySelector<HTMLElement>('#world-objective')!.textContent=`目的：${goal.title} ｜ ${goal.destination} — ${goal.action} ｜ ${routeGuidance(p,map,runtime.hero,runtime.symbols)}${chapter.id==='chapter-11'?` 共鳴：${resonanceLabel(resonancePhase(p.adventure))}`:''}${chapter.id==='chapter-10'?` 潮位：${tideLabel(tidePhase(p.adventure))}`:''}`;return true};
  // Lay out the guide before Phaser measures its canvas; otherwise a new guide shifts touch input.
  refreshObjective();
  let disposed=false,saveElapsed=0,lastPublished=0,nearKey='',transitionTimer:number|undefined,frame=0,dirty=false,wasMoving=false;
@@ -37,12 +41,12 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  const flush=()=>{dirty=false;if(!disposed&&!persist())say('保存できません。現在の探索は続けられます。')};
  const pause=()=>{runtime.paused=true;runtime.stop();sync(0,true);flush()};
  const resume=()=>{runtime.paused=document.hidden;nearKey='';sync(0,true)};
- const eventClose=()=>{eventDialog.close();if(p.world?.event&&done().includes(p.world.event.id))p.world.event=undefined;if(initialTide!==tidePhase(p.adventure)){flush();actions.travel(map.id);return;}flush();resume()};
+ const eventClose=()=>{eventDialog.close();if(p.world?.event&&done().includes(p.world.event.id))p.world.event=undefined;if(initialTide!==tidePhase(p.adventure)+resonancePhase(p.adventure)){flush();actions.travel(map.id);return;}flush();resume()};
  const inspect=(o:MapObject)=>{
   if(disposed||runtime.paused||runtime.locked)return;
   const condition=objectConditionReason(p,map,o);if(condition){runtime.stop();host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;say(condition);sync(0,true);return}
-  if(!closeEnough(runtime.hero,o)){approachTarget=o;host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=false;say('対象の近くへ歩いてから調べてください。下の移動ボタンも使えます。');return}host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;
-  runtime.stop();sync(0,true);
+  if(!canInteract(map,runtime.hero,o)){approachTarget=o;host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=false;const goal=approachPoint(map,runtime.hero,o);if(goal){runtime.moveTo(goal);say('対象の近くへ移動します。到着後、もう一度調べてください。')}else say('壁や閉じた通路のため近くへ移動できません。通れる道を確かめてください。');return}host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;
+  runtime.stop();scene.pale?.pulse(o,frame);sync(0,true);
   if(o.kind==='exit'){
    const reason=transitionReason(p,map,o);if(reason){say(reason);return}flush();if(o.targetMap)actions.travel(o.targetMap);else if(o.targetLocation)actions.location(o.targetLocation);return;
   }
@@ -59,22 +63,22 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
   if(disposed)return;if(p.world!.x!==runtime.hero.x||p.world!.y!==runtime.hero.y||p.world!.facing!==runtime.hero.facing)dirty=true;Object.assign(p.world!,{x:runtime.hero.x,y:runtime.hero.y,facing:runtime.hero.facing});saveElapsed+=dt;lastPublished+=dt;
   if(saveElapsed>=.75){saveElapsed=0;if(dirty)flush()}
   if(!force&&lastPublished<.1)return;lastPublished=0;
-  viewport.dataset.state=JSON.stringify({mapId:map.id,chapterId:map.chapterId,locationId:map.locationId,hero:{x:runtime.hero.x,y:runtime.hero.y,facing:runtime.hero.facing,moving:!!runtime.hero.path.length},camera:runtime.camera,width:390,height:scene.scale?.gameSize.height??480,paused:runtime.paused,contactGrace:runtime.contactGrace,tide:chapter.id==='chapter-10'?tidePhase(p.adventure):undefined,locked:runtime.locked,tile:map.tile,grid:map.grid,objects:map.objects,symbols:runtime.symbols.map(s=>({id:s.definition.id,x:s.x,y:s.y,state:s.state,updates:s.updates,eventId:s.definition.eventId}))});
+  viewport.dataset.state=JSON.stringify({mapId:map.id,chapterId:map.chapterId,locationId:map.locationId,hero:{x:runtime.hero.x,y:runtime.hero.y,facing:runtime.hero.facing,moving:!!runtime.hero.path.length},camera:runtime.camera,width:390,height:scene.scale?.gameSize.height??480,paused:runtime.paused,contactGrace:runtime.contactGrace,resonance:chapter.id==='chapter-11'?resonancePhase(p.adventure):undefined,tide:chapter.id==='chapter-10'?tidePhase(p.adventure):undefined,locked:runtime.locked,tile:map.tile,grid:map.grid,objects:map.objects,symbols:runtime.symbols.map(s=>({id:s.definition.id,x:s.x,y:s.y,state:s.state,updates:s.updates,eventId:s.definition.eventId}))});
   if(refreshObjective())game.scale.updateBounds();
-  const objects=map.objects.filter(o=>closeEnough(runtime.hero,o)).sort((a,b)=>distance(runtime.hero,a)-distance(runtime.hero,b)),key=objects.map(o=>o.id+(o.eventId?String(done().includes(o.eventId)):'')).join('|');
-  if(key!==nearKey){nearKey=key;nearby.replaceChildren();for(const o of objects){const b=document.createElement('button');b.className='secondary';b.dataset.worldObject=o.id;b.textContent=o.kind==='exit'?`↗ ${o.name}`:`${o.name}を調べる`;b.disabled=o.kind==='chest'&&!!o.eventId&&done().includes(o.eventId);if(b.disabled)b.textContent=`${o.name} · 開封済み`;b.onclick=()=>inspect(o);nearby.append(b)}}
+  const objects=map.objects.filter(o=>canInteract(map,runtime.hero,o)).sort((a,b)=>distance(runtime.hero,a)-distance(runtime.hero,b)),key=objects.map(o=>o.id+(o.eventId?String(done().includes(o.eventId)):o.questId?String(p.quests[o.questId]?.objectives.includes(o.objectiveId!)):'')).join('|');
+  if(key!==nearKey){nearKey=key;nearby.replaceChildren();for(const o of objects){const b=document.createElement('button');b.className='secondary';b.dataset.worldObject=o.id;const checked=!!o.eventId&&done().includes(o.eventId)||!!o.questId&&!!o.objectiveId&&!!p.quests[o.questId]?.objectives.includes(o.objectiveId);b.dataset.inspected=String(checked);b.textContent=o.kind==='exit'?`↗ ${o.name}`:`${checked?'✓ ':'◇ '}${o.name}を調べる`;b.disabled=o.kind==='chest'&&!!o.eventId&&done().includes(o.eventId);if(b.disabled)b.textContent=`${o.name} · 開封済み`;b.onclick=()=>inspect(o);nearby.append(b)}}
   if(wasMoving&&!runtime.hero.path.length&&dirty){saveElapsed=0;flush()}wasMoving=!!runtime.hero.path.length;
  }
  class WalkScene extends Phaser.Scene {
-  sea?:ReturnType<typeof makeSeaEffects>;hero!:Phaser.GameObjects.Container;enemies=new Map<string,Phaser.GameObjects.Container>();objects=new Map<string,Phaser.GameObjects.Container>();pointerStart?:{x:number;y:number};
+  pale?:ReturnType<typeof makePaleEffects>;sea?:ReturnType<typeof makeSeaEffects>;hero!:Phaser.GameObjects.Container;enemies=new Map<string,Phaser.GameObjects.Container>();objects=new Map<string,Phaser.GameObjects.Container>();pointerStart?:{x:number;y:number};
   constructor(){super('free-exploration')}
   create(){
    touchCanvas=this.game.canvas;const touch=this.game.input.touch,original=touch.onTouchEnd as (event:TouchEvent)=>void;
    // Phaser ignores an already prevented event, so process it before suppressing its synthetic click.
    finishTouch=event=>{original(event);if(event.cancelable)event.preventDefault()};
    touchCanvas.removeEventListener('touchend',original);touchCanvas.addEventListener('touchend',finishTouch,{passive:false});
-   this.cameras.main.setBounds(0,0,map.width*map.tile,map.height*map.tile);drawTerrain(this,map);this.sea=makeSeaEffects(this,map);
-   for(const o of map.objects){const c=this.add.container(o.x,o.y);const range=this.add.graphics();range.lineStyle(1,0xe0cd91,.35);range.strokeCircle(0,0,52);range.name='interaction-range';range.setVisible(false);c.add(range);const a=this.add.graphics();a.fillStyle(o.kind==='chest'?0xc7a25f:o.kind==='exit'?0x95c7b2:0x8cadd0);a.fillRoundedRect(-12,-12,24,24,5);if(o.kind==='npc'){a.fillStyle(0xf1d5b5);a.fillCircle(0,-17,9)}if(o.icon==='ship'){a.fillStyle(0xd8bd80);a.fillTriangle(-25,0,25,0,12,16);a.lineStyle(3,0xe5d4b3);a.lineBetween(0,0,0,-35);a.fillStyle(0xd6eefa);a.fillTriangle(2,-34,2,-5,28,-7)}c.add(a);const label=this.add.text(0,18,o.name,{fontSize:'10px',fontFamily:'sans-serif',color:'#f5ead0',backgroundColor:'#112b25'}).setOrigin(.5,0);c.add(label);this.objects.set(o.id,c)}
+   this.cameras.main.setBounds(0,0,map.width*map.tile,map.height*map.tile);drawTerrain(this,map);this.sea=makeSeaEffects(this,map);this.pale=makePaleEffects(this,map);
+   for(const o of map.objects){const c=this.add.container(o.x,o.y);const range=this.add.graphics();range.lineStyle(1,0xe0cd91,.35);range.strokeCircle(0,0,52);range.name='interaction-range';range.setVisible(false);c.add(range);const a=this.add.graphics();a.fillStyle(o.kind==='chest'?0xc7a25f:o.kind==='exit'?0x95c7b2:0x8cadd0);a.fillRoundedRect(-12,-12,24,24,5);if(o.kind==='npc'){a.fillStyle(0xf1d5b5);a.fillCircle(0,-17,9)}if(o.icon==='ship'){a.fillStyle(0xd8bd80);a.fillTriangle(-25,0,25,0,12,16);a.lineStyle(3,0xe5d4b3);a.lineBetween(0,0,0,-35);a.fillStyle(0xd6eefa);a.fillTriangle(2,-34,2,-5,28,-7)}c.add(a);const label=this.add.text(0,18,o.name,{fontSize:'10px',fontFamily:'sans-serif',color:'#f5ead0',backgroundColor:'#112b25'}).setOrigin(.5,0);label.name='object-label';c.add(label);this.objects.set(o.id,c)}
    this.hero=this.figure(0x71b4e1);this.hero.setDepth(10);
    for(const s of runtime.symbols){const c=this.figure(0xc98c88);c.setScale(s.definition.radius/10);const contact=this.add.graphics();contact.lineStyle(1,0xf4a795,.8);contact.strokeCircle(0,0,10);c.addAt(contact,0);c.setDepth(9);c.add(this.add.text(0,25,`${s.definition.name} · ${{idle:'待',patrol:'巡',chase:'追'}[s.definition.mode]}`,{fontSize:'10px',fontFamily:'sans-serif',color:'#ffe3d1',backgroundColor:'#2b2020'}).setOrigin(.5,0));this.enemies.set(s.definition.id,c)}
    this.input.on('pointerdown',(pointer:Phaser.Input.Pointer)=>{this.pointerStart={x:pointer.x,y:pointer.y}});
@@ -83,8 +87,8 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
   }
   /** Future SD textures can replace only this factory; movement uses world poses, not sprite bounds. */
   figure(color:number){const c=this.add.container(0,0),g=this.add.graphics();g.fillStyle(0x000000,.25);g.fillEllipse(0,12,25,10);g.fillStyle(color);g.fillRoundedRect(-8,-1,16,18,5);g.fillStyle(0xf1d5b5);g.fillCircle(0,-9,10);g.fillStyle(color);g.fillEllipse(0,-15,22,9);g.fillStyle(0x192e32);g.fillCircle(-3,-9,1.5);g.fillCircle(3,-9,1.5);c.add(g);const arrow=this.add.triangle(0,22,-4,0,4,0,0,5,0xf1d797);arrow.name='direction';c.add(arrow);return c;}
-  update(_:number,delta:number){if(disposed)return;const contact=runtime.step(delta/1000,390,this.scale.gameSize.height),reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;frame+=Math.min(delta,250);this.sea?.update(frame,reduced);this.hero.setPosition(runtime.hero.x,runtime.hero.y+(runtime.hero.path.length&&!reduced?Math.sin(frame/85)*2:0));const arrow=this.hero.getByName('direction') as Phaser.GameObjects.Triangle;arrow.setRotation(({down:0,left:Math.PI/2,up:Math.PI,right:-Math.PI/2})[runtime.hero.facing]);
-   for(const s of runtime.symbols){const c=this.enemies.get(s.definition.id)!;c.setPosition(s.x,s.y);c.setVisible(s.state!=='hidden'&&s.state!=='defeated')}for(const o of map.objects){const c=this.objects.get(o.id)!;c.setAlpha(o.kind==='chest'&&p.world!.opened.includes(o.id)?.4:1);c.setScale(closeEnough(runtime.hero,o)?1.08:1);(c.getByName('interaction-range') as Phaser.GameObjects.Graphics).setScale(1/c.scaleX).setVisible(closeEnough(runtime.hero,o))}
+  update(_:number,delta:number){if(disposed)return;const contact=runtime.step(delta/1000,390,this.scale.gameSize.height),reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;frame+=Math.min(delta,250);this.sea?.update(frame,reduced);this.pale?.update(frame,reduced,runtime.camera,this.scale.gameSize.height);this.hero.setPosition(runtime.hero.x,runtime.hero.y+(runtime.hero.path.length&&!reduced?Math.sin(frame/85)*2:0));const arrow=this.hero.getByName('direction') as Phaser.GameObjects.Triangle;arrow.setRotation(({down:0,left:Math.PI/2,up:Math.PI,right:-Math.PI/2})[runtime.hero.facing]);
+   for(const s of runtime.symbols){const c=this.enemies.get(s.definition.id)!;c.setPosition(s.x,s.y);c.setVisible(s.state!=='hidden'&&s.state!=='defeated')}for(const o of map.objects){const c=this.objects.get(o.id)!;const checked=!!o.eventId&&done().includes(o.eventId)||!!o.questId&&!!o.objectiveId&&!!p.quests[o.questId]?.objectives.includes(o.objectiveId);(c.getByName('object-label') as Phaser.GameObjects.Text).setText(`${o.kind==='exit'?'':checked?'✓ ':'◇ '}${o.name}`);c.setAlpha(o.kind==='chest'&&p.world!.opened.includes(o.id)?.4:checked?.65:1);c.setScale(canInteract(map,runtime.hero,o)?1.08:1);(c.getByName('interaction-range') as Phaser.GameObjects.Graphics).setScale(1/c.scaleX).setVisible(canInteract(map,runtime.hero,o))}
    this.cameras.main.setScroll(runtime.camera.x,runtime.camera.y);sync(Math.min(delta/1000,.25));if(contact){sync(0,true);flush();viewport.classList.add('encounter-flash');say('敵に接触しました。戦闘へ移ります。');transitionTimer=window.setTimeout(()=>{if(!disposed)actions.battle(contact)},reduced?0:160);}
   }
  }

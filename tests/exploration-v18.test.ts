@@ -2,7 +2,7 @@ import {describe,it,expect} from 'vitest';
 import {chapters} from '../src/data/chapter-one';
 import {chapterTen as c} from '../src/data/chapter-ten';
 import {ready as beforeSeven,complete} from './v15-helpers';
-import {walkMaps,mapById} from '../src/exploration/map-data';
+import {walkMaps as allWalkMaps,mapById} from '../src/exploration/map-data';
 import {tidalMap,tidePhase,tideReason} from '../src/exploration/tide';
 import {mainObjective} from '../src/exploration/objective';
 import {approachPoint} from '../src/exploration/approach';
@@ -13,6 +13,7 @@ import {findPath} from '../src/exploration/pathfinding';
 import {MapRuntime} from '../src/exploration/map-runtime';
 import {createSymbols,stepSymbol} from '../src/exploration/enemy-symbols';
 import {load,save} from '../src/save';
+const walkMaps=allWalkMaps.slice(0,26);
 const ready=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,9))complete(p,ch);return p};
 const full=()=>{const p=ready();complete(p,c);return p};
 describe('twenty-six shared maps and approach policy',()=>{

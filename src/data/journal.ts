@@ -60,4 +60,12 @@ export const journalEntries:readonly JournalEntry[]=[
  {"id":"j10-6","chapterId":"chapter-10","eventId":"c10-cave-record","kind":"record","title":"灯守の手紙","text":"光を消した理由は、帰る船を諦めたことではなかった。"},
  {"id":"j10-7","chapterId":"chapter-10","eventId":"c10-ruins-tablet","kind":"record","title":"選ぶ人へ知らせる光","text":"事故を命令で防ぐのではなく、危険を伝えて帰り方を選べるようにする。"},
  {"id":"j10-8","chapterId":"chapter-10","eventId":"c10-clear","kind":"summary","title":"帰る人へ渡す星灯","text":"ルミナリアは観測の合図へ戻り、町の人が記録を共有する。次の手掛かりは内陸の白い平原。"},
+ {"id":"j11-1","chapterId":"chapter-11","eventId":"c11-arrival","kind":"summary","title":"白い平原へ","text":"海辺の観測記録を追い、白い粒が積もる巡礼路へ来た。"},
+ {"id":"j11-2","chapterId":"chapter-11","eventId":"c11-eil","kind":"npc","title":"白銀のエイル","text":"巡礼路の記録守。霜境の同名の案内人とは別人で、忘れた約束を探している。"},
+ {"id":"j11-3","chapterId":"chapter-11","eventId":"c11-glen","kind":"npc","title":"護送隊長グレン","text":"文字よりも通る人を守る、慎重な護送隊長。"},
+ {"id":"j11-4","chapterId":"chapter-11","eventId":"c11-mira","kind":"npc","title":"白銀のミラ","text":"霜境の姉弟とは別の少女。身振りと星文字で、自分の言葉を届ける。"},
+ {"id":"j11-5","chapterId":"chapter-11","eventId":"c11-stones-reading","kind":"record","title":"微かな共鳴","text":"違う間隔を渡し合うことで、閉じた道の一部が反応した。"},
+ {"id":"j11-6","chapterId":"chapter-11","eventId":"c11-garden-rest","kind":"record","title":"待つ約束","text":"声が戻るまで待つのではなく、今の話を聞く約束だった。"},
+ {"id":"j11-7","chapterId":"chapter-11","eventId":"c11-vault-code","kind":"record","title":"三つの余白","text":"聞き、確かめ、本人が選ぶ。石碑がつながり、中枢への道を開いた。"},
+ {"id":"j11-8","chapterId":"chapter-11","eventId":"c11-clear","kind":"summary","title":"足音の続く道","text":"言葉を残す人も、残さない人も選べる巡礼路が戻った。次の手掛かりは東の深い森へ。"},
 ];

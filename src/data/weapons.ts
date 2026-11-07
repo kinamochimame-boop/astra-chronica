@@ -63,7 +63,12 @@ export const chapterTenWeapons:readonly Weapon[]=[
  {id:'azure-tide-shield-spear',name:'蒼潮の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:9,defense:18,maxHp:10},effects:{guardReduction:.01},description:'潮門を支える盾と槍。突剣の速度と引き換えに防御とHPを得る。'},
  {id:'starlamp-rod',name:'星灯のロッド',family:'rod',owner:'mei',bonuses:{attack:12,maxMp:10},effects:{magicRate:1.24},description:'変化を知らせる光のロッド。メイスのHPと回復補正を失い、属性魔法とMPを高める。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons];
+export const chapterElevenWeapons:readonly Weapon[]=[
+ {id:'whitestar-dual-blades',name:'白星の双剣',family:'dualBlades',owner:'astel',bonuses:{attack:14,speed:3},effects:{normalHits:2},description:'対の光を刻む二振り。通常攻撃0.5倍×2、弓より速度を落として攻撃を重視。'},
+ {id:'pilgrim-shield-flail',name:'巡礼守の盾フレイル',family:'shieldFlail',owner:'rina',bonuses:{attack:13,defense:15,maxHp:25},effects:{guardReduction:.01},description:'帰り道を守る盾と鎖球。盾槍より防御を抑え、攻撃とHPを支える。'},
+ {id:'starvoice-wand',name:'星声のワンド',family:'wand',owner:'mei',bonuses:{attack:10,maxMp:12},effects:{healingRate:1.25},description:'声の主を待つ杖。ロッドの属性魔法補正と引き換えに回復を強化する。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

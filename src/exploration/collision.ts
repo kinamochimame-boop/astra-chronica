@@ -9,3 +9,5 @@ export function clearCircle(map:WalkMap,p:Point,radius=10){
 }
 export function cameraFor(map:WalkMap,hero:Point,width:number,height:number){return {x:Math.max(0,Math.min(map.width*map.tile-width,hero.x-width/2)),y:Math.max(0,Math.min(map.height*map.tile-height,hero.y-height/2))}}
 export const closeEnough=(a:Point,b:Point,radius=52)=>distance(a,b)<=radius;
+/** Ray samples narrower than a tile prevent interaction through walls, without changing movement collision. */
+export function canInteract(map:WalkMap,a:Point,b:Point,radius=52){if(!closeEnough(a,b,radius))return false;const steps=Math.max(1,Math.ceil(distance(a,b)/4));for(let i=0;i<=steps;i++){const c=cell(map,{x:a.x+(b.x-a.x)*i/steps,y:a.y+(b.y-a.y)*i/steps});if(!walkable(map,c.x,c.y))return false}return true}
