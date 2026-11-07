@@ -38,7 +38,12 @@
     "test:exploration-v18": "node tests/exploration-v18.e2e.mjs",
     "test:chapter-ten-equipment": "node tests/chapter-ten-equipment.e2e.mjs",
     "test:exploration-v18-smoke": "node tests/exploration-v18.smoke.mjs",
-    "test:chapter-ten-ui": "node tests/chapter-ten-ui.e2e.mjs"
+    "test:chapter-ten-ui": "node tests/chapter-ten-ui.e2e.mjs",
+    "test:chapter-eleven": "node tests/chapter-eleven-v19.e2e.mjs",
+    "test:chapter-eleven-ui": "node tests/chapter-eleven-ui.e2e.mjs",
+    "test:chapter-eleven-equipment": "node tests/chapter-eleven-equipment.e2e.mjs",
+    "test:exploration-v19": "node tests/exploration-v19.e2e.mjs",
+    "test:exploration-v19-smoke": "node tests/exploration-v19.smoke.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"
