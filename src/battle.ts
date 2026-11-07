@@ -210,7 +210,7 @@ export class Battle {
       return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script?`${phase===3?script.finalCharge:script.charge}の予兆`:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:script?`${singer?`第${phase}段階：`:''}${script.guardOnCharge?'防御態勢！ ':''}次は${phase===3?script.finalCharge:script.charge}${script.chargeAll?'（生存する味方全体）':''}。防御と回復で備えよう。`:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${script?(phase===3?script.finalCharge:script.charge):desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
     }
     if(reserved)this.charged.delete(actor.id);
-    const magical=!!actor.enemyMagic||!!script?.alwaysMagic||!!reserved||(singer&&action%2===0);
+    const magical=!(script?.physicalFirst&&phase===1)&& (!!actor.enemyMagic||!!script?.alwaysMagic||!!reserved||(singer&&action%2===0));
     const skill:Skill=magical?{...skills.fire,name:actor.enemyMagic?.name??(script?(reserved?(reserved===script.finalChargePower?script.finalCharge:script.charge):script.spell):desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光'),element:script?.element??actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??(script?(phase===3?script.finalNormalPower:script.normalPower):undefined)??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),statuses:singer&&phase>=2?(script?script.statuses:desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:skills.attack;
     const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),original=taunter??living[Math.min(living.length-1,Math.floor(this.random()*living.length))],protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
     if(reserved&&script?.chargeAll){
@@ -218,7 +218,7 @@ export class Battle {
       for(const original of living){if(original.hp<=0)continue;const protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
        const part=this.makeEvent(actor,target,'fire');part.actionName=skill.name;part.covered=!!protector;
        const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;
-       this.damage(part,actor,target,skill.power!*cover,skill);this.applyEffects(part,actor,target,skill);effects.push(part);
+       this.damage(part,actor,target,skill.power!*cover,skill);this.applyEffects(part,actor,target,skill);this.drainStar(part,target,phase>=2?script.starDrain:undefined);effects.push(part);
       }
       const first=effects[0];return this.complete({...first,effects,logs:[`${actor.name}は${skill.name}を生存する味方全体へ放った！`,...effects.flatMap(e=>e.logs)],hint:'範囲攻撃。挑発で対象は変わらず、各対象の防御・かばう・軽減を処理。'});
     }
@@ -228,8 +228,9 @@ export class Battle {
     if(singer)event.logs.push(`${actor.name} 第${phase}段階。${skill.name}！`);
     const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;
     this.damage(event,actor,target,(magical?skill.power!:statValue(actor,'attack')*(phase===3?1.15:1))*cover,skill);
-    this.applyEffects(event,actor,target,skill);return this.complete(event);
+    this.applyEffects(event,actor,target,skill);this.drainStar(event,target,phase>=2&&magical?script?.starDrain:undefined);return this.complete(event);
   }
+  private drainStar(event:BattleEvent,target:Unit,amount=0){if((event.hpLoss??0)<=0||target.hp<=0||amount<=0)return;const lost=Math.min(target.star,Math.max(0,Math.round(amount)));if(lost>0){target.star-=lost;event.logs.push(`${target.name}の星力が${lost}吸収された。`)}}
   private applyEffects(event:BattleEvent,actor:Unit,target:Unit,skill:Skill){
     if(target.hp<=0||event.label==='ミス')return;
     const effects=[...(skill.statuses??[]),...(skill.kind==='physical'?actor.attackStatuses??[]:[])];

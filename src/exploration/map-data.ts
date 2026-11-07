@@ -1,3 +1,4 @@
+import {gloomMaps} from './chapter-twelve-maps';
 import {paleMaps} from './chapter-eleven-maps';
 import {tideMaps} from './chapter-ten-maps';
 import {additionalMaps} from './additional-maps';
@@ -31,7 +32,7 @@ export const walkMaps:readonly WalkMap[]=[
   {id:'ruins-sentry',name:'古木の歩哨',mode:'idle',...at(12,12),speed:0,radius:11,aggro:0,leash:0,route:[],eventId:'c7-ruins-fight',encounterId:'grove-sentry'},
   {id:'ruins-chaser',name:'根脈の追跡者',mode:'chase',...at(21,14),speed:58,radius:10,aggro:150,leash:210,route:[],eventId:'c7-orb-fight',encounterId:'grove-orb'},
  ]},
- ...skyMaps,...additionalMaps,...veinMaps,...tideMaps,...paleMaps,
+ ...skyMaps,...additionalMaps,...veinMaps,...tideMaps,...paleMaps,...gloomMaps,
 ];
 export const mapById=(id:unknown)=>typeof id==='string'?walkMaps.find(m=>m.id===id):undefined;
 export const mapForLocation=(chapterId:string,locationId:string)=>walkMaps.find(m=>m.chapterId===chapterId&&m.locationId===locationId);

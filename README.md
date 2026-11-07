@@ -45,7 +45,7 @@ MP不足ではスキルを選択できません。HP満タンへのヒール、�
 
 通常戦闘はスキルを使っておよそ6〜10ラウンド、操作・判断時間を含め1〜3分を目標にした数値です。実際の所要時間は操作速度に左右され、実機での計測は未実施です。固定seed100戦の自動シミュレーションで、強撃・ファイア・必要時のヒールを使う戦略が95%以上勝利し、12ラウンド以内で勝利することを検証しています。
 
-アステル（戦士）、リナ（タンク）、メイ（魔法攻撃）の役割は固定です。「編成」は閲覧用の画面です。装備・育成・第1〜11章の冒険は後述の更新で実装しています。ジョブ・転職、蘇生は未実装です。正式キャラクター画像・音声はありません。
+アステル（戦士）、リナ（タンク）、メイ（魔法攻撃）の役割は固定です。「編成」は閲覧用の画面です。装備・育成・第1〜12章の冒険は後述の更新で実装しています。ジョブ・転職、蘇生は未実装です。正式キャラクター画像・音声はありません。
 
 localStorageの `astra-chronica:v1` に開始状態・戦闘回数・勝利回数・各人のレベルと経験値を保存します。内容のschema versionは2で、旧version 1の戦績は読み込み時に引き継ぎます。リロードするとタイトルから再開し、戦闘途中の状態は保存しません。保存拒否・破損データでも起動でき、保存不可時は画面に通知します。ブラウザのデータ消去で進行も削除されます。
 
@@ -206,3 +206,29 @@ Chromium通し検証は `BASE_URL=http://localhost:5173 npm run test:chapter-six
 確定イベントで変わる「星声の共鳴」、対象／出口の方向案内、自動接近、壁越し調査の防止、未調査・調査済みの区別を追加。保存キーとschema version 2、既存の戦闘・育成・装備・過去章は維持します。
 
 [第11章・共鳴・全地点・敵数値・保存・検証結果](docs/CHAPTER_ELEVEN_V19.md)。本番プレビュー起動後、`test:chapter-eleven` / `test:exploration-v19` / `test:chapter-eleven-equipment` / `test:chapter-eleven-ui` / `test:exploration-v19-smoke` を実行できます。接続先は `BASE_URL` で指定してください。
+
+## v2.0：第12章・星光の導路・共通ミニマップ
+
+第11章クリア後に第12章「常闇の深森と星を喰む樹」を解放します。16地点・28イベント、通常敵6種、中ボス・3段階の最終ボス、新武器3種、依頼3件、重要選択5件と手帳8記事を追加しました。第13〜18章は未実装です。
+
+第7〜12章の自由探索は計42マップです。右上の「地図」から、発見済み地形・実際に歩いた道・現在地・既知の出口・現在の目的を確認できます。探索色は同じページ内のホーム往復や戦闘復帰で保持し、再読み込みでリセットします。位置や章進行は従来どおり保存されます。保存キーとschema 2は変更しません。
+
+```sh
+npm test
+npm run build
+# 別ターミナルで npm run preview -- --port 4173
+BASE_URL=http://localhost:4173 npm run test:chapter-twelve
+BASE_URL=http://localhost:4173 npm run test:chapter-twelve-ui
+BASE_URL=http://localhost:4173 npm run test:chapter-twelve-equipment
+BASE_URL=http://localhost:4173 npm run test:exploration-v20
+BASE_URL=http://localhost:4173 npm run test:minimap
+BASE_URL=http://localhost:4173 npm run test:exploration-v20-smoke
+```
+
+仕様・検証結果・スクリーンショットは [CHAPTER_TWELVE_V20.md](docs/CHAPTER_TWELVE_V20.md) を参照してください。今回の提出はPRまでで、マージ・本番公開は行いません。
+
+全ブラウザ回帰をまとめて実行する場合は、上記previewに加え、別ターミナルで `npm run dev -- --port 5173` を起動してください。一部の戦闘UIテストは開発サーバー上の専用fixtureを使用します。
+
+```sh
+BASE_URL=http://localhost:4173 UI_TEST_URL=http://localhost:5173 npm run test:browser-all
+```

@@ -1,4 +1,4 @@
-export type MapTheme='sky'|'village'|'garden'|'town'|'tower'|'cave'|'path'|'city'|'market'|'waterway'|'mine'|'archive'|'core'|'coast'|'seaside'|'harbor'|'beach'|'observatory'|'seacave'|'undersea'|'tidecore'|'paleRoad'|'paleVillage'|'paleField'|'paleStones'|'paleRavine'|'paleSanctuary'|'paleArchive'|'paleCore';
+export type MapTheme='sky'|'village'|'garden'|'town'|'tower'|'cave'|'path'|'city'|'market'|'waterway'|'mine'|'archive'|'core'|'coast'|'seaside'|'harbor'|'beach'|'observatory'|'seacave'|'undersea'|'tidecore'|'paleRoad'|'paleVillage'|'paleField'|'paleStones'|'paleRavine'|'paleSanctuary'|'paleArchive'|'paleCore'|'gloomRoad'|'gloomVillage'|'gloomWoods'|'gloomLake'|'gloomRoots'|'gloomShrine'|'gloomArchive'|'gloomCore';
 export interface MapDecoration {kind:'crystal'|'lamp'|'building'|'shelf'|'machine'|'ore'|'flowers'|'bridge';x:number;y:number;w?:number;h?:number}
 export interface Point {x:number;y:number}
 export type Facing='up'|'down'|'left'|'right';

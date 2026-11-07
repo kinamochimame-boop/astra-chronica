@@ -1,0 +1,204 @@
+{
+  "base": "043e51f71b673303be8e4c032fe32d28022ee3b7",
+  "branch": "feature/v2.0-chapter-twelve-exploration",
+  "baselineUnitTests": 948,
+  "unitTests": 1065,
+  "unitFiles": 25,
+  "legacyBrowserFiles": [
+    {
+      "file": "adventure-v08.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "attack-modifier.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "battle-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "browser.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eight-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eleven-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eleven-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-five-ui-v13.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-five-v13.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-four-ui-v12.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-four-v12.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-nine-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-nine-v17.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-seven-v15.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-six-ui-v14.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-six-v14.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-ten-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-ten-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-ten-v18.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-three-layout-v11.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-three-v11.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-two-v10.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "equipment-v07.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-smoke-v15.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-ui-v15.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-ui-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v17.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v17.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v18.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v18.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v19.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v19.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "foundation.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "lab-v04.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "sideview-lab-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "sideview-v16.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "skill-tree-v09.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "skills-v06.e2e.mjs",
+      "exitCode": 0
+    }
+  ],
+  "newBrowserFiles": [
+    "chapter-twelve-v20.e2e.mjs",
+    "exploration-v20.e2e.mjs",
+    "minimap-v20.e2e.mjs",
+    "chapter-twelve-equipment.e2e.mjs",
+    "exploration-v20.smoke.mjs",
+    "chapter-twelve-ui.e2e.mjs"
+  ],
+  "newChapterRoutes": 2,
+  "newChapterActualVictories": 12,
+  "mapViewportCases": 168,
+  "viewportWidths": [
+    320,
+    390,
+    430,
+    768
+  ],
+  "buildModules": 111,
+  "saveKey": "astra-chronica:v1",
+  "saveSchema": 2,
+  "surveyPersistence": "page session only",
+  "standardWebGL": "passed",
+  "iPhoneSafariDevice": "not available; no manual request",
+  "deployment": "not performed",
+  "contentCorrections": [
+    "Shrine battle guidance now describes its actual beast, wisp and larva encounter"
+  ],
+  "testHarnessCorrections": [
+    "UI fixture dev server started before retry",
+    "closed gate test uses original base map",
+    "save assertions compare values, not JSON key order",
+    "minimap field check excludes legacy c8-survey event ID",
+    "old-chapter NPC revisit selects explicit road location",
+    "chapter-twelve journal expectation uses authored article title"
+  ]
+}

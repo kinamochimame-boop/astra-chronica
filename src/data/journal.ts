@@ -68,4 +68,12 @@ export const journalEntries:readonly JournalEntry[]=[
  {"id":"j11-6","chapterId":"chapter-11","eventId":"c11-garden-rest","kind":"record","title":"待つ約束","text":"声が戻るまで待つのではなく、今の話を聞く約束だった。"},
  {"id":"j11-7","chapterId":"chapter-11","eventId":"c11-vault-code","kind":"record","title":"三つの余白","text":"聞き、確かめ、本人が選ぶ。石碑がつながり、中枢への道を開いた。"},
  {"id":"j11-8","chapterId":"chapter-11","eventId":"c11-clear","kind":"summary","title":"足音の続く道","text":"言葉を残す人も、残さない人も選べる巡礼路が戻った。次の手掛かりは東の深い森へ。"},
+ {"id":"j12-1","chapterId":"chapter-12","eventId":"c12-arrival","kind":"summary","title":"昼を忘れた森","text":"巡礼記録を追い、星の粒が巨大樹へ集まる深森へ来た。"},
+ {"id":"j12-2","chapterId":"chapter-12","eventId":"c12-luna","kind":"npc","title":"案内人ルゥナ","text":"光を読む力を持つが、父を案内した過去を恐れている。"},
+ {"id":"j12-3","chapterId":"chapter-12","eventId":"c12-vald","kind":"npc","title":"森の守人ヴァルド","text":"樹が守ってきた記憶を大切にする、無口で頑固な守人。"},
+ {"id":"j12-4","chapterId":"chapter-12","eventId":"c12-ciel","kind":"npc","title":"記録研究者シエル","text":"年輪から、樹が声を種へ渡していた役割を読み解く。"},
+ {"id":"j12-5","chapterId":"chapter-12","eventId":"c12-lake-light","kind":"record","title":"最初の返光","text":"光を集めるのではなく、受けて次へ渡す導路が復旧した。"},
+ {"id":"j12-6","chapterId":"chapter-12","eventId":"c12-shrine-record","kind":"record","title":"未来へ送る樹","text":"樹は同じ季節を閉じ込める箱ではなく、違う季節へ声を渡していた。"},
+ {"id":"j12-7","chapterId":"chapter-12","eventId":"c12-vault-code","kind":"record","title":"根・枝・種","text":"受け、分け、渡す。森と人が負荷を分け合う導路がつながった。"},
+ {"id":"j12-8","chapterId":"chapter-12","eventId":"c12-clear","kind":"summary","title":"次の芽が出る余白","text":"樹を残しながら森の循環を返した。次の手掛かりは北の石の台地へ続く。"},
 ];
