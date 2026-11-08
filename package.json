@@ -58,7 +58,15 @@
     "test:exploration-v21": "node tests/exploration-v21.e2e.mjs",
     "test:exploration-v21-smoke": "node tests/exploration-v21.smoke.mjs",
     "test:railway": "node tests/railway-v21.e2e.mjs",
-    "test:browser-v21": "node tests/browser-suite.mjs --v21"
+    "test:browser-v21": "node tests/browser-suite.mjs --v21",
+    "test:chapter-fourteen": "node tests/chapter-fourteen-v22.e2e.mjs",
+    "test:chapter-fourteen-ui": "node tests/chapter-fourteen-ui.e2e.mjs",
+    "test:chapter-fourteen-equipment": "node tests/chapter-fourteen-equipment.e2e.mjs",
+    "test:exploration-v22": "node tests/exploration-v22.e2e.mjs",
+    "test:exploration-v22-smoke": "node tests/exploration-v22.smoke.mjs",
+    "test:ark-control": "node tests/transit-v22.e2e.mjs",
+    "test:browser-v22": "node tests/browser-suite.mjs --v22",
+    "test:capture-v22": "node tests/capture-v22.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

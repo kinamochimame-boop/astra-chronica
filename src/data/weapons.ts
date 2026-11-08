@@ -78,7 +78,12 @@ export const chapterThirteenWeapons:readonly Weapon[]=[
  {id:'celestial-shield-rapier',name:'天球守の盾突剣',family:'shieldRapier',owner:'rina',bonuses:{attack:12,defense:19,speed:2,maxHp:25},effects:{coverReduction:.02},description:'空を選ぶ人を守る盾と突剣。盾槍のガード補正と防御の一部を、速さとかばうへ振り分ける。'},
  {id:'starchart-mace',name:'星図のメイス',family:'mace',owner:'mei',bonuses:{attack:15,maxHp:45,maxMp:10},effects:{healingRate:1.15},description:'記録を次へ渡す祈りの槌。ロッドの属性魔法補正と引き換えにHPと回復を支える。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons,...chapterThirteenWeapons];
+export const chapterFourteenWeapons:readonly Weapon[]=[
+ {id:'starsea-bow',name:'星海の弓',family:'bow',owner:'astel',bonuses:{attack:16,speed:7},effects:{},description:'揺れる足場で狙いを取り直す弓。双剣の二撃と引き換えに、一射の間合いと速さを支える。'},
+ {id:'arkward-shield-spear',name:'方舟守の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:13,defense:21,maxHp:30},effects:{guardReduction:.04},description:'乗員の退路を支える盾槍。突剣の速さとかばう補正を、堅さとガードへ振り分ける。'},
+ {id:'oblivion-wand',name:'忘却のワンド',family:'wand',owner:'mei',bonuses:{attack:15,maxMp:16},effects:{healingRate:1.2},description:'名を忘れても願いを照らすワンド。メイスのHP補正と引き換えに、魔力の余裕と回復を支える。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons,...chapterThirteenWeapons,...chapterFourteenWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};
