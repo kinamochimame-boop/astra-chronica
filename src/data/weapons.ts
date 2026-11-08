@@ -73,7 +73,12 @@ export const chapterTwelveWeapons:readonly Weapon[]=[
  {id:'emerald-shield-spear',name:'翠星の盾槍',family:'shieldSpear',owner:'rina',bonuses:{attack:10,defense:20,maxHp:20},effects:{guardReduction:.02},description:'受け渡す光を守る盾と槍。フレイルより攻撃とHPを抑え、防御を重視する。'},
  {id:'eldertree-rod',name:'古樹のロッド',family:'rod',owner:'mei',bonuses:{attack:13,maxMp:14},effects:{magicRate:1.27},description:'年輪の間隔を伝える杖。ワンドの回復補正と引き換えに属性魔法を強める。'},
 ];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons];
+export const chapterThirteenWeapons:readonly Weapon[]=[
+ {id:'starengine-duals',name:'星機の双剣',family:'dualBlades',owner:'astel',bonuses:{attack:17,speed:4},effects:{normalHits:2},description:'帰る力を分ける二刀。通常攻撃は合計等倍の二撃。剣の防御補正と引き換えに攻撃と速さを支える。'},
+ {id:'celestial-shield-rapier',name:'天球守の盾突剣',family:'shieldRapier',owner:'rina',bonuses:{attack:12,defense:19,speed:2,maxHp:25},effects:{coverReduction:.02},description:'空を選ぶ人を守る盾と突剣。盾槍のガード補正と防御の一部を、速さとかばうへ振り分ける。'},
+ {id:'starchart-mace',name:'星図のメイス',family:'mace',owner:'mei',bonuses:{attack:15,maxHp:45,maxMp:10},effects:{healingRate:1.15},description:'記録を次へ渡す祈りの槌。ロッドの属性魔法補正と引き換えにHPと回復を支える。'},
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons,...chapterThirteenWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

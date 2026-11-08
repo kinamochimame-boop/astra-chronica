@@ -1,0 +1,25 @@
+import {describe,it,expect} from 'vitest';
+import {chapters} from '../src/data/chapter-one';
+import {ready as beforeSeven,complete} from './v15-helpers';
+import {enterMap} from '../src/exploration/exploration-save';
+import {railStations,railwayRestored,railReason,beginRailTrip,completeRailTrip,railStationIds,railGuidance} from '../src/exploration/railway';
+import {mapById} from '../src/exploration/map-data';
+import {load} from '../src/save';
+import {celestialPhase} from '../src/exploration/celestial';
+const c=chapters.find(c=>c.id==='chapter-13')!;
+const ready=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,12))complete(p,ch);return p};
+const full=()=>{const p=ready();complete(p,c);enterMap(p,'gear-station');return p};
+describe('starvein railway uses existing progress and transitions',()=>{
+ it('no railway or destination exists before repair',()=>{const p=ready();enterMap(p,'gear-rail');expect(railwayRestored(p)).toBe(false);expect(railStations(p)).toEqual([]);expect(beginRailTrip(p,'gear-city')).toBeUndefined()});
+ it('repair unlocks only reached stations, without granting future story flags',()=>{const p=ready();complete(p,c,'c13-rail-start');enterMap(p,'gear-station');expect(railStations(p).map(m=>m.id)).toEqual(['gear-rail','gear-station','gear-city']);expect(beginRailTrip(p,'gear-core')).toBeUndefined();expect(celestialPhase(p.adventure)).toBe('stopped')});
+ it.each(railStationIds)('%s is derived from the existing map and safely reachable',id=>{const p=full(),m=mapById(id)!;expect(railStations(p).find(m=>m.id===id)).toBe(m);if(id==='gear-station')enterMap(p,'gear-city');const ticket=beginRailTrip(p,id)!;expect(ticket).toBeDefined();expect(completeRailTrip(p,ticket)).toBe(true);expect(p.world).toMatchObject({mapId:id,...m.entry});expect(p.adventure.chapters[c.id].currentLocationId).toBe(m.locationId)});
+ it('reservation and interruption do not change progress, quantities or source position',()=>{const p=full();p.world!.x=240;const old=structuredClone(p),ticket=beginRailTrip(p,'gear-city');expect(ticket).toBeDefined();expect(p).toEqual(old);const q=load({getItem:()=>JSON.stringify(p)});expect(q.world!.mapId).toBe('gear-station');expect(q.world!.x).toBe(240);expect(q.party).toEqual(old.party);expect(q.equipment).toEqual(old.equipment)});
+ it('completion never grants rewards, XP, SP, victories or duplicate event completions',()=>{const p=full(),old=structuredClone(p),ticket=beginRailTrip(p,'gear-observatory')!;expect(completeRailTrip(p,ticket)).toBe(true);expect(completeRailTrip(p,ticket)).toBe(false);expect(p.party).toEqual(old.party);expect(p.equipment).toEqual(old.equipment);expect(p.skillTree).toEqual(old.skillTree);expect(p.wins).toBe(old.wins);expect(p.battles).toBe(old.battles);expect(p.adventure.chapters[c.id].completed).toEqual(old.adventure.chapters[c.id].completed);const q=load({getItem:()=>JSON.stringify(p)});expect(q.world).toMatchObject({mapId:'gear-observatory',...mapById('gear-observatory')!.entry})});
+ it.each(['grove-camp','pale-road','gloom-core'])('%s cannot originate a railway trip',id=>{const p=full();enterMap(p,id);expect(beginRailTrip(p,'gear-city')).toBeUndefined()});
+ it.each(['unknown','gloom-core','gear-market'])('%s is not a selectable station even when its place is unlocked',id=>{const p=full(),old=structuredClone(p);expect(beginRailTrip(p,id)).toBeUndefined();expect(p).toEqual(old)});
+ it('pending battles block travel and stale origin tickets cannot commit',()=>{const p=full(),ticket=beginRailTrip(p,'gear-city')!;enterMap(p,'gear-workshop');expect(completeRailTrip(p,ticket)).toBe(false);p.adventure.pending={serial:99,chapterId:c.id,eventId:'c13-zero',encounterId:'gear-zero'} as typeof p.adventure.pending;expect(railReason(p,'gear-city')).toContain('戦闘中');expect(beginRailTrip(p,'gear-city')).toBeUndefined()});
+ it('a ticket cannot commit after switching the active chapter',()=>{const p=ready();complete(p,c,'c13-rail-start');enterMap(p,'gear-station');expect(railGuidance(p)).toContain('機巧都市中央区');const ticket=beginRailTrip(p,'gear-city')!;p.adventure.selectedChapterId='chapter-12';const old=structuredClone(p);expect(completeRailTrip(p,ticket)).toBe(false);expect(p).toEqual(old);expect(railGuidance(p)).toBe('')});
+ it('current station is labelled but cannot waste a trip',()=>{const p=full();expect(railReason(p,'gear-station')).toContain('現在');expect(beginRailTrip(p,'gear-station')).toBeUndefined()});
+ it('guidance only suggests a valid station for the current goal',()=>{const p=ready();complete(p,c,'c13-rail-start');enterMap(p,'gear-station');expect(railGuidance(p)).toContain('機巧都市中央区');expect(railGuidance(p)).not.toContain('中枢');enterMap(p,'gloom-core');expect(railGuidance(p)).toBe('')});
+ it('unknown railway flags cannot forge repair or unlock a station on reload',()=>{const p=ready(),q=load({getItem:()=>JSON.stringify({...p,railwayRepaired:true,stations:['gear-core']})});expect(railStations(q)).toEqual([]);expect(q.adventure).toEqual(p.adventure)});
+});

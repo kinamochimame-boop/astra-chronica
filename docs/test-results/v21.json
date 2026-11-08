@@ -1,0 +1,279 @@
+{
+  "base": "3609219de47bbc6d74165ede2422821fee234055",
+  "branch": "feature/v2.1-chapter-thirteen-exploration",
+  "baselineUnitTests": 1065,
+  "unitTests": 1206,
+  "unitFiles": 28,
+  "legacyBrowserFiles": [
+    {
+      "file": "adventure-v08.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "attack-modifier.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "battle-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "browser.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eight-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eleven-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eleven-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-five-ui-v13.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-five-v13.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-four-ui-v12.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-four-v12.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-nine-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-nine-v17.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-seven-v15.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-six-ui-v14.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-six-v14.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-ten-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-ten-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-ten-v18.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-three-layout-v11.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-three-v11.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-twelve-equipment.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-twelve-ui.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-twelve-v20.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "chapter-two-v10.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "equipment-v07.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-smoke-v15.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-ui-v15.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-ui-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v17.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v17.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v18.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v18.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v19.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v19.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v20.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "exploration-v20.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "foundation.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "lab-v04.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "minimap-v20.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "sideview-lab-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "sideview-v16.smoke.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "skill-tree-v09.e2e.mjs",
+      "exitCode": 0
+    },
+    {
+      "file": "skills-v06.e2e.mjs",
+      "exitCode": 0
+    }
+  ],
+  "newBrowserFiles": [
+    {
+      "file": "chapter-thirteen-v21.e2e.mjs",
+      "result": "passed",
+      "completionMarker": "2 route(s), 12 actual victories."
+    },
+    {
+      "file": "exploration-v21.e2e.mjs",
+      "result": "passed",
+      "completionMarker": "all fifty maps / 200 viewport cases passed"
+    },
+    {
+      "file": "chapter-thirteen-equipment.e2e.mjs",
+      "result": "passed",
+      "completionMarker": "two measured dual hits and star gain"
+    },
+    {
+      "file": "chapter-thirteen-ui.e2e.mjs",
+      "result": "passed",
+      "completionMarker": "real retry/victory"
+    },
+    {
+      "file": "exploration-v21.smoke.mjs",
+      "result": "passed",
+      "completionMarker": "standard WebGL passed"
+    },
+    {
+      "file": "railway-v21.e2e.mjs",
+      "result": "passed",
+      "completionMarker": "unchanged rewards/resources."
+    }
+  ],
+  "totalBrowserFiles": 52,
+  "newChapterRoutes": 2,
+  "newChapterActualVictories": 12,
+  "mapViewportCases": 200,
+  "viewportWidths": [
+    320,
+    390,
+    430,
+    768
+  ],
+  "buildModules": 118,
+  "testedCandidateMatchesFinalBuild": true,
+  "postFixRecheckedBrowserFiles": [
+    "railway-v21.e2e.mjs",
+    "exploration-v21.smoke.mjs",
+    "chapter-thirteen-ui.e2e.mjs"
+  ],
+  "railwayForegroundProof": {
+    "beforeFix": {
+      "dialogOpen": true,
+      "pausedBefore": true,
+      "pausedAfter": false
+    },
+    "afterFixDevelopment": {
+      "dialogOpen": true,
+      "pausedBefore": true,
+      "pausedAfter": true
+    }
+  },
+  "buildSHA256": {
+    "index.html": "36c01269ed819393b719b66b390f116b8c99d700d7f8f6285e24435fa0a7c48b",
+    "assets/index-BGsYJvnB.css": "9acc34c72774815ab4fd4bc9430f540407b802b167afdfb9816859a1e6f72c42",
+    "assets/phaser-DFK5Ua9d.js": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb",
+    "assets/index-cFIIFGhn.js": "7bddb7157a2b3e1ea431332ea78bb436f6f12707bd93663ff03547ac25b3a5ac"
+  },
+  "saveKey": "astra-chronica:v1",
+  "saveSchema": 2,
+  "surveyAndMinimapPersistence": "page session only",
+  "standardWebGL": "passed",
+  "iPhoneSafariDevice": "not available; no manual request",
+  "deployment": "not performed",
+  "npcNameCorrection": "New researcher renamed Fiora (フィオラ) to preserve existing Chapter 7 Fine (フィーネ).",
+  "implementationCorrections": [
+    "Dispose and flush origin map before committing railway arrival to prevent stale coordinates overwriting destination.",
+    "Revalidate active chapter, current station, unlocked destination and pending battle at arrival.",
+    "Foreground visibility events must keep exploration paused while the railway dialog is open; confirmed before/after in Chromium.",
+    "Traditional location heading had only ten fixed labels; preserve those labels and use a chapter-number fallback for chapters 11 and later.",
+    "Authored distinct descriptions for all sixteen chapter-thirteen locations."
+  ],
+  "testHarnessCorrections": [
+    "Post-clear quest reporting can finish at a non-map refuge; select core station before the final railway check.",
+    "Legacy minimap checks now explicitly ensure open state and verify retention, rather than assuming every remount closes it.",
+    "Historical chapter-count and future-chapter checks advance the unavailable boundary to chapter 14; old assertions retained."
+  ]
+}

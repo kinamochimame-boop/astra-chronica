@@ -76,4 +76,12 @@ export const journalEntries:readonly JournalEntry[]=[
  {"id":"j12-6","chapterId":"chapter-12","eventId":"c12-shrine-record","kind":"record","title":"未来へ送る樹","text":"樹は同じ季節を閉じ込める箱ではなく、違う季節へ声を渡していた。"},
  {"id":"j12-7","chapterId":"chapter-12","eventId":"c12-vault-code","kind":"record","title":"根・枝・種","text":"受け、分け、渡す。森と人が負荷を分け合う導路がつながった。"},
  {"id":"j12-8","chapterId":"chapter-12","eventId":"c12-clear","kind":"summary","title":"次の芽が出る余白","text":"樹を残しながら森の循環を返した。次の手掛かりは北の石の台地へ続く。"},
+ {"id":"j13-1","chapterId":"chapter-13","eventId":"c13-arrival","kind":"summary","title":"根の先の鉄道","text":"森から返された星脈は、地下の古代鉄道へ続いていた。"},
+ {"id":"j13-2","chapterId":"chapter-13","eventId":"c13-noel","kind":"npc","title":"整備士ノエル","text":"進む動力だけでなく、帰る制動機を直す若い整備士。"},
+ {"id":"j13-3","chapterId":"chapter-13","eventId":"c13-isaac","kind":"npc","title":"管理官イザーク","text":"住民を守る人工の時刻を維持するが、停止の理由を問い直す。"},
+ {"id":"j13-4","chapterId":"chapter-13","eventId":"c13-fiora","kind":"npc","title":"星図研究者フィオラ","text":"オルディアで育ち、古い星図から失われた空の記録を探す少女。"},
+ {"id":"j13-5","chapterId":"chapter-13","eventId":"c13-aux-power","kind":"record","title":"部分起動する空","text":"補助動力を生活区と観測塔へ分け、閉じた脇道が開いた。"},
+ {"id":"j13-6","chapterId":"chapter-13","eventId":"c13-workshop-record","kind":"record","title":"記録と本物の空","text":"天球儀は観測した星々を映す。記録を今の空と取り違えないための装置だった。"},
+ {"id":"j13-7","chapterId":"chapter-13","eventId":"c13-chart-sync","kind":"record","title":"違いを残す同期","text":"観測、記録、比較を結び、ずれを消さない星図同期を行った。"},
+ {"id":"j13-8","chapterId":"chapter-13","eventId":"c13-clear","kind":"summary","title":"違う空を渡す駅","text":"都市は区画ごとに記録を開き、休む人の空も残す。次は東の高原へ続く観測路。"},
 ];
