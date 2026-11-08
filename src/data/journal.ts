@@ -84,4 +84,12 @@ export const journalEntries:readonly JournalEntry[]=[
  {"id":"j13-6","chapterId":"chapter-13","eventId":"c13-workshop-record","kind":"record","title":"記録と本物の空","text":"天球儀は観測した星々を映す。記録を今の空と取り違えないための装置だった。"},
  {"id":"j13-7","chapterId":"chapter-13","eventId":"c13-chart-sync","kind":"record","title":"違いを残す同期","text":"観測、記録、比較を結び、ずれを消さない星図同期を行った。"},
  {"id":"j13-8","chapterId":"chapter-13","eventId":"c13-clear","kind":"summary","title":"違う空を渡す駅","text":"都市は区画ごとに記録を開き、休む人の空も残す。次は東の高原へ続く観測路。"},
+ {"id":"j14-1","chapterId":"chapter-14","eventId":"c14-arrival","kind":"summary","title":"足元の星海","text":"天球儀の古い観測座標から、東の高原の転送門を経て方舟へ渡った。"},
+ {"id":"j14-2","chapterId":"chapter-14","eventId":"c14-keeper","kind":"npc","title":"記録管理人セリオ","text":"自身の過去を覚えていないが、名のない頁を守りたいと語る。"},
+ {"id":"j14-3","chapterId":"chapter-14","eventId":"c14-bulk","kind":"npc","title":"保守責任者バルク","text":"船を再開する危険を警戒し、まず乗員の暮らしを確かめるよう求める。"},
+ {"id":"j14-4","chapterId":"chapter-14","eventId":"c14-yuno","kind":"npc","title":"星海を覚えるユノ","text":"記録と違う星の景色を覚える少女。違いを消さずに描きたいと願う。"},
+ {"id":"j14-5","chapterId":"chapter-14","eventId":"c14-gravity-shift","kind":"record","title":"変わる床、残す退路","text":"床の基準を分け、反転区画を開いた。通常の通路が閉じても迂回路を残す。"},
+ {"id":"j14-6","chapterId":"chapter-14","eventId":"c14-records-record","kind":"record","title":"同じ願いを強いた閉鎖","text":"方舟は願いの変化まで故障とみなし、未来へ運ぶはずの記録を閉じ込めていた。"},
+ {"id":"j14-7","chapterId":"chapter-14","eventId":"c14-gravity-stabilize","kind":"record","title":"固定・接続・均衡","text":"異なる向きの区画を同じにせず、荷重を分けて安定させた。"},
+ {"id":"j14-8","chapterId":"chapter-14","eventId":"c14-clear","kind":"summary","title":"記憶を載せて、今を進む","text":"約束は受け手が問い直す権利と共に運ばれていた。署名の全ては未解明のまま、方舟は北の氷環への航路を開く。"},
 ];

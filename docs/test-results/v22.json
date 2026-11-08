@@ -1,0 +1,371 @@
+{
+  "base": "fdbcd7e94edaa0ca9fa425344633010bae60b2b3",
+  "branch": "feature/v2.2-chapter-fourteen-exploration",
+  "baselineUnitTests": 1206,
+  "unitTests": 1366,
+  "unitFiles": 31,
+  "additionalUnitTests": 160,
+  "browserFiles": [
+    {
+      "file": "adventure-v08.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "attack-modifier.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "battle-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "browser.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eight-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eleven-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eleven-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-five-ui-v13.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-five-v13.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-four-ui-v12.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-four-v12.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-fourteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "chapter-fourteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "chapter-nine-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-nine-v17.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-seven-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-six-ui-v14.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-six-v14.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-ten-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-ten-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-ten-v18.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-thirteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-thirteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-thirteen-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-three-layout-v11.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-three-v11.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-twelve-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-twelve-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-twelve-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-two-v10.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "equipment-v07.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-smoke-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-ui-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-ui-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v17.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v17.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v18.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v18.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v19.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v19.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v20.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v21.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "exploration-v22.smoke.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "foundation.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "lab-v04.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "minimap-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "railway-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "sideview-lab-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "sideview-v16.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "skill-tree-v09.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "skills-v06.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "transit-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    }
+  ],
+  "legacyBrowserFiles": 52,
+  "newBrowserFiles": 6,
+  "totalBrowserFiles": 58,
+  "newCompletionMarkers": {
+    "chapter-fourteen-v22.e2e.mjs": "2 route(s), 12 actual victories.",
+    "exploration-v22.e2e.mjs": "all fifty-eight maps / 232 viewport cases passed",
+    "exploration-v22.smoke.mjs": "standard WebGL passed",
+    "transit-v22.e2e.mjs": "foreground pause safety, unchanged rewards/resources.",
+    "chapter-fourteen-equipment.e2e.mjs": "one measured bow hit and star gain",
+    "chapter-fourteen-ui.e2e.mjs": "real retry/victory"
+  },
+  "supplementaryCaptureScript": {
+    "file": "tests/capture-v22.mjs",
+    "result": "passed",
+    "widths": [
+      320,
+      390,
+      430,
+      768
+    ],
+    "subjects": "eight new maps; four gravity states; three equipment previews; regular and mid-boss battle layouts"
+  },
+  "newChapterRoutes": 2,
+  "newChapterActualVictories": 12,
+  "mapViewportCases": 232,
+  "viewportWidths": [
+    320,
+    390,
+    430,
+    768
+  ],
+  "buildModules": 124,
+  "newBrowserCandidateMatchesFinalBuild": true,
+  "legacyRegressionCandidate": "The 52 legacy browser files passed before the final correction of two Chapter 14 quest-object IDs; all six new Chapter 14 browser files were rerun on the corrected candidate.",
+  "legacyCandidateSHA256": {
+    "index.html": "0e3b70a60428637126d7a6516ac1f68fd030a814c81c128318ea3253f5075097",
+    "assets/phaser-DFK5Ua9d.js": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb",
+    "assets/index-DUNwdw5K.css": "5f322537413e8368a8d011cb41b10c1ed5f1dfa91338f529f1cb28d7af3c912d",
+    "assets/index-DZxh2AgC.js": "cc581f0b27bc00f70244a1e342634869a380c7fa814b2d1821503f2277ffccc7"
+  },
+  "buildSHA256": {
+    "index.html": "be0cd0a23c1b46d16c848fabb110255895d7c6de18cfe342a321464ecb9aeeca",
+    "assets/phaser-DFK5Ua9d.js": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb",
+    "assets/index-DUNwdw5K.css": "5f322537413e8368a8d011cb41b10c1ed5f1dfa91338f529f1cb28d7af3c912d",
+    "assets/index-flWSuG8X.js": "d62b9e8f771675afdfa49073f67823eb6b235c40ee93f9938fdec3b163f763a1"
+  },
+  "saveKey": "astra-chronica:v1",
+  "saveSchema": 2,
+  "surveyAndMinimapPersistence": "page session only",
+  "standardWebGL": "passed",
+  "iPhoneSafariDevice": "not available; no manual request",
+  "deployment": "not performed",
+  "screenshots": 153,
+  "initialBrowserFailure": {
+    "file": "chapter-fourteen-v22.e2e.mjs",
+    "reason": "Two Yuno quest objects retained the previous chapter quest ID; actual browser collection failed. Fixed both links, added two regression tests and reran all six new browser files."
+  },
+  "implementationCorrections": [
+    "Corrected both Yuno quest objects from sq-keeper-log to sq-yuno-stars.",
+    "The temporary gravity closure originally overlapped Yuno at (432,400); moved to row 11 and tested active object reachability, safe saved positions and a permanent bypass."
+  ],
+  "npcNames": [
+    "Serio (セリオ): avoids Chapter 7 Seles",
+    "Bulk (バルク): avoids Chapter 9 Gald and Chapter 11 Glen",
+    "Yuno (ユノ): no existing-name collision"
+  ],
+  "testHarnessCorrections": [
+    "Use the existing puzzle piece name and dialogue choice name fields.",
+    "Keep historical chapter/map assertions scoped to their original sets; unavailable boundary becomes chapter 15.",
+    "Use actual ark NPC locations and speakers in four-width UI fixtures."
+  ]
+}
