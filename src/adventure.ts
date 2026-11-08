@@ -1,3 +1,4 @@
+import {orderedDefinitions} from './event-order';
 import {mapEventReason,validSymbolContact,captureReturn,settleWorld,syncWorldProgress} from './exploration/access';
 import type {SymbolContact} from './exploration/types';
 import {timeDevices,type TimeMode,landmarks} from './data/exploration-conditions';
@@ -29,7 +30,7 @@ export function normalizeAdventure(raw:unknown):AdventureProgress {
   const progress:ChapterProgress={currentLocationId:c.locations[0].id,completed:[]};
   const ids=Array.isArray(saved.completed)?saved.completed.filter((id):id is string=>typeof id==='string'):[];
   // Prerequisites define a valid prefix; unknown/out-of-order flags cannot unlock locations.
-  for(const e of c.events)if(ids.includes(e.id)&&eventOpen(progress,e))progress.completed.push(e.id);
+  for(const e of orderedDefinitions(c.events,ids))if(ids.includes(e.id)&&eventOpen(progress,e))progress.completed.push(e.id);
   if(progress.completed.includes(c.events.find(e=>e.kind==='boss')?.id??''))for(const e of c.events.filter(e=>e.kind==='clear'))if(eventOpen(progress,e)&&!progress.completed.includes(e.id))progress.completed.push(e.id);
   if(typeof saved.currentLocationId==='string'&&locationOpen(progress,c,saved.currentLocationId))progress.currentLocationId=saved.currentLocationId;
   state.chapters[c.id]=progress;
