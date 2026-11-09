@@ -1,4 +1,4 @@
-import {enemyScripts} from './data/enemy-scripts';
+import {enemyScripts,enemyChargePlan,enemyChargeName} from './data/enemy-scripts';
 import {isItem,normalizeConsumables,initialConsumables,type Consumables} from './consumables';
 import {withSkillTree,treeValue,treePowerRate,treeHealingRate,treeReduction,skillMpCost,TREE_LIMITS,type SkillTreeState} from './skill-tree';
 import {equippedUnit,equippedWeapon,normalizeEquipment,type EquipmentState} from './equipment';
@@ -202,23 +202,24 @@ export class Battle {
     const script=enemyScripts[actor.enemyPattern??''];
     const desert=actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira',machine=actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='gardion'||!!script&&!script.observer,singer=actor.enemyPattern==='echoria'||actor.enemyPattern==='zaira'||!!script?.observer;
     const phase=singer?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
-    const reserved=this.charged.get(actor.id);
+    const reserved=this.charged.get(actor.id),plan=script?enemyChargePlan(script,phase,action):undefined;
     if(script?.guardFirst&&phase===1&&action%3===1&&!reserved){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script.guardLabel??'記憶の封護',hint:script.guardLabel?'第1段階：星灯を守る防御姿勢。回復や次の準備を整えよう。':'第1段階：記憶を守る防御姿勢。回復や次の準備を整えよう。',logs:[`${actor.name}は${script.guardLabel??'記憶の封護'}を展開した。`]})}
     if(!reserved&&((machine&&action%3===2)||(singer&&phase>=2&&action%3===2))){
       if(script?script.guardOnCharge:machine)actor.guarding='defend';if(script?.counterOnCharge)actor.counterReady=true;
-      const power=script?(phase===3?script.finalChargePower:script.chargePower):desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);
-      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script?`${phase===3?script.finalCharge:script.charge}の予兆`:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:script?`${singer?`第${phase}段階：`:''}${script.guardOnCharge?'防御態勢！ ':''}次は${phase===3?script.finalCharge:script.charge}${script.chargeAll?'（生存する味方全体）':''}。防御と回復で備えよう。`:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${script?(phase===3?script.finalCharge:script.charge):desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
+      const power=script?plan!.power:desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);
+      return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script?`${plan!.name}の予兆`:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:script?`${singer?`第${phase}段階：`:''}${script.guardOnCharge?'防御態勢！ ':''}次は${plan!.name}${script.chargeAll?'（生存する味方全体）':''}。防御と回復で備えよう。`:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${script?(plan!.name):desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
     }
     if(reserved)this.charged.delete(actor.id);
-    const magical=!(script?.physicalFirst&&phase===1)&& (!!actor.enemyMagic||!!script?.alwaysMagic||!!reserved||(singer&&action%2===0));
-    const skill:Skill=magical?{...skills.fire,name:actor.enemyMagic?.name??(script?(reserved?(reserved===script.finalChargePower?script.finalCharge:script.charge):script.spell):desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光'),element:script?.element??actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??(script?(phase===3?script.finalNormalPower:script.normalPower):undefined)??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),statuses:singer&&phase>=2?(script?script.statuses:desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:skills.attack;
+    const magical=!(reserved&&script?.chargePhysical)&&!(script?.physicalFirst&&phase===1)&& (!!actor.enemyMagic||!!script?.alwaysMagic||!!reserved||(singer&&action%2===0));
+    const skill:Skill=magical?{...skills.fire,name:actor.enemyMagic?.name??(script?(reserved?(enemyChargeName(script,reserved)):script.spell):desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光'),element:script?.alternateElement&&action%2===0?script.alternateElement:script?.element??actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??(script?(phase===3?script.finalNormalPower:script.normalPower):undefined)??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),modifiers:singer&&phase>=2?script?.normalModifiers:actor.enemyMagic?.modifiers,statuses:singer&&phase>=2?(script?script.statuses:desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:reserved&&script?.chargePhysical?{...skills.attack,name:script.charge,power:reserved}:skills.attack;
+    const physicalRate=(script?.chargePhysical||script?.singlePower!==undefined)?statValue(actor,'attack')/Math.max(1,actor.attack):1;
     const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),original=taunter??living[Math.min(living.length-1,Math.floor(this.random()*living.length))],protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
     if(reserved&&script?.chargeAll){
       const effects:BattleEvent[]=[];
       for(const original of living){if(original.hp<=0)continue;const protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
-       const part=this.makeEvent(actor,target,'fire');part.actionName=skill.name;part.covered=!!protector;
+       const part=this.makeEvent(actor,target,script?.chargePhysical?'attack':'fire');part.actionName=skill.name;part.covered=!!protector;
        const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;
-       this.damage(part,actor,target,skill.power!*cover,skill);this.applyEffects(part,actor,target,skill);this.drainStar(part,target,phase>=2?script.starDrain:undefined);effects.push(part);
+       this.damage(part,actor,target,skill.power!*cover*(script.chargePhysical?physicalRate:1),skill);this.applyEffects(part,actor,target,skill);this.drainStar(part,target,phase>=2?script.starDrain:undefined);effects.push(part);
       }
       const first=effects[0];return this.complete({...first,effects,logs:[`${actor.name}は${skill.name}を生存する味方全体へ放った！`,...effects.flatMap(e=>e.logs)],hint:'範囲攻撃。挑発で対象は変わらず、各対象の防御・かばう・軽減を処理。'});
     }
@@ -227,7 +228,7 @@ export class Battle {
     if(protector)event.logs.push(`${protector.name}が${original.name}をかばった！`);
     if(singer)event.logs.push(`${actor.name} 第${phase}段階。${skill.name}！`);
     const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;
-    this.damage(event,actor,target,(magical?skill.power!:statValue(actor,'attack')*(phase===3?1.15:1))*cover,skill);
+    this.damage(event,actor,target,(magical?skill.power!:(reserved&&script?.chargePhysical?reserved*physicalRate:script?.singlePower!==undefined?script.singlePower*physicalRate:statValue(actor,'attack')*(phase===3?1.15:1)))*cover,skill);
     this.applyEffects(event,actor,target,skill);this.drainStar(event,target,phase>=2&&magical?script?.starDrain:undefined);return this.complete(event);
   }
   private drainStar(event:BattleEvent,target:Unit,amount=0){if((event.hpLoss??0)<=0||target.hp<=0||amount<=0)return;const lost=Math.min(target.star,Math.max(0,Math.round(amount)));if(lost>0){target.star-=lost;event.logs.push(`${target.name}の星力が${lost}吸収された。`)}}

@@ -1,0 +1,1608 @@
+{
+  "version": "2.4",
+  "chapter": "星の墓標と終焉の観測者",
+  "base": "aaa94f7e68a13bb1b549669962867982035ed4aa",
+  "branch": "feature/v2.4-chapter-sixteen-exploration",
+  "saveKey": "astra-chronica:v1",
+  "schema": 2,
+  "levelCap": 50,
+  "locations": 16,
+  "mainEvents": 38,
+  "normalEnemies": 6,
+  "bosses": 2,
+  "bossPhases": 3,
+  "weapons": 3,
+  "quests": 3,
+  "choices": 5,
+  "journalEntries": 8,
+  "legacyMaps": 66,
+  "newMaps": 8,
+  "maps": 74,
+  "widths": [
+    320,
+    390,
+    430,
+    768
+  ],
+  "mapViewportCases": 296,
+  "memoryPhases": [
+    "severed",
+    "projected",
+    "connected",
+    "integrated"
+  ],
+  "baselineUnitTests": 1572,
+  "unitTests": 1800,
+  "addedUnitTests": 228,
+  "unitFiles": 35,
+  "unitCommand": "npm test",
+  "skippedFinalTests": 0,
+  "assertionsRelaxed": false,
+  "unitTimeoutMs": 5000,
+  "unitRuns": [
+    {
+      "label": "baseline",
+      "logName": "v24-baseline-unit.log",
+      "summary": " Test Files  33 passed (33)\n      Tests  1572 passed (1572)\n   Duration  59.75s (transform 1.29s, setup 0ms, collect 5.63s, tests 47.40s, environment 6ms, prepare 2.08s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "initial-registration",
+      "logName": "v24-regression-first.log",
+      "summary": " Test Files  14 failed | 19 passed (33)\n      Tests  29 failed | 1565 passed (1594)\n   Duration  62.84s (transform 1.29s, setup 0ms, collect 5.72s, tests 50.19s, environment 6ms, prepare 2.10s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "expanded-map-data",
+      "logName": "v24-new-unit-second.log",
+      "summary": " Test Files  2 failed (2)\n      Tests  36 failed | 186 passed (222)\n   Duration  5.37s (transform 758ms, setup 0ms, collect 1.39s, tests 3.47s, environment 0ms, prepare 143ms)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "puzzle-fixture",
+      "logName": "v24-new-unit-third.log",
+      "summary": " Test Files  1 failed | 1 passed (2)\n      Tests  1 failed | 213 passed (214)\n   Duration  7.53s (transform 814ms, setup 0ms, collect 1.45s, tests 5.56s, environment 0ms, prepare 154ms)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "future-notice-fixture",
+      "logName": "v24-unit-second-full.log",
+      "summary": " Test Files  4 failed | 31 passed (35)\n      Tests  4 failed | 1785 passed (1789)\n   Duration  72.82s (transform 1.31s, setup 0ms, collect 6.60s, tests 58.35s, environment 7ms, prepare 2.38s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "targeted-physical-regression-red",
+      "logName": "v24-physical-modifier-red.log",
+      "summary": " Test Files  1 failed (1)\n      Tests  2 failed | 103 skipped (105)\n   Duration  1.76s (transform 916ms, setup 0ms, collect 1.35s, tests 22ms, environment 0ms, prepare 110ms)",
+      "diagnosticSubsetOnly": true,
+      "aborted": false
+    },
+    {
+      "label": "physical-regression-fixed",
+      "logName": "v24-physical-modifier-green-final.log",
+      "summary": " Test Files  3 passed (3)\n      Tests  250 passed (250)\n   Duration  17.05s (transform 897ms, setup 0ms, collect 1.80s, tests 14.54s, environment 1ms, prepare 207ms)",
+      "diagnosticSubsetOnly": true,
+      "aborted": false
+    },
+    {
+      "label": "full-before-final-browser-fixes",
+      "logName": "v24-unit-final-before-recheck.log",
+      "summary": " Test Files  35 passed (35)\n      Tests  1794 passed (1794)\n   Duration  65.53s (transform 1.36s, setup 0ms, collect 6.07s, tests 52.41s, environment 6ms, prepare 2.19s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "resource-contention-aborted",
+      "logName": "v24-unit-parallel-recheck-aborted.log",
+      "summary": "",
+      "diagnosticSubsetOnly": false,
+      "aborted": true
+    },
+    {
+      "label": "isolated-before-fixture-cache",
+      "logName": "v24-unit-serial-first.log",
+      "summary": " Test Files  2 failed | 33 passed (35)\n      Tests  4 failed | 1790 passed (1794)\n   Duration  193.46s (transform 4.67s, setup 0ms, collect 19.83s, tests 149.25s, environment 18ms, prepare 6.13s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "diagnostic-before-fixture-cache",
+      "logName": "v24-unit-isolation-before-fixture-cache.log",
+      "summary": " Test Files  1 failed | 1 passed (2)\n      Tests  2 failed | 80 passed (82)\n   Duration  32.25s (transform 2.00s, setup 0ms, collect 3.20s, tests 27.53s, environment 1ms, prepare 425ms)",
+      "diagnosticSubsetOnly": true,
+      "aborted": false
+    },
+    {
+      "label": "fourteen-cache-only",
+      "logName": "v24-unit-fixture-cache.log",
+      "summary": " Test Files  1 failed | 1 passed (2)\n      Tests  1 failed | 83 passed (84)\n   Duration  22.13s (transform 1.56s, setup 0ms, collect 3.09s, tests 17.83s, environment 1ms, prepare 415ms)",
+      "diagnosticSubsetOnly": true,
+      "aborted": false
+    },
+    {
+      "label": "seven-fourteen-fixture-cache",
+      "logName": "v24-unit-fixture-cache-final.log",
+      "summary": " Test Files  2 passed (2)\n      Tests  86 passed (86)\n   Duration  27.54s (transform 5.56s, setup 0ms, collect 7.11s, tests 17.70s, environment 0ms, prepare 1.16s)",
+      "diagnosticSubsetOnly": true,
+      "aborted": false
+    },
+    {
+      "label": "full-before-six-fixture-cache",
+      "logName": "v24-unit-after-cache14-7.log",
+      "summary": " Test Files  1 failed | 34 passed (35)\n      Tests  1 failed | 1797 passed (1798)\n   Duration  190.93s (transform 3.79s, setup 0ms, collect 18.21s, tests 150.28s, environment 17ms, prepare 6.08s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    },
+    {
+      "label": "final-full",
+      "logName": "v24-unit-final.log",
+      "summary": " Test Files  35 passed (35)\n      Tests  1800 passed (1800)\n   Duration  201.55s (transform 3.11s, setup 0ms, collect 22.52s, tests 156.52s, environment 20ms, prepare 7.67s)",
+      "diagnosticSubsetOnly": false,
+      "aborted": false
+    }
+  ],
+  "browserFiles": [
+    {
+      "file": "adventure-v08.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/adventure-v08.e2e.mjs ",
+        "v0.8 full chapter touch checks passed: 7 locations, 3 widths, dialogue/reload, defeat/interruption/retry, 3 real victories, one-time chest/rewards, rest, boss/clear, legacy save/equipment and lab isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "attack-modifier.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/attack-modifier.e2e.mjs ",
+        "Modifier touch regressions passed: target separation, 32→40 damage, persistence, clear, stacking/cap, expiration, saved data unchanged.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "battle-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/battle-ui.e2e.mjs ",
+        "Battle UI touch checks passed: layouts 320/390/430, actor commands, HP/MP, targets, reasons, icons, real effects, input lock, menus, reduced motion.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "browser.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/browser.e2e.mjs ",
+        "Browser checks passed: touch targets/skills, victory, defeat, saved progression, interrupted animation, 320/390/1280px, no runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-eight-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route none: quests-390",
+        "Route all: journal-clear-390",
+        "Route all: records-390",
+        "v1.6 all quests / second options full chapter and real maps passed.",
+        "Route none: records-all-390",
+        "v1.6 no quests / first options / post-clear quests full chapter and real maps passed.",
+        "v1.6 both full chapter-eight touch routes passed: 14 real victories, port→flight→island contact→victory→safe return→ruins→record→reload, all three maps, A*/drag/keyboard/camera/nearby objects, patrol/wait/chase, defeat/interrupted receipt recovery, weapons/quests/choices/journal and old seven-chapter save isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-eleven-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-eleven-equipment.e2e.mjs ",
+        "v1.9 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, two measured dual hits and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-eleven-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-eleven-ui.e2e.mjs ",
+        "Route no-quests: battle victory",
+        "v1.9 supplementary UI passed: dialogue and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route none: core-390",
+        "Route none: requiem-battle-390",
+        "Route no-quests: battle victory",
+        "Route none: requiem-result-390",
+        "Route none: journal-390",
+        "v1.9 route quests=false passed: six real victories, eight maps, resonance phases, five choices, ten chapters preserved.",
+        "v1.9 full chapter-eleven touch routes passed: 1 route(s), 6 actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-fifteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-fifteen-equipment.e2e.mjs ",
+        "v2.3 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, two measured dual hits and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-fifteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-fifteen-ui.e2e.mjs ",
+        "Route no-quests: battle victory",
+        "v2.3 supplementary UI passed: NPC dialogue, choice/header regression and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-fifteen-v23.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route none: choice-390",
+        "Route none: oblivion-battle-390",
+        "Route no-quests: battle victory",
+        "Route none: oblivion-result-390",
+        "Route none: journal-390",
+        "v2.3 route quests=false passed: six real victories, eight maps, stellar phases, corridor observe->choice->anchor, unchanged level 50 cap, five choices, fourteen chapters preserved.",
+        "v2.3 full chapter-fifteen touch routes passed: 1 route(s), 6 actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-five-ui-v13.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-five-ui-v13.e2e.mjs ",
+        "v1.3 supplementary touch checks passed: wand MP98→100, real two hits + one counter popup, stance/expiry, Zaira at 4 widths nontrivial compass reset/reload and no runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-five-v13.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "v1.3 all-quests / second choices passed.",
+        "v1.3 no-quests / first choices / post-clear quests passed.",
+        "v1.3 two full chapter-five routes passed: 10 victories, 14 locations, 18 events, storms/landmark/reload, compass hints/reset/keyboard, four choices, quests before/after clear, journal and legacy save isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-four-ui-v12.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-four-ui-v12.e2e.mjs ",
+        "v1.2 extra browser checks passed: journal NPC/spoiler gates, rod MP preview/equip, real potion healing/persistence, retreat/retry, both bosses at four widths.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-four-v12.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "v1.2 no-quests / first choices / post-clear quests passed.",
+        "v1.2 all-quests / second choices passed.",
+        "v1.2 two full chapter-four routes passed: 10 victories, 13 locations, choices immutable/reload, keyboard/touch puzzle, quests before/after clear, journal spoiler gates, 3 weapons and save isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-fourteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-fourteen-equipment.e2e.mjs ",
+        "v2.2 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, one measured bow hit and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-fourteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-fourteen-ui.e2e.mjs ",
+        "Route no-quests: battle victory",
+        "v2.2 supplementary UI passed: NPC dialogue, choice/header regression and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0,
+          "log": "/tmp/v24-browser-retry/quests-before.log",
+          "retained": true
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0,
+          "log": "/tmp/v24-browser-retry/quests-after.log"
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "Route none: zero-result-390",
+        "Route none: journal-390",
+        "Route none: railway-390",
+        "Route none: railway-390",
+        "v2.2 route quests=false passed: six real victories, eight maps, gravity phases, five choices, thirteen chapters preserved.",
+        "v2.2 full chapter-fourteen touch routes passed: 1 route(s), 6 actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-nine-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-nine-equipment.e2e.mjs ",
+        "v1.7 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, two actual hits and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-nine-v17.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route none: memoria-result-390",
+        "Route none: clear-return-390",
+        "Route none: journal-390",
+        "Route none: records-390",
+        "Route none: quests-390",
+        "v1.7 route all-quests=false complete: six real wins, eight maps, five choices, puzzle retry/reload, receipts/save isolation.",
+        "v1.7 both full chapter-nine touch routes passed: 12 actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-seven-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route all: clear-390",
+        "Route all: journal-clear-390",
+        "Route all: records-390",
+        "Route none: records-all-390",
+        "v1.5 all quests / second options full chapter and real maps passed.",
+        "v1.5 no quests / first options / post-clear quests full chapter and real maps passed.",
+        "v1.5 both full chapter-seven touch routes passed: 12 real victories, camp→trail contact→victory→safe return→ruins→record→reload, all three maps, A*/drag/keyboard/camera/nearby objects, patrol/wait/chase, defeat/interrupted receipt recovery, weapons/quests/choices/journal and old six-chapter save isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-six-ui-v14.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-six-ui-v14.e2e.mjs ",
+        "v1.4 supplementary UI passed: rod MP+2 replacement, real clockguard charge/guard, gear guard notice and physical counter with actual popup targets, dawn text contrast >=4.5, no runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-six-v14.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "v1.4 all-quests / second choices passed.",
+        "v1.4 no-quests / first choices / post-clear quests passed.",
+        "v1.4 two full chapter-six routes passed: 10 real victories, 15 locations, 20 events, reversible time before tuning/save/reload, compass legacy landmark, clock hints/reset/keyboard/interruption/API, 4 choices, quests before/after clear, journal and five-chapter save preservation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-sixteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "v2.4 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, one measured bow hit and star gain, chapter/tree preserved."
+      ]
+    },
+    {
+      "file": "chapter-sixteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "v2.4 supplementary UI passed: NPC dialogue, choice/header regression and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture)."
+      ]
+    },
+    {
+      "file": "chapter-sixteen-v24.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0,
+          "log": "/tmp/v24-chapter-before-first.log"
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0,
+          "log": "/tmp/v24-chapter-after-first.log"
+        }
+      ],
+      "logTail": [
+        "chapter16 quests=true event=c16-promise",
+        "chapter16 quests=true event=c16-inherit",
+        "chapter16 quests=true event=c16-core-cache",
+        "chapter16 quests=true event=c16-end-observer",
+        "Route all-quests: battle victory",
+        "chapter16 quests=true event=c16-clear",
+        "chapter16 quests=true passed:38events,9actual victories,5choices,all3quests,save/reload,legacy15chapters,isolatedLab.",
+        "v2.4 full chapter-sixteen touch routes passed:1routes,9actual victories."
+      ]
+    },
+    {
+      "file": "chapter-ten-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-ten-equipment.e2e.mjs ",
+        "v1.8 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, actual bow hit and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-ten-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-ten-ui.e2e.mjs ",
+        "Route no-quests: battle victory",
+        "v1.8 supplementary UI passed: dialogue and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-ten-v18.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route all: journal-390",
+        "v1.8 route quests=true passed: six real victories, eight maps, approach/inspect, high→low tide, five choices, save/reload and nine older chapters preserved.",
+        "Route no-quests: battle victory",
+        "Route none: luminaria-result-390",
+        "Route none: journal-390",
+        "v1.8 route quests=false passed: six real victories, eight maps, approach/inspect, high→low tide, five choices, save/reload and nine older chapters preserved.",
+        "v1.8 both full chapter-ten touch routes passed: twelve actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-thirteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-thirteen-equipment.e2e.mjs ",
+        "v2.1 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, two measured dual hits and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-thirteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-thirteen-ui.e2e.mjs ",
+        "Route no-quests: battle victory",
+        "v2.1 supplementary UI passed: NPC dialogue, choice/header regression and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-thirteen-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "Route none: zero-result-390",
+        "Route none: journal-390",
+        "Route none: railway-390",
+        "Route none: railway-390",
+        "v2.1 route quests=false passed: six real victories, eight maps, celestial phases, five choices, twelve chapters preserved.",
+        "v2.1 full chapter-thirteen touch routes passed: 1 route(s), 6 actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-three-layout-v11.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-three-layout-v11.e2e.mjs ",
+        "v1.1 additional touch layouts passed: quests/list/detail/accepted, records, exploration and rotation puzzle at 320/390/430/768px.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-three-v11.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "Route no-quests: battle victory",
+        "Route all-quests: battle victory",
+        "Route all-before-clear passed.",
+        "Route none-until-clear-then-post-clear-quests passed.",
+        "v1.1 both chapter-three touch routes passed: 12 locations, 10 real victories, Fio, quests before/after clear, records 89→100%, puzzle rotate/retry/reload, 3 weapons, legacy progress, 4 widths, reduced motion and isolated lab.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-twelve-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-twelve-equipment.e2e.mjs ",
+        "v2.0 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, one measured sword hit and star gain, chapter/tree preserved.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-twelve-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-twelve-ui.e2e.mjs ",
+        "Route no-quests: battle victory",
+        "v2.0 supplementary UI passed: dialogue and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-twelve-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Route none: core-390",
+        "Route none: astravore-battle-390",
+        "Route no-quests: battle victory",
+        "Route none: astravore-result-390",
+        "Route none: journal-390",
+        "v2.0 route quests=false passed: six real victories, eight maps, lightPath phases, five choices, eleven chapters preserved.",
+        "v2.0 full chapter-twelve touch routes passed: 1 route(s), 6 actual victories.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "chapter-two-v10.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/chapter-two-v10.e2e.mjs ",
+        "v1.0 chapter-two touch checks passed: lock/unlock, 10 places, 4 NPCs, 3 chests, wrong/right puzzle/reload, retreat/retry, 5 real victories, mid/final bosses, 3 weapons/equip, save/tree/chapter-one preservation, 320/390/430/768px, reduced motion, screenshots, lab isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "corridor-v23.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS corridor order anchor->observe->choice: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources",
+        "PASS corridor order anchor->choice->observe: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources",
+        "PASS corridor order observe->anchor->choice: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources",
+        "PASS corridor order observe->choice->anchor: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources",
+        "PASS corridor order choice->anchor->observe: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources",
+        "PASS corridor order choice->observe->anchor: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources",
+        "v2.3 corridor passed: all six orders, partial cancel/reload, repeat-safe resources, four stellar phases/safe positions/minimap at four widths, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "equipment-v07.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/equipment-v07.e2e.mjs ",
+        "v0.7 touch checks passed: 3 widths/44px, v2 migration, restrictions, unlock idempotency, compare/equip/remove, dual actual hits/star, reload, lab save isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-smoke-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-smoke-v15.e2e.mjs ",
+        "v1.5 exploration smoke passed: actual tap movement, NPC proximity, existing dialogue/choice, rest, portal, Phaser map state and zero errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-ui-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-ui-v15.e2e.mjs ",
+        "v1.5 exploration UI passed: all 3 maps at 320/390/430/768, actual touch walks, correct FIT aspect ratio, 44px targets, reduced motion, idle save suppression, paused keyboard and equipment/home teardown/reentry, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-ui-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-ui-v16.e2e.mjs ",
+        "v1.6 exploration UI passed: all 3 maps at 320/390/430/768, actual touch walks, correct FIT aspect ratio, 44px targets, reduced motion, idle save suppression, paused keyboard and equipment/home teardown/reentry, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v17.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS star-city at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit",
+        "PASS star-market at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS star-waterway at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS star-mine at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS star-archive at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS star-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v1.7 all eighteen maps / 72 viewport cases passed, four old-chapter additions connected to original NPCs and exits, detailed scenery/live symbols, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v17.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v17.smoke.mjs ",
+        "v1.7 standard WebGL passed: cave walk/NPC/exit, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v18.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS tide-port at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS tide-beach at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS tide-observatory at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS tide-cave at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS tide-ruins at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS tide-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v1.8 all twenty-six maps / 104 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low recovery and detailed scenery, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v18.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v18.smoke.mjs ",
+        "v1.8 standard WebGL passed: coastal walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v19.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS pale-field at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS pale-stones at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS pale-ravine at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS pale-sanctuary at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS pale-archive at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS pale-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v1.9 all thirty-four maps / 136 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v19.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v19.smoke.mjs ",
+        "v1.9 standard WebGL passed: pale walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS gloom-woods at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gloom-lake at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gloom-roots at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gloom-shrine at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gloom-archive at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gloom-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v2.0 all forty-two maps / 168 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v20.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v20.smoke.mjs ",
+        "v2.0 standard WebGL passed: gloom walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS gear-city at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gear-market at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gear-lower at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gear-workshop at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gear-observatory at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS gear-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v2.1 all fifty maps / 200 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v21.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v21.smoke.mjs ",
+        "v2.1 standard WebGL passed: gear walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS ark-dock at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS ark-hall at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS ark-gravity at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS ark-records at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS ark-sanctuary at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS ark-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v2.2 all fifty-eight maps / 232 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v22.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v22.smoke.mjs ",
+        "v2.2 standard WebGL passed: gear walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v23.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS void-corridor at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS void-mirror at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS void-archive at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS void-garden at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS void-sanctum at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS void-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v2.3 all sixty-six maps / 264 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v23.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/exploration-v23.smoke.mjs ",
+        "v2.3 standard WebGL passed: memory walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "exploration-v24.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "PASS grave-field at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS grave-ruins at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS grave-memory at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS grave-observatory at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS grave-sanctuary at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS grave-tower at 320/390/430/768: touch, aspect, camera, pause",
+        "PASS grave-core at 320/390/430/768: touch, aspect, camera, pause",
+        "v2.4 all seventy-four maps / 296 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors."
+      ]
+    },
+    {
+      "file": "exploration-v24.smoke.mjs",
+      "exitCode": 0,
+      "kind": "new",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "v2.4 standard WebGL passed: memory walk/NPC/inspect, actual patrol contact, side-view actors and measured popup, retreat/safe return, zero runtime errors."
+      ]
+    },
+    {
+      "file": "foundation.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/foundation.e2e.mjs ",
+        "Foundation touch checks passed: seven statuses, 0%/100%, six skipped turns, buffs, elements, EXP preview, save isolation, 320px.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "lab-v04.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/lab-v04.e2e.mjs ",
+        "v0.4 touch checks passed: natural/hit release separately, remaining counts, speed and expiry, independent live targets, damage log, zero storage writes, 320px.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "memory-projection-v24.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "v2.4 memory severed:4widths,shared grid,miniMap,save/reload,safe position repair passed.",
+        "v2.4 memory projected:4widths,shared grid,miniMap,save/reload,safe position repair passed.",
+        "v2.4 memory connected:4widths,shared grid,miniMap,save/reload,safe position repair passed.",
+        "v2.4 memory integrated:4widths,shared grid,miniMap,save/reload,safe position repair passed.",
+        "v2.4 all four memory projection stages passed; ghost bridges blocked until connection, no page errors."
+      ]
+    },
+    {
+      "file": "minimap-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/minimap-v20.e2e.mjs ",
+        "minimap mount",
+        "walk/checkpoint",
+        "walk/checkpoint",
+        "map switch",
+        "save and reload",
+        "PASS minimap: real walked trail/player, passive touch overlay, session remount/map isolation, reload reset, unchanged save fields, four widths and reduced motion.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "railway-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/railway-v21.e2e.mjs ",
+        "Railway passed: locked repair, six derived stations, four widths, cancel/reload before commit, double taps, skip, safe arrival/reload, minimap open-state retention, foreground pause safety, unchanged rewards/resources.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "sideview-lab-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/sideview-lab-v16.e2e.mjs ",
+        "v1.6 lab side-view passed: independent enemy marker, real 32 damage, no save write, return and one shared canvas.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0,
+          "execution": "isolated actual event/DOM frame capture"
+        }
+      ],
+      "logTail": [
+        "v1.6 side-view passed: 4 widths, 1/2/3/6 enemies, actual canvas targeting, 9 weapon silhouettes, projectiles, fire/heal/guard/cover, critical/miss/fallen/group ultimate, paused rendering without turn deadlock, repeated input, reduced motion and teardown; zero runtime errors."
+      ]
+    },
+    {
+      "file": "sideview-v16.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/sideview-v16.smoke.mjs ",
+        "v1.6 standard WebGL passed: side actors, actual hit/popup, retreat, old save, Arka/rest, ship hull, boarding/flight and sky-island map, zero runtime errors.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "skill-tree-v09.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/skill-tree-v09.e2e.mjs ",
+        "v0.9 touch checks passed: 90 nodes/9 branches, widths and non-overlap, screenshots, learn/blocked/duplicate/SP, migration/reload, actual damage46/MP6, chapter XP→SP, equipment coexistence, save-free lab isolation.",
+        "Exit:0"
+      ]
+    },
+    {
+      "file": "skills-v06.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0,
+          "execution": "isolated unchanged assertions"
+        }
+      ],
+      "logTail": [
+        "v0.6 touch checks passed: 3 widths, learning, star shortage/ultimate, multi-hit, group targeting/heal/cleanse/barrier, animation reset, lab level/star and save isolation."
+      ]
+    },
+    {
+      "file": "transit-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ],
+      "logTail": [
+        "Command: node tests/transit-v22.e2e.mjs ",
+        "Ark control passed: locked repair, eight derived sections, four widths, cancel/reload before commit, double taps, skip, safe arrival/reload, minimap open-state retention, foreground pause safety, unchanged rewards/resources.",
+        "Exit:0"
+      ]
+    }
+  ],
+  "legacyBrowserFiles": 64,
+  "newBrowserFiles": 6,
+  "browserTotal": 70,
+  "chapterRoutes": [
+    "quests-before-clear",
+    "quests-after-clear"
+  ],
+  "actualChapterVictories": 18,
+  "unitChapterSeedRuns": 40,
+  "screenShots": 189,
+  "productionSHA256": {
+    "index.html": "63d4ad96da60e1ad333c30ee677576d2d4c60430f91a51e4be9a796973647c44",
+    "assets/phaser-DFK5Ua9d.js": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb",
+    "assets/index-6RhZFgVy.js": "f7d093c1f5149ccc93634dac6e5313899bdcd3c46cfa1e7f023fc1f6f80dcf47",
+    "assets/index-DUNwdw5K.css": "5f322537413e8368a8d011cb41b10c1ed5f1dfa91338f529f1cb28d7af3c912d"
+  },
+  "fixtureScope": "Production operations use frozen preview4195. Legacy battle-ui/skills-v06/sideview-v16 and a chapter2 control use the same fixed source served at dev5174. This is recorded separately from production-bundle verification.",
+  "webgl": "standard native Chromium passed",
+  "iPhoneSafariDevice": "not available; no user manual play requested",
+  "physicalAttackFix": {
+    "before": {
+      "heavyPowerWithAttackMinus25Percent": 105,
+      "expected": 78.75,
+      "heavyPowerWithBurn": 105,
+      "expectedBurn": 84
+    },
+    "after": "both targeted regressions and complete final suite passed; raw physical powers use the existing effective/base attack ratio once"
+  },
+  "npcNameResolution": "Mira is already used in chapters6 and11; new girl renamed Lyria/リュリア",
+  "initialEnvironmentFailures": [
+    "Approval review could not execute browser launch due to usage limit; action was not executed.",
+    "After quota reset, test HTTP servers had stopped; first launches failed ERR_CONNECTION_REFUSED before loading the app. Servers were restarted.",
+    "During a later conversation pause, HTTP/test processes terminated with12completed browser files retained. Only unfinished files were rerun; partial attempts were excluded."
+  ],
+  "supersededRuns": "Initial chapter routes stopped after the new physical-AI modifier defect was reproduced. Their partial victories and pre-fix hashes are not used for final success. Both final routes were run from the beginning against the fixed candidate.",
+  "mergeDeploymentPlicy": "not performed",
+  "orchestrationRecovery": "The waiting shell script was edited while running, so its post-wait offset became invalid (sert:command not found). All18victories and5new supplementals had already passed. Started an immutable finish script, retaining all real results; no game or test assertion changed.",
+  "legacyTransitTimingFix": "The existing650ms automatic transit could remove the optional skip button between visibility check and tap. The legacy touch test now bounds the optional action to1000ms and requires both button removal and the exact requested destination on expiry. Original resource/state assertions and dedicated actual-skip tests remain. Failed route rerun; a successful independent second route is retained only against the unchanged production candidate.",
+  "contactHelperFix": "The test helper now captures battle/world state in one evaluation, avoiding a transition between a world-existence check and a disposed-world state read. No app behavior, timeout or functional assertion changed. A completed before route is retained and the failed after route is rerun in full.",
+  "legacyPopupSampling": "Legacy side-view tests capture the actual DOM popup, canvas plan and new battle-event identity in one MutationObserver sample before the existing850ms display ends. Original exact target, healing, critical, MISS and counter assertions remain; no game timer or timeout changed. The skill UI passed its unchanged checks when isolated.",
+  "finalUnitRecheckRecovery": "A final unit recheck was initially launched concurrently with screenshot capture and hit unchanged5000ms limits in long seeded legacy cases. That recheck was stopped and recorded as aborted; after capture/build finish the complete npm test suite is rerun alone. No test timeout, assertion or game data changed.",
+  "unitFixtureOptimization": {
+    "scope": [
+      "chapter-six-v14.test.ts",
+      "chapter-seven-v15.test.ts",
+      "chapter-fourteen-v22.test.ts"
+    ],
+    "change": "Construct deterministic prerequisite progression once through the original APIs, and return a structuredClone for every scenario. All original cases,20seeds,32choice combinations,expectations and5000ms deadlines remain.",
+    "addedIsolationTests": 6,
+    "equivalence": "Each cached baseline is compared against the original API setup and nested scenario mutations are proven not to affect another copy.",
+    "initialFailures": "The final recheck exposed resource-sensitive5000ms limits, including when isolated. Repeated prerequisite construction was removed; failed runs remain listed separately.",
+    "final": "Complete1800/1800 tests in35files passed with the unchanged deadline."
+  },
+  "initialBrowserFailures": [
+    {
+      "file": "chapter-sixteen-v24.e2e.mjs",
+      "code": 1,
+      "category": "test-harness",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 1
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 1
+        }
+      ],
+      "reason": "After reloading a legacy-location puzzle, the test reopened the event but did not advance the safe pre-puzzle dialogue. The game showed page1/2 as expected. Added the same dialogue advancement used on initial entry; assertions and timeout unchanged. Both complete routes rerun."
+    },
+    {
+      "file": "chapter-sixteen-v24.e2e.mjs",
+      "code": 1,
+      "category": "test-strategy",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 1
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 1
+        }
+      ],
+      "reason": "Both fixed-candidate routes reached the final boss, but the UI bot prioritized neutral ice instead of the documented wind weakness (thunder). The first stopped at round61 with203/6400enemyHP and all3allies alive after the unchanged180-command budget. Aligned spell choice with the seeded unit strategy; assertions, timeout and command budget unchanged. Both routes rerun from the beginning. An engine-only20-seed strategy probe found thunder alone could still exceed180 commands (168–211). The final UI strategy uses shield bash for pressure and conserves half of Mei’s MP for healing after exploiting wind weakness (139–169 commands,20/20victories). No game-stat, timeout, victory assertion or action-budget change. Thunder-only partial reruns were stopped during the second battle and are excluded from final proof."
+    },
+    {
+      "file": "memory-projection-v24.e2e.mjs",
+      "code": 1,
+      "category": "test-fixture",
+      "reason": "The test replaced localStorage while a live map remained mounted. The existing pagehide flush correctly saved that live severed state over the projected fixture. Dispose the map through its normal Home action before installing the next isolated fixture; no save/game logic or assertion changed. Rerun all4stages."
+    },
+    {
+      "file": "memory-projection-v24.e2e.mjs",
+      "code": 1,
+      "category": "test-fixture",
+      "reason": "Stage setup was corrected and severed/projected passed. The same mounted-map replacement problem also existed in the separate bridge-coordinate injection: valid connected coordinates were overwritten by the live pose on pagehide. Dispose normally before that injection too; keep exact before/after coordinate assertions unchanged. Rerun all4stages."
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "code": 1,
+      "category": "legacy-test-timing",
+      "reason": "Optional skip tap raced the existing650ms automatic transit. Screenshot/log show the correct ark-shore destination after the button detached. The test now bounds the optional tap to1000ms; if it expires, additionally asserts the button is absent and the requested map was reached. Original map/party/equipment/win/battle assertions remain, and dedicated transit/railway tests still require actual skip input. No game timer or assertion threshold changed. Failed before path rerun; successful after path may be retained if it completes. The original after path also reached chapter clear (all6real victories) but hit the same expired optional skip during post-clear quests; its whole path remains failed and is not reused as a successful route. Both paths are rerun from the beginning using the fixed UI procedure.",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 1
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 1
+        }
+      ]
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "code": 1,
+      "category": "shared-test-helper-race",
+      "args": [
+        "--quests-after"
+      ],
+      "reason": "The contact helper checked world existence and then read world state in separate evaluations. The game entered battle between them; screenshot/log show a healthy live battle while the test waited30s for the disposed world. Read battle/world state atomically instead; no game logic, timeout, victory or arrival assertion changed. The fully successful fixed before path is retained; only failed after path rerun from the beginning."
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "code": 1,
+      "category": "legacy-fixture-load",
+      "reason": "The dev fixture page.goto hit the unchanged30s navigation timeout while other browser jobs were active. Rerun alone against the same source before considering a code change."
+    },
+    {
+      "file": "skills-v06.e2e.mjs",
+      "code": 1,
+      "category": "legacy-ui-display-timing",
+      "reason": "The battle snapshot correctly contained two21damage hits andMP16, but the later DOM popup count was0 instead of2. Recheck alone to distinguish the850ms display lifetime from a logic regression; no assertion or timeout changed."
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "code": 1,
+      "category": "legacy-popup-sampling",
+      "reason": "The isolated retry loaded correctly and passed canvas/weapon/event checks, then waited for MISS after the850ms DOM popup expired. The test now observes a new event identity and captures the actual rendered DOM, event and canvas plan together via MutationObserver. All original hit/target/heal/critical/MISS/counter values remain asserted; game timer, data and timeouts unchanged. Full side-view test rerun."
+    }
+  ],
+  "browserStrategyProbe": {
+    "mode": "reserve-mp",
+    "min": 139,
+    "max": 169,
+    "defeats": 0,
+    "seeds": 20,
+    "commandBudgetUnchanged": 180,
+    "gameStatsChangedForBot": false
+  }
+}

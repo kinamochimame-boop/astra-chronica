@@ -74,7 +74,15 @@
     "test:exploration-v23-smoke": "node tests/exploration-v23.smoke.mjs",
     "test:corridor-v23": "node tests/corridor-v23.e2e.mjs",
     "test:browser-v23": "node tests/browser-suite.mjs --v23",
-    "test:capture-v23": "node tests/capture-v23.mjs"
+    "test:capture-v23": "node tests/capture-v23.mjs",
+    "test:chapter-sixteen": "node tests/chapter-sixteen-v24.e2e.mjs",
+    "test:chapter-sixteen-ui": "node tests/chapter-sixteen-ui.e2e.mjs",
+    "test:chapter-sixteen-equipment": "node tests/chapter-sixteen-equipment.e2e.mjs",
+    "test:exploration-v24": "node tests/exploration-v24.e2e.mjs",
+    "test:exploration-v24-smoke": "node tests/exploration-v24.smoke.mjs",
+    "test:memory-v24": "node tests/memory-projection-v24.e2e.mjs",
+    "test:browser-v24": "node tests/browser-suite.mjs --v24",
+    "test:capture-v24": "node tests/capture-v24.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

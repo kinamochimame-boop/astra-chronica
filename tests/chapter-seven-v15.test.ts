@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {c,arrange,complete,ready,battle,doQuest,fight,ev,until,sideQuests,dialogueChoices} from './v15-helpers';
+import {c,arrange,complete,ready as buildLegacy,battle,doQuest,fight,ev,until,sideQuests,dialogueChoices} from './v15-helpers';
 import {chapters} from '../src/data/chapter-one';
 import {groveEnemies} from '../src/data/chapter-seven-enemies';
 import {chapterSevenWeapons,weaponById} from '../src/data/weapons';
@@ -16,8 +16,15 @@ import {heroes,cloneUnit} from '../src/data/combat';
 import {Battle} from '../src/battle';
 import {LabSession,seededRandom} from '../src/lab-session';
 import {battleAnchor,attackOffset} from '../src/battle-layout';
+// Reuse only deterministic prerequisite setup; each tested route owns a deep copy.
+const legacyBaseline=buildLegacy();
+const ready=()=>structuredClone(legacyBaseline);
+describe('chapter seven prerequisite fixture isolation',()=>{
+ it('cached prerequisite equals the original six-chapter API setup',()=>{expect(ready()).toEqual(buildLegacy())});
+ it('nested scenario mutations do not reach a second copy or the baseline',()=>{const first=ready(),untouched=ready();first.party.astel.level=1;first.adventure.chapters['chapter-01'].completed.length=0;first.equipment.equipped.astel=null;first.skillTree.astel.push('fixture-mutation');first.consumables.potion=0;expect(ready()).toEqual(untouched);expect(first).not.toEqual(untouched)});
+});
 describe('chapter seven complete content and old progression',()=>{
- it('registers seven chapters, sixteen exact locations and twenty-two distinct real events',()=>{expect(chapters).toHaveLength(15);expect(c.locations.map(l=>l.id)).toEqual(['c7-entrance','c7-camp','c7-trail','c7-stream','c7-village','c7-herbarium','c7-roots','c7-ruins','c7-pond','c7-grove','c7-guardian','c7-canopy','c7-archive','c7-garden','c7-sanctum','c7-heart']);expect(c.events).toHaveLength(22);expect(new Set(c.events.map(e=>e.id)).size).toBe(22);expect(c.events.every(e=>e.pages.length)).toBe(true);expect(new Battle().allies.map(u=>u.id)).toEqual(['astel','rina','mei']);expect(sideQuests).toHaveLength(3);expect(dialogueChoices).toHaveLength(5)});
+ it('registers seven chapters, sixteen exact locations and twenty-two distinct real events',()=>{expect(chapters).toHaveLength(16);expect(c.locations.map(l=>l.id)).toEqual(['c7-entrance','c7-camp','c7-trail','c7-stream','c7-village','c7-herbarium','c7-roots','c7-ruins','c7-pond','c7-grove','c7-guardian','c7-canopy','c7-archive','c7-garden','c7-sanctum','c7-heart']);expect(c.events).toHaveLength(22);expect(new Set(c.events.map(e=>e.id)).size).toBe(22);expect(c.events.every(e=>e.pages.length)).toBe(true);expect(new Battle().allies.map(u=>u.id)).toEqual(['astel','rina','mei']);expect(sideQuests).toHaveLength(3);expect(dialogueChoices).toHaveLength(5)});
  it('requires chapter six clear and denies visits, map entry, choices and boss launch while locked',()=>{const p=fresh();for(const ch of chapters.slice(0,5))complete(p,ch);expect(chapterOpen(p.adventure,c)).toBe(false);expect(visitLocation(p.adventure,c,'c7-entrance')).toBe(false);expect(enterMap(p,'grove-camp')).toBe(false);expect(recordChoice(p,'c7-fine-meeting','walk-and-listen')).toBe(false);expect(beginAdventureBattle(p,c,'c7-seles')).toBeUndefined();complete(p,chapters[5]);expect(chapterOpen(p.adventure,c)).toBe(true)});
  it('finishes every event without optional quests and keeps chapters one through six identical',()=>{const p=ready(),old=structuredClone(p.adventure.chapters),oldTime=structuredClone(p.adventure.timeStates),oldChoices={...p.choices};complete(p,c);expect(chapterState(p.adventure,c).completed).toHaveLength(22);expect(chapterCleared(p.adventure,c)).toBe(true);for(const ch of chapters.slice(0,6))expect(p.adventure.chapters[ch.id]).toEqual(old[ch.id]);expect(p.adventure.timeStates).toEqual(oldTime);for(const id of Object.keys(oldChoices))expect(p.choices[id]).toBe(oldChoices[id]);expect(p.quests).toEqual({});expect(p.world!.defeated).toHaveLength(3)});
  it('keeps reward/EXP receipts exactly once for the final boss',()=>{const p=ready();complete(p,c,'c7-final-promise');const n=beginAdventureBattle(p,c,'c7-seles')!;expect(resolveAdventureBattle(p,n,'victory').xp).toBe(1300);expect(chapterCleared(p.adventure,c)).toBe(true);expect(p.equipment.inventory['startree-wand']).toBe(1);const before=structuredClone(p);expect(resolveAdventureBattle(p,n,'victory').applied).toBe(false);expect(beginAdventureBattle(p,c,'c7-seles')).toBeUndefined();expect(p).toEqual(before)});
