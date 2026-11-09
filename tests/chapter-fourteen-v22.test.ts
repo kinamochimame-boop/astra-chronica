@@ -23,9 +23,16 @@ import {equipWeapon} from '../src/equipment';
 import {actorStyle} from '../src/battle-actors';
 import {gravityPhase} from '../src/exploration/gravity';
 import {mainObjective} from '../src/exploration/objective';
-export const ready=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,13))complete(p,ch);return p};
+const buildLegacy=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,13))complete(p,ch);return p};
+// This deterministic prerequisite is shared; every scenario still owns a deep copy.
+const legacyBaseline=buildLegacy();
+export const ready=()=>structuredClone(legacyBaseline);
 const qs=sideQuests.filter(q=>q.chapterId===c.id),choices=dialogueChoices.filter(q=>q.chapterId===c.id);
 function quest(p:ReturnType<typeof ready>,id:string){const q=qs.find(q=>q.id===id)!;expect(acceptQuest(p,id)).toBe(true);for(const o of q.objectives){visitLocation(p.adventure,c,o.locationId);const f=walkMaps.flatMap(map=>map.objects.filter(o2=>o2.objectiveId===o.id).map(object=>({map,object})))[0];if(f){enterMap(p,f.map.id);Object.assign(p.world!,{x:f.object.x+32,y:f.object.y})}expect(collectQuestObjective(p,id,o.id)).toBe(true)}visitLocation(p.adventure,c,q.returnLocation);expect(claimQuest(p,id).ok).toBe(true)}
+describe('chapter fourteen prerequisite fixture isolation',()=>{
+ it('cached prerequisite equals the complete original thirteen-chapter API setup',()=>{expect(ready()).toEqual(buildLegacy())});
+ it('nested changes in one scenario never reach another or the cached prerequisite',()=>{const first=ready(),untouched=ready();first.party.astel.level=1;first.adventure.chapters['chapter-01'].completed.length=0;first.equipment.equipped.astel=null;first.skillTree.astel.push('fixture-mutation');first.consumables.potion=0;expect(ready()).toEqual(untouched);expect(first).not.toEqual(untouched)});
+});
 describe('chapter fourteen story, save and choices',()=>{
  it('future notice never labels implemented chapters as unavailable',()=>{expect(futureChaptersNotice()).toBe('第17〜18章：今後の更新予定。現在はプレイできません。')});
  it('registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter fifteen',()=>{expect(chapters).toHaveLength(16);expect(c.locations.map(l=>l.id)).toEqual('gateway shore dock deck hall beacon gravity refuge records garden sanctuary bridge gate charts altar core'.split(' ').map(x=>'c14-'+x));expect(c.events).toHaveLength(28);expect(new Set(c.events.map(e=>e.id)).size).toBe(28);expect(c.events.every(e=>e.pages.length&&e.pages.every(p=>p.text.length>10))).toBe(true);expect(qs).toHaveLength(3);expect(choices).toHaveLength(5);expect(chapters.some(c=>c.id==='chapter-17')).toBe(false)});

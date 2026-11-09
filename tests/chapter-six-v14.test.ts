@@ -28,7 +28,14 @@ const dialogueChoices=allChoices.filter(q=>q.chapterId==='chapter-06');
 const ev=(r:ActionResult)=>{expect(r.ok).toBe(true);if(!r.ok)throw Error(r.reason);return r.event};
 function until(b:Battle,id:string){for(let n=0;n<30&&!b.result&&b.current?.id!==id;n++)b.waitTurn();expect(b.current?.id).toBe(id)}
 function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){visitLocation(p.adventure,ch,e.locationId);if(ch.id===chapterFive.id&&e.puzzle)discoverLandmark(p.adventure,'c5-temple-windmark');if(ch.id===c.id&&e.id==='c6-canal-tune')changeTimeState(p.adventure,'c6-canal-clock','flowing');if(ch.id===c.id&&e.puzzle)changeTimeState(p.adventure,'c6-corridor-clock','flowing');if(!chapterState(p.adventure,ch).completed.includes(e.id)){if(e.choiceId&&!p.choices[e.choiceId])expect(recordChoice(p,e.choiceId,allChoices.find(q=>q.id===e.choiceId)!.options[0].id)).toBe(true);if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id)!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
-function ready(){const p=fresh();for(const ch of [chapterOne,chapterTwo,chapterThree,chapterFour,chapterFive])complete(p,ch);return p}
+function buildLegacy(){const p=fresh();for(const ch of [chapterOne,chapterTwo,chapterThree,chapterFour,chapterFive])complete(p,ch);return p}
+// Build the deterministic prerequisite once; battle seeds always receive independent data.
+const legacyBaseline=buildLegacy();
+const ready=()=>structuredClone(legacyBaseline);
+describe('chapter six prerequisite fixture isolation',()=>{
+ it('cached prerequisite equals the original five-chapter API setup',()=>{expect(ready()).toEqual(buildLegacy())});
+ it('nested scenario mutations never change another copy or the baseline',()=>{const first=ready(),untouched=ready();first.party.astel.level=1;first.adventure.chapters['chapter-01'].completed.length=0;first.equipment.equipped.astel=null;first.skillTree.astel.push('fixture-mutation');first.consumables.potion=0;expect(ready()).toEqual(untouched);expect(first).not.toEqual(untouched)});
+});
 const battle=(p:Progress,id:string,random=()=>0.99)=>new Battle(random,p.party,undefined,p.equipment,encounterSetup(id),p.skillTree,p.consumables);
 function doQuest(p:Progress,id:string){const q=sideQuests.find(q=>q.id===id)!;expect(acceptQuest(p,id)).toBe(true);for(const o of q.objectives){expect(visitLocation(p.adventure,c,o.locationId)).toBe(true);expect(collectQuestObjective(p,id,o.id)).toBe(true)}visitLocation(p.adventure,c,q.returnLocation);expect(claimQuest(p,id).ok).toBe(true)}
 function fight(b:Battle){for(let n=0;n<450&&!b.result;n++){
