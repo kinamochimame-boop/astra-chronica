@@ -1,0 +1,525 @@
+{
+  "specification": "第15章「虚空の聖域と砕けた星の王冠」",
+  "base": "48b83fabf4360b3ae2b3009359f1be9a0519c389",
+  "branch": "feature/v2.3-chapter-fifteen-exploration",
+  "saveKey": "astra-chronica:v1",
+  "schema": 2,
+  "levelCap": 50,
+  "progressionSourceUnchanged": true,
+  "baselineUnitTests": 1366,
+  "unitTests": 1572,
+  "addedUnitTests": 206,
+  "unitFiles": 33,
+  "unitCommand": "npm test",
+  "unitWorkers": 1,
+  "timeoutMs": 5000,
+  "skippedTests": 0,
+  "assertionsRelaxed": false,
+  "browserFiles": [
+    {
+      "file": "adventure-v08.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "attack-modifier.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "battle-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "browser.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eight-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eleven-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eleven-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-fifteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "chapter-fifteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "chapter-fifteen-v23.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "chapter-five-ui-v13.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-five-v13.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-four-ui-v12.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-four-v12.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-fourteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-fourteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-nine-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-nine-v17.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-seven-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-six-ui-v14.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-six-v14.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-ten-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-ten-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-ten-v18.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-thirteen-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-thirteen-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-thirteen-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-three-layout-v11.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-three-v11.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-twelve-equipment.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-twelve-ui.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-twelve-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "chapter-two-v10.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "corridor-v23.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "equipment-v07.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-smoke-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-ui-v15.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-ui-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v17.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v17.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v18.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v18.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v19.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v19.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v20.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v21.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v22.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "exploration-v23.e2e.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "exploration-v23.smoke.mjs",
+      "exitCode": 0,
+      "kind": "new"
+    },
+    {
+      "file": "foundation.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "lab-v04.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "minimap-v20.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "railway-v21.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "sideview-lab-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "sideview-v16.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "sideview-v16.smoke.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "skill-tree-v09.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "skills-v06.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    },
+    {
+      "file": "transit-v22.e2e.mjs",
+      "exitCode": 0,
+      "kind": "legacy"
+    }
+  ],
+  "legacyBrowserFiles": 58,
+  "newBrowserFiles": 6,
+  "browserTotal": 64,
+  "chapterFullRoutes": 2,
+  "actualChapterVictories": 12,
+  "questRoutes": [
+    "before-clear",
+    "after-clear"
+  ],
+  "fixedSeedFullChapters": 40,
+  "fixedSeedNewEquipmentBossVictories": 4,
+  "phaseLinkOrders": 6,
+  "stellarPhaseStates": [
+    "chaotic",
+    "synced",
+    "inverted",
+    "stable"
+  ],
+  "maps": 66,
+  "viewportWidths": [
+    320,
+    390,
+    430,
+    768
+  ],
+  "mapViewportCases": 264,
+  "standardWebGL": "passed",
+  "runtimeErrors": 0,
+  "screenshots": 168,
+  "allRequiredFourWidthScreenshots": true,
+  "buildModules": 130,
+  "buildSHA256": {
+    "index.html": "200ad4dffb7a06afc521a0bfe00f05d1dab993f048dc1f9f5fd8487775d245a2",
+    "assets/phaser-DFK5Ua9d.js": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb",
+    "assets/index-BppX1SxU.js": "2a6732d8c17368671c20266dfb9553c3d5e8f0d418050e4fc4aa6de907cb14ab",
+    "assets/index-DUNwdw5K.css": "5f322537413e8368a8d011cb41b10c1ed5f1dfa91338f529f1cb28d7af3c912d"
+  },
+  "productionBrowserCandidateMatchesFinalBuild": true,
+  "developmentFixtureFiles": [
+    "battle-ui.e2e.mjs",
+    "skills-v06.e2e.mjs",
+    "sideview-v16.e2e.mjs"
+  ],
+  "mixedProductionAndFixtureFiles": [
+    "chapter-two-v10.e2e.mjs"
+  ],
+  "developmentFixtureNote": "The legacy UI fixtures use Vite on port5173 with the same frozen source. Production browser routes use the candidate on4193; SHA-256 compares the production outputs.",
+  "oldSaveAndNoSaveLab": "passed",
+  "storyNpcConflictResolution": "Chapter 13 Noel retained; new researcher renamed Tise/ティセ",
+  "testIterations": [
+    "Initial new destination test used a different current map; corrected the fixture via enterMap.",
+    "Unchanged legacy balance tests occasionally exceeded the existing 5s limit under host contention. Retried without changing assertions or timeouts; final full npm test passed.",
+    "Chapter 15 result text was aligned with partial star-crown restoration before the final browser candidate.",
+    "Transient legacy command-selection failures were rechecked with one page per route for chapters11/12. Both quest paths in both files passed all 24 actual victories, without battle code or assertion/timeout changes."
+  ],
+  "iPhoneSafariDevice": "not available; no manual play request",
+  "mergeDeploymentPlicy": "not performed",
+  "isolatedRetryRuns": [
+    {
+      "file": "battle-ui.e2e.mjs",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ]
+    },
+    {
+      "file": "railway-v21.e2e.mjs",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ]
+    },
+    {
+      "file": "transit-v22.e2e.mjs",
+      "attempts": [
+        {
+          "args": [],
+          "code": 0
+        }
+      ]
+    },
+    {
+      "file": "chapter-thirteen-v21.e2e.mjs",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ]
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ]
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ]
+    },
+    {
+      "file": "chapter-twelve-v20.e2e.mjs",
+      "attempts": [
+        {
+          "args": [
+            "--quests-before"
+          ],
+          "code": 0
+        },
+        {
+          "args": [
+            "--quests-after"
+          ],
+          "code": 0
+        }
+      ]
+    }
+  ],
+  "browserInitialFailures": [
+    {
+      "file": "battle-ui.e2e.mjs",
+      "exitCode": 1
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "exitCode": 1
+    },
+    {
+      "file": "chapter-thirteen-v21.e2e.mjs",
+      "exitCode": 1
+    },
+    {
+      "file": "railway-v21.e2e.mjs",
+      "exitCode": 1
+    },
+    {
+      "file": "transit-v22.e2e.mjs",
+      "exitCode": 1
+    },
+    {
+      "file": "chapter-eleven-v19.e2e.mjs",
+      "exitCode": 1
+    },
+    {
+      "file": "chapter-twelve-v20.e2e.mjs",
+      "exitCode": 1
+    }
+  ],
+  "browserRetryNote": "Short-lived UI tests were rerun alone; chapters11–14 were checked one route per page with at most two pages in the batch. The transient command-selection failures in chapters11/12 were not reproduced in these isolated full routes; no battle calculation change was made. Assertions and timeouts were unchanged. Final manifest contains 64 unique successful files."
+}
