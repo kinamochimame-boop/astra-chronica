@@ -869,12 +869,326 @@ BASE_URL=http://localhost:4195 npm run test:capture-v24
 
 標準Chromiumは`/usr/bin/chromium`。必要に応じて長時間の巡回はCanvasを使用するが、標準WebGLのsmokeは分離して実行する。`CHROMIUM_PATH`と`WEBGL_CHROMIUM_PATH`で実行ファイルを指定できる。追加依存は不要。
 
-## 検証結果（実行中）
+## 最終検証結果
 
-基準mainは33ファイル・1,572件成功。初回の新章単体テストでは重複登録・重複ID・追加宝箱に伴う前提変更を検出し修正。投影段階の橋・74マップ・全38イベント・Lv50戦闘を再検証中。旧章の章数・未実装章表示は第16章追加に合わせた厳密な期待値へ更新し、既存テストの削除・skip・時間制限緩和は行わない。
-
-利用上限で一度停止し、再開直後は終了していたテスト用HTTPサーバーへの接続が失敗した。これはブラウザがゲームを読み込む前の環境失敗として、ゲーム内テストの成否と分離する。実際の最終結果・件数・画像は完了後に追記する。未実行の成功は記載しない。
+- `npm test`：**1,800/1,800件、35ファイル成功**。基準1,572件を維持し228件追加（新章・マップ221件、動的な章登録1件、前提データの隔離確認6件）。既存ケースの削除・skip・判定緩和・5秒制限変更はない。
+- 新章：20乱数種×依頼前後の40通し確認。Lv50・第15章装備・必須ノードなしで攻略。全32選択経路、38イベント、依頼の前後・上限・重複、武器、旧15章保存、星力・守備・かばう・回復、150/168/180の予兆保持を数値確認。
+- 物理AI追加時の攻撃力補正・火傷反映漏れを2件の回帰テストで再現し修正。−25%時105→78.75、火傷時105→84、全体予兆120も同じ実効比を一度だけ反映。旧ダメージ式と旧プロファイルは維持。
+- Chromium：**70/70ファイル成功**（既存64＋新規6）。第16章の依頼を先に完了／クリア後に完了する両経路で、各9戦・計18回の実勝利。会話、選択、パズル誤答・リセット・中断、3段階移行、装備、撤退・再戦、報酬・再読込・Lab分離を確認。
+- **74マップ×4幅＝296ケース成功**。320/390/430/768pxのタッチ、Canvas比率、カメラ、一時停止・復帰、ミニマップ、44px、横スクロールを確認。旧66マップ、潮位・共鳴・光路・天球儀・重力・星界位相、鉄道6駅・方舟8区画を回帰。
+- 記憶投影4状態で実地形・輪郭・ミニマップ、投影中の通行禁止、接続後の通行、偽フラグ無視、橋上の不正座標修復、再読込と訪問履歴を確認。
+- 標準WebGL成功。ブラウザ実行時エラー0。長時間の巡回はCanvasも使用。旧3UIと第2章の一部は固定ソースの開発用fixture、通常のゲーム操作は固定本番候補を使用し、[JSON記録](test-results/v24.json)で区別した。
+- `npm run build`成功。最終ビルドと検証した本番候補の4出力SHA-256が一致。追加撮影スクリプト成功。
+- 初回の登録重複・ID衝突・前提／未来表示のfixture更新、物理AI不具合の失敗と修正後の成功を、機械可読記録へ分離した。診断用の対象指定実行を最終全件実行のskipとは扱わない。
+- 利用上限で起動できなかった処理と、サーバー停止中の接続拒否はゲームを読み込む前の環境失敗として記録。修正前の中断ルートは最終成功の証拠に流用せず、両経路を最初から再実行した。パズル再読込後のテスト側の会話送り不足は、正常な直前会話への復帰を確認して手順を修正し、判定・時間制限を保ったまま通し経路を再実行した。最終ボスでアイスを優先した操作は180行動内に撃破できなかったため、弱点のサンダー、シールドバッシュ、回復用MP温存を使う操作へ修正。20乱数の戦術確認で139〜169行動・全勝を確認し、ゲーム数値・行動上限・勝利判定は変更せず両経路を再実行した。記憶投影の検証データ差し替えでは、自動保存を伴う探索画面を正常終了してから投入するよう手順を修正し、4段階と橋上座標の完全一致判定を維持して再実行した。
 
 ## 未確認・範囲外
 
-iPhone Safari実機は未確認。Chromiumタッチと4幅、標準WebGLで確認する。第17〜18章・正式画像・ジョブ変更・mainマージ・GitHub Pages公開・PLiCy投稿は行わない。既存Phaserチャンクの500kB超警告は残る。新8マップは共通の仮グリッド・図形を使用し、正式な背景制作は含まない。
+iPhone Safari実機は未確認。Chromiumタッチ4幅と標準WebGLでは確認済み。第17〜18章・正式画像・ジョブ変更・mainマージ・GitHub Pages公開・PLiCy投稿は行わない。既存Phaserチャンクの500kB超警告は残る。新8マップは共通の仮グリッド・図形を使用し、正式な背景制作は含まない。
+
+## 検証操作の安定化
+
+旧第14章の移動演出は既存どおり650msで自動終了する。任意のスキップ操作が自動到着と競合したため、テスト側でその操作を最大1000msに限定し、終了済みの場合はボタンの消失と要求先マップへの完全一致を追加確認する。戦績・HP/MPを含む成長情報・装備・到着位置の既存判定は維持し、専用の鉄道・方舟テストでは実際のスキップ入力も検証する。初回は両経路が失敗し、クリア後の依頼移動まで到達した経路も成功へ流用せず、修正後に両経路を最初から再実行した。
+
+
+共通の接触テストヘルパーは、戦闘／探索状態を一度の読み取りで取得し、切替直後に破棄された探索画面を待ち続ける競合を避ける。旧サイドビューの一時表示は、MutationObserverで新しいイベント識別と実DOM・Canvas計画を同時に取得し、元のMISS・回復・会心・反撃・対象の判定を維持したまま850ms後の表示終了と競合しないようにした。ゲーム本体の演出時間や数値は変更していない。
+
+## 単体テストの前提準備
+
+最終再確認では、並行撮影中および単独実行中に、既存の20乱数・32選択をまとめたケースで5000ms制限超過を検出した。第6・7・14章のテストに限り、同一の前章進行を元のAPIで一度構築して各シナリオへ深い複製を渡すようにした。全ての元のケース・乱数種・期待値・5000ms制限を維持。元の構築結果との同値性と、入れ子の変更が他のシナリオへ漏れないことを確認する6件を追加した。最終の全35ファイル・1800件は成功。ゲーム本体やブラウザ検証候補は変更していない。失敗・中止した再確認もJSONで区別する。
+
+
+## 変更ファイル一覧
+
+- `README.md`
+- `docs/CHAPTER_SIXTEEN_V24.md`
+- `docs/test-results/v24.json`
+- `package.json`
+- `src/battle.ts`
+- `src/data/chapter-one.ts`
+- `src/data/chapter-sixteen-enemies.ts`
+- `src/data/chapter-sixteen.ts`
+- `src/data/combat.ts`
+- `src/data/dialogue-choices.ts`
+- `src/data/encounters.ts`
+- `src/data/enemy-scripts.ts`
+- `src/data/journal.ts`
+- `src/data/side-quests.ts`
+- `src/data/weapons.ts`
+- `src/exploration/access.ts`
+- `src/exploration/active-map.ts`
+- `src/exploration/chapter-sixteen-maps.ts`
+- `src/exploration/map-art.ts`
+- `src/exploration/map-data.ts`
+- `src/exploration/map-view.ts`
+- `src/exploration/memory-effects.ts`
+- `src/exploration/memory-projection.ts`
+- `src/exploration/safe-return.ts`
+- `src/exploration/types.ts`
+- `src/main.ts`
+- `src/types.ts`
+- `tests/browser-suite.mjs`
+- `tests/capture-v24.mjs`
+- `tests/chapter-eight-v16.e2e.mjs`
+- `tests/chapter-eight-v16.test.ts`
+- `tests/chapter-eleven-v19.e2e.mjs`
+- `tests/chapter-eleven-v19.test.ts`
+- `tests/chapter-fifteen-v23.e2e.mjs`
+- `tests/chapter-fifteen-v23.test.ts`
+- `tests/chapter-five-v13.e2e.mjs`
+- `tests/chapter-five-v13.test.ts`
+- `tests/chapter-four-v12.e2e.mjs`
+- `tests/chapter-four-v12.test.ts`
+- `tests/chapter-fourteen-v22.e2e.mjs`
+- `tests/chapter-fourteen-v22.test.ts`
+- `tests/chapter-nine-v17.e2e.mjs`
+- `tests/chapter-nine-v17.test.ts`
+- `tests/chapter-seven-v15.e2e.mjs`
+- `tests/chapter-seven-v15.test.ts`
+- `tests/chapter-six-v14.e2e.mjs`
+- `tests/chapter-six-v14.test.ts`
+- `tests/chapter-sixteen-equipment.e2e.mjs`
+- `tests/chapter-sixteen-fixture.mjs`
+- `tests/chapter-sixteen-ui.e2e.mjs`
+- `tests/chapter-sixteen-v24.e2e.mjs`
+- `tests/chapter-sixteen-v24.test.ts`
+- `tests/chapter-ten-v18.e2e.mjs`
+- `tests/chapter-ten-v18.test.ts`
+- `tests/chapter-thirteen-v21.e2e.mjs`
+- `tests/chapter-thirteen-v21.test.ts`
+- `tests/chapter-twelve-v20.e2e.mjs`
+- `tests/chapter-twelve-v20.test.ts`
+- `tests/chapter-two-v10.test.ts`
+- `tests/exploration-v19.smoke.mjs`
+- `tests/exploration-v20.smoke.mjs`
+- `tests/exploration-v21.smoke.mjs`
+- `tests/exploration-v22.smoke.mjs`
+- `tests/exploration-v23.smoke.mjs`
+- `tests/exploration-v23.test.ts`
+- `tests/exploration-v24.e2e.mjs`
+- `tests/exploration-v24.smoke.mjs`
+- `tests/exploration-v24.test.ts`
+- `tests/map-driver-v15.mjs`
+- `tests/memory-projection-v24.e2e.mjs`
+- `tests/sideview-v16.e2e.mjs`
+- `tests/v24-helpers.ts`
+
+## スクリーンショット
+
+実撮影189枚。主要画面は下表の4幅で取得。
+
+|画面|320|390|430|768|
+|---|---|---|---|---|
+|exploration-v24-map-gateway|[320](screenshots/exploration-v24-map-gateway-320.png)|[390](screenshots/exploration-v24-map-gateway-390.png)|[430](screenshots/exploration-v24-map-gateway-430.png)|[768](screenshots/exploration-v24-map-gateway-768.png)|
+|exploration-v24-map-field|[320](screenshots/exploration-v24-map-field-320.png)|[390](screenshots/exploration-v24-map-field-390.png)|[430](screenshots/exploration-v24-map-field-430.png)|[768](screenshots/exploration-v24-map-field-768.png)|
+|exploration-v24-map-monuments|[320](screenshots/exploration-v24-map-monuments-320.png)|[390](screenshots/exploration-v24-map-monuments-390.png)|[430](screenshots/exploration-v24-map-monuments-430.png)|[768](screenshots/exploration-v24-map-monuments-768.png)|
+|exploration-v24-map-sanctum|[320](screenshots/exploration-v24-map-sanctum-320.png)|[390](screenshots/exploration-v24-map-sanctum-390.png)|[430](screenshots/exploration-v24-map-sanctum-430.png)|[768](screenshots/exploration-v24-map-sanctum-768.png)|
+|exploration-v24-map-archive|[320](screenshots/exploration-v24-map-archive-320.png)|[390](screenshots/exploration-v24-map-archive-390.png)|[430](screenshots/exploration-v24-map-archive-430.png)|[768](screenshots/exploration-v24-map-archive-768.png)|
+|exploration-v24-map-corridor|[320](screenshots/exploration-v24-map-corridor-320.png)|[390](screenshots/exploration-v24-map-corridor-390.png)|[430](screenshots/exploration-v24-map-corridor-430.png)|[768](screenshots/exploration-v24-map-corridor-768.png)|
+|exploration-v24-map-fracture|[320](screenshots/exploration-v24-map-fracture-320.png)|[390](screenshots/exploration-v24-map-fracture-390.png)|[430](screenshots/exploration-v24-map-fracture-430.png)|[768](screenshots/exploration-v24-map-fracture-768.png)|
+|exploration-v24-map-core|[320](screenshots/exploration-v24-map-core-320.png)|[390](screenshots/exploration-v24-map-core-390.png)|[430](screenshots/exploration-v24-map-core-430.png)|[768](screenshots/exploration-v24-map-core-768.png)|
+|exploration-v24-memory-severed|[320](screenshots/exploration-v24-memory-severed-320.png)|[390](screenshots/exploration-v24-memory-severed-390.png)|[430](screenshots/exploration-v24-memory-severed-430.png)|[768](screenshots/exploration-v24-memory-severed-768.png)|
+|exploration-v24-memory-projected|[320](screenshots/exploration-v24-memory-projected-320.png)|[390](screenshots/exploration-v24-memory-projected-390.png)|[430](screenshots/exploration-v24-memory-projected-430.png)|[768](screenshots/exploration-v24-memory-projected-768.png)|
+|exploration-v24-memory-connected|[320](screenshots/exploration-v24-memory-connected-320.png)|[390](screenshots/exploration-v24-memory-connected-390.png)|[430](screenshots/exploration-v24-memory-connected-430.png)|[768](screenshots/exploration-v24-memory-connected-768.png)|
+|exploration-v24-memory-integrated|[320](screenshots/exploration-v24-memory-integrated-320.png)|[390](screenshots/exploration-v24-memory-integrated-390.png)|[430](screenshots/exploration-v24-memory-integrated-430.png)|[768](screenshots/exploration-v24-memory-integrated-768.png)|
+|exploration-v24-minimap|[320](screenshots/exploration-v24-minimap-320.png)|[390](screenshots/exploration-v24-minimap-390.png)|[430](screenshots/exploration-v24-minimap-430.png)|[768](screenshots/exploration-v24-minimap-768.png)|
+|chapter-sixteen-npc|[320](screenshots/chapter-sixteen-npc-320.png)|[390](screenshots/chapter-sixteen-npc-390.png)|[430](screenshots/chapter-sixteen-npc-430.png)|[768](screenshots/chapter-sixteen-npc-768.png)|
+|chapter-sixteen-gateway-fight-battle|[320](screenshots/chapter-sixteen-gateway-fight-battle-320.png)|[390](screenshots/chapter-sixteen-gateway-fight-battle-390.png)|[430](screenshots/chapter-sixteen-gateway-fight-battle-430.png)|[768](screenshots/chapter-sixteen-gateway-fight-battle-768.png)|
+|chapter-sixteen-sentinel-battle|[320](screenshots/chapter-sixteen-sentinel-battle-320.png)|[390](screenshots/chapter-sixteen-sentinel-battle-390.png)|[430](screenshots/chapter-sixteen-sentinel-battle-430.png)|[768](screenshots/chapter-sixteen-sentinel-battle-768.png)|
+|chapter-sixteen-boss-ui|[320](screenshots/chapter-sixteen-boss-ui-320.png)|[390](screenshots/chapter-sixteen-boss-ui-390.png)|[430](screenshots/chapter-sixteen-boss-ui-430.png)|[768](screenshots/chapter-sixteen-boss-ui-768.png)|
+|chapter-sixteen-clear|[320](screenshots/chapter-sixteen-clear-320.png)|[390](screenshots/chapter-sixteen-clear-390.png)|[430](screenshots/chapter-sixteen-clear-430.png)|[768](screenshots/chapter-sixteen-clear-768.png)|
+|chapter-sixteen-weapon-grave-longbow|[320](screenshots/chapter-sixteen-weapon-grave-longbow-320.png)|[390](screenshots/chapter-sixteen-weapon-grave-longbow-390.png)|[430](screenshots/chapter-sixteen-weapon-grave-longbow-430.png)|[768](screenshots/chapter-sixteen-weapon-grave-longbow-768.png)|
+|chapter-sixteen-weapon-endward-shield-spear|[320](screenshots/chapter-sixteen-weapon-endward-shield-spear-320.png)|[390](screenshots/chapter-sixteen-weapon-endward-shield-spear-390.png)|[430](screenshots/chapter-sixteen-weapon-endward-shield-spear-430.png)|[768](screenshots/chapter-sixteen-weapon-endward-shield-spear-768.png)|
+|chapter-sixteen-weapon-memory-rod|[320](screenshots/chapter-sixteen-weapon-memory-rod-320.png)|[390](screenshots/chapter-sixteen-weapon-memory-rod-390.png)|[430](screenshots/chapter-sixteen-weapon-memory-rod-430.png)|[768](screenshots/chapter-sixteen-weapon-memory-rod-768.png)|
+
+### 全画像ファイル
+
+- [chapter-sixteen-boss-ui-320.png](screenshots/chapter-sixteen-boss-ui-320.png)
+- [chapter-sixteen-boss-ui-390.png](screenshots/chapter-sixteen-boss-ui-390.png)
+- [chapter-sixteen-boss-ui-430.png](screenshots/chapter-sixteen-boss-ui-430.png)
+- [chapter-sixteen-boss-ui-768.png](screenshots/chapter-sixteen-boss-ui-768.png)
+- [chapter-sixteen-c16-archive-fight-battle-390.png](screenshots/chapter-sixteen-c16-archive-fight-battle-390.png)
+- [chapter-sixteen-c16-archive-fight-result-390.png](screenshots/chapter-sixteen-c16-archive-fight-result-390.png)
+- [chapter-sixteen-c16-end-observer-battle-390.png](screenshots/chapter-sixteen-c16-end-observer-battle-390.png)
+- [chapter-sixteen-c16-end-observer-result-390.png](screenshots/chapter-sixteen-c16-end-observer-result-390.png)
+- [chapter-sixteen-c16-field-fight-battle-390.png](screenshots/chapter-sixteen-c16-field-fight-battle-390.png)
+- [chapter-sixteen-c16-field-fight-result-390.png](screenshots/chapter-sixteen-c16-field-fight-result-390.png)
+- [chapter-sixteen-c16-fracture-fight-battle-390.png](screenshots/chapter-sixteen-c16-fracture-fight-battle-390.png)
+- [chapter-sixteen-c16-fracture-fight-result-390.png](screenshots/chapter-sixteen-c16-fracture-fight-result-390.png)
+- [chapter-sixteen-c16-gateway-fight-battle-390.png](screenshots/chapter-sixteen-c16-gateway-fight-battle-390.png)
+- [chapter-sixteen-c16-gateway-fight-result-390.png](screenshots/chapter-sixteen-c16-gateway-fight-result-390.png)
+- [chapter-sixteen-c16-ruins-fight-battle-390.png](screenshots/chapter-sixteen-c16-ruins-fight-battle-390.png)
+- [chapter-sixteen-c16-ruins-fight-result-390.png](screenshots/chapter-sixteen-c16-ruins-fight-result-390.png)
+- [chapter-sixteen-c16-sanctuary-fight-battle-390.png](screenshots/chapter-sixteen-c16-sanctuary-fight-battle-390.png)
+- [chapter-sixteen-c16-sanctuary-fight-result-390.png](screenshots/chapter-sixteen-c16-sanctuary-fight-result-390.png)
+- [chapter-sixteen-c16-sanctum-fight-battle-390.png](screenshots/chapter-sixteen-c16-sanctum-fight-battle-390.png)
+- [chapter-sixteen-c16-sanctum-fight-result-390.png](screenshots/chapter-sixteen-c16-sanctum-fight-result-390.png)
+- [chapter-sixteen-c16-sentinel-battle-390.png](screenshots/chapter-sixteen-c16-sentinel-battle-390.png)
+- [chapter-sixteen-c16-sentinel-result-390.png](screenshots/chapter-sixteen-c16-sentinel-result-390.png)
+- [chapter-sixteen-choice-320.png](screenshots/chapter-sixteen-choice-320.png)
+- [chapter-sixteen-choice-390.png](screenshots/chapter-sixteen-choice-390.png)
+- [chapter-sixteen-choice-430.png](screenshots/chapter-sixteen-choice-430.png)
+- [chapter-sixteen-choice-768.png](screenshots/chapter-sixteen-choice-768.png)
+- [chapter-sixteen-clear-320.png](screenshots/chapter-sixteen-clear-320.png)
+- [chapter-sixteen-clear-390.png](screenshots/chapter-sixteen-clear-390.png)
+- [chapter-sixteen-clear-430.png](screenshots/chapter-sixteen-clear-430.png)
+- [chapter-sixteen-clear-768.png](screenshots/chapter-sixteen-clear-768.png)
+- [chapter-sixteen-dialogue-320.png](screenshots/chapter-sixteen-dialogue-320.png)
+- [chapter-sixteen-dialogue-390.png](screenshots/chapter-sixteen-dialogue-390.png)
+- [chapter-sixteen-dialogue-430.png](screenshots/chapter-sixteen-dialogue-430.png)
+- [chapter-sixteen-dialogue-768.png](screenshots/chapter-sixteen-dialogue-768.png)
+- [chapter-sixteen-enemy-symbol-390.png](screenshots/chapter-sixteen-enemy-symbol-390.png)
+- [chapter-sixteen-equipment-390.png](screenshots/chapter-sixteen-equipment-390.png)
+- [chapter-sixteen-gateway-fight-battle-320.png](screenshots/chapter-sixteen-gateway-fight-battle-320.png)
+- [chapter-sixteen-gateway-fight-battle-390.png](screenshots/chapter-sixteen-gateway-fight-battle-390.png)
+- [chapter-sixteen-gateway-fight-battle-430.png](screenshots/chapter-sixteen-gateway-fight-battle-430.png)
+- [chapter-sixteen-gateway-fight-battle-768.png](screenshots/chapter-sixteen-gateway-fight-battle-768.png)
+- [chapter-sixteen-new-weapons-action-390.png](screenshots/chapter-sixteen-new-weapons-action-390.png)
+- [chapter-sixteen-npc-320.png](screenshots/chapter-sixteen-npc-320.png)
+- [chapter-sixteen-npc-390.png](screenshots/chapter-sixteen-npc-390.png)
+- [chapter-sixteen-npc-430.png](screenshots/chapter-sixteen-npc-430.png)
+- [chapter-sixteen-npc-768.png](screenshots/chapter-sixteen-npc-768.png)
+- [chapter-sixteen-sentinel-battle-320.png](screenshots/chapter-sixteen-sentinel-battle-320.png)
+- [chapter-sixteen-sentinel-battle-390.png](screenshots/chapter-sixteen-sentinel-battle-390.png)
+- [chapter-sixteen-sentinel-battle-430.png](screenshots/chapter-sixteen-sentinel-battle-430.png)
+- [chapter-sixteen-sentinel-battle-768.png](screenshots/chapter-sixteen-sentinel-battle-768.png)
+- [chapter-sixteen-weapon-endward-shield-spear-320.png](screenshots/chapter-sixteen-weapon-endward-shield-spear-320.png)
+- [chapter-sixteen-weapon-endward-shield-spear-390.png](screenshots/chapter-sixteen-weapon-endward-shield-spear-390.png)
+- [chapter-sixteen-weapon-endward-shield-spear-430.png](screenshots/chapter-sixteen-weapon-endward-shield-spear-430.png)
+- [chapter-sixteen-weapon-endward-shield-spear-768.png](screenshots/chapter-sixteen-weapon-endward-shield-spear-768.png)
+- [chapter-sixteen-weapon-grave-longbow-320.png](screenshots/chapter-sixteen-weapon-grave-longbow-320.png)
+- [chapter-sixteen-weapon-grave-longbow-390.png](screenshots/chapter-sixteen-weapon-grave-longbow-390.png)
+- [chapter-sixteen-weapon-grave-longbow-430.png](screenshots/chapter-sixteen-weapon-grave-longbow-430.png)
+- [chapter-sixteen-weapon-grave-longbow-768.png](screenshots/chapter-sixteen-weapon-grave-longbow-768.png)
+- [chapter-sixteen-weapon-memory-rod-320.png](screenshots/chapter-sixteen-weapon-memory-rod-320.png)
+- [chapter-sixteen-weapon-memory-rod-390.png](screenshots/chapter-sixteen-weapon-memory-rod-390.png)
+- [chapter-sixteen-weapon-memory-rod-430.png](screenshots/chapter-sixteen-weapon-memory-rod-430.png)
+- [chapter-sixteen-weapon-memory-rod-768.png](screenshots/chapter-sixteen-weapon-memory-rod-768.png)
+- [chapter-sixteen-webgl-action-390.png](screenshots/chapter-sixteen-webgl-action-390.png)
+- [exploration-v24-ark-core-390.png](screenshots/exploration-v24-ark-core-390.png)
+- [exploration-v24-ark-dock-390.png](screenshots/exploration-v24-ark-dock-390.png)
+- [exploration-v24-ark-gateway-390.png](screenshots/exploration-v24-ark-gateway-390.png)
+- [exploration-v24-ark-gravity-390.png](screenshots/exploration-v24-ark-gravity-390.png)
+- [exploration-v24-ark-hall-390.png](screenshots/exploration-v24-ark-hall-390.png)
+- [exploration-v24-ark-records-390.png](screenshots/exploration-v24-ark-records-390.png)
+- [exploration-v24-ark-sanctuary-390.png](screenshots/exploration-v24-ark-sanctuary-390.png)
+- [exploration-v24-ark-shore-390.png](screenshots/exploration-v24-ark-shore-390.png)
+- [exploration-v24-celestial-complete-390.png](screenshots/exploration-v24-celestial-complete-390.png)
+- [exploration-v24-celestial-partial-390.png](screenshots/exploration-v24-celestial-partial-390.png)
+- [exploration-v24-celestial-stopped-390.png](screenshots/exploration-v24-celestial-stopped-390.png)
+- [exploration-v24-celestial-synchronized-390.png](screenshots/exploration-v24-celestial-synchronized-390.png)
+- [exploration-v24-gear-city-detail-390.png](screenshots/exploration-v24-gear-city-detail-390.png)
+- [exploration-v24-gear-core-detail-390.png](screenshots/exploration-v24-gear-core-detail-390.png)
+- [exploration-v24-gear-lower-detail-390.png](screenshots/exploration-v24-gear-lower-detail-390.png)
+- [exploration-v24-gear-market-detail-390.png](screenshots/exploration-v24-gear-market-detail-390.png)
+- [exploration-v24-gear-observatory-detail-390.png](screenshots/exploration-v24-gear-observatory-detail-390.png)
+- [exploration-v24-gear-station-320.png](screenshots/exploration-v24-gear-station-320.png)
+- [exploration-v24-gear-station-390.png](screenshots/exploration-v24-gear-station-390.png)
+- [exploration-v24-gear-station-430.png](screenshots/exploration-v24-gear-station-430.png)
+- [exploration-v24-gear-station-768.png](screenshots/exploration-v24-gear-station-768.png)
+- [exploration-v24-gear-station-detail-390.png](screenshots/exploration-v24-gear-station-detail-390.png)
+- [exploration-v24-gear-workshop-detail-390.png](screenshots/exploration-v24-gear-workshop-detail-390.png)
+- [exploration-v24-grave-core-390.png](screenshots/exploration-v24-grave-core-390.png)
+- [exploration-v24-grave-field-390.png](screenshots/exploration-v24-grave-field-390.png)
+- [exploration-v24-grave-gate-390.png](screenshots/exploration-v24-grave-gate-390.png)
+- [exploration-v24-grave-memory-390.png](screenshots/exploration-v24-grave-memory-390.png)
+- [exploration-v24-grave-observatory-390.png](screenshots/exploration-v24-grave-observatory-390.png)
+- [exploration-v24-grave-ruins-390.png](screenshots/exploration-v24-grave-ruins-390.png)
+- [exploration-v24-grave-sanctuary-390.png](screenshots/exploration-v24-grave-sanctuary-390.png)
+- [exploration-v24-grave-tower-390.png](screenshots/exploration-v24-grave-tower-390.png)
+- [exploration-v24-gravity-controlled-390.png](screenshots/exploration-v24-gravity-controlled-390.png)
+- [exploration-v24-gravity-normal-390.png](screenshots/exploration-v24-gravity-normal-390.png)
+- [exploration-v24-gravity-reversed-390.png](screenshots/exploration-v24-gravity-reversed-390.png)
+- [exploration-v24-gravity-stable-390.png](screenshots/exploration-v24-gravity-stable-390.png)
+- [exploration-v24-grove-garden-390.png](screenshots/exploration-v24-grove-garden-390.png)
+- [exploration-v24-grove-village-390.png](screenshots/exploration-v24-grove-village-390.png)
+- [exploration-v24-high-reload-390.png](screenshots/exploration-v24-high-reload-390.png)
+- [exploration-v24-light-dark-390.png](screenshots/exploration-v24-light-dark-390.png)
+- [exploration-v24-light-glimmer-390.png](screenshots/exploration-v24-light-glimmer-390.png)
+- [exploration-v24-light-linked-390.png](screenshots/exploration-v24-light-linked-390.png)
+- [exploration-v24-light-renewed-390.png](screenshots/exploration-v24-light-renewed-390.png)
+- [exploration-v24-low-reload-390.png](screenshots/exploration-v24-low-reload-390.png)
+- [exploration-v24-map-archive-320.png](screenshots/exploration-v24-map-archive-320.png)
+- [exploration-v24-map-archive-390.png](screenshots/exploration-v24-map-archive-390.png)
+- [exploration-v24-map-archive-430.png](screenshots/exploration-v24-map-archive-430.png)
+- [exploration-v24-map-archive-768.png](screenshots/exploration-v24-map-archive-768.png)
+- [exploration-v24-map-core-320.png](screenshots/exploration-v24-map-core-320.png)
+- [exploration-v24-map-core-390.png](screenshots/exploration-v24-map-core-390.png)
+- [exploration-v24-map-core-430.png](screenshots/exploration-v24-map-core-430.png)
+- [exploration-v24-map-core-768.png](screenshots/exploration-v24-map-core-768.png)
+- [exploration-v24-map-corridor-320.png](screenshots/exploration-v24-map-corridor-320.png)
+- [exploration-v24-map-corridor-390.png](screenshots/exploration-v24-map-corridor-390.png)
+- [exploration-v24-map-corridor-430.png](screenshots/exploration-v24-map-corridor-430.png)
+- [exploration-v24-map-corridor-768.png](screenshots/exploration-v24-map-corridor-768.png)
+- [exploration-v24-map-field-320.png](screenshots/exploration-v24-map-field-320.png)
+- [exploration-v24-map-field-390.png](screenshots/exploration-v24-map-field-390.png)
+- [exploration-v24-map-field-430.png](screenshots/exploration-v24-map-field-430.png)
+- [exploration-v24-map-field-768.png](screenshots/exploration-v24-map-field-768.png)
+- [exploration-v24-map-fracture-320.png](screenshots/exploration-v24-map-fracture-320.png)
+- [exploration-v24-map-fracture-390.png](screenshots/exploration-v24-map-fracture-390.png)
+- [exploration-v24-map-fracture-430.png](screenshots/exploration-v24-map-fracture-430.png)
+- [exploration-v24-map-fracture-768.png](screenshots/exploration-v24-map-fracture-768.png)
+- [exploration-v24-map-gateway-320.png](screenshots/exploration-v24-map-gateway-320.png)
+- [exploration-v24-map-gateway-390.png](screenshots/exploration-v24-map-gateway-390.png)
+- [exploration-v24-map-gateway-430.png](screenshots/exploration-v24-map-gateway-430.png)
+- [exploration-v24-map-gateway-768.png](screenshots/exploration-v24-map-gateway-768.png)
+- [exploration-v24-map-monuments-320.png](screenshots/exploration-v24-map-monuments-320.png)
+- [exploration-v24-map-monuments-390.png](screenshots/exploration-v24-map-monuments-390.png)
+- [exploration-v24-map-monuments-430.png](screenshots/exploration-v24-map-monuments-430.png)
+- [exploration-v24-map-monuments-768.png](screenshots/exploration-v24-map-monuments-768.png)
+- [exploration-v24-map-sanctum-320.png](screenshots/exploration-v24-map-sanctum-320.png)
+- [exploration-v24-map-sanctum-390.png](screenshots/exploration-v24-map-sanctum-390.png)
+- [exploration-v24-map-sanctum-430.png](screenshots/exploration-v24-map-sanctum-430.png)
+- [exploration-v24-map-sanctum-768.png](screenshots/exploration-v24-map-sanctum-768.png)
+- [exploration-v24-memory-connected-320.png](screenshots/exploration-v24-memory-connected-320.png)
+- [exploration-v24-memory-connected-390.png](screenshots/exploration-v24-memory-connected-390.png)
+- [exploration-v24-memory-connected-430.png](screenshots/exploration-v24-memory-connected-430.png)
+- [exploration-v24-memory-connected-768.png](screenshots/exploration-v24-memory-connected-768.png)
+- [exploration-v24-memory-connected-minimap-320.png](screenshots/exploration-v24-memory-connected-minimap-320.png)
+- [exploration-v24-memory-connected-minimap-390.png](screenshots/exploration-v24-memory-connected-minimap-390.png)
+- [exploration-v24-memory-connected-minimap-430.png](screenshots/exploration-v24-memory-connected-minimap-430.png)
+- [exploration-v24-memory-connected-minimap-768.png](screenshots/exploration-v24-memory-connected-minimap-768.png)
+- [exploration-v24-memory-integrated-320.png](screenshots/exploration-v24-memory-integrated-320.png)
+- [exploration-v24-memory-integrated-390.png](screenshots/exploration-v24-memory-integrated-390.png)
+- [exploration-v24-memory-integrated-430.png](screenshots/exploration-v24-memory-integrated-430.png)
+- [exploration-v24-memory-integrated-768.png](screenshots/exploration-v24-memory-integrated-768.png)
+- [exploration-v24-memory-integrated-minimap-320.png](screenshots/exploration-v24-memory-integrated-minimap-320.png)
+- [exploration-v24-memory-integrated-minimap-390.png](screenshots/exploration-v24-memory-integrated-minimap-390.png)
+- [exploration-v24-memory-integrated-minimap-430.png](screenshots/exploration-v24-memory-integrated-minimap-430.png)
+- [exploration-v24-memory-integrated-minimap-768.png](screenshots/exploration-v24-memory-integrated-minimap-768.png)
+- [exploration-v24-memory-projected-320.png](screenshots/exploration-v24-memory-projected-320.png)
+- [exploration-v24-memory-projected-390.png](screenshots/exploration-v24-memory-projected-390.png)
+- [exploration-v24-memory-projected-430.png](screenshots/exploration-v24-memory-projected-430.png)
+- [exploration-v24-memory-projected-768.png](screenshots/exploration-v24-memory-projected-768.png)
+- [exploration-v24-memory-projected-minimap-320.png](screenshots/exploration-v24-memory-projected-minimap-320.png)
+- [exploration-v24-memory-projected-minimap-390.png](screenshots/exploration-v24-memory-projected-minimap-390.png)
+- [exploration-v24-memory-projected-minimap-430.png](screenshots/exploration-v24-memory-projected-minimap-430.png)
+- [exploration-v24-memory-projected-minimap-768.png](screenshots/exploration-v24-memory-projected-minimap-768.png)
+- [exploration-v24-memory-severed-320.png](screenshots/exploration-v24-memory-severed-320.png)
+- [exploration-v24-memory-severed-390.png](screenshots/exploration-v24-memory-severed-390.png)
+- [exploration-v24-memory-severed-430.png](screenshots/exploration-v24-memory-severed-430.png)
+- [exploration-v24-memory-severed-768.png](screenshots/exploration-v24-memory-severed-768.png)
+- [exploration-v24-memory-severed-minimap-320.png](screenshots/exploration-v24-memory-severed-minimap-320.png)
+- [exploration-v24-memory-severed-minimap-390.png](screenshots/exploration-v24-memory-severed-minimap-390.png)
+- [exploration-v24-memory-severed-minimap-430.png](screenshots/exploration-v24-memory-severed-minimap-430.png)
+- [exploration-v24-memory-severed-minimap-768.png](screenshots/exploration-v24-memory-severed-minimap-768.png)
+- [exploration-v24-minimap-320.png](screenshots/exploration-v24-minimap-320.png)
+- [exploration-v24-minimap-390.png](screenshots/exploration-v24-minimap-390.png)
+- [exploration-v24-minimap-430.png](screenshots/exploration-v24-minimap-430.png)
+- [exploration-v24-minimap-768.png](screenshots/exploration-v24-minimap-768.png)
+- [exploration-v24-old-twelve-npc-390.png](screenshots/exploration-v24-old-twelve-npc-390.png)
+- [exploration-v24-old-twelve-road-390.png](screenshots/exploration-v24-old-twelve-road-390.png)
+- [exploration-v24-resonance-calm-390.png](screenshots/exploration-v24-resonance-calm-390.png)
+- [exploration-v24-resonance-faint-390.png](screenshots/exploration-v24-resonance-faint-390.png)
+- [exploration-v24-resonance-linked-390.png](screenshots/exploration-v24-resonance-linked-390.png)
+- [exploration-v24-resonance-silent-390.png](screenshots/exploration-v24-resonance-silent-390.png)
+- [exploration-v24-sky-tower-390.png](screenshots/exploration-v24-sky-tower-390.png)
+- [exploration-v24-sky-town-390.png](screenshots/exploration-v24-sky-town-390.png)
+- [exploration-v24-void-archive-390.png](screenshots/exploration-v24-void-archive-390.png)
+- [exploration-v24-void-core-390.png](screenshots/exploration-v24-void-core-390.png)
+- [exploration-v24-void-corridor-390.png](screenshots/exploration-v24-void-corridor-390.png)
+- [exploration-v24-void-court-390.png](screenshots/exploration-v24-void-court-390.png)
+- [exploration-v24-void-garden-390.png](screenshots/exploration-v24-void-garden-390.png)
+- [exploration-v24-void-gate-390.png](screenshots/exploration-v24-void-gate-390.png)
+- [exploration-v24-void-mirror-390.png](screenshots/exploration-v24-void-mirror-390.png)
+- [exploration-v24-void-sanctum-390.png](screenshots/exploration-v24-void-sanctum-390.png)
