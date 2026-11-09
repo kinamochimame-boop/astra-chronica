@@ -1,5 +1,14 @@
 export interface JournalEntry {id:string;chapterId:string;eventId:string;kind:'summary'|'npc'|'record';title:string;text:string}
 export const journalEntries:readonly JournalEntry[]=[
+ {"id":"j16-1","chapterId":"chapter-16","eventId":"c16-arrival","kind":"summary","title":"星冠が示した墓標","text":"星冠の部分修復で広がった観測範囲から、消えた星の記録が眠る座標を得た。"},
+ {"id":"j16-2","chapterId":"chapter-16","eventId":"c16-elsia","kind":"npc","title":"記録官エルシア","text":"終焉の時刻だけでなく、欠けた通信と日常の記録を出典付きで調べる記録官。"},
+ {"id":"j16-3","chapterId":"chapter-16","eventId":"c16-kyle","kind":"npc","title":"巡回守護者カイル","text":"命令と受領先を照合し、記録を守る任務へ今いる旅人の帰還を加えた。"},
+ {"id":"j16-4","chapterId":"chapter-16","eventId":"c16-lyria","kind":"npc","title":"声を聞くリュリア","text":"消えた声の断片を聞き取る少女。霜境や白銀のミラとは別人で、空白も声と一緒に残す。"},
+ {"id":"j16-5","chapterId":"chapter-16","eventId":"c16-projection","kind":"record","title":"見える橋と渡れる橋","text":"記憶投影で橋の輪郭が現れた。接続するまで荷重を支えず、通路にはならない。"},
+ {"id":"j16-6","chapterId":"chapter-16","eventId":"c16-connection","kind":"record","title":"今を支える記憶接続","text":"守護機の認証で荷重記録を解放した。過去の構造を今の足場として利用できる。"},
+ {"id":"j16-7","chapterId":"chapter-16","eventId":"c16-seer-record","kind":"record","title":"返事の保留欄","text":"接続先を選ぶ照会と返事の保留が並ぶ。星の消滅に選択が関わった可能性はあるが、原因も選んだ者もまだ断定できない。"},
+ {"id":"j16-8","chapterId":"chapter-16","eventId":"c16-clear","kind":"summary","title":"終焉記録の宛先","text":"観測者の原本から、星脈の合流点へ続く未送信の宛先を得た。記憶のロッドを携え、第17章へ進む準備をする。"},
+
  {"id":"j15-1","chapterId":"chapter-15","eventId":"c15-arrival","kind":"summary","title":"方舟が示した虚空","text":"ノアティスの未登録座標から虚空の聖域へ。砕けた星冠が世界の接続を乱していた。"},
  {"id":"j15-2","chapterId":"chapter-15","eventId":"c15-aria","kind":"npc","title":"案内人アリア","text":"未来の場面を知る案内人。その観測条件は完全ではなく、彼女自身にも選びたい道がある。"},
  {"id":"j15-3","chapterId":"chapter-15","eventId":"c15-leon","kind":"npc","title":"星冠騎士レオン","text":"秩序を守る騎士。台帳から消えた仲間を覚えており、記録と現在の違いを警戒する。"},

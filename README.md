@@ -291,3 +291,12 @@ BASE_URL=http://localhost:4173 npm run test:capture-v23
 全ブラウザ検証は `BASE_URL=http://localhost:4173 node tests/browser-suite.mjs`。既存のUI回帰には5173の開発サーバーも使います。`CHROMIUM_PATH`でChromiumを指定でき、smoke検証は`WEBGL_CHROMIUM_PATH`（既定`/usr/bin/chromium`）を使用します。
 
 [第15章仕様・会話全文・接続・検証結果](docs/CHAPTER_FIFTEEN_V23.md)。マージ・公開はPRレビュー後に別途判断します。
+
+
+## v2.4 第16章と記憶投影
+
+第15章クリア後に、第16章「星の墓標と終焉の観測者」が解放されます。16地点・38イベント、自由歩行8枚（合計74枚）、通常敵6種・中ボス・3段階ボス、武器3種・依頼3件・重要選択5件・手帳8記事を追加します。
+
+記憶投影は確定イベントで4段階へ変化します。投影中の橋は見るだけで、接続後に通行可能になります。建物と橋の輪郭を仮図形で表現し、A*・衝突・ミニマップと同じ実効地形を使います。最大Lv50・保存キー・schema2・旧1〜15章・90ノード・戦闘計算を維持します。
+
+[第16章の仕様・会話全文・敵数値・保存互換・検証結果](docs/CHAPTER_SIXTEEN_V24.md)。`npm run test:browser-v24`、`npm run test:chapter-sixteen`、`npm run test:memory-v24`で追加検証を実行できます。ブラウザ検証前にビルド・プレビューを起動し、`BASE_URL`を指定してください。
