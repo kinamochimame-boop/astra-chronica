@@ -1,8 +1,7 @@
 import type {Progress} from '../save';
 import type {Point,WalkMap} from './types';
 import {cell,center,clearCircle,distance,walkable} from './collision';
-import {chapters} from '../data/chapter-one';
-import {mainObjective} from './objective';
+import {navigationTarget} from './navigation';
 import {transitionReason} from './transitions';
 /** Page-session memory only. A different Progress object (including Lab) gets an independent survey. */
 export class MapSurvey {
@@ -19,13 +18,14 @@ export class MapSurvey {
   }if(changed)this.version++;
  }
 }
+const terrainCache=new WeakMap<MapSurvey,{grid:WalkMap['grid'];version:number;cells:MiniMapSnapshot['cells']}>();
 const sessions=new WeakMap<object,Map<string,MapSurvey>>();
 export function surveyFor(owner:object,map:WalkMap){let maps=sessions.get(owner);if(!maps){maps=new Map();sessions.set(owner,maps)}let s=maps.get(map.id);if(!s||s.width!==map.width||s.height!==map.height){s=new MapSurvey(map.width,map.height);maps.set(map.id,s)}return s}
 export interface MiniMapSnapshot {width:number;height:number;version:number;cells:{x:number;y:number;terrain:string;walked:boolean}[];player:Point;exits:{id:string;name:string;x:number;y:number}[];objective?:Point;walkedCount:number}
 export function miniMapSnapshot(p:Progress,map:WalkMap,hero:Point,survey:MapSurvey,live:readonly {x:number;y:number;definition:{id:string}}[]=[]):MiniMapSnapshot {
- const pose=clearCircle(map,hero)?hero:map.entry,cells:MiniMapSnapshot['cells']=[];for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++)if(survey.hasSeen(x,y))cells.push({x,y,terrain:map.grid[y][x],walked:survey.hasWalked(x,y)});
+ const pose=clearCircle(map,hero)?hero:map.entry,old=terrainCache.get(survey);let cells=old?.cells;if(!old||old.grid!==map.grid||old.version!==survey.version){cells=[];for(let y=0;y<map.height;y++)for(let x=0;x<map.width;x++)if(survey.hasSeen(x,y))cells.push({x,y,terrain:map.grid[y][x],walked:survey.hasWalked(x,y)});terrainCache.set(survey,{grid:map.grid,version:survey.version,cells})}
  const known=(point:Point)=>{const c=cell(map,point);return survey.hasSeen(c.x,c.y)};
  const exits=map.objects.filter(o=>o.kind==='exit'&&known(o)&&!transitionReason(p,map,o)).map(o=>({id:o.id,name:o.name,x:o.x/map.tile,y:o.y/map.tile}));
- const chapter=chapters.find(c=>c.id===map.chapterId),goal=chapter&&mainObjective(p.adventure,chapter),target=goal?.eventId&&(map.objects.find(o=>o.eventId===goal.eventId)??map.symbols.find(s=>s.eventId===goal.eventId)),position=target&&(live.find(s=>s.definition.id===target.id)??target);
- return {width:map.width,height:map.height,version:survey.version,cells,player:{x:pose.x/map.tile,y:pose.y/map.tile},exits,objective:position&&known(position)?{x:position.x/map.tile,y:position.y/map.tile}:undefined,walkedCount:survey.walkedCount};
+ const target=navigationTarget(p,map,pose,live),position=target?.point;
+ return {width:map.width,height:map.height,version:survey.version,cells:cells!,player:{x:pose.x/map.tile,y:pose.y/map.tile},exits,objective:position&&known(position)?{x:position.x/map.tile,y:position.y/map.tile}:undefined,walkedCount:survey.walkedCount};
 }

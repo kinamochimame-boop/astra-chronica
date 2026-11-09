@@ -1,5 +1,14 @@
 export interface JournalEntry {id:string;chapterId:string;eventId:string;kind:'summary'|'npc'|'record';title:string;text:string}
 export const journalEntries:readonly JournalEntry[]=[
+ {"id":"j15-1","chapterId":"chapter-15","eventId":"c15-arrival","kind":"summary","title":"方舟が示した虚空","text":"ノアティスの未登録座標から虚空の聖域へ。砕けた星冠が世界の接続を乱していた。"},
+ {"id":"j15-2","chapterId":"chapter-15","eventId":"c15-aria","kind":"npc","title":"案内人アリア","text":"未来の場面を知る案内人。その観測条件は完全ではなく、彼女自身にも選びたい道がある。"},
+ {"id":"j15-3","chapterId":"chapter-15","eventId":"c15-leon","kind":"npc","title":"星冠騎士レオン","text":"秩序を守る騎士。台帳から消えた仲間を覚えており、記録と現在の違いを警戒する。"},
+ {"id":"j15-4","chapterId":"chapter-15","eventId":"c15-tise","kind":"npc","title":"研究者ティセ","text":"予測と結果の不一致を調べる研究者。機巧都市の整備士ノエルとは別人物。"},
+ {"id":"j15-5","chapterId":"chapter-15","eventId":"c15-awakening","kind":"record","title":"星界位相の同期","text":"破片と装置の同期で接続が変わる。細道は開閉するが、安全な迂回路と帰還路を残す。"},
+ {"id":"j15-6","chapterId":"chapter-15","eventId":"c15-refuge-rest","kind":"record","title":"三つの接続環","text":"座標・観測・選択を別々に確かめた。確認順は残るが、どの順でも部分修復へ進める。"},
+ {"id":"j15-7","chapterId":"chapter-15","eventId":"c15-seer-record","kind":"record","title":"世界の返事をつなぐ星冠","text":"記憶、観測、声、命の流れ、天球儀、方舟が星冠につながる。返事を止めた署名と、欠けた環の相手は未解明。"},
+ {"id":"j15-8","chapterId":"chapter-15","eventId":"c15-clear","kind":"summary","title":"砕けた王冠に残る余白","text":"星冠を部分修復し位相を安定させた。未接続の環が遠い星脈の合流点を指す。結末はまだ決まっていない。"},
+
  {id:'j1-start',chapterId:'chapter-01',eventId:'c1-departure',kind:'summary',title:'星灯りから',text:'星詠みの遺した約束を胸に、三人は霧の森へ出発した。'},
  {id:'j1-record',chapterId:'chapter-01',eventId:'c1-stele-story',kind:'record',title:'古びた石碑',text:'森の石碑に、星詠みの足跡と約束に関わる印を見つけた。'},
  {id:'j1-clear',chapterId:'chapter-01',eventId:'c1-clear',kind:'summary',title:'霧の向こうへ',text:'守護獣は静かに眠り、霧が晴れた。欠片の線は、さらに遠くへ続いていた。'},
