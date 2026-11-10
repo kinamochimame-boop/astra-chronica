@@ -4,13 +4,14 @@ import {spawn,execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {chromium} from '@playwright/test';
 import {productionFingerprint} from './production-fingerprint.mjs';
+import {startServer,stopServer} from './ci-process.mjs';
 const group=process.argv[2],dir='.ci-v26/'+group;mkdirSync(dir,{recursive:true});
 const sourceHash=productionFingerprint(),start=new Date().toISOString(),servers=[];
 const result={group,sourceHash,commit:process.env.GITHUB_SHA,head:process.env.V26_HEAD_SHA,start,success:false,commands:[],files:[],screenshots:[],runtime:{node:process.version,platform:process.platform}};
 const sha=p=>createHash('sha256').update(readFileSync(p)).digest('hex');
 async function run(command,args,label,env=process.env){const path=dir+'/'+label+'.log',out=createWriteStream(path),began=new Date().toISOString();const p=spawn(command,args,{env,stdio:['ignore','pipe','pipe']});p.stdout.pipe(out,{end:false});p.stderr.pipe(out,{end:false});p.stdout.pipe(process.stdout,{end:false});p.stderr.pipe(process.stderr,{end:false});const code=await new Promise(resolve=>{p.on('error',e=>{out.write(String(e));resolve(127)});p.on('close',resolve)});await new Promise(r=>out.end(r));const receipt={command:[command,...args],code,start:began,end:new Date().toISOString(),log:label+'.log',sha256:sha(path)};result.commands.push(receipt);return receipt}
 async function ready(port){for(let i=0;i<120;i++){try{if((await fetch('http://localhost:'+port)).ok)return}catch{}await new Promise(r=>setTimeout(r,500))}throw Error('Preview did not become ready: '+port)}
-function server(args,name){const out=createWriteStream(dir+'/'+name+'.log'),p=spawn('npm',args,{stdio:['ignore','pipe','pipe']});p.stdout.pipe(out);p.stderr.pipe(out,{end:false});servers.push(p)}
+function server(args,name){servers.push(startServer(process.execPath,['node_modules/vite/bin/vite.js',...args],dir+'/'+name+'.log'))}
 function copyOptional(from,to){if(existsSync(from))cpSync(from,dir+'/'+to,{recursive:true})}
 try{
  const test=JSON.parse(readFileSync('package.json')).scripts.test;
@@ -26,7 +27,7 @@ try{
   const native=chromium.executablePath(),wrapper=process.cwd()+'/'+dir+'/chromium-canvas';
   writeFileSync(wrapper,'#!/bin/sh\nexec "$V26_CHROMIUM_NATIVE" --disable-webgl "$@"\n');chmodSync(wrapper,0o755);
   result.runtime.chromium=execFileSync(native,['--version'],{encoding:'utf8'}).trim();
-  server(['run','preview','--','--port','4173'],'preview');server(['run','dev','--','--port','5173'],'dev');await ready(4173);await ready(5173);
+  server(['preview','--host','0.0.0.0','--port','4173'],'preview');server(['--host','0.0.0.0','--port','5173'],'dev');await ready(4173);await ready(5173);
   const env={...process.env,BASE_URL:'http://localhost:4173',UI_TEST_URL:'http://localhost:5173',BATTLE_VIRTUAL_CLOCK:'1',BATTLE_CLOCK_SKIP_FRAMES:'1',V26_CHROMIUM_NATIVE:native,CHROMIUM_PATH:group==='webgl'?native:wrapper};
   for(const file of chosen){const paths=readFileSync('tests/'+file,'utf8').includes('--quests-before')?[['--quests-before'],['--quests-after']]:[[]],attempts=[];for(let i=0;i<paths.length;i++)attempts.push(await run(process.execPath,['tests/'+file,...paths[i]],file+'-'+i,env));result.files.push({file,sourceHash,attempts,code:attempts.every(a=>a.code===0)?0:1});console.log('V26_FILE '+JSON.stringify(result.files.at(-1)))}
   copyOptional('/tmp/astra-v26-manifest.json','manifest.json');
@@ -37,4 +38,4 @@ try{
  if(productionFingerprint()!==sourceHash)throw Error('Application source changed during validation');
  result.success=result.commands.every(c=>c.code===0)&&result.files.every(f=>f.code===0);
 }catch(error){result.error=String(error);console.error(error)}
-finally{for(const p of servers)p.kill('SIGTERM');result.end=new Date().toISOString();writeFileSync(dir+'/receipt.json',JSON.stringify(result,null,2));console.log('V26_GROUP '+JSON.stringify({group,success:result.success,files:result.files.length,sourceHash}));if(!result.success)process.exitCode=1}
+finally{await Promise.allSettled(servers.map(stopServer));result.end=new Date().toISOString();writeFileSync(dir+'/receipt.json',JSON.stringify(result,null,2));console.log('V26_GROUP '+JSON.stringify({group,success:result.success,files:result.files.length,sourceHash}));if(!result.success)process.exitCode=1}

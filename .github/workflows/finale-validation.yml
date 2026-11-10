@@ -13,7 +13,7 @@ permissions:
   contents: read
 concurrency:
   group: finale-validation-${{ github.event.pull_request.number }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   unit:
     if: github.head_ref == 'feature/v2.6-chapter-eighteen-finale' && github.event.pull_request.head.repo.full_name == github.repository && github.event.repository.private == false
@@ -28,6 +28,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: node --test tests/ci-process.check.mjs
       - run: node tests/ci-v26.mjs unit
         env:
           V26_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
