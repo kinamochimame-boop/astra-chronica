@@ -30,3 +30,5 @@
 
 /* The Phaser stage is opaque: tint above the canvas, below measured popups. */
 .battle-art[data-finale-phase="3"]::after,.battle-art[data-finale-phase="4"]::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}.battle-art[data-finale-phase="3"]::after{background:linear-gradient(140deg,#353e6b12,#846aa53b)}.battle-art[data-finale-phase="4"]::after{background:linear-gradient(140deg,#27495b12,#e5ba3e38)}.battle-art[data-finale-phase] .combat-effects{z-index:2}
+/* Keep the phase caption in the empty centre lane, clear of all three SD allies. */
+.battle-art .finale-banner{inset:4px 31% auto;padding:3px 4px;font-size:11px;line-height:1.4;overflow-wrap:anywhere}
