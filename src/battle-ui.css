@@ -27,3 +27,6 @@
 .combat-fx.counter{color:#f3d898}.combat-fx.counter .fx-tags{border-bottom:1px dashed currentColor}
 
 .finale-banner{position:absolute;z-index:4;inset:0 0 auto;margin:0;padding:5px 8px;font-size:11px;line-height:1.4;background:#142b3ee8;color:#ffe4a1;pointer-events:none}.battle-art[data-finale-phase="3"]{background:linear-gradient(140deg,#142738,#404058)}.battle-art[data-finale-phase="4"]{background:linear-gradient(140deg,#213849,#51472b)}
+
+/* The Phaser stage is opaque: tint above the canvas, below measured popups. */
+.battle-art[data-finale-phase="3"]::after,.battle-art[data-finale-phase="4"]::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}.battle-art[data-finale-phase="3"]::after{background:linear-gradient(140deg,#353e6b12,#846aa53b)}.battle-art[data-finale-phase="4"]::after{background:linear-gradient(140deg,#27495b12,#e5ba3e38)}.battle-art[data-finale-phase] .combat-effects{z-index:2}
