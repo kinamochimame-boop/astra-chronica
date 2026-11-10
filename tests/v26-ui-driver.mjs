@@ -4,7 +4,7 @@ import {selectLocation,openNearbyStory,contactSymbol,state,waitMap,useNearbyObje
 
 /** Native touchscreen input, with visible/enabled/hit-target checks; no DOM click or forced input. */
 export async function touch(page,locator){
- await locator.scrollIntoViewIfNeeded();assert.ok(await locator.isVisible());assert.ok(await locator.isEnabled());
+ await locator.waitFor({state:'visible'});assert.ok(await locator.isVisible());assert.ok(await locator.isEnabled());
  await locator.evaluate(el=>el.scrollIntoView({block:'center',inline:'nearest',behavior:'instant'}));
  const point=await locator.evaluate(el=>{const r=el.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2,hit=document.elementFromPoint(x,y);return {x,y,hit:!!hit&&(hit===el||el.contains(hit))}});
  assert.ok(point.hit,'native touch centre must hit the visible control');await page.touchscreen.tap(point.x,point.y);
