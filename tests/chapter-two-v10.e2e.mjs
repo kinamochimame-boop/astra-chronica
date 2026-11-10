@@ -1,9 +1,10 @@
+import {prepareBattleClock,waitAfterBattleInput} from './browser-clock.mjs';
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 import {mkdir} from 'node:fs/promises';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
 try{
- const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{Math.random=()=>0.99});await mkdir('docs/screenshots',{recursive:true});
+ const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await prepareBattleClock(page);const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{Math.random=()=>0.99});await mkdir('docs/screenshots',{recursive:true});
  const tap=name=>page.getByRole('button',{name,exact:true}).tap(),state=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')));const speakers=new Set();
  const photo=async name=>{if(name.endsWith('-390'))await page.setViewportSize({width:390,height:844});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`docs/screenshots/chapter-two-${name}.png`,fullPage:true,animations:'disabled'})};
  const dialogue=async()=>{for(let i=0;i<16&&await page.locator('#dialogue-next').count();i++){speakers.add(await page.locator('.dialogue-speaker').textContent());await page.locator('#dialogue-next').tap()}};
@@ -18,7 +19,7 @@ try{
    else if(actor.includes('アステル')){if(!await choose('強撃 MP6'))await choose('通常攻撃')}
    else if(actor.includes('メイ')){if(wounded[0]&&await choose('ヒール MP8'))await page.locator('.ally').nth(wounded[0].i).tap();else if(!await choose('ファイア MP7'))await choose('通常攻撃')}
    else if(actor.includes('リナ')){const status=await page.locator('[data-unit-id="rina"] .status-details').getAttribute('aria-label');if(status.includes('挑発')||!await choose('挑発 MP6'))await choose('通常攻撃')}
-   await page.locator('.execute-command').tap();await page.waitForTimeout(1000);
+   await page.locator('.execute-command').tap();await waitAfterBattleInput(page);
   }
   await page.locator('.result-screen').waitFor();assert.equal(await page.getByRole('heading',{name:'野営地で立て直そう'}).count(),0,'chapter strategy should win');
  };

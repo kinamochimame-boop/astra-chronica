@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run --maxWorkers=1 --no-file-parallelism",
+    "test": "vitest run --pool=threads --maxWorkers=1 --no-file-parallelism",
     "test:browser": "node tests/browser.e2e.mjs",
     "test:foundation": "node tests/foundation.e2e.mjs",
     "test:modifiers": "node tests/attack-modifier.e2e.mjs",
@@ -82,7 +82,13 @@
     "test:exploration-v24-smoke": "node tests/exploration-v24.smoke.mjs",
     "test:memory-v24": "node tests/memory-projection-v24.e2e.mjs",
     "test:browser-v24": "node tests/browser-suite.mjs --v24",
-    "test:capture-v24": "node tests/capture-v24.mjs"
+    "test:capture-v24": "node tests/capture-v24.mjs",
+    "test:chapter-seventeen": "node tests/chapter-seventeen-v25.e2e.mjs",
+    "test:chapter-seventeen-equipment": "node tests/chapter-seventeen-equipment.e2e.mjs",
+    "test:exploration-v25": "node tests/exploration-v25.e2e.mjs",
+    "test:fate-v25": "node tests/fate-path-v25.e2e.mjs",
+    "test:browser-v25": "node tests/browser-suite.mjs --v25",
+    "test:capture-v25": "node tests/capture-v25.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

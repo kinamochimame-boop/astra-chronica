@@ -1,0 +1,34 @@
+import {describe,it,expect} from 'vitest';
+import {ready,full} from './v25-helpers';
+import {complete,arrange} from './v15-helpers';
+import {chapterSeventeen as c} from '../src/data/chapter-seventeen';
+import {walkMaps,mapById,objectForEvent} from '../src/exploration/map-data';
+import {terminalMaps} from '../src/exploration/chapter-seventeen-maps';
+import {activeMap} from '../src/exploration/active-map';
+import {fatePhase,fateRoute} from '../src/exploration/fate-path';
+import {memoryPhase} from '../src/exploration/memory-projection';
+import {stellarPhase} from '../src/exploration/stellar-phase';
+import {walkable,clearCircle,distance} from '../src/exploration/collision';
+import {findPath} from '../src/exploration/pathfinding';
+import {approachPoint} from '../src/exploration/approach';
+import {enterMap} from '../src/exploration/exploration-save';
+import {load} from '../src/save';
+import {transitionReason,objectRevealed} from '../src/exploration/transitions';
+import {safeReturnPose} from '../src/exploration/safe-return';
+import {surveyFor,miniMapSnapshot} from '../src/exploration/minimap';
+import {navigationTarget} from '../src/exploration/navigation';
+import {recordChoice} from '../src/dialogue-choices';
+import {mainObjective} from '../src/exploration/objective';
+const phases=['fixed','decoded','branched','reconnected'] as const;
+function stage(phase:typeof phases[number],listen=false){const p=ready();if(phase!=='fixed'){complete(p,c,phase==='decoded'?'c17-decode':'c17-guardian');if(phase!=='decoded'){arrange(p,c,'c17-branch');recordChoice(p,'c17-branch',listen?'listen':'confirm');complete(p,c,phase==='branched'?'c17-branch':'c17-reconnect')}}return p}
+describe('82 maps and independent confirmed fate routes',()=>{
+ it('keeps74 original maps and registers exactly eight terminal maps',()=>{expect(walkMaps).toHaveLength(82);expect(new Set(walkMaps.map(m=>m.id)).size).toBe(82);expect(walkMaps.slice(74)).toEqual(terminalMaps);expect(new Set(terminalMaps.map(m=>m.id))).toEqual(new Set('gate plaza library bridge memory observatory sanctuary heart'.split(' ').map(x=>'terminal-'+x)))});
+ it.each(walkMaps)('$id keeps all objects,symbol routes,exits and reload positions reachable',base=>{const p=full();expect(enterMap(p,base.id)).toBe(true);const map=activeMap(base,p.adventure,p.choices);expect(clearCircle(map,map.entry)).toBe(true);for(const target of [...map.objects,...map.symbols,...map.symbols.flatMap(s=>s.route)]){expect(clearCircle(map,target),map.id+'/'+JSON.stringify(target)).toBe(true);expect(findPath(map,map.entry,target),map.id+'/'+JSON.stringify(target)).toBeDefined()}for(const o of map.objects.filter(o=>o.kind==='exit'))expect(transitionReason(p,map,o),o.id).toBe('');expect(load({getItem:()=>JSON.stringify(p)}).world?.mapId).toBe(map.id)});
+ it.each(terminalMaps.flatMap(m=>phases.flatMap(phase=>[false,true].map(listen=>({m,phase,listen})))) )('$m.id/$phase/shelter=$listen uses one grid for physics,save and minimap',({m,phase,listen})=>{const p=stage(phase,listen),map=activeMap(m,p.adventure,p.choices);expect(fatePhase(p.adventure)).toBe(phase);expect(memoryPhase(p.adventure)).toBe('integrated');expect(stellarPhase(p.adventure)).toBe('stable');expect(walkable(map,24,18)).toBe(phase==='reconnected'||phase==='branched'&&!listen);expect(walkable(map,24,22)).toBe(phase==='reconnected'||phase==='branched'&&listen);expect(clearCircle(map,map.entry)).toBe(true);expect(findPath(map,map.entry,{x:912,y:400})).toBeDefined();const q=load({getItem:()=>JSON.stringify(p)});expect(fatePhase(q.adventure)).toBe(phase);expect(activeMap(m,q.adventure,q.choices).grid).toEqual(map.grid);const survey=surveyFor(p,map);for(const b of m.fatePaths!)survey.discover(map,{x:b.x*32-16,y:(b.y+1)*32+16});const mini=miniMapSnapshot(p,map,map.entry,survey);for(const cell of mini.cells)expect(cell.terrain).toBe(map.grid[cell.y][cell.x])});
+ it.each(terminalMaps)('$id mandatory conversations stay reachable before/after either route',m=>{for(const phase of phases)for(const listen of [false,true]){const p=stage(phase,listen),map=activeMap(m,p.adventure,p.choices);for(const o of map.objects.filter(o=>o.eventId||o.kind==='exit'))expect(approachPoint(map,map.entry,o),o.id+'/'+phase).toBeDefined()}});
+ it.each(['direct','shelter'] as const)('%s route restores correct bridge position and repairs closed cells',route=>{const p=stage('branched',route==='shelter');p.adventure.selectedChapterId=c.id;p.adventure.chapters[c.id].currentLocationId='c17-library';for(const y of [592,720]){p.world={mapId:'terminal-library',x:784,y,facing:'right',defeated:[],opened:[]};const q=load({getItem:()=>JSON.stringify(p)});expect(q.world!.x===784&&q.world!.y===y).toBe((y===592)===(route==='direct'));expect(clearCircle(activeMap(mapById(q.world!.mapId)!,q.adventure,q.choices),q.world!)).toBe(true)}});
+ it('unknown phase flags and unconfirmed choices cannot unlock roads',()=>{const p=ready();Object.assign(p.adventure,{fatePhase:'reconnected',pathChoices:{'c17-branch':'listen'}});p.choices['c17-branch']='listen';const q=load({getItem:()=>JSON.stringify(p)});expect(q.choices['c17-branch']).toBeUndefined();expect(fatePhase(q.adventure)).toBe('fixed');expect(activeMap(terminalMaps[0],q.adventure,q.choices).grid[18][24]).toBe('~')});
+ it.each(terminalMaps)('$id contact returns are valid and keep176px away from living enemies',m=>{const p=full(),map=activeMap(m,p.adventure,p.choices),pose={x:624,y:496,facing:'right' as const};expect(safeReturnPose(map,pose,[])).toEqual(pose);const returned=safeReturnPose(map,pose,[pose]);expect(clearCircle(map,returned)).toBe(true);expect(distance(returned,pose)).toBeGreaterThanOrEqual(176);expect(findPath(map,map.entry,returned)).toBeDefined()});
+ it('next destination,important device and minimap share coordinates and hide future events',()=>{const p=ready();enterMap(p,'terminal-gate');const map=activeMap(terminalMaps[0],p.adventure,p.choices),target=navigationTarget(p,map,p.world!)!;expect(target.name).toBe('終焉記録の受取先');expect(objectRevealed(p,map,map.objects.find(o=>o.eventId==='c17-gateway-cache')!)).toBe(false);const survey=surveyFor(p,map);survey.discover(map,target.point);const mini=miniMapSnapshot(p,map,p.world!,survey);expect(mini.objective).toEqual({x:target.point.x/32,y:target.point.y/32});expect(mainObjective(p.adventure,c).eventId).toBe('c17-arrival')});
+ it('cleared chapter keeps chapter18 preview without inventing chapter18 save flags',()=>{const p=full(),q=load({getItem:()=>JSON.stringify(p)});expect(q.adventure.chapters['chapter-18']).toBeUndefined();expect(c.preview).toContain('約束の始原');expect(c.preview).toContain('未実装');expect(q.adventure.chapters[c.id].completed).toHaveLength(38)});
+});

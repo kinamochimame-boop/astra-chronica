@@ -1,5 +1,14 @@
 export interface JournalEntry {id:string;chapterId:string;eventId:string;kind:'summary'|'npc'|'record';title:string;text:string}
 export const journalEntries:readonly JournalEntry[]=[
+ {"id": "j17-1", "chapterId": "chapter-17", "eventId": "c17-arrival", "kind": "summary", "title": "終焉記録の受取先", "text": "第16章の未送信の宛先を照合し、記録の集まる終着領域へ到達した。"},
+ {"id": "j17-2", "chapterId": "chapter-17", "eventId": "c17-seline", "kind": "npc", "title": "案内人セリネ", "text": "終着領域の記録を案内する。クリスタリアのセレナとは別人。未送信の返事を共に調べる。"},
+ {"id": "j17-3", "chapterId": "chapter-17", "eventId": "c17-orphe", "kind": "npc", "title": "未来を守る番人オルフェ", "text": "喪失を恐れて未来を固定していた。出所と返事を分け、帰還を待つ任務を問い直す。"},
+ {"id": "j17-4", "chapterId": "chapter-17", "eventId": "c17-tia", "kind": "npc", "title": "名簿の外のティア", "text": "記録から消えかけているが、未来の鍵や他者の代わりではなく、今話す一人として声を残す。"},
+ {"id": "j17-5", "chapterId": "chapter-17", "eventId": "c17-decode", "kind": "record", "title": "記録と予測の境界", "text": "未来図は観測条件からの予測。解読で見える道と、歩ける足場を区別する。"},
+ {"id": "j17-6", "chapterId": "chapter-17", "eventId": "c17-branch", "kind": "record", "title": "選ばれなかった星路", "text": "近道と避難路の一方を先に開き、もう一方も再接続で残す。どちらも未来へ続く。"},
+ {"id": "j17-7", "chapterId": "chapter-17", "eventId": "c17-seer-record", "kind": "record", "title": "約束の核心", "text": "救いの名で、次の者が未来を選ぶ権利を奪わない。星詠みの原文と各地の約束がつながった。"},
+ {"id": "j17-8", "chapterId": "chapter-17", "eventId": "c17-clear", "kind": "summary", "title": "約束の始原へ", "text": "審判を越え、分岐と帰還の道を保った。終端固定核アナンケが待つ約束の始原へ向かう。最終決戦はまだ先にある。"},
+
  {"id":"j16-1","chapterId":"chapter-16","eventId":"c16-arrival","kind":"summary","title":"星冠が示した墓標","text":"星冠の部分修復で広がった観測範囲から、消えた星の記録が眠る座標を得た。"},
  {"id":"j16-2","chapterId":"chapter-16","eventId":"c16-elsia","kind":"npc","title":"記録官エルシア","text":"終焉の時刻だけでなく、欠けた通信と日常の記録を出典付きで調べる記録官。"},
  {"id":"j16-3","chapterId":"chapter-16","eventId":"c16-kyle","kind":"npc","title":"巡回守護者カイル","text":"命令と受領先を照合し、記録を守る任務へ今いる旅人の帰還を加えた。"},

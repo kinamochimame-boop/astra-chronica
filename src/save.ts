@@ -21,7 +21,7 @@ export function load(storage?:Pick<Storage,'getItem'>):Progress{
    if(h&&Number.isSafeInteger(h.level)&&h.level>=1&&h.level<=PROGRESSION.maxLevel&&Number.isSafeInteger(h.experience)&&h.experience>=0&&h.experience<requiredExperience(h.level))party[id]={level:h.level,experience:h.level===PROGRESSION.maxLevel?0:h.experience};
   }
   const adventure=normalizeAdventure(p.adventure);
-  const result:Progress={version:2,started:p.started,wins:p.wins,battles:p.battles,party,equipment:normalizeEquipment(p.equipment),adventure,skillTree:normalizeSkillTree(p.skillTree,party),consumables:normalizeConsumables(p.consumables),quests:normalizeQuests(p.quests,adventure),choices:normalizeChoices(p.choices,adventure)};const world=normalizeWorld(p.world,adventure);if(world)result.world=world;recoverWorld(result);return result;
+  const result:Progress={version:2,started:p.started,wins:p.wins,battles:p.battles,party,equipment:normalizeEquipment(p.equipment),adventure,skillTree:normalizeSkillTree(p.skillTree,party),consumables:normalizeConsumables(p.consumables),quests:normalizeQuests(p.quests,adventure),choices:normalizeChoices(p.choices,adventure)};const world=normalizeWorld(p.world,adventure,result.choices);if(world)result.world=world;recoverWorld(result);return result;
  }catch{return fresh()}
 }
 export function save(p:Progress,storage?:Pick<Storage,'setItem'>):boolean{try{(storage??localStorage).setItem(SAVE_KEY,JSON.stringify(p));return true}catch{return false}}

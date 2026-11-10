@@ -1,0 +1,17 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {fateSave} from './chapter-seventeen-fixture.mjs';
+import {waitMap,state,walkTo,useNearbyObject} from './map-driver-v15.mjs';
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
+try{const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));const tap=name=>page.getByRole('button',{name,exact:true}).tap();await page.goto(process.env.BASE_URL||'http://localhost:4173');
+ for(const route of ['confirm','listen'])for(const phase of ['fixed','decoded','branched','reconnected']){
+  // Dispose the current map before replacing a layout fixture; pagehide otherwise flushes its live save.
+  if(await page.locator('#world-viewport').count()){await tap('探索メニュー');await tap('ホームへ戻る')}
+  const p=fateSave(phase,route);p.fatePhase='reconnected';await page.evaluate(p=>localStorage.setItem('astra-chronica:v1',JSON.stringify(p)),p);await page.reload();await tap('ゲーム開始 · 続きから');await tap('冒険へ出発');await waitMap(page);let s=await state(page);assert.equal(s.fate,phase);assert.equal(s.grid[18][24],(phase==='reconnected'||phase==='branched'&&route==='confirm')?'.':'~');assert.equal(s.mapId,'terminal-library');await walkTo(page,{x:688,y:496});
+  for(const width of [320,390,430,768]){await page.setViewportSize({width,height:width===768?1024:844});await waitMap(page);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.ok((await page.locator('#world-menu-button').boundingBox()).height>=44);await page.screenshot({path:`docs/screenshots/exploration-v25-fate-${route}-${phase}-${width}.png`,fullPage:true,animations:'disabled'});await page.locator('#world-minimap-toggle').tap();await page.screenshot({path:`docs/screenshots/exploration-v25-fate-${route}-${phase}-minimap-${width}.png`,fullPage:true,animations:'disabled'});await page.locator('#world-minimap-toggle').tap()}
+  await page.setViewportSize({width:390,height:844});await waitMap(page);const saved=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1'))),before=await saved();await tap('探索メニュー');await tap('探索記録');assert.match(await page.locator('[data-record-chapter="chapter-17"]').textContent(),/確認済み地点/);await tap('探索へ戻る');await page.reload();await tap('ゲーム開始 · 続きから');await tap('冒険へ出発');await waitMap(page);assert.equal((await state(page)).fate,phase);assert.deepEqual((await saved()).adventure.chapters,before.adventure.chapters);
+  // A save on a historical bridge is valid only after connection.
+  const bad=await saved();bad.world.x=784;bad.world.y=592;await tap('探索メニュー');await tap('ホームへ戻る');await page.evaluate(p=>localStorage.setItem('astra-chronica:v1',JSON.stringify(p)),bad);await page.reload();await tap('ゲーム開始 · 続きから');await tap('冒険へ出発');await waitMap(page);s=await state(page);assert.equal(s.hero.x===784&&s.hero.y===592,(phase==='reconnected'||phase==='branched'&&route==='confirm'));assert.equal(s.grid[Math.floor(s.hero.y/s.tile)][Math.floor(s.hero.x/s.tile)],'.');assert.equal(await page.locator('#world-viewport canvas').count(),1);console.log(`v2.5 fate ${route}/${phase}:4widths,shared grid,miniMap,save/reload,safe position repair passed.`)
+ }
+ assert.deepEqual(errors,[]);console.log('v2.5 all four fate path stages and both branches passed; ghost bridges blocked until connection, no page errors.');
+}finally{await browser.close()}
