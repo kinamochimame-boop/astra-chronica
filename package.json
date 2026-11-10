@@ -88,7 +88,14 @@
     "test:exploration-v25": "node tests/exploration-v25.e2e.mjs",
     "test:fate-v25": "node tests/fate-path-v25.e2e.mjs",
     "test:browser-v25": "node tests/browser-suite.mjs --v25",
-    "test:capture-v25": "node tests/capture-v25.mjs"
+    "test:capture-v25": "node tests/capture-v25.mjs",
+    "test:chapter-eighteen": "node tests/chapter-eighteen-v26.e2e.mjs",
+    "test:ending-v26": "node tests/ending-v26.e2e.mjs",
+    "test:finale-boss": "node tests/finale-boss-v26.e2e.mjs",
+    "test:exploration-v26": "node tests/exploration-v26.e2e.mjs",
+    "test:reform-v26": "node tests/star-reform-v26.e2e.mjs",
+    "test:journey-v26": "node tests/full-journey-v26.e2e.mjs",
+    "test:browser-v26": "node tests/browser-suite.mjs --v26"
   },
   "dependencies": {
     "phaser": "^3.90.0"

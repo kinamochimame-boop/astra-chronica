@@ -86,7 +86,55 @@ export const chapterFourteenWeapons:readonly Weapon[]=[
 export const chapterFifteenWeapons:readonly Weapon[]=[{"id":"starcrown-duals","name":"星冠の双剣","family":"dualBlades","owner":"astel","bonuses":{"attack":20,"speed":4},"effects":{"normalHits":2},"description":"星冠の接続を分けて守る二振り。攻撃＋20、速度＋4。通常攻撃だけが合計威力を保つ二撃。"},{"id":"voidward-shield-rapier","name":"虚空守の盾突剣","family":"shieldRapier","owner":"rina","bonuses":{"attack":17,"defense":21,"speed":2,"maxHp":24},"effects":{"guardReduction":0.06,"coverReduction":0.04},"description":"接続の継ぎ目を守る盾と突剣。攻撃＋17、防御＋21、速度＋2、HP＋24。ガード軽減＋6%、かばう軽減＋4%。"},{"id":"astral-wand","name":"星界のワンド","family":"wand","owner":"mei","bonuses":{"attack":18,"maxMp":20},"effects":{"healingRate":1.2,"magicRate":1.1},"description":"世界の返事を受け取るワンド。攻撃＋18、MP＋20。回復量20%、属性魔法10%強化。"}];
 export const chapterSixteenWeapons:readonly Weapon[]=[{"id":"grave-longbow","name":"星墓の長弓","family":"bow","owner":"astel","bonuses":{"attack":21,"speed":7},"effects":{},"description":"帰還灯を探す長弓。攻撃＋21、速度＋7。系統補正の二重加算はしない。"},{"id":"endward-shield-spear","name":"終焉守の盾槍","family":"shieldSpear","owner":"rina","bonuses":{"attack":17,"defense":23,"maxHp":30},"effects":{"guardReduction":0.06,"coverReduction":0.04},"description":"帰還路を守る盾槍。攻撃＋17、防御＋23、HP＋30。ガード軽減＋6%、かばう軽減＋4%。"},{"id":"memory-rod","name":"記憶のロッド","family":"rod","owner":"mei","bonuses":{"attack":20,"maxMp":22},"effects":{"magicRate":1.2},"description":"異なる声を重ねて残すロッド。攻撃＋20、MP＋22。属性魔法20%強化。"}];
 export const chapterSeventeenWeapons:readonly Weapon[]=[{"id": "starpath-sword", "name": "星路の剣", "family": "sword", "owner": "astel", "bonuses": {"attack": 23, "speed": 3}, "effects": {}, "description": "閉ざされた星路を開く剣。攻撃＋23、速度＋3。弓の速さと双剣の二撃に代えて一撃を支える。"}, {"id": "promiseward-shield-spear", "name": "約束の盾槍", "family": "shieldSpear", "owner": "rina", "bonuses": {"attack": 18, "defense": 24, "maxHp": 34}, "effects": {"guardReduction": 0.06, "coverReduction": 0.04}, "description": "帰還する者の返事を待つ盾槍。攻撃＋18、防御＋24、HP＋34、ガード軽減＋6%、かばう軽減＋4%。"}, {"id": "destiny-rod", "name": "運命のロッド", "family": "rod", "owner": "mei", "bonuses": {"attack": 21, "maxMp": 24}, "effects": {"magicRate": 1.22}, "description": "観測条件と返事を分けて残すロッド。攻撃＋21、MP＋24、属性魔法22%強化。回復倍率は追加しない。"}];
-export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons,...chapterThirteenWeapons,...chapterFourteenWeapons,...chapterFifteenWeapons,...chapterSixteenWeapons,...chapterSeventeenWeapons];
+export const chapterEighteenWeapons:readonly Weapon[]=[
+  {
+    "id": "starseer-duals",
+    "name": "星詠みの双剣",
+    "owner": "astel",
+    "family": "dualBlades",
+    "bonuses": {
+      "attack": 24,
+      "speed": 4
+    },
+    "effects": {
+      "normalHits": 2
+    },
+    "description": "二つの歩幅を重ねる双剣。攻撃＋24、速度＋4。通常攻撃は合計威力を保つ2ヒット。"
+  },
+  {
+    "id": "everward-shield-rapier",
+    "name": "永遠の盾と突剣",
+    "owner": "rina",
+    "family": "shieldRapier",
+    "bonuses": {
+      "attack": 19,
+      "defense": 25,
+      "maxHp": 36,
+      "speed": 2
+    },
+    "effects": {
+      "guardReduction": 0.06,
+      "coverReduction": 0.04
+    },
+    "description": "返事を待つ時間を守る盾と突剣。攻撃＋19、防御＋25、HP＋36、速度＋2。"
+  },
+  {
+    "id": "promise-wand",
+    "name": "約束のワンド",
+    "owner": "mei",
+    "family": "wand",
+    "bonuses": {
+      "attack": 22,
+      "maxMp": 26
+    },
+    "effects": {
+      "healingRate": 1.2,
+      "magicRate": 1.12
+    },
+    "description": "次の観測へ問いを渡すワンド。攻撃＋22、MP＋26、回復20%・属性魔法12%強化。"
+  }
+];
+export const allWeapons:readonly Weapon[]=[...weapons,...chapterWeapons,...chapterThreeWeapons,...chapterFourWeapons,...chapterFiveWeapons,...chapterSixWeapons,...chapterSevenWeapons,...chapterEightWeapons,...chapterNineWeapons,...chapterTenWeapons,...chapterElevenWeapons,...chapterTwelveWeapons,...chapterThirteenWeapons,...chapterFourteenWeapons,...chapterFifteenWeapons,...chapterSixteenWeapons,...chapterSeventeenWeapons,...chapterEighteenWeapons];
 export const weaponById=(id:unknown):Weapon|undefined=>typeof id==='string'?allWeapons.find(w=>w.id===id):undefined;
 export const HERO_IDS:readonly HeroId[]=['astel','rina','mei'];
 export const DEFAULT_WEAPONS:Record<HeroId,string>={astel:'travelers-sword',rina:'apprentice-shield-spear',mei:'starlight-wand'};

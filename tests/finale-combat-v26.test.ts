@@ -1,0 +1,20 @@
+import {describe,it,expect} from 'vitest';
+import {ready,full} from './v26-helpers';
+import {battle,fight,until,ev} from './v15-helpers';
+import {seededRandom} from '../src/lab-session';
+import {finalEnemies,finalEncounters} from '../src/data/chapter-eighteen-enemies';
+import {finalePhase,finaleScriptKey,FINALE_PHASES} from '../src/data/finale-boss';
+import {chapterEighteenWeapons} from '../src/data/weapons';
+import {equipWeapon} from '../src/equipment';
+import {load} from '../src/save';
+import {skills} from '../src/data/combat';
+describe('four-phase final battle without changing existing damage formula',()=>{
+ it.each([1,.76,.75,.46,.45,.21,.2,.01])('HP ratio%s has the declared phase and stable script',ratio=>{const u={hp:8000*ratio,maxHp:8000};const phase=ratio<=.2?4:ratio<=.45?3:ratio<=.75?2:1;expect(finalePhase(u)).toBe(phase);expect(finaleScriptKey(u)).toBe('astraEnd'+(phase===1?'':phase));expect(FINALE_PHASES[phase-1]).toBeTruthy()});
+ it.each(Object.keys(finalEnemies) as (keyof typeof finalEnemies)[])('%s actually acts with valid resources',key=>{const b=battle(ready(),'final-astra-end');Object.assign(b.enemies[0],structuredClone(finalEnemies[key]),{id:'enemy0'});until(b,'enemy0');const event=ev(b.enemyAct());expect(event.amount>0||event.kind==='status').toBe(true)});
+ it.each(Object.keys(finalEncounters))('%s is winnable with previous weapons and no chapter18 nodes',id=>{expect(fight(battle(ready(),id,seededRandom(1801)))).toBe('victory')});
+ it.each(Array.from({length:20},(_,i)=>i+1))('seed%i wins every final encounter using chapter16 equipment and no required nodes',seed=>{for(const id of Object.keys(finalEncounters))expect(fight(battle(ready(),id,seededRandom(seed))),id).toBe('victory')});
+ it.each(['sleep','freeze'] as const)('%s cannot erase phase2 reserved power156 when HP enters phase4',status=>{const b=battle(ready(),'final-astra-end'),boss=b.enemies[0];boss.hp=boss.maxHp*.6;until(b,'enemy0');b.enemyAct();until(b,'enemy0');expect(ev(b.enemyAct()).hint).toContain('選択遮断');boss.hp=boss.maxHp*.1;boss.statuses.push({id:status,remaining:1});until(b,'enemy0');b.skipTurn();until(b,'enemy0');const e=ev(b.enemyAct());expect(e.actionName).toBe('選択遮断の波');expect(e.effects!.map(p=>p.damageTrace?.power)).toEqual([156,156,156])});
+ it.each([.9,.6,.35,.1])('phase at%s has counterable warning then actual AOE',ratio=>{const b=battle(ready(),'final-astra-end'),boss=b.enemies[0];boss.hp=boss.maxHp*ratio;until(b,'enemy0');b.enemyAct();until(b,'enemy0');expect(ev(b.enemyAct()).hint).toContain('次は');until(b,'enemy0');const e=ev(b.enemyAct());expect(e.effects).toHaveLength(3);expect(e.effects!.every(p=>p.amount>0)).toBe(true);expect(b.allies.some(u=>u.hp>0)).toBe(true)});
+ it.each(chapterEighteenWeapons)('$id respects owner, stable reload and bounded quantities',w=>{const p=full();expect(equipWeapon(p.equipment,w.owner,w.id)).toBe(true);expect(equipWeapon(p.equipment,w.owner==='astel'?'mei':'astel',w.id)).toBe(false);const b=battle(p,'final-gate'),unit=b.allies.find(u=>u.id===w.owner)!;equipWeapon(p.equipment,w.owner,w.id);const again=battle(load({getItem:()=>JSON.stringify(p)}),'final-gate').allies.find(u=>u.id===w.owner)!;for(const s of ['attack','defense','speed','maxHp','maxMp'] as const)expect(again[s]).toBe(unit[s]);expect(p.equipment.inventory[w.id]).toBe(1)});
+ it('final duals produce exactly2 measured hits and wand scales actual magic1.12 and healing1.2',()=>{const p=full();equipWeapon(p.equipment,'astel','starseer-duals');equipWeapon(p.equipment,'mei','promise-wand');const b=battle(p,'final-gate');until(b,'astel');expect(ev(b.act('attack','enemy0')).effects).toHaveLength(2);expect(b.allies[0].star).toBe(15);until(b,'mei');expect(ev(b.act('fire','enemy0')).damageTrace?.power).toBeCloseTo(skills.fire.power!*1.12)});
+});

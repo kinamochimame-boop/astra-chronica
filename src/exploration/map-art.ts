@@ -1,6 +1,7 @@
 import type Phaser from 'phaser';
 import type {WalkMap} from './types';
 const palettes:Record<string,{floor:number[];wall:number;water:number}>={
+final:{floor:[0x263d49,0x304a52],wall:0x122636,water:0x527b85},
 terminal:{floor:[0x303247,0x393c53],wall:0x181e34,water:0x625777},
 graveGate:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveField:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveRuins:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveMemory:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveObservatory:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveSanctuary:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveTower:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},graveCore:{floor:[0x293d48,0x304551],wall:0x172630,water:0x3b6578},
  voidGate:{floor:[3359059,3359059],wall:0x242c43,water:0x526c91}, voidCourt:{floor:[4871525,4871525],wall:0x242c43,water:0x526c91}, voidCorridor:{floor:[4933727,4933727],wall:0x242c43,water:0x526c91}, voidMirror:{floor:[4608362,4608362],wall:0x242c43,water:0x526c91}, voidArchive:{floor:[3688538,3688538],wall:0x242c43,water:0x526c91}, voidGarden:{floor:[5589604,5589604],wall:0x242c43,water:0x526c91}, voidSanctum:{floor:[3685466,3685466],wall:0x242c43,water:0x526c91}, voidCore:{floor:[3161177,3161177],wall:0x242c43,water:0x526c91},

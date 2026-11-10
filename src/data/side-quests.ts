@@ -1,6 +1,93 @@
+import type {Dialogue} from './chapter-one';
 import type {ItemId} from '../consumables';
-export interface SideQuest {id:string;chapterId:string;name:string;giver:string;description:string;returnLocation:string;objectives:{id:string;name:string;locationId:string;requires:string[]}[];reward:{item?:ItemId;count?:number;experience?:number}}
+export interface SideQuest {conversations?:{request:Dialogue[];report:Dialogue[]};id:string;chapterId:string;name:string;giver:string;description:string;returnLocation:string;objectives:{id:string;name:string;locationId:string;requires:string[]}[];reward:{item?:ItemId;count?:number;experience?:number}}
 export const sideQuests:readonly SideQuest[]=[
+{
+  "id": "sq-last-delivery",
+"conversations":{"request": [{"speaker": "セリネ", "text": "最後の手紙にも、受け取る人の返事が必要です。原典庫の札と記憶路の受領欄を照合してくれますか。"}, {"speaker": "アステル", "text": "誰かの代わりに返事を書かず、宛先を確かめて届けよう。"}], "report": [{"speaker": "セリネ", "text": "確かに届きました。次に届ける人のために、空欄も残しておきます。"}, {"speaker": "リナ", "text": "待つ人の場所が、これからも守られるように。"}]},
+  "chapterId": "chapter-18",
+  "name": "SQ-46 最後に届ける手紙",
+  "giver": "セリネ",
+  "description": "最後の宛先を確かめて手紙を届ける。受取人の返事を、次の配達へつなごう。",
+  "returnLocation": "c18-camp",
+  "objectives": [
+    {
+      "id": "letter",
+      "name": "原典庫の宛先札",
+      "locationId": "c18-archive",
+      "requires": []
+    },
+    {
+      "id": "delivery",
+      "name": "記憶路の受領記録",
+      "locationId": "c18-memory",
+      "requires": [
+        "letter"
+      ]
+    }
+  ],
+  "reward": {
+    "item": "potion",
+    "count": 3
+  }
+},
+{
+  "id": "sq-record-heirs",
+"conversations":{"request": [{"speaker": "オルフェ", "text": "記録を保管するだけでは、次の人へ渡せない。守護殿の印と観測所の索引を照合してほしい。"}, {"speaker": "メイ", "text": "出典と公開する範囲を分けて、読める形で残すね。"}], "report": [{"speaker": "オルフェ", "text": "索引がつながった。誰が読み、何を確かめたかも、これから記していこう。"}, {"speaker": "メイ", "text": "答えだけでなく、確かめた方法も次の人へ渡せるね。"}]},
+  "chapterId": "chapter-18",
+  "name": "SQ-47 星の記録を継ぐ者",
+  "giver": "オルフェ",
+  "description": "保管印と公開索引を照合し、原典を次の人へ渡せるよう整理する。",
+  "returnLocation": "c18-watch",
+  "objectives": [
+    {
+      "id": "seal",
+      "name": "守護殿の保管印",
+      "locationId": "c18-sanctum",
+      "requires": []
+    },
+    {
+      "id": "index",
+      "name": "観測所の公開索引",
+      "locationId": "c18-observatory",
+      "requires": [
+        "seal"
+      ]
+    }
+  ],
+  "reward": {
+    "experience": 1600
+  }
+},
+{
+  "id": "sq-tomorrow-gift",
+"conversations":{"request": [{"speaker": "ティア", "text": "庭の贈り物と、選択殿に置いた返礼札を探してほしいの。明日また会う人に渡したい。"}, {"speaker": "リナ", "text": "約束は未来の保証じゃなくても、会いたい気持ちは贈れるわ。"}], "report": [{"speaker": "ティア", "text": "ありがとう。渡す日も、何を話すかも、これから相談するね。"}, {"speaker": "アステル", "text": "うん。その相談をする明日が、続いていくといいね。"}]},
+  "chapterId": "chapter-18",
+  "name": "SQ-48 明日への贈り物",
+  "giver": "ティア",
+  "description": "庭の贈り物と返礼札を集め、明日また会う人へ贈る。",
+  "returnLocation": "c18-refuge",
+  "objectives": [
+    {
+      "id": "seed",
+      "name": "庭の贈り物",
+      "locationId": "c18-garden",
+      "requires": []
+    },
+    {
+      "id": "reply",
+      "name": "選択殿の返礼札",
+      "locationId": "c18-hall",
+      "requires": [
+        "seed"
+      ]
+    }
+  ],
+  "reward": {
+    "item": "ether",
+    "count": 3
+  }
+},
  {"id": "sq-lost-star-letter", "chapterId": "chapter-17", "name": "SQ-43 失われた星の手紙", "giver": "セリネ", "description": "届かなかった手紙の断片と宛先を照合する。内容を推測せず、残った言葉を届ける。", "returnLocation": "c17-camp", "objectives": [{"id": "letter-fragment", "name": "書庫の手紙の断片", "locationId": "c17-library", "requires": []}, {"id": "letter-address", "name": "観測所の受取先", "locationId": "c17-archive", "requires": ["letter-fragment"]}], "reward": {"item": "potion", "count": 3}},
  {"id": "sq-guardian-reason", "chapterId": "chapter-17", "name": "SQ-44 守護者が待つ理由", "giver": "オルフェ", "description": "番人が帰還を待たなくなった理由を調べ、再び待つ任務へつなぐ。", "returnLocation": "c17-watch", "objectives": [{"id": "guardian-order", "name": "記憶室の帰還命令", "locationId": "c17-memory", "requires": []}, {"id": "guardian-reply", "name": "監視所の保留返事", "locationId": "c17-watch", "requires": ["guardian-order"]}], "reward": {"experience": 1500}},
  {"id": "sq-choose-tomorrow", "chapterId": "chapter-17", "name": "SQ-45 明日を選ぶ人々", "giver": "ティア", "description": "明日の約束を集める。未来の保証ではなく、また会おうとする人々の声を残す。", "returnLocation": "c17-refuge", "objectives": [{"id": "tomorrow-note", "name": "聖域の明日の予定", "locationId": "c17-sanctuary", "requires": []}, {"id": "tomorrow-reply", "name": "分岐路の約束の返事", "locationId": "c17-tower", "requires": ["tomorrow-note"]}], "reward": {"item": "ether", "count": 3}},

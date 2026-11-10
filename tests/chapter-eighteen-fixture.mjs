@@ -1,0 +1,6 @@
+import {completedSave as previous} from './chapter-seventeen-fixture.mjs';
+import {manifest} from './v26-manifest.mjs';
+export const definition=manifest.chapters.find(c=>c.id==='chapter-18');
+export function priorSave(){const p=previous();p.adventure.selectedChapterId='chapter-18';delete p.world;p.equipment.equipped={astel:'grave-longbow',rina:'endward-shield-spear',mei:'memory-rod'};return p}
+export function stageSave(phase){const p=priorSave(),last={severed:'c18-memory-cache',connected:'c18-connect',resonant:'c18-resonate',reformed:'c18-reform',boss:'c18-oath',ending:'c18-final-boss',cleared:'c18-clear'}[phase],count=definition.events.findIndex(e=>e.id===last)+1,events=definition.events.slice(0,count);p.adventure.chapters['chapter-18']={currentLocationId:events.at(-1).locationId,completed:events.map(e=>e.id)};for(const e of events){if(e.choiceId)p.choices[e.choiceId]='confirm';if(e.weaponReward)p.equipment.inventory[e.weaponReward]=1}const map=manifest.maps.find(m=>m.chapterId==='chapter-18'&&m.locationId===p.adventure.chapters['chapter-18'].currentLocationId);if(map)p.world={mapId:map.id,...map.entry,defeated:[],opened:[]};return p}
+export function completedSave(){const p=stageSave('cleared');p.adventure.chapters['chapter-18'].currentLocationId='c18-garden';p.world={mapId:'final-astral-garden',x:112,y:400,facing:'right',defeated:[],opened:[]};return p}
