@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "vitest run --pool=threads --maxWorkers=1 --no-file-parallelism --testTimeout=15000",
+    "test": "vitest run --pool=threads --maxWorkers=1 --no-file-parallelism",
     "test:browser": "node tests/browser.e2e.mjs",
     "test:foundation": "node tests/foundation.e2e.mjs",
     "test:modifiers": "node tests/attack-modifier.e2e.mjs",
