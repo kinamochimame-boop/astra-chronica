@@ -1,0 +1,38 @@
+import {describe,it,expect} from 'vitest';
+import {chapterSeventeen as c} from '../src/data/chapter-seventeen';
+import {chapters} from '../src/data/chapter-one';
+import {terminalEnemies,terminalEncounters} from '../src/data/chapter-seventeen-enemies';
+import {chapterSeventeenWeapons} from '../src/data/weapons';
+import {sideQuests} from '../src/data/side-quests';
+import {dialogueChoices} from '../src/data/dialogue-choices';
+import {ready,full} from './v25-helpers';
+import {complete,arrange,battle,fight,until,ev} from './v15-helpers';
+import {chapterOpen,chapterState,completeEvent,visitLocation,beginAdventureBattle,resolveAdventureBattle} from '../src/adventure';
+import {recordChoice} from '../src/dialogue-choices';
+import {load} from '../src/save';
+import {journalFor} from '../src/journal';
+import {walkMaps,objectForEvent,symbolForEvent} from '../src/exploration/map-data';
+import {enterMap} from '../src/exploration/exploration-save';
+import {activeMap} from '../src/exploration/active-map';
+import {approachPoint} from '../src/exploration/approach';
+import {acceptQuest,collectQuestObjective,claimQuest} from '../src/side-quests';
+import {equipWeapon} from '../src/equipment';
+import {seededRandom} from '../src/lab-session';
+import {fatePhase} from '../src/exploration/fate-path';
+import {PROGRESSION} from '../src/progression';
+import {treeNodes} from '../src/data/skill-tree';
+import {cloneUnit,skills} from '../src/data/combat';
+const qs=sideQuests.filter(q=>q.chapterId===c.id),choices=dialogueChoices.filter(q=>q.chapterId===c.id);
+function quest(p:ReturnType<typeof ready>,id:string){const q=qs.find(q=>q.id===id)!;expect(acceptQuest(p,id)).toBe(true);for(const ob of q.objectives){expect(visitLocation(p.adventure,c,ob.locationId)).toBe(true);const found=walkMaps.flatMap(m=>m.objects.filter(o=>o.questId===id&&o.objectiveId===ob.id).map(o=>({m,o})))[0];if(found){expect(enterMap(p,found.m.id)).toBe(true);Object.assign(p.world!,approachPoint(activeMap(found.m,p.adventure),found.m.entry,found.o)!)}expect(collectQuestObjective(p,id,ob.id)).toBe(true)}visitLocation(p.adventure,c,q.returnLocation);expect(claimQuest(p,id).ok).toBe(true)}
+describe('chapter seventeen authored progression and save compatibility',()=>{
+ it('registers sixteen places,thirty-eight events,five choices,eight articles and keeps chapter18 unavailable',()=>{expect(chapters).toHaveLength(17);expect(c.locations).toHaveLength(16);expect(c.events).toHaveLength(38);expect(new Set(c.events.map(e=>e.id)).size).toBe(38);expect(qs).toHaveLength(3);expect(choices).toHaveLength(5);expect(journalFor(full(),c).entries).toHaveLength(8);expect(chapters.some(ch=>['chapter-18'].includes(ch.id))).toBe(false);expect(PROGRESSION.maxLevel).toBe(50);expect(treeNodes).toHaveLength(90);expect(c.events.every(e=>e.pages.every(p=>p.text.length>15))).toBe(true)});
+ it('requires chapter16 clear; old saves do not start chapter17 or invent choices',()=>{const p=ready();expect(chapterOpen(p.adventure,c)).toBe(true);delete p.adventure.chapters['chapter-16'];expect(chapterOpen(p.adventure,c)).toBe(false);expect(enterMap(p,'terminal-gate')).toBe(false);const q=load({getItem:()=>JSON.stringify(p)});expect(q.adventure.chapters[c.id]).toBeUndefined();expect(choices.every(v=>!q.choices[v.id])).toBe(true)});
+ it.each(c.events)('$id confirms once, preserves prerequisites and reloads its receipt',e=>{const p=ready();expect(completeEvent(p,c,e.id,e.puzzle?.solution).ok).toBe(false);complete(p,c,e.id);expect(chapterState(p.adventure,c).completed).toContain(e.id);expect(load({getItem:()=>JSON.stringify(p)}).adventure.chapters[c.id]).toEqual(p.adventure.chapters[c.id]);const before=structuredClone(p);expect(completeEvent(p,c,e.id,e.puzzle?.solution).ok).toBe(false);expect(p).toEqual(before)});
+ it('all32 dialogue routes clear and confirmed choices never change',()=>{for(let mask=0;mask<32;mask++){const p=ready();for(const e of c.events){arrange(p,c,e.id);if(e.choiceId){const q=choices.find(q=>q.id===e.choiceId)!,i=choices.indexOf(q);expect(recordChoice(p,q.id,q.options[(mask>>i)&1].id)).toBe(true);expect(recordChoice(p,q.id,q.options[0].id)).toBe(false)}complete(p,c,e.id)}expect(chapterState(p.adventure,c).completed).toHaveLength(38)}});
+ it.each(qs)('$id rewards before/after clear without duplicates',q=>{for(const after of [false,true]){const p=ready();complete(p,c,after?'c17-clear':'c17-inherit');quest(p,q.id);const before=structuredClone(p);expect(claimQuest(p,q.id).ok).toBe(false);expect(p).toEqual(before);expect(load({getItem:()=>JSON.stringify(p)}).quests[q.id]).toEqual(p.quests[q.id])}});
+ it.each(['potion','ether'] as const)('%s capacity leaves quest reward retryable',id=>{const p=full(),q=qs.find(q=>q.reward.item===id)!;quest(p,q.id);p.quests[q.id].claimed=false;p.consumables[id]=98;expect(claimQuest(p,q.id).ok).toBe(false);expect(p.quests[q.id].claimed).toBe(false);p.consumables[id]=96;expect(claimQuest(p,q.id).ok).toBe(true);expect(p.consumables[id]).toBe(99)});
+ it('puzzle rejects wrong/partial input and opens only after exact integration',()=>{const p=ready();complete(p,c,'c17-tower-cache');arrange(p,c,'c17-reconnect');expect(fatePhase(p.adventure)).toBe('branched');expect(completeEvent(p,c,'c17-reconnect',['preserve','present','past']).ok).toBe(false);expect(completeEvent(p,c,'c17-reconnect',['past']).ok).toBe(false);expect(fatePhase(load({getItem:()=>JSON.stringify(p)}).adventure)).toBe('branched');expect(completeEvent(p,c,'c17-reconnect',['past','present','preserve']).ok).toBe(true);expect(fatePhase(p.adventure)).toBe('reconnected')});
+ it.each(chapters.slice(0,16))('$id flags,equipment,choices,visits and records survive new progress',ch=>{const p=ready(),before=structuredClone(p);complete(p,c);const q=load({getItem:()=>JSON.stringify(p)});expect(q.adventure.chapters[ch.id]).toEqual(before.adventure.chapters[ch.id]);expect(q.skillTree).toEqual(before.skillTree);expect(q.choices).toMatchObject(before.choices);expect(q.equipment.equipped).toEqual(before.equipment.equipped);expect(q.party.astel.level).toBe(50)});
+ it.each(['victory','defeat'] as const)('%s settles once and never double awards a symbol',result=>{const p=ready();complete(p,c,'c17-arrival');arrange(p,c,'c17-gateway-fight');const f=symbolForEvent('c17-gateway-fight')!,serial=beginAdventureBattle(p,c,f.symbol.eventId,{mapId:f.map.id,symbolId:f.symbol.id,position:f.symbol})!;expect(resolveAdventureBattle(p,serial,result).applied).toBe(true);const before=structuredClone(p);expect(resolveAdventureBattle(p,serial,result).applied).toBe(false);expect(p).toEqual(before)});
+ it('interrupted battle recovers safely without XP and unknown flags cannot fake integration',()=>{const p=ready();complete(p,c,'c17-arrival');arrange(p,c,'c17-gateway-fight');const f=symbolForEvent('c17-gateway-fight')!,serial=beginAdventureBattle(p,c,f.symbol.eventId,{mapId:f.map.id,symbolId:f.symbol.id,position:f.symbol})!;const q=load({getItem:()=>JSON.stringify(p)});expect(q.party).toEqual(p.party);expect(q.wins).toBe(p.wins);expect(resolveAdventureBattle(q,serial,'victory').applied).toBe(false);q.adventure.chapters[c.id].completed.push('unknown','c17-reconnect');expect(fatePhase(load({getItem:()=>JSON.stringify(q)}).adventure)).toBe('fixed')});
+});

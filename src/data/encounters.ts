@@ -1,3 +1,4 @@
+import {terminalEncounters} from './chapter-seventeen-enemies';
 import {graveEncounters} from './chapter-sixteen-enemies';
 import {voidEncounters} from './chapter-fifteen-enemies';
 import {arkEncounters} from './chapter-fourteen-enemies';
@@ -23,9 +24,9 @@ export const forestEnemies={
  guardian:{...enemy('mist-guardian','霧喰らいの守護獣',920,22,17,180),enemyPattern:'mistGuardian' as const,affinities:{fire:1.25,water:0.75},color:0x9a86c6},
 };
 export const encounters:Record<string,{name:string;enemies:Unit[]}>= {
- ...graveEncounters,...voidEncounters,...gearEncounters,...arkEncounters,...cityEncounters,...valleyEncounters,...crystalEncounters,...saharaEncounters,...chronoEncounters,...groveEncounters,...skyEncounters,...veinEncounters,...gloomEncounters,...paleEncounters,...tideEncounters,
+ ...terminalEncounters,...graveEncounters,...voidEncounters,...gearEncounters,...arkEncounters,...cityEncounters,...valleyEncounters,...crystalEncounters,...saharaEncounters,...chronoEncounters,...groveEncounters,...skyEncounters,...veinEncounters,...gloomEncounters,...paleEncounters,...tideEncounters,
  'forest-entry':{name:'霧の森・入口',enemies:[forestEnemies.slime,forestEnemies.bat,forestEnemies.wolf]},
  'forest-fork':{name:'森の分かれ道',enemies:[forestEnemies.wolf,forestEnemies.bat,forestEnemies.wolf].map(u=>({...cloneUnit(u),experienceReward:50}))},
  'forest-guardian':{name:'霧の森・最深部',enemies:[forestEnemies.guardian]},
 };
-export function encounterSetup(id:string){const e=encounters[id];return e?{name:e.name,enemies:e.enemies.map((u,i)=>({...cloneUnit(u),id:`enemy${i}`}))}:undefined}
+export function encounterSetup(id:string,choices:Record<string,string>={}){const e=encounters[id];return e?{name:e.name,enemies:e.enemies.map((u,i)=>({...cloneUnit(u),id:`enemy${i}`,...(id==='terminal-last-judge'?{fateRoute:choices['c17-branch']==='listen'?'shelter' as const:'direct' as const}:{} )}))}:undefined}

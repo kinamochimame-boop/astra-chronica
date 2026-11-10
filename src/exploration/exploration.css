@@ -11,3 +11,6 @@
 #railway-dialog{width:min(94vw,420px);max-height:90svh;overflow:auto;background:#10283a;color:#edf3ff;border:1px solid #c4ad78;border-radius:10px;padding:16px}#railway-dialog::backdrop{background:#06111bd9}#railway-dialog button{min-height:44px;white-space:normal}#railway-dialog p{font-size:12px;line-height:1.7}#railway-notice{min-height:40px}
 
 #railway-dialog[data-network="ark"] #railway-stations{max-height:38svh;overflow-y:auto;overscroll-behavior:contain;padding-right:4px}#railway-dialog[data-network="ark"] #railway-close{position:sticky;bottom:0;background:#19364e}
+
+/* One destination flag for all maps; text still identifies it without color. */
+#world-nearby [data-objective="true"] {border:2px solid #e6d299;background:#394353;}

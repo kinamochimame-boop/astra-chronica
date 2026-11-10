@@ -1,3 +1,4 @@
+import {prerequisite,buildPrerequisite} from './legacy-fixtures-v25';
 import {futureChaptersNotice} from '../src/chapter-selection';
 import {describe,it,expect} from 'vitest';
 import {chapters} from '../src/data/chapter-one';
@@ -23,12 +24,12 @@ import {equipWeapon} from '../src/equipment';
 import {actorStyle} from '../src/battle-actors';
 import {lightPathPhase} from '../src/exploration/light-path';
 import {mainObjective} from '../src/exploration/objective';
-export const ready=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,11))complete(p,ch);return p};
+export const ready=()=>prerequisite(11);
 const qs=sideQuests.filter(q=>q.chapterId===c.id),choices=dialogueChoices.filter(q=>q.chapterId===c.id);
 function quest(p:ReturnType<typeof ready>,id:string){const q=qs.find(q=>q.id===id)!;expect(acceptQuest(p,id)).toBe(true);for(const o of q.objectives){visitLocation(p.adventure,c,o.locationId);const f=walkMaps.flatMap(map=>map.objects.filter(o2=>o2.objectiveId===o.id).map(object=>({map,object})))[0];if(f){enterMap(p,f.map.id);Object.assign(p.world!,{x:f.object.x+32,y:f.object.y})}expect(collectQuestObjective(p,id,o.id)).toBe(true)}visitLocation(p.adventure,c,q.returnLocation);expect(claimQuest(p,id).ok).toBe(true)}
 describe('chapter twelve story, save and choices',()=>{
- it('future notice never labels implemented chapters as unavailable',()=>{expect(futureChaptersNotice()).toBe('第17〜18章：今後の更新予定。現在はプレイできません。')});
- it('registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter thirteen',()=>{expect(chapters).toHaveLength(16);expect(c.locations.map(l=>l.id)).toEqual('road village woods watch lake ridge roots shelter shrine garden archive channel gate vault altar core'.split(' ').map(x=>'c12-'+x));expect(c.events).toHaveLength(28);expect(new Set(c.events.map(e=>e.id)).size).toBe(28);expect(c.events.every(e=>e.pages.length&&e.pages.every(p=>p.text.length>10))).toBe(true);expect(qs).toHaveLength(3);expect(choices).toHaveLength(5);expect(chapters.some(c=>c.id==='chapter-17')).toBe(false)});
+ it('future notice never labels implemented chapters as unavailable',()=>{expect(futureChaptersNotice()).toBe('第18章：今後の更新予定。現在はプレイできません。')});
+ it('registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter thirteen',()=>{expect(chapters).toHaveLength(17);expect(c.locations.map(l=>l.id)).toEqual('road village woods watch lake ridge roots shelter shrine garden archive channel gate vault altar core'.split(' ').map(x=>'c12-'+x));expect(c.events).toHaveLength(28);expect(new Set(c.events.map(e=>e.id)).size).toBe(28);expect(c.events.every(e=>e.pages.length&&e.pages.every(p=>p.text.length>10))).toBe(true);expect(qs).toHaveLength(3);expect(choices).toHaveLength(5);expect(chapters.some(c=>c.id==='chapter-18')).toBe(false)});
  it('eleventh clear gates twelfth and locked maps/locations cannot be entered',()=>{const p=beforeSeven();for(const ch of chapters.slice(6,10))complete(p,ch);expect(chapterOpen(p.adventure,c)).toBe(false);expect(enterMap(p,'gloom-road')).toBe(false);complete(p,chapters[10]);expect(chapterOpen(p.adventure,c)).toBe(true);expect(enterMap(p,'gloom-road')).toBe(true);expect(visitLocation(p.adventure,c,'c12-core')).toBe(false)});
  it('all events grant six wins and three weapons once without changing older chapters',()=>{const p=ready(),old=structuredClone(p);complete(p,c);expect(chapterState(p.adventure,c).completed).toHaveLength(28);expect(p.wins-old.wins).toBe(6);for(const ch of chapters.slice(0,11))expect(p.adventure.chapters[ch.id]).toEqual(old.adventure.chapters[ch.id]);expect(p.adventure.landmarks).toEqual(old.adventure.landmarks);expect(p.adventure.timeStates).toEqual(old.adventure.timeStates);expect(p.skillTree).toEqual(old.skillTree);for(const w of chapterTwelveWeapons)expect(p.equipment.inventory[w.id]).toBe(1);const full=structuredClone(p);complete(p,c);expect(p).toEqual(full);expect(load({getItem:()=>JSON.stringify(p)})).toEqual(p)});
  it('all thirty-two choice combinations complete and confirmed choices cannot be replaced',()=>{for(let mask=0;mask<32;mask++){const p=ready();for(const e of c.events){if(e.choiceId){arrange(p,c,e.id);const q=choices.find(q=>q.id===e.choiceId)!,i=(mask>>choices.indexOf(q))&1;expect(recordChoice(p,q.id,q.options[i].id)).toBe(true);expect(recordChoice(p,q.id,q.options[1-i].id)).toBe(false)}complete(p,c,e.id)}expect(chapterState(p.adventure,c).completed).toHaveLength(28)}});
@@ -78,4 +79,9 @@ describe('populated legacy progression',()=>{
   complete(q,c);const restored=load({getItem:()=>JSON.stringify(q)});
   expect(restored.skillTree).toEqual(old.skillTree);expect(restored.equipment.equipped).toEqual(old.equipment.equipped);expect(restored.equipment.inventory['whitestar-dual-blades']).toBe(2);expect(restored.quests['sq-returning-pilgrim']).toEqual(old.quests['sq-returning-pilgrim']);expect(restored.choices).toMatchObject(old.choices);expect(restored.wins-old.wins).toBe(6);expect(restored.adventure.chapters['chapter-12'].completed).toHaveLength(28);
  });
+});
+
+describe('chapter12 deterministic prerequisite isolation',()=>{
+ it('matches the original complete API setup exactly',()=>{expect(ready()).toEqual(buildPrerequisite(11))});
+ it('does not share mutable party,inventory,choices or event receipts',()=>{const a=ready(),b=ready(),snapshot=structuredClone(b);a.party.astel.level=1;a.equipment.inventory['travelers-sword']=999;a.choices['probe']='probe';a.adventure.chapters['chapter-01'].completed.length=0;expect(b).toEqual(snapshot);expect(ready()).toEqual(snapshot)});
 });

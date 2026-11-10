@@ -1,3 +1,4 @@
+import {prerequisite,buildPrerequisite} from './legacy-fixtures-v25';
 import {futureChaptersNotice} from '../src/chapter-selection';
 import {describe,it,expect} from 'vitest';
 import {chapters} from '../src/data/chapter-one';
@@ -23,12 +24,12 @@ import {equipWeapon} from '../src/equipment';
 import {actorStyle} from '../src/battle-actors';
 import {celestialPhase} from '../src/exploration/celestial';
 import {mainObjective} from '../src/exploration/objective';
-export const ready=()=>{const p=beforeSeven();for(const ch of chapters.slice(6,12))complete(p,ch);return p};
+export const ready=()=>prerequisite(12);
 const qs=sideQuests.filter(q=>q.chapterId===c.id),choices=dialogueChoices.filter(q=>q.chapterId===c.id);
 function quest(p:ReturnType<typeof ready>,id:string){const q=qs.find(q=>q.id===id)!;expect(acceptQuest(p,id)).toBe(true);for(const o of q.objectives){visitLocation(p.adventure,c,o.locationId);const f=walkMaps.flatMap(map=>map.objects.filter(o2=>o2.objectiveId===o.id).map(object=>({map,object})))[0];if(f){enterMap(p,f.map.id);Object.assign(p.world!,{x:f.object.x+32,y:f.object.y})}expect(collectQuestObjective(p,id,o.id)).toBe(true)}visitLocation(p.adventure,c,q.returnLocation);expect(claimQuest(p,id).ok).toBe(true)}
 describe('chapter thirteen story, save and choices',()=>{
- it('future notice never labels implemented chapters as unavailable',()=>{expect(futureChaptersNotice()).toBe('第17〜18章：今後の更新予定。現在はプレイできません。')});
- it('registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter fifteen',()=>{expect(chapters).toHaveLength(16);expect(c.locations.map(l=>l.id)).toEqual('rail station city platform market clock lower refuge workshop garden observatory bridge gate charts altar core'.split(' ').map(x=>'c13-'+x));expect(c.events).toHaveLength(28);expect(new Set(c.events.map(e=>e.id)).size).toBe(28);expect(c.events.every(e=>e.pages.length&&e.pages.every(p=>p.text.length>10))).toBe(true);expect(qs).toHaveLength(3);expect(choices).toHaveLength(5);expect(chapters.some(c=>c.id==='chapter-17')).toBe(false)});
+ it('future notice never labels implemented chapters as unavailable',()=>{expect(futureChaptersNotice()).toBe('第18章：今後の更新予定。現在はプレイできません。')});
+ it('registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter fifteen',()=>{expect(chapters).toHaveLength(17);expect(c.locations.map(l=>l.id)).toEqual('rail station city platform market clock lower refuge workshop garden observatory bridge gate charts altar core'.split(' ').map(x=>'c13-'+x));expect(c.events).toHaveLength(28);expect(new Set(c.events.map(e=>e.id)).size).toBe(28);expect(c.events.every(e=>e.pages.length&&e.pages.every(p=>p.text.length>10))).toBe(true);expect(qs).toHaveLength(3);expect(choices).toHaveLength(5);expect(chapters.some(c=>c.id==='chapter-18')).toBe(false)});
  it('twelfth clear gates thirteenth and locked maps/locations cannot be entered',()=>{const p=beforeSeven();for(const ch of chapters.slice(6,11))complete(p,ch);expect(chapterOpen(p.adventure,c)).toBe(false);expect(enterMap(p,'gear-rail')).toBe(false);complete(p,chapters[11]);expect(chapterOpen(p.adventure,c)).toBe(true);expect(enterMap(p,'gear-rail')).toBe(true);expect(visitLocation(p.adventure,c,'c13-core')).toBe(false)});
  it('all events grant six wins and three weapons once without changing older chapters',()=>{const p=ready(),old=structuredClone(p);complete(p,c);expect(chapterState(p.adventure,c).completed).toHaveLength(28);expect(p.wins-old.wins).toBe(6);for(const ch of chapters.slice(0,12))expect(p.adventure.chapters[ch.id]).toEqual(old.adventure.chapters[ch.id]);expect(p.adventure.landmarks).toEqual(old.adventure.landmarks);expect(p.adventure.timeStates).toEqual(old.adventure.timeStates);expect(p.skillTree).toEqual(old.skillTree);for(const w of chapterThirteenWeapons)expect(p.equipment.inventory[w.id]).toBe(1);const full=structuredClone(p);complete(p,c);expect(p).toEqual(full);expect(load({getItem:()=>JSON.stringify(p)})).toEqual(p)});
  it('all thirty-two choice combinations complete and confirmed choices cannot be replaced',()=>{for(let mask=0;mask<32;mask++){const p=ready();for(const e of c.events){if(e.choiceId){arrange(p,c,e.id);const q=choices.find(q=>q.id===e.choiceId)!,i=(mask>>choices.indexOf(q))&1;expect(recordChoice(p,q.id,q.options[i].id)).toBe(true);expect(recordChoice(p,q.id,q.options[1-i].id)).toBe(false)}complete(p,c,e.id)}expect(chapterState(p.adventure,c).completed).toHaveLength(28)}});
@@ -62,4 +63,9 @@ describe('populated legacy progression',()=>{
   complete(q,c);const restored=load({getItem:()=>JSON.stringify(q)});
   expect(restored.skillTree).toEqual(old.skillTree);expect(restored.equipment.equipped).toEqual(old.equipment.equipped);expect(restored.equipment.inventory['startree-sword']).toBe(2);expect(restored.quests['sq-forest-light']).toEqual(old.quests['sq-forest-light']);expect(restored.choices).toMatchObject(old.choices);expect(restored.wins-old.wins).toBe(6);expect(restored.adventure.chapters['chapter-13'].completed).toHaveLength(28);
  });
+});
+
+describe('chapter13 deterministic prerequisite isolation',()=>{
+ it('matches the original complete API setup exactly',()=>{expect(ready()).toEqual(buildPrerequisite(12))});
+ it('does not share mutable party,inventory,choices or event receipts',()=>{const a=ready(),b=ready(),snapshot=structuredClone(b);a.party.astel.level=1;a.equipment.inventory['travelers-sword']=999;a.choices['probe']='probe';a.adventure.chapters['chapter-01'].completed.length=0;expect(b).toEqual(snapshot);expect(ready()).toEqual(snapshot)});
 });

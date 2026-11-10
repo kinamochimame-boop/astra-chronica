@@ -198,18 +198,20 @@ export class Battle {
     else{this.damage(event,actor,target,power);this.applyEffects(event,actor,target,skills.attack)}
     return this.complete(event);
   }
+  private chargeScripts=new Map<string,import('./data/enemy-scripts').EnemyScript>();
   private crystalAct(actor:Unit,action:number):ActionResult {
-    const script=enemyScripts[actor.enemyPattern??''];
+    const currentScript=enemyScripts[actor.enemyPattern==='lastJudge'&&actor.hp/actor.maxHp<=.3&&actor.fateRoute==='shelter'?'lastJudgeShelter':actor.enemyPattern??''];
+    const script=this.charged.has(actor.id)?this.chargeScripts.get(actor.id)??currentScript:currentScript;
     const desert=actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira',machine=actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='gardion'||!!script&&!script.observer,singer=actor.enemyPattern==='echoria'||actor.enemyPattern==='zaira'||!!script?.observer;
     const phase=singer?(actor.hp/actor.maxHp<=0.3?3:actor.hp/actor.maxHp<=0.65?2:1):0;
     const reserved=this.charged.get(actor.id),plan=script?enemyChargePlan(script,phase,action):undefined;
     if(script?.guardFirst&&phase===1&&action%3===1&&!reserved){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script.guardLabel??'記憶の封護',hint:script.guardLabel?'第1段階：星灯を守る防御姿勢。回復や次の準備を整えよう。':'第1段階：記憶を守る防御姿勢。回復や次の準備を整えよう。',logs:[`${actor.name}は${script.guardLabel??'記憶の封護'}を展開した。`]})}
     if(!reserved&&((machine&&action%3===2)||(singer&&phase>=2&&action%3===2))){
       if(script?script.guardOnCharge:machine)actor.guarding='defend';if(script?.counterOnCharge)actor.counterReady=true;
-      const power=script?plan!.power:desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);
+      const power=script?plan!.power:desert?(machine?76:phase===3?98:78):(machine?65:phase===3?82:62);this.charged.set(actor.id,power);if(actor.enemyPattern==='lastJudge'&&script)this.chargeScripts.set(actor.id,script);
       return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:script?`${plan!.name}の予兆`:desert?(machine?'土砂砲の予兆':phase===3?'星砂終式の予兆':'幻影砂陣の予兆'):machine?'共鳴蓄積':phase===3?'終奏の予兆':'眠り歌の予兆',hint:script?`${singer?`第${phase}段階：`:''}${script.guardOnCharge?'防御態勢！ ':''}次は${plan!.name}${script.chargeAll?'（生存する味方全体）':''}。防御と回復で備えよう。`:desert?(machine?'盾を閉じて蓄砂！ 次は土砂砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'星砂終式':'幻影砂陣'}。防御と回復で備えよう。`):machine?'盾を閉じて共鳴を蓄積！ 次は共鳴砲。防御と回復で備えよう。':`第${phase}段階：次は${phase===3?'終奏':'眠り歌'}。防御と回復で備えよう。`,logs:[`${actor.name}は${script?(plan!.name):desert?(machine?'防御姿勢で土砂砲':phase===3?'星砂終式':'幻影砂陣'):machine?'防御姿勢で共鳴砲':phase===3?'終奏':'眠り歌'}を予約した。行動不能の間は予約を保持する。`]});
     }
-    if(reserved)this.charged.delete(actor.id);
+    if(reserved){this.charged.delete(actor.id);this.chargeScripts.delete(actor.id);}
     const magical=!(reserved&&script?.chargePhysical)&&!(script?.physicalFirst&&phase===1)&& (!!actor.enemyMagic||!!script?.alwaysMagic||!!reserved||(singer&&action%2===0));
     const skill:Skill=magical?{...skills.fire,name:actor.enemyMagic?.name??(script?(reserved?(enemyChargeName(script,reserved)):script.spell):desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光'),element:script?.alternateElement&&action%2===0?script.alternateElement:script?.element??actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??(script?(phase===3?script.finalNormalPower:script.normalPower):undefined)??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),modifiers:singer&&phase>=2?script?.normalModifiers:actor.enemyMagic?.modifiers,statuses:singer&&phase>=2?(script?script.statuses:desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:reserved&&script?.chargePhysical?{...skills.attack,name:script.charge,power:reserved}:skills.attack;
     const physicalRate=(script?.chargePhysical||script?.singlePower!==undefined)?statValue(actor,'attack')/Math.max(1,actor.attack):1;

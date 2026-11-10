@@ -13,7 +13,7 @@ export const transitNetworks:readonly TransitNetwork[]=[railNetwork,arkNetwork];
 export interface TransitTicket {from:string;to:string}
 export const networkForMap=(id:unknown)=>transitNetworks.find(n=>typeof id==='string'&&n.mapIds.includes(id));
 export const transitRestored=(p:Progress,n:TransitNetwork)=>(p.adventure.chapters[n.chapterId]?.completed??[]).includes(n.unlockEvent);
-export function transitDestinations(p:Progress,n:TransitNetwork){return transitRestored(p,n)?n.mapIds.map(id=>mapById(id)!).filter(m=>!!m&&m.chapterId===n.chapterId&&mapOpen(p.adventure,m)&&clearCircle(activeMap(m,p.adventure),m.entry)):[]}
+export function transitDestinations(p:Progress,n:TransitNetwork){return transitRestored(p,n)?n.mapIds.map(id=>mapById(id)!).filter(m=>!!m&&m.chapterId===n.chapterId&&mapOpen(p.adventure,m)&&clearCircle(activeMap(m,p.adventure,p.choices),m.entry)):[]}
 export function transitReason(p:Progress,to:string,n:TransitNetwork){const source=mapById(p.world?.mapId),state=p.adventure.chapters[n.chapterId];if(p.adventure.pending)return `戦闘中は${n.label}を利用できません。`;if(!transitRestored(p,n))return n.lockedReason;if(!source||p.adventure.selectedChapterId!==n.chapterId||!n.mapIds.includes(source.id)||source.chapterId!==n.chapterId||state?.currentLocationId!==source.locationId||!mapOpen(p.adventure,source))return `この章の解放済みの${n.place}から利用してください。`;if(!transitDestinations(p,n).some(m=>m.id===to))return `この${n.place}はまだ解放されていません。`;if(to===source.id)return `現在この${n.place}にいます。`;return ''}
 /** Pure reservation. No save writes, rewards, or in-flight flags. */
 export function beginTransit(p:Progress,to:string,n:TransitNetwork):TransitTicket|undefined{return transitReason(p,to,n)?undefined:{from:p.world!.mapId,to}}
