@@ -1,0 +1,5275 @@
+{
+  "version": "v2.5",
+  "chapter": 17,
+  "title": "星の終着点と最後の約束",
+  "baseline": "c5ccf0bdad9f258c909a0a13203b3a1007a53d36",
+  "main_check": {
+    "ref": "main",
+    "sha": "c5ccf0bdad9f258c909a0a13203b3a1007a53d36",
+    "checked_at": "2026-11-10T04:16:52.012251+00:00",
+    "source": "git fetch origin main; git rev-parse FETCH_HEAD"
+  },
+  "source_commit": "2cb77324b9610925a24742b06bc0b3018c6c1624",
+  "branch": "feature/v2.5-chapter-seventeen-exploration",
+  "generated_at": "2026-11-10T04:16:52.127043+00:00",
+  "unit": {
+    "command": "npm test",
+    "file": "v25-unit-standard-final-1.log",
+    "log_sha256": "89a28ab9ab98c2e474ef313ca96dd541b5544e0de8324e6677bc84bd0724af0a",
+    "passed": 2102,
+    "total": 2102,
+    "files": 39,
+    "baseline_preserved": 1800,
+    "added": 302,
+    "pool": "threads",
+    "workers": 1,
+    "per_case_timeout_ms": 5000,
+    "history": [
+      {
+        "recorded_at": "2026-11-09T20:25:30.582258+00:00",
+        "sha256": "27bf5e85f3487a53e414416d422648a5584b4b6a285dc775924c6df24b0cabac",
+        "error_types": [
+          "AssertionError"
+        ],
+        "log": "v25-unit-initial.log",
+        "summary": "76 failed | 40 passed (116)",
+        "duration": "8.93s (transform 1.51s, setup 0ms, collect 2.72s, tests 5.13s, environment 1ms, prepare 395ms)",
+        "failures": [
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > 'starpath-sword' equips its owner exactly once across reload",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > 'promiseward-shield-spear' equips its owner exactly once across reload",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > 'destiny-rod' equips its owner exactly once across reload",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > sword is one measured hit and rod is1.22 actual elemental power,not healing",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed1 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed2 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed3 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed4 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed5 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed6 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed7 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed8 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed9 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed10 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed11 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed12 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed13 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed14 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed15 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed16 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed17 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed18 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed19 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-combat-v25.test.ts > terminal enemies use shared damage, reservations and all player systems > seed20 wins all nine encounters without chapter17 gear",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > registers seventeen places,thirty-eight events,five choices,eight articles and keeps chapters17/18 locked",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-library-record' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-library-cache' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-camp-rest' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-tia' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-memory-fight' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-memory-cache' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-watch-record' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-archive-fight' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-archive-record' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-archive-cache' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-garden-rest' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-guardian' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-branch' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-bridge-record' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-sanctuary-fight' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-promise-record' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-sanctuary-cache' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-refuge-rest' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-tower-fight' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-tower-reading' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-tower-cache' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-reconnect' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-seer-record' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-promise' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-inherit' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-heart-cache' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-last-judge' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'c17-clear' confirms once, preserves prerequisites and reloads its receipt",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'sq-lost-star-letter' rewards before/after clear without duplicates",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'sq-guardian-reason' rewards before/after clear without duplicates",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'sq-choose-tomorrow' rewards before/after clear without duplicates",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > potion capacity leaves quest reward retryable",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > ether capacity leaves quest reward retryable",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > puzzle rejects wrong/partial input and opens only after exact integration",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-01' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-02' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-03' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-04' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-05' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-06' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-07' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-08' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-09' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-10' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-11' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-12' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-13' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-14' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-15' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-seventeen-v25.test.ts > chapter seventeen authored progression and save compatibility > 'chapter-16' flags,equipment,choices,visits and records survive new progress"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T20:27:31.682214+00:00",
+        "sha256": "f0ccdab8e8ef354bbea11728b79f8b06c82fe7ab27a516b8df96a1687bd713b9",
+        "error_types": [],
+        "log": "v25-unit-rerun1.log",
+        "summary": "284 passed (284)",
+        "duration": "16.66s (transform 1.95s, setup 0ms, collect 3.74s, tests 10.12s, environment 2ms, prepare 974ms)",
+        "failures": []
+      },
+      {
+        "recorded_at": "2026-11-09T20:40:28.658138+00:00",
+        "sha256": "9f2d7fc332c57853152c22a26f9b927a234c714b731ceaebe17a5675db416766",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-full-initial.log",
+        "summary": "16 failed | 2069 passed (2085)",
+        "duration": "686.87s (transform 7.61s, setup 0ms, collect 48.48s, tests 591.90s, environment 56ms, prepare 13.27s)",
+        "failures": [
+          " FAIL  tests/chapter-eight-v16.test.ts > new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes",
+          " FAIL  tests/chapter-eight-v16.test.ts > new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes",
+          " FAIL  tests/chapter-eleven-v19.test.ts > chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-fourteen-v22.test.ts > chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-fourteen-v22.test.ts > chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes",
+          " FAIL  tests/chapter-nine-v17.test.ts > ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption",
+          " FAIL  tests/chapter-ten-v18.test.ts > chapter ten story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced",
+          " FAIL  tests/chapter-ten-v18.test.ts > chapter ten combat profiles and gear > tide-road allows valid deterministic turns",
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes",
+          " FAIL  tests/chapter-twelve-v20.test.ts > chapter twelve story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced",
+          " FAIL  tests/chapter-twelve-v20.test.ts > chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/exploration-v18.test.ts > twenty-six shared maps and approach policy > 'tide-ruins' entry/objects/patrols are reachable and all exits preserve valid targets",
+          " FAIL  tests/exploration-v18.test.ts > twenty-six shared maps and approach policy > 'tide-core' entry/objects/patrols are reachable and all exits preserve valid targets",
+          " FAIL  tests/skills-v06.test.ts > new skill battle simulations > completes level 3 battles across fixed seeds without invalid resources",
+          " FAIL  tests/skills-v06.test.ts > new skill battle simulations > completes level 7 battles across fixed seeds without invalid resources"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T20:44:38.561925+00:00",
+        "sha256": "f67284bd02adf70084f47be12b612067903d8ed1b15ca7cb1b1d5a9e24a25743",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-isolated.log",
+        "summary": "5 failed | 2080 passed (2085)",
+        "duration": "246.68s (transform 7.76s, setup 0ms, collect 28.16s, tests 191.50s, environment 31ms, prepare 12.30s)",
+        "failures": [
+          " FAIL  tests/chapter-sixteen-v24.test.ts > chapter sixteen authored progression and save compatibility > 'chapter-11' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-sixteen-v24.test.ts > chapter sixteen authored progression and save compatibility > 'chapter-15' flags,equipment,choices,visits and records survive new progress",
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes",
+          " FAIL  tests/chapter-twelve-v20.test.ts > chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T20:47:30.981948+00:00",
+        "sha256": "0336768ac756367c42ada1d53d95af25be1ebe7849525e322775959d13d57873",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-fixtures.log",
+        "summary": "2 failed | 2095 passed (2097)",
+        "duration": "170.82s (transform 2.99s, setup 0ms, collect 17.29s, tests 136.51s, environment 11ms, prepare 4.93s)",
+        "failures": [
+          " FAIL  tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false",
+          " FAIL  tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T20:51:46.756784+00:00",
+        "sha256": "32d763f2d39735c487c0baa23ef0c3850638f1927eeff878d853ebd7dd3d6b7e",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-final.log",
+        "summary": "2 failed | 2095 passed (2097)",
+        "duration": "161.97s (transform 3.52s, setup 0ms, collect 17.63s, tests 127.97s, environment 13ms, prepare 4.81s)",
+        "failures": [
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes",
+          " FAIL  tests/exploration-v19.test.ts > thirty-four shared maps and approach policy > 'star-mine' entry/objects/patrols are reachable and all exits preserve valid targets"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T20:55:29.902462+00:00",
+        "sha256": "49d3315b43e48bd7b24f0d5dc5c4691e4f71bc92ae9f407723c433511ec4a06d",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-final-outer.log",
+        "summary": "1 failed | 2096 passed (2097)",
+        "duration": "152.20s (transform 3.32s, setup 0ms, collect 18.47s, tests 115.99s, environment 15ms, prepare 5.56s)",
+        "failures": [
+          " FAIL  tests/chapter-sixteen-v24.test.ts > grave enemies and measurable shared combat > seed6 clears both quest routes atLv50 with chapter15 weapons"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T20:59:13.029478+00:00",
+        "sha256": "9cf6c179820b4d760f38ff03417bdd7f79e182d96b0dbe3bb6ed673c54653ef8",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-verified.log",
+        "summary": "6 failed | 2091 passed (2097)",
+        "duration": "187.21s (transform 3.21s, setup 0ms, collect 18.93s, tests 146.32s, environment 17ms, prepare 11.00s)",
+        "failures": [
+          " FAIL  tests/chapter-eleven-v19.test.ts > chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-ten-v18.test.ts > chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes",
+          " FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes",
+          " FAIL  tests/exploration-v15.test.ts > real maps, collision and movement > defines three connected full-size maps with reachable objects and enemies",
+          " FAIL  tests/exploration-v15.test.ts > enemy entities and contact latch > patrol moves through waypoints without leaving its leash or crossing obstacles"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T21:01:04.990496+00:00",
+        "sha256": "33d2fef6880b2d913e58fb5a2e2d602b5a9a18f53dcf7a8c570aff122697708b",
+        "error_types": [],
+        "log": "v25-unit-threads.log",
+        "summary": "2097 passed (2097)",
+        "duration": "110.09s (transform 2.45s, setup 0ms, collect 10.13s, tests 86.67s, environment 14ms, prepare 5.22s)",
+        "failures": []
+      },
+      {
+        "recorded_at": "2026-11-09T21:04:56.629534+00:00",
+        "sha256": "acdb83f73c75138d777e687f25a1da2c5a936cdc00e277c34f6c6fe3fc9dbc67",
+        "error_types": [
+          "Test timed out in 5000ms"
+        ],
+        "log": "v25-unit-standard.log",
+        "summary": "1 failed | 2096 passed (2097)",
+        "duration": "162.74s (transform 3.64s, setup 0ms, collect 15.10s, tests 132.44s, environment 15ms, prepare 4.80s)",
+        "failures": [
+          " FAIL  tests/chapter-fourteen-v22.test.ts > chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes"
+        ]
+      },
+      {
+        "recorded_at": "2026-11-09T22:25:53.920954+00:00",
+        "sha256": "ece27106b73d01a3c4be208e07bd9d73c34688275b0f66801f0c7131dd34daa2",
+        "error_types": [],
+        "log": "v25-contact-unit.log",
+        "summary": "4 passed (4)",
+        "duration": "779ms (transform 188ms, setup 0ms, collect 149ms, tests 8ms, environment 0ms, prepare 237ms)",
+        "failures": []
+      },
+      {
+        "recorded_at": "2026-11-09T22:27:46.448774+00:00",
+        "sha256": "4c1dcfaf9c91da29dec2f3abcf66b2b6e55c9dbda8b473361815d18263afa599",
+        "error_types": [],
+        "log": "v25-contact-unit-final.log",
+        "summary": "4 passed (4)",
+        "duration": "1.37s (transform 116ms, setup 0ms, collect 89ms, tests 4ms, environment 0ms, prepare 269ms)",
+        "failures": []
+      },
+      {
+        "recorded_at": "2026-11-10T03:59:05.042836+00:00",
+        "sha256": "823b35d8dd27931ad87d9d7220b10135c40a1abc03d74e8db28f86d5bcc89a31",
+        "error_types": [],
+        "log": "v25-contact-unit-center.log",
+        "summary": "5 passed (5)",
+        "duration": "423ms (transform 101ms, setup 0ms, collect 73ms, tests 5ms, environment 0ms, prepare 121ms)",
+        "failures": []
+      },
+      {
+        "recorded_at": "2026-11-10T04:15:16.633422+00:00",
+        "sha256": "89a28ab9ab98c2e474ef313ca96dd541b5544e0de8324e6677bc84bd0724af0a",
+        "error_types": [],
+        "log": "v25-unit-standard-final-1.log",
+        "summary": "2102 passed (2102)",
+        "duration": "69.33s (transform 1.55s, setup 0ms, collect 6.82s, tests 54.37s, environment 9ms, prepare 2.73s)",
+        "failures": []
+      }
+    ]
+  },
+  "browser": {
+    "passed": 76,
+    "total": 76,
+    "legacy_files": 70,
+    "new_files": 6,
+    "files": [
+      {
+        "file": "chapter-seventeen-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:06:59.221Z",
+        "end": "2026-11-09T21:07:56.903Z",
+        "log": "/tmp/v25-browser/chapter-seventeen-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0
+          }
+        ],
+        "log_sha256": "3839e81ddd0e1894a531b5405f482af502233558a256a625f2601f85d8ec0ef7",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "fate-path-v25.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:06:59.213Z",
+        "end": "2026-11-09T21:09:41.273Z",
+        "log": "/tmp/v25-browser/fate-path-v25.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0
+          }
+        ],
+        "log_sha256": "5937a107159932c4baf2db5ee7a1d372a05f991570e1623cd8a25b6353febcab",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-seventeen-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:20:39.780Z",
+        "end": "2026-11-09T21:21:10.995Z",
+        "log": "/tmp/v25-browser/chapter-seventeen-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T21:21:10.994Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-seventeen-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T21:20:39.780Z",
+            "log": "/tmp/v25-browser/chapter-seventeen-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T21:21:10.994Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "e591861887a5cdf4c682f8fb088f233997b51043bfc451d59d7317e27e502b59",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v25.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:21:39.233Z",
+        "end": "2026-11-10T04:14:00.909Z",
+        "log": "/tmp/v25-browser/exploration-v25.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 1,
+            "end": "2026-11-09T21:25:25.980Z"
+          },
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:22:56.718Z"
+          },
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:14:00.909Z",
+            "stage": "final_shared_driver_regression",
+            "log": "/tmp/v25-native-final.log"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v25.smoke.mjs",
+            "code": null,
+            "start": "2026-11-09T22:21:39.233Z",
+            "log": "/tmp/v25-browser/exploration-v25.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 1,
+                "end": "2026-11-09T21:25:25.980Z"
+              },
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:22:56.718Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "37ab0947cd8e9e3c4e765931890804b863e739f3c77792a2b7958f1ef3bb8652",
+        "recorded_error_lines": [
+          "locator.tap: Timeout 30000ms exceeded.",
+          "  name: 'TimeoutError'"
+        ],
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v25.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:25:25.998Z",
+        "end": "2026-11-09T21:44:57.836Z",
+        "log": "/tmp/v25-browser/exploration-v25.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T21:44:57.833Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v25.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T21:25:25.998Z",
+            "log": "/tmp/v25-browser/exploration-v25.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T21:44:57.833Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "c06d3acc3e9e638c700f2901bb1544b7a1b5fa763fcf032f926a3cb78207200d",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "adventure-v08.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:44:57.838Z",
+        "end": "2026-11-09T21:46:26.388Z",
+        "log": "/tmp/v25-browser/adventure-v08.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T21:46:26.386Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "adventure-v08.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T21:44:57.838Z",
+            "log": "/tmp/v25-browser/adventure-v08.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T21:46:26.386Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "5e5a27c544aeade768b15401066ac4fd5a13094db2dbb0e25a5c43ca1068205b",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "attack-modifier.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:46:26.388Z",
+        "end": "2026-11-09T21:46:34.883Z",
+        "log": "/tmp/v25-browser/attack-modifier.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T21:46:34.883Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "attack-modifier.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T21:46:26.388Z",
+            "log": "/tmp/v25-browser/attack-modifier.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T21:46:34.883Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d468e91394ef599fa27dfafdfeac56c8a601fb2870511a45d24e674fd5df5c29",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "browser.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:46:34.884Z",
+        "end": "2026-11-09T21:47:33.581Z",
+        "log": "/tmp/v25-browser/browser.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T21:47:33.579Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "browser.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T21:46:34.884Z",
+            "log": "/tmp/v25-browser/browser.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T21:47:33.579Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "404e4d7c8e23856ab7970749c6c0c2492b6954487a8f63bb51a3bc53a3c780d1",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-seventeen-v25.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:22:56.721Z",
+        "end": "2026-11-09T22:30:15.914Z",
+        "log": "/tmp/v25-browser/chapter-seventeen-v25.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-09T21:55:14.025Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-09T22:30:15.912Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-seventeen-v25.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:22:56.721Z",
+            "log": "/tmp/v25-browser/chapter-seventeen-v25.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-09T21:55:14.025Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-09T22:30:15.912Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "ca08c95d20e7e3c74b4f9b114224742e418bda4d4f994a56bed738797b4fe0b5",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-eight-v16.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T21:47:33.582Z",
+        "end": "2026-11-09T22:03:40.547Z",
+        "log": "/tmp/v25-browser/chapter-eight-v16.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:03:40.543Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-eight-v16.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T21:47:33.582Z",
+            "log": "/tmp/v25-browser/chapter-eight-v16.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:03:40.543Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "b4fc2fba68bc132ff0096e9c3e5da81a1ce89c88b1192eff725ab6d4b4412330",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-eleven-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:03:40.549Z",
+        "end": "2026-11-09T22:06:11.526Z",
+        "log": "/tmp/v25-browser/chapter-eleven-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:06:11.522Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-eleven-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:03:40.549Z",
+            "log": "/tmp/v25-browser/chapter-eleven-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:06:11.522Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "72d6a6505ab6193bc15e435aadfe1474c8c82f7752af7ede68ddd265377c6bec",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-fifteen-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:30:15.915Z",
+        "end": "2026-11-09T22:33:37.389Z",
+        "log": "/tmp/v25-browser/chapter-fifteen-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:33:37.388Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-fifteen-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:30:15.915Z",
+            "log": "/tmp/v25-browser/chapter-fifteen-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:33:37.388Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "4bb79ca047743033d744253de92350c76dc4b9bddffa007566abd1d9415fef26",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-eleven-v19.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:22:57.035Z",
+        "end": "2026-11-09T22:46:20.891Z",
+        "log": "/tmp/v25-browser/chapter-eleven-v19.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-09T22:35:31.870Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-09T22:46:20.889Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-eleven-v19.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:22:57.035Z",
+            "log": "/tmp/v25-browser/chapter-eleven-v19.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-09T22:35:31.870Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-09T22:46:20.889Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "f0250074c2c955c9db8d516e15b3edccb6d50de0fc266e31d8a5d307f23961a8",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-five-ui-v13.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:46:20.894Z",
+        "end": "2026-11-09T22:46:52.384Z",
+        "log": "/tmp/v25-browser/chapter-five-ui-v13.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:46:52.382Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-five-ui-v13.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:46:20.894Z",
+            "log": "/tmp/v25-browser/chapter-five-ui-v13.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:46:52.382Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "17c53ed68a70930be42371b992e756ca9a2aaa12bc87f768ce506d306521073b",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-fifteen-v23.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T01:59:20.539Z",
+        "end": "2026-11-10T02:13:01.516Z",
+        "log": "/tmp/v25-browser/chapter-fifteen-v23.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-09T22:48:05.738Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:13:01.514Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-fifteen-v23.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T01:59:20.539Z",
+            "log": "/tmp/v25-browser/chapter-fifteen-v23.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-09T22:48:05.738Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:13:01.514Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "8cabd73c0b2fdd50d5272ef5fa45955e2b3e5ee8f124f9dcfc5f2bd9878c1b13",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-five-v13.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:46:52.384Z",
+        "end": "2026-11-09T22:51:37.046Z",
+        "log": "/tmp/v25-browser/chapter-five-v13.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:51:37.045Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-five-v13.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:46:52.384Z",
+            "log": "/tmp/v25-browser/chapter-five-v13.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:51:37.045Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "2bd1ee36605b21c5a5133f9c93e2d3bb329e09f0ea56a7429d0499bdc6b5cfbe",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-four-ui-v12.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:51:37.053Z",
+        "end": "2026-11-09T22:51:50.211Z",
+        "log": "/tmp/v25-browser/chapter-four-ui-v12.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:51:50.210Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-four-ui-v12.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:51:37.053Z",
+            "log": "/tmp/v25-browser/chapter-four-ui-v12.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:51:50.210Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "9131424294978c00c7dc04e26ce574279f1dc0be5fd27b46627fca8e5acf7a72",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-four-v12.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:51:50.214Z",
+        "end": "2026-11-09T22:55:11.945Z",
+        "log": "/tmp/v25-browser/chapter-four-v12.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:55:11.942Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-four-v12.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:51:50.214Z",
+            "log": "/tmp/v25-browser/chapter-four-v12.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:55:11.942Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "e6c1f37ea1869bdb5f3f52a67db7d090e46a6e54fddad35faa009b931810ff2b",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-fourteen-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-09T22:55:11.947Z",
+        "end": "2026-11-09T22:57:46.782Z",
+        "log": "/tmp/v25-browser/chapter-fourteen-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-09T22:57:46.777Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-fourteen-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-09T22:55:11.947Z",
+            "log": "/tmp/v25-browser/chapter-fourteen-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-09T22:57:46.777Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "a7d1a34ce8615aeb30bc945da5824a3bffa5f28d8df8781f319c3a91974fc94a",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "battle-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T01:58:56.479Z",
+        "end": "2026-11-10T01:59:06.127Z",
+        "log": "/tmp/v25-browser/battle-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T01:59:06.125Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "battle-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T01:58:56.479Z",
+            "log": "/tmp/v25-browser/battle-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T01:59:06.125Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "a8686b716614bf7433dee1ada5a1c327aa13afbf5662c27792c230ba0ed493fe",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-eleven-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T01:59:06.129Z",
+        "end": "2026-11-10T01:59:14.629Z",
+        "log": "/tmp/v25-browser/chapter-eleven-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T01:59:14.627Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-eleven-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T01:59:06.129Z",
+            "log": "/tmp/v25-browser/chapter-eleven-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T01:59:14.627Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "6e9aaced0bc926ecfaee468e02fed95a441fa5aae94268b34247ac48e81efccb",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-fifteen-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T01:59:14.629Z",
+        "end": "2026-11-10T01:59:20.539Z",
+        "log": "/tmp/v25-browser/chapter-fifteen-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T01:59:20.538Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-fifteen-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T01:59:14.629Z",
+            "log": "/tmp/v25-browser/chapter-fifteen-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T01:59:20.538Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "2048450684485082157d532a776c807034a21916d21d45c45c3906b72e9ee0f6",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-fourteen-v22.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T01:59:20.554Z",
+        "end": "2026-11-10T02:23:29.855Z",
+        "log": "/tmp/v25-browser/chapter-fourteen-v22.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:11:47.288Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:23:29.854Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-fourteen-v22.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T01:59:20.554Z",
+            "log": "/tmp/v25-browser/chapter-fourteen-v22.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:11:47.288Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:23:29.854Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "0630653a2f5cf11ba60ba22e3d654b2dd2f9318313448ff46701f22f87688d48",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-nine-v17.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:13:01.518Z",
+        "end": "2026-11-10T02:21:52.925Z",
+        "log": "/tmp/v25-browser/chapter-nine-v17.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T02:21:52.922Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-nine-v17.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:13:01.518Z",
+            "log": "/tmp/v25-browser/chapter-nine-v17.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T02:21:52.922Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "497111efbf44c87923c39ae5807b024cc7f0065409b0c593f1f39810654821a4",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-six-ui-v14.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:23:29.856Z",
+        "end": "2026-11-10T02:24:00.207Z",
+        "log": "/tmp/v25-browser/chapter-six-ui-v14.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T02:24:00.206Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-six-ui-v14.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:23:29.856Z",
+            "log": "/tmp/v25-browser/chapter-six-ui-v14.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T02:24:00.206Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "2ed0d075ae70cd2c6f44b929513cf5945cd10ad351326419e6f4c2d12c650f7f",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-seven-v15.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:21:52.926Z",
+        "end": "2026-11-10T02:32:24.047Z",
+        "log": "/tmp/v25-browser/chapter-seven-v15.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:27:01.839Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:32:24.046Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-seven-v15.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:21:52.926Z",
+            "log": "/tmp/v25-browser/chapter-seven-v15.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:27:01.839Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:32:24.046Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "53f286f2443c74121fa0957d1f05233bfa73c0dae00073ab8d6d19fb2ce10356",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-six-v14.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:24:00.208Z",
+        "end": "2026-11-10T02:28:04.583Z",
+        "log": "/tmp/v25-browser/chapter-six-v14.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T02:28:04.580Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-six-v14.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:24:00.208Z",
+            "log": "/tmp/v25-browser/chapter-six-v14.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T02:28:04.580Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "3302ff01b8b2a6a5f12a637b4494dcf4ec914aabe5e1b2790cd520e7eed83ae5",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-sixteen-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:28:04.584Z",
+        "end": "2026-11-10T02:32:07.080Z",
+        "log": "/tmp/v25-browser/chapter-sixteen-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T02:32:07.078Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-sixteen-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:28:04.584Z",
+            "log": "/tmp/v25-browser/chapter-sixteen-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T02:32:07.078Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d3cda22720ccb9679e8f7edefe4a9b58617fe7cfa87a8d7d57f02731e05f7737",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-ten-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:32:24.047Z",
+        "end": "2026-11-10T02:34:43.010Z",
+        "log": "/tmp/v25-browser/chapter-ten-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T02:34:43.009Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-ten-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:32:24.047Z",
+            "log": "/tmp/v25-browser/chapter-ten-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T02:34:43.009Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "def9ccba6124034bb71be59ac2b83034e54821c0f62c7747dcc98886015ff404",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-ten-v18.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:34:43.011Z",
+        "end": "2026-11-10T02:51:57.159Z",
+        "log": "/tmp/v25-browser/chapter-ten-v18.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:43:03.442Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:51:57.158Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-ten-v18.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:34:43.011Z",
+            "log": "/tmp/v25-browser/chapter-ten-v18.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:43:03.442Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:51:57.158Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "f7bdbd0fda3eda271cc4270a5a4f880864453afc1b6449cfa043f0405afad22c",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-sixteen-v24.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:32:07.081Z",
+        "end": "2026-11-10T03:01:04.568Z",
+        "log": "/tmp/v25-browser/chapter-sixteen-v24.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T02:46:07.054Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:01:04.567Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-sixteen-v24.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:32:07.081Z",
+            "log": "/tmp/v25-browser/chapter-sixteen-v24.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T02:46:07.054Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:01:04.567Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "bec066e79ba8eecbe60e7148be66b2dea63323ce68a73d36e8ee42174f371da3",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-thirteen-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:51:57.160Z",
+        "end": "2026-11-10T02:54:15.643Z",
+        "log": "/tmp/v25-browser/chapter-thirteen-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T02:54:15.642Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-thirteen-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:51:57.160Z",
+            "log": "/tmp/v25-browser/chapter-thirteen-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T02:54:15.642Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "602955a6a018e84b14e93c8d26f646db090cb36bcbe7daad1c8f74591c3eeca0",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-three-layout-v11.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:01:04.569Z",
+        "end": "2026-11-10T03:01:17.585Z",
+        "log": "/tmp/v25-browser/chapter-three-layout-v11.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:01:17.583Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-three-layout-v11.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:01:04.569Z",
+            "log": "/tmp/v25-browser/chapter-three-layout-v11.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:01:17.583Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "00b8c2dc163c4eb3b225e29a6a1ee8179ccdfe44efc1fe12fa5a7f3fdc3d3f44",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-three-v11.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:01:17.586Z",
+        "end": "2026-11-10T03:04:43.718Z",
+        "log": "/tmp/v25-browser/chapter-three-v11.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:02:57.934Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:04:43.717Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-three-v11.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:01:17.586Z",
+            "log": "/tmp/v25-browser/chapter-three-v11.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:02:57.934Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:04:43.717Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "91458030ac703f463ef7bce6e0ca6721e715cda4fe6958dee5a02a930d78f2dd",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-thirteen-v21.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T02:54:15.644Z",
+        "end": "2026-11-10T03:11:45.054Z",
+        "log": "/tmp/v25-browser/chapter-thirteen-v21.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:03:10.262Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:11:45.053Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-thirteen-v21.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T02:54:15.644Z",
+            "log": "/tmp/v25-browser/chapter-thirteen-v21.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:03:10.262Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:11:45.053Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "450dcc734c6411ca7001da96fc5da81906401987365cde5b956389e51409ffb5",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-twelve-ui.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:04:43.720Z",
+        "end": "2026-11-10T03:07:14.064Z",
+        "log": "/tmp/v25-browser/chapter-twelve-ui.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:07:14.062Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-twelve-ui.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:04:43.720Z",
+            "log": "/tmp/v25-browser/chapter-twelve-ui.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:07:14.062Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "6bd56f3c7704819326542db3f3549d23937099d68e37b1537ba05a1156709643",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-two-v10.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:11:45.055Z",
+        "end": "2026-11-10T03:13:53.124Z",
+        "log": "/tmp/v25-browser/chapter-two-v10.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:13:53.123Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-two-v10.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:11:45.055Z",
+            "log": "/tmp/v25-browser/chapter-two-v10.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:13:53.123Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d17e4a362a309a7cb491c95bed362408b6d3261c39fad574ee119dfe63bad20a",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "chapter-twelve-v20.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:07:14.065Z",
+        "end": "2026-11-10T03:25:09.794Z",
+        "log": "/tmp/v25-browser/chapter-twelve-v20.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [
+              "--quests-before"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:16:34.971Z"
+          },
+          {
+            "args": [
+              "--quests-after"
+            ],
+            "code": 0,
+            "end": "2026-11-10T03:25:09.794Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-twelve-v20.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:07:14.065Z",
+            "log": "/tmp/v25-browser/chapter-twelve-v20.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [
+                  "--quests-before"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:16:34.971Z"
+              },
+              {
+                "args": [
+                  "--quests-after"
+                ],
+                "code": 0,
+                "end": "2026-11-10T03:25:09.794Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "e994c720e82f178f668358b8b5c5a3813ba94cd28f412b10e7290e1c247be207",
+        "timing_mode": "virtual_battle_wait"
+      },
+      {
+        "file": "corridor-v23.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:13:53.125Z",
+        "end": "2026-11-10T03:16:59.933Z",
+        "log": "/tmp/v25-browser/corridor-v23.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:16:59.933Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "corridor-v23.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:13:53.125Z",
+            "log": "/tmp/v25-browser/corridor-v23.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:16:59.933Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "34022acc9620766b06dbe976558fce073b7c89622b4544db5ca5d758baf02301",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-smoke-v15.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:16:59.934Z",
+        "end": "2026-11-10T03:17:12.837Z",
+        "log": "/tmp/v25-browser/exploration-smoke-v15.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:17:12.837Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-smoke-v15.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:16:59.934Z",
+            "log": "/tmp/v25-browser/exploration-smoke-v15.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:17:12.837Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "c9d5714630ed91883dab9cefd22df75683c120ff2357dbc089d784a1d6a5cdcd",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-ui-v15.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:17:12.838Z",
+        "end": "2026-11-10T03:17:54.979Z",
+        "log": "/tmp/v25-browser/exploration-ui-v15.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:17:54.978Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-ui-v15.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:17:12.838Z",
+            "log": "/tmp/v25-browser/exploration-ui-v15.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:17:54.978Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "265ab4e5d38d67305f34ae94a7004bb636db3d47a5057725d7631ed1fbb2802d",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-ui-v16.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:17:54.980Z",
+        "end": "2026-11-10T03:18:40.069Z",
+        "log": "/tmp/v25-browser/exploration-ui-v16.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:18:40.067Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-ui-v16.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:17:54.980Z",
+            "log": "/tmp/v25-browser/exploration-ui-v16.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:18:40.067Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "2ff1a369520321634a5b65bcf8710f46e3cda176dcdc4141fdbf69580c5b733c",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v17.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:18:40.070Z",
+        "end": "2026-11-10T03:21:36.315Z",
+        "log": "/tmp/v25-browser/exploration-v17.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:21:36.314Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v17.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:18:40.070Z",
+            "log": "/tmp/v25-browser/exploration-v17.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:21:36.314Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "31cc9541b96e8ec5742bf69cc9d0aee7961048b9b001338b626f0c159adce6f9",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v18.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:21:36.316Z",
+        "end": "2026-11-10T03:25:32.572Z",
+        "log": "/tmp/v25-browser/exploration-v18.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:25:32.571Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v18.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:21:36.316Z",
+            "log": "/tmp/v25-browser/exploration-v18.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:25:32.571Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "53f261c678007673b7eea55e9132f46a569fa6fa3cb5be1752bdc0d14e9df772",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v19.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:25:09.795Z",
+        "end": "2026-11-10T03:30:12.788Z",
+        "log": "/tmp/v25-browser/exploration-v19.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:30:12.785Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v19.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:25:09.795Z",
+            "log": "/tmp/v25-browser/exploration-v19.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:30:12.785Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "566724c3e2f8b07e8f05a28e91c91c95b9d8a8986828e3ef472fa87091c9d6d7",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v20.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:25:32.573Z",
+        "end": "2026-11-10T03:32:18.842Z",
+        "log": "/tmp/v25-browser/exploration-v20.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:32:18.841Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v20.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:25:32.573Z",
+            "log": "/tmp/v25-browser/exploration-v20.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:32:18.841Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "9ab1ce710a8f60807659d0e7d6b25ee436e022b5081827b86e981957508c2f1b",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v21.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:30:12.790Z",
+        "end": "2026-11-10T03:38:03.040Z",
+        "log": "/tmp/v25-browser/exploration-v21.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:38:03.039Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v21.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:30:12.790Z",
+            "log": "/tmp/v25-browser/exploration-v21.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:38:03.039Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "8342c3aaef807eb6e68a2f8797f6f3bc79dada34e72527877378745e32fc3bda",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v22.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:32:18.844Z",
+        "end": "2026-11-10T03:41:22.104Z",
+        "log": "/tmp/v25-browser/exploration-v22.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:41:22.103Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v22.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:32:18.844Z",
+            "log": "/tmp/v25-browser/exploration-v22.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:41:22.103Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "b43ba201367602971cdf4391efc18b2eb43338966f0bf68515c2e5640b413390",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v23.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:38:03.041Z",
+        "end": "2026-11-10T03:48:13.295Z",
+        "log": "/tmp/v25-browser/exploration-v23.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:48:13.292Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v23.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:38:03.041Z",
+            "log": "/tmp/v25-browser/exploration-v23.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:48:13.292Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "36b42275acd67ffafb07aef3aa47e3f571f43b3726c0ca6612ec46e37f9cf5ee",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "foundation.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:48:13.296Z",
+        "end": "2026-11-10T03:48:19.701Z",
+        "log": "/tmp/v25-browser/foundation.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:48:19.698Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "foundation.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:48:13.296Z",
+            "log": "/tmp/v25-browser/foundation.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:48:19.698Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "6d22d1e2b21bbd09894cec4114f83ee6ff4c789ae5f21854e3cf1a96007e4fbf",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "lab-v04.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:48:19.701Z",
+        "end": "2026-11-10T03:48:26.135Z",
+        "log": "/tmp/v25-browser/lab-v04.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:48:26.134Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "lab-v04.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:48:19.701Z",
+            "log": "/tmp/v25-browser/lab-v04.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:48:26.134Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "045a294dd94bff89a246fe318bc580fc495b96e344569060b27e04c20b1a9378",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "memory-projection-v24.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:48:26.139Z",
+        "end": "2026-11-10T03:49:13.822Z",
+        "log": "/tmp/v25-browser/memory-projection-v24.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:49:13.820Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "memory-projection-v24.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:48:26.139Z",
+            "log": "/tmp/v25-browser/memory-projection-v24.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:49:13.820Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "fdd23d151a2373411bb37d4df474662e12fa319a22bfd241fd037d897adfa1d1",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "minimap-v20.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:49:13.824Z",
+        "end": "2026-11-10T03:49:25.456Z",
+        "log": "/tmp/v25-browser/minimap-v20.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:49:25.455Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "minimap-v20.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:49:13.824Z",
+            "log": "/tmp/v25-browser/minimap-v20.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:49:25.455Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "3adebd6e9423fcd750943810fe2639d929f605c9ef1567f7e344aa805dcfa91d",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "skill-tree-v09.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:49:25.458Z",
+        "end": "2026-11-10T03:49:50.254Z",
+        "log": "/tmp/v25-browser/skill-tree-v09.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:49:50.253Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "skill-tree-v09.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:49:25.458Z",
+            "log": "/tmp/v25-browser/skill-tree-v09.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:49:50.253Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d7be56fb77abefc98f823ce877135d54cf28a6ee4bd4b77f47f1a5f5b1e2fed5",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "skills-v06.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:49:50.255Z",
+        "end": "2026-11-10T03:49:58.810Z",
+        "log": "/tmp/v25-browser/skills-v06.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:49:58.809Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "skills-v06.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:49:50.255Z",
+            "log": "/tmp/v25-browser/skills-v06.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:49:58.809Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "0d4df2ad469ff79e83dc21bbf540753fb65187019d0e4612351cd8929bc9bf00",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v24.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:41:22.108Z",
+        "end": "2026-11-10T03:54:04.505Z",
+        "log": "/tmp/v25-browser/exploration-v24.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:04.504Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v24.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:41:22.108Z",
+            "log": "/tmp/v25-browser/exploration-v24.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:04.504Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "4a6f561912bd48674f26e8d69a23edfa607712f22d89ccd505e54e3ec9fa9acb",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-fourteen-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:04.508Z",
+        "end": "2026-11-10T03:54:11.374Z",
+        "log": "/tmp/v25-browser/chapter-fourteen-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:11.373Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-fourteen-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:04.508Z",
+            "log": "/tmp/v25-browser/chapter-fourteen-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:11.373Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "8259f99050ddb916cf1480b2a6be36efc8f6614107a883e2d6d1a0d810b06d10",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-nine-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:11.375Z",
+        "end": "2026-11-10T03:54:16.469Z",
+        "log": "/tmp/v25-browser/chapter-nine-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:16.469Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-nine-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:11.375Z",
+            "log": "/tmp/v25-browser/chapter-nine-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:16.469Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "60e15085d765370faa29a2756011710ccc8dffcf501d497fb90042bfd544c662",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-sixteen-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:16.470Z",
+        "end": "2026-11-10T03:54:21.682Z",
+        "log": "/tmp/v25-browser/chapter-sixteen-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:21.682Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-sixteen-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:16.470Z",
+            "log": "/tmp/v25-browser/chapter-sixteen-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:21.682Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "6d0430f8a1617f4b3f71f028fd225b0cb691825f85ed4b9373713fc30838073a",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-ten-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:21.683Z",
+        "end": "2026-11-10T03:54:27.219Z",
+        "log": "/tmp/v25-browser/chapter-ten-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:27.218Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-ten-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:21.683Z",
+            "log": "/tmp/v25-browser/chapter-ten-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:27.218Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "9bf14af4fad9c4970cb78f631c5ee8817211054eba9f693b3fbde04c307a5c36",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-thirteen-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:27.219Z",
+        "end": "2026-11-10T03:54:32.842Z",
+        "log": "/tmp/v25-browser/chapter-thirteen-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:32.841Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-thirteen-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:27.219Z",
+            "log": "/tmp/v25-browser/chapter-thirteen-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:32.841Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "84649256abade7b486169ccb5abf0a1eb3ea567a6372126b173ae6c23a097d2f",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "chapter-twelve-equipment.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:32.843Z",
+        "end": "2026-11-10T03:54:38.030Z",
+        "log": "/tmp/v25-browser/chapter-twelve-equipment.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:38.029Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "chapter-twelve-equipment.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:32.843Z",
+            "log": "/tmp/v25-browser/chapter-twelve-equipment.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:38.029Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "17f21ccc3df3e80cfbff6e5bb1a210f0a545fce3f4cda0f7db2e3f1b93f0c50d",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "equipment-v07.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:54:38.030Z",
+        "end": "2026-11-10T03:54:44.598Z",
+        "log": "/tmp/v25-browser/equipment-v07.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:54:44.597Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "equipment-v07.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T03:54:38.030Z",
+            "log": "/tmp/v25-browser/equipment-v07.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:54:44.597Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "2a3f23d23865aeb1b1b93da0e8e40849c9d74158f1a9464db6f5c8dee887d0ba",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v17.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:12:36.704Z",
+        "end": "2026-11-10T04:13:20.236Z",
+        "log": "/tmp/v25-browser/exploration-v17.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 1,
+            "end": "2026-11-10T03:57:29.692Z"
+          },
+          {
+            "args": [],
+            "code": 1,
+            "end": "2026-11-10T04:07:45.873Z"
+          },
+          {
+            "args": [],
+            "code": 1,
+            "end": "2026-11-10T04:11:05.515Z"
+          },
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:13:20.235Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v17.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T04:12:36.704Z",
+            "log": "/tmp/v25-browser/exploration-v17.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 1,
+                "end": "2026-11-10T03:57:29.692Z"
+              },
+              {
+                "args": [],
+                "code": 1,
+                "end": "2026-11-10T04:07:45.873Z"
+              },
+              {
+                "args": [],
+                "code": 1,
+                "end": "2026-11-10T04:11:05.515Z"
+              },
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:13:20.235Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "9c8a8ee0c26478b04f35b296580a11750555b38354270121e12cca208b953719",
+        "recorded_error_lines": [
+          "Error: could not contact enemy",
+          "Error: could not contact enemy: {\"hero\":{\"x\":688,\"y\":592,\"facing\":\"down\",\"moving\":false},\"target\":{\"id\":\"star-path-patrol\",\"x\":592,\"y\":547.464659999992,\"state\":\"patrol\",\"updates\":3943,\"eventId\":\"c9-path-fight\"},\"contactGrace\":0,\"locked\":false}",
+          "AssertionError [ERR_ASSERTION]: contact target must be active"
+        ],
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v18.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:57:29.694Z",
+        "end": "2026-11-10T03:58:33.126Z",
+        "log": "/tmp/v25-browser/exploration-v18.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:58:33.125Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v18.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T03:57:29.694Z",
+            "log": "/tmp/v25-browser/exploration-v18.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:58:33.125Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "2f8b3cbffb0d239cb9c9485aadf6c9c6ecc3bef07231a1fa06a732dd4f64e9b9",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v19.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:58:33.127Z",
+        "end": "2026-11-10T03:59:04.320Z",
+        "log": "/tmp/v25-browser/exploration-v19.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:59:04.319Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v19.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T03:58:33.127Z",
+            "log": "/tmp/v25-browser/exploration-v19.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:59:04.319Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d1bf2036b9281e3a350b329c5719c02a48dee3148325c99965888d41106136e6",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v20.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:59:04.321Z",
+        "end": "2026-11-10T03:59:37.560Z",
+        "log": "/tmp/v25-browser/exploration-v20.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T03:59:37.560Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v20.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T03:59:04.321Z",
+            "log": "/tmp/v25-browser/exploration-v20.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T03:59:37.560Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "3e1fb71f2575d485934a91573065efd5a74c38838a4b28ca89a3dfbfd0264dd5",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v21.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T03:59:37.561Z",
+        "end": "2026-11-10T04:00:11.674Z",
+        "log": "/tmp/v25-browser/exploration-v21.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:00:11.674Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v21.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T03:59:37.561Z",
+            "log": "/tmp/v25-browser/exploration-v21.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:00:11.674Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "5bd74e6d46eebb47292ce18e244220509bef08333fa607d62c07b48d6a12dcd7",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v22.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:00:11.675Z",
+        "end": "2026-11-10T04:01:15.794Z",
+        "log": "/tmp/v25-browser/exploration-v22.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:01:15.792Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v22.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T04:00:11.675Z",
+            "log": "/tmp/v25-browser/exploration-v22.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:01:15.792Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "7f08128976637cc736ce65af9a7d8cae79b7bd641e0f26703de8a5c986319076",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v23.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:01:15.794Z",
+        "end": "2026-11-10T04:01:50.581Z",
+        "log": "/tmp/v25-browser/exploration-v23.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:01:50.580Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v23.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T04:01:15.794Z",
+            "log": "/tmp/v25-browser/exploration-v23.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:01:50.580Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "8db0ad9129b2c06fbe6e4877da911adfca75896f0c054bd4b308d784ba193db6",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "exploration-v24.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:01:50.582Z",
+        "end": "2026-11-10T04:02:21.732Z",
+        "log": "/tmp/v25-browser/exploration-v24.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:02:21.731Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "exploration-v24.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T04:01:50.582Z",
+            "log": "/tmp/v25-browser/exploration-v24.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:02:21.731Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "cc74fd483e98e9afd52c25f7c79c6789be7054f02c1b947fe7a4bf703d4895d3",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "railway-v21.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:02:21.733Z",
+        "end": "2026-11-10T04:02:32.408Z",
+        "log": "/tmp/v25-browser/railway-v21.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:02:32.407Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "railway-v21.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T04:02:21.733Z",
+            "log": "/tmp/v25-browser/railway-v21.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:02:32.407Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d24723eb04e3156330bd055fee02b7613365d776ec7d781b045c5afb28b74fe5",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "sideview-lab-v16.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:02:32.409Z",
+        "end": "2026-11-10T04:02:35.124Z",
+        "log": "/tmp/v25-browser/sideview-lab-v16.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:02:35.123Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "sideview-lab-v16.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T04:02:32.409Z",
+            "log": "/tmp/v25-browser/sideview-lab-v16.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:02:35.123Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "d4c21bf0772e0082e5a2907480aa8564cd1fb1d661f355c740b5f53569e4e0f8",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "sideview-v16.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:02:35.125Z",
+        "end": "2026-11-10T04:02:51.940Z",
+        "log": "/tmp/v25-browser/sideview-v16.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:02:51.939Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "sideview-v16.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T04:02:35.125Z",
+            "log": "/tmp/v25-browser/sideview-v16.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:02:51.939Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "f192ca8d3f076b1ee0e24e8fdd66c02afdd035cb31f6b2456ba65375bd9591da",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "sideview-v16.smoke.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:02:51.941Z",
+        "end": "2026-11-10T04:03:24.953Z",
+        "log": "/tmp/v25-browser/sideview-v16.smoke.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:03:24.951Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "sideview-v16.smoke.mjs",
+            "code": null,
+            "start": "2026-11-10T04:02:51.941Z",
+            "log": "/tmp/v25-browser/sideview-v16.smoke.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:03:24.951Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "77fc693a868e4add5837d637a242c08006043dd41cbaa22742567b5e7a20570e",
+        "timing_mode": "real_clock"
+      },
+      {
+        "file": "transit-v22.e2e.mjs",
+        "code": 0,
+        "start": "2026-11-10T04:03:24.953Z",
+        "end": "2026-11-10T04:03:37.563Z",
+        "log": "/tmp/v25-browser/transit-v22.e2e.mjs.log",
+        "attempts": [
+          {
+            "args": [],
+            "code": 0,
+            "end": "2026-11-10T04:03:37.560Z"
+          }
+        ],
+        "history": [
+          {
+            "file": "transit-v22.e2e.mjs",
+            "code": null,
+            "start": "2026-11-10T04:03:24.953Z",
+            "log": "/tmp/v25-browser/transit-v22.e2e.mjs.log",
+            "attempts": [
+              {
+                "args": [],
+                "code": 0,
+                "end": "2026-11-10T04:03:37.560Z"
+              }
+            ],
+            "history": []
+          }
+        ],
+        "log_sha256": "95b4729aa6853ce20d7c45c72b465e3be26c10fa4d54a8785863842b3323df8a",
+        "timing_mode": "real_clock"
+      }
+    ],
+    "initial_attempts": [
+      {
+        "log": "v25-fate-initial.log",
+        "result": "interrupted_or_failed_not_counted_as_pass",
+        "tail": "node:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\npage.waitForFunction: Timeout 30000ms exceeded.\n    at state (/workspace/astra-chronica/tests/map-driver-v15.mjs:2:44)\n    at tapWorld (/workspace/astra-chronica/tests/map-driver-v15.mjs:5:102)\n    at async walkTo (/workspace/astra-chronica/tests/map-driver-v15.mjs:7:650)\n    at async file:///workspace/astra-chronica/tests/fate-path-v25.e2e.mjs:10:422 {\n  log: [],\n  name: 'TimeoutError'\n}\n\nNode.js v24.22.1\n"
+      },
+      {
+        "log": "v25-fate-rerun1.log",
+        "result": "interrupted_or_failed_not_counted_as_pass",
+        "tail": "v2.5 fate confirm/fixed:4widths,shared grid,miniMap,save/reload,safe position repair passed.\nv2.5 fate confirm/decoded:4widths,shared grid,miniMap,save/reload,safe position repair passed.\nv2.5 fate confirm/branched:4widths,shared grid,miniMap,save/reload,safe position repair passed.\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nlocator.tap: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '冒険へ出発', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"primary\">冒険へ出発</button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\n    at tap (/workspace/astra-chronica/tests/fate-path-v25.e2e.mjs:6:240)\n    at /workspace/astra-chronica/tests/fate-path-v25.e2e.mjs:10:197 {\n  log: [\n    \"  - waiting for getByRole('button', { name: '冒険へ出発', exact: true })\",\n    '    - locator resolved to <button class=\"primary\">冒険へ出発</button>',\n    '  - attempting tap action',\n    '    - waiting for element to be visible, enabled and stable',\n    '    - element is visible, enabled and stable',\n    '    - scrolling into view if needed'\n  ],\n  name: 'TimeoutError'\n}\n\nNode.js v24.22.1\n"
+      },
+      {
+        "log": "v25-route-initial.log",
+        "result": "interrupted_or_failed_not_counted_as_pass",
+        "tail": "chapter17 quests=true event=c17-arrival\nchapter17 quests=true event=c17-gateway-fight\nnode:internal/modules/run_main:107\n    triggerUncaughtException(\n    ^\n\nlocator.tap: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('.execute-command')\u001b[22m\n\u001b[2m    - locator resolved to <button class=\"primary execute-command\" aria-describedby=\"command-description\">強撃を実行</button>\u001b[22m\n\u001b[2m  - attempting tap action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\n    at fight (/workspace/astra-chronica/tests/chapter-seventeen-v25.e2e.mjs:27:42)\n    at async route (/workspace/astra-chronica/tests/chapter-seventeen-v25.e2e.mjs:37:36)\n    at async file:///workspace/astra-chronica/tests/chapter-seventeen-v25.e2e.mjs:53:28 {\n  log: [\n    \"  - waiting for locator('.execute-command')\",\n    '    - locator resolved to <button class=\"primary execute-command\" aria-describedby=\"command-description\">強撃を実行</button>',\n    '  - attempting tap action',\n    '    - waiting for element to be visible, enabled and stable'\n  ]\n}\n\nNode.js v24.22.1\n"
+      },
+      {
+        "log": "v25-route-rerun1.log",
+        "result": "interrupted_or_failed_not_counted_as_pass",
+        "tail": "connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=51342][err] [51342:51370:1109/203400.128417:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory\n[pid=51342][err] [51342:51342:1109/203400.133656:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=51342][err] [51342:51342:1109/203400.133688:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=51342][err] [51342:51370:1109/203400.133788:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=51342][err] [51342:51342:1109/203400.143692:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=51342][err] [51342:51342:1109/203400.145610:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: \n[pid=51342][err] [51342:51342:1109/203400.145690:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=51342][err] [51342:51370:1109/203400.145796:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=51342][err] [51342:51342:1109/203400.220751:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=51342][err] [51342:51370:1109/203400.225115:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are \"tcp\" and on UNIX \"unix\")\n[pid=51342][err] [51342:51342:1109/203400.226277:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: \n[pid=51342] <gracefully close start>\n[pid=51342][err] [51342:51342:1109/203657.356790:ERROR:content/common/zygote/zygote_communication_linux.cc:313] Failed to send GetTerminationStatus message to zygote\nCall log:\n\u001b[2m  - waiting for locator('#world-viewport')\u001b[22m\n\n    at state (/workspace/astra-chronica/tests/map-driver-v15.mjs:2:163)\n    at async openNearbyStory (/workspace/astra-chronica/tests/map-driver-v15.mjs:17:106)\n    at async route (/workspace/astra-chronica/tests/chapter-seventeen-v25.e2e.mjs:39:4)\n    at async file:///workspace/astra-chronica/tests/chapter-seventeen-v25.e2e.mjs:53:28 {\n  log: [ \"  - waiting for locator('#world-viewport')\" ]\n}\n\nNode.js v24.22.1\n"
+      }
+    ],
+    "development_fixes": [
+      {
+        "issue": "Mandatory objects overlapped a closed fate footprint",
+        "fix": "Move conversations and crates to the permanent safety lane; verify every map in all phases and both branches"
+      },
+      {
+        "issue": "Optional object icon generated as null",
+        "fix": "Omit undefined icon fields; TypeScript and production build pass"
+      },
+      {
+        "issue": "Test contact driver accepted cell corners and chased stale patrol coordinates",
+        "fix": "Reach a fixed passage cell centre, wait for live patrol updates and require actual battle; allow initially off-screen hidden symbols"
+      }
+    ],
+    "viewports": [
+      320,
+      390,
+      430,
+      768
+    ],
+    "maps": 82,
+    "viewport_cases": 328,
+    "map_fingerprint": "642143fcf3d085968cbe1e6c79a3cbe18366a4149d815b4e870abb3b3ded61c1",
+    "map_receipts": [
+      {
+        "id": "grove-camp",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:26:25.682Z"
+      },
+      {
+        "id": "grove-trail",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:26:53.959Z"
+      },
+      {
+        "id": "grove-ruins",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:27:03.434Z"
+      },
+      {
+        "id": "grove-village",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:27:28.464Z"
+      },
+      {
+        "id": "grove-garden",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:27:49.159Z"
+      },
+      {
+        "id": "sky-port",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:28:20.129Z"
+      },
+      {
+        "id": "sky-island",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:28:29.387Z"
+      },
+      {
+        "id": "sky-ruins",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:28:37.743Z"
+      },
+      {
+        "id": "sky-town",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:28:58.762Z"
+      },
+      {
+        "id": "sky-tower",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:29:31.233Z"
+      },
+      {
+        "id": "star-cave",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:29:52.808Z"
+      },
+      {
+        "id": "star-path",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:30:02.738Z"
+      },
+      {
+        "id": "star-city",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:30:39.304Z"
+      },
+      {
+        "id": "star-market",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:30:48.188Z"
+      },
+      {
+        "id": "star-waterway",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:30:55.672Z"
+      },
+      {
+        "id": "star-mine",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:31:02.332Z"
+      },
+      {
+        "id": "star-archive",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:31:08.921Z"
+      },
+      {
+        "id": "star-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:31:15.636Z"
+      },
+      {
+        "id": "tide-road",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:31:31.006Z"
+      },
+      {
+        "id": "tide-town",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:31:47.135Z"
+      },
+      {
+        "id": "tide-port",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:31:53.989Z"
+      },
+      {
+        "id": "tide-beach",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:32:00.327Z"
+      },
+      {
+        "id": "tide-observatory",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:32:12.105Z"
+      },
+      {
+        "id": "tide-cave",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:32:21.520Z"
+      },
+      {
+        "id": "tide-ruins",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:32:29.473Z"
+      },
+      {
+        "id": "tide-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:32:39.241Z"
+      },
+      {
+        "id": "pale-road",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:32:50.681Z"
+      },
+      {
+        "id": "pale-village",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:06.102Z"
+      },
+      {
+        "id": "pale-field",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:16.582Z"
+      },
+      {
+        "id": "pale-stones",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:23.685Z"
+      },
+      {
+        "id": "pale-ravine",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:30.130Z"
+      },
+      {
+        "id": "pale-sanctuary",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:36.583Z"
+      },
+      {
+        "id": "pale-archive",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:43.533Z"
+      },
+      {
+        "id": "pale-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:33:53.211Z"
+      },
+      {
+        "id": "gloom-road",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:04.531Z"
+      },
+      {
+        "id": "gloom-village",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:14.831Z"
+      },
+      {
+        "id": "gloom-woods",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:23.621Z"
+      },
+      {
+        "id": "gloom-lake",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:30.734Z"
+      },
+      {
+        "id": "gloom-roots",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:37.503Z"
+      },
+      {
+        "id": "gloom-shrine",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:44.129Z"
+      },
+      {
+        "id": "gloom-archive",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:50.697Z"
+      },
+      {
+        "id": "gloom-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:34:58.230Z"
+      },
+      {
+        "id": "gear-rail",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:35:07.129Z"
+      },
+      {
+        "id": "gear-station",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:35:17.452Z"
+      },
+      {
+        "id": "gear-city",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:35:33.925Z"
+      },
+      {
+        "id": "gear-market",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:35:49.415Z"
+      },
+      {
+        "id": "gear-lower",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:35:59.958Z"
+      },
+      {
+        "id": "gear-workshop",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:36:06.962Z"
+      },
+      {
+        "id": "gear-observatory",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:36:19.890Z"
+      },
+      {
+        "id": "gear-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:36:30.735Z"
+      },
+      {
+        "id": "ark-gateway",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:36:51.445Z"
+      },
+      {
+        "id": "ark-shore",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:37:02.092Z"
+      },
+      {
+        "id": "ark-dock",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:37:09.959Z"
+      },
+      {
+        "id": "ark-hall",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:37:18.392Z"
+      },
+      {
+        "id": "ark-gravity",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:37:50.321Z"
+      },
+      {
+        "id": "ark-records",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:37:59.754Z"
+      },
+      {
+        "id": "ark-sanctuary",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:38:09.191Z"
+      },
+      {
+        "id": "ark-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:38:16.871Z"
+      },
+      {
+        "id": "void-gate",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:38:24.025Z"
+      },
+      {
+        "id": "void-court",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:38:31.001Z"
+      },
+      {
+        "id": "void-corridor",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:38:38.524Z"
+      },
+      {
+        "id": "void-mirror",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:38:53.971Z"
+      },
+      {
+        "id": "void-archive",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:39:01.773Z"
+      },
+      {
+        "id": "void-garden",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:39:10.418Z"
+      },
+      {
+        "id": "void-sanctum",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:39:22.406Z"
+      },
+      {
+        "id": "void-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:39:30.516Z"
+      },
+      {
+        "id": "grave-gate",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:39:38.712Z"
+      },
+      {
+        "id": "grave-field",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:08.290Z"
+      },
+      {
+        "id": "grave-ruins",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:16.949Z"
+      },
+      {
+        "id": "grave-memory",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:23.716Z"
+      },
+      {
+        "id": "grave-observatory",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:30.664Z"
+      },
+      {
+        "id": "grave-sanctuary",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:37.716Z"
+      },
+      {
+        "id": "grave-tower",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:44.598Z"
+      },
+      {
+        "id": "grave-core",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:51.814Z"
+      },
+      {
+        "id": "terminal-gate",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:40:59.419Z"
+      },
+      {
+        "id": "terminal-plaza",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:07.069Z"
+      },
+      {
+        "id": "terminal-library",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:14.249Z"
+      },
+      {
+        "id": "terminal-memory",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:21.048Z"
+      },
+      {
+        "id": "terminal-observatory",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:28.448Z"
+      },
+      {
+        "id": "terminal-sanctuary",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:36.144Z"
+      },
+      {
+        "id": "terminal-bridge",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:43.224Z"
+      },
+      {
+        "id": "terminal-heart",
+        "widths": [
+          320,
+          390,
+          430,
+          768
+        ],
+        "completedAt": "2026-11-09T21:41:50.233Z"
+      }
+    ],
+    "new_story": {
+      "receipts": [
+        {
+          "route": "before",
+          "fingerprint": "459118e63b82dd359157f3b41a149332823b681532bd5f10c88da345c080de4c",
+          "receipt_sha256": "e3afa78ecaad4d470cf14dbadf70db102815b05889ff8e721130114833a21f81",
+          "events": [
+            "c17-arrival",
+            "c17-gateway-fight",
+            "c17-gateway-cache",
+            "c17-seline",
+            "c17-plaza-fight",
+            "c17-plaza-record",
+            "c17-plaza-cache",
+            "c17-decode",
+            "c17-orphe",
+            "c17-library-fight",
+            "c17-library-record",
+            "c17-library-cache",
+            "c17-camp-rest",
+            "c17-tia",
+            "c17-memory-fight",
+            "c17-memory-cache",
+            "c17-watch-record",
+            "c17-archive-fight",
+            "c17-archive-record",
+            "c17-archive-cache",
+            "c17-garden-rest",
+            "c17-guardian",
+            "c17-branch",
+            "c17-bridge-record",
+            "c17-sanctuary-fight",
+            "c17-promise-record",
+            "c17-sanctuary-cache",
+            "c17-refuge-rest",
+            "c17-tower-fight",
+            "c17-tower-reading",
+            "c17-tower-cache",
+            "c17-reconnect",
+            "c17-seer-record",
+            "c17-promise",
+            "c17-inherit",
+            "c17-heart-cache",
+            "c17-last-judge",
+            "c17-clear"
+          ],
+          "wins": 9,
+          "harness_migration": {
+            "from": "963f1062037b0decc0246726026507cd504bea56fdeb5899c2770e7ef9253aa8",
+            "to": "459118e63b82dd359157f3b41a149332823b681532bd5f10c88da345c080de4c",
+            "reason": "Wait for walking-map boot only when the saved location has a walking map. Event assertions, game and recorded victories unchanged."
+          }
+        },
+        {
+          "route": "after",
+          "fingerprint": "459118e63b82dd359157f3b41a149332823b681532bd5f10c88da345c080de4c",
+          "receipt_sha256": "2bd39327cee960f7d30e0c9065088ff29b93f88909cc664d64067b18269309c1",
+          "events": [
+            "c17-arrival",
+            "c17-gateway-fight",
+            "c17-gateway-cache",
+            "c17-seline",
+            "c17-plaza-fight",
+            "c17-plaza-record",
+            "c17-plaza-cache",
+            "c17-decode",
+            "c17-orphe",
+            "c17-library-fight",
+            "c17-library-record",
+            "c17-library-cache",
+            "c17-camp-rest",
+            "c17-tia",
+            "c17-memory-fight",
+            "c17-memory-cache",
+            "c17-watch-record",
+            "c17-archive-fight",
+            "c17-archive-record",
+            "c17-archive-cache",
+            "c17-garden-rest",
+            "c17-guardian",
+            "c17-branch",
+            "c17-bridge-record",
+            "c17-sanctuary-fight",
+            "c17-promise-record",
+            "c17-sanctuary-cache",
+            "c17-refuge-rest",
+            "c17-tower-fight",
+            "c17-tower-reading",
+            "c17-tower-cache",
+            "c17-reconnect",
+            "c17-seer-record",
+            "c17-promise",
+            "c17-inherit",
+            "c17-heart-cache",
+            "c17-last-judge",
+            "c17-clear"
+          ],
+          "wins": 9,
+          "harness_migration": null
+        }
+      ],
+      "routes": [
+        "quests-before-clear",
+        "quests-after-clear"
+      ],
+      "events_per_route": 38,
+      "victories_per_route": 9,
+      "choices": 5,
+      "quests": 3,
+      "legacy_chapters": 16,
+      "lab_isolated": true,
+      "optional_checkpoint_resume": true,
+      "battle_wait_clock": "New chapter default and optional BATTLE_VIRTUAL_CLOCK for legacy story suites: Playwright runFor / fastForward; all commands/turn budgets/assertions retained; legacy timing/native smoke keep real clock"
+    },
+    "webgl": {
+      "random_seed": 715,
+      "source": "exploration-v25.smoke.mjs",
+      "final_log": "v25-native-final.log",
+      "log_sha256": "751aef5a22626d40825ba97aba0eef6da76aab783c20849f8b241b742acea13d",
+      "passed": true,
+      "gl_error": 0,
+      "context_lost": false,
+      "page_errors": 0
+    }
+  },
+  "build": {
+    "command": "npm run build",
+    "log_sha256": "215c96b036597b3861cf307d254ee05b902f81cbaeb9505b42e8ae0f874273f8",
+    "passed": true,
+    "artifacts": [
+      {
+        "path": "dist/assets/index-Bh-V6UfH.css",
+        "bytes": 32894,
+        "sha256": "0e457208f0683ac0679748aa661432ac5d3fd8ed1d6fd5e4c6b70b17919f602e"
+      },
+      {
+        "path": "dist/assets/index-nUJBnpxe.js",
+        "bytes": 683674,
+        "sha256": "b8584c66c71323db80aad7fd2f1bed6af6a650f0decc4bcf7c19f98a94e267d6"
+      },
+      {
+        "path": "dist/assets/phaser-DFK5Ua9d.js",
+        "bytes": 1208056,
+        "sha256": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb"
+      },
+      {
+        "path": "dist/index.html",
+        "bytes": 541,
+        "sha256": "4c76f9798685d8823836f96fd9876be5edb72407fd2f5923503ac221a65104d4"
+      }
+    ],
+    "existing_warning": "Phaser chunks over500kB"
+  },
+  "captures": {
+    "command": "npm run test:capture-v25",
+    "log_sha256": "86cb33795363652226b8b639f721f5fd5b50f0bf8d08305d8c4705ee4f27f619",
+    "count": 216,
+    "images": [
+      {
+        "path": "docs/screenshots/chapter-seventeen-arrival-dialogue-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "9fcab1f9f15ca7aa63e51b8030bb03431edaff3e2a81837f72cc8c8bef55d8aa"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-arrival-dialogue-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "d555ec1f4de09876fe789215e483d2c9d36ed4d8a90b0be2fec87d6217f9aea3"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-arrival-dialogue-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "06528e29e3315e30428be67eb9d9703cd10624b173ccc5a6b6dbcacdb2580444"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-arrival-dialogue-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "7b27d36837c32f474178423b2e1c777d3bfc02c5689edf4888fd6b99e1cb9cb4"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-archive-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "d3880fc4a15b7dc4bd01b56f00f865d35a85d9e065e664bd39f111c30de97c52"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-archive-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "06f8eb2e7f2ba539df3007105900b98ea9238b414b7780c4aa5d86eda6338e40"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-gateway-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "7cb6f32f0968f4237cb2e36bab5deb79e08be45bbd2cd8da55470f8d74463658"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-gateway-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "3053782ed3d0910b2f4d4692b78e47ba1f648f912aab21eb1ddd1e772c1cc0f0"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-guardian-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "674291c408f8c13265bf398aaf783a3687cbd37c17293f39c5a6eb6a3998c1c3"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-guardian-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "6ba317d68afcc1aca7628509ff1ba3e082a483c4d258abc131c0a405f49fe7de"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-last-judge-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "e8a6848c89e2519f97112ee4a598e2cb3e4d9deb02267f9c526c1d123591a779"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-last-judge-result-390.png",
+        "width": 390,
+        "height": 1040,
+        "sha256": "dd70109c974bdc5143aed732cd57df8c298aa32b125d36be3a85ce92c07517e2"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-library-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "6a2d3d7f09399e40a81a3c19451306cd030949706f4c6f16745a8c9738d88d87"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-library-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "58509f0554a4741c20c6d7eebad27d25eaffa5d78a6c5e18e7010cfbfc31fc94"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-memory-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "481a71f14571c8ed3669b8f064fa712b06c85fadbfb6824e3f9c1ed96bbdd65d"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-memory-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "7cd75644dc83fe84da6849d412b2692554323adf4cfb1836f01f8843fec13b0e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-plaza-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "5b4f701ed659b921f9881bb536b5f05f1b416ddd0e3c756e0b4a83a73cbb191d"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-plaza-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "7cd75644dc83fe84da6849d412b2692554323adf4cfb1836f01f8843fec13b0e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-sanctuary-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "bd99cb3813c01410cea3ce30bb649d9556b05f9e108a429566ea8841f0571b7a"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-sanctuary-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "19c0e629bc7a1db0162031a0c3dadf552f27e8beef3b97b11dfd08aaf0c1684e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-tower-fight-battle-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "baa28d299658f2ef3f1afa74257563ebb261145b02dd9bd36bf4449659f3182e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-c17-tower-fight-result-390.png",
+        "width": 390,
+        "height": 912,
+        "sha256": "cdc7bec2a5410cb710be1dd2fdd09ed96828fca50cc47d5c89ea0e2d74b98940"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-cleared-card-320.png",
+        "width": 294,
+        "height": 179,
+        "sha256": "7b6e1ef29cdfceb278a713ac2badc15c52c2cbf2e852084134735d37ae0ee33b"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-cleared-card-390.png",
+        "width": 348,
+        "height": 179,
+        "sha256": "9cf36098a258e92e839319bb77e28fca394490b1cd01ac4a0d8fa6646cd2ce6e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-cleared-card-430.png",
+        "width": 388,
+        "height": 179,
+        "sha256": "14c18c4d966057ab3400cd3d3e71858f94f9c7f616e209ed3cd8986a257997a3"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-cleared-card-768.png",
+        "width": 388,
+        "height": 179,
+        "sha256": "305635ed48cc2c7c79394c47bab8f0fd8982c0fb287d271e7b16f5832e46f10d"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-journal-320.png",
+        "width": 294,
+        "height": 1352,
+        "sha256": "39250ae5ad8bf7ad0ca85c732b22d8d389d11766196abc922f82fdafacb5131b"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-journal-390.png",
+        "width": 348,
+        "height": 1353,
+        "sha256": "a221d92d79b57e0a5dcd910830b97d1fe6832c72cb9ae1f7a8d9cf765997a661"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-journal-430.png",
+        "width": 388,
+        "height": 1303,
+        "sha256": "9e81150605fa4421e7be87873ef09445edff970f6ac11f4d771f2da01986291c"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-journal-768.png",
+        "width": 388,
+        "height": 1303,
+        "sha256": "9e81150605fa4421e7be87873ef09445edff970f6ac11f4d771f2da01986291c"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-world-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "48051ed63a8956e53a15d44d824178ecc0006b9890568b89c8c49236838895fd"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-world-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "42325c8e23095b12a3339691ca311343be92e7033b872897e112f177226a7c96"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-world-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "01e91bdbc85315387a2f5e44c5cdf6c269c1e0b2fb6ec3c0254fe4e84038a6a7"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-completed-world-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "3d7eaa7510ce0a1f84a3f0961d21be594175bc21924b5e0dcfad9a4052118ed5"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-enemy-symbol-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "7888491bed84a98eb13b553a6da77cd6e269b84747a5c03109e571ce78e67a7c"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-equipment-390.png",
+        "width": 390,
+        "height": 5369,
+        "sha256": "cbdee8211fe9d417af302efc32ad7c67be62ddeea30b35f494e00a72014c6288"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-judge-ui-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "7d556a20695f8859db05e4ea8924469da0142353b6d5d5123df77cf242204065"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-judge-ui-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "6d9c9a4072f769f88ea85a1e16848ec82469645fffa15e26ed16d5d388794a3a"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-judge-ui-430.png",
+        "width": 430,
+        "height": 844,
+        "sha256": "68afd8c92e6a4100d96761b5299f3e62bc203b5184180b16706977bd0164e635"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-judge-ui-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "98978eb86eab3d12604a3b69e46f8cd5fb2884629e4227532f6579292196312e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-archive-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "066c6a71280a8cb652cca4731336831b4f566c8f3b97cbb1076b28f51a670678"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-archive-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "9a5d8e8e84b240032160012d447395b309b54da3c48ca7c2553a6b4708e018b0"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-archive-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "c2221af9184268744cb2a48fdd488808b916ea1f3a871e92747b3fc46a9ce2cd"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-archive-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "70046fe314393bf22d3fc48c969b379be2c58d6f92d9c386aa926f77a576065a"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-gateway-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "90456ab1993411a18037753582219daa736abef3bf2f67a19c262cc9d52ee4e0"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-gateway-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "358709b479ca1bee5c3d4170241bdc1f02c44fa18ae9d34494c1fe7e3ef2cde9"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-gateway-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "17660b348cdf97c35a82b2b37b83011fb186bcffe178566ff6e0430460cf95c6"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-gateway-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "3d6bab1a5f9c3d955f1bae4b1965788335e8f7a1fcd15b56f3e2e92edef298cb"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-heart-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "b150c833915368b9328be3df1ee4a6dd5d58ed32db634333879a007a668b85b9"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-heart-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "df418e65b42a2a5ba17d168ed527e2b7c710687d5c81abbcdcc0ff3256bd5de8"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-heart-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "2fd4214b43e1a4fecc028393768e99ac0335f9c5ff1566c19f701f71c0ea8ca4"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-heart-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "d0ca26ef4991a6c568247a673e3794357efb249fe6f864ecdd4a1110286d172d"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-library-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "20692aa3c07b6c57f3a54b518dd761e362760efd143118a5dd239a56844db727"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-library-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "6e8fab6fe149374e08355dcf6a282487608530fd82445655e3afd2ed27281dbc"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-library-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "e2dd1b172389777970681c809c1dd2e3e8fa776f9e744d52dbf9eaddb162270e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-library-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "6a5514e4df0157f11391242a3bf7a98eac4fd157b788861bf6f504929e7607de"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-memory-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "abdf2b652b319c1bd4f886ff3a03ba9640ae64b49a4fa51cd43a9d5c5b66ee86"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-memory-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "0925f2889d35f2adb89fb531ebc4233c7bcc97f0f042f8699741c4de1dc300f7"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-memory-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "a17956d4d4332a166c5c61ed33486536dab595d8498c9589672c9f221e5a1e5f"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-memory-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "36576cb436f6130382285903a53a1cc9857b29b8671a20187714d39607708ae2"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-plaza-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "ce6013ca9af91a29cdaa279c5eca2673fb9d20a651f15ec442e8f365ec6c20d8"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-plaza-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "9cb99d3f482d44ca82cdeed950ac7452338d638e855c015db4aa1704f46c0bca"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-plaza-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "5c00774166a4a7eb68d7354a8f0dfa744b30be5c5da86dcdb029b569ad0e0906"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-plaza-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "b38cc6aef243e95c953b8287c3366c2a876ceb2228558f8d7e2b82479b67d841"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-sanctuary-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "e72f28715ebcefa31529239fb2b2d4e5f1f36b77810527484bf50cfff25a2955"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-sanctuary-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "f8f1d2ccd6354522c0cf918bf3d138bb9119ff6d901f55e11390e522fced3d4f"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-sanctuary-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "bab8cc777ddfa4b018273d492452c574d3b5c5e3dd23699940d79417f6419d24"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-sanctuary-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "0e11ffe3c767e9ea0a56d37484d9e9d2129791c388d35abb1e138659e057a35e"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-tower-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "31574dd4d80af01304584ba910b0258d0e540d0ee2e8429c238c6340b8cbe02c"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-tower-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "b0d43b518824fe9d8d6b3d9405f6ce3fa7c3f63efc0e21e9c7821265fb955c50"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-tower-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "50d46d683fb96522fa4b3c67c9ce3e200dc4db5e858e5b39a95c67e326d0c490"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-map-tower-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "b7ae739113113062f006a7c4de6fb826769074601592bce0be2e4b60db88f8a9"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-minimap-320.png",
+        "width": 320,
+        "height": 862,
+        "sha256": "3b4e7021c18b4ce486924f62b44ab4033e298ca234297a55b03870f8f4090f0a"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-minimap-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "87681773e959bc2c19b8e985519d95706c62d1da62206ef6afdb4ea08cf2edbe"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "401f3b9b682c3904f29a69a7e3c1b7d8825104d9fe072e432b2d7193e014dcfa"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "7c3464d26b8dfdb2b65d0318063f292cea9da5f776067529f607cddde59b7f8d"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-new-weapons-action-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "0bcf344f7539dc461f99a902ec54604a0da4ae815c7a480f18ed827e65910829"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-retreat-return-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "16fd324cd1b8f0ffcc80a98cc65bf5f5c6cf084fbc48d6c287017b38dceea192"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-retreat-return-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "964fe773dcd492b8f1874c2e273522163715ae1dacb812c179826653bfb67bf7"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-retreat-return-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "0d5191887c39c768a0ecf76e0ef1af34f5bd1e9d002b519d79c476dbcdce2ed9"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-retreat-return-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "eae017d3cc47f158d8638a66d680b3e67efa97b8a7a596259e2bd69140336fde"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-weapon-destiny-rod-390.png",
+        "width": 348,
+        "height": 638,
+        "sha256": "70196212310186cb661e0931af8b80b9908d72a38d4beeabc7eb2efeb74fd805"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-weapon-promiseward-shield-spear-390.png",
+        "width": 348,
+        "height": 638,
+        "sha256": "286e8ed7fac26ae38c4667283daca4032cfac7ef274f83e02e27486e55cf8699"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-weapon-starpath-sword-390.png",
+        "width": 348,
+        "height": 638,
+        "sha256": "cf54cb8894210a2ec2591004a61a455e68e47831edae92a4d033a37962800b35"
+      },
+      {
+        "path": "docs/screenshots/chapter-seventeen-webgl-action-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "9489aa408cf91dcd69255a337f57eb958bd70b8a63ff4e873f0b5c5026aff3b0"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-core-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "385ccb8d8e0426d089bd597cfa08f42dbac44e2d49ddfa51e5424ab65ff6e0bf"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-dock-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "1cb57fbec81bc11fd11b003c2c3d614a1fcd60f7df716ef02ca71e01c594ea0a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-gateway-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "caaf7dc4ac45d09c5111c99864c2d19fe543f404307b1596e093d3491216c22a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-gravity-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "90134937a0d3589f87718762d82853102471a332ce660cec3c5dc5052029a685"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-hall-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "0ba12f9c69f36370977f61f8b7958889f71115e51bf7767aa21fd784273ea3de"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-records-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "05b75fa14fe8779355ab4ba5b70823b8e012840dc33c8e484f8c1fd08e4000c8"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-sanctuary-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "e1516c898c9efd8a883dae7f1e9c4fa5d5ecfa831c4f028b6909253d44287a34"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-ark-shore-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "ff103d48dd2d54f9cf7fde2be4f28d1fbc296cac734af6bde823cd1e66ad866f"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-celestial-complete-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "f276dc512c22a6915356d538f99fc5e311c4162fd5afb23dfa4f3d22cced0508"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-celestial-partial-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "368be74741f06288887e205cf5053be30e1865e23559e6b3f6bebed8b37fadff"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-celestial-stopped-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "0d8239683df1f1e53361216de11a42c8d4b590fffc0a18337c7e10b3412b17ad"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-celestial-synchronized-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "5b4e5221b6a7615692dbbfc47cc339535014af358e5fa1dcf6dfff6e8f4ab3d3"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "d32c13dd6a5e692cf834369340854d1b95389a9539fc251e6111c7fb7ab85ff1"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "4f79f90f228e9505abdd554b4722c3f3a2b25ed14f814801dc3215a7609c3634"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "61093f0d2bfd174fe1a41f7ccff5539c059ccc77049edf498f5999adcf8891ae"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "df502d2479004be160ccdcf0445c535fbb85f9d39b776abfe66ca5f0afbc8f3e"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "fc755f68ebbcf6eb8c8eecdea18bdcf72c03e03dfec580b881156e2977b2350a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-minimap-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "fb00341297ce1465135edf93c3ff207333977e14294732e828248d0199512441"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "2c183fd5ac65b13b781f48bbdf23652b9378beb9e5b339ee7fcbe0468a86162c"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-branched-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "6b9a028490afd5a9b8a07553d7e1ba42ecd895982d33d3e483c742989946aad1"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "124ab832a0ecf1e4e4a25a2a11262fde58cedaae985ef03dd4c0cbb93f5a99a9"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "3f37d194fb604e02d1daa2a809c2a2891708ed7f2fe3cae6a15c7f5dfac4b163"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "32c09e0f9cb3450c82bb8a805d1cc9984f7d3bad5c40587778c6dbb4ec7949ae"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "f27a75b9e08f6077676ddd11a9d19822acdc71d7a98176cb93c81167281a9d17"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "fd49bfcf6f11d5a5647aaaa0de3c0943c4060557dc081d6e0572b1301cf88e0e"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-minimap-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "fc362b8bb1aa848e77af672d5f8eb86b634e11c2bd41f11fbfc7c2f4ab8138fb"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "c72fd110c56fb8a4283f4a4868a22569d8d3782d683a9094b26a508a90503536"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-decoded-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "6916876123c72af057dcd9d41d4f866bdc0ee75b6c8c88767257d6377d1aba68"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "ccb6c0b07441ddbb3accc3b612d5978d4469f11fea457ec7daeaa114a7b2c3e2"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "a3cf9233be83ad084ed1ed367257b9fc12e80f4225d9a84ad02bf485d4b0d289"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "ab9e895c7f69886926cd348e6d12ec1cd545f60d31fb4d3fd9daccf4e7948c58"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "a28042579d285e05f79b9be8cb682a25147a465c19618a24475d804c8274b94d"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "e7d6895b040c972190082bc9278787cefef0a4c81a965e7c4f4ea5cc7e723568"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-minimap-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "ec6ba0134a82bc4b2dbc8194af6f1f39dc30279686b866c95c48a0008abb763a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "f9ebb1d2eb90a40bb172224e13458a85387879779c7a8ff47fa69555947d77ec"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-fixed-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "7ac8c2bc83072f14d3aea7b1d98b4e20511de8541b5619000b60327f035ca0be"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "c1cb1d9dd5c95685d9e87bb9b89557b325df910840fee224df831575c5357718"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "d7a1c2bf1d2d8fd4862edad0e5c9aca69d4d20312472db724ad7ba6941001972"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "98ba9720756121e5ede00c3d45f63d210ae63ccde49e72839147c9cf5755c99c"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "1f253c8e1b950b59fae48722459431f9beefc31366ad517fecfdd335722ae4b0"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "279cf0c6cac7f26b596fded20689e9941aeaa281f7bfdc04f9ccc0070a07f23f"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-minimap-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "4398f05de4cd1bc58cf6d14ab92a225746d33ed78dcebd5b5faa803025b29957"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "c6a52e744b4b1a2cdb5925fabbc941df2a8f1d9683918cb48bdbdcd206596316"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-confirm-reconnected-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "6892d088e5558cd6f45d7a720230d6a0e818c2579d3017ca71ccb0ad526b3d56"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "050382df6bbe404ae0ec357435bac469752b095bc130649e984a9edce36a5237"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "a91e6b9356bc9d8f3d89f838b3ba45dc4bda5dac7e7cb927798c0ef977cc3f62"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "c9fb20d2be57ae6154a2e072c273ac53527b85259de25cbdf77c2a4df4214de7"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "c05e26c212a4c9c971572b3720609051db61134471ad2f05e55d8adcdc61f267"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "51bcbf78396f486c38c28f9e2c1ff0b28f63bdca322cbcb10f7ef351dbf3dafa"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-minimap-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "d3cb1cbd2a79504fb1192122766154eaa53eb028944f4cc376a237fc9dab5916"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "284b66c11f540c6d0ca9eff1b4c4f17a34297a8c96c632c699d50818dd5665c2"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-branched-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "6670aaaa934e512f8a632137a2fa5f11c16cdb11c971f7363064d0fa8dcde79d"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "124ab832a0ecf1e4e4a25a2a11262fde58cedaae985ef03dd4c0cbb93f5a99a9"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "3f37d194fb604e02d1daa2a809c2a2891708ed7f2fe3cae6a15c7f5dfac4b163"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "32c09e0f9cb3450c82bb8a805d1cc9984f7d3bad5c40587778c6dbb4ec7949ae"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "f27a75b9e08f6077676ddd11a9d19822acdc71d7a98176cb93c81167281a9d17"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "fd49bfcf6f11d5a5647aaaa0de3c0943c4060557dc081d6e0572b1301cf88e0e"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-minimap-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "fc362b8bb1aa848e77af672d5f8eb86b634e11c2bd41f11fbfc7c2f4ab8138fb"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "c72fd110c56fb8a4283f4a4868a22569d8d3782d683a9094b26a508a90503536"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-decoded-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "6916876123c72af057dcd9d41d4f866bdc0ee75b6c8c88767257d6377d1aba68"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "ccb6c0b07441ddbb3accc3b612d5978d4469f11fea457ec7daeaa114a7b2c3e2"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "a3cf9233be83ad084ed1ed367257b9fc12e80f4225d9a84ad02bf485d4b0d289"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "ab9e895c7f69886926cd348e6d12ec1cd545f60d31fb4d3fd9daccf4e7948c58"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "a28042579d285e05f79b9be8cb682a25147a465c19618a24475d804c8274b94d"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "e7d6895b040c972190082bc9278787cefef0a4c81a965e7c4f4ea5cc7e723568"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-minimap-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "ec6ba0134a82bc4b2dbc8194af6f1f39dc30279686b866c95c48a0008abb763a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "f9ebb1d2eb90a40bb172224e13458a85387879779c7a8ff47fa69555947d77ec"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-fixed-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "7ac8c2bc83072f14d3aea7b1d98b4e20511de8541b5619000b60327f035ca0be"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "92f871514c866592f322277c9033e4e7e242fa1d86af2ce44f2fc9b9818e03e9"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "7fa35c37b787828229c6f0fda9e784419d1b7e62a741c089aacd4565ca253aa3"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "53255f34353b726bac29ba6958149695427afc5b7379815edbda956dd95dfe3c"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "b6e026eef7a029c23c8a3fd78219b72e648fb0a8d9d83917892710822c17697e"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-minimap-320.png",
+        "width": 320,
+        "height": 881,
+        "sha256": "24127c9ecbaf1b8d87bcabb91691f41c042c407d0081bc04bb32348dd8a3b1fc"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-minimap-390.png",
+        "width": 390,
+        "height": 882,
+        "sha256": "b3e42e1baa0e62ff51fd6ab2f32d5ed8dbb2756a5cc1d827102b3bd632943a7d"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-minimap-430.png",
+        "width": 430,
+        "height": 863,
+        "sha256": "c5c26cbb94e217e08a4a42f882b94ca2d63042457d3332ce6823921d3b69df2d"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-fate-listen-reconnected-minimap-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "40e95d2330bbd0d5eb935f03b78d04f523517bea7ab6c5177a5488c9bdc27bda"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-city-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "b45af63108e4c4bf861767c0c998f5c7affacc89d7da43bc8d7132e4af6cf900"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-core-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "1d0fd904e851ebd817db0389d65f7ee9f72a2f332c7e9ead21628ef17e8646e2"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-lower-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "2f1bfc74d99129b179dc428cc7e4f39a904898bb771350f8b5bec6aeb1d2b5fd"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-market-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "d7659f8cfd00678fff3af05d029888bf7ad3907a505aabe51d2402a7b38315e3"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-observatory-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "57b8436830f1dac9c382558af4cdd77bf51f69730b3d014e502271f030a7025e"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-station-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "b71ea4503b6ca92dd628d7dc8d19418fdfdd34fd6a6f4da4b83ed7ae1b87f373"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-station-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "347fa4fa142a403ed756d76fab2bb43ffbd1e350c1e83c3137e7f19f33cafa98"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-station-430.png",
+        "width": 430,
+        "height": 845,
+        "sha256": "f708ce5f3b80c9e3b4dbaa1416eb59f01fba1a102763faeb3679ad23cda5a016"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-station-768.png",
+        "width": 768,
+        "height": 1024,
+        "sha256": "0642d6aef78b23c1246d4019cc130d6ff8f931fa7d7c794835a7606b025a47ae"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-station-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "211324f9375892d9d0f950811ac013076d1f5f16f9b65ff09e260a41c63576ab"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gear-workshop-detail-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "5bdf260c5117ea0b9ab87a3350df8d7349dd5a4f3218c5cf7bbccd2ba666d840"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-core-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "25fb36f617b07baf6c50be6ac7e007235b42e8389232b739b5ed432b30822142"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-field-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "57c1ef595c3b430b30de77d434768f4b09a8f4df0fac9800b560d8d8c2c6aa82"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-gate-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "0fa3af8e083eb5e039ac87011545e29eea2ad4164919202c4853ef6315a5732e"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-memory-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "f4f000f9d92b42f63040c7162a3eb345197b3c238a2bd80a6aaefe124d0749ec"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-observatory-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "aee0d55da811f39b31ae2633197a39f0d64dc0ab8fd287af7731f452d71933b0"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-ruins-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "8a9f96960722bdd8e9339648843f4da309973da0c5bf6c2bd6924aedafe1b2d6"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-sanctuary-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "e428e3dc05294d2e7c14bec8aad1fba5522fb77c9c43234cf41bfdec2a293104"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grave-tower-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "7d00d0d0f84ff6b9ca27dda7e1c09a39b259060601377ca2adc44437961cbee3"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gravity-controlled-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "fb2bcfb3727900951da175b315d401496b46db3af4aaebcc72d81663e1023936"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gravity-normal-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "5970b288ef14dfa149f2dbf4c683c70198159b31cd2f3f882b2989138240c7c9"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gravity-reversed-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "0f256a43466aea02bd65a2e5babdbf25df46492463a19864e22e3735b1e09094"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-gravity-stable-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "1a9c644cc02adc72ad78534e12a435defdbea1c08ab50a7f7187739de986e1e8"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grove-garden-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "5cfb2b97675017960955203cb230ee6bcaba87fcf07d854a70d33bf8c69faa50"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-grove-village-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "a922f74d72149b7dca0f4d11fdb4cdf46e2e4482ca7ac4c81f257bec8678d60f"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-high-reload-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "edfcc35070cb3872bc3ad8cc4b366d18fdc1ed34b994bfb81601705e827ae28a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-light-dark-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "2e2954be5dd81ff2b87e06f47f5377de7738661a48ccd9656a769d213c14effd"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-light-glimmer-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "39bfaddc278d6b8031091e90ac5e3cb1a988adcfff49d0d4dadc86e12f1e9efc"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-light-linked-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "ccc788005d978d8015fc91dc903affff9acd7cfa838df6f338c29bf63ca7bcb8"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-light-renewed-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "6cca1df966082ad807873b40bb97d106fa050efa2e0eac7fdce985caebd0f9de"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-low-reload-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "78a7b87e8afcd14078c8377a3b7a870a96838f1cca18315a3be3b2b9fea1a2e3"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-old-twelve-npc-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "5913a50ae80b51c5630757fdeb25d71a90e3bd22b081242a8240bae982c215ca"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-old-twelve-road-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "36e3c176c1924f079e3539002e06c7b5d80b5769bdf8a0e2a047f4198939e9e1"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-resonance-calm-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "8c890c97444e416f3673fb8e919ffe3c576dd73620ca9b0c6ca07c994fbf205b"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-resonance-faint-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "e3157833b44307919c102050ac28efb1ebc20c47879cc9422005418222492363"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-resonance-linked-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "80914cfce84e5385cdc20900c8ce76f630060d1cecc13164a6b35867149f2445"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-resonance-silent-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "3212abcc7395052a5f700c849b8e5b20539ff36dacb784e7b1086e04daa0b57a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-sky-tower-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "b3210cca944c0b8d94a878440db2b33b025caff85d0a5dc94485b542d1ccf2cd"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-sky-town-390.png",
+        "width": 390,
+        "height": 845,
+        "sha256": "4d913b10d1accae2725300ba69e8e3fc302ef0236a5eece3ea628bef592fbebc"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-bridge-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "dd92b21288e1292422c9997b8136c787f1daa9b5bb68ab79060408389fc8083b"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-gate-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "5f6ec4d2a78a18e9355358fe2cf11aa7aff423d7e5e4e56650798694125aa8b9"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-heart-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "77c41f45a33c1c24147a7bb4032a3f1427cdf2cdf3b94ad5d96a5f87d88460d1"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-library-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "d95115c2db788f6c10e8ee35fe7231c60cb57ee84f6b03d1d09b586e0d6f19e3"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-memory-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "4c7cb75dd07b91b80e63e19f938f4b99bce450ffe0564db156c859416a6c13f1"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-observatory-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "e4e293a1f7cc0cc184e79433b7b6a717b69ae034afa2d3868b8ce98004f66edc"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-plaza-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "b55cb944dd3b4a60c325a7fd08f9ea13dda4148c59488f4b6a15fdfa05a32227"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-terminal-sanctuary-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "3d6977edea740d23c095419292cc441f0ad106a40e1d0b55f9b0459e29138ca1"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-archive-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "a7e205b4f89ea42c7b25b744bb5d2f5ea90a6c2b219679cbb3853af27264e122"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-core-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "f66565ecf44bc5ce83ddb35433050b69e24a3fce75a65eee25470f02595a17a9"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-corridor-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "d137a97b72b26aac951ac66a3a3e8f0d511726b024335118d6283ecb6d1132a2"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-court-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "baece6aba92f95681ed8f215bfb221801e6375de94a77dc03de87d1a03d57869"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-garden-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "730286774df325b17108e2f2754a7861abadb4344d48031b619333dcc0ed7353"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-gate-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "fb39c55ae9a98b418dc76f796450caa5655cb645976f838553b30bbe6ea13e6a"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-mirror-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "44afab89c9b5a20fd0bbcf421e9fb7a1c18c2658653b3c5d613f447ebec73b52"
+      },
+      {
+        "path": "docs/screenshots/exploration-v25-void-sanctum-390.png",
+        "width": 390,
+        "height": 863,
+        "sha256": "95a78c5e639313a9bd8c5ca295ab8c955747c39d3422e1ec2ed8013867792eaa"
+      }
+    ]
+  },
+  "compatibility": {
+    "save_key": "astra-chronica:v1",
+    "save_version": 2,
+    "party": [
+      "astel",
+      "rina",
+      "mei"
+    ],
+    "max_level": 50,
+    "weapon_families": 9,
+    "elements": 7,
+    "statuses": 7,
+    "tree_nodes": 90,
+    "chapter18_implemented": false
+  },
+  "limitations": [
+    "iPhone Safari実機は未確認",
+    "仮図形・グリッドを使用",
+    "CPU負荷・環境再起動による初回失敗は履歴へ分離"
+  ],
+  "merged": false,
+  "deployed": false
+}

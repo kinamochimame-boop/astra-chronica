@@ -300,3 +300,13 @@ BASE_URL=http://localhost:4173 npm run test:capture-v23
 記憶投影は確定イベントで4段階へ変化します。投影中の橋は見るだけで、接続後に通行可能になります。建物と橋の輪郭を仮図形で表現し、A*・衝突・ミニマップと同じ実効地形を使います。最大Lv50・保存キー・schema2・旧1〜15章・90ノード・戦闘計算を維持します。
 
 [第16章の仕様・会話全文・敵数値・保存互換・検証結果](docs/CHAPTER_SIXTEEN_V24.md)。`npm run test:browser-v24`、`npm run test:chapter-sixteen`、`npm run test:memory-v24`で追加検証を実行できます。ブラウザ検証前にビルド・プレビューを起動し、`BASE_URL`を指定してください。
+
+## v2.5 第17章「星の終着点と最後の約束」
+
+第16章クリア後に第17章を開始できます。16地点・38イベント、自由歩行8枚（全82枚）、運命の星路4段階、通常敵6種・中ボス・3段階ボス、武器3種、SQ-43〜45、重要選択5件、手帳8記事を追加しました。星路は確定イベントと保存済み選択から復元し、既存のセーブキー・schema2を維持します。第18章は予告のみです。
+
+[第17章仕様・会話全文・敵数値・互換性・検証結果](docs/CHAPTER_SEVENTEEN_V25.md)。`npm run test:chapter-seventeen`、`npm run test:fate-v25`、`npm run test:exploration-v25`、`npm run test:browser-v25`で追加ブラウザ検証を実行できます。先に`npm run build`と`npm run preview -- --port 4173`を実行し、必要に応じて`BASE_URL`と`CHROMIUM_PATH`を指定してください。全既存ブラウザテストは`npm run test:browser-all`（既存UI検証用に5173の開発サーバーも使用）です。mainへのマージ・公開はレビュー後の別工程です。
+
+長時間の章通し検証では`BATTLE_VIRTUAL_CLOCK=1`で戦闘後の待ち時間だけをPlaywrightの仮想時計で進められます。既存章の通常実行は従来の実時間です。コマンド・ターン数上限・HP/MP・勝敗判定は同一で、演出・連打・標準WebGLの専用検証は通常時計を使用します。旧章の任意時計モードは`fastForward`で反復描画を省き、`BATTLE_CLOCK_SKIP_FRAMES=0`を併用すると`runFor`で全フレームを進めます。第17章の通し検証は`runFor`を使用します。 `--quests-before`／`--quests-after`に対応する章は経路別に実行できます。標準実行は両経路を維持し、結果集計でも両方の成功を必須にします。
+
+環境中断に備える場合は、`V25_MAP_CHECKPOINT=/tmp/astra-v25-maps.json`、`V25_CHAPTER_CHECKPOINT=/tmp/astra-v25-routes`を指定できます。成果物とテストが一致する場合のみ、確認済みの地点・イベント・実戦勝利から再開します。未設定なら最初から実行します。完走後、`V25_CLEAR_SAVE=/tmp/astra-v25-routes/before.json npm run test:capture-v25`で、実際の章クリア記録を使った追加撮影ができます。
