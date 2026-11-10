@@ -42,5 +42,5 @@ export const walkMaps:readonly WalkMap[]=[
 ];
 export const mapById=(id:unknown)=>typeof id==='string'?walkMaps.find(m=>m.id===id):undefined;
 export const mapForLocation=(chapterId:string,locationId:string)=>walkMaps.find(m=>m.chapterId===chapterId&&m.locationId===locationId);
-export const objectForEvent=(id:string)=>walkMaps.flatMap(map=>map.objects.filter(o=>o.eventId===id).map(object=>({map,object})))[0];
-export const symbolForEvent=(id:string)=>walkMaps.flatMap(map=>map.symbols.filter(s=>s.eventId===id).map(symbol=>({map,symbol})))[0];
+export function objectForEvent(id:string){for(const map of walkMaps){const object=map.objects.find(o=>o.eventId===id);if(object)return {map,object}}return undefined;}
+export function symbolForEvent(id:string){for(const map of walkMaps){const symbol=map.symbols.find(s=>s.eventId===id);if(symbol)return {map,symbol}}return undefined;}
