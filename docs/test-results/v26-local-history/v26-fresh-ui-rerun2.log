@@ -1,0 +1,84 @@
+Fresh UI event chapter-01 c1-departure wins 0 levels 1/1/1
+UI victory c1-first-battle
+Fresh UI event chapter-01 c1-first-battle wins 1 levels 2/2/2
+Fresh UI event chapter-01 c1-stele-story wins 1 levels 2/2/2
+Fresh UI event chapter-01 c1-chest wins 1 levels 2/2/2
+UI victory c1-fork-battle
+Fresh UI event chapter-01 c1-fork-battle wins 2 levels 3/3/3
+Fresh UI event chapter-01 c1-rest wins 2 levels 3/3/3
+Fresh UI event chapter-01 c1-altar-story wins 2 levels 3/3/3
+Fresh journey failure: locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#tree-back')[22m
+[2m    - locator resolved to <button id="tree-back" class="secondary">ホームへ戻る</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing tap action[22m
+ ✧
+ASTRA CHRONICA
+星詠みの遺した約束
+PROTOTYPE
+ver. 2.6
+
+STARGAZER’S CAMP
+
+星灯りの野営地
+
+失われた星の記憶を、もう一度。
+
+アステル
+戦士 Lv.3
+リナ
+タンク Lv.3
+メイ
+魔法攻撃 Lv.3
+CHAPTER 01 · PROLOGUE
+約束のはじまり
+
+「星が消えても、約束は消えない」
+星詠みの言葉を胸に、三人は霧の森へ踏み出す。
+
+戦闘 2回
+勝利 2回
+
+所持品：星露の小瓶 0個 ／ 灯火の雫 0個
+
+冒険へ出発章選択サブクエスト探索記録冒険手帳戦闘開始　→編成を見るスキルツリー装備戦闘基盤テスト（保存なし）タイトルへ
+
+進行はこのブラウザに自動保存されます
+
+✦ 星の記憶は、あなたとともに。
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#tree-back')[22m
+[2m    - locator resolved to <button id="tree-back" class="secondary">ホームへ戻る</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing tap action[22m
+
+    at developUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:43:771)
+    at async file:///workspace/astra-chronica/tests/full-journey-v26.e2e.mjs:17:188 {
+  log: [
+    "  - waiting for locator('#tree-back')",
+    '    - locator resolved to <button id="tree-back" class="secondary">ホームへ戻る</button>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing tap action'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

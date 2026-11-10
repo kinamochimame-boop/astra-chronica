@@ -1,0 +1,232 @@
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/exploration-v22.test.ts (92 tests) 5998ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-port' entry/objects/patrols are reachable and all exits preserve valid targets  994ms
+ ✓ tests/chapter-sixteen-v24.test.ts (107 tests) 9007ms
+   ✓ chapter sixteen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  542ms
+   ✓ grave enemies and measurable shared combat > seed1 clears both quest routes atLv50 with chapter15 weapons  468ms
+   ✓ grave enemies and measurable shared combat > seed2 clears both quest routes atLv50 with chapter15 weapons  511ms
+   ✓ grave enemies and measurable shared combat > seed3 clears both quest routes atLv50 with chapter15 weapons  495ms
+   ✓ grave enemies and measurable shared combat > seed4 clears both quest routes atLv50 with chapter15 weapons  432ms
+   ✓ grave enemies and measurable shared combat > seed5 clears both quest routes atLv50 with chapter15 weapons  325ms
+   ✓ grave enemies and measurable shared combat > seed6 clears both quest routes atLv50 with chapter15 weapons  380ms
+   ✓ grave enemies and measurable shared combat > seed7 clears both quest routes atLv50 with chapter15 weapons  548ms
+   ✓ grave enemies and measurable shared combat > seed8 clears both quest routes atLv50 with chapter15 weapons  323ms
+   ✓ grave enemies and measurable shared combat > seed11 clears both quest routes atLv50 with chapter15 weapons  344ms
+   ✓ grave enemies and measurable shared combat > seed12 clears both quest routes atLv50 with chapter15 weapons  453ms
+   ✓ grave enemies and measurable shared combat > seed13 clears both quest routes atLv50 with chapter15 weapons  481ms
+   ✓ grave enemies and measurable shared combat > seed19 clears both quest routes atLv50 with chapter15 weapons  340ms
+ ✓ tests/chapter-fourteen-v22.test.ts (41 tests) 4434ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1959ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  2011ms
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 3372ms
+ ✓ tests/chapter-fifteen-v23.test.ts (102 tests) 7129ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 7 clears both quest routes from a genuine legacy level 50 without mandatory nodes  342ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 8 clears both quest routes from a genuine legacy level 50 without mandatory nodes  339ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 11 clears both quest routes from a genuine legacy level 50 without mandatory nodes  639ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 12 clears both quest routes from a genuine legacy level 50 without mandatory nodes  321ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 14 clears both quest routes from a genuine legacy level 50 without mandatory nodes  548ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 16 clears both quest routes from a genuine legacy level 50 without mandatory nodes  349ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 17 clears both quest routes from a genuine legacy level 50 without mandatory nodes  341ms
+ ✓ tests/chapter-thirteen-v21.test.ts (39 tests) 8041ms
+   ✓ chapter thirteen story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced  300ms
+   ✓ chapter thirteen story, save and choices > puzzle rejects wrong order, resets safely via reload and completes once  762ms
+   ✓ chapter thirteen story, save and choices > 'sq-stopped-clock' is completable before and after clear with one reward  310ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  4309ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1978ms
+ ✓ tests/exploration-v26.test.ts (202 tests) 2792ms
+   ✓ ninety-map compatibility and shared effective grid > sky-tower save/reload repairs invalid wall positions without losing equipment or previous chapters  680ms
+ ✓ tests/chapter-eleven-v19.test.ts (38 tests) 4263ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  2449ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1304ms
+ ✓ tests/chapter-twelve-v20.test.ts (44 tests) 3245ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1303ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1373ms
+ ✓ tests/chapter-ten-v18.test.ts (37 tests) 3319ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1423ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1422ms
+ ✓ tests/chapter-nine-v17.test.ts (45 tests) 3141ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption  1325ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=true, no high-level tree assumption  1219ms
+ ✓ tests/chapter-seventeen-combat-v25.test.ts (50 tests) 4348ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed19 wins all nine encounters without chapter17 gear  317ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed20 wins all nine encounters without chapter17 gear  443ms
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false
+v1.5 full chapter quests=false: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+v1.5 full chapter quests=true: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds
+v1.5 grove-trail: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds
+v1.5 grove-roots: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+v1.5 grove-sentry: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds
+v1.5 grove-orb: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+v1.5 grove-granguard: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds
+v1.5 grove-seles: 20/20
+
+ ❯ tests/chapter-seven-v15.test.ts (45 tests | 2 failed) 21889ms
+   ✓ chapter seven prerequisite fixture isolation > cached prerequisite equals the original six-chapter API setup 34ms
+   ✓ chapter seven prerequisite fixture isolation > nested scenario mutations do not reach a second copy or the baseline 1ms
+   ✓ chapter seven complete content and old progression > registers seven chapters, sixteen exact locations and twenty-two distinct real events 8ms
+   ✓ chapter seven complete content and old progression > requires chapter six clear and denies visits, map entry, choices and boss launch while locked 12ms
+   ✓ chapter seven complete content and old progression > finishes every event without optional quests and keeps chapters one through six identical 24ms
+   ✓ chapter seven complete content and old progression > keeps reward/EXP receipts exactly once for the final boss 8ms
+   ✓ chapter seven complete content and old progression > tree/gear/level/item data and no-save lab remain isolated 25ms
+   ✓ grove enemies, phases and existing combat rules > wolf executes a real isolated combat action 2ms
+   ✓ grove enemies, phases and existing combat rules > slime executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > spore executes a real isolated combat action 3ms
+   ✓ grove enemies, phases and existing combat rules > sentry executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > moth executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > orb executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > wolf hits twice, vines cause paralysis, spores cause poison/silence, moth uses wind weakness 4ms
+   ✓ grove enemies, phases and existing combat rules > oldwood sentry guards and counters once with the existing cover/status rules 4ms
+   ✓ grove enemies, phases and existing combat rules > root orb uses regular earth magic, signals and releases a reserved spell 3ms
+   ✓ grove enemies, phases and existing combat rules > GranGuard retains its cannon through freezing 2ms
+   ✓ grove enemies, phases and existing combat rules > Seles progresses three phases and preserves a phase-two reservation after sleep and phase change 3ms
+   ✓ grove enemies, phases and existing combat rules > boss magic respects taunt, cover, guard and real status resistance/infliction 1ms
+   ✓ weapons, optional quests and five immutable choices > '翠星の双剣' is granted once, restricted by owner and exact family 5ms
+   ✓ weapons, optional quests and five immutable choices > '樹護の盾槍' is granted once, restricted by owner and exact family 7ms
+   ✓ weapons, optional quests and five immutable choices > '星樹のワンド' is granted once, restricted by owner and exact family 4ms
+   ✓ weapons, optional quests and five immutable choices > weapons have tradeoffs relative to chapter six, not unconditional upgrades 1ms
+   ✓ weapons, optional quests and five immutable choices > dual normal hits and Fang remain two hits; wand actually increases healing and adjusts magic 6ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-fine-meeting' persists either selection immediately and cannot be replaced 5ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-gran-question' persists either selection immediately and cannot be replaced 7ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-rina-judgment' persists either selection immediately and cannot be replaced 13ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-mei-reading' persists either selection immediately and cannot be replaced 11ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-final-promise' persists either selection immediately and cannot be replaced 10ms
+   ✓ weapons, optional quests and five immutable choices > all 32 choice combinations can finish without optional quests or lost rewards 154ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-herb-basket' can be completed before or after clear and never grants twice 15ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-guardian-oath' can be completed before or after clear and never grants twice 14ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-star-flower' can be completed before or after clear and never grants twice 10ms
+   ✓ weapons, optional quests and five immutable choices > potion reward cap rejects the entire grant and claimed flag 5ms
+   ✓ weapons, optional quests and five immutable choices > ether reward cap rejects the entire grant and claimed flag 5ms
+   ✓ weapons, optional quests and five immutable choices > journal reveals only actual events and exploration uses 16+22+3 without changing old denominators 11ms
+   ✓ weapons, optional quests and five immutable choices > v1.5 keeps rows as the active layout while providing a separate anchor policy for future side view 1ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false  1237ms
+   × multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true 7923ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds 227ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds 249ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds 132ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds  1435ms
+   × multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds 9738ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds  515ms
+ ✓ tests/exploration-v21.test.ts (82 tests) 5390ms
+   ✓ fifty shared maps and approach policy > 'pale-sanctuary' entry/objects/patrols are reachable and all exits preserve valid targets  473ms
+   ✓ confirmed light paths and survey safety > all fifty maps roundtrip without persisting survey fields or losing receipts  355ms
+ ✓ tests/chapter-seventeen-v25.test.ts (66 tests) 1509ms
+   ✓ chapter seventeen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  538ms
+ ✓ tests/exploration-v20.test.ts (74 tests) 2794ms
+ ✓ tests/chapter-eight-v16.test.ts (47 tests) 2941ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes  1409ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes  1147ms
+ ✓ tests/exploration-v25.test.ts (168 tests) 4263ms
+ ✓ tests/skills-v06.test.ts (45 tests) 723ms
+ ✓ tests/railway-v21.test.ts (21 tests) 1410ms
+ ✓ tests/chapter-five-v13.test.ts (50 tests) 2433ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false  729ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true  712ms
+ ✓ tests/exploration-v19.test.ts (61 tests) 2004ms
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+v1.4 chapter seeds quests=false: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+v1.4 chapter seeds quests=true: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ✓ tests/chapter-six-v14.test.ts (56 tests) 2607ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false  805ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true  779ms
+stdout | tests/final-integration-v26.test.ts > fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+Fresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 2026ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  1955ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 1561ms
+ ✓ tests/exploration-v24.test.ts (114 tests) 5276ms
+   ✓ 74 connected maps use the same effective grid and save rules > 'star-city' has reachable objects,symbol routes,valid exits and roundtrip positions  327ms
+   ✓ 74 connected maps use the same effective grid and save rules > new walking interactions are real events,with required NPCs outside all closed footprints  2242ms
+ ✓ tests/exploration-v23.test.ts (103 tests) 2455ms
+   ✓ sixty-six maps share one effective terrain and route engine > observe opens its own pocket while leaving every unchosen door reachable  475ms
+ ✓ tests/chapter-three-v11.test.ts (46 tests) 1739ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = false  596ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true  520ms
+ ✓ tests/chapter-four-v12.test.ts (43 tests) 2058ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false  727ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true  675ms
+ ✓ tests/exploration-v18.test.ts (58 tests) 4958ms
+   ✓ twenty-six shared maps and approach policy > 'grove-ruins' entry/objects/patrols are reachable and all exits preserve valid targets  426ms
+   ✓ shared objective guide > 'chapter-10' reveals the first available goal, not later plot or boss names  324ms
+   ✓ shared objective guide > 'chapter-17' reveals the first available goal, not later plot or boss names  439ms
+ ✓ tests/transit-v22.test.ts (28 tests) 1986ms
+ ✓ tests/chapter-two-v10.test.ts (29 tests) 589ms
+   ✓ deterministic chapter balance > completes the full chapter over 20 seeds with no high-level tree investment  329ms
+ ✓ tests/exploration-v17.test.ts (29 tests) 571ms
+ ✓ tests/exploration-v15.test.ts (33 tests) 341ms
+ ✓ tests/adventure-v08.test.ts (39 tests) 350ms
+ ✓ tests/skill-tree-v09.test.ts (112 tests) 225ms
+ ✓ tests/battle.test.ts (15 tests) 111ms
+ ✓ tests/equipment-v07.test.ts (67 tests) 61ms
+ ✓ tests/foundation.test.ts (30 tests) 391ms
+ ✓ tests/lab-v04.test.ts (21 tests) 33ms
+ ✓ tests/battle-presentation.test.ts (16 tests) 20ms
+ ✓ tests/attack-modifier.test.ts (5 tests) 18ms
+ ✓ tests/map-driver-v25.test.ts (5 tests) 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/chapter-seven-v15.test.ts:54:22
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/chapter-seven-v15.test.ts:55:98
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 42 passed (43)
+      Tests  2 failed | 2461 passed (2463)
+   Start at  09:14:46
+   Duration  164.43s (transform 3.78s, setup 0ms, collect 15.71s, tests 131.82s, environment 20ms, prepare 5.19s)
+

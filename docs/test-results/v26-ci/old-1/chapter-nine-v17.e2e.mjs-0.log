@@ -1,0 +1,81 @@
+Route none: cave-390
+Route none: npc-390
+Route none: path-symbol-390
+Route none: sideview-battle-390
+Route no-quests: battle victory
+Route none: sideview-result-390
+Route none: victory-return-390
+Route none: chest-390
+Route none: choice-390
+Route none: choice-390
+Route none: city-390
+Route none: market-390
+Route none: waterway-390
+Route none: waterway-battle-390
+Route no-quests: battle victory
+Route none: waterway-result-390
+Route none: mine-390
+Route none: mine-battle-390
+Route no-quests: battle victory
+Route none: mine-result-390
+Route none: choice-390
+Route none: guardian-battle-390
+Route no-quests: battle victory
+Route none: guardian-result-390
+Route none: archive-390
+Route none: puzzle-390
+Route none: choice-390
+Route none: lab-battle-390
+Route no-quests: battle victory
+Route none: lab-result-390
+Route none: choice-390
+Route none: core-390
+Route none: memoria-battle-390
+Route no-quests: battle victory
+Route none: memoria-result-390
+Route none: clear-return-390
+Route none: journal-390
+Route none: records-390
+Route none: quests-390
+v1.7 route all-quests=false complete: six real wins, eight maps, five choices, puzzle retry/reload, receipts/save isolation.
+Route all: cave-390
+Route all: quests-390
+Route all: npc-390
+Route all: path-symbol-390
+Route all: sideview-battle-390
+Route all-quests: battle victory
+Route all: sideview-result-390
+Route all: victory-return-390
+Route all: chest-390
+Route all: choice-390
+Route all: choice-390
+Route all: city-390
+Route all: market-390
+Route all: waterway-390
+Route all: waterway-battle-390
+Route all-quests: battle victory
+Route all: waterway-result-390
+Route all: mine-390
+Route all: mine-battle-390
+Route all-quests: battle victory
+Route all: mine-result-390
+Route all: choice-390
+Route all: guardian-battle-390
+Route all-quests: battle victory
+Route all: guardian-result-390
+Route all: archive-390
+Route all: puzzle-390
+Route all: choice-390
+Route all: lab-battle-390
+Route all-quests: battle victory
+Route all: lab-result-390
+Route all: choice-390
+Route all: core-390
+Route all: memoria-battle-390
+Route all-quests: battle victory
+Route all: memoria-result-390
+Route all: clear-return-390
+Route all: journal-390
+Route all: records-390
+v1.7 route all-quests=true complete: six real wins, eight maps, five choices, puzzle retry/reload, receipts/save isolation.
+v1.7 both full chapter-nine touch routes passed: 12 actual victories.

@@ -1,0 +1,2 @@
+Route no-quests: battle victory
+v2.3 supplementary UI passed: NPC dialogue, choice/header regression and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).

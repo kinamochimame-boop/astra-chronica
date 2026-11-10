@@ -1,0 +1,30 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: f800f007b6965d6c08e59d15bc95e0328970f1fc55a394db6e01042404abe31f
+Command: node tests/exploration-v26.e2e.mjs 
+MAP90 start grove-camp
+PASS90 grove-camp
+MAP90 start grove-trail
+PASS90 grove-trail
+MAP90 start grove-ruins
+PASS90 grove-ruins
+MAP90 start sky-port
+PASS90 sky-port
+MAP90 start sky-island
+PASS90 sky-island
+MAP90 start sky-ruins
+PASS90 sky-ruins
+MAP90 start grove-village
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.boundingBox: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#world-viewport canvas')[22m
+
+    at /workspace/astra-chronica/tests/exploration-v26.e2e.mjs:26:183 {
+  log: [ "  - waiting for locator('#world-viewport canvas')" ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

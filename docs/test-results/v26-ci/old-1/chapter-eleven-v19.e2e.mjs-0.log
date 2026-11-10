@@ -1,0 +1,37 @@
+Route all: road-390
+Route all: npc-390
+Route all: road-battle-390
+Route all-quests: battle victory
+Route all: road-result-390
+Route all: village-390
+Route all: choice-390
+Route all: field-390
+Route all: field-battle-390
+Route all-quests: battle victory
+Route all: field-result-390
+Route all: silent-390
+Route all: faint-390
+Route all: choice-390
+Route all: ravine-390
+Route all: choice-390
+Route all: sanctuary-390
+Route all: sanctuary-battle-390
+Route all-quests: battle victory
+Route all: sanctuary-result-390
+Route all: archive-390
+Route all: archive-battle-390
+Route all-quests: battle victory
+Route all: archive-result-390
+Route all: guardian-battle-390
+Route all-quests: battle victory
+Route all: guardian-result-390
+Route all: choice-390
+Route all: linked-390
+Route all: choice-390
+Route all: core-390
+Route all: requiem-battle-390
+Route all-quests: battle victory
+Route all: requiem-result-390
+Route all: journal-390
+v1.9 route quests=true passed: six real victories, eight maps, resonance phases, five choices, ten chapters preserved.
+v1.9 full chapter-eleven touch routes passed: 1 route(s), 6 actual victories.

@@ -1,0 +1,11 @@
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 2730ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  2625ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  08:08:22
+   Duration  7.11s (transform 3.09s, setup 0ms, collect 3.57s, tests 2.73s, environment 0ms, prepare 279ms)
+

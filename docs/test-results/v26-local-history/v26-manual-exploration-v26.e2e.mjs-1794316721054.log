@@ -1,0 +1,27 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: f800f007b6965d6c08e59d15bc95e0328970f1fc55a394db6e01042404abe31f
+Command: node tests/exploration-v26.e2e.mjs 
+REUSED90 verified layout fixture grove-camp
+REUSED90 verified layout fixture grove-trail
+REUSED90 verified layout fixture grove-ruins
+REUSED90 verified layout fixture sky-port
+REUSED90 verified layout fixture sky-island
+REUSED90 verified layout fixture sky-ruins
+MAP90 start grove-village
+PASS90 grove-village
+MAP90 start grove-garden
+PASS90 grove-garden
+MAP90 start sky-town
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForFunction: Timeout 30000ms exceeded.
+    at state (/workspace/astra-chronica/tests/map-driver-v15.mjs:2:44)
+    at walkTo (/workspace/astra-chronica/tests/map-driver-v15.mjs:9:211)
+    at async file:///workspace/astra-chronica/tests/exploration-v26.e2e.mjs:27:38 {
+  log: [],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

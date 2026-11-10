@@ -1,0 +1,30 @@
+Chapter18 quests-after c18-arrival
+Chapter18 quests-after c18-gate-fight
+✧
+ASTRA CHRONICA
+星詠みの遺した約束
+PROTOTYPE
+ver. 2.6
+
+CHAPTER 18 · EXPLORE
+
+約束の始原への門
+☰
+目的：断絶した星路 ｜ 約束の始原への門 — 敵と戦う。近くへ歩いて対象をタップ。 ｜ → 目的の対象：断絶した星路 星の再編：星の断絶
+地図
+
+地面をタップして歩く · 矢印／WASDでも移動
+人・装置・宝箱・出口は輪の範囲に近づいてタップ
+
+✦ 星の記憶は、あなたとともに。
+file:///workspace/astra-chronica/tests/map-driver-v15.mjs:28
+ const final=await state(page),target=final.symbols.find(e=>e.id===id);throw Error('could not contact enemy: '+JSON.stringify({hero:final.hero,target,contactGrace:final.contactGrace,locked:final.locked}));
+                                                                             ^
+
+Error: could not contact enemy: {"hero":{"x":688,"y":496,"facing":"down","moving":false},"target":{"id":"final-star-gate-gate-fight","x":751.1244000000002,"y":496,"state":"patrol","updates":2017,"eventId":"c18-gate-fight"},"contactGrace":0,"locked":false}
+    at contactSymbol (file:///workspace/astra-chronica/tests/map-driver-v15.mjs:28:78)
+    at async eventUI (file:///workspace/astra-chronica/tests/v26-ui-driver.mjs:34:158)
+    at async route (file:///workspace/astra-chronica/tests/chapter-eighteen-v26.e2e.mjs:11:107)
+    at async file:///workspace/astra-chronica/tests/chapter-eighteen-v26.e2e.mjs:14:134
+
+Node.js v24.22.1

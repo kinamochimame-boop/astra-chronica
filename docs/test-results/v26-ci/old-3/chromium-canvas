@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$V26_CHROMIUM_NATIVE" --disable-webgl "$@"

@@ -1,0 +1,30 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: f800f007b6965d6c08e59d15bc95e0328970f1fc55a394db6e01042404abe31f
+Command: node tests/exploration-v26.e2e.mjs 
+REUSED90 verified layout fixture grove-camp
+REUSED90 verified layout fixture grove-trail
+REUSED90 verified layout fixture grove-ruins
+REUSED90 verified layout fixture sky-port
+REUSED90 verified layout fixture sky-island
+REUSED90 verified layout fixture sky-ruins
+MAP90 start grove-village
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#world-viewport')[22m
+[2m    - locator resolved to visible <div role="region" id="world-viewport" aria-label="アステルの歩行マップ" data-state="{"reform":"reformed","fate":"reconnected","fateRoute":"direct","memory":"integrated","mapId":"grove-village","chapterId":"chapter-07","locationId":"c7-village","hero":{"x":176,"y":400,"facing":"right","moving":false},"camera":{"x":0,"y":145.5},"width":390,"height":509,"paused":false,"contactGrace":0,"locked":false,"tile":32,"grid":["############################","#..........................#","#..........................#","…>…</div>[22m
+
+    at state (/workspace/astra-chronica/tests/map-driver-v15.mjs:2:163)
+    at async walkTo (/workspace/astra-chronica/tests/map-driver-v15.mjs:9:205)
+    at async file:///workspace/astra-chronica/tests/exploration-v26.e2e.mjs:27:5 {
+  log: [
+    "  - waiting for locator('#world-viewport')",
+    '    - locator resolved to visible <div role="region" id="world-viewport" aria-label="アステルの歩行マップ" data-state="{"reform":"reformed","fate":"reconnected","fateRoute":"direct","memory":"integrated","mapId":"grove-village","chapterId":"chapter-07","locationId":"c7-village","hero":{"x":176,"y":400,"facing":"right","moving":false},"camera":{"x":0,"y":145.5},"width":390,"height":509,"paused":false,"contactGrace":0,"locked":false,"tile":32,"grid":["############################","#..........................#","#..........................#","…>…</div>'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

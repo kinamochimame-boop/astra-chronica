@@ -1,0 +1,62 @@
+Route none: journal-locked-390
+Route none: camp-320
+Route none: camp-390
+Route none: camp-430
+Route none: camp-768
+Route none: trail-390
+Route none: symbol-battle-390
+Route no-quests: battle victory
+Route none: victory-return-390
+Route none: choice-390
+Route no-quests: battle victory
+Route no-quests: battle victory
+Route none: ruins-390
+Route none: ruins-event-saved-390
+Route no-quests: battle victory
+Route no-quests: battle victory
+Route none: chest-opened-390
+Route none: aero-battle-390
+Route no-quests: battle victory
+Route none: choice-390
+Route none: choice-390
+Route none: choice-390
+Route none: sanctum-390
+Route none: astraeia-battle-390
+Route no-quests: battle victory
+Route none: clear-390
+Route none: journal-clear-390
+Route none: records-390
+Route none: quests-390
+Route none: records-all-390
+v1.6 no quests / first options / post-clear quests full chapter and real maps passed.
+Route all: journal-locked-390
+Route all: camp-320
+Route all: camp-390
+Route all: camp-430
+Route all: camp-768
+Route all: quests-390
+Route all: trail-390
+Route all: symbol-battle-390
+Route all-quests: battle victory
+Route all: victory-return-390
+Route all: choice-390
+Route all-quests: battle victory
+Route all-quests: battle victory
+Route all: ruins-390
+Route all: ruins-event-saved-390
+Route all-quests: battle victory
+Route all-quests: battle victory
+Route all: chest-opened-390
+Route all: aero-battle-390
+Route all-quests: battle victory
+Route all: choice-390
+Route all: choice-390
+Route all: choice-390
+Route all: sanctum-390
+Route all: astraeia-battle-390
+Route all-quests: battle victory
+Route all: clear-390
+Route all: journal-clear-390
+Route all: records-390
+v1.6 all quests / second options full chapter and real maps passed.
+v1.6 both full chapter-eight touch routes passed: 14 real victories, port→flight→island contact→victory→safe return→ruins→record→reload, all three maps, A*/drag/keyboard/camera/nearby objects, patrol/wait/chase, defeat/interrupted receipt recovery, weapons/quests/choices/journal and old seven-chapter save isolation.

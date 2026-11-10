@@ -1,0 +1,12 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForFunction: Timeout 30000ms exceeded.
+    at waitMap (/workspace/astra-chronica/tests/map-driver-v15.mjs:4:48)
+    at /workspace/astra-chronica/tests/.v26-uniform-native-check.mjs:7:807 {
+  log: [],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

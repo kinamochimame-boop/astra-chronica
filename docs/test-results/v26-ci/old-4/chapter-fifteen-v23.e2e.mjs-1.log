@@ -1,0 +1,32 @@
+Route none: gateway-390
+Route none: gateway-fight-battle-390
+Route no-quests: battle victory
+Route none: gateway-fight-result-390
+Route none: choice-390
+Route none: chaotic-390
+Route none: synced-390
+Route none: choice-390
+Route none: choice-390
+Route none: sanctum-battle-390
+Route no-quests: battle victory
+Route none: sanctum-result-390
+Route none: archive-battle-390
+Route no-quests: battle victory
+Route none: archive-result-390
+Route none: guardian-battle-390
+Route no-quests: battle victory
+Route none: guardian-result-390
+Route none: corridor-1-390
+Route none: corridor-2-390
+Route none: corridor-3-390
+Route none: fracture-battle-390
+Route no-quests: battle victory
+Route none: fracture-result-390
+Route none: choice-390
+Route none: choice-390
+Route none: oblivion-battle-390
+Route no-quests: battle victory
+Route none: oblivion-result-390
+Route none: journal-390
+v2.3 route quests=false passed: six real victories, eight maps, stellar phases, corridor observe->choice->anchor, unchanged level 50 cap, five choices, fourteen chapters preserved.
+v2.3 full chapter-fifteen touch routes passed: 1 route(s), 6 actual victories.

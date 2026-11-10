@@ -1,0 +1,90 @@
+{
+  "run_id": 42903064874,
+  "workflow_url": "https://github.com/kinamochimame-boop/astra-chronica/actions/runs/42903064874",
+  "verified_zip_archives": [
+    {
+      "id": 13804815330,
+      "name": "v26-unit",
+      "digest": "sha256:5231e6ffb990032772ca2317f6c21230c9e539c4c87421d40693f34dafbc57e6",
+      "bytes": 130203,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13804312375,
+      "name": "v26-layouts",
+      "digest": "sha256:9800c18330a5be0768832bd45998f71a79c10f8d63ef24128cd64cacba673245",
+      "bytes": 14413909,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13803672672,
+      "name": "v26-webgl",
+      "digest": "sha256:0c252d322b738dda12421193a3690ba78c0d88012301d07bac565f8095a8bb9f",
+      "bytes": 14569201,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13804387088,
+      "name": "v26-new",
+      "digest": "sha256:cf8f40dfab5de6c8d909f0448cb7cc45c35acd8e67eaad778926c0c2df679a84",
+      "bytes": 27766516,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13805667874,
+      "name": "v26-old-2",
+      "digest": "sha256:dfabc726343a083a469264ee8d10a86770b1a4eb16219b22a637e838b2f59660",
+      "bytes": 14214923,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13804908740,
+      "name": "v26-old-0",
+      "digest": "sha256:20b8170b00b2f4436e631b664d8440d077e80087be79d502c046802a87ed6725",
+      "bytes": 14215106,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13806141281,
+      "name": "v26-fresh",
+      "digest": "sha256:732d39a02adbe59db53fc5e9f003074e78c1b8d7dc062d5f1d1feacfc3b28721",
+      "bytes": 14524456,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13806242846,
+      "name": "v26-old-3",
+      "digest": "sha256:d9b1ce3ba41eaa11db1bb61ff61d147336fdea38ace9cc04f1bd71ee18ff15c8",
+      "bytes": 14215190,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13807243230,
+      "name": "v26-old-1",
+      "digest": "sha256:c5a2aded274fc5c25268d843dd88018e82206252fae49d71c5349f4d84fca996",
+      "bytes": 14215883,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13809528323,
+      "name": "v26-old-5",
+      "digest": "sha256:970fe807d302b4ecf317890095a57fefaf203e5d9bd15ebf08f342c7b99cbba9",
+      "bytes": 14216173,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    },
+    {
+      "id": 13810827821,
+      "name": "v26-old-4",
+      "digest": "sha256:4e8c0ce1b114d60dd9b1d030da3415c2fcc34019e4e04d4607bdeaad476456be",
+      "bytes": 14217240,
+      "head": "66721ba85c4f70d4fc5e387473c35111d4439f45"
+    }
+  ],
+  "checks": [
+    "SHA-256 matched GitHub artifact digest",
+    "ZIP CRC valid",
+    "No absolute or parent traversal entries",
+    "Receipt source and head match",
+    "All command logs matched receipt hashes"
+  ]
+}

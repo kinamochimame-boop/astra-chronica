@@ -1,0 +1,7 @@
+PASS corridor order anchor->observe->choice: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources
+PASS corridor order anchor->choice->observe: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources
+PASS corridor order observe->anchor->choice: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources
+PASS corridor order observe->choice->anchor: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources
+PASS corridor order choice->anchor->observe: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources
+PASS corridor order choice->observe->anchor: cancel, partial reload, six confirmations/revisits, actual doors, no duplicate resources
+v2.3 corridor passed: all six orders, partial cancel/reload, repeat-safe resources, four stellar phases/safe positions/minimap at four widths, zero runtime errors.

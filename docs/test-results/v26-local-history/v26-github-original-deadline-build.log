@@ -1,0 +1,399 @@
+﻿2026-11-10T16:38:07.0432963Z Current runner version: '2.338.2'
+2026-11-10T16:38:07.0453151Z ##[group]Runner Image Provisioner
+2026-11-10T16:38:07.0453916Z Hosted Compute Agent
+2026-11-10T16:38:07.0454397Z Version: 20261028.624
+2026-11-10T16:38:07.0454947Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-10T16:38:07.0455580Z Build Date: 2026-10-28T21:51:42Z
+2026-11-10T16:38:07.0456351Z Worker ID: {56cf034e-4f19-417c-9f76-bedb5192fbdd}
+2026-11-10T16:38:07.0457036Z Region: westus3
+2026-11-10T16:38:07.0457490Z Cloud: Azure
+2026-11-10T16:38:07.0458019Z ##[endgroup]
+2026-11-10T16:38:07.0459416Z ##[group]Operating System
+2026-11-10T16:38:07.0459935Z Ubuntu
+2026-11-10T16:38:07.0460431Z 26.04.1
+2026-11-10T16:38:07.0460854Z LTS
+2026-11-10T16:38:07.0461292Z ##[endgroup]
+2026-11-10T16:38:07.0461791Z ##[group]Runner Image
+2026-11-10T16:38:07.0462284Z Image: ubuntu-26.04
+2026-11-10T16:38:07.0462771Z Version: 20261101.186.1
+2026-11-10T16:38:07.0463818Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-10T16:38:07.0465079Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-10T16:38:07.0465852Z ##[endgroup]
+2026-11-10T16:38:07.0467030Z ##[group]GITHUB_TOKEN Permissions
+2026-11-10T16:38:07.0468745Z Contents: read
+2026-11-10T16:38:07.0469363Z Metadata: read
+2026-11-10T16:38:07.0469816Z ##[endgroup]
+2026-11-10T16:38:07.0471387Z Secret source: Actions
+2026-11-10T16:38:07.0472190Z Cache mode: write
+2026-11-10T16:38:07.0473061Z Prepare workflow directory
+2026-11-10T16:38:07.0766926Z Prepare all required actions
+2026-11-10T16:38:07.0804996Z Getting action download info
+2026-11-10T16:38:07.3566611Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-10T16:38:07.4664210Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-10T16:38:07.5794257Z Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+2026-11-10T16:38:07.8790462Z Getting action download info
+2026-11-10T16:38:08.0122044Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-10T16:38:08.1345699Z Complete job name: build
+2026-11-10T16:38:08.2015567Z ##[group]Run actions/checkout@v4
+2026-11-10T16:38:08.2016364Z with:
+2026-11-10T16:38:08.2016757Z   repository: kinamochimame-boop/astra-chronica
+2026-11-10T16:38:08.2019806Z   token: ***
+2026-11-10T16:38:08.2020156Z   ssh-strict: true
+2026-11-10T16:38:08.2020505Z   ssh-user: git
+2026-11-10T16:38:08.2020862Z   persist-credentials: true
+2026-11-10T16:38:08.2021253Z   clean: true
+2026-11-10T16:38:08.2021603Z   sparse-checkout-cone-mode: true
+2026-11-10T16:38:08.2022019Z   fetch-depth: 1
+2026-11-10T16:38:08.2022368Z   fetch-tags: false
+2026-11-10T16:38:08.2022719Z   show-progress: true
+2026-11-10T16:38:08.2023078Z   lfs: false
+2026-11-10T16:38:08.2023402Z   submodules: false
+2026-11-10T16:38:08.2023756Z   set-safe-directory: true
+2026-11-10T16:38:08.2024173Z   allow-unsafe-pr-checkout: false
+2026-11-10T16:38:08.2024730Z ##[endgroup]
+2026-11-10T16:38:08.4142182Z Syncing repository: kinamochimame-boop/astra-chronica
+2026-11-10T16:38:08.4143987Z ##[group]Getting Git version info
+2026-11-10T16:38:08.4144762Z Working directory is '/home/runner/work/astra-chronica/astra-chronica'
+2026-11-10T16:38:08.4145710Z [command]/usr/bin/git version
+2026-11-10T16:38:08.4146364Z git version 2.56.0
+2026-11-10T16:38:08.4158903Z ##[endgroup]
+2026-11-10T16:38:08.4172051Z Temporarily overriding HOME='/home/runner/work/_temp/4aa57a7f-e118-4e18-89bc-baceb30999f2' before making global git config changes
+2026-11-10T16:38:08.4173568Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-10T16:38:08.4176038Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/astra-chronica/astra-chronica
+2026-11-10T16:38:08.4231596Z Deleting the contents of '/home/runner/work/astra-chronica/astra-chronica'
+2026-11-10T16:38:08.4235258Z ##[group]Initializing the repository
+2026-11-10T16:38:08.4239832Z [command]/usr/bin/git init /home/runner/work/astra-chronica/astra-chronica
+2026-11-10T16:38:08.4321470Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-10T16:38:08.4322574Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-10T16:38:08.4323441Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-10T16:38:08.4324192Z hint: call:
+2026-11-10T16:38:08.4324564Z hint:
+2026-11-10T16:38:08.4325039Z hint: 	git config --global init.defaultBranch <name>
+2026-11-10T16:38:08.4325705Z hint:
+2026-11-10T16:38:08.4326430Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-10T16:38:08.4327351Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-10T16:38:08.4328089Z hint:
+2026-11-10T16:38:08.4328476Z hint: 	git branch -m <name>
+2026-11-10T16:38:08.4328965Z hint:
+2026-11-10T16:38:08.4329793Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-10T16:38:08.4331529Z Initialized empty Git repository in /home/runner/work/astra-chronica/astra-chronica/.git/
+2026-11-10T16:38:08.4342373Z [command]/usr/bin/git remote add origin https://github.com/kinamochimame-boop/astra-chronica
+2026-11-10T16:38:08.4384254Z ##[endgroup]
+2026-11-10T16:38:08.4384890Z ##[group]Disabling automatic garbage collection
+2026-11-10T16:38:08.4388098Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-10T16:38:08.4428355Z ##[endgroup]
+2026-11-10T16:38:08.4429091Z ##[group]Setting up auth
+2026-11-10T16:38:08.4436308Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-10T16:38:08.4470565Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-10T16:38:08.4882571Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-10T16:38:08.4913279Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-10T16:38:08.5147395Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-10T16:38:08.5177284Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-10T16:38:08.5479666Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-10T16:38:08.5481203Z ##[endgroup]
+2026-11-10T16:38:08.5481784Z ##[group]Fetching the repository
+2026-11-10T16:38:08.5482820Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b8a5ed2241aa03a1e26c0db5d002ef34d594b82a:refs/remotes/pull/27/merge
+2026-11-10T16:38:21.4107912Z From https://github.com/kinamochimame-boop/astra-chronica
+2026-11-10T16:38:21.4108803Z  * [new ref]         b8a5ed2241aa03a1e26c0db5d002ef34d594b82a -> pull/27/merge
+2026-11-10T16:38:21.4111145Z ##[endgroup]
+2026-11-10T16:38:21.4111854Z ##[group]Determining the checkout info
+2026-11-10T16:38:21.4113232Z ##[endgroup]
+2026-11-10T16:38:21.4118587Z [command]/usr/bin/git sparse-checkout disable
+2026-11-10T16:38:21.4162162Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-10T16:38:21.4190290Z ##[group]Checking out the ref
+2026-11-10T16:38:21.4192130Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/27/merge
+2026-11-10T16:38:22.0748069Z Note: switching to 'refs/remotes/pull/27/merge'.
+2026-11-10T16:38:22.0749573Z 
+2026-11-10T16:38:22.0749901Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-10T16:38:22.0750587Z changes and commit them, and you can discard any commits you make in this
+2026-11-10T16:38:22.0751592Z state without impacting any branches by switching back to a branch.
+2026-11-10T16:38:22.0751984Z 
+2026-11-10T16:38:22.0752266Z If you want to create a new branch to retain commits you create, you may
+2026-11-10T16:38:22.0752800Z do so (now or later) by using -c with the switch command. Example:
+2026-11-10T16:38:22.0753048Z 
+2026-11-10T16:38:22.0753171Z   git switch -c <new-branch-name>
+2026-11-10T16:38:22.0753347Z 
+2026-11-10T16:38:22.0753481Z Or undo this operation with:
+2026-11-10T16:38:22.0753663Z 
+2026-11-10T16:38:22.0753758Z   git switch -
+2026-11-10T16:38:22.0753902Z 
+2026-11-10T16:38:22.0754139Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-10T16:38:22.0754415Z 
+2026-11-10T16:38:22.0754739Z HEAD is now at b8a5ed2 Merge 9f966e6f03fa25c855198f93e15892d6dfe0f858 into 3ca26ce0eef5039603e3e977fa38d7a3e1e28c53
+2026-11-10T16:38:22.0779745Z ##[endgroup]
+2026-11-10T16:38:22.0819924Z [command]/usr/bin/git log -1 --format=%H
+2026-11-10T16:38:22.0841772Z b8a5ed2241aa03a1e26c0db5d002ef34d594b82a
+2026-11-10T16:38:22.1081941Z ##[group]Run actions/setup-node@v4
+2026-11-10T16:38:22.1082241Z with:
+2026-11-10T16:38:22.1082662Z   node-version: 22
+2026-11-10T16:38:22.1082944Z   cache: npm
+2026-11-10T16:38:22.1083224Z   always-auth: false
+2026-11-10T16:38:22.1083496Z   check-latest: false
+2026-11-10T16:38:22.1085620Z   token: ***
+2026-11-10T16:38:22.1085866Z ##[endgroup]
+2026-11-10T16:38:22.2243245Z (node:2205) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-10T16:38:22.2244353Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-10T16:38:22.2246005Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-10T16:38:22.2247269Z ##[group]Environment details
+2026-11-10T16:38:22.6019402Z node: v22.23.4
+2026-11-10T16:38:22.6019884Z npm: 10.9.9
+2026-11-10T16:38:22.6020134Z yarn: 1.22.22
+2026-11-10T16:38:22.6021271Z ##[endgroup]
+2026-11-10T16:38:22.6036896Z [command]/opt/hostedtoolcache/node/22.23.4/x64/bin/npm config get cache
+2026-11-10T16:38:22.6899007Z /home/runner/.npm
+2026-11-10T16:38:22.9160635Z Cache hit for: node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597
+2026-11-10T16:38:22.9245462Z (node:2205) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-10T16:38:23.9795589Z Received 40363788 of 40363788 (100.0%), 45.0 MBs/sec
+2026-11-10T16:38:23.9796221Z Cache Size: ~38 MB (40363788 B)
+2026-11-10T16:38:23.9816711Z [command]/usr/bin/tar -xf /home/runner/work/_temp/3b7dc7ec-d2b6-4b4a-a582-f30aa5b8955b/cache.tzst -P -C /home/runner/work/astra-chronica/astra-chronica --use-compress-program unzstd
+2026-11-10T16:38:24.0395819Z Cache restored successfully
+2026-11-10T16:38:24.0418398Z Cache restored from key: node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597
+2026-11-10T16:38:24.0618151Z ##[group]Run npm ci
+2026-11-10T16:38:24.0618450Z [36;1mnpm ci[0m
+2026-11-10T16:38:24.0673120Z shell: /usr/bin/bash -e {0}
+2026-11-10T16:38:24.0673400Z ##[endgroup]
+2026-11-10T16:38:26.2321630Z 
+2026-11-10T16:38:26.2329147Z added 57 packages, and audited 58 packages in 2s
+2026-11-10T16:38:26.2329614Z 
+2026-11-10T16:38:26.2329882Z 15 packages are looking for funding
+2026-11-10T16:38:26.2330333Z   run `npm fund` for details
+2026-11-10T16:38:26.2421731Z 
+2026-11-10T16:38:26.2422555Z 3 vulnerabilities (1 moderate, 2 critical)
+2026-11-10T16:38:26.2422968Z 
+2026-11-10T16:38:26.2423457Z To address all issues (including breaking changes), run:
+2026-11-10T16:38:26.2423943Z   npm audit fix --force
+2026-11-10T16:38:26.2424197Z 
+2026-11-10T16:38:26.2424420Z Run `npm audit` for details.
+2026-11-10T16:38:26.2961337Z ##[group]Run npm test
+2026-11-10T16:38:26.2961596Z [36;1mnpm test[0m
+2026-11-10T16:38:26.3010011Z shell: /usr/bin/bash -e {0}
+2026-11-10T16:38:26.3010262Z ##[endgroup]
+2026-11-10T16:38:26.3856721Z 
+2026-11-10T16:38:26.3857417Z > astra-chronica@0.1.0 test
+2026-11-10T16:38:26.3857907Z > vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+2026-11-10T16:38:26.3858160Z 
+2026-11-10T16:38:26.6531452Z 
+2026-11-10T16:38:26.6533956Z [1m[46m RUN [49m[22m [36mv3.2.7 [39m[90m/home/runner/work/astra-chronica/astra-chronica[39m
+2026-11-10T16:38:26.6534665Z 
+2026-11-10T16:38:27.8713233Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 full-chapter seeds with quests=false
+2026-11-10T16:38:27.8713978Z [22m[39mv1.4 chapter seeds quests=false: 20/20
+2026-11-10T16:38:27.8714175Z 
+2026-11-10T16:38:28.1977168Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 full-chapter seeds with quests=true
+2026-11-10T16:38:28.1979274Z [22m[39mv1.4 chapter seeds quests=true: 20/20
+2026-11-10T16:38:28.1979598Z 
+2026-11-10T16:38:28.2409463Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+2026-11-10T16:38:28.2410670Z [22m[39mv1.4 chrono-bridge: 20/20
+2026-11-10T16:38:28.2410925Z 
+2026-11-10T16:38:28.2884885Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-market using chapter-five-clear starter equipment
+2026-11-10T16:38:28.2885654Z [22m[39mv1.4 chrono-market: 20/20
+2026-11-10T16:38:28.2885824Z 
+2026-11-10T16:38:28.3418764Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+2026-11-10T16:38:28.3419929Z [22m[39mv1.4 chrono-canal: 20/20
+2026-11-10T16:38:28.3420163Z 
+2026-11-10T16:38:28.4195995Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+2026-11-10T16:38:28.4197623Z [22m[39mv1.4 chrono-clockguard: 20/20
+2026-11-10T16:38:28.4198043Z 
+2026-11-10T16:38:28.5279858Z [90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+2026-11-10T16:38:28.5280653Z [22m[39mv1.4 chrono-luciel: 20/20
+2026-11-10T16:38:28.5280838Z 
+2026-11-10T16:38:28.5296787Z  [32m✓[39m tests/chapter-six-v14.test.ts [2m([22m[2m56 tests[22m[2m)[22m[33m 1175[2mms[22m[39m
+2026-11-10T16:38:28.5297997Z    [33m[2m✓[22m[39m fixed-seed chapter-six balance[2m > [22m20 full-chapter seeds with quests=false [33m 387[2mms[22m[39m
+2026-11-10T16:38:28.5299076Z    [33m[2m✓[22m[39m fixed-seed chapter-six balance[2m > [22m20 full-chapter seeds with quests=true [33m 327[2mms[22m[39m
+2026-11-10T16:38:29.8058473Z  [32m✓[39m tests/chapter-five-v13.test.ts [2m([22m[2m50 tests[22m[2m)[22m[33m 1032[2mms[22m[39m
+2026-11-10T16:38:29.8059772Z    [33m[2m✓[22m[39m multi-seed chapter-five battle balance[2m > [22mcompletes chapter over 20 seeds, all quests=false [33m 352[2mms[22m[39m
+2026-11-10T16:38:29.8060903Z    [33m[2m✓[22m[39m multi-seed chapter-five battle balance[2m > [22mcompletes chapter over 20 seeds, all quests=true [33m 326[2mms[22m[39m
+2026-11-10T16:38:30.7571904Z  [32m✓[39m tests/chapter-four-v12.test.ts [2m([22m[2m43 tests[22m[2m)[22m[33m 711[2mms[22m[39m
+2026-11-10T16:38:31.5788044Z  [32m✓[39m tests/chapter-three-v11.test.ts [2m([22m[2m46 tests[22m[2m)[22m[33m 584[2mms[22m[39m
+2026-11-10T16:38:34.3240920Z  [32m✓[39m tests/chapter-fifteen-v23.test.ts [2m([22m[2m102 tests[22m[2m)[22m[33m 2449[2mms[22m[39m
+2026-11-10T16:38:36.0672656Z  [32m✓[39m tests/chapter-twelve-v20.test.ts [2m([22m[2m44 tests[22m[2m)[22m[33m 1475[2mms[22m[39m
+2026-11-10T16:38:36.0674077Z    [33m[2m✓[22m[39m chapter twelve combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 668[2mms[22m[39m
+2026-11-10T16:38:36.0675658Z    [33m[2m✓[22m[39m chapter twelve combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 589[2mms[22m[39m
+2026-11-10T16:38:36.3773583Z  [32m✓[39m tests/skill-tree-v09.test.ts [2m([22m[2m112 tests[22m[2m)[22m[32m 67[2mms[22m[39m
+2026-11-10T16:38:38.2315848Z  [32m✓[39m tests/chapter-nine-v17.test.ts [2m([22m[2m45 tests[22m[2m)[22m[33m 1607[2mms[22m[39m
+2026-11-10T16:38:38.2317650Z    [33m[2m✓[22m[39m ninth combat and boss mechanics[2m > [22mtwenty full chapter seeds, optional quests=false, no high-level tree assumption [33m 721[2mms[22m[39m
+2026-11-10T16:38:38.2318841Z    [33m[2m✓[22m[39m ninth combat and boss mechanics[2m > [22mtwenty full chapter seeds, optional quests=true, no high-level tree assumption [33m 621[2mms[22m[39m
+2026-11-10T16:38:39.1478821Z  [32m✓[39m tests/exploration-v23.test.ts [2m([22m[2m103 tests[22m[2m)[22m[33m 582[2mms[22m[39m
+2026-11-10T16:38:41.6307890Z  [32m✓[39m tests/chapter-fourteen-v22.test.ts [2m([22m[2m41 tests[22m[2m)[22m[33m 2182[2mms[22m[39m
+2026-11-10T16:38:41.6309542Z    [33m[2m✓[22m[39m chapter fourteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 1052[2mms[22m[39m
+2026-11-10T16:38:41.6311015Z    [33m[2m✓[22m[39m chapter fourteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 911[2mms[22m[39m
+2026-11-10T16:38:42.2188873Z  [32m✓[39m tests/chapter-two-v10.test.ts [2m([22m[2m29 tests[22m[2m)[22m[33m 303[2mms[22m[39m
+2026-11-10T16:38:43.7231953Z  [32m✓[39m tests/chapter-eight-v16.test.ts [2m([22m[2m47 tests[22m[2m)[22m[33m 1255[2mms[22m[39m
+2026-11-10T16:38:43.7232997Z    [33m[2m✓[22m[39m new enemies and unchanged combat engine[2m > [22m20 full chapter seeds, optional quests=false, without high-level nodes [33m 593[2mms[22m[39m
+2026-11-10T16:38:43.7234058Z    [33m[2m✓[22m[39m new enemies and unchanged combat engine[2m > [22m20 full chapter seeds, optional quests=true, without high-level nodes [33m 490[2mms[22m[39m
+2026-11-10T16:38:44.6321042Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2mwhole chapter over 20 seeds with quests=false
+2026-11-10T16:38:44.6322252Z [22m[39mv1.5 full chapter quests=false: 20/20
+2026-11-10T16:38:44.6322559Z 
+2026-11-10T16:38:45.0475864Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2mwhole chapter over 20 seeds with quests=true
+2026-11-10T16:38:45.0477307Z [22m[39mv1.5 full chapter quests=true: 20/20
+2026-11-10T16:38:45.0477613Z 
+2026-11-10T16:38:45.0915248Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-trail over 20 seeds
+2026-11-10T16:38:45.0916644Z [22m[39mv1.5 grove-trail: 20/20
+2026-11-10T16:38:45.0916893Z 
+2026-11-10T16:38:45.1374398Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-roots over 20 seeds
+2026-11-10T16:38:45.1375389Z [22m[39mv1.5 grove-roots: 20/20
+2026-11-10T16:38:45.1375737Z 
+2026-11-10T16:38:45.1958554Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+2026-11-10T16:38:45.1959824Z [22m[39mv1.5 grove-sentry: 20/20
+2026-11-10T16:38:45.1960088Z 
+2026-11-10T16:38:45.2450358Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-orb over 20 seeds
+2026-11-10T16:38:45.2451225Z [22m[39mv1.5 grove-orb: 20/20
+2026-11-10T16:38:45.2451389Z 
+2026-11-10T16:38:45.3327353Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+2026-11-10T16:38:45.3328896Z [22m[39mv1.5 grove-granguard: 20/20
+2026-11-10T16:38:45.3329371Z 
+2026-11-10T16:38:45.4598234Z [90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-seles over 20 seeds
+2026-11-10T16:38:45.4598982Z [22m[39mv1.5 grove-seles: 20/20
+2026-11-10T16:38:45.4599159Z 
+2026-11-10T16:38:45.4609009Z  [32m✓[39m tests/chapter-seven-v15.test.ts [2m([22m[2m45 tests[22m[2m)[22m[33m 1446[2mms[22m[39m
+2026-11-10T16:38:45.4609938Z    [33m[2m✓[22m[39m multi-seed chapter-seven balance[2m > [22mwhole chapter over 20 seeds with quests=false [33m 469[2mms[22m[39m
+2026-11-10T16:38:45.4610760Z    [33m[2m✓[22m[39m multi-seed chapter-seven balance[2m > [22mwhole chapter over 20 seeds with quests=true [33m 415[2mms[22m[39m
+2026-11-10T16:38:46.0505995Z  [32m✓[39m tests/skills-v06.test.ts [2m([22m[2m45 tests[22m[2m)[22m[33m 329[2mms[22m[39m
+2026-11-10T16:38:46.4523203Z  [32m✓[39m tests/exploration-v15.test.ts [2m([22m[2m33 tests[22m[2m)[22m[32m 148[2mms[22m[39m
+2026-11-10T16:38:48.7262979Z  [32m✓[39m tests/chapter-thirteen-v21.test.ts [2m([22m[2m39 tests[22m[2m)[22m[33m 2032[2mms[22m[39m
+2026-11-10T16:38:48.7264835Z    [33m[2m✓[22m[39m chapter thirteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 943[2mms[22m[39m
+2026-11-10T16:38:48.7265959Z    [33m[2m✓[22m[39m chapter thirteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 859[2mms[22m[39m
+2026-11-10T16:38:49.0260192Z  [32m✓[39m tests/adventure-v08.test.ts [2m([22m[2m39 tests[22m[2m)[22m[32m 62[2mms[22m[39m
+2026-11-10T16:38:50.7908123Z  [32m✓[39m tests/chapter-eleven-v19.test.ts [2m([22m[2m38 tests[22m[2m)[22m[33m 1515[2mms[22m[39m
+2026-11-10T16:38:50.7909765Z    [33m[2m✓[22m[39m chapter eleven combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 680[2mms[22m[39m
+2026-11-10T16:38:50.7911580Z    [33m[2m✓[22m[39m chapter eleven combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 628[2mms[22m[39m
+2026-11-10T16:38:54.3698941Z  [32m✓[39m tests/chapter-sixteen-v24.test.ts [2m([22m[2m107 tests[22m[2m)[22m[33m 3286[2mms[22m[39m
+2026-11-10T16:38:56.1087172Z  [32m✓[39m tests/chapter-ten-v18.test.ts [2m([22m[2m37 tests[22m[2m)[22m[33m 1504[2mms[22m[39m
+2026-11-10T16:38:56.1089086Z    [33m[2m✓[22m[39m chapter ten combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 685[2mms[22m[39m
+2026-11-10T16:38:56.1090992Z    [33m[2m✓[22m[39m chapter ten combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 623[2mms[22m[39m
+2026-11-10T16:38:56.3717374Z  [32m✓[39m tests/equipment-v07.test.ts [2m([22m[2m67 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+2026-11-10T16:38:58.0684885Z  [32m✓[39m tests/exploration-v22.test.ts [2m([22m[2m92 tests[22m[2m)[22m[33m 1460[2mms[22m[39m
+2026-11-10T16:38:59.5232757Z  [32m✓[39m tests/exploration-v21.test.ts [2m([22m[2m82 tests[22m[2m)[22m[33m 1196[2mms[22m[39m
+2026-11-10T16:39:00.7456354Z  [32m✓[39m tests/exploration-v20.test.ts [2m([22m[2m74 tests[22m[2m)[22m[33m 974[2mms[22m[39m
+2026-11-10T16:39:00.9972078Z  [32m✓[39m tests/foundation.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+2026-11-10T16:39:02.0235590Z  [32m✓[39m tests/exploration-v19.test.ts [2m([22m[2m61 tests[22m[2m)[22m[33m 782[2mms[22m[39m
+2026-11-10T16:39:02.9858111Z  [32m✓[39m tests/exploration-v18.test.ts [2m([22m[2m58 tests[22m[2m)[22m[33m 727[2mms[22m[39m
+2026-11-10T16:39:03.7719774Z  [32m✓[39m tests/chapter-seventeen-v25.test.ts [2m([22m[2m66 tests[22m[2m)[22m[33m 488[2mms[22m[39m
+2026-11-10T16:39:04.6104820Z  [32m✓[39m tests/chapter-eighteen-v26.test.ts [2m([22m[2m102 tests[22m[2m)[22m[33m 537[2mms[22m[39m
+2026-11-10T16:39:06.0516603Z  [32m✓[39m tests/exploration-v25.test.ts [2m([22m[2m168 tests[22m[2m)[22m[33m 1139[2mms[22m[39m
+2026-11-10T16:39:07.1282010Z  [32m✓[39m tests/exploration-v24.test.ts [2m([22m[2m114 tests[22m[2m)[22m[33m 784[2mms[22m[39m
+2026-11-10T16:39:07.6539931Z  [32m✓[39m tests/exploration-v17.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 279[2mms[22m[39m
+2026-11-10T16:39:09.5246792Z  [32m✓[39m tests/chapter-seventeen-combat-v25.test.ts [2m([22m[2m50 tests[22m[2m)[22m[33m 1579[2mms[22m[39m
+2026-11-10T16:39:10.2468740Z  [32m✓[39m tests/transit-v22.test.ts [2m([22m[2m28 tests[22m[2m)[22m[33m 482[2mms[22m[39m
+2026-11-10T16:39:10.5427987Z  [32m✓[39m tests/battle.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+2026-11-10T16:39:10.7476806Z  [32m✓[39m tests/lab-v04.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+2026-11-10T16:39:11.3039704Z  [32m✓[39m tests/railway-v21.test.ts [2m([22m[2m21 tests[22m[2m)[22m[33m 332[2mms[22m[39m
+2026-11-10T16:39:11.4922315Z  [32m✓[39m tests/battle-presentation.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+2026-11-10T16:39:12.5589060Z [90mstdout[2m | tests/final-integration-v26.test.ts[2m > [22m[2mfresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+2026-11-10T16:39:12.5597328Z [22m[39mFresh API journey: {"chapters":18,"battles":109,"cleared":true}
+2026-11-10T16:39:12.5597637Z 
+2026-11-10T16:39:12.5598267Z  [32m✓[39m tests/final-integration-v26.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 832[2mms[22m[39m
+2026-11-10T16:39:12.5599419Z    [33m[2m✓[22m[39m fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test) [33m 805[2mms[22m[39m
+2026-11-10T16:39:13.5872807Z  [32m✓[39m tests/exploration-v26.test.ts [2m([22m[2m202 tests[22m[2m)[22m[33m 711[2mms[22m[39m
+2026-11-10T16:39:15.4366704Z  [32m✓[39m tests/finale-combat-v26.test.ts [2m([22m[2m54 tests[22m[2m)[22m[33m 1566[2mms[22m[39m
+2026-11-10T16:39:15.6286813Z  [32m✓[39m tests/attack-modifier.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+2026-11-10T16:39:15.7891010Z  [32m✓[39m tests/map-driver-v25.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+2026-11-10T16:39:15.7966766Z 
+2026-11-10T16:39:15.7977536Z [2m Test Files [22m [1m[32m43 passed[39m[22m[90m (43)[39m
+2026-11-10T16:39:15.7981813Z [2m      Tests [22m [1m[32m2463 passed[39m[22m[90m (2463)[39m
+2026-11-10T16:39:15.7983152Z [2m   Start at [22m 16:38:26
+2026-11-10T16:39:15.7984906Z [2m   Duration [22m 49.14s[2m (transform 1.01s, setup 0ms, collect 4.67s, tests 37.77s, environment 7ms, prepare 2.07s)[22m
+2026-11-10T16:39:15.7985789Z 
+2026-11-10T16:39:15.9127662Z ##[group]Run npm run build
+2026-11-10T16:39:15.9127911Z [36;1mnpm run build[0m
+2026-11-10T16:39:15.9171686Z shell: /usr/bin/bash -e {0}
+2026-11-10T16:39:15.9171906Z ##[endgroup]
+2026-11-10T16:39:15.9950758Z 
+2026-11-10T16:39:15.9951290Z > astra-chronica@0.1.0 build
+2026-11-10T16:39:15.9951687Z > tsc --noEmit && vite build
+2026-11-10T16:39:15.9951831Z 
+2026-11-10T16:39:19.7366749Z [36mvite v7.3.7 [32mbuilding client environment for production...[36m[39m
+2026-11-10T16:39:19.7940527Z transforming...
+2026-11-10T16:39:23.7350069Z [32m✓[39m 150 modules transformed.
+2026-11-10T16:39:24.1047415Z rendering chunks...
+2026-11-10T16:39:24.4243844Z computing gzip size...
+2026-11-10T16:39:24.4527803Z [2mdist/[22m[32mindex.html                 [39m[1m[2m    0.62 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+2026-11-10T16:39:24.4528736Z [2mdist/[22m[2massets/[22m[35mindex-DtlFLb1K.css  [39m[1m[2m   34.79 kB[22m[1m[22m[2m │ gzip:   8.77 kB[22m
+2026-11-10T16:39:24.4529585Z [2mdist/[22m[2massets/[22m[36mindex-CTB4268C.js   [39m[1m[33m  743.10 kB[39m[22m[2m │ gzip: 206.85 kB[22m
+2026-11-10T16:39:24.4530690Z [2mdist/[22m[2massets/[22m[36mphaser-DFK5Ua9d.js  [39m[1m[33m1,208.06 kB[39m[22m[2m │ gzip: 332.17 kB[22m
+2026-11-10T16:39:24.4531255Z [33m
+2026-11-10T16:39:24.4531751Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-11-10T16:39:24.4532340Z - Using dynamic import() to code-split the application
+2026-11-10T16:39:24.4533424Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-11-10T16:39:24.4534669Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-11-10T16:39:24.4535328Z [32m✓ built in 4.69s[39m
+2026-11-10T16:39:24.5311643Z ##[group]Run actions/upload-pages-artifact@v3
+2026-11-10T16:39:24.5311916Z with:
+2026-11-10T16:39:24.5312084Z   path: dist
+2026-11-10T16:39:24.5312260Z   name: github-pages
+2026-11-10T16:39:24.5312444Z   retention-days: 1
+2026-11-10T16:39:24.5312628Z ##[endgroup]
+2026-11-10T16:39:24.5366891Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run]
+2026-11-10T16:39:24.5391655Z ##[group]Run echo ::group::Archive artifact
+2026-11-10T16:39:24.5391963Z [36;1mecho ::group::Archive artifact[0m
+2026-11-10T16:39:24.5392200Z [36;1mtar \[0m
+2026-11-10T16:39:24.5392409Z [36;1m  --dereference --hard-dereference \[0m
+2026-11-10T16:39:24.5392684Z [36;1m  --directory "$INPUT_PATH" \[0m
+2026-11-10T16:39:24.5392931Z [36;1m  -cvf "$RUNNER_TEMP/artifact.tar" \[0m
+2026-11-10T16:39:24.5393169Z [36;1m  --exclude=.git \[0m
+2026-11-10T16:39:24.5393397Z [36;1m  --exclude=.github \[0m
+2026-11-10T16:39:24.5393596Z [36;1m  .[0m
+2026-11-10T16:39:24.5393809Z [36;1mecho ::endgroup::[0m
+2026-11-10T16:39:24.5460151Z shell: /usr/bin/sh -e {0}
+2026-11-10T16:39:24.5460380Z env:
+2026-11-10T16:39:24.5460553Z   INPUT_PATH: dist
+2026-11-10T16:39:24.5460740Z ##[endgroup]
+2026-11-10T16:39:24.5523369Z ##[group]Archive artifact
+2026-11-10T16:39:24.5536642Z ./
+2026-11-10T16:39:24.5536911Z ./index.html
+2026-11-10T16:39:24.5537169Z ./assets/
+2026-11-10T16:39:24.5537472Z ./assets/index-CTB4268C.js
+2026-11-10T16:39:24.5542814Z ./assets/phaser-DFK5Ua9d.js
+2026-11-10T16:39:24.5552618Z ./assets/index-DtlFLb1K.css
+2026-11-10T16:39:24.5555050Z ##[endgroup]
+2026-11-10T16:39:24.5564728Z ##[end-action id=__actions_upload-pages-artifact.__run;outcome=success;conclusion=success;duration_ms=19]
+2026-11-10T16:39:24.5568146Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_2]
+2026-11-10T16:39:24.5572417Z ##[end-action id=__actions_upload-pages-artifact.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-10T16:39:24.5574705Z ##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_3]
+2026-11-10T16:39:24.5577986Z ##[end-action id=__actions_upload-pages-artifact.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-10T16:39:24.5579579Z ##[start-action display=Upload artifact;id=__actions_upload-pages-artifact.upload-artifact]
+2026-11-10T16:39:24.5633017Z ##[group]Run actions/upload-artifact@v4
+2026-11-10T16:39:24.5633257Z with:
+2026-11-10T16:39:24.5633429Z   name: github-pages
+2026-11-10T16:39:24.5633654Z   path: /home/runner/work/_temp/artifact.tar
+2026-11-10T16:39:24.5633907Z   retention-days: 1
+2026-11-10T16:39:24.5634101Z   if-no-files-found: error
+2026-11-10T16:39:24.5634307Z   compression-level: 6
+2026-11-10T16:39:24.5634504Z   overwrite: false
+2026-11-10T16:39:24.5634689Z   include-hidden-files: false
+2026-11-10T16:39:24.5634907Z ##[endgroup]
+2026-11-10T16:39:24.6974434Z (node:3475) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-10T16:39:24.6975612Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-10T16:39:24.7012169Z With the provided path, there will be 1 file uploaded
+2026-11-10T16:39:24.7016478Z Artifact name is valid!
+2026-11-10T16:39:24.7016967Z Root directory input is valid!
+2026-11-10T16:39:25.0756543Z Beginning upload of artifact content to blob storage
+2026-11-10T16:39:25.1425768Z (node:3475) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-10T16:39:25.6532448Z Uploaded bytes 548751
+2026-11-10T16:39:25.7177991Z Finished uploading artifact content to blob storage!
+2026-11-10T16:39:25.7178698Z SHA256 digest of uploaded artifact zip is 1d02caa91567d8c55a89309163b5d7a38653c47daa1fd6e1423488811433e562
+2026-11-10T16:39:25.7179471Z Finalizing artifact upload
+2026-11-10T16:39:26.1164249Z Artifact github-pages.zip successfully finalized. Artifact ID 13782982165
+2026-11-10T16:39:26.1165267Z Artifact github-pages has been successfully uploaded! Final size is 548751 bytes. Artifact ID is 13782982165
+2026-11-10T16:39:26.1169854Z Artifact download URL: https://github.com/kinamochimame-boop/astra-chronica/actions/runs/42856482567/artifacts/13782982165
+2026-11-10T16:39:26.1289264Z ##[end-action id=__actions_upload-pages-artifact.upload-artifact;outcome=success;conclusion=success;duration_ms=1570]
+2026-11-10T16:39:26.1378453Z Post job cleanup.
+2026-11-10T16:39:26.2371682Z (node:3487) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-10T16:39:26.2372803Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-10T16:39:26.2374840Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597, not saving cache.
+2026-11-10T16:39:26.2512492Z Post job cleanup.
+2026-11-10T16:39:26.3240753Z [command]/usr/bin/git version
+2026-11-10T16:39:26.3278818Z git version 2.56.0
+2026-11-10T16:39:26.3309106Z Temporarily overriding HOME='/home/runner/work/_temp/30c95960-871a-437a-8bab-716ad6da5acc' before making global git config changes
+2026-11-10T16:39:26.3310291Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-10T16:39:26.3314018Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/astra-chronica/astra-chronica
+2026-11-10T16:39:26.3350904Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-10T16:39:26.3382460Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-10T16:39:26.3651551Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-10T16:39:26.3669098Z http.https://github.com/.extraheader
+2026-11-10T16:39:26.3687357Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-10T16:39:26.3725997Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-10T16:39:26.3991121Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-10T16:39:26.4022422Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-10T16:39:26.4385303Z Cleaning up orphan processes
+2026-11-10T16:39:26.4677383Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

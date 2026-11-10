@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {productionFingerprint} from './production-fingerprint.mjs';
+import {screenshotOutputName} from './ci-screenshot.mjs';
 const sha=p=>createHash('sha256').update(readFileSync(p)).digest('hex'),json=p=>JSON.parse(readFileSync(p)),base='3ca26ce0eef5039603e3e977fa38d7a3e1e28c53',sourceHash=productionFingerprint(),roots=[];
 function find(path){for(const e of readdirSync(path,{withFileTypes:true})){const p=path+'/'+e.name;if(e.isDirectory())find(p);else if(e.name==='receipt.json')roots.push(p.slice(0,-13))}}find('.ci-v26-results');
 const records=roots.map(path=>({path,data:json(path+'/receipt.json')})),by=id=>{const r=records.find(r=>r.data.group===id);assert.ok(r,id+' receipt missing');return r};
@@ -19,7 +20,7 @@ let previous='new-empty-context',wins=0;for(let i=0;i<rows.length;i++){const {ha
 const maps=json(by('layouts').path+'/map-cases.json');assert.equal(maps.sourceHash,sourceHash);assert.equal(maps.fullMatrix,true);assert.equal(maps.cases.length,360);assert.equal(new Set(maps.cases.map(c=>c.map+':'+c.width)).size,360);assert.deepEqual(maps.pageErrors,[]);
 const first=JSON.stringify(unit.data.build.artifacts);for(const r of records)assert.equal(JSON.stringify(r.data.build.artifacts),first,'Build artifacts must match across isolated workers');
 const evidence='docs/test-results/v26-ci';mkdirSync(evidence,{recursive:true});const images=new Map();
-for(const r of records){cpSync(r.path,evidence+'/'+r.data.group,{recursive:true,filter:path=>!path.endsWith('/screenshots')});for(const img of r.data.screenshots){const p=r.path+'/screenshots/'+img.file,b=readFileSync(p);assert.equal(sha(p),img.sha256);assert.ok(b.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex')));const width=img.file.match(/-(320|390|430|768)\.png$/);if(width)assert.equal(b.readUInt32BE(16),Number(width[1]));copyFileSync(p,'docs/screenshots/'+img.file);images.set(img.file,{...img,file:'docs/screenshots/'+img.file,group:r.data.group})}}
+for(const r of records){cpSync(r.path,evidence+'/'+r.data.group,{recursive:true,filter:path=>!path.endsWith('/screenshots')});for(const img of r.data.screenshots){const p=r.path+'/screenshots/'+img.file,b=readFileSync(p);assert.equal(sha(p),img.sha256);assert.ok(b.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex')));assert.equal(b.readUInt32BE(16),img.width);assert.equal(b.readUInt32BE(20),img.height);const name=screenshotOutputName(img),width=name.match(/-(320|390|430|768)\.png$/);if(width)assert.equal(b.readUInt32BE(16),Number(width[1]));copyFileSync(p,'docs/screenshots/'+name);images.set(name,{...img,original_file:img.file,file:'docs/screenshots/'+name,group:r.data.group})}}
 assert.ok(images.size>=100);
 execFileSync('git',['add','--','docs/screenshots']);for(const image of images.values()){const data=execFileSync('git',['show',':'+image.file]);assert.equal(createHash('sha256').update(data).digest('hex'),image.sha256)}
 const {progress,...freshSummary}=fresh;

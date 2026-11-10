@@ -1,0 +1,1811 @@
+{
+  "mode": "independent-layout-fixtures-not-fresh-journey",
+  "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+  "testHash": "f5684938f6aabeb9fc564f5361f21a12eb15b5666e8c86be3bddea81990a9a99",
+  "fullMatrix": true,
+  "cases": [
+    {
+      "map": "grove-camp",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:15:54.489Z"
+    },
+    {
+      "map": "grove-camp",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:15:55.605Z"
+    },
+    {
+      "map": "grove-camp",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:15:56.688Z"
+    },
+    {
+      "map": "grove-camp",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:15:57.788Z"
+    },
+    {
+      "map": "grove-trail",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:00.138Z"
+    },
+    {
+      "map": "grove-trail",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:01.221Z"
+    },
+    {
+      "map": "grove-trail",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:02.304Z"
+    },
+    {
+      "map": "grove-trail",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:03.388Z"
+    },
+    {
+      "map": "grove-ruins",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:05.821Z"
+    },
+    {
+      "map": "grove-ruins",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:06.920Z"
+    },
+    {
+      "map": "grove-ruins",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:07.970Z"
+    },
+    {
+      "map": "grove-ruins",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:09.021Z"
+    },
+    {
+      "map": "sky-port",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:11.137Z"
+    },
+    {
+      "map": "sky-port",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:12.253Z"
+    },
+    {
+      "map": "sky-port",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:13.320Z"
+    },
+    {
+      "map": "sky-port",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:14.370Z"
+    },
+    {
+      "map": "sky-island",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:16.737Z"
+    },
+    {
+      "map": "sky-island",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:17.837Z"
+    },
+    {
+      "map": "sky-island",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:18.887Z"
+    },
+    {
+      "map": "sky-island",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:19.953Z"
+    },
+    {
+      "map": "sky-ruins",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:22.320Z"
+    },
+    {
+      "map": "sky-ruins",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:23.420Z"
+    },
+    {
+      "map": "sky-ruins",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:24.487Z"
+    },
+    {
+      "map": "sky-ruins",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:25.570Z"
+    },
+    {
+      "map": "grove-village",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:27.686Z"
+    },
+    {
+      "map": "grove-village",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:28.803Z"
+    },
+    {
+      "map": "grove-village",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:29.854Z"
+    },
+    {
+      "map": "grove-village",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:30.919Z"
+    },
+    {
+      "map": "grove-garden",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:33.020Z"
+    },
+    {
+      "map": "grove-garden",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:34.119Z"
+    },
+    {
+      "map": "grove-garden",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:35.186Z"
+    },
+    {
+      "map": "grove-garden",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:36.219Z"
+    },
+    {
+      "map": "sky-town",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:38.336Z"
+    },
+    {
+      "map": "sky-town",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:39.453Z"
+    },
+    {
+      "map": "sky-town",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:40.519Z"
+    },
+    {
+      "map": "sky-town",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:41.553Z"
+    },
+    {
+      "map": "sky-tower",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:43.669Z"
+    },
+    {
+      "map": "sky-tower",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:44.769Z"
+    },
+    {
+      "map": "sky-tower",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:45.819Z"
+    },
+    {
+      "map": "sky-tower",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:46.869Z"
+    },
+    {
+      "map": "star-cave",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:48.986Z"
+    },
+    {
+      "map": "star-cave",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:50.085Z"
+    },
+    {
+      "map": "star-cave",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:51.152Z"
+    },
+    {
+      "map": "star-cave",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:52.218Z"
+    },
+    {
+      "map": "star-path",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:54.553Z"
+    },
+    {
+      "map": "star-path",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:16:55.652Z"
+    },
+    {
+      "map": "star-path",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:16:56.719Z"
+    },
+    {
+      "map": "star-path",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:16:57.768Z"
+    },
+    {
+      "map": "star-city",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:16:59.852Z"
+    },
+    {
+      "map": "star-city",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:00.952Z"
+    },
+    {
+      "map": "star-city",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:02.018Z"
+    },
+    {
+      "map": "star-city",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:03.085Z"
+    },
+    {
+      "map": "star-market",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:05.202Z"
+    },
+    {
+      "map": "star-market",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:06.302Z"
+    },
+    {
+      "map": "star-market",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:07.368Z"
+    },
+    {
+      "map": "star-market",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:08.468Z"
+    },
+    {
+      "map": "star-waterway",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:10.802Z"
+    },
+    {
+      "map": "star-waterway",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:11.901Z"
+    },
+    {
+      "map": "star-waterway",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:12.985Z"
+    },
+    {
+      "map": "star-waterway",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:14.051Z"
+    },
+    {
+      "map": "star-mine",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:16.385Z"
+    },
+    {
+      "map": "star-mine",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:17.451Z"
+    },
+    {
+      "map": "star-mine",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:18.518Z"
+    },
+    {
+      "map": "star-mine",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:19.584Z"
+    },
+    {
+      "map": "star-archive",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:21.685Z"
+    },
+    {
+      "map": "star-archive",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:22.785Z"
+    },
+    {
+      "map": "star-archive",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:23.868Z"
+    },
+    {
+      "map": "star-archive",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:24.951Z"
+    },
+    {
+      "map": "star-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:27.284Z"
+    },
+    {
+      "map": "star-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:28.367Z"
+    },
+    {
+      "map": "star-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:29.452Z"
+    },
+    {
+      "map": "star-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:30.551Z"
+    },
+    {
+      "map": "tide-road",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:32.867Z"
+    },
+    {
+      "map": "tide-road",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:33.950Z"
+    },
+    {
+      "map": "tide-road",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:35.017Z"
+    },
+    {
+      "map": "tide-road",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:36.083Z"
+    },
+    {
+      "map": "tide-town",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:38.217Z"
+    },
+    {
+      "map": "tide-town",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:39.350Z"
+    },
+    {
+      "map": "tide-town",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:40.434Z"
+    },
+    {
+      "map": "tide-town",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:41.484Z"
+    },
+    {
+      "map": "tide-port",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:43.817Z"
+    },
+    {
+      "map": "tide-port",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:44.916Z"
+    },
+    {
+      "map": "tide-port",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:46.017Z"
+    },
+    {
+      "map": "tide-port",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:47.084Z"
+    },
+    {
+      "map": "tide-beach",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:49.483Z"
+    },
+    {
+      "map": "tide-beach",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:50.566Z"
+    },
+    {
+      "map": "tide-beach",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:51.650Z"
+    },
+    {
+      "map": "tide-beach",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:52.700Z"
+    },
+    {
+      "map": "tide-observatory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:17:54.800Z"
+    },
+    {
+      "map": "tide-observatory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:17:55.899Z"
+    },
+    {
+      "map": "tide-observatory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:17:56.966Z"
+    },
+    {
+      "map": "tide-observatory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:17:58.032Z"
+    },
+    {
+      "map": "tide-cave",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:00.433Z"
+    },
+    {
+      "map": "tide-cave",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:01.532Z"
+    },
+    {
+      "map": "tide-cave",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:02.617Z"
+    },
+    {
+      "map": "tide-cave",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:03.699Z"
+    },
+    {
+      "map": "tide-ruins",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:06.016Z"
+    },
+    {
+      "map": "tide-ruins",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:07.116Z"
+    },
+    {
+      "map": "tide-ruins",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:08.182Z"
+    },
+    {
+      "map": "tide-ruins",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:09.232Z"
+    },
+    {
+      "map": "tide-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:11.582Z"
+    },
+    {
+      "map": "tide-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:12.649Z"
+    },
+    {
+      "map": "tide-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:13.715Z"
+    },
+    {
+      "map": "tide-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:14.782Z"
+    },
+    {
+      "map": "pale-road",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:17.116Z"
+    },
+    {
+      "map": "pale-road",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:18.215Z"
+    },
+    {
+      "map": "pale-road",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:19.281Z"
+    },
+    {
+      "map": "pale-road",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:20.348Z"
+    },
+    {
+      "map": "pale-village",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:22.449Z"
+    },
+    {
+      "map": "pale-village",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:23.548Z"
+    },
+    {
+      "map": "pale-village",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:24.632Z"
+    },
+    {
+      "map": "pale-village",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:25.715Z"
+    },
+    {
+      "map": "pale-field",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:28.032Z"
+    },
+    {
+      "map": "pale-field",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:29.131Z"
+    },
+    {
+      "map": "pale-field",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:30.165Z"
+    },
+    {
+      "map": "pale-field",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:31.231Z"
+    },
+    {
+      "map": "pale-stones",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:33.582Z"
+    },
+    {
+      "map": "pale-stones",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:34.664Z"
+    },
+    {
+      "map": "pale-stones",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:35.764Z"
+    },
+    {
+      "map": "pale-stones",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:36.814Z"
+    },
+    {
+      "map": "pale-ravine",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:38.898Z"
+    },
+    {
+      "map": "pale-ravine",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:39.998Z"
+    },
+    {
+      "map": "pale-ravine",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:41.030Z"
+    },
+    {
+      "map": "pale-ravine",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:42.098Z"
+    },
+    {
+      "map": "pale-sanctuary",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:44.431Z"
+    },
+    {
+      "map": "pale-sanctuary",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:45.531Z"
+    },
+    {
+      "map": "pale-sanctuary",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:46.581Z"
+    },
+    {
+      "map": "pale-sanctuary",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:47.647Z"
+    },
+    {
+      "map": "pale-archive",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:49.948Z"
+    },
+    {
+      "map": "pale-archive",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:51.047Z"
+    },
+    {
+      "map": "pale-archive",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:52.097Z"
+    },
+    {
+      "map": "pale-archive",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:53.163Z"
+    },
+    {
+      "map": "pale-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:18:55.498Z"
+    },
+    {
+      "map": "pale-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:18:56.563Z"
+    },
+    {
+      "map": "pale-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:18:57.630Z"
+    },
+    {
+      "map": "pale-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:18:58.713Z"
+    },
+    {
+      "map": "gloom-road",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:01.030Z"
+    },
+    {
+      "map": "gloom-road",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:02.114Z"
+    },
+    {
+      "map": "gloom-road",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:03.180Z"
+    },
+    {
+      "map": "gloom-road",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:04.246Z"
+    },
+    {
+      "map": "gloom-village",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:06.347Z"
+    },
+    {
+      "map": "gloom-village",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:07.447Z"
+    },
+    {
+      "map": "gloom-village",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:08.513Z"
+    },
+    {
+      "map": "gloom-village",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:09.563Z"
+    },
+    {
+      "map": "gloom-woods",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:11.880Z"
+    },
+    {
+      "map": "gloom-woods",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:12.963Z"
+    },
+    {
+      "map": "gloom-woods",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:14.029Z"
+    },
+    {
+      "map": "gloom-woods",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:15.096Z"
+    },
+    {
+      "map": "gloom-lake",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:17.414Z"
+    },
+    {
+      "map": "gloom-lake",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:18.513Z"
+    },
+    {
+      "map": "gloom-lake",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:19.546Z"
+    },
+    {
+      "map": "gloom-lake",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:20.612Z"
+    },
+    {
+      "map": "gloom-roots",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:22.696Z"
+    },
+    {
+      "map": "gloom-roots",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:23.796Z"
+    },
+    {
+      "map": "gloom-roots",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:24.829Z"
+    },
+    {
+      "map": "gloom-roots",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:25.896Z"
+    },
+    {
+      "map": "gloom-shrine",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:28.196Z"
+    },
+    {
+      "map": "gloom-shrine",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:29.279Z"
+    },
+    {
+      "map": "gloom-shrine",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:30.362Z"
+    },
+    {
+      "map": "gloom-shrine",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:31.428Z"
+    },
+    {
+      "map": "gloom-archive",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:33.728Z"
+    },
+    {
+      "map": "gloom-archive",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:34.828Z"
+    },
+    {
+      "map": "gloom-archive",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:35.929Z"
+    },
+    {
+      "map": "gloom-archive",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:36.978Z"
+    },
+    {
+      "map": "gloom-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:39.279Z"
+    },
+    {
+      "map": "gloom-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:40.378Z"
+    },
+    {
+      "map": "gloom-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:41.444Z"
+    },
+    {
+      "map": "gloom-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:42.511Z"
+    },
+    {
+      "map": "gear-rail",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:44.812Z"
+    },
+    {
+      "map": "gear-rail",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:45.895Z"
+    },
+    {
+      "map": "gear-rail",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:46.945Z"
+    },
+    {
+      "map": "gear-rail",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:47.978Z"
+    },
+    {
+      "map": "gear-station",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:50.061Z"
+    },
+    {
+      "map": "gear-station",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:51.161Z"
+    },
+    {
+      "map": "gear-station",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:52.211Z"
+    },
+    {
+      "map": "gear-station",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:53.262Z"
+    },
+    {
+      "map": "gear-city",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:19:55.578Z"
+    },
+    {
+      "map": "gear-city",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:19:56.678Z"
+    },
+    {
+      "map": "gear-city",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:19:57.760Z"
+    },
+    {
+      "map": "gear-city",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:19:58.794Z"
+    },
+    {
+      "map": "gear-market",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:01.111Z"
+    },
+    {
+      "map": "gear-market",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:02.194Z"
+    },
+    {
+      "map": "gear-market",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:03.261Z"
+    },
+    {
+      "map": "gear-market",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:04.328Z"
+    },
+    {
+      "map": "gear-lower",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:06.461Z"
+    },
+    {
+      "map": "gear-lower",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:07.561Z"
+    },
+    {
+      "map": "gear-lower",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:08.611Z"
+    },
+    {
+      "map": "gear-lower",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:09.661Z"
+    },
+    {
+      "map": "gear-workshop",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:12.011Z"
+    },
+    {
+      "map": "gear-workshop",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:13.094Z"
+    },
+    {
+      "map": "gear-workshop",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:14.194Z"
+    },
+    {
+      "map": "gear-workshop",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:15.260Z"
+    },
+    {
+      "map": "gear-observatory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:17.594Z"
+    },
+    {
+      "map": "gear-observatory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:18.693Z"
+    },
+    {
+      "map": "gear-observatory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:19.727Z"
+    },
+    {
+      "map": "gear-observatory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:20.793Z"
+    },
+    {
+      "map": "gear-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:23.093Z"
+    },
+    {
+      "map": "gear-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:24.176Z"
+    },
+    {
+      "map": "gear-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:25.243Z"
+    },
+    {
+      "map": "gear-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:26.293Z"
+    },
+    {
+      "map": "ark-gateway",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:28.610Z"
+    },
+    {
+      "map": "ark-gateway",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:29.677Z"
+    },
+    {
+      "map": "ark-gateway",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:30.710Z"
+    },
+    {
+      "map": "ark-gateway",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:31.776Z"
+    },
+    {
+      "map": "ark-shore",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:33.876Z"
+    },
+    {
+      "map": "ark-shore",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:34.976Z"
+    },
+    {
+      "map": "ark-shore",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:36.043Z"
+    },
+    {
+      "map": "ark-shore",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:37.109Z"
+    },
+    {
+      "map": "ark-dock",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:39.426Z"
+    },
+    {
+      "map": "ark-dock",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:40.526Z"
+    },
+    {
+      "map": "ark-dock",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:41.576Z"
+    },
+    {
+      "map": "ark-dock",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:42.643Z"
+    },
+    {
+      "map": "ark-hall",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:44.976Z"
+    },
+    {
+      "map": "ark-hall",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:46.059Z"
+    },
+    {
+      "map": "ark-hall",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:47.142Z"
+    },
+    {
+      "map": "ark-hall",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:48.193Z"
+    },
+    {
+      "map": "ark-gravity",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:50.293Z"
+    },
+    {
+      "map": "ark-gravity",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:51.392Z"
+    },
+    {
+      "map": "ark-gravity",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:52.442Z"
+    },
+    {
+      "map": "ark-gravity",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:53.509Z"
+    },
+    {
+      "map": "ark-records",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:20:55.842Z"
+    },
+    {
+      "map": "ark-records",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:20:56.925Z"
+    },
+    {
+      "map": "ark-records",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:20:57.992Z"
+    },
+    {
+      "map": "ark-records",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:20:59.025Z"
+    },
+    {
+      "map": "ark-sanctuary",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:01.358Z"
+    },
+    {
+      "map": "ark-sanctuary",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:02.442Z"
+    },
+    {
+      "map": "ark-sanctuary",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:03.492Z"
+    },
+    {
+      "map": "ark-sanctuary",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:04.542Z"
+    },
+    {
+      "map": "ark-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:06.875Z"
+    },
+    {
+      "map": "ark-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:07.958Z"
+    },
+    {
+      "map": "ark-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:09.025Z"
+    },
+    {
+      "map": "ark-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:10.042Z"
+    },
+    {
+      "map": "void-gate",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:12.375Z"
+    },
+    {
+      "map": "void-gate",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:13.458Z"
+    },
+    {
+      "map": "void-gate",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:14.525Z"
+    },
+    {
+      "map": "void-gate",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:15.558Z"
+    },
+    {
+      "map": "void-court",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:17.875Z"
+    },
+    {
+      "map": "void-court",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:18.958Z"
+    },
+    {
+      "map": "void-court",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:20.041Z"
+    },
+    {
+      "map": "void-court",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:21.091Z"
+    },
+    {
+      "map": "void-corridor",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:23.391Z"
+    },
+    {
+      "map": "void-corridor",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:24.491Z"
+    },
+    {
+      "map": "void-corridor",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:25.557Z"
+    },
+    {
+      "map": "void-corridor",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:26.607Z"
+    },
+    {
+      "map": "void-mirror",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:28.908Z"
+    },
+    {
+      "map": "void-mirror",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:29.990Z"
+    },
+    {
+      "map": "void-mirror",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:31.090Z"
+    },
+    {
+      "map": "void-mirror",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:32.174Z"
+    },
+    {
+      "map": "void-archive",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:34.491Z"
+    },
+    {
+      "map": "void-archive",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:35.557Z"
+    },
+    {
+      "map": "void-archive",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:36.674Z"
+    },
+    {
+      "map": "void-archive",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:37.774Z"
+    },
+    {
+      "map": "void-garden",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:40.108Z"
+    },
+    {
+      "map": "void-garden",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:41.207Z"
+    },
+    {
+      "map": "void-garden",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:42.240Z"
+    },
+    {
+      "map": "void-garden",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:43.291Z"
+    },
+    {
+      "map": "void-sanctum",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:45.607Z"
+    },
+    {
+      "map": "void-sanctum",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:46.707Z"
+    },
+    {
+      "map": "void-sanctum",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:47.723Z"
+    },
+    {
+      "map": "void-sanctum",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:48.823Z"
+    },
+    {
+      "map": "void-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:51.140Z"
+    },
+    {
+      "map": "void-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:52.223Z"
+    },
+    {
+      "map": "void-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:53.306Z"
+    },
+    {
+      "map": "void-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:54.373Z"
+    },
+    {
+      "map": "grave-gate",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:21:56.690Z"
+    },
+    {
+      "map": "grave-gate",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:21:57.773Z"
+    },
+    {
+      "map": "grave-gate",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:21:58.823Z"
+    },
+    {
+      "map": "grave-gate",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:21:59.856Z"
+    },
+    {
+      "map": "grave-field",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:02.191Z"
+    },
+    {
+      "map": "grave-field",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:03.273Z"
+    },
+    {
+      "map": "grave-field",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:04.322Z"
+    },
+    {
+      "map": "grave-field",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:05.422Z"
+    },
+    {
+      "map": "grave-ruins",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:07.756Z"
+    },
+    {
+      "map": "grave-ruins",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:08.839Z"
+    },
+    {
+      "map": "grave-ruins",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:09.939Z"
+    },
+    {
+      "map": "grave-ruins",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:11.005Z"
+    },
+    {
+      "map": "grave-memory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:13.339Z"
+    },
+    {
+      "map": "grave-memory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:14.439Z"
+    },
+    {
+      "map": "grave-memory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:15.522Z"
+    },
+    {
+      "map": "grave-memory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:16.572Z"
+    },
+    {
+      "map": "grave-observatory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:18.889Z"
+    },
+    {
+      "map": "grave-observatory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:19.989Z"
+    },
+    {
+      "map": "grave-observatory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:21.072Z"
+    },
+    {
+      "map": "grave-observatory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:22.139Z"
+    },
+    {
+      "map": "grave-sanctuary",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:24.456Z"
+    },
+    {
+      "map": "grave-sanctuary",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:25.539Z"
+    },
+    {
+      "map": "grave-sanctuary",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:26.605Z"
+    },
+    {
+      "map": "grave-sanctuary",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:27.672Z"
+    },
+    {
+      "map": "grave-tower",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:29.990Z"
+    },
+    {
+      "map": "grave-tower",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:31.088Z"
+    },
+    {
+      "map": "grave-tower",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:32.138Z"
+    },
+    {
+      "map": "grave-tower",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:33.238Z"
+    },
+    {
+      "map": "grave-core",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:35.538Z"
+    },
+    {
+      "map": "grave-core",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:36.638Z"
+    },
+    {
+      "map": "grave-core",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:37.672Z"
+    },
+    {
+      "map": "grave-core",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:38.721Z"
+    },
+    {
+      "map": "terminal-gate",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:41.038Z"
+    },
+    {
+      "map": "terminal-gate",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:42.138Z"
+    },
+    {
+      "map": "terminal-gate",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:43.188Z"
+    },
+    {
+      "map": "terminal-gate",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:44.255Z"
+    },
+    {
+      "map": "terminal-plaza",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:46.588Z"
+    },
+    {
+      "map": "terminal-plaza",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:47.688Z"
+    },
+    {
+      "map": "terminal-plaza",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:48.788Z"
+    },
+    {
+      "map": "terminal-plaza",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:49.871Z"
+    },
+    {
+      "map": "terminal-library",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:52.188Z"
+    },
+    {
+      "map": "terminal-library",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:53.271Z"
+    },
+    {
+      "map": "terminal-library",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:54.354Z"
+    },
+    {
+      "map": "terminal-library",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:22:55.421Z"
+    },
+    {
+      "map": "terminal-memory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:22:57.754Z"
+    },
+    {
+      "map": "terminal-memory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:22:58.854Z"
+    },
+    {
+      "map": "terminal-memory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:22:59.920Z"
+    },
+    {
+      "map": "terminal-memory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:01.004Z"
+    },
+    {
+      "map": "terminal-observatory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:03.320Z"
+    },
+    {
+      "map": "terminal-observatory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:04.420Z"
+    },
+    {
+      "map": "terminal-observatory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:05.521Z"
+    },
+    {
+      "map": "terminal-observatory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:06.570Z"
+    },
+    {
+      "map": "terminal-sanctuary",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:08.904Z"
+    },
+    {
+      "map": "terminal-sanctuary",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:10.003Z"
+    },
+    {
+      "map": "terminal-sanctuary",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:11.070Z"
+    },
+    {
+      "map": "terminal-sanctuary",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:12.120Z"
+    },
+    {
+      "map": "terminal-bridge",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:14.437Z"
+    },
+    {
+      "map": "terminal-bridge",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:15.520Z"
+    },
+    {
+      "map": "terminal-bridge",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:16.537Z"
+    },
+    {
+      "map": "terminal-bridge",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:17.603Z"
+    },
+    {
+      "map": "terminal-heart",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:19.953Z"
+    },
+    {
+      "map": "terminal-heart",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:21.019Z"
+    },
+    {
+      "map": "terminal-heart",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:22.086Z"
+    },
+    {
+      "map": "terminal-heart",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:23.136Z"
+    },
+    {
+      "map": "final-star-gate",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:25.518Z"
+    },
+    {
+      "map": "final-star-gate",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:26.604Z"
+    },
+    {
+      "map": "final-star-gate",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:27.688Z"
+    },
+    {
+      "map": "final-star-gate",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:28.830Z"
+    },
+    {
+      "map": "final-memory-path",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:31.317Z"
+    },
+    {
+      "map": "final-memory-path",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:32.404Z"
+    },
+    {
+      "map": "final-memory-path",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:33.456Z"
+    },
+    {
+      "map": "final-memory-path",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:34.596Z"
+    },
+    {
+      "map": "final-astral-garden",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:36.983Z"
+    },
+    {
+      "map": "final-astral-garden",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:38.053Z"
+    },
+    {
+      "map": "final-astral-garden",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:39.140Z"
+    },
+    {
+      "map": "final-astral-garden",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:40.264Z"
+    },
+    {
+      "map": "final-origin-archive",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:42.683Z"
+    },
+    {
+      "map": "final-origin-archive",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:43.736Z"
+    },
+    {
+      "map": "final-origin-archive",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:44.804Z"
+    },
+    {
+      "map": "final-origin-archive",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:45.929Z"
+    },
+    {
+      "map": "final-guardian-sanctum",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:48.316Z"
+    },
+    {
+      "map": "final-guardian-sanctum",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:49.403Z"
+    },
+    {
+      "map": "final-guardian-sanctum",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:50.455Z"
+    },
+    {
+      "map": "final-guardian-sanctum",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:51.578Z"
+    },
+    {
+      "map": "final-fate-hall",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:53.999Z"
+    },
+    {
+      "map": "final-fate-hall",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:23:55.070Z"
+    },
+    {
+      "map": "final-fate-hall",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:23:56.122Z"
+    },
+    {
+      "map": "final-fate-hall",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:23:57.262Z"
+    },
+    {
+      "map": "final-last-observatory",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:23:59.647Z"
+    },
+    {
+      "map": "final-last-observatory",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:24:00.734Z"
+    },
+    {
+      "map": "final-last-observatory",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:24:01.820Z"
+    },
+    {
+      "map": "final-last-observatory",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:24:02.944Z"
+    },
+    {
+      "map": "final-star-heart",
+      "width": 320,
+      "verifiedAt": "2026-11-10T21:24:05.332Z"
+    },
+    {
+      "map": "final-star-heart",
+      "width": 390,
+      "verifiedAt": "2026-11-10T21:24:06.419Z"
+    },
+    {
+      "map": "final-star-heart",
+      "width": 430,
+      "verifiedAt": "2026-11-10T21:24:07.472Z"
+    },
+    {
+      "map": "final-star-heart",
+      "width": 768,
+      "verifiedAt": "2026-11-10T21:24:08.595Z"
+    }
+  ],
+  "reusedCases": 0,
+  "newCases": 360,
+  "pageErrors": []
+}

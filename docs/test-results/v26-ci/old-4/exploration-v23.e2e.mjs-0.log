@@ -1,0 +1,67 @@
+PASS grove-camp at 320/390/430/768: touch, aspect, camera, pause
+PASS grove-trail at 320/390/430/768: touch, aspect, camera, pause
+PASS grove-ruins at 320/390/430/768: touch, aspect, camera, pause
+PASS grove-village at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS grove-garden at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS sky-port at 320/390/430/768: touch, aspect, camera, pause
+PASS sky-island at 320/390/430/768: touch, aspect, camera, pause
+PASS sky-ruins at 320/390/430/768: touch, aspect, camera, pause
+PASS sky-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS sky-tower at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS star-cave at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS star-path at 320/390/430/768: touch, aspect, camera, pause
+PASS star-city at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS star-market at 320/390/430/768: touch, aspect, camera, pause
+PASS star-waterway at 320/390/430/768: touch, aspect, camera, pause
+PASS star-mine at 320/390/430/768: touch, aspect, camera, pause
+PASS star-archive at 320/390/430/768: touch, aspect, camera, pause
+PASS star-core at 320/390/430/768: touch, aspect, camera, pause
+PASS tide-road at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS tide-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS tide-port at 320/390/430/768: touch, aspect, camera, pause
+PASS tide-beach at 320/390/430/768: touch, aspect, camera, pause
+PASS tide-observatory at 320/390/430/768: touch, aspect, camera, pause
+PASS tide-cave at 320/390/430/768: touch, aspect, camera, pause
+PASS tide-ruins at 320/390/430/768: touch, aspect, camera, pause
+PASS tide-core at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-road at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-village at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-field at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-stones at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-ravine at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-archive at 320/390/430/768: touch, aspect, camera, pause
+PASS pale-core at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-road at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-village at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-woods at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-lake at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-roots at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-shrine at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-archive at 320/390/430/768: touch, aspect, camera, pause
+PASS gloom-core at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-rail at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-station at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-city at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-market at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-lower at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-workshop at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-observatory at 320/390/430/768: touch, aspect, camera, pause
+PASS gear-core at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-gateway at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-shore at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-dock at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-hall at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-gravity at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-records at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+PASS ark-core at 320/390/430/768: touch, aspect, camera, pause
+PASS void-gate at 320/390/430/768: touch, aspect, camera, pause
+PASS void-court at 320/390/430/768: touch, aspect, camera, pause
+PASS void-corridor at 320/390/430/768: touch, aspect, camera, pause
+PASS void-mirror at 320/390/430/768: touch, aspect, camera, pause
+PASS void-archive at 320/390/430/768: touch, aspect, camera, pause
+PASS void-garden at 320/390/430/768: touch, aspect, camera, pause
+PASS void-sanctum at 320/390/430/768: touch, aspect, camera, pause
+PASS void-core at 320/390/430/768: touch, aspect, camera, pause
+v2.3 all sixty-six maps / 264 viewport cases passed, four old-chapter additions connected to original NPCs and exits, high/low tide and all four resonance recoveries, detailed scenery, immutable rewards, zero runtime errors.

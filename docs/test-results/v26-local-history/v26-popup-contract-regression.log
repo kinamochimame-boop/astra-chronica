@@ -1,0 +1,10 @@
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/battle-presentation.test.ts (16 tests) 76ms
+
+ Test Files  1 passed (1)
+      Tests  16 passed (16)
+   Start at  21:12:53
+   Duration  3.78s (transform 1.57s, setup 0ms, collect 2.01s, tests 76ms, environment 0ms, prepare 694ms)
+

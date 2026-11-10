@@ -1,0 +1,41 @@
+Route none: road-390
+Route none: npc-390
+Route none: road-battle-390
+Route no-quests: battle victory
+Route none: road-result-390
+Route none: village-390
+Route none: choice-390
+Route none: railway-390
+Route none: railway-390
+Route none: field-390
+Route none: field-battle-390
+Route no-quests: battle victory
+Route none: field-result-390
+Route none: silent-390
+Route none: faint-390
+Route none: choice-390
+Route none: ravine-390
+Route none: choice-390
+Route none: sanctuary-390
+Route none: sanctuary-battle-390
+Route no-quests: battle victory
+Route none: sanctuary-result-390
+Route none: archive-390
+Route none: archive-battle-390
+Route no-quests: battle victory
+Route none: archive-result-390
+Route none: guardian-battle-390
+Route no-quests: battle victory
+Route none: guardian-result-390
+Route none: choice-390
+Route none: linked-390
+Route none: choice-390
+Route none: core-390
+Route none: zero-battle-390
+Route no-quests: battle victory
+Route none: zero-result-390
+Route none: journal-390
+Route none: railway-390
+Route none: railway-390
+v2.1 route quests=false passed: six real victories, eight maps, celestial phases, five choices, twelve chapters preserved.
+v2.1 full chapter-thirteen touch routes passed: 1 route(s), 6 actual victories.

@@ -1,0 +1,6 @@
+minimap mount
+walk/checkpoint
+walk/checkpoint
+map switch
+save and reload
+PASS minimap: real walked trail/player, passive touch overlay, session remount/map isolation, reload reset, unchanged save fields, four widths and reduced motion.

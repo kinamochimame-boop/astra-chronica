@@ -1,0 +1,58 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: 7f66c594719789ff1baad696be867acea3e1392738d8c9dfb22b0dbef40e8406
+Command: node tests/exploration-v26.e2e.mjs 
+MAP90 start grove-camp
+PASS90 grove-camp
+MAP90 start grove-trail
+PASS90 grove-trail
+MAP90 start grove-ruins
+PASS90 grove-ruins
+MAP90 start sky-port
+PASS90 sky-port
+MAP90 start sky-island
+PASS90 sky-island
+MAP90 start sky-ruins
+PASS90 sky-ruins
+MAP90 start grove-village
+PASS90 grove-village
+MAP90 start grove-garden
+PASS90 grove-garden
+MAP90 start sky-town
+PASS90 sky-town
+MAP90 start sky-tower
+PASS90 sky-tower
+MAP90 start star-cave
+PASS90 star-cave
+MAP90 start star-path
+MAP90 failure star-path
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Target page, context or browser has been closed
+Call log:
+[2m  - waiting for locator('#world-viewport canvas')[22m
+[2m    - locator resolved to <canvas width="390" height="604"></canvas>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing tap action[22m
+
+    at tapWorld (/workspace/astra-chronica/tests/map-driver-v15.mjs:5:378)
+    at async walkTo (/workspace/astra-chronica/tests/map-driver-v15.mjs:9:637)
+    at async file:///workspace/astra-chronica/tests/exploration-v26.e2e.mjs:27:38 {
+  log: [
+    "  - waiting for locator('#world-viewport canvas')",
+    '    - locator resolved to <canvas width="390" height="604"></canvas>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing tap action'
+  ]
+}
+
+Node.js v24.22.1

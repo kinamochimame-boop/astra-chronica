@@ -1,0 +1,12 @@
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 3141ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 1452ms
+ ✓ tests/exploration-v26.test.ts (194 tests) 1375ms
+
+ Test Files  3 passed (3)
+      Tests  350 passed (350)
+   Start at  08:01:55
+   Duration  9.65s (transform 1.53s, setup 0ms, collect 2.67s, tests 5.97s, environment 1ms, prepare 303ms)
+

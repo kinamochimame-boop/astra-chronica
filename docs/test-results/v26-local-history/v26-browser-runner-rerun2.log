@@ -1,0 +1,8 @@
+file:///tmp/v26-browser-runner.mjs:6
+const unit=readFileSync('/tmp/v26-unit-final-rerun1.log','utf8');if(/Test Files[^\n]*failed|Tests\s+\d+ failed/.test(unit))throw Error('Unit gate failed; investigate before browsers');
+                                                                                                                                 ^
+
+Error: Unit gate failed; investigate before browsers
+    at file:///tmp/v26-browser-runner.mjs:6:130
+
+Node.js v24.22.1
