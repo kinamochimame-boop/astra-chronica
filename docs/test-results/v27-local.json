@@ -244,5 +244,31 @@
         "sha256": "20938943c97b79c794a921a49e8ce96a73a3c8f40cc30db8a4636044add244b1"
       }
     ]
+  },
+  "ci_layout_attempt": {
+    "run": 42958144837,
+    "head": "056ac765c6a2eb03366fd1847fa8b35b5dcd1f2a",
+    "native_webgl": "11/11 passed",
+    "layout_failure": "mistwood-camp sign at144,400 correctly triggered inspection, conflicting with legacy test ground target",
+    "fix": "chapter1-only unoccupied floor targets near entry; both real movement endpoints still strictly checked; old90 coordinates unchanged",
+    "local_new_maps": 7,
+    "widths": [
+      320,
+      390,
+      430,
+      768
+    ],
+    "passed_cases": 28,
+    "game_source_changed": false,
+    "evidence": [
+      {
+        "file": "docs/test-results/v27-local/v27-ci-second-layout-failed.log",
+        "sha256": "2117e0635dca9cf00afef9ba5fb02f1eee220c049f05875569b5e6bd27e169fd"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-newmaps-28-layouts.log",
+        "sha256": "3bd213de733652ad811ea8dc6b8a6f969e214d5460c0637bef87b81b498cf86b"
+      }
+    ]
   }
 }

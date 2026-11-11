@@ -26,6 +26,8 @@ docs/screenshots/free-exploration-v27-stele-430.png
 docs/test-results/v27-local.json
 docs/test-results/v27-local/v27-build-final.log
 docs/test-results/v27-local/v27-ci-first-webgl-failed.log
+docs/test-results/v27-local/v27-ci-second-layout-failed.log
+docs/test-results/v27-local/v27-newmaps-28-layouts.log
 docs/test-results/v27-local/v27-touch-final.log
 docs/test-results/v27-local/v27-touch-initial.log
 docs/test-results/v27-local/v27-touch-legacy.log
@@ -68,6 +70,7 @@ tests/exploration-v22.test.ts
 tests/exploration-v23.test.ts
 tests/exploration-v24.test.ts
 tests/exploration-v25.test.ts
+tests/exploration-v26.e2e.mjs
 tests/exploration-v26.test.ts
 tests/free-exploration-v27.e2e.mjs
 tests/free-exploration-v27.test.ts
