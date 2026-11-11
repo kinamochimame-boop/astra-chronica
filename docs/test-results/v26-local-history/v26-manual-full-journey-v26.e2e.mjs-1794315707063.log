@@ -1,0 +1,222 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: f800f007b6965d6c08e59d15bc95e0328970f1fc55a394db6e01042404abe31f
+Command: node tests/full-journey-v26.e2e.mjs 
+Fresh UI event chapter-01 c1-departure wins 0 levels 1/1/1
+UI victory c1-first-battle
+Fresh UI event chapter-01 c1-first-battle wins 1 levels 2/2/2
+Fresh UI event chapter-01 c1-stele-story wins 1 levels 2/2/2
+Fresh UI event chapter-01 c1-chest wins 1 levels 2/2/2
+UI victory c1-fork-battle
+Fresh UI event chapter-01 c1-fork-battle wins 2 levels 3/3/3
+Fresh UI event chapter-01 c1-rest wins 2 levels 3/3/3
+Fresh UI event chapter-01 c1-altar-story wins 2 levels 3/3/3
+UI victory c1-guardian
+Fresh UI event chapter-01 c1-guardian wins 3 levels 3/3/3
+Fresh UI event chapter-01 c1-clear wins 3 levels 3/3/3
+Fresh UI event chapter-02 c2-arrival wins 3 levels 3/3/3
+Fresh UI event chapter-02 c2-residents wins 3 levels 3/3/3
+UI victory c2-market-fight
+Fresh UI event chapter-02 c2-market-fight wins 4 levels 4/4/4
+Fresh UI event chapter-02 c2-potion-chest wins 4 levels 4/4/4
+Fresh UI event chapter-02 c2-fragments wins 4 levels 4/4/4
+UI victory c2-canal-fight
+Fresh UI event chapter-02 c2-canal-fight wins 5 levels 5/5/5
+UI victory c2-keeper
+Fresh UI event chapter-02 c2-keeper wins 6 levels 6/6/6
+Fresh UI event chapter-02 c2-rest wins 6 levels 6/6/6
+Fresh UI event chapter-02 c2-shield-gift wins 6 levels 6/6/6
+Fresh UI event chapter-02 c2-library-clue wins 6 levels 6/6/6
+Fresh UI event chapter-02 c2-ether-chest wins 6 levels 6/6/6
+UI victory c2-stairs-fight
+Fresh UI event chapter-02 c2-stairs-fight wins 7 levels 6/6/6
+Fresh UI event chapter-02 c2-clock-story wins 7 levels 6/6/6
+Fresh UI event chapter-02 c2-sword-chest wins 7 levels 6/6/6
+UI victory c2-guardian
+Fresh UI event chapter-02 c2-guardian wins 8 levels 7/7/7
+Fresh UI event chapter-02 c2-clear wins 8 levels 7/7/7
+Fresh UI event chapter-03 c3-arrival wins 8 levels 7/7/7
+Fresh UI event chapter-03 c3-fio wins 8 levels 7/7/7
+Fresh UI event chapter-03 c3-rest wins 8 levels 7/7/7
+UI victory c3-bridge-fight
+Fresh UI event chapter-03 c3-bridge-fight wins 9 levels 8/8/8
+UI victory c3-mine-fight
+Fresh UI event chapter-03 c3-mine-fight wins 10 levels 9/9/9
+Fresh UI event chapter-03 c3-dual-chest wins 10 levels 9/9/9
+Fresh UI event chapter-03 c3-watch-story wins 10 levels 9/9/9
+UI victory c3-warden
+Fresh UI event chapter-03 c3-warden wins 11 levels 10/10/10
+Fresh UI event chapter-03 c3-wind-crystals wins 11 levels 10/10/10
+Fresh UI event chapter-03 c3-observatory-story wins 11 levels 10/10/10
+UI victory c3-broken-fight
+Fresh UI event chapter-03 c3-broken-fight wins 12 levels 10/10/10
+Fresh UI event chapter-03 c3-altar-gift wins 12 levels 10/10/10
+UI victory c3-guardian
+Fresh UI event chapter-03 c3-guardian wins 13 levels 11/11/11
+Fresh UI event chapter-03 c3-clear wins 13 levels 11/11/11
+Fresh UI event chapter-04 c4-arrival wins 13 levels 11/11/11
+Fresh UI event chapter-04 c4-serena wins 13 levels 11/11/11
+Fresh UI event chapter-04 c4-silence wins 13 levels 11/11/11
+UI victory c4-market-fight
+Fresh UI event chapter-04 c4-market-fight wins 14 levels 12/12/12
+Fresh UI event chapter-04 c4-sword-chest wins 14 levels 12/12/12
+UI victory c4-canal-fight
+Fresh UI event chapter-04 c4-canal-fight wins 15 levels 12/12/12
+Fresh UI event chapter-04 c4-workshop-story wins 15 levels 12/12/12
+UI victory c4-machine
+Fresh UI event chapter-04 c4-machine wins 16 levels 13/13/13
+Fresh UI event chapter-04 c4-music-puzzle wins 16 levels 13/13/13
+Fresh UI event chapter-04 c4-starseer-record wins 16 levels 13/13/13
+Fresh UI event chapter-04 c4-lake-judgment wins 16 levels 13/13/13
+Fresh UI event chapter-04 c4-lake-rest wins 16 levels 13/13/13
+UI victory c4-cathedral-fight
+Fresh UI event chapter-04 c4-cathedral-fight wins 17 levels 14/14/14
+Fresh UI event chapter-04 c4-shield-gift wins 17 levels 14/14/14
+Fresh UI event chapter-04 c4-final-promise wins 17 levels 14/14/14
+UI victory c4-echoria
+Fresh UI event chapter-04 c4-echoria wins 18 levels 15/15/15
+Fresh UI event chapter-04 c4-clear wins 18 levels 15/15/15
+Fresh UI event chapter-05 c5-arrival wins 18 levels 15/15/15
+Fresh UI event chapter-05 c5-nadia wins 18 levels 15/15/15
+Fresh UI event chapter-05 c5-gate-story wins 18 levels 15/15/15
+UI victory c5-market-fight
+Fresh UI event chapter-05 c5-market-fight wins 19 levels 15/15/15
+Fresh UI event chapter-05 c5-dual-chest wins 19 levels 15/15/15
+Fresh UI event chapter-05 c5-fountain-story wins 19 levels 15/15/15
+Fresh UI event chapter-05 c5-rashid wins 19 levels 15/15/15
+Fresh UI event chapter-05 c5-palace-judgment wins 19 levels 15/15/15
+Fresh UI event chapter-05 c5-dunes-sign wins 19 levels 15/15/15
+Fresh journey failure: locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#equipment-back')[22m
+[2m    - locator resolved to visible <button class="secondary" id="equipment-back">ホームへ戻る</button>[22m
+  ロッド
+所持1（装備中0） · このキャラクターは装備できません
+◇ 砂星の双剣 ｜ 双剣
+所持1（装備中1）
+◇ 王都守護の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 蜃気楼のワンド ｜ ワンド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 霜星の弓 ｜ 弓
+所持0（装備中0） · 所持していません
+◇ 時守の盾突剣 ｜ 盾＆突剣
+所持0（装備中0） · このキャラクターは装備できません
+◇ 暁晶のロッド ｜ ロッド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 翠星の双剣 ｜ 双剣
+所持0（装備中0） · 所持していません
+◇ 樹護の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星樹のワンド ｜ ワンド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 天翔の剣 ｜ 剣
+所持0（装備中0） · 所持していません
+◇ 蒼翼の盾フレイル ｜ 盾＆フレイル
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星風のロッド ｜ ロッド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星脈の双剣 ｜ 双剣
+所持0（装備中0） · 所持していません
+◇ 晶壁の盾突剣 ｜ 盾＆突剣
+所持0（装備中0） · このキャラクターは装備できません
+◇ 記憶晶のメイス ｜ メイス
+所持0（装備中0） · このキャラクターは装備できません
+◇ 潮星の弓 ｜ 弓
+所持0（装備中0） · 所持していません
+◇ 蒼潮の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星灯のロッド ｜ ロッド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 白星の双剣 ｜ 双剣
+所持0（装備中0） · 所持していません
+◇ 巡礼守の盾フレイル ｜ 盾＆フレイル
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星声のワンド ｜ ワンド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星樹の剣 ｜ 剣
+所持0（装備中0） · 所持していません
+◇ 翠星の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 古樹のロッド ｜ ロッド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星機の双剣 ｜ 双剣
+所持0（装備中0） · 所持していません
+◇ 天球守の盾突剣 ｜ 盾＆突剣
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星図のメイス ｜ メイス
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星海の弓 ｜ 弓
+所持0（装備中0） · 所持していません
+◇ 方舟守の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 忘却のワンド ｜ ワンド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星冠の双剣 ｜ 双剣
+所持0（装備中0） · 所持していません
+◇ 虚空守の盾突剣 ｜ 盾＆突剣
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星界のワンド ｜ ワンド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星墓の長弓 ｜ 弓
+所持0（装備中0） · 所持していません
+◇ 終焉守の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 記憶のロッド ｜ ロッド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星路の剣 ｜ 剣
+所持0（装備中0） · 所持していません
+◇ 約束の盾槍 ｜ 盾＆槍
+所持0（装備中0） · このキャラクターは装備できません
+◇ 運命のロッド ｜ ロッド
+所持0（装備中0） · このキャラクターは装備できません
+◇ 星詠みの双剣 ｜ 双剣
+所持0（装備中0） · 所持していません
+◇ 永遠の盾と突剣 ｜ 盾＆突剣
+所持0（装備中0） · このキャラクターは装備できません
+◇ 約束のワンド ｜ ワンド
+所持0（装備中0） · このキャラクターは装備できません
+装備前 → 装備後
+
+選択：砂星の双剣
+
+能力値比較（星脈を含む・一時補正を除く）
+能力	現在	変更後	差分
+攻撃力	86	86	0
+防御力	25	25	0
+素早さ	43	43	0
+最大HP	363	363	0
+最大MP	71	71	0
+回復量補正	0%	0%	0%
+属性魔法補正	0%	0%	0%
+
+攻撃＋9、速度＋3。通常攻撃は0.5倍×2。連牙斬等のヒット数は増やさない。
+
+現在装備中です
+
+装備する装備を解除
+
+装備を変更しました。（保存済み）
+
+装備検証用の武器解放
+ホームへ戻る
+✦ 星の記憶は、あなたとともに。
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#equipment-back')[22m
+[2m    - locator resolved to visible <button class="secondary" id="equipment-back">ホームへ戻る</button>[22m
+
+    at touch (/workspace/astra-chronica/tests/v26-ui-driver.mjs:9:28)
+    at async developUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:51:387)
+    at async file:///workspace/astra-chronica/tests/full-journey-v26.e2e.mjs:17:188 {
+  log: [
+    "  - waiting for locator('#equipment-back')",
+    '    - locator resolved to visible <button class="secondary" id="equipment-back">ホームへ戻る</button>'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

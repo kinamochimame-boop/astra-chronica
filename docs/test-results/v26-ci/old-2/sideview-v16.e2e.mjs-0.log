@@ -1,0 +1,1 @@
+v1.6 side-view passed: 4 widths, 1/2/3/6 enemies, actual canvas targeting, 9 weapon silhouettes, projectiles, fire/heal/guard/cover, critical/miss/fallen/group ultimate, paused rendering without turn deadlock, repeated input, reduced motion and teardown; zero runtime errors.

@@ -1,0 +1,28 @@
+This site can’t be reached
+
+localhost refused to connect.
+
+Try:
+
+Checking the connection
+Checking the proxy and the firewall
+ERR_CONNECTION_REFUSED
+Reload
+Details
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:4173/
+Call log:
+[2m  - navigating to "http://localhost:4173/", waiting until "load"[22m
+
+    at route (/workspace/astra-chronica/tests/chapter-eighteen-v26.e2e.mjs:10:366)
+    at async file:///workspace/astra-chronica/tests/chapter-eighteen-v26.e2e.mjs:14:134 {
+  log: [
+    '  - navigating to "http://localhost:4173/", waiting until "load"'
+  ],
+  name: 'Error'
+}
+
+Node.js v24.22.1

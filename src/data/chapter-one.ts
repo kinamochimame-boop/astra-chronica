@@ -1,3 +1,4 @@
+import {chapterEighteen} from './chapter-eighteen';
 import {chapterSeventeen} from './chapter-seventeen';
 import {chapterSixteen} from './chapter-sixteen';
 import {chapterFifteen} from './chapter-fifteen';
@@ -19,7 +20,7 @@ export type EventKind='story'|'battle'|'treasure'|'rest'|'boss'|'clear';
 export interface Dialogue {speaker:string;text:string}
 export interface AdventureEvent {id:string;locationId:string;kind:EventKind;name:string;requires:string[];pages:Dialogue[];orderGroup?:string;choiceId?:string;encounter?:string;weaponReward?:string;itemReward?:{id:ItemId;count:number};puzzle?:{mode?:'rotate'|'cycle';title?:string;states?:{id:string;name:string}[];hints?:string[];checkLabel?:string;resetLabel?:string;errorMessage?:string;successMessage?:string;pieces:{id:string;name:string}[];solution:string[];hint:string}}
 export interface Location {id:string;name:string;icon:string;description:string}
-export interface Chapter {id:string;requiresChapterId?:string;name:string;setting:string;locations:Location[];events:AdventureEvent[];preview:string}
+export interface Chapter {explicitClear?:boolean;id:string;requiresChapterId?:string;name:string;setting:string;locations:Location[];events:AdventureEvent[];preview:string}
 const page=(speaker:string,text:string):Dialogue=>({speaker,text});
 export const chapterOne:Chapter={id:'chapter-01',name:'約束のはじまり',setting:'霧の森',preview:'第2章予告：欠けた星図の先、風の街に眠るもうひとつの約束。',locations:[
  {id:'c1-camp',name:'星灯りの野営地',icon:'✧',description:'消えかけた焚き火の向こうに、霧の森が広がっている。'},
@@ -41,4 +42,4 @@ export const chapterOne:Chapter={id:'chapter-01',name:'約束のはじまり',se
  {id:'c1-clear',locationId:'c1-depths',kind:'clear',name:'霧の向こうの約束',requires:['c1-guardian'],pages:[page('メイ','霧が晴れていく……。獣は消えずに、静かに眠った。祭壇の光も落ち着いている。'),page('アステル','欠片に新しい線が浮かんだ。森だけじゃない。この星図は、まだ先へ続いているんだ。'),page('リナ','まずは、帰って休もう。次の約束を探す旅は、明日から。'),page('メイ','遠い風の街に、同じ印の記録があるって聞いたことがある。星詠みが歩いた道を、少しずつ辿ろう。')]},
 ]};
 /** Register later chapters here without assigning meaning to unknown save IDs. */
-export const chapters:readonly Chapter[]=[chapterOne,chapterTwo,chapterThree,chapterFour,chapterFive,chapterSix,chapterSeven,chapterEight,chapterNine,chapterTen,chapterEleven,chapterTwelve,chapterThirteen,chapterFourteen,chapterFifteen,chapterSixteen,chapterSeventeen];
+export const chapters:readonly Chapter[]=[chapterOne,chapterTwo,chapterThree,chapterFour,chapterFive,chapterSix,chapterSeven,chapterEight,chapterNine,chapterTen,chapterEleven,chapterTwelve,chapterThirteen,chapterFourteen,chapterFifteen,chapterSixteen,chapterSeventeen,chapterEighteen];

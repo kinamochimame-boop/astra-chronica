@@ -1,0 +1,36 @@
+Route all: road-390
+Route all: npc-390
+Route all: road-battle-390
+Route all-quests: battle victory
+Route all: road-result-390
+Route all: town-390
+Route all: choice-390
+Route all: port-390
+Route all: port-battle-390
+Route all-quests: battle victory
+Route all: port-result-390
+Route all: high-tide-390
+Route all: choice-390
+Route all: observatory-390
+Route all: choice-390
+Route all: low-tide-390
+Route all: cave-390
+Route all: cave-battle-390
+Route all-quests: battle victory
+Route all: cave-result-390
+Route all: ruins-390
+Route all: ruins-battle-390
+Route all-quests: battle victory
+Route all: ruins-result-390
+Route all: guardian-battle-390
+Route all-quests: battle victory
+Route all: guardian-result-390
+Route all: choice-390
+Route all: choice-390
+Route all: core-390
+Route all: luminaria-battle-390
+Route all-quests: battle victory
+Route all: luminaria-result-390
+Route all: journal-390
+v1.8 route quests=true passed: six real victories, eight maps, approach/inspect, high→low tide, five choices, save/reload and nine older chapters preserved.
+Verified 1 route(s), 6 real victories.

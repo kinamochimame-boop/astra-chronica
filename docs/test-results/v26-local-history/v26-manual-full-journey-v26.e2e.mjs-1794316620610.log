@@ -1,0 +1,104 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: f800f007b6965d6c08e59d15bc95e0328970f1fc55a394db6e01042404abe31f
+Command: node tests/full-journey-v26.e2e.mjs 
+Fresh UI event chapter-01 c1-departure wins 0 levels 1/1/1
+Fresh journey failure: locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.execute-command')[22m
+[2m    - locator resolved to visible <button class="primary execute-command" aria-describedby="command-description">通常攻撃を実行</button>[22m
+ BATTLE · ROUND 1
+
+霧の森・入口
+☰
+メニュー
+
+コマンドを選択：リナ
+
+次の行動：
+味 ▶
+リナ
+敵
+森の番狼
+味
+メイ
+敵
+霧まといのスライム
+霧まといのスライム
+敵 · ◎対象
+HP 118 / 190
+状態なし
+影羽コウモリ
+敵
+HP 110 / 110
+状態なし
+森の番狼
+敵
+HP 140 / 140
+状態なし
+アステル
+戦士
+HP 167 / 180
+MP 18 / 24
+星力 20 / 100
+状態なし
+リナ
+▶ 行動中
+HP 240 / 240
+MP 30 / 30
+星力 0 / 100
+状態なし
+メイ
+魔法攻撃
+HP 150 / 150
+MP 48 / 48
+星力 0 / 100
+状態なし
+★ 必殺 · 不落の誓盾
+星力 100
+未習得（Lv.10）
+通常攻撃
+ATTACK
+ガード
+MP 3
+かばう
+MP 4
+防御
+MP 0
+挑発
+MP 6
+未習得（Lv.3）
+守護の陣
+MP 12
+未習得（Lv.5）
+シールドバッシュ
+MP 8
+未習得（Lv.7）
+
+通常攻撃 · MP0｜敵単体に攻撃（装備：見習いの盾槍）。対象：霧まといのスライム
+
+通常攻撃を実行
+
+アステル → 霧まといのスライム：強撃 72
+
+ログ ⌃
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.evaluate: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.execute-command')[22m
+[2m    - locator resolved to visible <button class="primary execute-command" aria-describedby="command-description">通常攻撃を実行</button>[22m
+
+    at touch (/workspace/astra-chronica/tests/v26-ui-driver.mjs:9:28)
+    at async fightUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:34:90)
+    at async eventUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:43:345)
+    at async file:///workspace/astra-chronica/tests/full-journey-v26.e2e.mjs:17:261 {
+  log: [
+    "  - waiting for locator('.execute-command')",
+    '    - locator resolved to visible <button class="primary execute-command" aria-describedby="command-description">通常攻撃を実行</button>'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

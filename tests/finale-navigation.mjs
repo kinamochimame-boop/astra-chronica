@@ -1,0 +1,2 @@
+import assert from 'node:assert/strict';
+export async function assertFinalChapterUnlock(page){const button=page.locator('[data-chapter-id="chapter-18"]');assert.equal(await button.count(),1);const done=await page.evaluate(()=>!!JSON.parse(localStorage.getItem('astra-chronica:v1'))?.adventure?.chapters?.['chapter-17']?.completed?.includes('c17-clear'));assert.equal(await button.isDisabled(),!done)}

@@ -1,0 +1,181 @@
+MAP90 start grove-camp
+PASS90 grove-camp
+MAP90 start grove-trail
+PASS90 grove-trail
+MAP90 start grove-ruins
+PASS90 grove-ruins
+MAP90 start sky-port
+PASS90 sky-port
+MAP90 start sky-island
+PASS90 sky-island
+MAP90 start sky-ruins
+PASS90 sky-ruins
+MAP90 start grove-village
+PASS90 grove-village
+MAP90 start grove-garden
+PASS90 grove-garden
+MAP90 start sky-town
+PASS90 sky-town
+MAP90 start sky-tower
+PASS90 sky-tower
+MAP90 start star-cave
+PASS90 star-cave
+MAP90 start star-path
+PASS90 star-path
+MAP90 start star-city
+PASS90 star-city
+MAP90 start star-market
+PASS90 star-market
+MAP90 start star-waterway
+PASS90 star-waterway
+MAP90 start star-mine
+PASS90 star-mine
+MAP90 start star-archive
+PASS90 star-archive
+MAP90 start star-core
+PASS90 star-core
+MAP90 start tide-road
+PASS90 tide-road
+MAP90 start tide-town
+PASS90 tide-town
+MAP90 start tide-port
+PASS90 tide-port
+MAP90 start tide-beach
+PASS90 tide-beach
+MAP90 start tide-observatory
+PASS90 tide-observatory
+MAP90 start tide-cave
+PASS90 tide-cave
+MAP90 start tide-ruins
+PASS90 tide-ruins
+MAP90 start tide-core
+PASS90 tide-core
+MAP90 start pale-road
+PASS90 pale-road
+MAP90 start pale-village
+PASS90 pale-village
+MAP90 start pale-field
+PASS90 pale-field
+MAP90 start pale-stones
+PASS90 pale-stones
+MAP90 start pale-ravine
+PASS90 pale-ravine
+MAP90 start pale-sanctuary
+PASS90 pale-sanctuary
+MAP90 start pale-archive
+PASS90 pale-archive
+MAP90 start pale-core
+PASS90 pale-core
+MAP90 start gloom-road
+PASS90 gloom-road
+MAP90 start gloom-village
+PASS90 gloom-village
+MAP90 start gloom-woods
+PASS90 gloom-woods
+MAP90 start gloom-lake
+PASS90 gloom-lake
+MAP90 start gloom-roots
+PASS90 gloom-roots
+MAP90 start gloom-shrine
+PASS90 gloom-shrine
+MAP90 start gloom-archive
+PASS90 gloom-archive
+MAP90 start gloom-core
+PASS90 gloom-core
+MAP90 start gear-rail
+PASS90 gear-rail
+MAP90 start gear-station
+PASS90 gear-station
+MAP90 start gear-city
+PASS90 gear-city
+MAP90 start gear-market
+PASS90 gear-market
+MAP90 start gear-lower
+PASS90 gear-lower
+MAP90 start gear-workshop
+PASS90 gear-workshop
+MAP90 start gear-observatory
+PASS90 gear-observatory
+MAP90 start gear-core
+PASS90 gear-core
+MAP90 start ark-gateway
+PASS90 ark-gateway
+MAP90 start ark-shore
+PASS90 ark-shore
+MAP90 start ark-dock
+PASS90 ark-dock
+MAP90 start ark-hall
+PASS90 ark-hall
+MAP90 start ark-gravity
+PASS90 ark-gravity
+MAP90 start ark-records
+PASS90 ark-records
+MAP90 start ark-sanctuary
+PASS90 ark-sanctuary
+MAP90 start ark-core
+PASS90 ark-core
+MAP90 start void-gate
+PASS90 void-gate
+MAP90 start void-court
+PASS90 void-court
+MAP90 start void-corridor
+PASS90 void-corridor
+MAP90 start void-mirror
+PASS90 void-mirror
+MAP90 start void-archive
+PASS90 void-archive
+MAP90 start void-garden
+PASS90 void-garden
+MAP90 start void-sanctum
+PASS90 void-sanctum
+MAP90 start void-core
+PASS90 void-core
+MAP90 start grave-gate
+PASS90 grave-gate
+MAP90 start grave-field
+PASS90 grave-field
+MAP90 start grave-ruins
+PASS90 grave-ruins
+MAP90 start grave-memory
+PASS90 grave-memory
+MAP90 start grave-observatory
+PASS90 grave-observatory
+MAP90 start grave-sanctuary
+PASS90 grave-sanctuary
+MAP90 start grave-tower
+PASS90 grave-tower
+MAP90 start grave-core
+PASS90 grave-core
+MAP90 start terminal-gate
+PASS90 terminal-gate
+MAP90 start terminal-plaza
+PASS90 terminal-plaza
+MAP90 start terminal-library
+PASS90 terminal-library
+MAP90 start terminal-memory
+PASS90 terminal-memory
+MAP90 start terminal-observatory
+PASS90 terminal-observatory
+MAP90 start terminal-sanctuary
+PASS90 terminal-sanctuary
+MAP90 start terminal-bridge
+PASS90 terminal-bridge
+MAP90 start terminal-heart
+PASS90 terminal-heart
+MAP90 start final-star-gate
+PASS90 final-star-gate
+MAP90 start final-memory-path
+PASS90 final-memory-path
+MAP90 start final-astral-garden
+PASS90 final-astral-garden
+MAP90 start final-origin-archive
+PASS90 final-origin-archive
+MAP90 start final-guardian-sanctum
+PASS90 final-guardian-sanctum
+MAP90 start final-fate-hall
+PASS90 final-fate-hall
+MAP90 start final-last-observatory
+PASS90 final-last-observatory
+MAP90 start final-star-heart
+PASS90 final-star-heart
+PASS 90maps/360cases:  actual touch, collision, minimap, camera/aspect,44px,reduced motion and no horizontal overflow.

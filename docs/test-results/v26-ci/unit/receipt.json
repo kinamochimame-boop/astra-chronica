@@ -1,0 +1,62 @@
+{
+  "group": "unit",
+  "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+  "commit": "023a98ebbe6c5836184edec541e2997103998aab",
+  "head": "66721ba85c4f70d4fc5e387473c35111d4439f45",
+  "start": "2026-11-10T21:15:18.025Z",
+  "success": true,
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:15:18.025Z",
+      "end": "2026-11-10T21:15:25.160Z",
+      "log": "build.log",
+      "sha256": "871902114631d3fb226f457a610f39e31a78fd6ecf09cb4f809de3aa2ecd6310"
+    },
+    {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:15:25.162Z",
+      "end": "2026-11-10T21:16:00.106Z",
+      "log": "unit.log",
+      "sha256": "dcd61035a7704785b316556834f01c5a9d57cb7fdf9c6baef9b83c9ecc971e22"
+    }
+  ],
+  "files": [],
+  "screenshots": [],
+  "runtime": {
+    "node": "v22.23.4",
+    "platform": "linux"
+  },
+  "build": {
+    "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+    "builtAt": "2026-11-10T21:15:25.162Z",
+    "artifacts": [
+      {
+        "file": "dist/assets/index-CTB4268C.js",
+        "sha256": "ac8f8500e109a3062d74fa3469ae034f176ed6fddb3c07fec9786c668482a8d1"
+      },
+      {
+        "file": "dist/assets/index-DtlFLb1K.css",
+        "sha256": "4422f5dbb23aa2468b416eaa127c5aebfa47711ec678e755ba2df37d04c47e71"
+      },
+      {
+        "file": "dist/assets/phaser-DFK5Ua9d.js",
+        "sha256": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb"
+      },
+      {
+        "file": "dist/index.html",
+        "sha256": "fa250c16fee3abb8742ed6d20577368597e802dfff57fb2cc67f910efddf3024"
+      }
+    ]
+  },
+  "end": "2026-11-10T21:16:00.109Z"
+}

@@ -1,0 +1,120 @@
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+
+
+[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90m/home/runner/work/astra-chronica/astra-chronica[39m
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 full-chapter seeds with quests=false
+[22m[39mv1.4 chapter seeds quests=false: 20/20
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 full-chapter seeds with quests=true
+[22m[39mv1.4 chapter seeds quests=true: 20/20
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+[22m[39mv1.4 chrono-bridge: 20/20
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-market using chapter-five-clear starter equipment
+[22m[39mv1.4 chrono-market: 20/20
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+[22m[39mv1.4 chrono-canal: 20/20
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+[22m[39mv1.4 chrono-clockguard: 20/20
+
+[90mstdout[2m | tests/chapter-six-v14.test.ts[2m > [22m[2mfixed-seed chapter-six balance[2m > [22m[2m20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+[22m[39mv1.4 chrono-luciel: 20/20
+
+ [32m✓[39m tests/chapter-six-v14.test.ts [2m([22m[2m56 tests[22m[2m)[22m[33m 829[2mms[22m[39m
+ [32m✓[39m tests/chapter-five-v13.test.ts [2m([22m[2m50 tests[22m[2m)[22m[33m 741[2mms[22m[39m
+ [32m✓[39m tests/chapter-four-v12.test.ts [2m([22m[2m43 tests[22m[2m)[22m[33m 504[2mms[22m[39m
+ [32m✓[39m tests/chapter-three-v11.test.ts [2m([22m[2m46 tests[22m[2m)[22m[33m 427[2mms[22m[39m
+ [32m✓[39m tests/chapter-fifteen-v23.test.ts [2m([22m[2m102 tests[22m[2m)[22m[33m 1700[2mms[22m[39m
+ [32m✓[39m tests/chapter-twelve-v20.test.ts [2m([22m[2m44 tests[22m[2m)[22m[33m 991[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter twelve combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 447[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter twelve combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 389[2mms[22m[39m
+ [32m✓[39m tests/skill-tree-v09.test.ts [2m([22m[2m112 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+ [32m✓[39m tests/chapter-nine-v17.test.ts [2m([22m[2m45 tests[22m[2m)[22m[33m 1020[2mms[22m[39m
+   [33m[2m✓[22m[39m ninth combat and boss mechanics[2m > [22mtwenty full chapter seeds, optional quests=false, no high-level tree assumption [33m 442[2mms[22m[39m
+   [33m[2m✓[22m[39m ninth combat and boss mechanics[2m > [22mtwenty full chapter seeds, optional quests=true, no high-level tree assumption [33m 398[2mms[22m[39m
+ [32m✓[39m tests/exploration-v23.test.ts [2m([22m[2m103 tests[22m[2m)[22m[33m 366[2mms[22m[39m
+ [32m✓[39m tests/chapter-fourteen-v22.test.ts [2m([22m[2m41 tests[22m[2m)[22m[33m 1446[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter fourteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 675[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter fourteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 625[2mms[22m[39m
+ [32m✓[39m tests/chapter-two-v10.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 203[2mms[22m[39m
+ [32m✓[39m tests/chapter-eight-v16.test.ts [2m([22m[2m47 tests[22m[2m)[22m[33m 833[2mms[22m[39m
+   [33m[2m✓[22m[39m new enemies and unchanged combat engine[2m > [22m20 full chapter seeds, optional quests=false, without high-level nodes [33m 385[2mms[22m[39m
+   [33m[2m✓[22m[39m new enemies and unchanged combat engine[2m > [22m20 full chapter seeds, optional quests=true, without high-level nodes [33m 325[2mms[22m[39m
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2mwhole chapter over 20 seeds with quests=false
+[22m[39mv1.5 full chapter quests=false: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2mwhole chapter over 20 seeds with quests=true
+[22m[39mv1.5 full chapter quests=true: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-trail over 20 seeds
+[22m[39mv1.5 grove-trail: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-roots over 20 seeds
+[22m[39mv1.5 grove-roots: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+[22m[39mv1.5 grove-sentry: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-orb over 20 seeds
+[22m[39mv1.5 grove-orb: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+[22m[39mv1.5 grove-granguard: 20/20
+
+[90mstdout[2m | tests/chapter-seven-v15.test.ts[2m > [22m[2mmulti-seed chapter-seven balance[2m > [22m[2msixth-chapter-clear starter gear beats grove-seles over 20 seeds
+[22m[39mv1.5 grove-seles: 20/20
+
+ [32m✓[39m tests/chapter-seven-v15.test.ts [2m([22m[2m45 tests[22m[2m)[22m[33m 1012[2mms[22m[39m
+   [33m[2m✓[22m[39m multi-seed chapter-seven balance[2m > [22mwhole chapter over 20 seeds with quests=false [33m 358[2mms[22m[39m
+ [32m✓[39m tests/skills-v06.test.ts [2m([22m[2m45 tests[22m[2m)[22m[32m 221[2mms[22m[39m
+ [32m✓[39m tests/exploration-v15.test.ts [2m([22m[2m33 tests[22m[2m)[22m[32m 106[2mms[22m[39m
+ [32m✓[39m tests/chapter-thirteen-v21.test.ts [2m([22m[2m39 tests[22m[2m)[22m[33m 1355[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter thirteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 623[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter thirteen combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 566[2mms[22m[39m
+ [32m✓[39m tests/adventure-v08.test.ts [2m([22m[2m39 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m tests/chapter-eleven-v19.test.ts [2m([22m[2m38 tests[22m[2m)[22m[33m 1051[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter eleven combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 464[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter eleven combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 439[2mms[22m[39m
+ [32m✓[39m tests/chapter-sixteen-v24.test.ts [2m([22m[2m107 tests[22m[2m)[22m[33m 2232[2mms[22m[39m
+ [32m✓[39m tests/chapter-ten-v18.test.ts [2m([22m[2m37 tests[22m[2m)[22m[33m 1016[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter ten combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=false, without mandatory high-level nodes [33m 470[2mms[22m[39m
+   [33m[2m✓[22m[39m chapter ten combat profiles and gear[2m > [22mtwenty full chapter seeds, quests=true, without mandatory high-level nodes [33m 410[2mms[22m[39m
+ [32m✓[39m tests/equipment-v07.test.ts [2m([22m[2m67 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m tests/exploration-v22.test.ts [2m([22m[2m92 tests[22m[2m)[22m[33m 967[2mms[22m[39m
+ [32m✓[39m tests/exploration-v21.test.ts [2m([22m[2m82 tests[22m[2m)[22m[33m 805[2mms[22m[39m
+ [32m✓[39m tests/exploration-v20.test.ts [2m([22m[2m74 tests[22m[2m)[22m[33m 654[2mms[22m[39m
+ [32m✓[39m tests/foundation.test.ts [2m([22m[2m30 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m tests/exploration-v19.test.ts [2m([22m[2m61 tests[22m[2m)[22m[33m 540[2mms[22m[39m
+ [32m✓[39m tests/exploration-v18.test.ts [2m([22m[2m58 tests[22m[2m)[22m[33m 501[2mms[22m[39m
+ [32m✓[39m tests/chapter-seventeen-v25.test.ts [2m([22m[2m66 tests[22m[2m)[22m[33m 376[2mms[22m[39m
+ [32m✓[39m tests/chapter-eighteen-v26.test.ts [2m([22m[2m102 tests[22m[2m)[22m[33m 407[2mms[22m[39m
+ [32m✓[39m tests/exploration-v25.test.ts [2m([22m[2m168 tests[22m[2m)[22m[33m 801[2mms[22m[39m
+ [32m✓[39m tests/exploration-v24.test.ts [2m([22m[2m114 tests[22m[2m)[22m[33m 553[2mms[22m[39m
+ [32m✓[39m tests/exploration-v17.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 196[2mms[22m[39m
+ [32m✓[39m tests/chapter-seventeen-combat-v25.test.ts [2m([22m[2m50 tests[22m[2m)[22m[33m 1141[2mms[22m[39m
+ [32m✓[39m tests/transit-v22.test.ts [2m([22m[2m28 tests[22m[2m)[22m[33m 360[2mms[22m[39m
+ [32m✓[39m tests/battle.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 53[2mms[22m[39m
+ [32m✓[39m tests/lab-v04.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m tests/railway-v21.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 223[2mms[22m[39m
+ [32m✓[39m tests/battle-presentation.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+[90mstdout[2m | tests/final-integration-v26.test.ts[2m > [22m[2mfresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+[22m[39mFresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ [32m✓[39m tests/final-integration-v26.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 517[2mms[22m[39m
+   [33m[2m✓[22m[39m fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test) [33m 498[2mms[22m[39m
+ [32m✓[39m tests/exploration-v26.test.ts [2m([22m[2m202 tests[22m[2m)[22m[33m 516[2mms[22m[39m
+ [32m✓[39m tests/finale-combat-v26.test.ts [2m([22m[2m54 tests[22m[2m)[22m[33m 1096[2mms[22m[39m
+ [32m✓[39m tests/attack-modifier.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m tests/map-driver-v25.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m43 passed[39m[22m[90m (43)[39m
+[2m      Tests [22m [1m[32m2463 passed[39m[22m[90m (2463)[39m
+[2m   Start at [22m 21:15:25
+[2m   Duration [22m 34.59s[2m (transform 857ms, setup 0ms, collect 3.56s, tests 25.91s, environment 5ms, prepare 1.46s)[22m
+

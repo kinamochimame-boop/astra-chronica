@@ -1,0 +1,19 @@
+PASS grove-camp at 320/390/430/768: touch, aspect, camera, pause
+PASS grove-trail at 320/390/430/768: touch, aspect, camera, pause
+PASS grove-ruins at 320/390/430/768: touch, aspect, camera, pause
+PASS grove-village at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS grove-garden at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS sky-port at 320/390/430/768: touch, aspect, camera, pause
+PASS sky-island at 320/390/430/768: touch, aspect, camera, pause
+PASS sky-ruins at 320/390/430/768: touch, aspect, camera, pause
+PASS sky-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS sky-tower at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS star-cave at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS star-path at 320/390/430/768: touch, aspect, camera, pause
+PASS star-city at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+PASS star-market at 320/390/430/768: touch, aspect, camera, pause
+PASS star-waterway at 320/390/430/768: touch, aspect, camera, pause
+PASS star-mine at 320/390/430/768: touch, aspect, camera, pause
+PASS star-archive at 320/390/430/768: touch, aspect, camera, pause
+PASS star-core at 320/390/430/768: touch, aspect, camera, pause
+v1.7 all eighteen maps / 72 viewport cases passed, four old-chapter additions connected to original NPCs and exits, detailed scenery/live symbols, immutable rewards, zero runtime errors.

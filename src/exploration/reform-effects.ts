@@ -1,0 +1,3 @@
+import type Phaser from 'phaser';
+import type {WalkMap} from './types';
+export function makeReformEffects(scene:Phaser.Scene,map:WalkMap){if(map.chapterId!=='chapter-18')return;const g=scene.add.graphics().setDepth(2);for(const [i,gate] of (map.gates??[]).entries()){const b=gate.area,x=b.x*map.tile,y=b.y*map.tile,w=b.w*map.tile,h=b.h*map.tile,open=map.grid[b.y][b.x]==='.';g.lineStyle(2,open?0xffe2a1:0x86a7b5,.8);if(open)g.strokeRect(x,y,w,h);else for(let dx=0;dx<w;dx+=16)g.lineBetween(x+dx,y,x+dx+8,y);scene.add.text(x,y-18,`${['北・記憶','南・共鳴','始原・再編'][i]} ${open?'接続済':'未接続'}`,{fontSize:'11px',color:'#f8e4b4',backgroundColor:'#132c3d'}).setDepth(3)}}

@@ -1,0 +1,33 @@
+{
+  "canvas": true,
+  "state": true,
+  "client": {
+    "width": 346,
+    "height": 452
+  },
+  "rect": {
+    "width": 347.84375,
+    "height": 454
+  },
+  "map": {
+    "id": "gloom-road",
+    "width": 390,
+    "height": 509,
+    "tile": 32,
+    "gridWidth": 30,
+    "gridHeight": 26,
+    "camera": {
+      "x": 0,
+      "y": 145.5
+    },
+    "hero": {
+      "x": 112,
+      "y": 400,
+      "facing": "right",
+      "moving": false
+    }
+  },
+  "expectedHeight": 509,
+  "body": "✧\nASTRA CHRONICA\n星詠みの遺した約束\nPROTOTYPE\nver. 2.6\n\nCHAPTER 12 · EXPLORE\n\n深森への街道\n☰\n目的：昼を忘れた森 ｜ 深森への街道 — 話を聞く・調べる。近くへ歩いて対象をタップ。 ｜ → 目的の対象：ルゥナ 光路：常闇\n地図\n\n地面をタップして歩きましょう。\n\n地面をタップして歩く · 矢印／WASDでも移動\n人・装置・宝箱・出口は輪の範囲に近づいてタップ\n\n✦ 星の記憶は、あなたとともに。",
+  "errors": []
+}

@@ -1,0 +1,977 @@
+{
+  "group": "old-5",
+  "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+  "commit": "023a98ebbe6c5836184edec541e2997103998aab",
+  "head": "66721ba85c4f70d4fc5e387473c35111d4439f45",
+  "start": "2026-11-10T21:44:53.471Z",
+  "success": true,
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:44:53.471Z",
+      "end": "2026-11-10T21:45:04.587Z",
+      "log": "build.log",
+      "sha256": "3b305a6ba32c1a8f3d3885c55001827f626e4bac36a15e5dafafcb071c03fa86"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-eleven-equipment.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:45:05.207Z",
+      "end": "2026-11-10T21:45:09.675Z",
+      "log": "chapter-eleven-equipment.e2e.mjs-0.log",
+      "sha256": "d8a8508b049b20742f8fd697969bf9703ddf404a5160bbc00d46b95b66857150"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-five-ui-v13.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:45:09.676Z",
+      "end": "2026-11-10T21:45:29.164Z",
+      "log": "chapter-five-ui-v13.e2e.mjs-0.log",
+      "sha256": "7a0549c40fefec1b9f36a0545f7b16e3ba4e577fcbfd2a08d28c3a0ce6cf773d"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-fourteen-v22.e2e.mjs",
+        "--quests-before"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:45:29.165Z",
+      "end": "2026-11-10T21:55:07.017Z",
+      "log": "chapter-fourteen-v22.e2e.mjs-0.log",
+      "sha256": "a9de8e12566da2428291c04e93dee7f50113f5ec989e3ffa97f5bed7e1f0377c"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-fourteen-v22.e2e.mjs",
+        "--quests-after"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:55:07.017Z",
+      "end": "2026-11-10T22:05:03.870Z",
+      "log": "chapter-fourteen-v22.e2e.mjs-1.log",
+      "sha256": "07d49dbf5f9cc9bd22a8d3e09d4fc444606dc8839e3781c7aa55bc0152dc3b3d"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-seventeen-v25.e2e.mjs",
+        "--quests-before"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:05:03.871Z",
+      "end": "2026-11-10T22:21:11.913Z",
+      "log": "chapter-seventeen-v25.e2e.mjs-0.log",
+      "sha256": "78759c4eb16585585b809e16f2c592d0fb52ae0b8ea25d02415de88e8f4b8420"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-seventeen-v25.e2e.mjs",
+        "--quests-after"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:21:11.914Z",
+      "end": "2026-11-10T22:37:43.771Z",
+      "log": "chapter-seventeen-v25.e2e.mjs-1.log",
+      "sha256": "b4fc14b8d3373b29f1ff453c596cbeac532bf67e6467627895f6d8f5fd5ba2f8"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-ten-equipment.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:37:43.771Z",
+      "end": "2026-11-10T22:37:47.517Z",
+      "log": "chapter-ten-equipment.e2e.mjs-0.log",
+      "sha256": "b73037ac7d36b181aecf3321bec98729ebc6ee042c8f082f246c55a8905ff638"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/chapter-three-layout-v11.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:37:47.518Z",
+      "end": "2026-11-10T22:37:53.785Z",
+      "log": "chapter-three-layout-v11.e2e.mjs-0.log",
+      "sha256": "e5638b8994b16fcd6b5f2ba8bb4ad1b381f2fbd0acfb3d2bb3be156a85a2ad32"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/corridor-v23.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:37:53.785Z",
+      "end": "2026-11-10T22:40:16.397Z",
+      "log": "corridor-v23.e2e.mjs-0.log",
+      "sha256": "3d69619fc66c6cbb930ce55d4a8f559d308d4e05e845af2c8dc9bcef3f046fe7"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/exploration-v18.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:40:16.397Z",
+      "end": "2026-11-10T22:43:46.790Z",
+      "log": "exploration-v18.e2e.mjs-0.log",
+      "sha256": "3b78c49056157363ad320a8e0f774cbe55f42fe9161cf5aefa9baf42a0d27633"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/exploration-v24.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:43:46.791Z",
+      "end": "2026-11-10T22:52:47.465Z",
+      "log": "exploration-v24.e2e.mjs-0.log",
+      "sha256": "bc6b0a51194236630faa5d2f8fdd7164a0be69316ae1827e87a460d1d8a15850"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/minimap-v20.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:52:47.465Z",
+      "end": "2026-11-10T22:52:54.987Z",
+      "log": "minimap-v20.e2e.mjs-0.log",
+      "sha256": "5b4fdb503d149e3e71715f641a0c7c0ed184b74f1defab930f9900f0b6d7c7e8"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/transit-v22.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T22:52:54.987Z",
+      "end": "2026-11-10T22:53:03.420Z",
+      "log": "transit-v22.e2e.mjs-0.log",
+      "sha256": "04e34bb9d78c2b3900969ee7a77a0a86e36ff91c0c83edb29a2e77372078b066"
+    }
+  ],
+  "files": [
+    {
+      "file": "chapter-eleven-equipment.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-eleven-equipment.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T21:45:05.207Z",
+          "end": "2026-11-10T21:45:09.675Z",
+          "log": "chapter-eleven-equipment.e2e.mjs-0.log",
+          "sha256": "d8a8508b049b20742f8fd697969bf9703ddf404a5160bbc00d46b95b66857150"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "chapter-five-ui-v13.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-five-ui-v13.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T21:45:09.676Z",
+          "end": "2026-11-10T21:45:29.164Z",
+          "log": "chapter-five-ui-v13.e2e.mjs-0.log",
+          "sha256": "7a0549c40fefec1b9f36a0545f7b16e3ba4e577fcbfd2a08d28c3a0ce6cf773d"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "chapter-fourteen-v22.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-fourteen-v22.e2e.mjs",
+            "--quests-before"
+          ],
+          "code": 0,
+          "start": "2026-11-10T21:45:29.165Z",
+          "end": "2026-11-10T21:55:07.017Z",
+          "log": "chapter-fourteen-v22.e2e.mjs-0.log",
+          "sha256": "a9de8e12566da2428291c04e93dee7f50113f5ec989e3ffa97f5bed7e1f0377c"
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-fourteen-v22.e2e.mjs",
+            "--quests-after"
+          ],
+          "code": 0,
+          "start": "2026-11-10T21:55:07.017Z",
+          "end": "2026-11-10T22:05:03.870Z",
+          "log": "chapter-fourteen-v22.e2e.mjs-1.log",
+          "sha256": "07d49dbf5f9cc9bd22a8d3e09d4fc444606dc8839e3781c7aa55bc0152dc3b3d"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "chapter-seventeen-v25.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-seventeen-v25.e2e.mjs",
+            "--quests-before"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:05:03.871Z",
+          "end": "2026-11-10T22:21:11.913Z",
+          "log": "chapter-seventeen-v25.e2e.mjs-0.log",
+          "sha256": "78759c4eb16585585b809e16f2c592d0fb52ae0b8ea25d02415de88e8f4b8420"
+        },
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-seventeen-v25.e2e.mjs",
+            "--quests-after"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:21:11.914Z",
+          "end": "2026-11-10T22:37:43.771Z",
+          "log": "chapter-seventeen-v25.e2e.mjs-1.log",
+          "sha256": "b4fc14b8d3373b29f1ff453c596cbeac532bf67e6467627895f6d8f5fd5ba2f8"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "chapter-ten-equipment.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-ten-equipment.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:37:43.771Z",
+          "end": "2026-11-10T22:37:47.517Z",
+          "log": "chapter-ten-equipment.e2e.mjs-0.log",
+          "sha256": "b73037ac7d36b181aecf3321bec98729ebc6ee042c8f082f246c55a8905ff638"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "chapter-three-layout-v11.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/chapter-three-layout-v11.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:37:47.518Z",
+          "end": "2026-11-10T22:37:53.785Z",
+          "log": "chapter-three-layout-v11.e2e.mjs-0.log",
+          "sha256": "e5638b8994b16fcd6b5f2ba8bb4ad1b381f2fbd0acfb3d2bb3be156a85a2ad32"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "corridor-v23.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/corridor-v23.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:37:53.785Z",
+          "end": "2026-11-10T22:40:16.397Z",
+          "log": "corridor-v23.e2e.mjs-0.log",
+          "sha256": "3d69619fc66c6cbb930ce55d4a8f559d308d4e05e845af2c8dc9bcef3f046fe7"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "exploration-v18.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/exploration-v18.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:40:16.397Z",
+          "end": "2026-11-10T22:43:46.790Z",
+          "log": "exploration-v18.e2e.mjs-0.log",
+          "sha256": "3b78c49056157363ad320a8e0f774cbe55f42fe9161cf5aefa9baf42a0d27633"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "exploration-v24.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/exploration-v24.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:43:46.791Z",
+          "end": "2026-11-10T22:52:47.465Z",
+          "log": "exploration-v24.e2e.mjs-0.log",
+          "sha256": "bc6b0a51194236630faa5d2f8fdd7164a0be69316ae1827e87a460d1d8a15850"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "minimap-v20.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/minimap-v20.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:52:47.465Z",
+          "end": "2026-11-10T22:52:54.987Z",
+          "log": "minimap-v20.e2e.mjs-0.log",
+          "sha256": "5b4fdb503d149e3e71715f641a0c7c0ed184b74f1defab930f9900f0b6d7c7e8"
+        }
+      ],
+      "code": 0
+    },
+    {
+      "file": "transit-v22.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/transit-v22.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T22:52:54.987Z",
+          "end": "2026-11-10T22:53:03.420Z",
+          "log": "transit-v22.e2e.mjs-0.log",
+          "sha256": "04e34bb9d78c2b3900969ee7a77a0a86e36ff91c0c83edb29a2e77372078b066"
+        }
+      ],
+      "code": 0
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "chapter-eighteen-clear-title-320.png",
+      "sha256": "869c3fdb3df931d1b7a85375f5b304454d2c5f52760c8c68470960376856767f",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-clear-title-390.png",
+      "sha256": "9efe9414d794fbe41ded1f22058f176ec191b51f8c5f707fa448f4eac42657bf",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-clear-title-430.png",
+      "sha256": "c38607265b02fed4eb7e2f4760c3e388a31893fc0e21c5670362ccbdcc372266",
+      "width": 430,
+      "height": 867
+    },
+    {
+      "file": "chapter-eighteen-clear-title-768.png",
+      "sha256": "94d25a20a4b9b0251de286b0d27a8f77788fe899e7c66bcdae23237fa3a386fc",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "chapter-eighteen-credits-320.png",
+      "sha256": "b762d91e213df54d58c043e3ec77c8799b314131f36c8fed404255da08af300a",
+      "width": 320,
+      "height": 971
+    },
+    {
+      "file": "chapter-eighteen-credits-390.png",
+      "sha256": "68b02885783f936553848b0837a671608c08ced56e31faa90112a1aa7737caf9",
+      "width": 390,
+      "height": 941
+    },
+    {
+      "file": "chapter-eighteen-credits-430.png",
+      "sha256": "793c5f24c7d40f3c5f304d2e244c371492f45afaa05731f6a2550a938381825e",
+      "width": 430,
+      "height": 913
+    },
+    {
+      "file": "chapter-eighteen-credits-768.png",
+      "sha256": "0b3e90200c9df0560f99a97a07f100e4ff145c4e24f1855eead11fea8845d8c0",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "chapter-eighteen-ending-save-failure-390.png",
+      "sha256": "b92d101a893641c0833f17861f163ce54478890503930b2b91f0f7d1f3da0bcd",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-postclear-320.png",
+      "sha256": "fb6c70553fe8f808d35dc024745a49b5c7f8688106571562dd98efaf090e887c",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-postclear-390.png",
+      "sha256": "db0297a4a889b18ffb3ca3983cf4242c5f1c62f42f4db398d567685ac394b5f8",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "chapter-eighteen-postclear-430.png",
+      "sha256": "3be5dbdce3b81d561f59ee7e29098881b49020516f8e87e2a8202f13cc5ceab1",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "chapter-eighteen-postclear-768.png",
+      "sha256": "1695598208e5069b2e60e264ff8d74e3693e69f91d98cd37dbfdd10bda191c04",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "chapter-eighteen-the-end-320.png",
+      "sha256": "3765bdb8226a32d97c9d75483b253b670a9243f4a7dd8b7ee54b698a82115e26",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-the-end-390.png",
+      "sha256": "a35baf0c3140bf8ef4878b36fb8c6f12458f171404d72f62e2ca00d4ea943278",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-the-end-430.png",
+      "sha256": "2d978db122f24560caabad994bc701e276b68c645f1be812ac0f364c84b54a93",
+      "width": 430,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-the-end-768.png",
+      "sha256": "7b9bfbc5ea21a149c8b86272ba51c02f305755e7c822cb386fdabee0d475e361",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-320.png",
+      "sha256": "2f1f14f656f44778255560cbe98886f4aca686982ec4d6fd9851030f6f4a005b",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-390.png",
+      "sha256": "188c54ef6d6938e58ea0eeeb949ad50df1cac93fe945a4414e380c5a099f3ec0",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-430.png",
+      "sha256": "ea6c2c46efa6dc1e8dbd3cd572c3d45663174b42aef7d9a3c3e604ad439d847e",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-768.png",
+      "sha256": "edde6e5b4c0c8fffd492006d109670a4d686f78a61838ae7f61a61ad5b20e5d3",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-320.png",
+      "sha256": "c57cfd5ee5e884b725df8e53ef3fa91247d08ab6c7d288eb742b2bd88368c148",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-390.png",
+      "sha256": "0494f47c1af69ff23ef6b351a5cdc1c0474ab67dd1a252f30bf5cae0d4d38ff3",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-430.png",
+      "sha256": "0199326fb109950679db40c794a495da0e6dfb253c671ae188122bf202bcce81",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-768.png",
+      "sha256": "87b8e16a941e45857629df73ba208a3d8472ca1f58414ed71f5bb0a1474703a8",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-320.png",
+      "sha256": "a80c8547ad6caed3306a81237e17ad8083e80e2e8bd13c1cb4af39425016b257",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-390.png",
+      "sha256": "6077b4439cbab2aff1ee6f8f8f173fe72f2ae79a452c6047b487273fcd037e2e",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-430.png",
+      "sha256": "5bda0c312733c132f4b4570f915288d7f2779cbe4e578612abab39a99e354efa",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-768.png",
+      "sha256": "4b115ede7a9c37ca329643d2a56e0f43bf93cfe3ff4ae114f18782ea7bae34dd",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-320.png",
+      "sha256": "419288da1252380cefb04a285c3c50105a227459b939cdbe68d00438b74b1ee4",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-390.png",
+      "sha256": "9b9341a4c08dac4dd773e980238d62902779eea7644e3a4f9a941d65f8712953",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-430.png",
+      "sha256": "89deb23ff6221fa24b487f9741f96ea0ef5a5146be9a8563eaa380499d78351b",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-768.png",
+      "sha256": "dba00ff2d8506c932404a29d5a2c36304ede75048ffe744381bba8e054a74387",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-memory-path-320.png",
+      "sha256": "9049317640041b1c56f3694da02c2e7f219db31f0ac1f06f3610e1262888c25f",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-memory-path-390.png",
+      "sha256": "5c272c1e67268867f90fa13b12c2d75ca25fb4ecdd931899ed90e4b04df72f03",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-memory-path-430.png",
+      "sha256": "1485d2d9331d1a68b7bc3c8b1242254771c7d3f209d2a6d6eca2e2398ed6f1a7",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-memory-path-768.png",
+      "sha256": "af282a3c4de00dff004b0157edf77aad11738d3c5f9c4304247f1e5709178269",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-320.png",
+      "sha256": "067e098f017d44480a071ed3a6347863cb1a39219a2b079004e6912297fe8740",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-390.png",
+      "sha256": "bf3a62562d79d2710e940dc9284c750e4e4cc8a6f5985f703fad1bb0547874ba",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-430.png",
+      "sha256": "bb9f84418d2be4312970512d3488ec02c39ec9f76d699b5c9e0c906153d9f03f",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-768.png",
+      "sha256": "3af9f5485a09ea79bc75a320db0bee39ab4b7a789f953c6f1394401f02dc6664",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-star-gate-320.png",
+      "sha256": "b91bbf383f784c854d49c40bbce928bd9d31a6d45913e99e2bd175d4937c6712",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-star-gate-390.png",
+      "sha256": "68f0f674a5d83213e5d89033acf8fd33430d21e190f3ac3d9adae7ec6479855d",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-gate-430.png",
+      "sha256": "3e31f8e083dec3f5a3f6a37e211126d7549efe7430531d1502fa7ae4505adcc5",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-gate-768.png",
+      "sha256": "ff2ce44645001eca530c350ebc56c9c841b980eaf1cafaebb3cae5223bec5637",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-star-heart-320.png",
+      "sha256": "c82e1b8a10e9fc554251f8745b07f4fc355979cd96963e218b27eb2b201340de",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-star-heart-390.png",
+      "sha256": "8bcf3f49a18ac5f2db3ba2b9b397da4e12042f9442c22b2b66c59116dce7d747",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-heart-430.png",
+      "sha256": "8785c65d3feb5784b534ca15136e25584ec7ba50cf6d5c7eab098447ebf7b886",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-heart-768.png",
+      "sha256": "c0fd7d6cccaf2bfcaeb866c25aaf8bb358a120dfb88f7814d5c0c6bbd64f01cd",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-connected-320.png",
+      "sha256": "e13fd83486c56e10c490979196e06c3d923527c4ba4b0775d9d2d88bb16768d0",
+      "width": 320,
+      "height": 862
+    },
+    {
+      "file": "exploration-v26-reform-connected-390.png",
+      "sha256": "b425c08c8bec3803cfbdd2d5c8fa9e934ddfeafe36687bfe42f5126a91df4e18",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-connected-430.png",
+      "sha256": "4efb588c1382f3684f672cb75768f2c42c197839d8de7864443d113fbfbe3708",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-reform-connected-768.png",
+      "sha256": "3488de2b19a786d633696c3bce0cffab5eb92a8c7143fb3bb8a546828b987998",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-reformed-320.png",
+      "sha256": "0d55875651a7f484fcdc5387e4a73e474a71816a67b0ba86e78ab3b74ea5c834",
+      "width": 320,
+      "height": 881
+    },
+    {
+      "file": "exploration-v26-reform-reformed-390.png",
+      "sha256": "1e1858a537bb75961a9382997385ddb1f3ddeedda2f623ae30ed909fda93c98b",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-reformed-430.png",
+      "sha256": "8bfdd52f2aac4baa040e99a9cfb4687b82149128e08876376fdfa39f2c5a5688",
+      "width": 430,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-reformed-768.png",
+      "sha256": "826243d16b6a4216dcf3683f55fa915386c288de8ecf0433f26368d7fe98036a",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-resonant-320.png",
+      "sha256": "71d3a04db7c168329fea038dac30c814fa84c2c9fa6447346e58e90840914c4d",
+      "width": 320,
+      "height": 862
+    },
+    {
+      "file": "exploration-v26-reform-resonant-390.png",
+      "sha256": "f168cf96ad966132823602c3e6aeb3659b8b36ae66ffb19c169de33596424023",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-resonant-430.png",
+      "sha256": "77ac25bfe2cca29f3312dbb3b3e92ef10081fdc6c6901c578bb99f2a8bf161ba",
+      "width": 430,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-resonant-768.png",
+      "sha256": "bb457470b69df1811d86e73ae4941feef15213c0956210f439ff8d839d2f111a",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-severed-320.png",
+      "sha256": "c4823b075d45d71e02e24331d1ae34fbb9a08f825cd7a7ae0afaa2b353c7db84",
+      "width": 320,
+      "height": 862
+    },
+    {
+      "file": "exploration-v26-reform-severed-390.png",
+      "sha256": "da3188a4c8770584041e4e4397c9a152b44b845e9f304f4c03985b3f4b370b6e",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-severed-430.png",
+      "sha256": "fe4e0f72873f4c93a65c8ebc090edf08c9a4018409036d2cc7e1aad03b8fbb75",
+      "width": 430,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-severed-768.png",
+      "sha256": "38bf0c8a5facccd0350bffc928a2c8add13f86e609ab32f741693757a818b46b",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "journey-v26-chapter-01-clear-390.png",
+      "sha256": "d67d315f6528a770ad3acb825b142c193b6c97cd5aaca598e13887486c752488",
+      "width": 390,
+      "height": 1720
+    },
+    {
+      "file": "journey-v26-chapter-02-clear-390.png",
+      "sha256": "b2a4b76f616bb6e399bf5d7ef73fd9a19a5fe39c08e5f90f5c87adcf0b92ade6",
+      "width": 390,
+      "height": 1876
+    },
+    {
+      "file": "journey-v26-chapter-03-clear-390.png",
+      "sha256": "7333d7c33534ef717b62319b1b8bbf7e69c59a0d4c615f7412f0b70d3e5edde9",
+      "width": 390,
+      "height": 1980
+    },
+    {
+      "file": "journey-v26-chapter-04-clear-390.png",
+      "sha256": "d53a25bdb1fe989ed4a4fda302ad371994645024c9cf6c512e16578074a4322a",
+      "width": 390,
+      "height": 2032
+    },
+    {
+      "file": "journey-v26-chapter-05-clear-390.png",
+      "sha256": "07d8dc8935f1fa92ced682e8e43b85035e2f1e6fd4f3d76204f709a4659dded3",
+      "width": 390,
+      "height": 2123
+    },
+    {
+      "file": "journey-v26-chapter-06-clear-390.png",
+      "sha256": "72dfec20dd5b298ffc90b975c343e04ed8c2313518232dc8fb28569e948446b2",
+      "width": 390,
+      "height": 2199
+    },
+    {
+      "file": "journey-v26-chapter-07-clear-390.png",
+      "sha256": "c9b01e06239672173044e73dd5f6ffc6f18b504ce12dda685d9e15cf43a9c2e0",
+      "width": 390,
+      "height": 2298
+    },
+    {
+      "file": "journey-v26-chapter-08-clear-390.png",
+      "sha256": "deedbdb7c67b0c2384077af5fe14eec51611f42e780dbccc021d826d6f708b71",
+      "width": 390,
+      "height": 2259
+    },
+    {
+      "file": "journey-v26-chapter-09-clear-390.png",
+      "sha256": "5a000c9ba2d2e32c2ae6d754b17406c0e85c0d8af7a20663138b78da0ea0860a",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-10-clear-390.png",
+      "sha256": "5ac30746bd24f9a622ef78e4b9311f8fa5ea71a6cc1cf54d47b567419f7ccd1c",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-11-clear-390.png",
+      "sha256": "5c3f4684a771ade5240d9bf3b7f668ad1a1169d51b08201b52d5098ec4498c57",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-12-clear-390.png",
+      "sha256": "4dc28f31edd4cab420ae1732514c390f91c565fb31dbce80d01a454e0e5aacc3",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-13-clear-390.png",
+      "sha256": "63d8b5aa081efbe0382fa73fe6cd37f0b2c9586c3d069067c7ecebcac32f80bb",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-14-clear-390.png",
+      "sha256": "0c1b9e541fdbfa0b0aa60ba1cf42cb8bc3623d4521fc692f87d026873d8d7009",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-15-clear-390.png",
+      "sha256": "7db0f3a75cf4f03275c793e7ee807ba8776ee15d00ca254f5f8f1fdcf4bf3fac",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "journey-v26-chapter-16-clear-390.png",
+      "sha256": "6d96444b692d88dc35d82eb66a763f238f4789002afa12fca300469b6ec82e81",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-chapter-17-clear-390.png",
+      "sha256": "1ae7176af1ca4aafb84347eb878680ecc973c8258f73e4ca85ca5ccfd4e65e14",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "journey-v26-chapter-18-clear-390.png",
+      "sha256": "db0297a4a889b18ffb3ca3983cf4242c5f1c62f42f4db398d567685ac394b5f8",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "journey-v26-ending-c18-aftermath-390.png",
+      "sha256": "378ab5d02ec89e037fa46f062eeced0214994e379634dece973727c880e0ade3",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-clear-390.png",
+      "sha256": "1883f3ac90b0e1771d0e0f40950e0b0941d9deaa018e4f34eb4e0fd5f3c109fa",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-credits-390.png",
+      "sha256": "d439cb18ccc37c2013548961235283a4091be72acac8eb746744d64ca59b4df3",
+      "width": 390,
+      "height": 982
+    },
+    {
+      "file": "journey-v26-ending-c18-epilogue-390.png",
+      "sha256": "10e9cceff59f8ab833bb22e0087ba5251868625bfd9604265586f3fb93e35924",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-journey-390.png",
+      "sha256": "3185fc1e64e17b88b6c9b9137963467b5ead86a008781e0b4925aca0e18e1b90",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-the-end-390.png",
+      "sha256": "a35baf0c3140bf8ef4878b36fb8c6f12458f171404d72f62e2ca00d4ea943278",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-tomorrow-390.png",
+      "sha256": "cf71d88ba27e343922be2a4e147480372531f08ed56a4cad0a6697152caea092",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-voices-390.png",
+      "sha256": "b23a5ac1904cd68b6bc31b4f3748b62350c2fbe87fc1f23b68891845fcb6ee26",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-postclear-old-quest-390.png",
+      "sha256": "5c39626d18f94f57f0279f5847b03cb841c0b7553cd32a9cb91c440afd56fc6b",
+      "width": 390,
+      "height": 1835
+    }
+  ],
+  "runtime": {
+    "node": "v22.23.4",
+    "platform": "linux",
+    "chromium": "Google Chrome for Testing 156.0.8078.4"
+  },
+  "build": {
+    "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+    "builtAt": "2026-11-10T21:45:04.590Z",
+    "artifacts": [
+      {
+        "file": "dist/assets/index-CTB4268C.js",
+        "sha256": "ac8f8500e109a3062d74fa3469ae034f176ed6fddb3c07fec9786c668482a8d1"
+      },
+      {
+        "file": "dist/assets/index-DtlFLb1K.css",
+        "sha256": "4422f5dbb23aa2468b416eaa127c5aebfa47711ec678e755ba2df37d04c47e71"
+      },
+      {
+        "file": "dist/assets/phaser-DFK5Ua9d.js",
+        "sha256": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb"
+      },
+      {
+        "file": "dist/index.html",
+        "sha256": "fa250c16fee3abb8742ed6d20577368597e802dfff57fb2cc67f910efddf3024"
+      }
+    ]
+  },
+  "end": "2026-11-10T22:53:03.539Z"
+}

@@ -1,0 +1,5 @@
+v2.4 memory severed:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.4 memory projected:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.4 memory connected:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.4 memory integrated:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.4 all four memory projection stages passed; ghost bridges blocked until connection, no page errors.

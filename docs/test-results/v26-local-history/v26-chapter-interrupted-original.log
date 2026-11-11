@@ -1,0 +1,206 @@
+Command: node tests/chapter-eighteen-v26.e2e.mjs --quests-before
+Chapter18 quests-before c18-arrival
+Chapter18 quests-before c18-gate-fight
+UI victory c18-gate-fight
+Chapter18 quests-before c18-gate-cache
+Chapter18 quests-before c18-memory-voices
+Chapter18 quests-before c18-memory-fight
+UI victory c18-memory-fight
+Chapter18 quests-before c18-memory-cache
+Chapter18 quests-before c18-seline
+Chapter18 quests-before c18-connect
+Chapter18 quests-before c18-garden-fight
+UI victory c18-garden-fight
+Chapter18 quests-before c18-garden-cache
+Chapter18 quests-before c18-camp-rest
+Chapter18 quests-before c18-truth
+Chapter18 quests-before c18-mei
+Chapter18 quests-before c18-archive-fight
+UI victory c18-archive-fight
+Chapter18 quests-before c18-archive-cache
+Chapter18 quests-before c18-rina
+Chapter18 quests-before c18-refuge-rest
+Chapter18 quests-before c18-guardian
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Command: node tests/chapter-eighteen-v26.e2e.mjs --quests-before
+Chapter18 quests-before c18-arrival
+Chapter18 quests-before c18-gate-fight
+(node:91890) TimeoutNegativeWarning: -10500.400000000009 is a negative number.
+Timeout duration was set to 1.
+(Use `node --trace-warnings ...` to show where the warning was created)
+BATTLE · ROUND 15
+
+星界の門
+☰
+メニュー
+
+コマンドを選択：アステル
+
+次の行動：
+味 ▶
+アステル
+味
+メイ
+敵
+終焉の残響
+運命の執行機
+撃破
+HP 0 / 1200
+状態なし
+虚無の観測体
+敵 · ◎対象
+HP 132 / 1000
+火
+終焉の残響
+敵
+HP 1080 / 1080
+状態なし
+アステル
+▶ 行動中
+HP 581 / 768
+MP 99 / 171
+星力 70 / 100
+暗
+速↓
+リナ
+タンク
+HP 668 / 858
+MP 177 / 177
+星力 95 / 100
+状態なし
+メイ
+魔法攻撃
+HP 668 / 738
+MP 108 / 217
+星力 100 / 100
+速↓
+★ 必殺 · 星断の一閃
+星力 100
+星力不足
+通常攻撃
+ATTACK
+強撃
+MP 6
+防御
+MP 0
+連牙斬
+MP 8
+破甲撃
+MP 10
+疾風斬
+MP 9
+星露の小瓶
+所持 5個
+灯火の雫
+所持 5個
+
+強撃 · MP6｜通常攻撃の2倍の威力（装備：星墓の長弓）。対象：虚無の観測体
+
+強撃を実行
+
+リナ → 虚無の観測体：通常攻撃 45
+
+ログ ⌃
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-command="strong"]')[22m
+[2m    - locator resolved to <button class="command  " aria-label="強撃 MP6" aria-pressed="false" data-command="strong" aria-describedby="reason-strong">…</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing tap action[22m
+
+    at choose (/workspace/astra-chronica/tests/v26-ui-driver.mjs:9:135)
+    at async fightUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:21:72)
+    at async eventUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:34:345)
+    at async route (/workspace/astra-chronica/tests/chapter-eighteen-v26.e2e.mjs:11:107)
+    at async file:///workspace/astra-chronica/tests/chapter-eighteen-v26.e2e.mjs:14:134 {
+  log: [
+    `  - waiting for locator('[data-command="strong"]')`,
+    '    - locator resolved to <button class="command  " aria-label="強撃 MP6" aria-pressed="false" data-command="strong" aria-describedby="reason-strong">…</button>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing tap action'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1
+Exit:1
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Command: node tests/chapter-eighteen-v26.e2e.mjs --quests-after
+Chapter18 quests-after c18-arrival
+Chapter18 quests-after c18-gate-fight
+UI victory c18-gate-fight
+Chapter18 quests-after c18-gate-cache
+Chapter18 quests-after c18-memory-voices
+Chapter18 quests-after c18-memory-fight
+UI victory c18-memory-fight
+Chapter18 quests-after c18-memory-cache
+Chapter18 quests-after c18-seline
+Chapter18 quests-after c18-connect
+Chapter18 quests-after c18-garden-fight
+UI victory c18-garden-fight
+Chapter18 quests-after c18-garden-cache
+Chapter18 quests-after c18-camp-rest
+Chapter18 quests-after c18-truth
+Chapter18 quests-after c18-mei
+Chapter18 quests-after c18-archive-fight
+UI victory c18-archive-fight
+Chapter18 quests-after c18-archive-cache
+Chapter18 quests-after c18-rina
+Chapter18 quests-after c18-refuge-rest
+Chapter18 quests-after c18-guardian
+UI victory c18-guardian
+Chapter18 quests-after c18-shield
+Chapter18 quests-after c18-sanctuary-cache
+Chapter18 quests-after c18-break
+Chapter18 quests-after c18-astel
+Chapter18 quests-after c18-hall-fight
+UI victory c18-hall-fight
+Chapter18 quests-after c18-hall-cache
+Chapter18 quests-after c18-resonate
+Chapter18 quests-after c18-records
+Chapter18 quests-after c18-observatory-fight
+UI victory c18-observatory-fight
+Chapter18 quests-after c18-observatory-cache
+Chapter18 quests-after c18-reform
+Chapter18 quests-after c18-promise
+Chapter18 quests-after c18-ready
+Chapter18 quests-after c18-heart-cache
+Chapter18 quests-after c18-oath
+Chapter18 quests-after c18-final-boss
+UI victory c18-final-boss
+PASS chapter18 actual UI false 42events/8wins/four phases/ending/fullsave/quests/old17/Lab
+Exit:0
+Source: 1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf
+Command: node tests/chapter-eighteen-v26.e2e.mjs --quests-before
+Chapter18 quests-before c18-arrival
+Chapter18 quests-before c18-gate-fight
+UI victory c18-gate-fight
+Chapter18 quests-before c18-gate-cache
+Chapter18 quests-before c18-memory-voices
+Chapter18 quests-before c18-memory-fight
+UI victory c18-memory-fight
+Chapter18 quests-before c18-memory-cache
+Chapter18 quests-before c18-seline
+Chapter18 quests-before c18-connect
+Chapter18 quests-before c18-garden-fight
+UI victory c18-garden-fight
+Chapter18 quests-before c18-garden-cache
+Chapter18 quests-before c18-camp-rest
+Chapter18 quests-before c18-truth
+Chapter18 quests-before c18-mei
+Chapter18 quests-before c18-archive-fight
+(node:102939) TimeoutNegativeWarning: -1772.1790000000037 is a negative number.
+Timeout duration was set to 1.
+(Use `node --trace-warnings ...` to show where the warning was created)

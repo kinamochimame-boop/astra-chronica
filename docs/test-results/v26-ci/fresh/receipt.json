@@ -1,0 +1,635 @@
+{
+  "group": "fresh",
+  "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+  "commit": "023a98ebbe6c5836184edec541e2997103998aab",
+  "head": "66721ba85c4f70d4fc5e387473c35111d4439f45",
+  "start": "2026-11-10T21:15:42.540Z",
+  "success": true,
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:15:42.541Z",
+      "end": "2026-11-10T21:15:51.637Z",
+      "log": "build.log",
+      "sha256": "8cdbfaac43294d18f8bc7ac1493ca432f69c9cf605d6193717ad2e674ac4c3c0"
+    },
+    {
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+        "tests/full-journey-v26.e2e.mjs"
+      ],
+      "code": 0,
+      "start": "2026-11-10T21:15:52.278Z",
+      "end": "2026-11-10T21:45:51.708Z",
+      "log": "full-journey-v26.e2e.mjs-0.log",
+      "sha256": "e7b026eb1a23cffb9a8eab53a93a1ce49e86a8744b0c48ce1d99d5d4f13f5d26"
+    }
+  ],
+  "files": [
+    {
+      "file": "full-journey-v26.e2e.mjs",
+      "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+      "attempts": [
+        {
+          "command": [
+            "/opt/hostedtoolcache/node/22.23.4/x64/bin/node",
+            "tests/full-journey-v26.e2e.mjs"
+          ],
+          "code": 0,
+          "start": "2026-11-10T21:15:52.278Z",
+          "end": "2026-11-10T21:45:51.708Z",
+          "log": "full-journey-v26.e2e.mjs-0.log",
+          "sha256": "e7b026eb1a23cffb9a8eab53a93a1ce49e86a8744b0c48ce1d99d5d4f13f5d26"
+        }
+      ],
+      "code": 0
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "chapter-eighteen-clear-title-320.png",
+      "sha256": "869c3fdb3df931d1b7a85375f5b304454d2c5f52760c8c68470960376856767f",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-clear-title-390.png",
+      "sha256": "9efe9414d794fbe41ded1f22058f176ec191b51f8c5f707fa448f4eac42657bf",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-clear-title-430.png",
+      "sha256": "c38607265b02fed4eb7e2f4760c3e388a31893fc0e21c5670362ccbdcc372266",
+      "width": 430,
+      "height": 867
+    },
+    {
+      "file": "chapter-eighteen-clear-title-768.png",
+      "sha256": "94d25a20a4b9b0251de286b0d27a8f77788fe899e7c66bcdae23237fa3a386fc",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "chapter-eighteen-credits-320.png",
+      "sha256": "b762d91e213df54d58c043e3ec77c8799b314131f36c8fed404255da08af300a",
+      "width": 320,
+      "height": 971
+    },
+    {
+      "file": "chapter-eighteen-credits-390.png",
+      "sha256": "68b02885783f936553848b0837a671608c08ced56e31faa90112a1aa7737caf9",
+      "width": 390,
+      "height": 941
+    },
+    {
+      "file": "chapter-eighteen-credits-430.png",
+      "sha256": "793c5f24c7d40f3c5f304d2e244c371492f45afaa05731f6a2550a938381825e",
+      "width": 430,
+      "height": 913
+    },
+    {
+      "file": "chapter-eighteen-credits-768.png",
+      "sha256": "0b3e90200c9df0560f99a97a07f100e4ff145c4e24f1855eead11fea8845d8c0",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "chapter-eighteen-ending-save-failure-390.png",
+      "sha256": "b92d101a893641c0833f17861f163ce54478890503930b2b91f0f7d1f3da0bcd",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-postclear-320.png",
+      "sha256": "fb6c70553fe8f808d35dc024745a49b5c7f8688106571562dd98efaf090e887c",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-postclear-390.png",
+      "sha256": "db0297a4a889b18ffb3ca3983cf4242c5f1c62f42f4db398d567685ac394b5f8",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "chapter-eighteen-postclear-430.png",
+      "sha256": "3be5dbdce3b81d561f59ee7e29098881b49020516f8e87e2a8202f13cc5ceab1",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "chapter-eighteen-postclear-768.png",
+      "sha256": "1695598208e5069b2e60e264ff8d74e3693e69f91d98cd37dbfdd10bda191c04",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "chapter-eighteen-the-end-320.png",
+      "sha256": "3765bdb8226a32d97c9d75483b253b670a9243f4a7dd8b7ee54b698a82115e26",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-the-end-390.png",
+      "sha256": "a35baf0c3140bf8ef4878b36fb8c6f12458f171404d72f62e2ca00d4ea943278",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-the-end-430.png",
+      "sha256": "2d978db122f24560caabad994bc701e276b68c645f1be812ac0f364c84b54a93",
+      "width": 430,
+      "height": 844
+    },
+    {
+      "file": "chapter-eighteen-the-end-768.png",
+      "sha256": "7b9bfbc5ea21a149c8b86272ba51c02f305755e7c822cb386fdabee0d475e361",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-320.png",
+      "sha256": "2f1f14f656f44778255560cbe98886f4aca686982ec4d6fd9851030f6f4a005b",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-390.png",
+      "sha256": "188c54ef6d6938e58ea0eeeb949ad50df1cac93fe945a4414e380c5a099f3ec0",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-430.png",
+      "sha256": "ea6c2c46efa6dc1e8dbd3cd572c3d45663174b42aef7d9a3c3e604ad439d847e",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-astral-garden-768.png",
+      "sha256": "edde6e5b4c0c8fffd492006d109670a4d686f78a61838ae7f61a61ad5b20e5d3",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-320.png",
+      "sha256": "c57cfd5ee5e884b725df8e53ef3fa91247d08ab6c7d288eb742b2bd88368c148",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-390.png",
+      "sha256": "0494f47c1af69ff23ef6b351a5cdc1c0474ab67dd1a252f30bf5cae0d4d38ff3",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-430.png",
+      "sha256": "0199326fb109950679db40c794a495da0e6dfb253c671ae188122bf202bcce81",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-fate-hall-768.png",
+      "sha256": "87b8e16a941e45857629df73ba208a3d8472ca1f58414ed71f5bb0a1474703a8",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-320.png",
+      "sha256": "a80c8547ad6caed3306a81237e17ad8083e80e2e8bd13c1cb4af39425016b257",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-390.png",
+      "sha256": "6077b4439cbab2aff1ee6f8f8f173fe72f2ae79a452c6047b487273fcd037e2e",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-430.png",
+      "sha256": "5bda0c312733c132f4b4570f915288d7f2779cbe4e578612abab39a99e354efa",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-guardian-sanctum-768.png",
+      "sha256": "4b115ede7a9c37ca329643d2a56e0f43bf93cfe3ff4ae114f18782ea7bae34dd",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-320.png",
+      "sha256": "419288da1252380cefb04a285c3c50105a227459b939cdbe68d00438b74b1ee4",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-390.png",
+      "sha256": "9b9341a4c08dac4dd773e980238d62902779eea7644e3a4f9a941d65f8712953",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-430.png",
+      "sha256": "89deb23ff6221fa24b487f9741f96ea0ef5a5146be9a8563eaa380499d78351b",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-last-observatory-768.png",
+      "sha256": "dba00ff2d8506c932404a29d5a2c36304ede75048ffe744381bba8e054a74387",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-memory-path-320.png",
+      "sha256": "9049317640041b1c56f3694da02c2e7f219db31f0ac1f06f3610e1262888c25f",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-memory-path-390.png",
+      "sha256": "5c272c1e67268867f90fa13b12c2d75ca25fb4ecdd931899ed90e4b04df72f03",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-memory-path-430.png",
+      "sha256": "1485d2d9331d1a68b7bc3c8b1242254771c7d3f209d2a6d6eca2e2398ed6f1a7",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-memory-path-768.png",
+      "sha256": "af282a3c4de00dff004b0157edf77aad11738d3c5f9c4304247f1e5709178269",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-320.png",
+      "sha256": "067e098f017d44480a071ed3a6347863cb1a39219a2b079004e6912297fe8740",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-390.png",
+      "sha256": "bf3a62562d79d2710e940dc9284c750e4e4cc8a6f5985f703fad1bb0547874ba",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-430.png",
+      "sha256": "bb9f84418d2be4312970512d3488ec02c39ec9f76d699b5c9e0c906153d9f03f",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-origin-archive-768.png",
+      "sha256": "3af9f5485a09ea79bc75a320db0bee39ab4b7a789f953c6f1394401f02dc6664",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-star-gate-320.png",
+      "sha256": "b91bbf383f784c854d49c40bbce928bd9d31a6d45913e99e2bd175d4937c6712",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-star-gate-390.png",
+      "sha256": "68f0f674a5d83213e5d89033acf8fd33430d21e190f3ac3d9adae7ec6479855d",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-gate-430.png",
+      "sha256": "3e31f8e083dec3f5a3f6a37e211126d7549efe7430531d1502fa7ae4505adcc5",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-gate-768.png",
+      "sha256": "ff2ce44645001eca530c350ebc56c9c841b980eaf1cafaebb3cae5223bec5637",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-final-star-heart-320.png",
+      "sha256": "c82e1b8a10e9fc554251f8745b07f4fc355979cd96963e218b27eb2b201340de",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "file": "exploration-v26-final-star-heart-390.png",
+      "sha256": "8bcf3f49a18ac5f2db3ba2b9b397da4e12042f9442c22b2b66c59116dce7d747",
+      "width": 390,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-heart-430.png",
+      "sha256": "8785c65d3feb5784b534ca15136e25584ec7ba50cf6d5c7eab098447ebf7b886",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-final-star-heart-768.png",
+      "sha256": "c0fd7d6cccaf2bfcaeb866c25aaf8bb358a120dfb88f7814d5c0c6bbd64f01cd",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-connected-320.png",
+      "sha256": "e13fd83486c56e10c490979196e06c3d923527c4ba4b0775d9d2d88bb16768d0",
+      "width": 320,
+      "height": 862
+    },
+    {
+      "file": "exploration-v26-reform-connected-390.png",
+      "sha256": "b425c08c8bec3803cfbdd2d5c8fa9e934ddfeafe36687bfe42f5126a91df4e18",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-connected-430.png",
+      "sha256": "4efb588c1382f3684f672cb75768f2c42c197839d8de7864443d113fbfbe3708",
+      "width": 430,
+      "height": 845
+    },
+    {
+      "file": "exploration-v26-reform-connected-768.png",
+      "sha256": "3488de2b19a786d633696c3bce0cffab5eb92a8c7143fb3bb8a546828b987998",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-reformed-320.png",
+      "sha256": "0d55875651a7f484fcdc5387e4a73e474a71816a67b0ba86e78ab3b74ea5c834",
+      "width": 320,
+      "height": 881
+    },
+    {
+      "file": "exploration-v26-reform-reformed-390.png",
+      "sha256": "1e1858a537bb75961a9382997385ddb1f3ddeedda2f623ae30ed909fda93c98b",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-reformed-430.png",
+      "sha256": "8bfdd52f2aac4baa040e99a9cfb4687b82149128e08876376fdfa39f2c5a5688",
+      "width": 430,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-reformed-768.png",
+      "sha256": "826243d16b6a4216dcf3683f55fa915386c288de8ecf0433f26368d7fe98036a",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-resonant-320.png",
+      "sha256": "71d3a04db7c168329fea038dac30c814fa84c2c9fa6447346e58e90840914c4d",
+      "width": 320,
+      "height": 862
+    },
+    {
+      "file": "exploration-v26-reform-resonant-390.png",
+      "sha256": "f168cf96ad966132823602c3e6aeb3659b8b36ae66ffb19c169de33596424023",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-resonant-430.png",
+      "sha256": "77ac25bfe2cca29f3312dbb3b3e92ef10081fdc6c6901c578bb99f2a8bf161ba",
+      "width": 430,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-resonant-768.png",
+      "sha256": "bb457470b69df1811d86e73ae4941feef15213c0956210f439ff8d839d2f111a",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "exploration-v26-reform-severed-320.png",
+      "sha256": "c4823b075d45d71e02e24331d1ae34fbb9a08f825cd7a7ae0afaa2b353c7db84",
+      "width": 320,
+      "height": 862
+    },
+    {
+      "file": "exploration-v26-reform-severed-390.png",
+      "sha256": "da3188a4c8770584041e4e4397c9a152b44b845e9f304f4c03985b3f4b370b6e",
+      "width": 390,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-severed-430.png",
+      "sha256": "fe4e0f72873f4c93a65c8ebc090edf08c9a4018409036d2cc7e1aad03b8fbb75",
+      "width": 430,
+      "height": 863
+    },
+    {
+      "file": "exploration-v26-reform-severed-768.png",
+      "sha256": "38bf0c8a5facccd0350bffc928a2c8add13f86e609ab32f741693757a818b46b",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "file": "journey-v26-chapter-01-clear-390.png",
+      "sha256": "48d8c472e8877fed6492f71025cd1af11068e73fb9143b418036c31bc5a66ad4",
+      "width": 390,
+      "height": 1700
+    },
+    {
+      "file": "journey-v26-chapter-02-clear-390.png",
+      "sha256": "a792774bd8e1329022bcea01ac5e0f25cdb5cb4aa9ebb40d4bafff1cac7c7fa9",
+      "width": 390,
+      "height": 1856
+    },
+    {
+      "file": "journey-v26-chapter-03-clear-390.png",
+      "sha256": "ae6bf4fe6c3e84846cfd9c77936cc14ff18acb8e4114f86d237ac6938e79e9c5",
+      "width": 390,
+      "height": 1960
+    },
+    {
+      "file": "journey-v26-chapter-04-clear-390.png",
+      "sha256": "a30a69baaa61dd9c3f27d016569c9fdbd0b97a25728b9259913cf349ab5fac92",
+      "width": 390,
+      "height": 2011
+    },
+    {
+      "file": "journey-v26-chapter-05-clear-390.png",
+      "sha256": "40a4e135a38993fd09948025384aeb3620799d95d290facf0673e09c469e30cf",
+      "width": 390,
+      "height": 2103
+    },
+    {
+      "file": "journey-v26-chapter-06-clear-390.png",
+      "sha256": "e4e57228f783147c7c8fdb9aea358f2ab17cc1ceb310d0de3e6e3378f1253287",
+      "width": 390,
+      "height": 2178
+    },
+    {
+      "file": "journey-v26-chapter-07-clear-390.png",
+      "sha256": "6e31e2b1102961034a578b499c8e98c26a0492dec46fc810b3c9c87aa3f91108",
+      "width": 390,
+      "height": 2278
+    },
+    {
+      "file": "journey-v26-chapter-08-clear-390.png",
+      "sha256": "bc4dfeb3eeddcf7e7044243450a14d66470b195995ad07dd2a688a50613b66cf",
+      "width": 390,
+      "height": 2239
+    },
+    {
+      "file": "journey-v26-chapter-09-clear-390.png",
+      "sha256": "c6ff97108621e323a1b231f766099a2d2f1608ef0ffd478211fc175834c863c9",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-10-clear-390.png",
+      "sha256": "084c64b9a67317fe3c5b9342dbabd9859b197f29262fe9cf49ff736b37012c0a",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-11-clear-390.png",
+      "sha256": "a45f2c436e8b65564dc5187d0b237d489b926825c2045cb28c64bcd1019681cb",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-12-clear-390.png",
+      "sha256": "ec02fe83cf3de66dacc099e212f77d25ce6c1305e5d37c0521d958f69ec89434",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-13-clear-390.png",
+      "sha256": "7c9ff1ee21a66fc8a8b07165ae9a5e8fa8fb6ce9804e98502c66b457367c008b",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-14-clear-390.png",
+      "sha256": "420acf5d0bf36b09dc9c915c27c8eb37dc5ba331f36665508df0fa13b0446257",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-15-clear-390.png",
+      "sha256": "13a1efc39cc375259dbe024596fc922500862e520b8f072bb78d64ee3cb48c77",
+      "width": 390,
+      "height": 862
+    },
+    {
+      "file": "journey-v26-chapter-16-clear-390.png",
+      "sha256": "17d2128348be1ea01de7adfad91223e0a47396499f6225d05b78e41976de1cb1",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-chapter-17-clear-390.png",
+      "sha256": "73f6589a76b098cca9fed43fec142b0cc3e6174dd92982770cd290667187ac80",
+      "width": 390,
+      "height": 862
+    },
+    {
+      "file": "journey-v26-chapter-18-clear-390.png",
+      "sha256": "15a1ccf19b5b7d71c6de59165e8dbda174267321d5b6702dfceeaacc29ae201b",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-aftermath-390.png",
+      "sha256": "eefe7215d509e0ec632612b8a3cbf0016658c0f33ed6d0c2065cc1c76db76bbd",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-clear-390.png",
+      "sha256": "b43d4fe44db8e151b770f3a43d624bffa5397995e9fb99e886e1e3d8e6eff58e",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-credits-390.png",
+      "sha256": "050f9f521cb594b65f007a143754960cd1f9c2f6e625a6db61de942b26604cb9",
+      "width": 390,
+      "height": 976
+    },
+    {
+      "file": "journey-v26-ending-c18-epilogue-390.png",
+      "sha256": "f858daf7edf27adf122ea375866a4796a880ce43c8014387690f2f10c7c19a00",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-journey-390.png",
+      "sha256": "1c7390d4b7e532e87d05d54a0641885fcd208d56213e53267b2bd8b99ffe9ef4",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-the-end-390.png",
+      "sha256": "197b470e17da99be87fb74079f3952b4331f724588d603195bf0512b75aa177c",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-tomorrow-390.png",
+      "sha256": "060e2a805899f69afd23a3a9df0bfb3d377a96d6101aeb91e6381e4edcffb5e9",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-ending-c18-voices-390.png",
+      "sha256": "2116e19312d7fbe8435d4352e84dc51476de8b68c7324cc2a9f3d9522940c1c3",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "file": "journey-v26-postclear-old-quest-390.png",
+      "sha256": "e94a595877910bb635a6cda39d6c341e8660ad3ad3c6bd878795fdb4e8a787d4",
+      "width": 390,
+      "height": 1817
+    }
+  ],
+  "runtime": {
+    "node": "v22.23.4",
+    "platform": "linux",
+    "chromium": "Google Chrome for Testing 156.0.8078.4"
+  },
+  "build": {
+    "sourceHash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+    "builtAt": "2026-11-10T21:15:51.639Z",
+    "artifacts": [
+      {
+        "file": "dist/assets/index-CTB4268C.js",
+        "sha256": "ac8f8500e109a3062d74fa3469ae034f176ed6fddb3c07fec9786c668482a8d1"
+      },
+      {
+        "file": "dist/assets/index-DtlFLb1K.css",
+        "sha256": "4422f5dbb23aa2468b416eaa127c5aebfa47711ec678e755ba2df37d04c47e71"
+      },
+      {
+        "file": "dist/assets/phaser-DFK5Ua9d.js",
+        "sha256": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb"
+      },
+      {
+        "file": "dist/index.html",
+        "sha256": "fa250c16fee3abb8742ed6d20577368597e802dfff57fb2cc67f910efddf3024"
+      }
+    ]
+  },
+  "end": "2026-11-10T21:45:51.854Z"
+}

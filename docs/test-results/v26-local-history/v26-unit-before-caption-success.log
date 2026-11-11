@@ -1,0 +1,154 @@
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism --testTimeout=15000
+
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/chapter-twelve-v20.test.ts (44 tests) 3575ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1519ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1542ms
+ ✓ tests/chapter-ten-v18.test.ts (37 tests) 4079ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1754ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1818ms
+ ✓ tests/chapter-sixteen-v24.test.ts (107 tests) 7742ms
+   ✓ chapter sixteen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  408ms
+   ✓ grave enemies and measurable shared combat > seed1 clears both quest routes atLv50 with chapter15 weapons  379ms
+   ✓ grave enemies and measurable shared combat > seed2 clears both quest routes atLv50 with chapter15 weapons  308ms
+   ✓ grave enemies and measurable shared combat > seed3 clears both quest routes atLv50 with chapter15 weapons  331ms
+   ✓ grave enemies and measurable shared combat > seed4 clears both quest routes atLv50 with chapter15 weapons  317ms
+   ✓ grave enemies and measurable shared combat > seed6 clears both quest routes atLv50 with chapter15 weapons  429ms
+   ✓ grave enemies and measurable shared combat > seed7 clears both quest routes atLv50 with chapter15 weapons  344ms
+   ✓ grave enemies and measurable shared combat > seed8 clears both quest routes atLv50 with chapter15 weapons  341ms
+   ✓ grave enemies and measurable shared combat > seed11 clears both quest routes atLv50 with chapter15 weapons  388ms
+   ✓ grave enemies and measurable shared combat > seed12 clears both quest routes atLv50 with chapter15 weapons  332ms
+   ✓ grave enemies and measurable shared combat > seed13 clears both quest routes atLv50 with chapter15 weapons  407ms
+   ✓ grave enemies and measurable shared combat > seed20 clears both quest routes atLv50 with chapter15 weapons  354ms
+ ✓ tests/chapter-fifteen-v23.test.ts (102 tests) 6087ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 2 clears both quest routes from a genuine legacy level 50 without mandatory nodes  331ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 13 clears both quest routes from a genuine legacy level 50 without mandatory nodes  386ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 17 clears both quest routes from a genuine legacy level 50 without mandatory nodes  326ms
+ ✓ tests/exploration-v21.test.ts (82 tests) 2692ms
+ ✓ tests/chapter-seventeen-combat-v25.test.ts (50 tests) 3620ms
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false
+v1.5 full chapter quests=false: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+v1.5 full chapter quests=true: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds
+v1.5 grove-trail: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds
+v1.5 grove-roots: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+v1.5 grove-sentry: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds
+v1.5 grove-orb: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+v1.5 grove-granguard: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds
+v1.5 grove-seles: 20/20
+
+ ✓ tests/chapter-seven-v15.test.ts (45 tests) 3418ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false  1081ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true  1114ms
+ ✓ tests/chapter-fourteen-v22.test.ts (41 tests) 5033ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  2236ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  2276ms
+ ✓ tests/chapter-five-v13.test.ts (50 tests) 2231ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false  758ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true  726ms
+stdout | tests/final-integration-v26.test.ts > fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+Fresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 1603ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  1551ms
+ ✓ tests/chapter-nine-v17.test.ts (45 tests) 3282ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption  1366ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=true, no high-level tree assumption  1349ms
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+v1.4 chapter seeds quests=false: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+v1.4 chapter seeds quests=true: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ✓ tests/chapter-six-v14.test.ts (56 tests) 2349ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false  762ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true  681ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 1143ms
+ ✓ tests/chapter-thirteen-v21.test.ts (39 tests) 4850ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1853ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  2504ms
+ ✓ tests/chapter-eight-v16.test.ts (47 tests) 3936ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes  1981ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes  1391ms
+ ✓ tests/exploration-v25.test.ts (168 tests) 3902ms
+   ✓ 82 maps and independent confirmed fate routes > 'pale-core' keeps all objects,symbol routes,exits and reload positions reachable  325ms
+ ✓ tests/exploration-v22.test.ts (92 tests) 5580ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-core' entry/objects/patrols are reachable and all exits preserve valid targets  1787ms
+   ✓ fifty-eight shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI  316ms
+ ✓ tests/exploration-v18.test.ts (58 tests) 1694ms
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 5277ms
+   ✓ four-phase final battle without changing existing damage formula > seed9 wins every final encounter using chapter16 equipment and no required nodes  1112ms
+   ✓ four-phase final battle without changing existing damage formula > seed13 wins every final encounter using chapter16 equipment and no required nodes  316ms
+   ✓ four-phase final battle without changing existing damage formula > seed16 wins every final encounter using chapter16 equipment and no required nodes  305ms
+ ✓ tests/chapter-eleven-v19.test.ts (38 tests) 3656ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1780ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1366ms
+ ✓ tests/exploration-v19.test.ts (61 tests) 3038ms
+ ✓ tests/exploration-v20.test.ts (74 tests) 2431ms
+ ✓ tests/exploration-v26.test.ts (202 tests) 3064ms
+   ✓ ninety-map compatibility and shared effective grid > sky-town retains safe collision, actual reachable object approaches and valid exits  326ms
+ ✓ tests/exploration-v24.test.ts (114 tests) 2558ms
+   ✓ 74 connected maps use the same effective grid and save rules > 'gear-rail' has reachable objects,symbol routes,valid exits and roundtrip positions  350ms
+ ✓ tests/chapter-four-v12.test.ts (43 tests) 2300ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false  1251ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true  460ms
+ ✓ tests/transit-v22.test.ts (28 tests) 991ms
+ ✓ tests/exploration-v23.test.ts (103 tests) 1154ms
+ ✓ tests/chapter-three-v11.test.ts (46 tests) 1207ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = false  447ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true  356ms
+ ✓ tests/chapter-seventeen-v25.test.ts (66 tests) 1128ms
+   ✓ chapter seventeen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  394ms
+ ✓ tests/railway-v21.test.ts (21 tests) 731ms
+ ✓ tests/skills-v06.test.ts (45 tests) 693ms
+ ✓ tests/chapter-two-v10.test.ts (29 tests) 718ms
+   ✓ deterministic chapter balance > completes the full chapter over 20 seeds with no high-level tree investment  402ms
+ ✓ tests/exploration-v17.test.ts (29 tests) 571ms
+ ✓ tests/exploration-v15.test.ts (33 tests) 388ms
+ ✓ tests/adventure-v08.test.ts (39 tests) 124ms
+ ✓ tests/skill-tree-v09.test.ts (112 tests) 141ms
+ ✓ tests/battle.test.ts (15 tests) 166ms
+ ✓ tests/equipment-v07.test.ts (67 tests) 93ms
+ ✓ tests/foundation.test.ts (30 tests) 47ms
+ ✓ tests/lab-v04.test.ts (21 tests) 37ms
+ ✓ tests/battle-presentation.test.ts (16 tests) 18ms
+ ✓ tests/attack-modifier.test.ts (5 tests) 18ms
+ ✓ tests/map-driver-v25.test.ts (5 tests) 4ms
+
+ Test Files  43 passed (43)
+      Tests  2463 passed (2463)
+   Start at  09:58:27
+   Duration  124.26s (transform 2.51s, setup 0ms, collect 11.53s, tests 97.37s, environment 13ms, prepare 4.68s)
+

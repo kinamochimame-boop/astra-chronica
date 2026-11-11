@@ -1,0 +1,102 @@
+{
+  "version": "v2.6",
+  "status": "incomplete-environment-disconnected",
+  "source_hash": "1d8a9438be90e42914f143b8536b39ff02bc217f1d2267413ad0ffca2f35cdbf",
+  "source_commit": "3219a98d8382ebdb0906eb78380ed23fa7156d30",
+  "baseline": "3ca26ce0eef5039603e3e977fa38d7a3e1e28c53",
+  "verified_local": {
+    "fresh_browser": {
+      "start": "2026-11-10T14:07:47.860Z",
+      "end": "2026-11-10T16:11:39.876Z",
+      "mode": "genuine-fresh-browser-no-fixture-no-checkpoint-injection",
+      "chapters": 18,
+      "battles": 109,
+      "events": 452,
+      "reloads": 18,
+      "progressWritesFromTest": 0,
+      "postclearOldQuest": true,
+      "postclearNewQuests": true,
+      "pageErrors": [],
+      "endingPages": {
+        "c18-aftermath": 4,
+        "c18-voices": 4,
+        "c18-journey": 19,
+        "c18-epilogue": 5,
+        "c18-tomorrow": 9,
+        "c18-credits": 1,
+        "c18-the-end": 1,
+        "c18-clear": 1
+      },
+      "ledger_verified": true,
+      "lastHash": "42c14657d3801d515edc137d6693fe0bacadb69d2201de7d4e1c7a7fa3ff2711",
+      "driverHash": "7f66c594719789ff1baad696be867acea3e1392738d8c9dfb22b0dbef40e8406"
+    },
+    "layout": {
+      "mode": "independent-layout-fixtures-not-fresh-journey",
+      "maps": 90,
+      "widths": [
+        320,
+        390,
+        430,
+        768
+      ],
+      "cases": 360,
+      "success": true
+    },
+    "browser_files": {
+      "confirmed_success": [
+        "full-journey-v26.e2e.mjs",
+        "exploration-v26.e2e.mjs",
+        "ending-v26.e2e.mjs",
+        "star-reform-v26.e2e.mjs"
+      ],
+      "planned_total": 84,
+      "other_files": "Not confirmed complete before the execution environment became unavailable"
+    },
+    "unit_diagnostic": {
+      "passed": 2463,
+      "files": 43,
+      "duration_seconds": 181.72,
+      "default_deadline_ms": 15000,
+      "accepted_as_final": false,
+      "reason": "Temporary deadline extension was reverted; final original5000ms rerun was not yet observed"
+    },
+    "build": {
+      "success": true,
+      "duration_seconds": 21.46,
+      "builtAt": "2026-11-10T13:39:00.559Z",
+      "artifacts": [
+        {
+          "file": "dist/index.html",
+          "sha256": "fa250c16fee3abb8742ed6d20577368597e802dfff57fb2cc67f910efddf3024"
+        },
+        {
+          "file": "dist/assets/index-CTB4268C.js",
+          "sha256": "ac8f8500e109a3062d74fa3469ae034f176ed6fddb3c07fec9786c668482a8d1"
+        },
+        {
+          "file": "dist/assets/index-DtlFLb1K.css",
+          "sha256": "4422f5dbb23aa2468b416eaa127c5aebfa47711ec678e755ba2df37d04c47e71"
+        },
+        {
+          "file": "dist/assets/phaser-DFK5Ua9d.js",
+          "sha256": "f9025c1a29bc3ae097dd886ce07717b297466da1ce8f032c8294252ce6cf5cdb"
+        }
+      ]
+    }
+  },
+  "evidence_availability": "Results were observed in the managed environment. Raw local logs/PNGs were not committed before disconnect. CI must regenerate and commit authoritative artifacts; this observation is not a substitute for the all84/default5000ms final gate.",
+  "environment_blocker": "Executor transport disconnected. Provider later reported connected, but command tools still returned No usable execution environment and wait_for_environment returned neither ready nor starting.",
+  "remaining": [
+    "All84 browser files on current source",
+    "npm test with original5000ms default",
+    "Current four-phase screenshots, Git-index PNG validation and complete results",
+    "Final review-ready PR"
+  ],
+  "save": {
+    "key": "astra-chronica:v1",
+    "schema": 2
+  },
+  "published": false,
+  "merged": false
+}

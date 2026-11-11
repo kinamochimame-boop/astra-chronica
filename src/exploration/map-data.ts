@@ -1,3 +1,4 @@
+import {finalMaps} from './chapter-eighteen-maps';
 import {terminalMaps} from './chapter-seventeen-maps';
 import {graveMaps} from './chapter-sixteen-maps';
 import {voidMaps} from './chapter-fifteen-maps';
@@ -37,9 +38,9 @@ export const walkMaps:readonly WalkMap[]=[
   {id:'ruins-sentry',name:'古木の歩哨',mode:'idle',...at(12,12),speed:0,radius:11,aggro:0,leash:0,route:[],eventId:'c7-ruins-fight',encounterId:'grove-sentry'},
   {id:'ruins-chaser',name:'根脈の追跡者',mode:'chase',...at(21,14),speed:58,radius:10,aggro:150,leash:210,route:[],eventId:'c7-orb-fight',encounterId:'grove-orb'},
  ]},
- ...skyMaps,...additionalMaps,...veinMaps,...tideMaps,...paleMaps,...gloomMaps,...gearMaps,...arkMaps,...voidMaps,...graveMaps,...terminalMaps,
+ ...skyMaps,...additionalMaps,...veinMaps,...tideMaps,...paleMaps,...gloomMaps,...gearMaps,...arkMaps,...voidMaps,...graveMaps,...terminalMaps,...finalMaps,
 ];
 export const mapById=(id:unknown)=>typeof id==='string'?walkMaps.find(m=>m.id===id):undefined;
 export const mapForLocation=(chapterId:string,locationId:string)=>walkMaps.find(m=>m.chapterId===chapterId&&m.locationId===locationId);
-export const objectForEvent=(id:string)=>walkMaps.flatMap(map=>map.objects.filter(o=>o.eventId===id).map(object=>({map,object})))[0];
-export const symbolForEvent=(id:string)=>walkMaps.flatMap(map=>map.symbols.filter(s=>s.eventId===id).map(symbol=>({map,symbol})))[0];
+export function objectForEvent(id:string){for(const map of walkMaps){const object=map.objects.find(o=>o.eventId===id);if(object)return {map,object}}return undefined;}
+export function symbolForEvent(id:string){for(const map of walkMaps){const symbol=map.symbols.find(s=>s.eventId===id);if(symbol)return {map,symbol}}return undefined;}

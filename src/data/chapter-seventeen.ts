@@ -4,7 +4,7 @@ export const chapterSeventeen:Chapter={
   "requiresChapterId": "chapter-16",
   "name": "星の終着点と最後の約束",
   "setting": "星の終着領域",
-  "preview": "第18章予告：終端固定核アナンケが待つ「約束の始原」へ。記録は消さず、選び直す権利を取り戻す。最終決戦・結末・エピローグは未実装です。",
+  "preview": "第18章予告：終端固定核アナンケが待つ「約束の始原」へ。記録は消さず、選び直す権利を取り戻す。第18章で、共に未来を選ぶ最後の決戦へ進めます。",
   "locations": [
     {
       "id": "c17-gateway",

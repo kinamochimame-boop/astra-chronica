@@ -1,0 +1,49 @@
+chapter17 quests=true event=c17-arrival
+chapter17 quests=true event=c17-gateway-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-gateway-cache
+chapter17 quests=true event=c17-seline
+chapter17 quests=true event=c17-plaza-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-plaza-record
+chapter17 quests=true event=c17-plaza-cache
+chapter17 quests=true event=c17-decode
+chapter17 quests=true event=c17-orphe
+chapter17 quests=true event=c17-library-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-library-record
+chapter17 quests=true event=c17-library-cache
+chapter17 quests=true event=c17-camp-rest
+chapter17 quests=true event=c17-tia
+chapter17 quests=true event=c17-memory-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-memory-cache
+chapter17 quests=true event=c17-watch-record
+chapter17 quests=true event=c17-archive-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-archive-record
+chapter17 quests=true event=c17-archive-cache
+chapter17 quests=true event=c17-garden-rest
+chapter17 quests=true event=c17-guardian
+Route all-quests: battle victory
+chapter17 quests=true event=c17-branch
+chapter17 quests=true event=c17-bridge-record
+chapter17 quests=true event=c17-sanctuary-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-promise-record
+chapter17 quests=true event=c17-sanctuary-cache
+chapter17 quests=true event=c17-refuge-rest
+chapter17 quests=true event=c17-tower-fight
+Route all-quests: battle victory
+chapter17 quests=true event=c17-tower-reading
+chapter17 quests=true event=c17-tower-cache
+chapter17 quests=true event=c17-reconnect
+chapter17 quests=true event=c17-seer-record
+chapter17 quests=true event=c17-promise
+chapter17 quests=true event=c17-inherit
+chapter17 quests=true event=c17-heart-cache
+chapter17 quests=true event=c17-last-judge
+Route all-quests: battle victory
+chapter17 quests=true event=c17-clear
+chapter17 quests=true passed:38events,9actual victories,5choices,all3quests,save/reload,legacy16chapters,isolatedLab.
+v2.5 full chapter-seventeen touch routes passed:1routes,9actual victories.

@@ -1,0 +1,399 @@
+﻿2026-11-10T16:38:07.0432963Z Current runner version: '2.338.2'
+##[group]Runner Image Provisioner
+Hosted Compute Agent
+Version: 20261028.624
+Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+Build Date: 2026-10-28T21:51:42Z
+Worker ID: {56cf034e-4f19-417c-9f76-bedb5192fbdd}
+Region: westus3
+Cloud: Azure
+##[endgroup]
+##[group]Operating System
+Ubuntu
+26.04.1
+LTS
+##[endgroup]
+##[group]Runner Image
+Image: ubuntu-26.04
+Version: 20261101.186.1
+Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+##[endgroup]
+##[group]GITHUB_TOKEN Permissions
+Contents: read
+Metadata: read
+##[endgroup]
+Secret source: Actions
+Cache mode: write
+Prepare workflow directory
+Prepare all required actions
+Getting action download info
+Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+Download action repository 'actions/upload-pages-artifact@v3' (SHA:56afc609e74202658d3ffba0e8f6dda462b719fa)
+Getting action download info
+Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+Complete job name: build
+##[group]Run actions/checkout@v4
+with:
+  repository: kinamochimame-boop/astra-chronica
+  token: ***
+  ssh-strict: true
+  ssh-user: git
+  persist-credentials: true
+  clean: true
+  sparse-checkout-cone-mode: true
+  fetch-depth: 1
+  fetch-tags: false
+  show-progress: true
+  lfs: false
+  submodules: false
+  set-safe-directory: true
+  allow-unsafe-pr-checkout: false
+##[endgroup]
+Syncing repository: kinamochimame-boop/astra-chronica
+##[group]Getting Git version info
+Working directory is '/home/runner/work/astra-chronica/astra-chronica'
+[command]/usr/bin/git version
+git version 2.56.0
+##[endgroup]
+Temporarily overriding HOME='/home/runner/work/_temp/4aa57a7f-e118-4e18-89bc-baceb30999f2' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+[command]/usr/bin/git config --global --add safe.directory /home/runner/work/astra-chronica/astra-chronica
+Deleting the contents of '/home/runner/work/astra-chronica/astra-chronica'
+##[group]Initializing the repository
+[command]/usr/bin/git init /home/runner/work/astra-chronica/astra-chronica
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+Initialized empty Git repository in /home/runner/work/astra-chronica/astra-chronica/.git/
+[command]/usr/bin/git remote add origin https://github.com/kinamochimame-boop/astra-chronica
+##[endgroup]
+##[group]Disabling automatic garbage collection
+[command]/usr/bin/git config --local gc.auto 0
+##[endgroup]
+##[group]Setting up auth
+[command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+[command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+[command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+##[endgroup]
+##[group]Fetching the repository
+[command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b8a5ed2241aa03a1e26c0db5d002ef34d594b82a:refs/remotes/pull/27/merge
+From https://github.com/kinamochimame-boop/astra-chronica
+ * [new ref]         b8a5ed2241aa03a1e26c0db5d002ef34d594b82a -> pull/27/merge
+##[endgroup]
+##[group]Determining the checkout info
+##[endgroup]
+[command]/usr/bin/git sparse-checkout disable
+[command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+##[group]Checking out the ref
+[command]/usr/bin/git checkout --progress --force refs/remotes/pull/27/merge
+Note: switching to 'refs/remotes/pull/27/merge'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b8a5ed2 Merge 9f966e6f03fa25c855198f93e15892d6dfe0f858 into 3ca26ce0eef5039603e3e977fa38d7a3e1e28c53
+##[endgroup]
+[command]/usr/bin/git log -1 --format=%H
+b8a5ed2241aa03a1e26c0db5d002ef34d594b82a
+##[group]Run actions/setup-node@v4
+with:
+  node-version: 22
+  cache: npm
+  always-auth: false
+  check-latest: false
+  token: ***
+##[endgroup]
+(node:2205) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+##[group]Environment details
+node: v22.23.4
+npm: 10.9.9
+yarn: 1.22.22
+##[endgroup]
+[command]/opt/hostedtoolcache/node/22.23.4/x64/bin/npm config get cache
+/home/runner/.npm
+Cache hit for: node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597
+(node:2205) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Received 40363788 of 40363788 (100.0%), 45.0 MBs/sec
+Cache Size: ~38 MB (40363788 B)
+[command]/usr/bin/tar -xf /home/runner/work/_temp/3b7dc7ec-d2b6-4b4a-a582-f30aa5b8955b/cache.tzst -P -C /home/runner/work/astra-chronica/astra-chronica --use-compress-program unzstd
+Cache restored successfully
+Cache restored from key: node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597
+##[group]Run npm ci
+npm ci
+shell: /usr/bin/bash -e {0}
+##[endgroup]
+
+added 57 packages, and audited 58 packages in 2s
+
+15 packages are looking for funding
+  run `npm fund` for details
+
+3 vulnerabilities (1 moderate, 2 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+##[group]Run npm test
+npm test
+shell: /usr/bin/bash -e {0}
+##[endgroup]
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+
+
+ RUN  v3.2.7 /home/runner/work/astra-chronica/astra-chronica
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+v1.4 chapter seeds quests=false: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+v1.4 chapter seeds quests=true: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ✓ tests/chapter-six-v14.test.ts (56 tests) 1175ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false  387ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true  327ms
+ ✓ tests/chapter-five-v13.test.ts (50 tests) 1032ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false  352ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true  326ms
+ ✓ tests/chapter-four-v12.test.ts (43 tests) 711ms
+ ✓ tests/chapter-three-v11.test.ts (46 tests) 584ms
+ ✓ tests/chapter-fifteen-v23.test.ts (102 tests) 2449ms
+ ✓ tests/chapter-twelve-v20.test.ts (44 tests) 1475ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  668ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  589ms
+ ✓ tests/skill-tree-v09.test.ts (112 tests) 67ms
+ ✓ tests/chapter-nine-v17.test.ts (45 tests) 1607ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption  721ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=true, no high-level tree assumption  621ms
+ ✓ tests/exploration-v23.test.ts (103 tests) 582ms
+ ✓ tests/chapter-fourteen-v22.test.ts (41 tests) 2182ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1052ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  911ms
+ ✓ tests/chapter-two-v10.test.ts (29 tests) 303ms
+ ✓ tests/chapter-eight-v16.test.ts (47 tests) 1255ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes  593ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes  490ms
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false
+v1.5 full chapter quests=false: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+v1.5 full chapter quests=true: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds
+v1.5 grove-trail: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds
+v1.5 grove-roots: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+v1.5 grove-sentry: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds
+v1.5 grove-orb: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+v1.5 grove-granguard: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds
+v1.5 grove-seles: 20/20
+
+ ✓ tests/chapter-seven-v15.test.ts (45 tests) 1446ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false  469ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true  415ms
+ ✓ tests/skills-v06.test.ts (45 tests) 329ms
+ ✓ tests/exploration-v15.test.ts (33 tests) 148ms
+ ✓ tests/chapter-thirteen-v21.test.ts (39 tests) 2032ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  943ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  859ms
+ ✓ tests/adventure-v08.test.ts (39 tests) 62ms
+ ✓ tests/chapter-eleven-v19.test.ts (38 tests) 1515ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  680ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  628ms
+ ✓ tests/chapter-sixteen-v24.test.ts (107 tests) 3286ms
+ ✓ tests/chapter-ten-v18.test.ts (37 tests) 1504ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  685ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  623ms
+ ✓ tests/equipment-v07.test.ts (67 tests) 29ms
+ ✓ tests/exploration-v22.test.ts (92 tests) 1460ms
+ ✓ tests/exploration-v21.test.ts (82 tests) 1196ms
+ ✓ tests/exploration-v20.test.ts (74 tests) 974ms
+ ✓ tests/foundation.test.ts (30 tests) 22ms
+ ✓ tests/exploration-v19.test.ts (61 tests) 782ms
+ ✓ tests/exploration-v18.test.ts (58 tests) 727ms
+ ✓ tests/chapter-seventeen-v25.test.ts (66 tests) 488ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 537ms
+ ✓ tests/exploration-v25.test.ts (168 tests) 1139ms
+ ✓ tests/exploration-v24.test.ts (114 tests) 784ms
+ ✓ tests/exploration-v17.test.ts (29 tests) 279ms
+ ✓ tests/chapter-seventeen-combat-v25.test.ts (50 tests) 1579ms
+ ✓ tests/transit-v22.test.ts (28 tests) 482ms
+ ✓ tests/battle.test.ts (15 tests) 69ms
+ ✓ tests/lab-v04.test.ts (21 tests) 20ms
+ ✓ tests/railway-v21.test.ts (21 tests) 332ms
+ ✓ tests/battle-presentation.test.ts (16 tests) 11ms
+stdout | tests/final-integration-v26.test.ts > fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+Fresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 832ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  805ms
+ ✓ tests/exploration-v26.test.ts (202 tests) 711ms
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 1566ms
+ ✓ tests/attack-modifier.test.ts (5 tests) 8ms
+ ✓ tests/map-driver-v25.test.ts (5 tests) 3ms
+
+ Test Files  43 passed (43)
+      Tests  2463 passed (2463)
+   Start at  16:38:26
+   Duration  49.14s (transform 1.01s, setup 0ms, collect 4.67s, tests 37.77s, environment 7ms, prepare 2.07s)
+
+##[group]Run npm run build
+npm run build
+shell: /usr/bin/bash -e {0}
+##[endgroup]
+
+> astra-chronica@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 150 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.62 kB │ gzip:   0.46 kB
+dist/assets/index-DtlFLb1K.css     34.79 kB │ gzip:   8.77 kB
+dist/assets/index-CTB4268C.js     743.10 kB │ gzip: 206.85 kB
+dist/assets/phaser-DFK5Ua9d.js  1,208.06 kB │ gzip: 332.17 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 4.69s
+##[group]Run actions/upload-pages-artifact@v3
+with:
+  path: dist
+  name: github-pages
+  retention-days: 1
+##[endgroup]
+##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run]
+##[group]Run echo ::group::Archive artifact
+echo ::group::Archive artifact
+tar \
+  --dereference --hard-dereference \
+  --directory "$INPUT_PATH" \
+  -cvf "$RUNNER_TEMP/artifact.tar" \
+  --exclude=.git \
+  --exclude=.github \
+  .
+echo ::endgroup::
+shell: /usr/bin/sh -e {0}
+env:
+  INPUT_PATH: dist
+##[endgroup]
+##[group]Archive artifact
+./
+./index.html
+./assets/
+./assets/index-CTB4268C.js
+./assets/phaser-DFK5Ua9d.js
+./assets/index-DtlFLb1K.css
+##[endgroup]
+##[end-action id=__actions_upload-pages-artifact.__run;outcome=success;conclusion=success;duration_ms=19]
+##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_2]
+##[end-action id=__actions_upload-pages-artifact.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Archive artifact;id=__actions_upload-pages-artifact.__run_3]
+##[end-action id=__actions_upload-pages-artifact.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Upload artifact;id=__actions_upload-pages-artifact.upload-artifact]
+##[group]Run actions/upload-artifact@v4
+with:
+  name: github-pages
+  path: /home/runner/work/_temp/artifact.tar
+  retention-days: 1
+  if-no-files-found: error
+  compression-level: 6
+  overwrite: false
+  include-hidden-files: false
+##[endgroup]
+(node:3475) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+With the provided path, there will be 1 file uploaded
+Artifact name is valid!
+Root directory input is valid!
+Beginning upload of artifact content to blob storage
+(node:3475) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Uploaded bytes 548751
+Finished uploading artifact content to blob storage!
+SHA256 digest of uploaded artifact zip is 1d02caa91567d8c55a89309163b5d7a38653c47daa1fd6e1423488811433e562
+Finalizing artifact upload
+Artifact github-pages.zip successfully finalized. Artifact ID 13782982165
+Artifact github-pages has been successfully uploaded! Final size is 548751 bytes. Artifact ID is 13782982165
+Artifact download URL: https://github.com/kinamochimame-boop/astra-chronica/actions/runs/42856482567/artifacts/13782982165
+##[end-action id=__actions_upload-pages-artifact.upload-artifact;outcome=success;conclusion=success;duration_ms=1570]
+Post job cleanup.
+(node:3487) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Cache hit occurred on the primary key node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597, not saving cache.
+Post job cleanup.
+[command]/usr/bin/git version
+git version 2.56.0
+Temporarily overriding HOME='/home/runner/work/_temp/30c95960-871a-437a-8bab-716ad6da5acc' before making global git config changes
+Adding repository directory to the temporary git global config as a safe directory
+[command]/usr/bin/git config --global --add safe.directory /home/runner/work/astra-chronica/astra-chronica
+[command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+http.https://github.com/.extraheader
+[command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+[command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+[command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+[command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Cleaning up orphan processes
+##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

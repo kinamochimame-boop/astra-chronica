@@ -1,0 +1,100 @@
+Fresh UI event chapter-01 c1-departure wins 0 levels 1/1/1
+Fresh journey failure: locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ally').nth(2)[22m
+[2m    - locator resolved to <button class="ally" aria-pressed="false" data-target-id="mei">…</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+ BATTLE · ROUND 3
+
+霧の森・入口
+☰
+メニュー
+
+コマンドを選択：メイ
+
+次の行動：
+味 ▶
+メイ
+霧まといのスライム
+撃破
+HP 0 / 190
+状態なし
+影羽コウモリ
+撃破
+HP 0 / 110
+状態なし
+森の番狼
+敵
+HP 114 / 140
+状態なし
+アステル
+戦士 · ◎対象
+HP 139 / 180
+MP 6 / 24
+星力 60 / 100
+状態なし
+リナ
+タンク
+HP 229 / 240
+MP 30 / 30
+星力 55 / 100
+状態なし
+メイ
+▶ 行動中
+HP 94 / 150
+MP 34 / 48
+星力 50 / 100
+状態なし
+★ 必殺 · 星詠みの奇跡
+星力 100
+未習得（Lv.10）
+通常攻撃
+ATTACK
+ファイア
+MP 7
+ヒール
+MP 8
+防御
+MP 0
+アイス
+MP 8
+未習得（Lv.3）
+サンダー
+MP 9
+未習得（Lv.5）
+グループヒール
+MP 16
+未習得（Lv.7）
+
+ヒール · MP8｜味方単体のHPを85回復（蘇生不可）（装備：星灯のワンド）。対象：アステル
+
+ヒールを実行
+
+森の番狼 → メイ：通常攻撃 17
+
+ログ ⌃
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ally').nth(2)[22m
+[2m    - locator resolved to <button class="ally" aria-pressed="false" data-target-id="mei">…</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+
+    at fightUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:24:61)
+    at async eventUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:34:345)
+    at async file:///workspace/astra-chronica/tests/full-journey-v26.e2e.mjs:17:261 {
+  log: [
+    "  - waiting for locator('.ally').nth(2)",
+    '    - locator resolved to <button class="ally" aria-pressed="false" data-target-id="mei">…</button>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

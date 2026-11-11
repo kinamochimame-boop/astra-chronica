@@ -1,0 +1,6 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: 7f66c594719789ff1baad696be867acea3e1392738d8c9dfb22b0dbef40e8406
+Command: node tests/exploration-v26.e2e.mjs 
+MAP90 start sky-town
+PASS90 sky-town
+PASS 1maps/4cases:  actual touch, collision, minimap, camera/aspect,44px,reduced motion and no horizontal overflow.

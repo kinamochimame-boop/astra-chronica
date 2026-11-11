@@ -1,0 +1,93 @@
+Source: f9ee206f23163ff8b1ee2129344b227a9ab645321f259219e1bd5c493b32c638
+Driver: f800f007b6965d6c08e59d15bc95e0328970f1fc55a394db6e01042404abe31f
+Command: node tests/full-journey-v26.e2e.mjs 
+Fresh UI event chapter-01 c1-departure wins 0 levels 1/1/1
+Fresh journey failure: locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.execute-command')[22m
+ BATTLE · ROUND 2
+
+霧の森・入口
+☰
+メニュー
+
+コマンドを選択：メイ
+
+次の行動：
+味 ▶
+メイ
+霧まといのスライム
+撃破
+HP 0 / 190
+状態なし
+影羽コウモリ
+敵 · ◎対象
+HP 84 / 110
+状態なし
+森の番狼
+敵
+HP 140 / 140
+状態なし
+アステル
+戦士
+HP 155 / 180
+MP 12 / 24
+星力 40 / 100
+状態なし
+リナ
+タンク
+HP 229 / 240
+MP 30 / 30
+星力 40 / 100
+状態なし
+メイ
+▶ 行動中
+HP 111 / 150
+MP 41 / 48
+星力 30 / 100
+状態なし
+★ 必殺 · 星詠みの奇跡
+星力 100
+未習得（Lv.10）
+通常攻撃
+ATTACK
+ファイア
+MP 7
+ヒール
+MP 8
+防御
+MP 0
+アイス
+MP 8
+未習得（Lv.3）
+サンダー
+MP 9
+未習得（Lv.5）
+グループヒール
+MP 16
+未習得（Lv.7）
+
+ファイア · MP7｜火属性・威力72。25%で火傷を付与（装備：星灯のワンド）。対象：影羽コウモリ
+
+ファイアを実行
+
+森の番狼 → メイ：通常攻撃 26
+
+ログ ⌃
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.execute-command')[22m
+
+    at touch (/workspace/astra-chronica/tests/v26-ui-driver.mjs:7:16)
+    at fightUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:34:96)
+    at async eventUI (/workspace/astra-chronica/tests/v26-ui-driver.mjs:43:345)
+    at async file:///workspace/astra-chronica/tests/full-journey-v26.e2e.mjs:17:261 {
+  log: [ "  - waiting for locator('.execute-command')" ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

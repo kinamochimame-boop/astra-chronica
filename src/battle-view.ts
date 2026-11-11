@@ -1,3 +1,4 @@
+import {finalePhase,FINALE_PHASES,finaleLines} from './data/finale-boss';
 import {battleAnchor} from './battle-layout';
 import {battleEventParts} from './types';
 import {equippedWeapon} from './equipment';
@@ -41,6 +42,7 @@ export class BattleView {
   const chips=this.get('.turn-chips');chips.replaceChildren(...visibleOrder(b,busy?state.actingId:undefined).map((u,i)=>{
    const now=i===0&&u.id===actor.id;const chip=document.createElement('span');chip.setAttribute('role','listitem');chip.className=`turn-chip ${b.allies.includes(u)?'friend':'foe'} ${now?'now':''}`;chip.dataset.unitId=u.id;chip.setAttribute('aria-label',`${now?'現在':'次'}：${b.allies.includes(u)?'味方':'敵'} ${u.name}`);chip.innerHTML=`<small>${b.allies.includes(u)?'味':'敵'}${now?' ▶':''}</small><span>${u.name}</span>`;return chip;
   }));
+  const finale=b.enemies.find(u=>u.enemyPattern==='astraEnd'&&u.hp>0);const art=this.get('.battle-art');if(finale){const phase=finalePhase(finale);art.dataset.finalePhase=String(phase);let note=art.querySelector<HTMLElement>('.finale-banner');if(!note){note=document.createElement('p');note.className='finale-banner';art.append(note)}note.textContent=`第${phase}段階 · ${FINALE_PHASES[phase-1]} — ${finaleLines[phase-1][(phase-1)%3]}`;}
   const selectable=b.phase==='player'&&!busy&&!b.blocked;
   const enemies=this.get('.enemies'),scroll=enemies.scrollLeft;enemies.replaceChildren(...b.enemies.map(u=>this.card(u,false,actor.id,selectable)));enemies.scrollLeft=scroll;const chosen=Array.from(enemies.children).find(el=>(el as HTMLElement).dataset.unitId===targetId) as HTMLElement|undefined;if(chosen){const r=chosen.getBoundingClientRect(),bounds=enemies.getBoundingClientRect();if(r.left<bounds.left)enemies.scrollLeft-=bounds.left-r.left;else if(r.right>bounds.right)enemies.scrollLeft+=r.right-bounds.right;}
   this.get('.party').replaceChildren(...b.allies.map(u=>this.card(u,true,actor.id,selectable)));

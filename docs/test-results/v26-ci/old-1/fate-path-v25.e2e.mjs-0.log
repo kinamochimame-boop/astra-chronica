@@ -1,0 +1,9 @@
+v2.5 fate confirm/fixed:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate confirm/decoded:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate confirm/branched:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate confirm/reconnected:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate listen/fixed:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate listen/decoded:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate listen/branched:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 fate listen/reconnected:4widths,shared grid,miniMap,save/reload,safe position repair passed.
+v2.5 all four fate path stages and both branches passed; ghost bridges blocked until connection, no page errors.

@@ -1,5 +1,69 @@
 export interface JournalEntry {id:string;chapterId:string;eventId:string;kind:'summary'|'npc'|'record';title:string;text:string}
 export const journalEntries:readonly JournalEntry[]=[
+{
+  "id": "j18-1",
+  "chapterId": "chapter-18",
+  "eventId": "c18-arrival",
+  "kind": "summary",
+  "title": "約束の始原",
+  "text": "終着領域の接続権限で、固定命令の中枢へ到達した。"
+},
+{
+  "id": "j18-2",
+  "chapterId": "chapter-18",
+  "eventId": "c18-connect",
+  "kind": "record",
+  "title": "旅をつなぐ条件",
+  "text": "星図・歌・羅針盤・時環を、観測の条件として照合した。"
+},
+{
+  "id": "j18-3",
+  "chapterId": "chapter-18",
+  "eventId": "c18-truth",
+  "kind": "record",
+  "title": "星詠みの真実",
+  "text": "警告を命令に変えず、次の人が選べるよう備えと帰還路を遺した。"
+},
+{
+  "id": "j18-4",
+  "chapterId": "chapter-18",
+  "eventId": "c18-rina",
+  "kind": "npc",
+  "title": "盾が守る未来",
+  "text": "リナはティアの帰る意志と、返事をする時間を守る。"
+},
+{
+  "id": "j18-5",
+  "chapterId": "chapter-18",
+  "eventId": "c18-astel",
+  "kind": "record",
+  "title": "選ぶ責任",
+  "text": "アステルは不確かさを引き受け、誰かと選び直すために剣を取る。"
+},
+{
+  "id": "j18-6",
+  "chapterId": "chapter-18",
+  "eventId": "c18-reform",
+  "kind": "record",
+  "title": "星の再編",
+  "text": "保管する記録と未来を固定する命令を分け、帰還路を残した。"
+},
+{
+  "id": "j18-7",
+  "chapterId": "chapter-18",
+  "eventId": "c18-aftermath",
+  "kind": "summary",
+  "title": "固定の終わり",
+  "text": "アナンケの固定命令が解除された。観測記録は保持され、今の声を受け取る。"
+},
+{
+  "id": "j18-8",
+  "chapterId": "chapter-18",
+  "eventId": "c18-clear",
+  "kind": "summary",
+  "title": "十八章の約束",
+  "text": "三人は旅を終えた。未来は誰かが決めるものではなく、共に選んでいくもの。"
+},
  {"id": "j17-1", "chapterId": "chapter-17", "eventId": "c17-arrival", "kind": "summary", "title": "終焉記録の受取先", "text": "第16章の未送信の宛先を照合し、記録の集まる終着領域へ到達した。"},
  {"id": "j17-2", "chapterId": "chapter-17", "eventId": "c17-seline", "kind": "npc", "title": "案内人セリネ", "text": "終着領域の記録を案内する。クリスタリアのセレナとは別人。未送信の返事を共に調べる。"},
  {"id": "j17-3", "chapterId": "chapter-17", "eventId": "c17-orphe", "kind": "npc", "title": "未来を守る番人オルフェ", "text": "喪失を恐れて未来を固定していた。出所と返事を分け、帰還を待つ任務を問い直す。"},

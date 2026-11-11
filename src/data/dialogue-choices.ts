@@ -1,5 +1,105 @@
 export interface DialogueChoice {id:string;eventId:string;chapterId:string;name:string;options:{id:string;label:string;speaker:string;response:string}[]}
 export const dialogueChoices:readonly DialogueChoice[]=[
+{
+  "id": "c18-seline",
+  "eventId": "c18-seline",
+  "chapterId": "chapter-18",
+  "name": "案内人へ託す帰路",
+  "options": [
+    {
+      "id": "confirm",
+      "label": "帰還路の見守りを頼む",
+      "speaker": "セリネ",
+      "response": "帰還標を保ち、戻る足音を待ちます。"
+    },
+    {
+      "id": "listen",
+      "label": "待つ人の声を聞く",
+      "speaker": "セリネ",
+      "response": "待つ人にも伝え、共に次の予定を考えます。"
+    }
+  ]
+},
+{
+  "id": "c18-mei",
+  "eventId": "c18-mei",
+  "chapterId": "chapter-18",
+  "name": "知識を命令にしない",
+  "options": [
+    {
+      "id": "confirm",
+      "label": "原文と観測を並べる",
+      "speaker": "メイ",
+      "response": "出典と今の観測を、別々の欄に記すね。"
+    },
+    {
+      "id": "listen",
+      "label": "分からない部分を残す",
+      "speaker": "メイ",
+      "response": "不明なことは不明なまま、次に確かめる人へ渡す。"
+    }
+  ]
+},
+{
+  "id": "c18-rina",
+  "eventId": "c18-rina",
+  "chapterId": "chapter-18",
+  "name": "盾が守る時間",
+  "options": [
+    {
+      "id": "confirm",
+      "label": "一緒に帰る道を守る",
+      "speaker": "リナ",
+      "response": "私も自分の帰る場所を大切にするわ。"
+    },
+    {
+      "id": "listen",
+      "label": "話せる時間を守る",
+      "speaker": "リナ",
+      "response": "返事を急がせない。その時間を、私が守る。"
+    }
+  ]
+},
+{
+  "id": "c18-astel",
+  "eventId": "c18-astel",
+  "chapterId": "chapter-18",
+  "name": "剣を取る理由",
+  "options": [
+    {
+      "id": "confirm",
+      "label": "今の責任を受け取る",
+      "speaker": "アステル",
+      "response": "危険を知って備え、選んだ後にも話し続ける。"
+    },
+    {
+      "id": "listen",
+      "label": "共に選び直すと誓う",
+      "speaker": "アステル",
+      "response": "一度の答えで終わらせず、間違いを確かめ直すよ。"
+    }
+  ]
+},
+{
+  "id": "c18-promise",
+  "eventId": "c18-promise",
+  "chapterId": "chapter-18",
+  "name": "最後の約束",
+  "options": [
+    {
+      "id": "confirm",
+      "label": "また会う日を決める",
+      "speaker": "ティア",
+      "response": "じゃあ、また食卓を囲もう。予定は話して変えてもいいんだね。"
+    },
+    {
+      "id": "listen",
+      "label": "帰ってから相談する",
+      "speaker": "ティア",
+      "response": "帰ってから、何がしたいか話そう。空欄も楽しみにしているね。"
+    }
+  ]
+},
  {"id": "c17-seline", "eventId": "c17-seline", "chapterId": "chapter-17", "name": "記録の案内を頼む", "options": [{"id": "confirm", "label": "出典を照合する", "speaker": "セリネ", "response": "来歴を記した資料と、原本を並べて読みましょう。"}, {"id": "listen", "label": "今の声を聞く", "speaker": "セリネ", "response": "生きている声から確かめます。記録で先回りはしません。"}]},
  {"id": "c17-orphe", "eventId": "c17-orphe", "chapterId": "chapter-17", "name": "番人が守るもの", "options": [{"id": "confirm", "label": "帰還の記録を開く", "speaker": "オルフェ", "response": "帰還欄を閉ざした判断も残し、これからは返事を受け取ろう。"}, {"id": "listen", "label": "恐れた理由を聞く", "speaker": "オルフェ", "response": "恐れを消すのではなく、誰かと確かめ直すことから始めよう。"}]},
  {"id": "c17-tia", "eventId": "c17-tia", "chapterId": "chapter-17", "name": "少女の声を残す", "options": [{"id": "confirm", "label": "今日の言葉をそのまま残す", "speaker": "ティア", "response": "私が言ったことだけを残してくれるなら、私も読み直せる。"}, {"id": "listen", "label": "明日また聞くと約束する", "speaker": "ティア", "response": "明日違うことを話してもいいんだね。また会って話したい。"}]},

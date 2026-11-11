@@ -1,0 +1,49 @@
+chapter16 quests=false event=c16-arrival
+chapter16 quests=false event=c16-gateway-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-gateway-cache
+chapter16 quests=false event=c16-elsia
+chapter16 quests=false event=c16-field-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-field-record
+chapter16 quests=false event=c16-field-cache
+chapter16 quests=false event=c16-projection
+chapter16 quests=false event=c16-kyle
+chapter16 quests=false event=c16-ruins-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-monument-record
+chapter16 quests=false event=c16-ruins-cache
+chapter16 quests=false event=c16-camp-rest
+chapter16 quests=false event=c16-lyria
+chapter16 quests=false event=c16-sanctum-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-hall-cache
+chapter16 quests=false event=c16-seal-record
+chapter16 quests=false event=c16-archive-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-archive-record
+chapter16 quests=false event=c16-observatory-cache
+chapter16 quests=false event=c16-garden-rest
+chapter16 quests=false event=c16-sentinel
+Route no-quests: battle victory
+chapter16 quests=false event=c16-connection
+chapter16 quests=false event=c16-bridge-record
+chapter16 quests=false event=c16-sanctuary-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-civilization-record
+chapter16 quests=false event=c16-memory-cache
+chapter16 quests=false event=c16-refuge-rest
+chapter16 quests=false event=c16-fracture-fight
+Route no-quests: battle victory
+chapter16 quests=false event=c16-tower-reading
+chapter16 quests=false event=c16-tower-cache
+chapter16 quests=false event=c16-integration
+chapter16 quests=false event=c16-seer-record
+chapter16 quests=false event=c16-promise
+chapter16 quests=false event=c16-inherit
+chapter16 quests=false event=c16-core-cache
+chapter16 quests=false event=c16-end-observer
+Route no-quests: battle victory
+chapter16 quests=false event=c16-clear
+chapter16 quests=false passed:38events,9actual victories,5choices,all3quests,save/reload,legacy15chapters,isolatedLab.
+v2.4 full chapter-sixteen touch routes passed:1routes,9actual victories.

@@ -31,7 +31,7 @@ export function normalizeAdventure(raw:unknown):AdventureProgress {
   const ids=Array.isArray(saved.completed)?saved.completed.filter((id):id is string=>typeof id==='string'):[];
   // Prerequisites define a valid prefix; unknown/out-of-order flags cannot unlock locations.
   for(const e of orderedDefinitions(c.events,ids))if(ids.includes(e.id)&&eventOpen(progress,e))progress.completed.push(e.id);
-  if(progress.completed.includes(c.events.find(e=>e.kind==='boss')?.id??''))for(const e of c.events.filter(e=>e.kind==='clear'))if(eventOpen(progress,e)&&!progress.completed.includes(e.id))progress.completed.push(e.id);
+  if(!c.explicitClear&&progress.completed.includes(c.events.find(e=>e.kind==='boss')?.id??''))for(const e of c.events.filter(e=>e.kind==='clear'))if(eventOpen(progress,e)&&!progress.completed.includes(e.id))progress.completed.push(e.id);
   if(typeof saved.currentLocationId==='string'&&locationOpen(progress,c,saved.currentLocationId))progress.currentLocationId=saved.currentLocationId;
   state.chapters[c.id]=progress;
  }
@@ -86,7 +86,7 @@ export function resolveAdventureBattle(p:Progress,serial:number,result:'victory'
   if(e.weaponReward&&(p.equipment.inventory[e.weaponReward]??0)<9999)grantWeapon(p.equipment,e.weaponReward);
   p.wins++;xp=encounters[e.encounter!].enemies.reduce((sum,u)=>sum+u.experienceReward,0);
   for(const [id,h] of Object.entries(p.party))levels[id]=gainExperience(h,xp);
-  state.completed.push(e.id);if(e.kind==='boss')for(const clear of c.events.filter(e=>e.kind==='clear'))if(eventOpen(state,clear)&&!state.completed.includes(clear.id))state.completed.push(clear.id);
+  state.completed.push(e.id);if(e.kind==='boss'&&!c.explicitClear)for(const clear of c.events.filter(e=>e.kind==='clear'))if(eventOpen(state,clear)&&!state.completed.includes(clear.id))state.completed.push(clear.id);
  }
  p.adventure.chapters[c.id]=state;p.adventure.resolved=serial;p.adventure.pending=undefined;settleWorld(p,serial,result);
  return {applied:true,xp,levels,cleared:chapterCleared(p.adventure,c)};

@@ -1,0 +1,14 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForFunction: Timeout 30000ms exceeded.
+    at state (/workspace/astra-chronica/tests/map-driver-v15.mjs:2:44)
+    at walkTo (/workspace/astra-chronica/tests/map-driver-v15.mjs:9:211)
+    at async contactSymbol (/workspace/astra-chronica/tests/map-driver-v15.mjs:22:3)
+    at async file:///workspace/astra-chronica/tests/exploration-v20.smoke.mjs:7:1543 {
+  log: [],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

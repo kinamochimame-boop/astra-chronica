@@ -1,0 +1,77 @@
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/chapter-eighteen-v26.test.ts (99 tests) 3036ms
+   ✓ final chapter data and preserved progression > opens only after chapter17 clear and keeps schema2 and original key  488ms
+ ❯ tests/finale-combat-v26.test.ts (54 tests | 1 failed) 3803ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio1 has the declared phase and stable script 1ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.76 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.75 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.46 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.45 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.21 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.2 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > HP ratio0.01 has the declared phase and stable script 0ms
+   ✓ four-phase final battle without changing existing damage formula > echo actually acts with valid resources 6ms
+   ✓ four-phase final battle without changing existing damage formula > eater actually acts with valid resources 1ms
+   ✓ four-phase final battle without changing existing damage formula > executor actually acts with valid resources 2ms
+   ✓ four-phase final battle without changing existing damage formula > keeper actually acts with valid resources 1ms
+   ✓ four-phase final battle without changing existing damage formula > observer actually acts with valid resources 1ms
+   ✓ four-phase final battle without changing existing damage formula > shadow actually acts with valid resources 1ms
+   ✓ four-phase final battle without changing existing damage formula > guardian actually acts with valid resources 1ms
+   ✓ four-phase final battle without changing existing damage formula > astra actually acts with valid resources 1ms
+   ✓ four-phase final battle without changing existing damage formula > final-gate is winnable with previous weapons and no chapter18 nodes 35ms
+   ✓ four-phase final battle without changing existing damage formula > final-memory is winnable with previous weapons and no chapter18 nodes 21ms
+   ✓ four-phase final battle without changing existing damage formula > final-garden is winnable with previous weapons and no chapter18 nodes 18ms
+   ✓ four-phase final battle without changing existing damage formula > final-archive is winnable with previous weapons and no chapter18 nodes 30ms
+   ✓ four-phase final battle without changing existing damage formula > final-hall is winnable with previous weapons and no chapter18 nodes 24ms
+   ✓ four-phase final battle without changing existing damage formula > final-observatory is winnable with previous weapons and no chapter18 nodes 33ms
+   ✓ four-phase final battle without changing existing damage formula > final-guardian is winnable with previous weapons and no chapter18 nodes 53ms
+   ✓ four-phase final battle without changing existing damage formula > final-astra-end is winnable with previous weapons and no chapter18 nodes 51ms
+   ✓ four-phase final battle without changing existing damage formula > seed1 wins every final encounter using chapter16 equipment and no required nodes 203ms
+   ✓ four-phase final battle without changing existing damage formula > seed2 wins every final encounter using chapter16 equipment and no required nodes 171ms
+   ✓ four-phase final battle without changing existing damage formula > seed3 wins every final encounter using chapter16 equipment and no required nodes 210ms
+   ✓ four-phase final battle without changing existing damage formula > seed4 wins every final encounter using chapter16 equipment and no required nodes 154ms
+   ✓ four-phase final battle without changing existing damage formula > seed5 wins every final encounter using chapter16 equipment and no required nodes 154ms
+   ✓ four-phase final battle without changing existing damage formula > seed6 wins every final encounter using chapter16 equipment and no required nodes 140ms
+   ✓ four-phase final battle without changing existing damage formula > seed7 wins every final encounter using chapter16 equipment and no required nodes 158ms
+   ✓ four-phase final battle without changing existing damage formula > seed8 wins every final encounter using chapter16 equipment and no required nodes 252ms
+   ✓ four-phase final battle without changing existing damage formula > seed9 wins every final encounter using chapter16 equipment and no required nodes 235ms
+   ✓ four-phase final battle without changing existing damage formula > seed10 wins every final encounter using chapter16 equipment and no required nodes 172ms
+   ✓ four-phase final battle without changing existing damage formula > seed11 wins every final encounter using chapter16 equipment and no required nodes 165ms
+   ✓ four-phase final battle without changing existing damage formula > seed12 wins every final encounter using chapter16 equipment and no required nodes 141ms
+   ✓ four-phase final battle without changing existing damage formula > seed13 wins every final encounter using chapter16 equipment and no required nodes 221ms
+   ✓ four-phase final battle without changing existing damage formula > seed14 wins every final encounter using chapter16 equipment and no required nodes 139ms
+   ✓ four-phase final battle without changing existing damage formula > seed15 wins every final encounter using chapter16 equipment and no required nodes 130ms
+   ✓ four-phase final battle without changing existing damage formula > seed16 wins every final encounter using chapter16 equipment and no required nodes 151ms
+   ✓ four-phase final battle without changing existing damage formula > seed17 wins every final encounter using chapter16 equipment and no required nodes 132ms
+   ✓ four-phase final battle without changing existing damage formula > seed18 wins every final encounter using chapter16 equipment and no required nodes 109ms
+   ✓ four-phase final battle without changing existing damage formula > seed19 wins every final encounter using chapter16 equipment and no required nodes 162ms
+   ✓ four-phase final battle without changing existing damage formula > seed20 wins every final encounter using chapter16 equipment and no required nodes 190ms
+   ✓ four-phase final battle without changing existing damage formula > sleep cannot erase phase2 reserved power156 when HP enters phase4 5ms
+   ✓ four-phase final battle without changing existing damage formula > freeze cannot erase phase2 reserved power156 when HP enters phase4 4ms
+   × four-phase final battle without changing existing damage formula > phase at0.9 has counterable warning then actual AOE 12ms
+     → the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+   ✓ four-phase final battle without changing existing damage formula > phase at0.6 has counterable warning then actual AOE 4ms
+   ✓ four-phase final battle without changing existing damage formula > phase at0.35 has counterable warning then actual AOE 2ms
+   ✓ four-phase final battle without changing existing damage formula > phase at0.1 has counterable warning then actual AOE 1ms
+   ✓ four-phase final battle without changing existing damage formula > 'starseer-duals' respects owner, stable reload and bounded quantities 25ms
+   ✓ four-phase final battle without changing existing damage formula > 'everward-shield-rapier' respects owner, stable reload and bounded quantities 26ms
+   ✓ four-phase final battle without changing existing damage formula > 'promise-wand' respects owner, stable reload and bounded quantities 17ms
+   ✓ four-phase final battle without changing existing damage formula > final duals produce exactly2 measured hits and wand scales actual magic1.12 and healing1.2 17ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/finale-combat-v26.test.ts > four-phase final battle without changing existing damage formula > phase at0.9 has counterable warning then actual AOE
+AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+ ❯ tests/finale-combat-v26.test.ts:17:251
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 152 passed (153)
+   Start at  07:59:45
+   Duration  12.57s (transform 2.62s, setup 0ms, collect 3.98s, tests 6.84s, environment 1ms, prepare 330ms)
+
