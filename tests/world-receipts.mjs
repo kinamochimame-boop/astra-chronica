@@ -1,3 +1,5 @@
 /** Project only the four known new receipts out of legacy assertions; never hide unknown IDs. */
 export const newChapterOneReceiptIds=new Set(['c1-first-battle-symbol','c1-fork-battle-symbol','c1-guardian-symbol','c1-chest-object']);
-export function legacyWorldIds(ids){return ids.filter(id=>!newChapterOneReceiptIds.has(id))}
+export const newChapterTwoSixReceiptIds=new Set(['c2-market-fight-symbol','c2-potion-chest-object','c2-canal-fight-symbol','c2-keeper-symbol','c2-ether-chest-object','c2-stairs-fight-symbol','c2-sword-chest-object','c2-guardian-symbol','c3-bridge-fight-symbol','c3-mine-fight-symbol','c3-dual-chest-object','c3-warden-symbol','c3-broken-fight-symbol','c3-guardian-symbol','c4-market-fight-symbol','c4-sword-chest-object','c4-canal-fight-symbol','c4-machine-symbol','c4-cathedral-fight-symbol','c4-echoria-symbol','c5-market-fight-symbol','c5-dual-chest-object','c5-dunes-fight-symbol','c5-gardion-symbol','c5-mirror-fight-symbol','c5-zaira-symbol','c6-bridge-fight-symbol','c6-market-fight-symbol','c6-bow-chest-object','c6-canal-fight-symbol','c6-clockguard-symbol','c6-luciel-symbol']);
+export const earlyChapterReceiptIds=new Set([...newChapterOneReceiptIds,...newChapterTwoSixReceiptIds]);
+export function legacyWorldIds(ids){return ids.filter(id=>!earlyChapterReceiptIds.has(id))}

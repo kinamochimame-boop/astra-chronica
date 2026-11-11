@@ -1,2 +1,5 @@
 export const newChapterOneReceiptIds:ReadonlySet<string>;
 export function legacyWorldIds(ids:readonly string[]):string[];
+
+export const newChapterTwoSixReceiptIds:ReadonlySet<string>;
+export const earlyChapterReceiptIds:ReadonlySet<string>;

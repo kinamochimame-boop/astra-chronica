@@ -1,0 +1,1268 @@
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/chapter-sixteen-v24.test.ts (107 tests) 9552ms
+   ✓ chapter sixteen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  763ms
+   ✓ grave enemies and measurable shared combat > seed1 clears both quest routes atLv50 with chapter15 weapons  561ms
+   ✓ grave enemies and measurable shared combat > seed2 clears both quest routes atLv50 with chapter15 weapons  427ms
+   ✓ grave enemies and measurable shared combat > seed3 clears both quest routes atLv50 with chapter15 weapons  303ms
+   ✓ grave enemies and measurable shared combat > seed4 clears both quest routes atLv50 with chapter15 weapons  301ms
+   ✓ grave enemies and measurable shared combat > seed9 clears both quest routes atLv50 with chapter15 weapons  351ms
+   ✓ grave enemies and measurable shared combat > seed11 clears both quest routes atLv50 with chapter15 weapons  383ms
+   ✓ grave enemies and measurable shared combat > seed12 clears both quest routes atLv50 with chapter15 weapons  352ms
+   ✓ grave enemies and measurable shared combat > seed13 clears both quest routes atLv50 with chapter15 weapons  394ms
+   ✓ grave enemies and measurable shared combat > seed14 clears both quest routes atLv50 with chapter15 weapons  812ms
+   ✓ grave enemies and measurable shared combat > seed15 clears both quest routes atLv50 with chapter15 weapons  345ms
+   ✓ grave enemies and measurable shared combat > seed16 clears both quest routes atLv50 with chapter15 weapons  496ms
+   ✓ grave enemies and measurable shared combat > seed17 clears both quest routes atLv50 with chapter15 weapons  343ms
+   ✓ grave enemies and measurable shared combat > seed18 clears both quest routes atLv50 with chapter15 weapons  329ms
+   ✓ grave enemies and measurable shared combat > seed19 clears both quest routes atLv50 with chapter15 weapons  390ms
+   ✓ grave enemies and measurable shared combat > seed20 clears both quest routes atLv50 with chapter15 weapons  342ms
+ ✓ tests/chapter-seventeen-combat-v25.test.ts (50 tests) 4968ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed17 wins all nine encounters without chapter17 gear  777ms
+ ✓ tests/chapter-fifteen-v23.test.ts (102 tests) 8907ms
+   ✓ chapter fifteen progression and immutable choices > all thirty-two important choice combinations clear without mandatory quests or overwritten responses  726ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 1 clears both quest routes from a genuine legacy level 50 without mandatory nodes  313ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 2 clears both quest routes from a genuine legacy level 50 without mandatory nodes  301ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 6 clears both quest routes from a genuine legacy level 50 without mandatory nodes  315ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 12 clears both quest routes from a genuine legacy level 50 without mandatory nodes  300ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 14 clears both quest routes from a genuine legacy level 50 without mandatory nodes  357ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 18 clears both quest routes from a genuine legacy level 50 without mandatory nodes  307ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 19 clears both quest routes from a genuine legacy level 50 without mandatory nodes  895ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 20 clears both quest routes from a genuine legacy level 50 without mandatory nodes  783ms
+ ✓ tests/chapter-fourteen-v22.test.ts (41 tests) 9909ms
+   ✓ chapter fourteen story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced  407ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  4205ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  4856ms
+ ✓ tests/chapter-thirteen-v21.test.ts (39 tests) 4683ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  2117ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1864ms
+ ✓ tests/chapter-ten-v18.test.ts (37 tests) 9460ms
+   ✓ chapter ten story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced  512ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  3580ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  4830ms
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 4197ms
+   ✓ four-phase final battle without changing existing damage formula > final-astra-end is winnable with previous weapons and no chapter18 nodes  419ms
+   ✓ four-phase final battle without changing existing damage formula > seed5 wins every final encounter using chapter16 equipment and no required nodes  334ms
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false
+v1.5 full chapter quests=false: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+v1.5 full chapter quests=true: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds
+v1.5 grove-trail: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds
+v1.5 grove-roots: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+v1.5 grove-sentry: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds
+v1.5 grove-orb: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+v1.5 grove-granguard: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds
+v1.5 grove-seles: 20/20
+
+ ✓ tests/chapter-seven-v15.test.ts (45 tests) 3401ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false  815ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true  1421ms
+ ✓ tests/exploration-v22.test.ts (92 tests) 5145ms
+ ✓ tests/railway-v21.test.ts (21 tests) 1334ms
+ ✓ tests/chapter-eleven-v19.test.ts (38 tests) 5654ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  2405ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  2671ms
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ❯ tests/chapter-six-v14.test.ts (56 tests | 10 failed) 4032ms
+   ✓ chapter six prerequisite fixture isolation > cached prerequisite equals the original five-chapter API setup 63ms
+   ✓ chapter six prerequisite fixture isolation > nested scenario mutations never change another copy or the baseline 2ms
+   ✓ chapter six definitions and safe progression > registers exactly six chapters, 15 fixed locations and 20 nonempty unique events 4ms
+   ✓ chapter six definitions and safe progression > requires chapter five clear and rejects locked chapter, device, choice, quest and combat 34ms
+   ✓ chapter six definitions and safe progression > unlocks all 15 places in order and completes 20 events without optional quests 17ms
+   ✓ chapter six definitions and safe progression > interruption, defeat and superseding retry commit victory XP and counters only once 17ms
+   ✓ chapter six definitions and safe progression > boss weapon cap preserves a valid victory without exceeding inventory or replaying rewards 39ms
+   ✓ chapter six definitions and safe progression > boss receipt grants rod and chapter clear once; reloading does not repeat XP 34ms
+   ✓ shared time conditions, persistence and four clock plates > canal starts stopped and denies event completion, combat and quest APIs 9ms
+   ✓ shared time conditions, persistence and four clock plates > switches both directions before tuning, persists, and blocks unknown, invalid, duplicate or remote operations 21ms
+   × shared time conditions, persistence and four clock plates > collecting a clue then stopping time never rolls back that earned objective on reload 38ms
+     → expected false to be true // Object.is equality
+   ✓ shared time conditions, persistence and four clock plates > normalizes unknown modes, duplicate malformed arrays and locked-device data without touching prior landmarks 15ms
+   ✓ shared time conditions, persistence and four clock plates > normalizes a settled device to progressing and preserves all committed battle/reward flags 12ms
+   ✓ shared time conditions, persistence and four clock plates > clock puzzle uses four states and three hints, blocks correct answers while stopped, then commits once 14ms
+   ✓ shared time conditions, persistence and four clock plates > time restrictions coexist with unchanged chapter-five sandstorms and landmark release 41ms
+   ✓ chrono enemy AI and reserved attacks > wolf acts without mutating its source definition 5ms
+   ✓ chrono enemy AI and reserved attacks > slime acts without mutating its source definition 4ms
+   ✓ chrono enemy AI and reserved attacks > drone acts without mutating its source definition 1ms
+   ✓ chrono enemy AI and reserved attacks > ghost acts without mutating its source definition 1ms
+   ✓ chrono enemy AI and reserved attacks > guard acts without mutating its source definition 1ms
+   ✓ chrono enemy AI and reserved attacks > orb acts without mutating its source definition 1ms
+   ✓ chrono enemy AI and reserved attacks > wolf makes two physical hits; slime casts existing water magic 4ms
+   ✓ chrono enemy AI and reserved attacks > drone charges without a shield and strikes only one target with its stored power 1ms
+   ✓ chrono enemy AI and reserved attacks > ghost applies blindness and speed debuff using existing durations; orb causes silence 3ms
+   ✓ chrono enemy AI and reserved attacks > gear guard defends/counters once and prior freeze prevents reaction 38ms
+   ✓ chrono enemy AI and reserved attacks > Clockguard follows attack / defense+charge / cannon and keeps reservation through freeze 16ms
+   ✓ chrono enemy AI and reserved attacks > Luciel has physical/magic phase one, phase-two guard/evasion and phase-three final bell 10ms
+   ✓ chrono enemy AI and reserved attacks > Luciel illusions do not evade magic and phase-three magic is 74 outside reservations 2ms
+   ✓ chrono enemy AI and reserved attacks > taunt, cover, guard, status infliction and ultimate remain on the existing combat path 3ms
+   ✓ weapons, choices, quests, journal and legacy data > '霜星の弓' grants once with correct category and owner 24ms
+   ✓ weapons, choices, quests, journal and legacy data > '時守の盾突剣' grants once with correct category and owner 44ms
+   ✓ weapons, choices, quests, journal and legacy data > '暁晶のロッド' grants once with correct category and owner 22ms
+   ✓ weapons, choices, quests, journal and legacy data > bow speed, rapier guard and rod MP/magic use existing calculation limits without accumulation 28ms
+   × weapons, choices, quests, journal and legacy data > weapon chest at maximum refuses without consuming its event and can retry 43ms
+     → expected { version: 2, started: false, …(10) } to deeply equal { version: 2, started: false, …(10) }
+   ✓ weapons, choices, quests, journal and legacy data > 'c6-eil-meeting' saves either choice before completion and rejects overwrite after reload 20ms
+   ✓ weapons, choices, quests, journal and legacy data > 'c6-orphen-question' saves either choice before completion and rejects overwrite after reload 18ms
+   ✓ weapons, choices, quests, journal and legacy data > 'c6-rina-judgment' saves either choice before completion and rejects overwrite after reload 13ms
+   ✓ weapons, choices, quests, journal and legacy data > 'c6-final-promise' saves either choice before completion and rejects overwrite after reload 22ms
+   ✓ weapons, choices, quests, journal and legacy data > all 16 option combinations can complete the chapter and retain every old choice  882ms
+   ✓ weapons, choices, quests, journal and legacy data > journal reveals seven articles only on completed events; neither NPC truth nor future records leak 8ms
+   × weapons, choices, quests, journal and legacy data > 'sq-snow-lights' completes before/after clear and never grants twice 7ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and legacy data > 'sq-orphen-parts' completes before/after clear and never grants twice 11ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and legacy data > 'sq-eil-promise' completes before/after clear and never grants twice 7ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and legacy data > potion cap rejects the whole reward and claimed flag, then allows retry 8ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and legacy data > ether cap rejects the whole reward and claimed flag, then allows retry 21ms
+     → expected false to be true // Object.is equality
+   ✓ weapons, choices, quests, journal and legacy data > v1.3 old save loads byte-equivalent fields without invented sixth-chapter state or choices 7ms
+   ✓ weapons, choices, quests, journal and legacy data > unknown/unlocked-false chapter data, choices and time devices are safely dropped 3ms
+   × weapons, choices, quests, journal and legacy data > repeated saves preserve old quest/choice/tree/equipment/items/receipts and exact record denominators 27ms
+     → expected false to be true // Object.is equality
+   ✓ weapons, choices, quests, journal and legacy data > save-free validation still deals 32 and cannot mutate chapter-six states 25ms
+   × fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false 2ms
+     → expected false to be true // Object.is equality
+   × fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true 3ms
+     → expected false to be true // Object.is equality
+   ✓ fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment 157ms
+   ✓ fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment 213ms
+   ✓ fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment  536ms
+   ✓ fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment  555ms
+   ✓ fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment  845ms
+ ✓ tests/chapter-twelve-v20.test.ts (44 tests) 6010ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  2569ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  2773ms
+ ✓ tests/exploration-v21.test.ts (82 tests) 5209ms
+ ✓ tests/chapter-nine-v17.test.ts (45 tests) 4530ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption  2358ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=true, no high-level tree assumption  1474ms
+ ✓ tests/chapter-eight-v16.test.ts (47 tests) 3628ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes  1927ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes  979ms
+ ❯ tests/chapter-five-v13.test.ts (50 tests | 9 failed) 1710ms
+   ✓ chapter five registry, unlocks and receipts > defines 14 exact location IDs and 18 real, unique main events 10ms
+   ✓ chapter five registry, unlocks and receipts > requires chapter four clear and blocks all locked APIs 44ms
+   ✓ chapter five registry, unlocks and receipts > progresses all 14 locations/18 events without quests, retaining chapters one through four 29ms
+   ✓ chapter five registry, unlocks and receipts > defeat, interrupted reload and replacement attempts do not duplicate rewards or EXP 26ms
+   ✓ chapter five registry, unlocks and receipts > '砂星の双剣' is granted once and respects the original fixed weapon categories 29ms
+   ✓ chapter five registry, unlocks and receipts > '王都守護の盾槍' is granted once and respects the original fixed weapon categories 22ms
+   ✓ chapter five registry, unlocks and receipts > '蜃気楼のワンド' is granted once and respects the original fixed weapon categories 22ms
+   × deterministic sandstorm exploration and compass > dunes storm limits combat/quest exploration while the always-available story releases it 25ms
+     → expected false to be true // Object.is equality
+   ✓ deterministic sandstorm exploration and compass > temple storm is released by a local landmark and persists across repeated reloads 25ms
+   ✓ deterministic sandstorm exploration and compass > rejects remote/unknown landmarks and forged legacy weather without losing old data 16ms
+   ✓ deterministic sandstorm exploration and compass > compass has four direction cycles and three increasing hints; wrong/short answers never commit 37ms
+   ✓ deterministic sandstorm exploration and compass > storm restriction also filters forged quest objective completion on load 14ms
+   ✓ sahara enemies, reactions and phased bosses > jackal executes its own combat action from an isolated clone 13ms
+   ✓ sahara enemies, reactions and phased bosses > scorpion executes its own combat action from an isolated clone 12ms
+   ✓ sahara enemies, reactions and phased bosses > spirit executes its own combat action from an isolated clone 13ms
+   ✓ sahara enemies, reactions and phased bosses > soldier executes its own combat action from an isolated clone 10ms
+   ✓ sahara enemies, reactions and phased bosses > orb executes its own combat action from an isolated clone 13ms
+   ✓ sahara enemies, reactions and phased bosses > ghost executes its own combat action from an isolated clone 13ms
+   ✓ sahara enemies, reactions and phased bosses > orb casts real earth magic and silence; ghost applies blind and an expiring attack debuff 15ms
+   ✓ sahara enemies, reactions and phased bosses > scorpion inflicts poison and jackal resolves two actual hits 12ms
+   ✓ sahara enemies, reactions and phased bosses > sand soldier cycles into a visible guard/counter stance and expires next opportunity 12ms
+   ✓ sahara enemies, reactions and phased bosses > physical counter fires once, has real damage/effects, and cannot recurse 12ms
+   ✓ sahara enemies, reactions and phased bosses > counter is blocked by prior sleep even if damage wakes the defender; magic never triggers it 23ms
+   ✓ sahara enemies, reactions and phased bosses > counter killing a dual wielder cancels remaining hits, grants one valid attack/damage star award and never stalls 26ms
+   ✓ sahara enemies, reactions and phased bosses > lethal hits never counter, while a living protector can cover a counter 27ms
+   ✓ sahara enemies, reactions and phased bosses > Gardion guards and reserves its earth cannon through freeze 12ms
+   ✓ sahara enemies, reactions and phased bosses > Zaira keeps phase-two reservation through sleep and phase three, then uses the final spell 13ms
+   ✓ sahara enemies, reactions and phased bosses > Zaira phase illusions dodge physical attacks only and show a badge 12ms
+   ✓ sahara enemies, reactions and phased bosses > normal spells respect taunt, cover, guard and learned ultimates 11ms
+   ✓ sahara enemies, reactions and phased bosses > nested new enemy data is copied per battle rather than shared 0ms
+   ✓ weapons, choices, quests, journal and save compatibility > new dual blades alter speed/order, hit twice but never multiply Fang 16ms
+   ✓ weapons, choices, quests, journal and save compatibility > guard spear and wand use existing limits, MP replacement and magic calculation 17ms
+   ✓ weapons, choices, quests, journal and save compatibility > 'c5-nadia-trust' accepts both choices, saves before event completion and cannot overwrite 26ms
+   ✓ weapons, choices, quests, journal and save compatibility > 'c5-rashid-question' accepts both choices, saves before event completion and cannot overwrite 25ms
+   ✓ weapons, choices, quests, journal and save compatibility > 'c5-rina-judgment' accepts both choices, saves before event completion and cannot overwrite 27ms
+   ✓ weapons, choices, quests, journal and save compatibility > 'c5-final-promise' accepts both choices, saves before event completion and cannot overwrite 32ms
+   × weapons, choices, quests, journal and save compatibility > all 16 dialogue combinations can finish the same main story without lost rewards 10ms
+     → expected false to be true // Object.is equality
+   ✓ weapons, choices, quests, journal and save compatibility > journal opens only reached articles, not chapter-unlocked or future secrets 13ms
+   × weapons, choices, quests, journal and save compatibility > 'sq-lost-caravan' can be accepted on unlock, completed before/after clear and rewards only once 16ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and save compatibility > 'sq-star-sand-fragments' can be accepted on unlock, completed before/after clear and rewards only once 14ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and save compatibility > 'sq-nadia-map' can be accepted on unlock, completed before/after clear and rewards only once 18ms
+     → expected false to be true // Object.is equality
+   × weapons, choices, quests, journal and save compatibility > reward at inventory cap does not partially grant or mark claimed and can retry 18ms
+     → expected false to be true // Object.is equality
+   ✓ weapons, choices, quests, journal and save compatibility > old v1.2 saves retain every established field and acquire no invented choices/landmarks 13ms
+   ✓ weapons, choices, quests, journal and save compatibility > rejects unknown and unearned chapter-five/choice/landmark data without losing earlier content 9ms
+   × weapons, choices, quests, journal and save compatibility > five round trips keep all five chapters, choices, quests, tree, weapons, items and receipts stable 26ms
+     → expected false to be true // Object.is equality
+   ✓ weapons, choices, quests, journal and save compatibility > save-free lab remains a separate 32-damage session and cannot mutate chapter five 25ms
+   × multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false 14ms
+     → expected false to be true // Object.is equality
+   × multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true 14ms
+     → expected false to be true // Object.is equality
+   ✓ multi-seed chapter-five battle balance > chapter-four-cleared starter party can beat sahara-gardion over 20 seeds  378ms
+   ✓ multi-seed chapter-five battle balance > chapter-four-cleared starter party can beat sahara-zaira over 20 seeds  443ms
+ ✓ tests/exploration-v25.test.ts (168 tests) 2558ms
+ ✓ tests/exploration-v20.test.ts (74 tests) 2911ms
+ ✓ tests/exploration-v19.test.ts (61 tests) 2304ms
+ ❯ tests/free-exploration-v28.test.ts (298 tests | 5 failed) 5407ms
+   ✓ v2.8 first six chapters share the walking engine > registers64 new maps after all97 old definitions, preserving18 chapters and85 events 9ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-road' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-town' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-market' has safe entry, real obstacles and reachable event/quest/exit targets 7ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-workshop' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-canal' has safe entry, real obstacles and reachable event/quest/exit targets 6ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-square' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-library' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-stairs' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-clock' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-belfry' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-road' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-entry' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-camp' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-bridge' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-mine' has safe entry, real obstacles and reachable event/quest/exit targets 5ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-watch' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-corridor' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-garden' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-observatory' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-broken' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-altar' has safe entry, real obstacles and reachable event/quest/exit targets 5ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-memory' has safe entry, real obstacles and reachable event/quest/exit targets 6ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-stairs' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-gate' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-square' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-market' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-canal' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-workshop' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-corridor' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-garden' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-library' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-lake' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-cathedral' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-altar' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-chamber' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-entrance' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-caravan' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-gate' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-bazaar' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-fountain' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-observatory' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-palace' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-dunes' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-oasis' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-ruins' has safe entry, real obstacles and reachable event/quest/exit targets 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-compass' has safe entry, real obstacles and reachable event/quest/exit targets 6ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-mirror' has safe entry, real obstacles and reachable event/quest/exit targets 8ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-sanctuary' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-throne' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-pass' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-outpost' has safe entry, real obstacles and reachable event/quest/exit targets 5ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-bridge' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-gate' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-square' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-market' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-workshop' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-canal' has safe entry, real obstacles and reachable event/quest/exit targets 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-library' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-tower' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-garden' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-observatory' has safe entry, real obstacles and reachable event/quest/exit targets 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-corridor' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-sanctuary' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-core' has safe entry, real obstacles and reachable event/quest/exit targets 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-road' touch destinations route around walls and stop on valid ground 6ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-town' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-market' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-workshop' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-canal' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-square' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-library' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-stairs' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-clock' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-belfry' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-road' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-entry' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-camp' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-bridge' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-mine' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-watch' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-corridor' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-garden' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-observatory' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-broken' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-altar' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-memory' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-stairs' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-gate' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-square' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-market' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-canal' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-workshop' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-corridor' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-garden' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-library' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-lake' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-cathedral' touch destinations route around walls and stop on valid ground 5ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-altar' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-chamber' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-entrance' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-caravan' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-gate' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-bazaar' touch destinations route around walls and stop on valid ground 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-fountain' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-observatory' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-palace' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-dunes' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-oasis' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-ruins' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-compass' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-mirror' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-sanctuary' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-throne' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-pass' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-outpost' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-bridge' touch destinations route around walls and stop on valid ground 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-gate' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-square' touch destinations route around walls and stop on valid ground 10ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-market' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-workshop' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-canal' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-library' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-tower' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-garden' touch destinations route around walls and stop on valid ground 5ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-observatory' touch destinations route around walls and stop on valid ground 1ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-corridor' touch destinations route around walls and stop on valid ground 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-sanctuary' touch destinations route around walls and stop on valid ground 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-core' touch destinations route around walls and stop on valid ground 4ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-arrival' requires proximity, then applies the original result only once 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-residents' requires proximity, then applies the original result only once 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-potion-chest' requires proximity, then applies the original result only once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-fragments' requires proximity, then applies the original result only once 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-rest' requires proximity, then applies the original result only once 116ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-shield-gift' requires proximity, then applies the original result only once 206ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-library-clue' requires proximity, then applies the original result only once 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-ether-chest' requires proximity, then applies the original result only once 13ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-clock-story' requires proximity, then applies the original result only once 8ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-sword-chest' requires proximity, then applies the original result only once 16ms
+   × v2.8 first six chapters share the walking engine > 'c2-clear' requires proximity, then applies the original result only once 28ms
+     → expected false to be true // Object.is equality
+   ✓ v2.8 first six chapters share the walking engine > 'c3-arrival' requires proximity, then applies the original result only once 10ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-fio' requires proximity, then applies the original result only once 9ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-rest' requires proximity, then applies the original result only once 8ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-dual-chest' requires proximity, then applies the original result only once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-watch-story' requires proximity, then applies the original result only once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-wind-crystals' requires proximity, then applies the original result only once  529ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-observatory-story' requires proximity, then applies the original result only once  509ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-altar-gift' requires proximity, then applies the original result only once 29ms
+   × v2.8 first six chapters share the walking engine > 'c3-clear' requires proximity, then applies the original result only once 15ms
+     → expected false to be true // Object.is equality
+   ✓ v2.8 first six chapters share the walking engine > 'c4-arrival' requires proximity, then applies the original result only once 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-serena' requires proximity, then applies the original result only once 38ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-silence' requires proximity, then applies the original result only once 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-sword-chest' requires proximity, then applies the original result only once 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-workshop-story' requires proximity, then applies the original result only once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-music-puzzle' requires proximity, then applies the original result only once 13ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-starseer-record' requires proximity, then applies the original result only once 8ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-lake-judgment' requires proximity, then applies the original result only once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-lake-rest' requires proximity, then applies the original result only once 40ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-shield-gift' requires proximity, then applies the original result only once 25ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-final-promise' requires proximity, then applies the original result only once 112ms
+   × v2.8 first six chapters share the walking engine > 'c4-clear' requires proximity, then applies the original result only once 22ms
+     → expected false to be true // Object.is equality
+   ✓ v2.8 first six chapters share the walking engine > 'c5-arrival' requires proximity, then applies the original result only once 12ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-nadia' requires proximity, then applies the original result only once 161ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-gate-story' requires proximity, then applies the original result only once 13ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-dual-chest' requires proximity, then applies the original result only once 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-fountain-story' requires proximity, then applies the original result only once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-rashid' requires proximity, then applies the original result only once 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-palace-judgment' requires proximity, then applies the original result only once 13ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-dunes-sign' requires proximity, then applies the original result only once 31ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-oasis-rest' requires proximity, then applies the original result only once 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-compass-puzzle' requires proximity, then applies the original result only once 30ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-shield-gift' requires proximity, then applies the original result only once 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-final-promise' requires proximity, then applies the original result only once 53ms
+   × v2.8 first six chapters share the walking engine > 'c5-clear' requires proximity, then applies the original result only once 43ms
+     → expected false to be true // Object.is equality
+   ✓ v2.8 first six chapters share the walking engine > 'c6-arrival' requires proximity, then applies the original result only once 27ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-eil' requires proximity, then applies the original result only once 113ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-gate-story' requires proximity, then applies the original result only once 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-loop-story' requires proximity, then applies the original result only once 27ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-bow-chest' requires proximity, then applies the original result only once 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-orphen' requires proximity, then applies the original result only once 46ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-canal-tune' requires proximity, then applies the original result only once 52ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-record' requires proximity, then applies the original result only once 30ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-garden-rest' requires proximity, then applies the original result only once 34ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-rina-judgment' requires proximity, then applies the original result only once 22ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-shield-gift' requires proximity, then applies the original result only once 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-clock-puzzle' requires proximity, then applies the original result only once 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-luciel-truth' requires proximity, then applies the original result only once 213ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-final-promise' requires proximity, then applies the original result only once 40ms
+   × v2.8 first six chapters share the walking engine > 'c6-clear' requires proximity, then applies the original result only once 21ms
+     → expected false to be true // Object.is equality
+   ✓ v2.8 first six chapters share the walking engine > 'c2-market-fight' validates contact, recovers interruption, returns after defeat and rewards once 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-canal-fight' validates contact, recovers interruption, returns after defeat and rewards once 12ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-keeper' validates contact, recovers interruption, returns after defeat and rewards once 8ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-stairs-fight' validates contact, recovers interruption, returns after defeat and rewards once 9ms
+   ✓ v2.8 first six chapters share the walking engine > 'c2-guardian' validates contact, recovers interruption, returns after defeat and rewards once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-bridge-fight' validates contact, recovers interruption, returns after defeat and rewards once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-mine-fight' validates contact, recovers interruption, returns after defeat and rewards once 9ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-warden' validates contact, recovers interruption, returns after defeat and rewards once 7ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-broken-fight' validates contact, recovers interruption, returns after defeat and rewards once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c3-guardian' validates contact, recovers interruption, returns after defeat and rewards once 9ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-market-fight' validates contact, recovers interruption, returns after defeat and rewards once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-canal-fight' validates contact, recovers interruption, returns after defeat and rewards once 12ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-machine' validates contact, recovers interruption, returns after defeat and rewards once 34ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-cathedral-fight' validates contact, recovers interruption, returns after defeat and rewards once 13ms
+   ✓ v2.8 first six chapters share the walking engine > 'c4-echoria' validates contact, recovers interruption, returns after defeat and rewards once 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-market-fight' validates contact, recovers interruption, returns after defeat and rewards once 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-dunes-fight' validates contact, recovers interruption, returns after defeat and rewards once 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-gardion' validates contact, recovers interruption, returns after defeat and rewards once 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-mirror-fight' validates contact, recovers interruption, returns after defeat and rewards once 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'c5-zaira' validates contact, recovers interruption, returns after defeat and rewards once 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-bridge-fight' validates contact, recovers interruption, returns after defeat and rewards once 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-market-fight' validates contact, recovers interruption, returns after defeat and rewards once 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-canal-fight' validates contact, recovers interruption, returns after defeat and rewards once 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-clockguard' validates contact, recovers interruption, returns after defeat and rewards once 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'c6-luciel' validates contact, recovers interruption, returns after defeat and rewards once 25ms
+   ✓ v2.8 first six chapters share the walking engine > 'chapter-02' exits cannot skip unfinished location events 2ms
+   ✓ v2.8 first six chapters share the walking engine > 'chapter-03' exits cannot skip unfinished location events 3ms
+   ✓ v2.8 first six chapters share the walking engine > 'chapter-04' exits cannot skip unfinished location events 7ms
+   ✓ v2.8 first six chapters share the walking engine > 'chapter-05' exits cannot skip unfinished location events 8ms
+   ✓ v2.8 first six chapters share the walking engine > 'chapter-06' exits cannot skip unfinished location events 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-road' restores old no-world saves at the current location without changing persistent progress 34ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-town' restores old no-world saves at the current location without changing persistent progress 23ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-market' restores old no-world saves at the current location without changing persistent progress 19ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-workshop' restores old no-world saves at the current location without changing persistent progress 21ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-canal' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-square' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-library' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-stairs' restores old no-world saves at the current location without changing persistent progress 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-clock' restores old no-world saves at the current location without changing persistent progress 31ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c2-belfry' restores old no-world saves at the current location without changing persistent progress 21ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-road' restores old no-world saves at the current location without changing persistent progress 23ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-entry' restores old no-world saves at the current location without changing persistent progress 24ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-camp' restores old no-world saves at the current location without changing persistent progress 19ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-bridge' restores old no-world saves at the current location without changing persistent progress 27ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-mine' restores old no-world saves at the current location without changing persistent progress 23ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-watch' restores old no-world saves at the current location without changing persistent progress 21ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-corridor' restores old no-world saves at the current location without changing persistent progress 25ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-garden' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-observatory' restores old no-world saves at the current location without changing persistent progress 27ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-broken' restores old no-world saves at the current location without changing persistent progress 95ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-altar' restores old no-world saves at the current location without changing persistent progress 30ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c3-memory' restores old no-world saves at the current location without changing persistent progress 30ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-stairs' restores old no-world saves at the current location without changing persistent progress 25ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-gate' restores old no-world saves at the current location without changing persistent progress 26ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-square' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-market' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-canal' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-workshop' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-corridor' restores old no-world saves at the current location without changing persistent progress 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-garden' restores old no-world saves at the current location without changing persistent progress 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-library' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-lake' restores old no-world saves at the current location without changing persistent progress 19ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-cathedral' restores old no-world saves at the current location without changing persistent progress 19ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-altar' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c4-chamber' restores old no-world saves at the current location without changing persistent progress 22ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-entrance' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-caravan' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-gate' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-bazaar' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-fountain' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-observatory' restores old no-world saves at the current location without changing persistent progress 21ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-palace' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-dunes' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-oasis' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-ruins' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-compass' restores old no-world saves at the current location without changing persistent progress 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-mirror' restores old no-world saves at the current location without changing persistent progress 35ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-sanctuary' restores old no-world saves at the current location without changing persistent progress 25ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c5-throne' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-pass' restores old no-world saves at the current location without changing persistent progress 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-outpost' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-bridge' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-gate' restores old no-world saves at the current location without changing persistent progress 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-square' restores old no-world saves at the current location without changing persistent progress 20ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-market' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-workshop' restores old no-world saves at the current location without changing persistent progress 19ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-canal' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-library' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-tower' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-garden' restores old no-world saves at the current location without changing persistent progress 21ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-observatory' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-corridor' restores old no-world saves at the current location without changing persistent progress 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-sanctuary' restores old no-world saves at the current location without changing persistent progress 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-core' restores old no-world saves at the current location without changing persistent progress 18ms
+   ✓ v2.8 first six chapters share the walking engine > keeps compass storm blocked until the existing landmark is discovered 14ms
+   ✓ v2.8 first six chapters share the walking engine > c6-canal-tune retains stopped/flowing restrictions and settled save state 15ms
+   ✓ v2.8 first six chapters share the walking engine > c6-clock-puzzle retains stopped/flowing restrictions and settled save state 18ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-windvane' requires real proximity for every existing objective and keeps reward idempotent 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-fio-keepsake' requires real proximity for every existing objective and keeps reward idempotent 10ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-sky-fragments' requires real proximity for every existing objective and keeps reward idempotent 17ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-crystal-lamp' requires real proximity for every existing objective and keeps reward idempotent 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-serena-letter' requires real proximity for every existing objective and keeps reward idempotent 12ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-lake-stones' requires real proximity for every existing objective and keeps reward idempotent 11ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-lost-caravan' requires real proximity for every existing objective and keeps reward idempotent 15ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-star-sand-fragments' requires real proximity for every existing objective and keeps reward idempotent 13ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-nadia-map' requires real proximity for every existing objective and keeps reward idempotent 16ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-snow-lights' requires real proximity for every existing objective and keeps reward idempotent 12ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-orphen-parts' requires real proximity for every existing objective and keeps reward idempotent 14ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-eil-promise' requires real proximity for every existing objective and keeps reward idempotent 14ms
+ ✓ tests/exploration-v24.test.ts (114 tests) 2515ms
+   ✓ 74 connected maps use the same effective grid and save rules > 'grave-sanctuary' in 'connected' matches collision/path/save/minimap and keeps safety lane  363ms
+ ✓ tests/exploration-v18.test.ts (58 tests) 2646ms
+ ❯ tests/chapter-three-v11.test.ts (46 tests | 9 failed) 1865ms
+   ✓ chapter-three registration and progression > registers 12 ordered locations and keeps Fio an NPC in the fixed three-hero party 11ms
+   ✓ chapter-three registration and progression > opens only after chapter two clear and rejects locked APIs 27ms
+   ✓ chapter-three registration and progression > visits all 12 in sequence and clears without accepting any quest 26ms
+   ✓ chapter-three registration and progression > supports a failed battle, interrupted attempt and exactly one replacement reward 17ms
+   ✓ chapter-three registration and progression > rotation puzzle rejects wrong/short answers, permits retry and persists solved state 14ms
+   ✓ chapter-three registration and progression > '風裂きの双剣' is acquired once and equipped by its original role 20ms
+   ✓ chapter-three registration and progression > '天守の盾槍' is acquired once and equipped by its original role 14ms
+   ✓ chapter-three registration and progression > '星風のワンド' is acquired once and equipped by its original role 16ms
+   ✓ six enemy behaviors and boss telegraphs > lizard participates in a real independent battle clone 12ms
+   ✓ six enemy behaviors and boss telegraphs > golem participates in a real independent battle clone 8ms
+   ✓ six enemy behaviors and boss telegraphs > wisp participates in a real independent battle clone 8ms
+   ✓ six enemy behaviors and boss telegraphs > bird participates in a real independent battle clone 6ms
+   ✓ six enemy behaviors and boss telegraphs > slime participates in a real independent battle clone 10ms
+   ✓ six enemy behaviors and boss telegraphs > soldier participates in a real independent battle clone 5ms
+   ✓ six enemy behaviors and boss telegraphs > lizard evasion affects physical only, each hit uses actual events 8ms
+   ✓ six enemy behaviors and boss telegraphs > wind attacks use existing wind affinity 10ms
+   ✓ six enemy behaviors and boss telegraphs > bird resolves two half-scale hits, wakes sleep once and grants damage star per hit 7ms
+   ✓ six enemy behaviors and boss telegraphs > bird stops remaining hits on defeat and never switches targets 8ms
+   ✓ six enemy behaviors and boss telegraphs > soldier telegraphs its heavy attack and retains it across sleep 12ms
+   ✓ six enemy behaviors and boss telegraphs > warden uses guard+charge → heavy/open → recovery, distinct from city keeper 11ms
+   ✓ six enemy behaviors and boss telegraphs > sky boss has three phases and honors the originally reserved attack after phase change/skips 6ms
+   ✓ six enemy behaviors and boss telegraphs > new dual blades keep normal attacks at two hits and star gain once 11ms
+   ✓ six enemy behaviors and boss telegraphs > shield spear improves cover and the wand improves elemental magic 11ms
+   ✓ optional side quests and atomic rewards > all three are locked before chapter three opens 1ms
+   ✓ optional side quests and atomic rewards > 'sq-windvane' can be accepted before main completion and survives reload 6ms
+   ✓ optional side quests and atomic rewards > 'sq-fio-keepsake' can be accepted before main completion and survives reload 11ms
+   ✓ optional side quests and atomic rewards > 'sq-sky-fragments' can be accepted before main completion and survives reload 7ms
+   × optional side quests and atomic rewards > rejects locked/remote/duplicate collection and honors objective dependencies 24ms
+     → expected false to be true // Object.is equality
+   × optional side quests and atomic rewards > 'sq-windvane' remains completable after chapter clear and rewards once 15ms
+     → expected false to be true // Object.is equality
+   × optional side quests and atomic rewards > 'sq-fio-keepsake' remains completable after chapter clear and rewards once 14ms
+     → expected false to be true // Object.is equality
+   × optional side quests and atomic rewards > 'sq-sky-fragments' remains completable after chapter clear and rewards once 16ms
+     → expected false to be true // Object.is equality
+   × optional side quests and atomic rewards > failed reward receipt leaves all progress and inventory unchanged, then retries safely 10ms
+     → expected false to be true // Object.is equality
+   × optional side quests and atomic rewards > quest EXP grows levels/SP without adding battles or duplicating payouts 13ms
+     → expected false to be true // Object.is equality
+   ✓ optional side quests and atomic rewards > normalizes unknown, unaccepted, unearned or dependency-invalid quest flags 12ms
+   × exploration records and save compatibility > counts actual locations/main events/quests once; treasure and boss are subsets 16ms
+     → expected false to be true // Object.is equality
+   ✓ exploration records and save compatibility > old partial visits are explicitly unknown rather than falsely unvisited 1ms
+   ✓ exploration records and save compatibility > tracks new visits and preserves partial legacy coverage on future visits 8ms
+   ✓ exploration records and save compatibility > loads old v1 without losing chapter one/two, gear, items or growth 9ms
+   ✓ exploration records and save compatibility > loads old v2 without losing chapter one/two, gear, items or growth 13ms
+   ✓ exploration records and save compatibility > round-trips three chapters, partial quests, exploration, equipment/tree and receipts 16ms
+   ✓ exploration records and save compatibility > rejects forged chapter-three unlock and corrupted visits while retaining other data 5ms
+   × exploration records and save compatibility > lab cannot mutate quests, items, records, growth or tree 19ms
+     → expected false to be true // Object.is equality
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = false  785ms
+   × chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true 22ms
+     → expected false to be true // Object.is equality
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-warden over 20 seeds 207ms
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-sky over 20 seeds  355ms
+stdout | tests/final-integration-v26.test.ts > fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+Fresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 1759ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  1692ms
+ ❯ tests/chapter-four-v12.test.ts (43 tests | 7 failed) 4333ms
+   ✓ chapter four data and sequential adventure > registers chapter four in the growing registry, with 13 locations and 17 unique main events 5ms
+   ✓ chapter four data and sequential adventure > requires chapter three clear and refuses locked chapter/location/choice/battle 36ms
+   ✓ chapter four data and sequential adventure > completes all places without optional quests and preserves earlier progress 33ms
+   ✓ chapter four data and sequential adventure > defeat, reload and a superseding retry award exactly one victory 25ms
+   ✓ chapter four data and sequential adventure > music puzzle uses four visible cyclic states, validates exact order and survives reload 26ms
+   ✓ chapter four data and sequential adventure > '晶刃の剣' granted once with correct category and equipment restriction 34ms
+   ✓ chapter four data and sequential adventure > '共鳴の盾槌' granted once with correct category and equipment restriction 36ms
+   ✓ chapter four data and sequential adventure > '月晶のロッド' granted once with correct category and equipment restriction 24ms
+   ✓ immutable dialogue records and spoiler-safe journal > 'c4-first-meeting' accepts both safe paths independently and never overwrites a saved choice 74ms
+   ✓ immutable dialogue records and spoiler-safe journal > 'c4-mei-reading' accepts both safe paths independently and never overwrites a saved choice 36ms
+   ✓ immutable dialogue records and spoiler-safe journal > 'c4-rina-judgment' accepts both safe paths independently and never overwrites a saved choice 37ms
+   ✓ immutable dialogue records and spoiler-safe journal > 'c4-last-promise' accepts both safe paths independently and never overwrites a saved choice 33ms
+   ✓ immutable dialogue records and spoiler-safe journal > drops invalid, unknown and prematurely injected choices without discarding unrelated progress 18ms
+   ✓ immutable dialogue records and spoiler-safe journal > does not infer any journal story, NPC or choices from chapter unlock or current place 20ms
+   ✓ immutable dialogue records and spoiler-safe journal > journal entries refer to real events in all four chapters 11ms
+   ✓ crystal enemies and actual damage effects > bat is independently cloned and can act in combat 19ms
+   ✓ crystal enemies and actual damage effects > beetle is independently cloned and can act in combat 13ms
+   ✓ crystal enemies and actual damage effects > wisp is independently cloned and can act in combat 12ms
+   ✓ crystal enemies and actual damage effects > hound is independently cloned and can act in combat 13ms
+   ✓ crystal enemies and actual damage effects > golem is independently cloned and can act in combat 14ms
+   ✓ crystal enemies and actual damage effects > shadow is independently cloned and can act in combat 12ms
+   ✓ crystal enemies and actual damage effects > wisp uses real light magic rather than a renamed physical attack 14ms
+   ✓ crystal enemies and actual damage effects > machine cycles normal → guard+reserve → magic heavy, keeping the reservation over sleep 13ms
+   ✓ crystal enemies and actual damage effects > Echoria uses physical/magic, phase-two song, and phase-three finale without replacing pending attacks 14ms
+   ✓ crystal enemies and actual damage effects > song inflicts existing sleep/silence and defense reduces its measured damage 19ms
+   ✓ crystal enemies and actual damage effects > sword critical rate applies and remains capped through actual damage 123ms
+   ✓ crystal enemies and actual damage effects > shield flail strengthens guard only, and rod MP is replaced rather than stacked  393ms
+   ✓ additional crystal equipment and status regressions > shadow actually inflicts the existing two statuses 62ms
+   ✓ additional crystal equipment and status regressions > moon rod increases real spell power and available MP without changing skill cost 33ms
+   ✓ additional crystal equipment and status regressions > shield weapon does not alter the common defense command  327ms
+   ✓ chapter four optional quests and old saves > adds three quests without removing chapter-three quests 13ms
+   × chapter four optional quests and old saves > 'sq-crystal-lamp' works before clear, after clear and only rewards once 33ms
+     → expected false to be true // Object.is equality
+   × chapter four optional quests and old saves > 'sq-serena-letter' works before clear, after clear and only rewards once 19ms
+     → expected false to be true // Object.is equality
+   × chapter four optional quests and old saves > 'sq-lake-stones' works before clear, after clear and only rewards once 19ms
+     → expected false to be true // Object.is equality
+   × chapter four optional quests and old saves > full inventory prevents partial rewards and claimed flag; a later retry succeeds 20ms
+     → expected false to be true // Object.is equality
+   ✓ chapter four optional quests and old saves > legacy migration does not invent choices or journal entries, retains quests, tree, equipment, items and records 15ms
+   × chapter four optional quests and old saves > round trips choices and all new progress repeatedly without adding rewards 22ms
+     → expected false to be true // Object.is equality
+   ✓ chapter four optional quests and old saves > ignores a forged chapter-four clear and choices while preserving earlier data 11ms
+   ✓ chapter four optional quests and old saves > save-free lab cannot mutate choices or journal and preserves its original 32 attack 150ms
+   × chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false 334ms
+     → expected false to be true // Object.is equality
+   × chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true 24ms
+     → expected false to be true // Object.is equality
+   ✓ chapter four deterministic multi-seed balance > chapter-three-cleared starter party can beat crystal-machine over 20 seeds  827ms
+   ✓ chapter four deterministic multi-seed balance > chapter-three-cleared starter party can beat crystal-echoria over 20 seeds  1273ms
+ ✓ tests/exploration-v26.test.ts (344 tests) 2245ms
+ ✓ tests/transit-v22.test.ts (28 tests) 4184ms
+   ✓ shared transit / ark control > has no terminal before story restoration and only reached destinations after restoration  340ms
+   ✓ shared transit / ark control > ark-gateway uses the registered entry and commits once  303ms
+ ✓ tests/exploration-v23.test.ts (103 tests) 1167ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 1525ms
+ ✓ tests/chapter-seventeen-v25.test.ts (66 tests) 2417ms
+   ✓ chapter seventeen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  1469ms
+ ❯ tests/chapter-two-v10.test.ts (29 tests | 1 failed) 1466ms
+   ✓ chapter two data, unlocks, puzzle and rewards > registers 10 locations, 16 events, four residents and exactly three treasures 6ms
+   ✓ chapter two data, unlocks, puzzle and rewards > blocks chapter two through UI-independent APIs until chapter one clears 13ms
+   ✓ chapter two data, unlocks, puzzle and rewards > unlocks each location in order without clearing chapter one state 21ms
+   × chapter two data, unlocks, puzzle and rewards > rejects locked locations and incorrect/missing puzzle answers without a flag or reward 50ms
+     → expected { version: 2, started: false, …(10) } to deeply equal { version: 2, started: false, …(10) }
+   ✓ chapter two data, unlocks, puzzle and rewards > persists solved puzzle and prevents re-completion after reload 15ms
+   ✓ chapter two data, unlocks, puzzle and rewards > grants potion/ether/sword treasures only once across revisits and reload 29ms
+   ✓ chapter two data, unlocks, puzzle and rewards > awards and equips '星鉄の剣' using original family restrictions 27ms
+   ✓ chapter two data, unlocks, puzzle and rewards > awards and equips '灰守りの槍盾' using original family restrictions 13ms
+   ✓ chapter two data, unlocks, puzzle and rewards > awards and equips '灯火のロッド' using original family restrictions 9ms
+   ✓ chapter two data, unlocks, puzzle and rewards > midboss is not chapter clear, defeat is retryable, and final boss rewards are idempotent 13ms
+   ✓ chapter two data, unlocks, puzzle and rewards > rest respects full HP/MP battle starts without changing growth or items 8ms
+   ✓ minimal consumable battle actions > normalizes bad counts safely and validates capped item grants 2ms
+   ✓ minimal consumable battle actions > does not offer items without stock or allow full/dead/invalid targets 8ms
+   ✓ minimal consumable battle actions > HP item heals exactly 100, caps at max, uses one turn and no star or MP 9ms
+   ✓ minimal consumable battle actions > MP item restores at most 30 and actual events identify MP, not HP 13ms
+   ✓ minimal consumable battle actions > allows items while silenced but not asleep and snapshots inventory independently 17ms
+   ✓ enemies, guard timing and telegraphed phases > has four differentiated normal enemies and independent cloned encounters 5ms
+   ✓ enemies, guard timing and telegraphed phases > can inflict darkness using the normal attack payload 19ms
+   ✓ enemies, guard timing and telegraphed phases > keeper closes its shield every third-action cycle and clears it on its next opportunity 4ms
+   ✓ enemies, guard timing and telegraphed phases > boss changes all three phases and every major attack matches a preceding warning 10ms
+   ✓ enemies, guard timing and telegraphed phases > sleep skips do not consume a warned attack and taunt/guard still apply 10ms
+   ✓ enemies, guard timing and telegraphed phases > chapter two includes equipment and tree damage while keeping the lab untouched 24ms
+   ✓ chapter saves and repeated result safety > migrates old schema 1 and retains v0.9 data independently 24ms
+   ✓ chapter saves and repeated result safety > migrates old schema 2 and retains v0.9 data independently 26ms
+   ✓ chapter saves and repeated result safety > keeps separate chapters, puzzle, items, weapons and clear state over repeated round trips 40ms
+   ✓ chapter saves and repeated result safety > drops forged chapter two progress before chapter one clear, without losing growth/tree/gear 1ms
+   ✓ chapter saves and repeated result safety > normalizes bad item counts and unknown puzzle/event flags without stopping app 16ms
+   ✓ deterministic chapter balance > completes the full chapter over 20 seeds with no high-level tree investment  628ms
+   ✓ deterministic chapter balance > lets a fresh chapter-one-cleared party beat each boss over 20 seeds  398ms
+ ✓ tests/skills-v06.test.ts (45 tests) 2096ms
+   ✓ new skill battle simulations > completes level 3 battles across fixed seeds without invalid resources  889ms
+   ✓ new skill battle simulations > completes level 5 battles across fixed seeds without invalid resources  331ms
+ ✓ tests/exploration-v17.test.ts (29 tests) 932ms
+ ❯ tests/exploration-v15.test.ts (33 tests | 1 failed) 1348ms
+   ✓ real maps, collision and movement > defines three connected full-size maps with reachable objects and enemies 23ms
+   ✓ real maps, collision and movement > A* detours around a building without corner cutting or wall penetration 5ms
+   ✓ real maps, collision and movement > rejects water, outside bounds, NaN and Infinity and stops a previous route safely 9ms
+   ✓ real maps, collision and movement > updates destination during movement and is independent of normal frame rate 14ms
+   ✓ real maps, collision and movement > camera follows and clamps at all edges for four viewport widths 6ms
+   ✓ real maps, collision and movement > pausing stops movement, enemy AI and new contacts; large background gaps cannot teleport 2ms
+   ✓ enemy entities and contact latch > waiting, patrol and chase modes are represented by real symbols 0ms
+   ✓ enemy entities and contact latch > patrol moves through waypoints without leaving its leash or crossing obstacles 76ms
+   ✓ enemy entities and contact latch > chase routes around walls and returns when the player leaves its range 17ms
+   ✓ enemy entities and contact latch > offscreen symbols are not continuously simulated and defeated ones cannot start combat 1ms
+   ✓ enemy entities and contact latch > contact starts only once and rejects movement until a new map session 0ms
+   ✓ enemy entities and contact latch > substeps low-frame-rate movement so a patrol and hero cannot pass through each other 0ms
+   ✓ enemy entities and contact latch > inactive symbols never block a route or trigger a battle 0ms
+   ✓ formal map events and exactly-once battle transition > rejects maps before chapter unlock and exits before their location prerequisites 50ms
+   ✓ formal map events and exactly-once battle transition > NPC and choices need actual proximity, not only a location selection 38ms
+   ✓ formal map events and exactly-once battle transition > ordinary battle API cannot bypass the symbol and duplicate contact cannot allocate a second serial 46ms
+   ✓ formal map events and exactly-once battle transition > rejects forged contacts with the wrong map, enemy, distance, wall or nonfinite position 38ms
+   ✓ formal map events and exactly-once battle transition > victory settles once and restores a safe map pose 32ms
+   ✓ formal map events and exactly-once battle transition > defeat settles once and restores a safe map pose 27ms
+   ✓ formal map events and exactly-once battle transition > reload during combat abandons only the unconfirmed map receipt without granting or counting a result 33ms
+   ✓ formal map events and exactly-once battle transition > nearby map objectives use the existing quest API and cannot be collected remotely 33ms
+   ✓ formal map events and exactly-once battle transition > chest rewards derive opened state from the same event and cannot be repeated through either UI 28ms
+   × world save migration and normalization > old six-chapter progress gains no invented world state and enters the camp at its valid default 82ms
+     → expected { version: 2, started: false, …(10) } to deeply equal { version: 2, started: false, …(9) }
+   ✓ world save migration and normalization > normalizes invalid map/pose 'unknown' 50 without damaging six chapters 41ms
+   ✓ world save migration and normalization > normalizes invalid map/pose 'grove-camp' NaN without damaging six chapters 37ms
+   ✓ world save migration and normalization > normalizes invalid map/pose 'grove-camp' Infinity without damaging six chapters 40ms
+   ✓ world save migration and normalization > normalizes invalid map/pose 'grove-camp' -500 without damaging six chapters 21ms
+   ✓ world save migration and normalization > normalizes invalid map/pose 'grove-camp' 256 without damaging six chapters  322ms
+   ✓ world save migration and normalization > rejects locked chapter-seven map and falls back to the unlocked chapter-one entrance 8ms
+   ✓ world save migration and normalization > preserves a valid pose and bounded dialogue page, filtering unknown or impossible pages 84ms
+   ✓ world save migration and normalization > respawning patrol/chase symbols cannot overlap a saved hero after reload 57ms
+   ✓ world save migration and normalization > reentering after an external menu or chapter switch cannot spawn an enemy on the hero 17ms
+   ✓ world save migration and normalization > five round trips retain coordinates, defeat/chest receipts, gear, tree, quests and old chapter state 48ms
+ ✓ tests/skill-tree-v09.test.ts (112 tests) 182ms
+ ✓ tests/adventure-v08.test.ts (39 tests) 267ms
+ ✓ tests/free-exploration-v27.test.ts (41 tests) 196ms
+ ✓ tests/battle.test.ts (15 tests) 114ms
+ ✓ tests/equipment-v07.test.ts (67 tests) 72ms
+ ✓ tests/lab-v04.test.ts (21 tests) 54ms
+ ✓ tests/foundation.test.ts (30 tests) 71ms
+ ✓ tests/battle-presentation.test.ts (16 tests) 15ms
+ ✓ tests/attack-modifier.test.ts (5 tests) 22ms
+ ✓ tests/map-driver-v25.test.ts (5 tests) 5ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 42 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/chapter-five-v13.test.ts > deterministic sandstorm exploration and compass > dunes storm limits combat/quest exploration while the always-available story releases it
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-five-v13.test.ts:52:853
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/42]⎯
+
+ FAIL  tests/chapter-five-v13.test.ts > weapons, choices, quests, journal and save compatibility > all 16 dialogue combinations can finish the same main story without lost rewards
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-five-v13.test.ts:77:475
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/42]⎯
+
+ FAIL  tests/chapter-five-v13.test.ts > weapons, choices, quests, journal and save compatibility > 'sq-lost-caravan' can be accepted on unlock, completed before/after clear and rewards only once
+ FAIL  tests/chapter-five-v13.test.ts > weapons, choices, quests, journal and save compatibility > 'sq-star-sand-fragments' can be accepted on unlock, completed before/after clear and rewards only once
+ FAIL  tests/chapter-five-v13.test.ts > weapons, choices, quests, journal and save compatibility > 'sq-nadia-map' can be accepted on unlock, completed before/after clear and rewards only once
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-five-v13.test.ts:79:400
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/42]⎯
+
+ FAIL  tests/chapter-five-v13.test.ts > weapons, choices, quests, journal and save compatibility > reward at inventory cap does not partially grant or mark claimed and can retry
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-five-v13.test.ts:80:492
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/42]⎯
+
+ FAIL  tests/chapter-five-v13.test.ts > weapons, choices, quests, journal and save compatibility > five round trips keep all five chapters, choices, quests, tree, weapons, items and receipts stable
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-five-v13.test.ts:33:247
+
+ ❯ tests/chapter-five-v13.test.ts:83:165
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/42]⎯
+
+ FAIL  tests/chapter-five-v13.test.ts > multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false
+ FAIL  tests/chapter-five-v13.test.ts > multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-five-v13.test.ts:87:939
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/42]⎯
+
+ FAIL  tests/chapter-four-v12.test.ts > chapter four optional quests and old saves > 'sq-crystal-lamp' works before clear, after clear and only rewards once
+ FAIL  tests/chapter-four-v12.test.ts > chapter four optional quests and old saves > 'sq-serena-letter' works before clear, after clear and only rewards once
+ FAIL  tests/chapter-four-v12.test.ts > chapter four optional quests and old saves > 'sq-lake-stones' works before clear, after clear and only rewards once
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-four-v12.test.ts:30:247
+
+ ❯ tests/chapter-four-v12.test.ts:71:185
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/42]⎯
+
+ FAIL  tests/chapter-four-v12.test.ts > chapter four optional quests and old saves > full inventory prevents partial rewards and claimed flag; a later retry succeeds
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-four-v12.test.ts:72:509
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/42]⎯
+
+ FAIL  tests/chapter-four-v12.test.ts > chapter four optional quests and old saves > round trips choices and all new progress repeatedly without adding rewards
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-four-v12.test.ts:30:247
+
+ ❯ tests/chapter-four-v12.test.ts:74:156
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/42]⎯
+
+ FAIL  tests/chapter-four-v12.test.ts > chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false
+ FAIL  tests/chapter-four-v12.test.ts > chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-four-v12.test.ts:79:881
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/42]⎯
+
+ FAIL  tests/chapter-six-v14.test.ts > shared time conditions, persistence and four clock plates > collecting a clue then stopping time never rolls back that earned objective on reload
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-six-v14.test.ts:63:334
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/42]⎯
+
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > weapon chest at maximum refuses without consuming its event and can retry
+AssertionError: expected { version: 2, started: false, …(10) } to deeply equal { version: 2, started: false, …(10) }
+
+- Expected
++ Received
+
+@@ -317,23 +317,10 @@
+        "c2-sword-chest-object",
+        "c3-dual-chest-object",
+        "c4-sword-chest-object",
+        "c5-dual-chest-object",
+      ],
+-     "returnInfo": {
+-       "chapterId": "chapter-06",
+-       "encounterId": "chrono-market",
+-       "eventId": "c6-market-fight",
+-       "mapId": "walk-c6-market",
+-       "outcome": "victory",
+-       "pose": {
+-         "facing": "right",
+-         "x": 400,
+-         "y": 304,
+-       },
+-       "serial": 25,
+-       "symbolId": "c6-market-fight-symbol",
+-     },
+-     "x": 112,
+-     "y": 304,
++     "returnInfo": undefined,
++     "x": 208,
++     "y": 240,
+    },
+  }
+
+ ❯ tests/chapter-six-v14.test.ts:83:321
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/42]⎯
+
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > 'sq-snow-lights' completes before/after clear and never grants twice
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > 'sq-orphen-parts' completes before/after clear and never grants twice
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > 'sq-eil-promise' completes before/after clear and never grants twice
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-six-v14.test.ts:87:315
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/42]⎯
+
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > potion cap rejects the whole reward and claimed flag, then allows retry
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > ether cap rejects the whole reward and claimed flag, then allows retry
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-six-v14.test.ts:88:543
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/42]⎯
+
+ FAIL  tests/chapter-six-v14.test.ts > weapons, choices, quests, journal and legacy data > repeated saves preserve old quest/choice/tree/equipment/items/receipts and exact record denominators
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-six-v14.test.ts:41:247
+
+ ❯ tests/chapter-six-v14.test.ts:91:440
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/42]⎯
+
+ FAIL  tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+ FAIL  tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-six-v14.test.ts:95:1020
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > optional side quests and atomic rewards > rejects locked/remote/duplicate collection and honors objective dependencies
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-three-v11.test.ts:58:481
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > optional side quests and atomic rewards > 'sq-windvane' remains completable after chapter clear and rewards once
+ FAIL  tests/chapter-three-v11.test.ts > optional side quests and atomic rewards > 'sq-fio-keepsake' remains completable after chapter clear and rewards once
+ FAIL  tests/chapter-three-v11.test.ts > optional side quests and atomic rewards > 'sq-sky-fragments' remains completable after chapter clear and rewards once
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-three-v11.test.ts:24:247
+
+ ❯ tests/chapter-three-v11.test.ts:59:119
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > optional side quests and atomic rewards > failed reward receipt leaves all progress and inventory unchanged, then retries safely
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-three-v11.test.ts:60:543
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > optional side quests and atomic rewards > quest EXP grows levels/SP without adding battles or duplicating payouts
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-three-v11.test.ts:24:247
+
+ ❯ tests/chapter-three-v11.test.ts:61:222
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > exploration records and save compatibility > counts actual locations/main events/quests once; treasure and boss are subsets
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-three-v11.test.ts:24:247
+
+ ❯ tests/chapter-three-v11.test.ts:65:427
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > exploration records and save compatibility > lab cannot mutate quests, items, records, growth or tree
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-three-v11.test.ts:24:247
+
+ ❯ tests/chapter-three-v11.test.ts:71:99
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/42]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ doQuest tests/chapter-three-v11.test.ts:24:247
+
+ ❯ tests/chapter-three-v11.test.ts:74:383
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/42]⎯
+
+ FAIL  tests/chapter-two-v10.test.ts > chapter two data, unlocks, puzzle and rewards > rejects locked locations and incorrect/missing puzzle answers without a flag or reward
+AssertionError: expected { version: 2, started: false, …(10) } to deeply equal { version: 2, started: false, …(10) }
+
+- Expected
++ Received
+
+@@ -20,11 +20,11 @@
+            "c2-arrival",
+            "c2-residents",
+            "c2-market-fight",
+            "c2-potion-chest",
+          ],
+-         "currentLocationId": "c2-market",
++         "currentLocationId": "c2-workshop",
+        },
+      },
+      "exploration": {
+        "chapter-01": {
+          "complete": true,
+@@ -42,10 +42,11 @@
+          "complete": true,
+          "visited": [
+            "c2-road",
+            "c2-town",
+            "c2-market",
++           "c2-workshop",
+          ],
+        },
+      },
+      "pending": undefined,
+      "resolved": 4,
+@@ -99,13 +100,12 @@
+        "c1-first-battle-symbol",
+        "c1-fork-battle-symbol",
+        "c1-guardian-symbol",
+        "c2-market-fight-symbol",
+      ],
+-     "event": undefined,
+      "facing": "right",
+-     "mapId": "walk-c2-market",
++     "mapId": "walk-c2-workshop",
+      "opened": [
+        "c1-chest-object",
+        "c2-potion-chest-object",
+      ],
+      "returnInfo": undefined,
+
+ ❯ tests/chapter-two-v10.test.ts:34:597
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[24/42]⎯
+
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > old six-chapter progress gains no invented world state and enters the camp at its valid default
+AssertionError: expected { version: 2, started: false, …(10) } to deeply equal { version: 2, started: false, …(9) }
+
+- Expected
++ Received
+
+@@ -230,11 +230,10 @@
+        },
+      },
+      "landmarks": [
+        "c5-temple-windmark",
+      ],
+-     "pending": undefined,
+      "resolved": 28,
+      "serial": 28,
+      "timeStates": {
+        "c6-canal-clock": "flowing",
+        "c6-corridor-clock": "flowing",
+@@ -308,6 +307,52 @@
+      "rina": [],
+    },
+    "started": false,
+    "version": 2,
+    "wins": 28,
++   "world": {
++     "defeated": [
++       "c1-first-battle-symbol",
++       "c1-fork-battle-symbol",
++       "c1-guardian-symbol",
++       "c2-market-fight-symbol",
++       "c2-canal-fight-symbol",
++       "c2-keeper-symbol",
++       "c2-stairs-fight-symbol",
++       "c2-guardian-symbol",
++       "c3-bridge-fight-symbol",
++       "c3-mine-fight-symbol",
++       "c3-warden-symbol",
++       "c3-broken-fight-symbol",
++       "c3-guardian-symbol",
++       "c4-market-fight-symbol",
++       "c4-canal-fight-symbol",
++       "c4-machine-symbol",
++       "c4-cathedral-fight-symbol",
++       "c4-echoria-symbol",
++       "c5-market-fight-symbol",
++       "c5-dunes-fight-symbol",
++       "c5-gardion-symbol",
++       "c5-mirror-fight-symbol",
++       "c5-zaira-symbol",
++       "c6-bridge-fight-symbol",
++       "c6-market-fight-symbol",
++       "c6-canal-fight-symbol",
++       "c6-clockguard-symbol",
++       "c6-luciel-symbol",
++     ],
++     "facing": "right",
++     "mapId": "walk-c6-core",
++     "opened": [
++       "c1-chest-object",
++       "c2-potion-chest-object",
++       "c2-ether-chest-object",
++       "c2-sword-chest-object",
++       "c3-dual-chest-object",
++       "c4-sword-chest-object",
++       "c5-dual-chest-object",
++       "c6-bow-chest-object",
++     ],
++     "x": 112,
++     "y": 304,
++   },
+  }
+
+ ❯ tests/exploration-v15.test.ts:48:174
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[25/42]⎯
+
+ FAIL  tests/free-exploration-v28.test.ts > v2.8 first six chapters share the walking engine > 'c2-clear' requires proximity, then applies the original result only once
+ FAIL  tests/free-exploration-v28.test.ts > v2.8 first six chapters share the walking engine > 'c3-clear' requires proximity, then applies the original result only once
+ FAIL  tests/free-exploration-v28.test.ts > v2.8 first six chapters share the walking engine > 'c4-clear' requires proximity, then applies the original result only once
+ FAIL  tests/free-exploration-v28.test.ts > v2.8 first six chapters share the walking engine > 'c5-clear' requires proximity, then applies the original result only once
+ FAIL  tests/free-exploration-v28.test.ts > v2.8 first six chapters share the walking engine > 'c6-clear' requires proximity, then applies the original result only once
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/free-exploration-v28.test.ts:26:467
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[26/42]⎯
+
+
+ Test Files  7 failed | 38 passed (45)
+      Tests  42 failed | 2902 passed (2944)
+   Start at  10:15:39
+   Duration  183.19s (transform 3.94s, setup 0ms, collect 22.26s, tests 137.01s, environment 34ms, prepare 7.90s)
+

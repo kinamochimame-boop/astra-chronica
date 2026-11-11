@@ -1,0 +1,53 @@
+Route all: road-390
+Route all: npc-390
+Route all: road-battle-390
+Route all-quests: battle victory
+Route all: road-result-390
+Route all: village-390
+Route all: choice-390
+Route all: railway-390
+Failure 0 ✧
+ASTRA CHRONICA
+星詠みの遺した約束
+PROTOTYPE
+ver. 2.8
+
+CHAPTER 13 · EXPLORE
+
+機巧都市中央区
+☰
+目的：星を映さない都市 ｜ 機巧都市中央区 — 話を聞く・調べる。近くへ歩いて対象をタップ。 ｜ → 目的の対象：星を映さない都市 天球儀：停止
+地図
+
+地面をタップして歩きましょう。
+
+地面をタップして歩く · 矢印／WASDでも移動
+人・装置・宝箱・出口は輪の範囲に近づいてタップ
+
+✦ 星の記憶は、あなたとともに。
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#railway-skip')[22m
+[2m    - locator resolved to <button class="primary" id="railway-skip">移動演出をスキップ</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m  - element was detached from the DOM, retrying[22m
+
+    at rail (/workspace/astra-chronica/tests/chapter-thirteen-v21.e2e.mjs:38:301)
+    at async route (/workspace/astra-chronica/tests/chapter-thirteen-v21.e2e.mjs:45:355)
+    at async file:///workspace/astra-chronica/tests/chapter-thirteen-v21.e2e.mjs:49:29 {
+  log: [
+    "  - waiting for locator('#railway-skip')",
+    '    - locator resolved to <button class="primary" id="railway-skip">移動演出をスキップ</button>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable',
+    '  - element was detached from the DOM, retrying'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

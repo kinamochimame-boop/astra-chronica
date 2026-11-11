@@ -1,0 +1,113 @@
+Route all: journal-locked-390
+Route all: camp-320
+Route all: camp-390
+Route all: camp-430
+Route all: camp-768
+Route all: quests-390
+Route all: trail-390
+Route all: symbol-battle-390
+Route all-quests: battle victory
+Route all: victory-return-390
+Route all: choice-390
+Route all-quests: battle victory
+Route all: ruins-390
+Route all: ruins-event-saved-390
+Route all-quests: battle victory
+Route all-quests: battle victory
+Route all: chest-opened-390
+Route all: choice-390
+Route all: granguard-battle-390
+Route all-quests: battle victory
+Route all: choice-390
+Route all: choice-390
+Route all: sanctum-390
+Route all: seles-battle-390
+Failure page 0 BATTLE · ROUND 25
+
+樹海の心核
+☰
+メニュー
+
+コマンドを選択：リナ
+
+次の行動：
+味 ▶
+リナ
+味
+メイ
+敵
+星樹の管理者・セレス
+星樹の管理者・セレス
+敵
+HP 65 / 4100
+幻
+アステル
+戦士 · ◎全体対象
+HP 480 / 480
+MP 3 / 99
+星力 30 / 100
+壁
+リナ
+▶ 行動中 · ◎全体対象
+HP 373 / 540
+MP 33 / 105
+星力 100 / 100
+状態なし
+メイ
+魔法攻撃 · ◎全体対象
+HP 450 / 450
+MP 24 / 135
+星力 100 / 100
+壁
+★ 必殺 · 不落の誓盾
+星力 100
+通常攻撃
+ATTACK
+ガード
+MP 3
+かばう
+MP 4
+防御
+MP 0
+挑発
+MP 6
+守護の陣
+MP 12
+シールドバッシュ
+MP 8
+星露の小瓶
+所持 8個
+灯火の雫
+所持 6個
+
+不落の誓盾 · 星力100｜必殺技：生存する味方それぞれの次の直接攻撃ダメージを1回50%軽減（装備：時守の盾突剣）。対象：生存する味方全体（3人）
+
+不落の誓盾を実行
+
+アステル → 星樹の管理者・セレス：通常攻撃 26 / 26
+
+ログ ⌃ not on map
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.execute-command')[22m
+[2m    - locator resolved to <button class="primary execute-command" aria-describedby="command-description">不落の誓盾を実行</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+
+    at fight (/workspace/astra-chronica/tests/chapter-seven-v15.e2e.mjs:30:42)
+    at async route (/workspace/astra-chronica/tests/chapter-seven-v15.e2e.mjs:46:1799)
+    at async file:///workspace/astra-chronica/tests/chapter-seven-v15.e2e.mjs:51:29 {
+  log: [
+    "  - waiting for locator('.execute-command')",
+    '    - locator resolved to <button class="primary execute-command" aria-describedby="command-description">不落の誓盾を実行</button>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1
