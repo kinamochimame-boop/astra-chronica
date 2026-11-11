@@ -1,3 +1,4 @@
+import {legacyWorldIds} from './world-receipts.mjs';
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 import {completedSave,priorSave} from './chapter-sixteen-fixture.mjs';
@@ -19,7 +20,7 @@ try{
   if(npc){await useObject(page,npc);assert.ok(await page.locator('#dialogue-next').isVisible());while(await page.locator('#dialogue-next').isVisible())await page.locator('#dialogue-next').tap();if(inspect){await useObject(page,inspect);assert.ok((await page.locator('#world-notice').textContent()).length>10)}const snapshot=await saved();await page.reload();await tap('ゲーム開始 · 続きから');await tap('冒険へ出発');await waitMap(page);assert.equal((await state(page)).mapId,id);assert.ok(Math.abs((await state(page)).hero.x-snapshot.world.x)<1);await useObject(page,exit);await waitMap(page);assert.equal((await state(page)).mapId,destination)}
   await tap('探索メニュー');assert.ok((await state(page)).paused);const paused=(await state(page)).hero;await page.keyboard.press('ArrowRight');await page.waitForTimeout(100);assert.deepEqual((await state(page)).hero,paused);await tap('探索に戻る');console.log(`PASS ${id} at 320/390/430/768: touch, aspect, camera, pause${npc?', NPC/inspect/reload/exit':''}`);
  }
- const final=await saved();assert.deepEqual(final.party,prior.party);assert.deepEqual(final.equipment,prior.equipment);assert.deepEqual(final.skillTree,prior.skillTree);assert.deepEqual(final.choices,prior.choices);if(!process.argv.includes('--details-only'))assert.equal(viewportCases,296);assert.equal(final.wins,prior.wins);assert.equal(final.world.defeated.length,48);assert.equal(final.world.opened.length,18);assert.deepEqual(errors,[]);
+ const final=await saved();assert.deepEqual(final.party,prior.party);assert.deepEqual(final.equipment,prior.equipment);assert.deepEqual(final.skillTree,prior.skillTree);assert.deepEqual(final.choices,prior.choices);if(!process.argv.includes('--details-only'))assert.equal(viewportCases,296);assert.equal(final.wins,prior.wins);assert.equal(legacyWorldIds(final.world.defeated).length,48);assert.equal(legacyWorldIds(final.world.opened).length,18);assert.deepEqual(errors,[]);
  // Reload both tide variants; unknown derived fields cannot override confirmed events.
  if(await page.locator('#world-viewport').count()){await tap('探索メニュー');await tap('ホームへ戻る')}
  const allIds=completedSave().adventure.chapters['chapter-10'].completed;

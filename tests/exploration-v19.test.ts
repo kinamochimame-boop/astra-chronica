@@ -1,3 +1,4 @@
+import {newChapterOneReceiptIds} from './world-receipts.mjs';
 import {describe,it,expect} from 'vitest';
 import {chapters} from '../src/data/chapter-one';
 import {chapterEleven as c} from '../src/data/chapter-eleven';
@@ -41,5 +42,5 @@ describe('confirmed resonance and shared interaction',()=>{
  it('local objective points at the NPC and updates immediately to the enemy',()=>{const p=ready();enterMap(p,'pale-road');const m=mapById('pale-road')!;expect(routeGuidance(p,m,m.entry)).toContain('エイル');complete(p,c,'c11-arrival');expect(routeGuidance(p,m,m.entry)).toContain('巡回者')});
  it('follows the live patrol position rather than its spawn marker',()=>{const p=ready();complete(p,c,'c11-arrival');enterMap(p,'pale-road');const m=mapById('pale-road')!,definition=m.symbols[0],hero={x:400,y:400};expect(routeGuidance(p,m,hero,[{x:600,y:400,definition}])).toMatch(/^→/);expect(routeGuidance(p,m,hero,[{x:200,y:400,definition}])).toMatch(/^←/)});
  it('guides through a valid exit toward another map, never a locked shortcut',()=>{const p=ready();complete(p,c,'c11-road-cache');enterMap(p,'pale-road');const m=mapById('pale-road')!;expect(routeGuidance(p,m,m.entry)).toContain('出口');expect(routeGuidance(p,m,m.entry)).toContain('集落');complete(p,c,'c11-mira');enterMap(p,'pale-stones');expect(routeGuidance(p,mapById('pale-stones')!,p.world!)).toContain('尾根')});
- it('all thirty-four maps preserve receipts and safe positions through repeated saves',()=>{let p=full();for(const m of walkMaps){expect(enterMap(p,m.id)).toBe(true);const old=structuredClone(p);for(let i=0;i<3;i++){p=load({getItem:()=>JSON.stringify(p)});expect(p).toEqual(old)}}expect(p.world!.defeated).toHaveLength(20);expect(p.world!.opened).toHaveLength(6)});
+ it('all thirty-four maps preserve receipts and safe positions through repeated saves',()=>{let p=full();for(const m of walkMaps){expect(enterMap(p,m.id)).toBe(true);const old=structuredClone(p);for(let i=0;i<3;i++){p=load({getItem:()=>JSON.stringify(p)});expect(p).toEqual(old)}}expect(p.world!.defeated.filter(id=>!newChapterOneReceiptIds.has(id))).toHaveLength(20);expect(p.world!.opened.filter(id=>!newChapterOneReceiptIds.has(id))).toHaveLength(6)});
 });

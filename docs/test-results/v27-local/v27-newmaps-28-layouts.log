@@ -1,0 +1,15 @@
+MAP90 start mistwood-camp
+PASS90 mistwood-camp
+MAP90 start mistwood-entrance
+PASS90 mistwood-entrance
+MAP90 start mistwood-stele
+PASS90 mistwood-stele
+MAP90 start mistwood-fork
+PASS90 mistwood-fork
+MAP90 start mistwood-spring
+PASS90 mistwood-spring
+MAP90 start mistwood-altar
+PASS90 mistwood-altar
+MAP90 start mistwood-depths
+PASS90 mistwood-depths
+PASS 7maps/28cases:  actual touch, collision, minimap, camera/aspect,44px,reduced motion and no horizontal overflow.

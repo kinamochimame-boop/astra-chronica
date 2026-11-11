@@ -1,0 +1,703 @@
+﻿2026-11-11T04:31:18.2169776Z Current runner version: '2.338.2'
+2026-11-11T04:31:18.2184254Z ##[group]Runner Image Provisioner
+2026-11-11T04:31:18.2184819Z Hosted Compute Agent
+2026-11-11T04:31:18.2185247Z Version: 20261028.624
+2026-11-11T04:31:18.2185810Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-11T04:31:18.2186255Z Build Date: 2026-10-28T21:51:42Z
+2026-11-11T04:31:18.2186639Z Worker ID: {804f1f1f-3bc8-4d73-ac87-66c2d669c997}
+2026-11-11T04:31:18.2187211Z Region: centralus
+2026-11-11T04:31:18.2187599Z Cloud: Azure
+2026-11-11T04:31:18.2187936Z ##[endgroup]
+2026-11-11T04:31:18.2188974Z ##[group]Operating System
+2026-11-11T04:31:18.2189323Z Ubuntu
+2026-11-11T04:31:18.2189617Z 26.04.1
+2026-11-11T04:31:18.2189953Z LTS
+2026-11-11T04:31:18.2190279Z ##[endgroup]
+2026-11-11T04:31:18.2190614Z ##[group]Runner Image
+2026-11-11T04:31:18.2190966Z Image: ubuntu-26.04
+2026-11-11T04:31:18.2191294Z Version: 20261101.186.1
+2026-11-11T04:31:18.2192065Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261101.186/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-11T04:31:18.2192901Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261101.186
+2026-11-11T04:31:18.2193443Z ##[endgroup]
+2026-11-11T04:31:18.2194093Z ##[group]GITHUB_TOKEN Permissions
+2026-11-11T04:31:18.2195237Z Contents: read
+2026-11-11T04:31:18.2195553Z Metadata: read
+2026-11-11T04:31:18.2195927Z ##[endgroup]
+2026-11-11T04:31:18.2197415Z Secret source: Actions
+2026-11-11T04:31:18.2197986Z Cache mode: write
+2026-11-11T04:31:18.2198435Z Prepare workflow directory
+2026-11-11T04:31:18.2400027Z Prepare all required actions
+2026-11-11T04:31:18.2429682Z Getting action download info
+2026-11-11T04:31:18.4834423Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-11T04:31:18.5737598Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-11-11T04:31:18.6716610Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-11T04:31:18.8227815Z Complete job name: browsers (old-0)
+2026-11-11T04:31:18.8692728Z ##[group]Run actions/checkout@v4
+2026-11-11T04:31:18.8693119Z with:
+2026-11-11T04:31:18.8693378Z   ref: b9c50bc3f40893fb0038ba70f4dac014bc5356e8
+2026-11-11T04:31:18.8693731Z   repository: kinamochimame-boop/astra-chronica
+2026-11-11T04:31:18.8695685Z   token: ***
+2026-11-11T04:31:18.8695916Z   ssh-strict: true
+2026-11-11T04:31:18.8696156Z   ssh-user: git
+2026-11-11T04:31:18.8696394Z   persist-credentials: true
+2026-11-11T04:31:18.8696652Z   clean: true
+2026-11-11T04:31:18.8697015Z   sparse-checkout-cone-mode: true
+2026-11-11T04:31:18.8697291Z   fetch-depth: 1
+2026-11-11T04:31:18.8697520Z   fetch-tags: false
+2026-11-11T04:31:18.8697756Z   show-progress: true
+2026-11-11T04:31:18.8697994Z   lfs: false
+2026-11-11T04:31:18.8698245Z   submodules: false
+2026-11-11T04:31:18.8698489Z   set-safe-directory: true
+2026-11-11T04:31:18.8698762Z   allow-unsafe-pr-checkout: false
+2026-11-11T04:31:18.8699105Z ##[endgroup]
+2026-11-11T04:31:19.1364297Z Syncing repository: kinamochimame-boop/astra-chronica
+2026-11-11T04:31:19.1365281Z ##[group]Getting Git version info
+2026-11-11T04:31:19.1365676Z Working directory is '/home/runner/work/astra-chronica/astra-chronica'
+2026-11-11T04:31:19.1366219Z [command]/usr/bin/git version
+2026-11-11T04:31:19.1382651Z git version 2.56.0
+2026-11-11T04:31:19.1394463Z ##[endgroup]
+2026-11-11T04:31:19.1404254Z Temporarily overriding HOME='/home/runner/work/_temp/6c92feaf-a95b-4f94-a01b-c96f682bede3' before making global git config changes
+2026-11-11T04:31:19.1405805Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T04:31:19.1407161Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/astra-chronica/astra-chronica
+2026-11-11T04:31:19.1455838Z Deleting the contents of '/home/runner/work/astra-chronica/astra-chronica'
+2026-11-11T04:31:19.1458845Z ##[group]Initializing the repository
+2026-11-11T04:31:19.1461275Z [command]/usr/bin/git init /home/runner/work/astra-chronica/astra-chronica
+2026-11-11T04:31:19.1544681Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-11T04:31:19.1545385Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-11T04:31:19.1546018Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-11T04:31:19.1546512Z hint: call:
+2026-11-11T04:31:19.1546834Z hint:
+2026-11-11T04:31:19.1547505Z hint: 	git config --global init.defaultBranch <name>
+2026-11-11T04:31:19.1547992Z hint:
+2026-11-11T04:31:19.1548353Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-11T04:31:19.1548836Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-11T04:31:19.1549225Z hint:
+2026-11-11T04:31:19.1549453Z hint: 	git branch -m <name>
+2026-11-11T04:31:19.1549706Z hint:
+2026-11-11T04:31:19.1550035Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-11T04:31:19.1552537Z Initialized empty Git repository in /home/runner/work/astra-chronica/astra-chronica/.git/
+2026-11-11T04:31:19.1560422Z [command]/usr/bin/git remote add origin https://github.com/kinamochimame-boop/astra-chronica
+2026-11-11T04:31:19.1597648Z ##[endgroup]
+2026-11-11T04:31:19.1598297Z ##[group]Disabling automatic garbage collection
+2026-11-11T04:31:19.1600710Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-11T04:31:19.1626842Z ##[endgroup]
+2026-11-11T04:31:19.1627641Z ##[group]Setting up auth
+2026-11-11T04:31:19.1635683Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T04:31:19.1660269Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T04:31:19.1993455Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T04:31:19.2021436Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T04:31:19.2224009Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T04:31:19.2249710Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T04:31:19.2452454Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-11T04:31:19.2516452Z ##[endgroup]
+2026-11-11T04:31:19.2517240Z ##[group]Fetching the repository
+2026-11-11T04:31:19.2523144Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin b9c50bc3f40893fb0038ba70f4dac014bc5356e8
+2026-11-11T04:31:22.7966273Z From https://github.com/kinamochimame-boop/astra-chronica
+2026-11-11T04:31:22.7967972Z  * branch            b9c50bc3f40893fb0038ba70f4dac014bc5356e8 -> FETCH_HEAD
+2026-11-11T04:31:22.7969871Z ##[endgroup]
+2026-11-11T04:31:22.7970516Z ##[group]Determining the checkout info
+2026-11-11T04:31:22.7971739Z ##[endgroup]
+2026-11-11T04:31:22.7976421Z [command]/usr/bin/git sparse-checkout disable
+2026-11-11T04:31:22.8023012Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-11T04:31:22.8048274Z ##[group]Checking out the ref
+2026-11-11T04:31:22.8050777Z [command]/usr/bin/git checkout --progress --force b9c50bc3f40893fb0038ba70f4dac014bc5356e8
+2026-11-11T04:31:23.4164678Z Note: switching to 'b9c50bc3f40893fb0038ba70f4dac014bc5356e8'.
+2026-11-11T04:31:23.4167607Z 
+2026-11-11T04:31:23.4167895Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-11T04:31:23.4168405Z changes and commit them, and you can discard any commits you make in this
+2026-11-11T04:31:23.4169060Z state without impacting any branches by switching back to a branch.
+2026-11-11T04:31:23.4170481Z 
+2026-11-11T04:31:23.4170927Z If you want to create a new branch to retain commits you create, you may
+2026-11-11T04:31:23.4171463Z do so (now or later) by using -c with the switch command. Example:
+2026-11-11T04:31:23.4171738Z 
+2026-11-11T04:31:23.4171883Z   git switch -c <new-branch-name>
+2026-11-11T04:31:23.4172090Z 
+2026-11-11T04:31:23.4172227Z Or undo this operation with:
+2026-11-11T04:31:23.4172411Z 
+2026-11-11T04:31:23.4172871Z   git switch -
+2026-11-11T04:31:23.4173536Z 
+2026-11-11T04:31:23.4173921Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-11T04:31:23.4174290Z 
+2026-11-11T04:31:23.4174555Z HEAD is now at b9c50bc test: navigate unoccupied ground in chapter-one layout checks
+2026-11-11T04:31:23.4204190Z ##[endgroup]
+2026-11-11T04:31:23.4248240Z [command]/usr/bin/git log -1 --format=%H
+2026-11-11T04:31:23.4270046Z b9c50bc3f40893fb0038ba70f4dac014bc5356e8
+2026-11-11T04:31:23.4506834Z ##[group]Run actions/setup-node@v4
+2026-11-11T04:31:23.4507157Z with:
+2026-11-11T04:31:23.4507319Z   node-version: 22
+2026-11-11T04:31:23.4507461Z   cache: npm
+2026-11-11T04:31:23.4507603Z   always-auth: false
+2026-11-11T04:31:23.4507755Z   check-latest: false
+2026-11-11T04:31:23.4509145Z   token: ***
+2026-11-11T04:31:23.4509294Z ##[endgroup]
+2026-11-11T04:31:23.5402642Z Found in cache @ /opt/hostedtoolcache/node/22.23.4/x64
+2026-11-11T04:31:23.5403340Z (node:2175) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T04:31:23.5403981Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T04:31:23.5404724Z ##[group]Environment details
+2026-11-11T04:31:23.7980480Z node: v22.23.4
+2026-11-11T04:31:23.7981287Z npm: 10.9.9
+2026-11-11T04:31:23.7981456Z yarn: 1.22.22
+2026-11-11T04:31:23.7982008Z ##[endgroup]
+2026-11-11T04:31:23.7997744Z [command]/opt/hostedtoolcache/node/22.23.4/x64/bin/npm config get cache
+2026-11-11T04:31:23.8712287Z /home/runner/.npm
+2026-11-11T04:31:24.0127397Z Cache hit for: node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597
+2026-11-11T04:31:24.0189307Z (node:2175) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-11T04:31:24.8924772Z Received 40363788 of 40363788 (100.0%), 57.1 MBs/sec
+2026-11-11T04:31:24.8925331Z Cache Size: ~38 MB (40363788 B)
+2026-11-11T04:31:24.8944161Z [command]/usr/bin/tar -xf /home/runner/work/_temp/03132ffe-4bf6-4bfa-aba7-25b2eb4290e0/cache.tzst -P -C /home/runner/work/astra-chronica/astra-chronica --use-compress-program unzstd
+2026-11-11T04:31:24.9451158Z Cache restored successfully
+2026-11-11T04:31:24.9469467Z Cache restored from key: node-cache-Linux-x64-npm-284ee327ecef2c759c45828e5261ddd345cca7fa9311e038d5631c2509f13597
+2026-11-11T04:31:24.9697680Z ##[group]Run npm ci
+2026-11-11T04:31:24.9697900Z [36;1mnpm ci[0m
+2026-11-11T04:31:24.9752708Z shell: /usr/bin/bash -e {0}
+2026-11-11T04:31:24.9752876Z ##[endgroup]
+2026-11-11T04:31:26.7289236Z 
+2026-11-11T04:31:26.7295694Z added 57 packages, and audited 58 packages in 2s
+2026-11-11T04:31:26.7296027Z 
+2026-11-11T04:31:26.7296226Z 15 packages are looking for funding
+2026-11-11T04:31:26.7296524Z   run `npm fund` for details
+2026-11-11T04:31:26.7360633Z 
+2026-11-11T04:31:26.7361004Z 3 vulnerabilities (1 moderate, 2 critical)
+2026-11-11T04:31:26.7361181Z 
+2026-11-11T04:31:26.7361357Z To address all issues (including breaking changes), run:
+2026-11-11T04:31:26.7361572Z   npm audit fix --force
+2026-11-11T04:31:26.7361665Z 
+2026-11-11T04:31:26.7361744Z Run `npm audit` for details.
+2026-11-11T04:31:26.7845929Z ##[group]Run npx playwright install --with-deps chromium
+2026-11-11T04:31:26.7846209Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-11-11T04:31:26.7887239Z shell: /usr/bin/bash -e {0}
+2026-11-11T04:31:26.7887401Z ##[endgroup]
+2026-11-11T04:31:27.2187205Z Installing dependencies...
+2026-11-11T04:31:27.2259424Z Switching to root user to install dependencies...
+2026-11-11T04:31:27.2888157Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-11T04:31:27.3348759Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-11T04:31:27.3443059Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-11T04:31:27.3460323Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-11T04:31:27.3492986Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-11T04:31:27.3508417Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-11T04:31:27.3638512Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [154 kB]
+2026-11-11T04:31:27.3795894Z Get:8 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main armhf Packages [1077 B]
+2026-11-11T04:31:27.3824267Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [869 kB]
+2026-11-11T04:31:27.3878381Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [195 kB]
+2026-11-11T04:31:27.3907885Z Get:15 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [140 kB]
+2026-11-11T04:31:27.3908948Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [390 kB]
+2026-11-11T04:31:27.3935577Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [122 kB]
+2026-11-11T04:31:27.3967657Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-updates/restricted amd64v3 Packages [603 kB]
+2026-11-11T04:31:27.3978019Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-updates/restricted Translation-en [125 kB]
+2026-11-11T04:31:27.4078834Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [718 kB]
+2026-11-11T04:31:27.4117769Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [157 kB]
+2026-11-11T04:31:27.4121545Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [212 kB]
+2026-11-11T04:31:27.4136456Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [70.7 kB]
+2026-11-11T04:31:27.4569351Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [586 kB]
+2026-11-11T04:31:27.4593008Z Get:21 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [121 kB]
+2026-11-11T04:31:29.1551800Z Fetched 4878 kB in 0s (15.4 MB/s)
+2026-11-11T04:31:29.5258040Z Reading package lists...
+2026-11-11T04:31:29.5462645Z Reading package lists...
+2026-11-11T04:31:29.6416809Z Building dependency tree...
+2026-11-11T04:31:29.6422347Z Reading state information...
+2026-11-11T04:31:29.6635173Z libasound2t64 is already the newest version (1.2.15.3-1ubuntu1.1).
+2026-11-11T04:31:29.6635565Z libasound2t64 set to manually installed.
+2026-11-11T04:31:29.6635939Z libatk-bridge2.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+2026-11-11T04:31:29.6636360Z libatk-bridge2.0-0t64 set to manually installed.
+2026-11-11T04:31:29.6636809Z libatk1.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+2026-11-11T04:31:29.6637344Z libatk1.0-0t64 set to manually installed.
+2026-11-11T04:31:29.6637695Z libatspi2.0-0t64 is already the newest version (2.60.4-0ubuntu0.1).
+2026-11-11T04:31:29.6638039Z libatspi2.0-0t64 set to manually installed.
+2026-11-11T04:31:29.6638343Z libcairo2 is already the newest version (1.18.4-3).
+2026-11-11T04:31:29.6638635Z libcairo2 set to manually installed.
+2026-11-11T04:31:29.6639566Z libcups2t64 is already the newest version (2.4.16-1ubuntu1.3).
+2026-11-11T04:31:29.6639915Z libcups2t64 set to manually installed.
+2026-11-11T04:31:29.6640254Z libdbus-1-3 is already the newest version (1.16.2-2ubuntu4).
+2026-11-11T04:31:29.6640583Z libdbus-1-3 set to manually installed.
+2026-11-11T04:31:29.6640905Z libdrm2 is already the newest version (2.4.131-1).
+2026-11-11T04:31:29.6641355Z libdrm2 set to manually installed.
+2026-11-11T04:31:29.6641728Z libgbm1 is already the newest version (26.0.8-1ubuntu0.3).
+2026-11-11T04:31:29.6642051Z libgbm1 set to manually installed.
+2026-11-11T04:31:29.6642416Z libglib2.0-0t64 is already the newest version (2.88.0-1ubuntu0.1).
+2026-11-11T04:31:29.6642796Z libglib2.0-0t64 set to manually installed.
+2026-11-11T04:31:29.6643181Z libnspr4 is already the newest version (2:4.38.2-1ubuntu1).
+2026-11-11T04:31:29.6643518Z libnspr4 set to manually installed.
+2026-11-11T04:31:29.6643898Z libnss3 is already the newest version (2:3.120-1ubuntu2.2).
+2026-11-11T04:31:29.6644249Z libnss3 set to manually installed.
+2026-11-11T04:31:29.6644583Z libpango-1.0-0 is already the newest version (1.57.0-1).
+2026-11-11T04:31:29.6644916Z libpango-1.0-0 set to manually installed.
+2026-11-11T04:31:29.6645272Z libx11-6 is already the newest version (2:1.8.13-1ubuntu0.1).
+2026-11-11T04:31:29.6645594Z libx11-6 set to manually installed.
+2026-11-11T04:31:29.6645919Z libxcb1 is already the newest version (1.17.0-2ubuntu1).
+2026-11-11T04:31:29.6646256Z libxcb1 set to manually installed.
+2026-11-11T04:31:29.6646640Z libxcomposite1 is already the newest version (1:0.4.6-1build1).
+2026-11-11T04:31:29.6647221Z libxcomposite1 set to manually installed.
+2026-11-11T04:31:29.6647578Z libxdamage1 is already the newest version (1:1.1.7-1).
+2026-11-11T04:31:29.6647910Z libxdamage1 set to manually installed.
+2026-11-11T04:31:29.6648260Z libxext6 is already the newest version (2:1.3.4-1build3).
+2026-11-11T04:31:29.6648592Z libxext6 set to manually installed.
+2026-11-11T04:31:29.6648939Z libxfixes3 is already the newest version (1:6.0.0-2build2).
+2026-11-11T04:31:29.6649284Z libxfixes3 set to manually installed.
+2026-11-11T04:31:29.6649623Z libxkbcommon0 is already the newest version (1.13.1-1).
+2026-11-11T04:31:29.6649955Z libxkbcommon0 set to manually installed.
+2026-11-11T04:31:29.6650308Z libxrandr2 is already the newest version (2:1.5.4-1build1).
+2026-11-11T04:31:29.6650647Z libxrandr2 set to manually installed.
+2026-11-11T04:31:29.6651010Z xvfb is already the newest version (2:21.1.22-1ubuntu1.3).
+2026-11-11T04:31:29.6651444Z fonts-noto-color-emoji is already the newest version (2.051-1build1).
+2026-11-11T04:31:29.6651905Z libfontconfig1 is already the newest version (2.17.1-3ubuntu1).
+2026-11-11T04:31:29.6652285Z libfontconfig1 set to manually installed.
+2026-11-11T04:31:29.6652683Z libfreetype6 is already the newest version (2.14.2+dfsg-1ubuntu0.2).
+2026-11-11T04:31:29.6653059Z libfreetype6 set to manually installed.
+2026-11-11T04:31:29.6653454Z fonts-liberation is already the newest version (1:2.1.5-3build1).
+2026-11-11T04:31:29.6653841Z fonts-liberation set to manually installed.
+2026-11-11T04:31:29.6975176Z Solving dependencies...
+2026-11-11T04:31:29.7595572Z The following additional packages will be installed:
+2026-11-11T04:31:29.7595860Z   xfonts-encodings xfonts-utils
+2026-11-11T04:31:29.7600766Z Recommended packages:
+2026-11-11T04:31:29.7601027Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-11-11T04:31:29.7744994Z The following NEW packages will be installed:
+2026-11-11T04:31:29.7745309Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-11-11T04:31:29.7747942Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-11-11T04:31:29.7748161Z   xfonts-utils
+2026-11-11T04:31:29.7902421Z 0 upgraded, 9 newly installed, 0 to remove and 52 not upgraded.
+2026-11-11T04:31:29.7902803Z Need to get 21.9 MB of archives.
+2026-11-11T04:31:29.7903054Z After this operation, 80.2 MB of additional disk space will be used.
+2026-11-11T04:31:29.7903330Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-11T04:31:29.8522275Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-ipafont-gothic all 00303-23ubuntu1 [3703 kB]
+2026-11-11T04:31:29.9230648Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 fonts-freefont-ttf all 20211204+svn4273-4build1 [5656 kB]
+2026-11-11T04:31:30.0187460Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-tlwg-loma-otf all 1:0.7.3-1build1 [106 kB]
+2026-11-11T04:31:30.0505592Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-unifont all 1:16.0.04-1build1 [3169 kB]
+2026-11-11T04:31:30.1158899Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 fonts-wqy-zenhei all 0.9.45-8build1 [7863 kB]
+2026-11-11T04:31:30.2186050Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xfonts-encodings all 1:1.0.5-0ubuntu3 [576 kB]
+2026-11-11T04:31:30.2533001Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xfonts-utils amd64 1:7.7+7build1 [97.3 kB]
+2026-11-11T04:31:30.2852640Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 xfonts-cyrillic all 1:1.0.5+nmu1build1 [384 kB]
+2026-11-11T04:31:30.3186447Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute/universe amd64v3 xfonts-scalable all 1:1.0.3-1.3build1 [304 kB]
+2026-11-11T04:31:30.5267646Z Fetched 21.9 MB in 1s (40.5 MB/s)
+2026-11-11T04:31:30.5519675Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-11-11T04:31:30.5715675Z (Reading database ... 
+2026-11-11T04:31:30.5715978Z (Reading database ... 5%
+2026-11-11T04:31:30.5716272Z (Reading database ... 10%
+2026-11-11T04:31:30.5716570Z (Reading database ... 15%
+2026-11-11T04:31:30.5716810Z (Reading database ... 20%
+2026-11-11T04:31:30.5717179Z (Reading database ... 25%
+2026-11-11T04:31:30.5717425Z (Reading database ... 30%
+2026-11-11T04:31:30.5717664Z (Reading database ... 35%
+2026-11-11T04:31:30.5717899Z (Reading database ... 40%
+2026-11-11T04:31:30.5718139Z (Reading database ... 45%
+2026-11-11T04:31:30.5718403Z (Reading database ... 50%
+2026-11-11T04:31:30.6351180Z (Reading database ... 55%
+2026-11-11T04:31:30.7986604Z (Reading database ... 60%
+2026-11-11T04:31:31.0023351Z (Reading database ... 65%
+2026-11-11T04:31:31.1376798Z (Reading database ... 70%
+2026-11-11T04:31:31.2999582Z (Reading database ... 75%
+2026-11-11T04:31:31.4487835Z (Reading database ... 80%
+2026-11-11T04:31:31.5381703Z (Reading database ... 85%
+2026-11-11T04:31:31.6619989Z (Reading database ... 90%
+2026-11-11T04:31:31.7918389Z (Reading database ... 95%
+2026-11-11T04:31:31.7918579Z (Reading database ... 100%
+2026-11-11T04:31:31.7918822Z (Reading database ... 213197 files and directories currently installed.)
+2026-11-11T04:31:31.7952062Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-23ubuntu1_all.deb ...
+2026-11-11T04:31:31.8032671Z Unpacking fonts-ipafont-gothic (00303-23ubuntu1) ...
+2026-11-11T04:31:31.9081571Z Selecting previously unselected package fonts-freefont-ttf.
+2026-11-11T04:31:31.9184943Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-4build1_all.deb ...
+2026-11-11T04:31:31.9190770Z Unpacking fonts-freefont-ttf (20211204+svn4273-4build1) ...
+2026-11-11T04:31:32.0041656Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-11-11T04:31:32.0142083Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1build1_all.deb ...
+2026-11-11T04:31:32.0148393Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1build1) ...
+2026-11-11T04:31:32.0329973Z Selecting previously unselected package fonts-unifont.
+2026-11-11T04:31:32.0428430Z Preparing to unpack .../3-fonts-unifont_1%3a16.0.04-1build1_all.deb ...
+2026-11-11T04:31:32.0434087Z Unpacking fonts-unifont (1:16.0.04-1build1) ...
+2026-11-11T04:31:32.2390047Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-11-11T04:31:32.2492061Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8build1_all.deb ...
+2026-11-11T04:31:32.2601002Z Unpacking fonts-wqy-zenhei (0.9.45-8build1) ...
+2026-11-11T04:31:32.4083484Z Selecting previously unselected package xfonts-encodings.
+2026-11-11T04:31:32.4187364Z Preparing to unpack .../5-xfonts-encodings_1%3a1.0.5-0ubuntu3_all.deb ...
+2026-11-11T04:31:32.4194279Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu3) ...
+2026-11-11T04:31:32.4422446Z Selecting previously unselected package xfonts-utils.
+2026-11-11T04:31:32.4522614Z Preparing to unpack .../6-xfonts-utils_1%3a7.7+7build1_amd64v3.deb ...
+2026-11-11T04:31:32.4529195Z Unpacking xfonts-utils (1:7.7+7build1) ...
+2026-11-11T04:31:32.4789881Z Selecting previously unselected package xfonts-cyrillic.
+2026-11-11T04:31:32.4888809Z Preparing to unpack .../7-xfonts-cyrillic_1%3a1.0.5+nmu1build1_all.deb ...
+2026-11-11T04:31:32.4894953Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1build1) ...
+2026-11-11T04:31:32.5141377Z Selecting previously unselected package xfonts-scalable.
+2026-11-11T04:31:32.5241329Z Preparing to unpack .../8-xfonts-scalable_1%3a1.0.3-1.3build1_all.deb ...
+2026-11-11T04:31:32.5247134Z Unpacking xfonts-scalable (1:1.0.3-1.3build1) ...
+2026-11-11T04:31:32.5584076Z Setting up fonts-wqy-zenhei (0.9.45-8build1) ...
+2026-11-11T04:31:32.5697028Z Setting up fonts-freefont-ttf (20211204+svn4273-4build1) ...
+2026-11-11T04:31:32.5712089Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1build1) ...
+2026-11-11T04:31:32.5727059Z Setting up xfonts-encodings (1:1.0.5-0ubuntu3) ...
+2026-11-11T04:31:32.5929746Z Setting up fonts-ipafont-gothic (00303-23ubuntu1) ...
+2026-11-11T04:31:32.5977292Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-11-11T04:31:32.5989869Z Setting up fonts-unifont (1:16.0.04-1build1) ...
+2026-11-11T04:31:32.6004990Z Setting up xfonts-utils (1:7.7+7build1) ...
+2026-11-11T04:31:32.6047963Z Setting up xfonts-cyrillic (1:1.0.5+nmu1build1) ...
+2026-11-11T04:31:32.6378434Z Setting up xfonts-scalable (1:1.0.3-1.3build1) ...
+2026-11-11T04:31:32.6677215Z Processing triggers for man-db (2.13.1-1build1) ...
+2026-11-11T04:31:32.6692949Z Not building database; man-db/auto-update is not 'true'.
+2026-11-11T04:31:32.6702842Z Processing triggers for fontconfig (2.17.1-3ubuntu1) ...
+2026-11-11T04:31:33.1303131Z 
+2026-11-11T04:31:33.1303765Z Running kernel seems to be up-to-date.
+2026-11-11T04:31:33.1304008Z 
+2026-11-11T04:31:33.1304116Z Restarting services...
+2026-11-11T04:31:33.1371275Z 
+2026-11-11T04:31:33.1371631Z Service restarts being deferred:
+2026-11-11T04:31:33.1373754Z  systemctl restart hosted-compute-agent.service
+2026-11-11T04:31:33.1374063Z 
+2026-11-11T04:31:33.1374416Z No containers need to be restarted.
+2026-11-11T04:31:33.1374582Z 
+2026-11-11T04:31:33.1374779Z No user sessions are running outdated binaries.
+2026-11-11T04:31:33.1375002Z 
+2026-11-11T04:31:33.1375316Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-11T04:31:33.6964580Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+2026-11-11T04:31:34.0362714Z |                                                                                |   0% of 191.1 MiB
+2026-11-11T04:31:34.2263876Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+2026-11-11T04:31:34.3258593Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+2026-11-11T04:31:34.4459962Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+2026-11-11T04:31:34.5470007Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+2026-11-11T04:31:34.6613836Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+2026-11-11T04:31:34.7680313Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+2026-11-11T04:31:34.8605837Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+2026-11-11T04:31:34.9777144Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+2026-11-11T04:31:35.1414304Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+2026-11-11T04:31:35.2744575Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+2026-11-11T04:31:36.9245377Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+2026-11-11T04:31:36.9247353Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+2026-11-11T04:31:37.2413391Z |                                                                                |   0% of 2.2 MiB
+2026-11-11T04:31:37.2740464Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+2026-11-11T04:31:37.2854255Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+2026-11-11T04:31:37.2954398Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+2026-11-11T04:31:37.3013177Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+2026-11-11T04:31:37.3048137Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+2026-11-11T04:31:37.3119463Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+2026-11-11T04:31:37.3147406Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+2026-11-11T04:31:37.3174289Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+2026-11-11T04:31:37.3192292Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+2026-11-11T04:31:37.3218206Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+2026-11-11T04:31:37.3572147Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+2026-11-11T04:31:37.3574701Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+2026-11-11T04:31:37.6510162Z |                                                                                |   0% of 120 MiB
+2026-11-11T04:31:37.7842119Z |■■■■■■■■                                                                        |  10% of 120 MiB
+2026-11-11T04:31:37.8445489Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+2026-11-11T04:31:37.9080238Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+2026-11-11T04:31:37.9729896Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+2026-11-11T04:31:38.0286365Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+2026-11-11T04:31:38.0958104Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+2026-11-11T04:31:38.1525976Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+2026-11-11T04:31:38.2267431Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+2026-11-11T04:31:38.2898553Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+2026-11-11T04:31:38.3538790Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+2026-11-11T04:31:39.4899340Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+2026-11-11T04:31:39.5306610Z ##[group]Run CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+2026-11-11T04:31:39.5307359Z [36;1mCHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")[0m
+2026-11-11T04:31:39.5307716Z [36;1msudo ln -sf "$CHROME_PATH" /usr/bin/chromium[0m
+2026-11-11T04:31:39.5346688Z shell: /usr/bin/bash -e {0}
+2026-11-11T04:31:39.5346837Z ##[endgroup]
+2026-11-11T04:31:39.8130995Z ##[group]Run node tests/ci-v27.mjs "old-0"
+2026-11-11T04:31:39.8131203Z [36;1mnode tests/ci-v27.mjs "old-0"[0m
+2026-11-11T04:31:39.8171019Z shell: /usr/bin/bash -e {0}
+2026-11-11T04:31:39.8171162Z env:
+2026-11-11T04:31:39.8171311Z   V26_HEAD_SHA: b9c50bc3f40893fb0038ba70f4dac014bc5356e8
+2026-11-11T04:31:39.8171487Z ##[endgroup]
+2026-11-11T04:31:40.1056493Z 
+2026-11-11T04:31:40.1057295Z > astra-chronica@0.1.0 build
+2026-11-11T04:31:40.1057654Z > tsc --noEmit && vite build
+2026-11-11T04:31:40.1057760Z 
+2026-11-11T04:31:42.9222225Z [36mvite v7.3.7 [32mbuilding client environment for production...[36m[39m
+2026-11-11T04:31:42.9672804Z transforming...
+2026-11-11T04:31:46.0367523Z [32m✓[39m 151 modules transformed.
+2026-11-11T04:31:46.3624758Z rendering chunks...
+2026-11-11T04:31:46.6085894Z computing gzip size...
+2026-11-11T04:31:46.6329372Z [33m
+2026-11-11T04:31:46.6329999Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-11-11T04:31:46.6330822Z [2mdist/[22m[32mindex.html                 [39m[1m[2m    0.62 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+2026-11-11T04:31:46.6347534Z - Using dynamic import() to code-split the application
+2026-11-11T04:31:46.6348304Z [2mdist/[22m[2massets/[22m[35mindex-DtlFLb1K.css  [39m[1m[2m   34.79 kB[22m[1m[22m[2m │ gzip:   8.77 kB[22m
+2026-11-11T04:31:46.6367806Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2026-11-11T04:31:46.6368849Z [2mdist/[22m[2massets/[22m[36mindex-DNXcxR7-.js   [39m[1m[33m  745.75 kB[39m[22m[2m │ gzip: 208.08 kB[22m
+2026-11-11T04:31:46.6397781Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-11-11T04:31:46.6398590Z [2mdist/[22m[2massets/[22m[36mphaser-DFK5Ua9d.js  [39m[1m[33m1,208.06 kB[39m[22m[2m │ gzip: 332.17 kB[22m
+2026-11-11T04:31:46.6399436Z [32m✓ built in 3.69s[39m
+2026-11-11T04:31:49.9361776Z stage:three widths
+2026-11-11T04:31:50.0115723Z stage:390 restored
+2026-11-11T04:31:50.0841363Z stage:departure approach
+2026-11-11T04:31:51.1308085Z stage:departure completed
+2026-11-11T04:31:51.3622871Z stage:location entrance
+2026-11-11T04:32:05.2346088Z UI victory c1-first-battle
+2026-11-11T04:32:05.7122188Z stage:location stele
+2026-11-11T04:32:10.9118694Z stage:location fork
+2026-11-11T04:32:19.6160458Z UI victory c1-fork-battle
+2026-11-11T04:32:19.7604238Z stage:location spring
+2026-11-11T04:32:24.9972194Z stage:location altar
+2026-11-11T04:32:30.0946851Z stage:location depths
+2026-11-11T04:32:38.1653441Z UI victory c1-guardian
+2026-11-11T04:32:40.2458751Z PASS v2.7 chapter1 legacy=true:7actual maps/9events/3victories/retreat/reload/bow once/3touch widths/Lab isolation/chapter2 unchanged/pageErrors0
+2026-11-11T04:32:40.3215345Z V26_FILE {"file":"adventure-v08.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/adventure-v08.e2e.mjs"],"code":0,"start":"2026-11-11T04:31:47.292Z","end":"2026-11-11T04:32:40.321Z","log":"adventure-v08.e2e.mjs-0.log","sha256":"d20b350d3c24a7a984ca17248ba104c904d5e7d23af33f0420ceb09d69f6cf89"}],"code":0}
+2026-11-11T04:34:42.9649150Z Route no-quests: battle victory
+2026-11-11T04:34:43.3474668Z v1.9 supplementary UI passed: dialogue and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).
+2026-11-11T04:34:43.4274674Z V26_FILE {"file":"chapter-eleven-ui.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-eleven-ui.e2e.mjs"],"code":0,"start":"2026-11-11T04:32:40.321Z","end":"2026-11-11T04:34:43.427Z","log":"chapter-eleven-ui.e2e.mjs-0.log","sha256":"7224495d63485b729342e3f61142ac104be0205bf9ffbdf31d46eb485e9a61d6"}],"code":0}
+2026-11-11T04:35:10.1754258Z Route no-quests: battle victory
+2026-11-11T04:35:42.2467099Z Route no-quests: battle victory
+2026-11-11T04:36:08.2571190Z Route no-quests: battle victory
+2026-11-11T04:36:34.5564292Z Route no-quests: battle victory
+2026-11-11T04:37:05.9220838Z Route no-quests: battle victory
+2026-11-11T04:37:11.1169571Z v1.3 no-quests / first choices / post-clear quests passed.
+2026-11-11T04:37:37.7207866Z Route all-quests: battle victory
+2026-11-11T04:38:10.0867371Z Route all-quests: battle victory
+2026-11-11T04:38:36.0173906Z Route all-quests: battle victory
+2026-11-11T04:39:02.9525039Z Route all-quests: battle victory
+2026-11-11T04:39:33.5822708Z Route all-quests: battle victory
+2026-11-11T04:39:35.0081170Z v1.3 all-quests / second choices passed.
+2026-11-11T04:39:35.0086256Z v1.3 two full chapter-five routes passed: 10 victories, 14 locations, 18 events, storms/landmark/reload, compass hints/reset/keyboard, four choices, quests before/after clear, journal and legacy save isolation.
+2026-11-11T04:39:35.0807393Z V26_FILE {"file":"chapter-five-v13.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-five-v13.e2e.mjs"],"code":0,"start":"2026-11-11T04:34:43.427Z","end":"2026-11-11T04:39:35.080Z","log":"chapter-five-v13.e2e.mjs-0.log","sha256":"0fee731889177bc8cfd07a017354b31fdb10ff9096fc84eb29329f79b38f3428"}],"code":0}
+2026-11-11T04:39:37.5812785Z v1.7 new equipment touch checks passed: all three rewards equip/reload, four widths/44px, quantities unchanged, correct side-view families, two actual hits and star gain, chapter/tree preserved.
+2026-11-11T04:39:37.6512891Z V26_FILE {"file":"chapter-nine-equipment.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-nine-equipment.e2e.mjs"],"code":0,"start":"2026-11-11T04:39:35.080Z","end":"2026-11-11T04:39:37.650Z","log":"chapter-nine-equipment.e2e.mjs-0.log","sha256":"b9754ed2acc5f6f6f5369ae9339b2e738e8269ab1b213a7c9daa0d6f3e9c21ea"}],"code":0}
+2026-11-11T04:40:03.3367884Z v1.4 supplementary UI passed: rod MP+2 replacement, real clockguard charge/guard, gear guard notice and physical counter with actual popup targets, dawn text contrast >=4.5, no runtime errors.
+2026-11-11T04:40:03.4409498Z V26_FILE {"file":"chapter-six-ui-v14.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-six-ui-v14.e2e.mjs"],"code":0,"start":"2026-11-11T04:39:37.651Z","end":"2026-11-11T04:40:03.439Z","log":"chapter-six-ui-v14.e2e.mjs-0.log","sha256":"1fddaf546e0267ba0f236b5b61bc2c18dce5416cdad7a1c5e3c5732fad15c74b"}],"code":0}
+2026-11-11T04:42:10.4286792Z Route no-quests: battle victory
+2026-11-11T04:42:10.7955535Z v1.8 supplementary UI passed: dialogue and boss/skill selection at 320/390/430/768, 44px, left/right actors, no resource or turn spent during selection, reduced motion, safe defeat return, real retry/victory and chapter-clear result at all four widths (level-50 layout fixture).
+2026-11-11T04:42:10.8724951Z V26_FILE {"file":"chapter-ten-ui.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-ten-ui.e2e.mjs"],"code":0,"start":"2026-11-11T04:40:03.440Z","end":"2026-11-11T04:42:10.872Z","log":"chapter-ten-ui.e2e.mjs-0.log","sha256":"8a619f9e1d581385036e55f467af4da09845ebedbae7a0a1f60debbb0322d6f2"}],"code":0}
+2026-11-11T04:42:23.9096694Z Route all-quests: battle victory
+2026-11-11T04:42:41.9741717Z Route all-quests: battle victory
+2026-11-11T04:42:57.1748156Z Route all-quests: battle victory
+2026-11-11T04:43:13.3404522Z Route all-quests: battle victory
+2026-11-11T04:43:33.6723569Z Route all-quests: battle victory
+2026-11-11T04:43:35.1818235Z Route all-before-clear passed.
+2026-11-11T04:43:35.1818620Z Verified 1 chapter-three route(s), 5 real victories.
+2026-11-11T04:43:48.2557349Z Route no-quests: battle victory
+2026-11-11T04:44:06.0207725Z Route no-quests: battle victory
+2026-11-11T04:44:20.3692736Z Route no-quests: battle victory
+2026-11-11T04:44:36.1031609Z Route no-quests: battle victory
+2026-11-11T04:44:55.1030998Z Route no-quests: battle victory
+2026-11-11T04:44:59.7116701Z Route none-until-clear-then-post-clear-quests passed.
+2026-11-11T04:44:59.7128068Z Verified 1 chapter-three route(s), 5 real victories.
+2026-11-11T04:44:59.7743403Z V26_FILE {"file":"chapter-three-v11.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-three-v11.e2e.mjs","--quests-before"],"code":0,"start":"2026-11-11T04:42:10.872Z","end":"2026-11-11T04:43:35.244Z","log":"chapter-three-v11.e2e.mjs-0.log","sha256":"19b899ba42e4581fecf3548e4a284d0d07f1177dba8cbdd7101238fe1b501ed2"},{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/chapter-three-v11.e2e.mjs","--quests-after"],"code":0,"start":"2026-11-11T04:43:35.245Z","end":"2026-11-11T04:44:59.773Z","log":"chapter-three-v11.e2e.mjs-1.log","sha256":"a301d47c0ea9179bd438f10388c8e75e613923fd783d09516efeef8344ab7f4b"}],"code":0}
+2026-11-11T04:45:03.0878029Z v0.7 touch checks passed: 3 widths/44px, v2 migration, restrictions, unlock idempotency, compare/equip/remove, dual actual hits/star, reload, lab save isolation.
+2026-11-11T04:45:03.1563322Z V26_FILE {"file":"equipment-v07.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/equipment-v07.e2e.mjs"],"code":0,"start":"2026-11-11T04:44:59.774Z","end":"2026-11-11T04:45:03.155Z","log":"equipment-v07.e2e.mjs-0.log","sha256":"ad61b0814c1d502f8ffd3d54b5508edeb5136d0fcba1ba1579c519287eff0d89"}],"code":0}
+2026-11-11T04:45:08.4815761Z PASS grove-camp at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:45:13.0149022Z PASS grove-trail at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:45:17.5479477Z PASS grove-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:45:26.6305061Z PASS grove-village at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:45:37.5634940Z PASS grove-garden at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:45:41.9965471Z PASS sky-port at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:45:46.4296770Z PASS sky-island at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:45:50.9460912Z PASS sky-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:46:01.9121583Z PASS sky-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:46:12.8116810Z PASS sky-tower at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:46:24.1114332Z PASS star-cave at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:46:28.6621367Z PASS star-path at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:46:40.5610201Z PASS star-city at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:46:44.8104501Z PASS star-market at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:46:49.3271758Z PASS star-waterway at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:46:53.8102161Z PASS star-mine at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:46:58.0601734Z PASS star-archive at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:02.5601090Z PASS star-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:13.9592563Z PASS tide-road at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:47:25.4420171Z PASS tide-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:47:29.9758868Z PASS tide-port at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:34.3922513Z PASS tide-beach at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:38.6417279Z PASS tide-observatory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:43.0752104Z PASS tide-cave at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:47.4754094Z PASS tide-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:51.8912752Z PASS tide-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:47:56.5915898Z PASS pale-road at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:00.8744440Z PASS pale-village at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:05.3406642Z PASS pale-field at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:09.8740301Z PASS pale-stones at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:14.1405964Z PASS pale-ravine at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:18.6067749Z PASS pale-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:23.0900598Z PASS pale-archive at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:27.5739282Z PASS pale-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:27.5782920Z ✧
+2026-11-11T04:48:27.5783242Z ASTRA CHRONICA
+2026-11-11T04:48:27.5783573Z 星詠みの遺した約束
+2026-11-11T04:48:27.5783812Z PROTOTYPE
+2026-11-11T04:48:27.5783993Z ver. 2.7
+2026-11-11T04:48:27.5784057Z 
+2026-11-11T04:48:27.5784236Z CHAPTER 11 · EXPLORE
+2026-11-11T04:48:27.5784421Z 
+2026-11-11T04:48:27.5789401Z 星声の中枢
+2026-11-11T04:48:27.5789958Z ☰
+2026-11-11T04:48:27.5790380Z 目的：この章の冒険は完了しました ｜ 解放済みの地点 — 依頼や調査を続けられます。 ｜ 共鳴：鎮静
+2026-11-11T04:48:27.5790672Z 地図
+2026-11-11T04:48:27.5790733Z 
+2026-11-11T04:48:27.5790894Z 地面をタップして歩く · 矢印／WASDでも移動
+2026-11-11T04:48:27.5791087Z 人・装置・宝箱・出口は輪の範囲に近づいてタップ
+2026-11-11T04:48:27.5791576Z 
+2026-11-11T04:48:27.5791672Z ✦ 星の記憶は、あなたとともに。
+2026-11-11T04:48:27.6698847Z node:internal/modules/run_main:123
+2026-11-11T04:48:27.6700535Z     triggerUncaughtException(
+2026-11-11T04:48:27.6701236Z     ^
+2026-11-11T04:48:27.6701399Z 
+2026-11-11T04:48:27.6701793Z AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+2026-11-11T04:48:27.6702119Z 
+2026-11-11T04:48:27.6702217Z 23 !== 20
+2026-11-11T04:48:27.6702386Z 
+2026-11-11T04:48:27.6712413Z     at file:///home/runner/work/astra-chronica/astra-chronica/tests/exploration-v19.e2e.mjs:21:259 {
+2026-11-11T04:48:27.6712906Z   generatedMessage: true,
+2026-11-11T04:48:27.6713143Z   code: 'ERR_ASSERTION',
+2026-11-11T04:48:27.6713281Z   actual: 23,
+2026-11-11T04:48:27.6713402Z   expected: 20,
+2026-11-11T04:48:27.6713604Z   operator: 'strictEqual',
+2026-11-11T04:48:27.6713817Z   diff: 'simple'
+2026-11-11T04:48:27.6713997Z }
+2026-11-11T04:48:27.6714092Z 
+2026-11-11T04:48:27.6714172Z Node.js v22.23.4
+2026-11-11T04:48:27.6837902Z V26_FILE {"file":"exploration-v19.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/exploration-v19.e2e.mjs"],"code":1,"start":"2026-11-11T04:45:03.156Z","end":"2026-11-11T04:48:27.683Z","log":"exploration-v19.e2e.mjs-0.log","sha256":"a847bc2a9f519d5f9076b33ccb463148baef425e6e02ecf6839d7009d8cdfec5"}],"code":1}
+2026-11-11T04:48:33.4733706Z PASS grove-camp at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:38.4230354Z PASS grove-trail at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:43.3224662Z PASS grove-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:48:52.6555499Z PASS grove-village at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:49:03.6718835Z PASS grove-garden at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:49:08.4380956Z PASS sky-port at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:49:13.3553006Z PASS sky-island at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:49:18.2384581Z PASS sky-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:49:29.6547579Z PASS sky-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:49:40.7701025Z PASS sky-tower at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:49:52.5205192Z PASS star-cave at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:49:57.4363763Z PASS star-path at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:50:09.6693795Z PASS star-city at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:50:14.3526759Z PASS star-market at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:50:19.2685707Z PASS star-waterway at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:50:24.1684977Z PASS star-mine at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:50:28.7851761Z PASS star-archive at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:50:33.6181995Z PASS star-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:50:45.5009743Z PASS tide-road at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:50:57.3340031Z PASS tide-town at 320/390/430/768: touch, aspect, camera, pause, NPC/inspect/reload/exit
+2026-11-11T04:51:02.2335211Z PASS tide-port at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:07.0668086Z PASS tide-beach at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:11.7166782Z PASS tide-observatory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:16.5664036Z PASS tide-cave at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:21.4001809Z PASS tide-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:26.2662488Z PASS tide-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:31.2991969Z PASS pale-road at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:35.9326193Z PASS pale-village at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:40.7827122Z PASS pale-field at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:45.6320862Z PASS pale-stones at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:50.2650611Z PASS pale-ravine at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:55.1316305Z PASS pale-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:51:59.9645113Z PASS pale-archive at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:04.8318399Z PASS pale-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:09.9145580Z PASS gloom-road at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:14.5474654Z PASS gloom-village at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:19.4646699Z PASS gloom-woods at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:24.2807620Z PASS gloom-lake at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:28.9302102Z PASS gloom-roots at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:33.7967704Z PASS gloom-shrine at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:38.6132710Z PASS gloom-archive at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:43.5130449Z PASS gloom-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:48.5628440Z PASS gear-rail at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:53.2294661Z PASS gear-station at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:52:58.0789813Z PASS gear-city at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:02.9455182Z PASS gear-market at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:07.5285614Z PASS gear-lower at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:12.3457073Z PASS gear-workshop at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:17.2785601Z PASS gear-observatory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:22.0783787Z PASS gear-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:27.1610544Z PASS ark-gateway at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:31.8445183Z PASS ark-shore at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:36.7277179Z PASS ark-dock at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:41.6273422Z PASS ark-hall at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:46.3104052Z PASS ark-gravity at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:51.1772712Z PASS ark-records at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:53:56.0768702Z PASS ark-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:00.9767719Z PASS ark-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:06.0763730Z PASS void-gate at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:10.9427192Z PASS void-court at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:15.8425335Z PASS void-corridor at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:20.8093596Z PASS void-mirror at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:25.7254622Z PASS void-archive at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:30.5922779Z PASS void-garden at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:35.5251743Z PASS void-sanctum at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:40.4750780Z PASS void-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:45.6089100Z PASS grave-gate at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:50.4580626Z PASS grave-field at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:54:55.3250669Z PASS grave-ruins at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:00.1582342Z PASS grave-memory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:05.0405522Z PASS grave-observatory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:09.9236144Z PASS grave-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:14.8234850Z PASS grave-tower at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:19.7731999Z PASS grave-core at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:24.9231437Z PASS terminal-gate at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:29.8561779Z PASS terminal-plaza at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:34.7894941Z PASS terminal-library at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:39.6893239Z PASS terminal-memory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:44.6056080Z PASS terminal-observatory at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:49.5224735Z PASS terminal-sanctuary at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:54.4219661Z PASS terminal-bridge at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:59.3383514Z PASS terminal-heart at 320/390/430/768: touch, aspect, camera, pause
+2026-11-11T04:55:59.3603677Z ✧
+2026-11-11T04:55:59.3604018Z ASTRA CHRONICA
+2026-11-11T04:55:59.3604215Z 星詠みの遺した約束
+2026-11-11T04:55:59.3604334Z PROTOTYPE
+2026-11-11T04:55:59.3604519Z ver. 2.7
+2026-11-11T04:55:59.3604616Z 
+2026-11-11T04:55:59.3604766Z CHAPTER 17 · EXPLORE
+2026-11-11T04:55:59.3604944Z 
+2026-11-11T04:55:59.3605381Z 終着領域の心臓
+2026-11-11T04:55:59.3605691Z ☰
+2026-11-11T04:55:59.3606282Z 目的：この章の冒険は完了しました ｜ 解放済みの地点 — 依頼や調査を続けられます。 ｜ 星路：運命再接続（両星路を通行可） ｜ 先行路：北・近道
+2026-11-11T04:55:59.3606593Z 地図
+2026-11-11T04:55:59.3606682Z 
+2026-11-11T04:55:59.3606872Z 地面をタップして歩く · 矢印／WASDでも移動
+2026-11-11T04:55:59.3607271Z 人・装置・宝箱・出口は輪の範囲に近づいてタップ
+2026-11-11T04:55:59.3607397Z 
+2026-11-11T04:55:59.3607502Z ✦ 星の記憶は、あなたとともに。
+2026-11-11T04:55:59.4732796Z node:internal/modules/run_main:123
+2026-11-11T04:55:59.4733201Z     triggerUncaughtException(
+2026-11-11T04:55:59.4733428Z     ^
+2026-11-11T04:55:59.4733797Z 
+2026-11-11T04:55:59.4734031Z AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+2026-11-11T04:55:59.4734277Z 
+2026-11-11T04:55:59.4734361Z 59 !== 56
+2026-11-11T04:55:59.4734457Z 
+2026-11-11T04:55:59.4734741Z     at file:///home/runner/work/astra-chronica/astra-chronica/tests/exploration-v25.e2e.mjs:28:335 {
+2026-11-11T04:55:59.4735129Z   generatedMessage: true,
+2026-11-11T04:55:59.4735333Z   code: 'ERR_ASSERTION',
+2026-11-11T04:55:59.4735525Z   actual: 59,
+2026-11-11T04:55:59.4735690Z   expected: 56,
+2026-11-11T04:55:59.4735877Z   operator: 'strictEqual',
+2026-11-11T04:55:59.4736073Z   diff: 'simple'
+2026-11-11T04:55:59.4736251Z }
+2026-11-11T04:55:59.4736347Z 
+2026-11-11T04:55:59.4736427Z Node.js v22.23.4
+2026-11-11T04:55:59.4895119Z V26_FILE {"file":"exploration-v25.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/exploration-v25.e2e.mjs"],"code":1,"start":"2026-11-11T04:48:27.683Z","end":"2026-11-11T04:55:59.489Z","log":"exploration-v25.e2e.mjs-0.log","sha256":"38aa935f031f73b931bf6a5b296d776398f15e18f64a8356783edacb5a1ea7d6"}],"code":1}
+2026-11-11T04:56:06.6295011Z Railway passed: locked repair, six derived stations, four widths, cancel/reload before commit, double taps, skip, safe arrival/reload, minimap open-state retention, foreground pause safety, unchanged rewards/resources.
+2026-11-11T04:56:06.6974372Z V26_FILE {"file":"railway-v21.e2e.mjs","sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9","attempts":[{"command":["/opt/hostedtoolcache/node/22.23.4/x64/bin/node","tests/railway-v21.e2e.mjs"],"code":0,"start":"2026-11-11T04:55:59.489Z","end":"2026-11-11T04:56:06.697Z","log":"railway-v21.e2e.mjs-0.log","sha256":"05ca221982b3739064b70b38d083141a77ff151fd3f28622034fcba0fc11a6a8"}],"code":0}
+2026-11-11T04:56:06.7340150Z V26_GROUP {"group":"old-0","success":false,"files":11,"sourceHash":"703ac7030c552da6bbf8197e93159515487a2f96dff768eaf1e3b8c936cc75e9"}
+2026-11-11T04:56:06.7456603Z ##[error]Process completed with exit code 1.
+2026-11-11T04:56:06.7510893Z ##[group]Run actions/upload-artifact@v4
+2026-11-11T04:56:06.7511058Z with:
+2026-11-11T04:56:06.7511174Z   name: v27-old-0
+2026-11-11T04:56:06.7511294Z   path: .ci-v27/old-0
+2026-11-11T04:56:06.7511424Z   include-hidden-files: true
+2026-11-11T04:56:06.7511559Z   retention-days: 14
+2026-11-11T04:56:06.7511692Z   if-no-files-found: warn
+2026-11-11T04:56:06.7511821Z   compression-level: 6
+2026-11-11T04:56:06.7511942Z   overwrite: false
+2026-11-11T04:56:06.7512059Z ##[endgroup]
+2026-11-11T04:56:06.8532454Z (node:5363) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-11T04:56:06.8532944Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-11T04:56:06.8594528Z With the provided path, there will be 39 files uploaded
+2026-11-11T04:56:06.8597405Z Artifact name is valid!
+2026-11-11T04:56:06.8597884Z Root directory input is valid!
+2026-11-11T04:56:07.1353505Z Beginning upload of artifact content to blob storage
+2026-11-11T04:56:07.2176123Z (node:5363) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-11T04:56:07.5851222Z Uploaded bytes 2278973
+2026-11-11T04:56:07.6237418Z Finished uploading artifact content to blob storage!
+2026-11-11T04:56:07.6237873Z SHA256 digest of uploaded artifact zip is 2e03061a339e4fda45e64d6e2beca0e08efd2492c6add4a43f6824a67e687e80
+2026-11-11T04:56:07.6239176Z Finalizing artifact upload
+2026-11-11T04:56:08.0244126Z Artifact v27-old-0.zip successfully finalized. Artifact ID 13829947607
+2026-11-11T04:56:08.0244776Z Artifact v27-old-0 has been successfully uploaded! Final size is 2278973 bytes. Artifact ID is 13829947607
+2026-11-11T04:56:08.0249306Z Artifact download URL: https://github.com/kinamochimame-boop/astra-chronica/actions/runs/42959700160/artifacts/13829947607
+2026-11-11T04:56:08.0423621Z Post job cleanup.
+2026-11-11T04:56:08.0943308Z [command]/usr/bin/git version
+2026-11-11T04:56:08.0977564Z git version 2.56.0
+2026-11-11T04:56:08.1001199Z Temporarily overriding HOME='/home/runner/work/_temp/c1d7b9a7-8a95-4151-a8c2-85f0984f7554' before making global git config changes
+2026-11-11T04:56:08.1001874Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T04:56:08.1004187Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/astra-chronica/astra-chronica
+2026-11-11T04:56:08.1033944Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T04:56:08.1060993Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-11T04:56:08.1294765Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T04:56:08.1320230Z http.https://github.com/.extraheader
+2026-11-11T04:56:08.1328627Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-11T04:56:08.1362571Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-11T04:56:08.1586856Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T04:56:08.1613488Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-11T04:56:08.1928737Z Cleaning up orphan processes
+2026-11-11T04:56:08.2163365Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

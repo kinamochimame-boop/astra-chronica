@@ -1,0 +1,14 @@
+stage:three widths
+stage:390 restored
+stage:departure approach
+stage:departure completed
+stage:location entrance
+UI victory c1-first-battle
+stage:location stele
+stage:location fork
+UI victory c1-fork-battle
+stage:location spring
+stage:location altar
+stage:location depths
+UI victory c1-guardian
+PASS v2.7 chapter1 legacy=false:7actual maps/9events/3victories/retreat/reload/bow once/3touch widths/Lab isolation/chapter2 unchanged/pageErrors0

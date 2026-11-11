@@ -1,9 +1,12 @@
+import {prepareBattleClock} from './browser-clock.mjs';
+import {waitMap,contactSymbol} from './map-driver-v15.mjs';
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 import {mkdir} from 'node:fs/promises';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
 try {
- const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{Math.random=()=>0.99});
+ const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await prepareBattleClock(page);const errors=[];page.on('pageerror',e=>errors.push(e.message));// Rendering needs a nonconstant deterministic stream; combat restores the original0.99 below.
+ await page.addInitScript(()=>{let seed=2709;Math.random=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296}});
  const tap=name=>page.getByRole('button',{name,exact:true}).tap();const getSave=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')));const select=id=>page.locator(`[data-node-id="${id}"]`).tap();const learn=()=>page.locator('#tree-acquire').tap();
  await page.goto(process.env.BASE_URL||'http://localhost:4173');await page.evaluate(()=>localStorage.setItem('astra-chronica:v1',JSON.stringify({version:2,started:true,wins:2,battles:4,party:{astel:{level:2,experience:100},rina:{level:5,experience:0},mei:{level:18,experience:10}},adventure:{chapters:{'chapter-01':{currentLocationId:'c1-entrance',completed:['c1-departure']}},serial:0,resolved:0}})));await page.reload();await tap('ゲーム開始 · 続きから');const old=await getSave();await tap('スキルツリー');
  assert.match(await page.locator('.tree-sp').textContent(),/残りSP 2 \/ 累計 2/);await select('astel-sword-strong');assert.equal(await page.locator('#tree-acquire').isDisabled(),true);assert.match(await page.locator('.tree-reason').textContent(),/Lv.5/);
@@ -14,7 +17,7 @@ try {
  await tap('リナ');await select('rina-fortress-plate');await learn();await tap('守護・支援');await select('rina-guardian-care');await learn();await select('rina-guardian-cover');await learn();
  await tap('メイ');await tap('治癒・補助');await select('mei-healing-heal');await learn();await tap('星術・魔力');await select('mei-astral-mana');await learn();await select('mei-astral-economy');await learn();
  let s=await getSave();assert.equal(s.skillTree.astel.length,2);assert.equal(s.skillTree.rina.length,3);assert.equal(s.skillTree.mei.length,3);assert.deepEqual(s.equipment,old.equipment);assert.deepEqual(s.adventure,old.adventure);assert.deepEqual(s.party,old.party);
- await page.reload();await tap('ゲーム開始 · 続きから');await tap('スキルツリー');assert.match(await page.locator('.tree-sp').textContent(),/残りSP 0/);assert.equal(await page.locator('.tree-node.learned').count(),2);await page.locator('#tree-back').tap();await tap('冒険へ出発');await page.locator('[data-event-action="c1-first-battle"]').tap();while(await page.locator('#dialogue-next').count())await page.locator('#dialogue-next').tap();
+ await page.reload();await tap('ゲーム開始 · 続きから');await tap('スキルツリー');assert.match(await page.locator('.tree-sp').textContent(),/残りSP 0/);assert.equal(await page.locator('.tree-node.learned').count(),2);await page.locator('#tree-back').tap();await tap('冒険へ出発');await waitMap(page);await page.evaluate(()=>{Math.random=()=>0.99});await contactSymbol(page,'c1-first-battle-symbol');
  // Mei acts first at Lv18. Discounted MP in UI must match actual spending.
  await page.getByRole('button',{name:'ファイア MP6',exact:true}).tap();await page.locator('.execute-command').tap();assert.equal(await page.getByRole('progressbar',{name:'メイ MP',exact:true}).getAttribute('aria-valuenow'),'99');
  await page.locator('.turn-banner').filter({hasText:'コマンドを選択：アステル'}).waitFor();await page.getByRole('button',{name:'通常攻撃',exact:true}).tap();await page.locator('.execute-command').tap();assert.equal(await page.locator('.fx-value').textContent(),'46');

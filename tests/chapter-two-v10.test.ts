@@ -1,3 +1,4 @@
+import {positionForChapterOne,chapterOneContact} from './chapter-one-test-setup';
 import {describe,it,expect} from 'vitest';
 import {chapterOne,chapters,type Chapter} from '../src/data/chapter-one';
 import {chapterTwo as c,cityNpcs} from '../src/data/chapter-two';
@@ -13,7 +14,7 @@ import {seededRandom,LabSession} from '../src/lab-session';
 import {acquireNode,remainingSP} from '../src/skill-tree';
 function ev(r:ActionResult){expect(r.ok).toBe(true);if(!r.ok)throw Error(r.reason);return r.event}
 function until(b:Battle,id:string){for(let i=0;i<30&&!b.result&&b.current?.id!==id;i++)b.waitTurn();expect(b.current?.id).toBe(id)}
-function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){if(!chapterState(p.adventure,ch).completed.includes(e.id)){if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id)!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
+function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){if(!chapterState(p.adventure,ch).completed.includes(e.id)){positionForChapterOne(p,ch,e.id);if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id,chapterOneContact(e.id))!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
 function ready(){const p=fresh();complete(p,chapterOne);return p}
 function cityBattle(p:Progress,id:string,random=()=>0.99){return new Battle(random,p.party,undefined,p.equipment,encounterSetup(id),p.skillTree,p.consumables)}
 function fight(b:Battle){for(let n=0;n<400&&!b.result;n++){

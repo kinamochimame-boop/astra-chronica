@@ -44,12 +44,12 @@ let command:Command='attack',targetId='',battleSession=0;
 let turnTimer:number|undefined;
 let battleView:BattleView|undefined;
 let actingId:string|undefined,actionRound=1;
-let activeChapter:Chapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapterOne;
+let activeChapter:Chapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapters.find(c=>c.id===mapById(progress.world?.mapId)?.chapterId)??[...chapters].reverse().find(c=>progress.adventure.chapters[c.id])??chapterOne;
 let adventureBattle:{serial:number;eventId:string}|undefined;
 let worldDispose:(()=>void)|undefined;
 let endingDispose:(()=>void)|undefined;
 let screen='title';let storageOK=true;
-app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 2.6</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
+app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 2.7</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
 const content=document.querySelector<HTMLElement>('#content')!;
 const stage=new Stage();
 const game=new Phaser.Game({type:Phaser.AUTO,width:390,height:310,transparent:true,scene:stage,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},banner:false,parent:document.createElement('div')});
@@ -74,7 +74,7 @@ function showRecords(back:()=>void){cancelTurn();screen='records';heading('RECOR
 function showJournal(back:()=>void){cancelTurn();screen='journal';heading('JOURNAL','冒険手帳');mountJournal(content,progress,back,back===home?'ホームへ戻る':'探索へ戻る')}
 function chapterSelection(){cancelTurn();screen='chapters';heading('CHAPTERS','冒険の記録');mountChapterSelection(content,progress,selectChapter,home)}
 function selectChapter(c:Chapter){activeChapter=c;progress.adventure.selectedChapterId=c.id;persist();adventure()}
-function showEnding(replay=false){if(screen==='ending'&&endingDispose)return;cancelTurn();leaveWorld();endingDispose?.();screen='ending';heading('FINALE','星詠みの遺した約束');game.loop.sleep();endingDispose=mountEnding(content,progress,()=>{endingDispose?.();endingDispose=undefined;game.loop.wake();home()},next=>{storageOK=save(next);if(storageOK)Object.assign(progress,next);return storageOK},replay,()=>{endingDispose?.();endingDispose=undefined;game.loop.wake();activeChapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapterOne;adventure()})}
+function showEnding(replay=false){if(screen==='ending'&&endingDispose)return;cancelTurn();leaveWorld();endingDispose?.();screen='ending';heading('FINALE','星詠みの遺した約束');game.loop.sleep();endingDispose=mountEnding(content,progress,()=>{endingDispose?.();endingDispose=undefined;game.loop.wake();home()},next=>{storageOK=save(next);if(storageOK)Object.assign(progress,next);return storageOK},replay,()=>{endingDispose?.();endingDispose=undefined;game.loop.wake();activeChapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapters.find(c=>c.id===mapById(progress.world?.mapId)?.chapterId)??[...chapters].reverse().find(c=>progress.adventure.chapters[c.id])??chapterOne;adventure()})}
 function adventure(){if(activeChapter.id==='chapter-18'&&endingAvailable(progress)&&!gameCleared(progress)){showEnding();return}showAdventure(false)}
 function locationList(){showAdventure(true)}
 function showAdventure(list:boolean){const m=mapForLocation(activeChapter.id,chapterState(progress.adventure,activeChapter).currentLocationId);if(m&&!list){openMap(m.id);return}cancelTurn();screen='adventure';heading('ADVENTURE',activeChapter.name);mountAdventure(content,progress,persist,startAdventure,home,activeChapter,selectChapter,()=>showQuests(adventure),()=>showRecords(adventure),()=>showJournal(adventure),walkMaps.some(m=>m.chapterId===activeChapter.id)?{onMapLocation:openMap}:undefined)}

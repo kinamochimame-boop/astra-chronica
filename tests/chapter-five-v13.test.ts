@@ -1,3 +1,4 @@
+import {positionForChapterOne,chapterOneContact} from './chapter-one-test-setup';
 import {describe,it,expect} from 'vitest';
 import {chapterOne,chapters,type Chapter} from '../src/data/chapter-one';
 import {chapterTwo} from '../src/data/chapter-two';
@@ -26,7 +27,7 @@ const sideQuests=allQuests.filter(q=>q.chapterId==='chapter-05');
 const dialogueChoices=allChoices.filter(q=>q.chapterId==='chapter-05');
 const ev=(r:ActionResult)=>{expect(r.ok).toBe(true);if(!r.ok)throw Error(r.reason);return r.event};
 function until(b:Battle,id:string){for(let n=0;n<30&&!b.result&&b.current?.id!==id;n++)b.waitTurn();expect(b.current?.id).toBe(id)}
-function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){visitLocation(p.adventure,ch,e.locationId);if(ch.id===c.id&&e.puzzle)discoverLandmark(p.adventure,'c5-temple-windmark');if(!chapterState(p.adventure,ch).completed.includes(e.id)){if(e.choiceId&&!p.choices[e.choiceId])expect(recordChoice(p,e.choiceId,allChoices.find(q=>q.id===e.choiceId)!.options[0].id)).toBe(true);if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id)!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
+function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){visitLocation(p.adventure,ch,e.locationId);if(ch.id===c.id&&e.puzzle)discoverLandmark(p.adventure,'c5-temple-windmark');if(!chapterState(p.adventure,ch).completed.includes(e.id)){positionForChapterOne(p,ch,e.id);if(e.choiceId&&!p.choices[e.choiceId])expect(recordChoice(p,e.choiceId,allChoices.find(q=>q.id===e.choiceId)!.options[0].id)).toBe(true);if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id,chapterOneContact(e.id))!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
 function ready(){const p=fresh();for(const ch of [chapterOne,chapterTwo,chapterThree,chapterFour])complete(p,ch);return p}
 const battle=(p:Progress,id:string,random=()=>0.99)=>new Battle(random,p.party,undefined,p.equipment,encounterSetup(id),p.skillTree,p.consumables);
 function doQuest(p:Progress,id:string){const q=sideQuests.find(q=>q.id===id)!;expect(acceptQuest(p,id)).toBe(true);for(const o of q.objectives){expect(visitLocation(p.adventure,c,o.locationId)).toBe(true);expect(collectQuestObjective(p,id,o.id)).toBe(true)}visitLocation(p.adventure,c,q.returnLocation);expect(claimQuest(p,id).ok).toBe(true)}

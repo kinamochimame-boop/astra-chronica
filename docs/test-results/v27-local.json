@@ -1,0 +1,320 @@
+{
+  "version": "v2.7",
+  "baseline": "5603461c60bc78ae960a1629aa8e05cf6ad93428",
+  "status": "local checks passed; full85-file CI pending",
+  "unit": {
+    "passed": 2518,
+    "files": 44,
+    "default_timeout_ms": 5000,
+    "new_cases": 41
+  },
+  "build": {
+    "success": true
+  },
+  "local_browser": {
+    "new_game": true,
+    "legacy_save": true,
+    "chapter_maps": 7,
+    "events": 9,
+    "victories": 3,
+    "widths": [
+      320,
+      390,
+      430
+    ],
+    "lab_isolated": true,
+    "storage_failure_notice": true,
+    "tree_damage46_mp6": true
+  },
+  "save": {
+    "key": "astra-chronica:v1",
+    "version": 2
+  },
+  "screenshots": [
+    {
+      "file": "docs/screenshots/free-exploration-v27-altar-320.png",
+      "width": 320,
+      "height": 862,
+      "sha256": "965730c678585d7615fdfc21fa81b3b1e32787fbf4e7392d7adef6b2e2da9cf0"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-altar-390.png",
+      "width": 390,
+      "height": 863,
+      "sha256": "470e8cb09bd1616bf050c3d9bdc4c385f043fea129165f53914628828a772e4b"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-altar-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "9efc8a43e36fd3a1cfd64f326a60f047f3e065b1f89d01ab9d8cb4a014ffed9f"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-camp-320.png",
+      "width": 320,
+      "height": 862,
+      "sha256": "5b568e2dcd96b200bb890460d89a914282c2c4e4c2397eff6ded9022601b7bb1"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-camp-390.png",
+      "width": 390,
+      "height": 863,
+      "sha256": "7203e35b8038eb37b12e5e290b7b4464e1b2ffa4db6b9de0ade6d09c88988db8"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-camp-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "a009e150e9e314a7b1bbba9dcf3b4842d1b0f196e75b9719fe65ad0b7a248d4d"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-depths-320.png",
+      "width": 320,
+      "height": 862,
+      "sha256": "e3a12598d6162f9743ae29714c636e5161d22239b8a528736177b20cf21da0c5"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-depths-390.png",
+      "width": 390,
+      "height": 845,
+      "sha256": "e155d52526943e596ae2175b53e2cb9c29ccd6b2f255e98f8bcb8474d87feaec"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-depths-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "73047eaf5c851d85f6cb930fc4608c389164997073428c3c8dfe7d89469421c1"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-entrance-320.png",
+      "width": 320,
+      "height": 862,
+      "sha256": "4f9931bc34af188503497efa541218ccd1656f1c5f812a7cdab1ab331d4bde9a"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-entrance-390.png",
+      "width": 390,
+      "height": 845,
+      "sha256": "fa3ab93440e28261c79db12238d6ea446037d84e2142b85672d3adc5fe6b5794"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-entrance-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "ae817df1317918742f9df923688415b6957b646470916e06af5d7eac7578e57a"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-fork-320.png",
+      "width": 320,
+      "height": 862,
+      "sha256": "727a050953cc2719b980092c5ed319156eb3fedfc34115739b642b81ac0795fa"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-fork-390.png",
+      "width": 390,
+      "height": 845,
+      "sha256": "e81cefe6841bbe7bf678643ee9b62dec425aa832b33d8e2c5bd3fe4041a9bb87"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-fork-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "44462e70621a292d3626fab4cb275250e997f425c828ed81c285e5c847e8fff9"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-spring-320.png",
+      "width": 320,
+      "height": 862,
+      "sha256": "8ee2374c00a6527ec64b8294e83b30f786e74ce58d52deb834d07edff4b0c973"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-spring-390.png",
+      "width": 390,
+      "height": 845,
+      "sha256": "3fe7688e39e55eac7e204337cbb6f44dff36e883626781deb464087565457251"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-spring-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "0a64d98201610dbc269946ade7df2453815c3f8d24fe678becae60415285a2ca"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-stele-320.png",
+      "width": 320,
+      "height": 844,
+      "sha256": "0b5ff056932924804b5619fce2112f04a405fb40eb11ddc7c8d9d413c2fe92ae"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-stele-390.png",
+      "width": 390,
+      "height": 845,
+      "sha256": "15635c2fc0ad2b5d050b12d1d531e85466b7b72d6d791fb9ba65209256a595c5"
+    },
+    {
+      "file": "docs/screenshots/free-exploration-v27-stele-430.png",
+      "width": 430,
+      "height": 845,
+      "sha256": "16505baf7a976e6cb324148d650c64b2a9d757e41af7745d227c903344d117ad"
+    }
+  ],
+  "logs": [
+    {
+      "file": "docs/test-results/v27-local/v27-unit-initial.log",
+      "sha256": "38531f8ec18f6456b2c8ce6ce9401af7420b40961a9b91038e8924a2cabd6d50",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-unit-second.log",
+      "sha256": "ff0536e80b10f0513393ed7f0a2e97e4bc93d545c998007b7f2fc12ede2f40ce",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-unit-final.log",
+      "sha256": "ccf900eff26ab83403c7bcde8a700265faa502e676688766fae96fabfdc477aa",
+      "purpose": "final success"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-unit-added-final.log",
+      "sha256": "4626afaa0d939dd6120dab338ca6c1f776e5e08c8cf986ff274b42b16b567e7c",
+      "purpose": "final success"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-build-final.log",
+      "sha256": "68f18f77e69fd32ca0eb2d508aca38a2cad0cfce69215d1cbded0d12d917cf12",
+      "purpose": "final success"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-touch-initial.log",
+      "sha256": "e040cdb49ab9b0666b2015c1776b18d5c8a00a697319cdcc0b362daa1ccdc734",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-touch-second.log",
+      "sha256": "b00102063d7f75f68906dda162f02733d6e21f517ba00fb625c9aae246ed4dc4",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-touch-final.log",
+      "sha256": "9c6239d0153cdba8400fe8cb10ec9b17289bdd798d4cf3831fe25dcdd0932257",
+      "purpose": "final success"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-touch-legacy.log",
+      "sha256": "d20b350d3c24a7a984ca17248ba104c904d5e7d23af33f0420ceb09d69f6cf89",
+      "purpose": "final success"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-tree-regression.log",
+      "sha256": "0a273d8400b7d78af6e6dcf38bf6fbe6981e80bf729e5fb6c6542a2070873092",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-tree-diagnostic.log",
+      "sha256": "7eef98551f1a642cdc60474116612df7ca43c2136fc230c500b98d2350cf499a",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-tree-clock.log",
+      "sha256": "7b3dbac131823317838bf724cbdebeba78dd6740830d4f1bcf0e0a22a04c4715",
+      "purpose": "earlier attempt retained; not final pass"
+    },
+    {
+      "file": "docs/test-results/v27-local/v27-tree-render-seed.log",
+      "sha256": "1698b107c59d8307ad68b917dee5999b26e48838e56b2f9a868025b1a72dbdf1",
+      "purpose": "final success"
+    }
+  ],
+  "merged": false,
+  "published": false,
+  "ci_first_attempt": {
+    "run": 42956765608,
+    "head": "1cef49db3a5975a1b274321be895ca3a4e4d80b2",
+    "conclusion": "WebGL group failed; other jobs may be cancelled by corrected push",
+    "cause": "test driver mistook closed NPC dialogue DOM for active battle introduction",
+    "fix": "require #world-event[open] and visible next button; no game changes/assertion or deadline changes",
+    "corrected_local_webgl_success": true,
+    "evidence": [
+      {
+        "file": "docs/test-results/v27-local/v27-ci-first-webgl-failed.log",
+        "sha256": "24db7b4cb9208a1a46f01062987187366438dd0e134d225c680d6f3a59cc3527"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-webgl-closed-dialog-fix.log",
+        "sha256": "20938943c97b79c794a921a49e8ce96a73a3c8f40cc30db8a4636044add244b1"
+      }
+    ]
+  },
+  "ci_layout_attempt": {
+    "run": 42958144837,
+    "head": "056ac765c6a2eb03366fd1847fa8b35b5dcd1f2a",
+    "native_webgl": "11/11 passed",
+    "layout_failure": "mistwood-camp sign at144,400 correctly triggered inspection, conflicting with legacy test ground target",
+    "fix": "chapter1-only unoccupied floor targets near entry; both real movement endpoints still strictly checked; old90 coordinates unchanged",
+    "local_new_maps": 7,
+    "widths": [
+      320,
+      390,
+      430,
+      768
+    ],
+    "passed_cases": 28,
+    "game_source_changed": false,
+    "evidence": [
+      {
+        "file": "docs/test-results/v27-local/v27-ci-second-layout-failed.log",
+        "sha256": "2117e0635dca9cf00afef9ba5fb02f1eee220c049f05875569b5e6bd27e169fd"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-newmaps-28-layouts.log",
+        "sha256": "3bd213de733652ad811ea8dc6b8a6f969e214d5460c0637bef87b81b498cf86b"
+      }
+    ]
+  },
+  "ci_receipts_attempt": {
+    "run": 42959700160,
+    "head": "b9c50bc3f40893fb0038ba70f4dac014bc5356e8",
+    "conclusion": "old0/old2 failed legacy world totals; full run not reported passed",
+    "cause": "three first-chapter defeat IDs and one chest ID now correctly join canonical world receipts",
+    "fix": "exact four-ID projection for legacy assertions, retaining all original legacy expected counts/IDs; unknown IDs are not hidden",
+    "strict_new_receipts": "first-chapter defeated3/opened1 exact matches in unit and browser",
+    "local_old_map_cases": 136,
+    "local_c1_route_passed": true,
+    "unit_rerun": {
+      "passed": 2518,
+      "files": 44,
+      "default_timeout_ms": 5000
+    },
+    "build_success": true,
+    "evidence": [
+      {
+        "file": "docs/test-results/v27-local/v27-ci-third-receipts-failed.log",
+        "sha256": "a01dc28a1a8588809854bc8570cd596c8ed957f32b53903a3a272423c053ed0c"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-ci-third-receipts-old2-failed.log",
+        "sha256": "5c7985a1402570cc9bcf6abdbff68edaf348e36750dc6a2c4f96239cacd5c6e6"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-legacy-receipts-browser.log",
+        "sha256": "0b2ba59027c146c5314f4548c081c543c89ba1916f8d575afab3f7f93cd2ac30"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-c1-receipts-browser.log",
+        "sha256": "9c6239d0153cdba8400fe8cb10ec9b17289bdd798d4cf3831fe25dcdd0932257"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-unit-receipts-final.log",
+        "sha256": "1ca3e520242040b5b0d0bafd398390fe23153daa0a6bda3c2ed83c7875f0cd61"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-receipts-unit-added.log",
+        "sha256": "d4d09bedf78dbef3ebe43697ccec80cf0cff625435bfb9ce5d207ffd29d5a17b"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-build-receipt-fix.log",
+        "sha256": "5ae6f1aaf4421fe68e374050f137b14a0cdad8aa7bb8bd6f1bb76f1ba61f1d85"
+      }
+    ]
+  }
+}

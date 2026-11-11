@@ -1,0 +1,107 @@
+name: v2.7 chapter-one exploration (no deployment)
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'package*.json'
+      - 'index.html'
+      - 'vite.config.ts'
+      - '.github/workflows/free-exploration-validation.yml'
+permissions:
+  contents: read
+concurrency:
+  group: free-exploration-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  unit:
+    if: github.head_ref == 'feature/v27-chapter-one-free-exploration' && github.event.pull_request.head.repo.full_name == github.repository && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs
+      - run: node tests/ci-v27.mjs unit
+        env:
+          V26_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v27-unit
+          path: .ci-v27/unit
+          include-hidden-files: true
+          retention-days: 14
+  browsers:
+    if: github.head_ref == 'feature/v27-chapter-one-free-exploration' && github.event.pull_request.head.repo.full_name == github.repository && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        group: [fresh, layouts, new, webgl, old-0, old-1, old-2, old-3, old-4, old-5]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Provide native Chromium compatibility path
+        run: |
+          CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+          sudo ln -sf "$CHROME_PATH" /usr/bin/chromium
+      - run: node tests/ci-v27.mjs "${{ matrix.group }}"
+        env:
+          V26_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v27-${{ matrix.group }}
+          path: .ci-v27/${{ matrix.group }}
+          include-hidden-files: true
+          retention-days: 14
+  collect:
+    if: always() && github.head_ref == 'feature/v27-chapter-one-free-exploration' && github.event.pull_request.head.repo.full_name == github.repository && github.event.repository.private == false
+    needs: [unit, browsers]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v27-*
+          path: .ci-v27-results
+      - name: Verify receipts and prepare final evidence
+        run: node tests/ci-v27-collect.mjs
+        env:
+          V26_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          V26_PR_URL: ${{ github.event.pull_request.html_url }}
+          V26_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v27-verified-final-evidence
+          path: |
+            docs/FREE_EXPLORATION_V27.md
+            docs/CHANGED_FILES_V27.txt
+            docs/test-results/v27-ci.json
+            docs/test-results/v27-ci
+            docs/screenshots/free-exploration-v27-*.png
+          retention-days: 14
