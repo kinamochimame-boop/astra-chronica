@@ -1,0 +1,150 @@
+Route none: journal-locked-390
+Route none: camp-320
+Route none: camp-390
+Route none: camp-430
+Route none: camp-768
+Route none: trail-390
+Route none: symbol-battle-390
+Route no-quests: battle victory
+Route none: victory-return-390
+Route none: choice-390
+Route no-quests: battle victory
+Route none: ruins-390
+Route none: ruins-event-saved-390
+Route no-quests: battle victory
+Route no-quests: battle victory
+Route none: chest-opened-390
+Route none: choice-390
+Route none: granguard-battle-390
+Route no-quests: battle victory
+Route none: choice-390
+Route none: choice-390
+Route none: sanctum-390
+Route none: seles-battle-390
+Route no-quests: battle victory
+Route none: clear-390
+Route none: journal-clear-390
+Route none: records-390
+Route none: quests-390
+Route none: records-all-390
+Failure page 0 ✧
+ASTRA CHRONICA
+星詠みの遺した約束
+PROTOTYPE
+ver. 2.8
+
+CHAPTER 06 · EXPLORE
+
+暁の中枢
+☰
+目的：この章の冒険は完了しました ｜ 解放済みの地点 — 依頼や調査を続けられます。 ｜
+地図
+
+地面をタップして歩きましょう。
+
+地面をタップして歩く · 矢印／WASDでも移動
+人・装置・宝箱・出口は輪の範囲に近づいてタップ
+
+✦ 星の記憶は、あなたとともに。 {
+  reform: 'severed',
+  fate: 'fixed',
+  fateRoute: 'direct',
+  memory: 'severed',
+  mapId: 'walk-c6-core',
+  chapterId: 'chapter-06',
+  locationId: 'c6-core',
+  hero: { x: 112, y: 304, facing: 'right', moving: false },
+  camera: { x: 0, y: 49.5 },
+  width: 390,
+  height: 509,
+  paused: false,
+  contactGrace: 0.41666666666666713,
+  locked: false,
+  tile: 32,
+  grid: [
+    '########################',
+    '#......................#',
+    '#.......####...........#',
+    '#.......####...........#',
+    '#.......####...........#',
+    '#.......####...........#',
+    '#......................#',
+    '#......................#',
+    '#......................#',
+    '#......................#',
+    '#........###...........#',
+    '#........###...........#',
+    '#................~~~~..#',
+    '#................~~~~..#',
+    '#................~~~~..#',
+    '#......................#',
+    '#......................#',
+    '#......................#',
+    '#......................#',
+    '########################'
+  ],
+  objects: [
+    {
+      id: 'c6-core-back',
+      name: '夜明けの聖堂へ',
+      kind: 'exit',
+      x: 48,
+      y: 304,
+      targetMap: 'walk-c6-sanctuary'
+    },
+    {
+      id: 'c6-core-next-chapter',
+      name: '次の章への道',
+      kind: 'inspect',
+      x: 720,
+      y: 304,
+      requires: [Array],
+      text: 'この章の冒険を完了しました。探索メニューからホームへ戻り、章選択で次の章へ進めます。'
+    },
+    {
+      id: 'c6-clear-object',
+      name: '初めての次の朝',
+      kind: 'inspect',
+      x: 176,
+      y: 240,
+      eventId: 'c6-clear'
+    },
+    {
+      id: 'c6-core-guide',
+      name: '旅の道標',
+      kind: 'inspect',
+      x: 176,
+      y: 560,
+      text: '地面をタップして歩き、対象へ接近してもう一度調べます。出口は手前のイベント完了で解放されます。装置やパズルも対象を調べて操作できます。'
+    }
+  ],
+  symbols: [
+    {
+      id: 'c6-luciel-symbol',
+      x: 400,
+      y: 304,
+      state: 'defeated',
+      updates: 0,
+      eventId: 'c6-luciel'
+    }
+  ]
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(await page.locator('[data-event-action="c6-clear"]').count())
+
+    at route (file:///workspace/astra-chronica/tests/chapter-seven-v15.e2e.mjs:48:567)
+    at async file:///workspace/astra-chronica/tests/chapter-seven-v15.e2e.mjs:51:29 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

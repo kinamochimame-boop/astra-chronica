@@ -17,11 +17,18 @@ docs/screenshots/free-exploration-v28-chapter-05-430.png
 docs/screenshots/free-exploration-v28-chapter-06-320.png
 docs/screenshots/free-exploration-v28-chapter-06-390.png
 docs/screenshots/free-exploration-v28-chapter-06-430.png
+docs/test-results/v28-local/capacity-chapter-fifteen-before.log
+docs/test-results/v28-local/capacity-chapter-seven-before.log
+docs/test-results/v28-local/capacity-chapter-sixteen-route.log
+docs/test-results/v28-local/capacity-chapter-sixteen-ui.log
+docs/test-results/v28-local/initial-failed-chapter-seven-old-list.log
+docs/test-results/v28-local/initial-failed-chapter-thirteen-autoarrival.log
 docs/test-results/v28-local/v28-build-quest-reasons.log
 docs/test-results/v28-local/v28-c2-initial.log
 docs/test-results/v28-local/v28-c3-reduced-map-list.log
 docs/test-results/v28-local/v28-c5-before-reasons-fixed.log
 docs/test-results/v28-local/v28-c6-before-resume-fixed.log
+docs/test-results/v28-local/v28-ci-helpers-sharded-outside.log
 docs/test-results/v28-local/v28-postclear-c6-native.log
 docs/test-results/v28-local/v28-touch-initial.log
 docs/test-results/v28-local/v28-unit-focused.log
@@ -64,6 +71,7 @@ tests/chapter-twelve-v20.e2e.mjs
 tests/chapter-two-v10.e2e.mjs
 tests/chapter-two-v10.test.ts
 tests/ci-v28-collect.mjs
+tests/ci-v28-matrix.mjs
 tests/ci-v28.mjs
 tests/early-exploration-driver.mjs
 tests/exploration-v15.test.ts

@@ -1,0 +1,94 @@
+chapter16 quests=true event=c16-arrival
+chapter16 quests=true event=c16-gateway-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-gateway-cache
+chapter16 quests=true event=c16-elsia
+chapter16 quests=true event=c16-field-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-field-record
+chapter16 quests=true event=c16-field-cache
+chapter16 quests=true event=c16-projection
+chapter16 quests=true event=c16-kyle
+chapter16 quests=true event=c16-ruins-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-monument-record
+chapter16 quests=true event=c16-ruins-cache
+chapter16 quests=true event=c16-camp-rest
+chapter16 quests=true event=c16-lyria
+chapter16 quests=true event=c16-sanctum-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-hall-cache
+chapter16 quests=true event=c16-seal-record
+chapter16 quests=true event=c16-archive-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-archive-record
+chapter16 quests=true event=c16-observatory-cache
+chapter16 quests=true event=c16-garden-rest
+chapter16 quests=true event=c16-sentinel
+Route all-quests: battle victory
+chapter16 quests=true event=c16-connection
+chapter16 quests=true event=c16-bridge-record
+chapter16 quests=true event=c16-sanctuary-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-civilization-record
+chapter16 quests=true event=c16-memory-cache
+chapter16 quests=true event=c16-refuge-rest
+chapter16 quests=true event=c16-fracture-fight
+Route all-quests: battle victory
+chapter16 quests=true event=c16-tower-reading
+chapter16 quests=true event=c16-tower-cache
+chapter16 quests=true event=c16-integration
+chapter16 quests=true event=c16-seer-record
+chapter16 quests=true event=c16-promise
+chapter16 quests=true event=c16-inherit
+✧
+ASTRA CHRONICA
+星詠みの遺した約束
+PROTOTYPE
+ver. 2.8
+
+CHAPTER 16 · EXPLORE
+
+失われた観測所
+☰
+目的：中枢の待機備蓄 ｜ 観測者の中枢 — 宝箱を調べる。解放済みの出口・地点一覧から向かいましょう。 ｜ → 出口：静止した庭へ 記憶：記憶統合（中枢路開放）
+地図
+
+地面をタップして歩きましょう。
+
+地面をタップして歩く · 矢印／WASDでも移動
+人・装置・宝箱・出口は輪の範囲に近づいてタップ
+
+✦ 星の記憶は、あなたとともに。
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.tap: Timeout 45000ms exceeded.
+Call log:
+[2m  - waiting for locator('#quest-back')[22m
+[2m    - locator resolved to <button id="quest-back" class="secondary">戻る</button>[22m
+[2m  - attempting tap action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing tap action[22m
+
+    at finishQuests (/workspace/astra-chronica/tests/chapter-sixteen-v24.e2e.mjs:19:525)
+    at async route (/workspace/astra-chronica/tests/chapter-sixteen-v24.e2e.mjs:49:33)
+    at async file:///workspace/astra-chronica/tests/chapter-sixteen-v24.e2e.mjs:55:28 {
+  log: [
+    "  - waiting for locator('#quest-back')",
+    '    - locator resolved to <button id="quest-back" class="secondary">戻る</button>',
+    '  - attempting tap action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing tap action'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

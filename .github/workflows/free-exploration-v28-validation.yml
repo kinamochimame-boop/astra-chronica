@@ -12,6 +12,8 @@ jobs:
     if: github.ref == 'refs/heads/feature/v28-chapters-two-six-free-exploration' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    outputs:
+      browser_groups: ${{ steps.matrix.outputs.groups }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,6 +23,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - id: matrix
+        run: node tests/ci-v28-matrix.mjs >> "$GITHUB_OUTPUT"
       - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs
       - run: node tests/ci-v28.mjs unit
         env:
@@ -39,9 +43,9 @@ jobs:
     timeout-minutes: 360
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 12
       matrix:
-        group: [early, fresh, layouts, new, webgl, old-0, old-1, old-2, old-3, old-4, old-5]
+        group: ${{ fromJSON(needs.unit.outputs.browser_groups) }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -51,11 +55,17 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - name: Install Chromium and OS dependencies
+        run: |
+          for attempt in 1 2 3; do
+            if npx playwright install --with-deps chromium; then exit 0; fi
+            if [ "$attempt" = 3 ]; then exit 1; fi
+            sleep 10
+          done
       - name: Provide native Chromium compatibility path
         run: |
-          CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
-          sudo ln -sf "$CHROME_PATH" /usr/bin/chromium
+          V28_CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+          sudo ln -sf "$V28_CHROME_PATH" /usr/bin/chromium
       - run: node tests/ci-v28.mjs "${{ matrix.group }}"
         env:
           V26_HEAD_SHA: ${{ github.sha }}
@@ -89,7 +99,7 @@ jobs:
           V26_PR_URL: https://github.com/kinamochimame-boop/astra-chronica/compare/main...feature/v28-chapters-two-six-free-exploration
           V26_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: success()
         with:
           name: v28-verified-final-evidence
           path: |

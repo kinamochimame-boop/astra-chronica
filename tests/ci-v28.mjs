@@ -3,6 +3,7 @@ import {readdirSync,readFileSync,writeFileSync,createWriteStream,mkdirSync,exist
 import {spawn,execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {chromium} from '@playwright/test';
+import {browserShards} from './ci-v28-matrix.mjs';
 import {productionFingerprint} from './production-fingerprint.mjs';
 import {startServer,stopServer} from './ci-process.mjs';
 const group=process.argv[2],dir='.ci-v28/'+group;mkdirSync(dir,{recursive:true});
@@ -22,18 +23,18 @@ try{
  else{
   const all=readdirSync('tests').filter(f=>/\.(e2e|smoke)\.mjs$/.test(f)).sort(),newFile=f=>/(eighteen|v26|finale-boss|free-exploration-v2[78])/.test(f),early=f=>/^chapter-(two|three|four|five|six)-/.test(f),old=all.filter(f=>!newFile(f)&&!f.endsWith('.smoke.mjs')&&!early(f));
   if(all.length!==86)throw Error('Expected all86 browser files');
-  const chosen=all.filter(f=>group==='early'?early(f):group==='fresh'?f==='full-journey-v26.e2e.mjs':group==='layouts'?f==='exploration-v26.e2e.mjs':group==='new'?newFile(f)&&!['full-journey-v26.e2e.mjs','exploration-v26.e2e.mjs'].includes(f)&&!f.endsWith('.smoke.mjs'):group==='webgl'?f.endsWith('.smoke.mjs'):group.startsWith('old-')?old.indexOf(f)>=0&&old.indexOf(f)%6===Number(group.slice(4)):false);
+  const chosen=group.startsWith('shard-')?(browserShards.find(s=>s.id===group)?.files??[]):all.filter(f=>group==='early'?early(f):group==='fresh'?f==='full-journey-v26.e2e.mjs':group==='layouts'?f==='exploration-v26.e2e.mjs':group==='new'?newFile(f)&&!['full-journey-v26.e2e.mjs','exploration-v26.e2e.mjs'].includes(f)&&!f.endsWith('.smoke.mjs'):group==='webgl'?f.endsWith('.smoke.mjs'):group.startsWith('old-')?old.indexOf(f)>=0&&old.indexOf(f)%6===Number(group.slice(4)):false);
   if(!chosen.length)throw Error('Unknown or empty CI group: '+group);
   const native=chromium.executablePath(),wrapper=process.cwd()+'/'+dir+'/chromium-canvas';
   writeFileSync(wrapper,'#!/bin/sh\nexec "$V26_CHROMIUM_NATIVE" --disable-webgl "$@"\n');chmodSync(wrapper,0o755);
   result.runtime.chromium=execFileSync(native,['--version'],{encoding:'utf8'}).trim();
   server(['preview','--host','0.0.0.0','--port','4173'],'preview');server(['--host','0.0.0.0','--port','5173'],'dev');await ready(4173);await ready(5173);
   const env={...process.env,BASE_URL:'http://localhost:4173',UI_TEST_URL:'http://localhost:5173',BATTLE_VIRTUAL_CLOCK:'1',BATTLE_CLOCK_SKIP_FRAMES:'1',V26_CHROMIUM_NATIVE:native,CHROMIUM_PATH:group==='webgl'?native:wrapper};
-  for(const file of chosen){const paths=readFileSync('tests/'+file,'utf8').includes('--quests-before')?[['--quests-before'],['--quests-after']]:[[]],attempts=[];for(let i=0;i<paths.length;i++)attempts.push(await run(process.execPath,['tests/'+file,...paths[i]],file+'-'+i,env));result.files.push({file,sourceHash,attempts,code:attempts.every(a=>a.code===0)?0:1});console.log('V26_FILE '+JSON.stringify(result.files.at(-1)))}
+  for(const file of chosen){const paths=readFileSync('tests/'+file,'utf8').includes('--quests-before')?[['--quests-before'],['--quests-after']]:[[]],attempts=[];for(let i=0;i<paths.length;i++)attempts.push(await run(process.execPath,['tests/'+file,...paths[i]],file+'-'+i,{...env,CHROMIUM_PATH:file.endsWith('.smoke.mjs')?native:wrapper}));result.files.push({file,sourceHash,attempts,code:attempts.every(a=>a.code===0)?0:1});console.log('V26_FILE '+JSON.stringify(result.files.at(-1)))}
   copyOptional('/tmp/astra-v26-manifest.json','manifest.json');
-  if(group==='fresh'&&existsSync('/tmp/v26-fresh-journey-result.json')){const p=JSON.parse(readFileSync('/tmp/v26-fresh-journey-result.json'));cpSync(p.output,dir+'/journey',{recursive:true})}
+  if(chosen.includes('full-journey-v26.e2e.mjs')&&existsSync('/tmp/v26-fresh-journey-result.json')){const p=JSON.parse(readFileSync('/tmp/v26-fresh-journey-result.json'));cpSync(p.output,dir+'/journey',{recursive:true})}
   copyOptional('/tmp/v26-map-cases.json','map-cases.json');copyOptional('/tmp/v26-chapter-before-receipt.json','chapter-before.json');copyOptional('/tmp/v26-chapter-after-receipt.json','chapter-after.json');
-  mkdirSync(dir+'/screenshots',{recursive:true});if(group==='new')for(const f of readdirSync('docs/screenshots').filter(f=>/^(free-exploration-v28-).*\.png$/.test(f))){const path='docs/screenshots/'+f,b=readFileSync(path);if(!b.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex')))throw Error('Invalid PNG '+f);copyFileSync(path,dir+'/screenshots/'+f);result.screenshots.push({file:f,sha256:sha(path),width:b.readUInt32BE(16),height:b.readUInt32BE(20)})}
+  mkdirSync(dir+'/screenshots',{recursive:true});if(chosen.includes('free-exploration-v28.e2e.mjs'))for(const f of readdirSync('docs/screenshots').filter(f=>/^(free-exploration-v28-).*\.png$/.test(f))){const path='docs/screenshots/'+f,b=readFileSync(path);if(!b.subarray(0,8).equals(Buffer.from('89504e470d0a1a0a','hex')))throw Error('Invalid PNG '+f);copyFileSync(path,dir+'/screenshots/'+f);result.screenshots.push({file:f,sha256:sha(path),width:b.readUInt32BE(16),height:b.readUInt32BE(20)})}
  }
  if(productionFingerprint()!==sourceHash)throw Error('Application source changed during validation');
  result.success=result.commands.every(c=>c.code===0)&&result.files.every(f=>f.code===0);
