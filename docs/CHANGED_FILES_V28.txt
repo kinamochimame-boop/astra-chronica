@@ -16,6 +16,11 @@ docs/screenshots/free-exploration-v28-chapter-05-430.png
 docs/screenshots/free-exploration-v28-chapter-06-320.png
 docs/screenshots/free-exploration-v28-chapter-06-390.png
 docs/screenshots/free-exploration-v28-chapter-06-430.png
+docs/test-results/v28-local/v28-c2-initial.log
+docs/test-results/v28-local/v28-touch-initial.log
+docs/test-results/v28-local/v28-unit-focused.log
+docs/test-results/v28-local/v28-unit-second.log
+docs/test-results/v28-local/v28-unit-third.log
 src/adventure-view.ts
 src/exploration/chapters-two-six-maps.ts
 src/exploration/early-chapters.ts

@@ -1,0 +1,591 @@
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/exploration-v15.test.ts (33 tests) 714ms
+ ✓ tests/chapter-five-v13.test.ts (50 tests) 4499ms
+   ✓ weapons, choices, quests, journal and save compatibility > all 16 dialogue combinations can finish the same main story without lost rewards  410ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false  1187ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true  1104ms
+   ✓ multi-seed chapter-five battle balance > chapter-four-cleared starter party can beat sahara-gardion over 20 seeds  350ms
+   ✓ multi-seed chapter-five battle balance > chapter-four-cleared starter party can beat sahara-zaira over 20 seeds  521ms
+ ✓ tests/chapter-fourteen-v22.test.ts (41 tests) 4683ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  2144ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  2038ms
+ ✓ tests/chapter-sixteen-v24.test.ts (107 tests) 9710ms
+   ✓ chapter sixteen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  531ms
+   ✓ grave enemies and measurable shared combat > seed1 clears both quest routes atLv50 with chapter15 weapons  430ms
+   ✓ grave enemies and measurable shared combat > seed2 clears both quest routes atLv50 with chapter15 weapons  384ms
+   ✓ grave enemies and measurable shared combat > seed3 clears both quest routes atLv50 with chapter15 weapons  353ms
+   ✓ grave enemies and measurable shared combat > seed4 clears both quest routes atLv50 with chapter15 weapons  302ms
+   ✓ grave enemies and measurable shared combat > seed5 clears both quest routes atLv50 with chapter15 weapons  397ms
+   ✓ grave enemies and measurable shared combat > seed6 clears both quest routes atLv50 with chapter15 weapons  310ms
+   ✓ grave enemies and measurable shared combat > seed7 clears both quest routes atLv50 with chapter15 weapons  403ms
+   ✓ grave enemies and measurable shared combat > seed8 clears both quest routes atLv50 with chapter15 weapons  316ms
+   ✓ grave enemies and measurable shared combat > seed9 clears both quest routes atLv50 with chapter15 weapons  306ms
+   ✓ grave enemies and measurable shared combat > seed11 clears both quest routes atLv50 with chapter15 weapons  318ms
+   ✓ grave enemies and measurable shared combat > seed12 clears both quest routes atLv50 with chapter15 weapons  367ms
+   ✓ grave enemies and measurable shared combat > seed13 clears both quest routes atLv50 with chapter15 weapons  331ms
+   ✓ grave enemies and measurable shared combat > seed14 clears both quest routes atLv50 with chapter15 weapons  346ms
+   ✓ grave enemies and measurable shared combat > seed15 clears both quest routes atLv50 with chapter15 weapons  515ms
+   ✓ grave enemies and measurable shared combat > seed16 clears both quest routes atLv50 with chapter15 weapons  391ms
+   ✓ grave enemies and measurable shared combat > seed17 clears both quest routes atLv50 with chapter15 weapons  350ms
+   ✓ grave enemies and measurable shared combat > seed18 clears both quest routes atLv50 with chapter15 weapons  312ms
+   ✓ grave enemies and measurable shared combat > seed19 clears both quest routes atLv50 with chapter15 weapons  1033ms
+   ✓ grave enemies and measurable shared combat > seed20 clears both quest routes atLv50 with chapter15 weapons  602ms
+ ❯ tests/chapter-ten-v18.test.ts (37 tests | 1 failed) 13326ms
+   ✓ chapter ten story, save and choices > registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter eleven 8ms
+   ✓ chapter ten story, save and choices > ninth clear gates tenth and locked maps/locations cannot be entered 108ms
+   ✓ chapter ten story, save and choices > all events grant six wins and three weapons once without changing older chapters 99ms
+   ✓ chapter ten story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced  552ms
+   ✓ chapter ten story, save and choices > puzzle rejects wrong order, resets safely via reload and completes once 12ms
+   ✓ chapter ten story, save and choices > 'sq-lost-fishing-light' is completable before and after clear with one reward 28ms
+   ✓ chapter ten story, save and choices > 'sq-old-observations' is completable before and after clear with one reward 30ms
+   ✓ chapter ten story, save and choices > 'sq-fiona-lamp' is completable before and after clear with one reward 28ms
+   ✓ chapter ten story, save and choices > potion cap leaves the report unclaimed 17ms
+   ✓ chapter ten story, save and choices > ether cap leaves the report unclaimed 12ms
+   ✓ chapter ten story, save and choices > eight journal articles and exploration completion reveal only confirmed facts 18ms
+   ✓ chapter ten story, save and choices > v1.7 save and unknown tenth fields preserve nine chapters and do not invent choices/tides 9ms
+   ✓ chapter ten combat profiles and gear > six regular enemies/two bosses reuse existing elements/statuses 2ms
+   ✓ chapter ten combat profiles and gear > tide-road allows valid deterministic turns 13ms
+   ✓ chapter ten combat profiles and gear > tide-port allows valid deterministic turns 5ms
+   ✓ chapter ten combat profiles and gear > tide-cave allows valid deterministic turns 3ms
+   ✓ chapter ten combat profiles and gear > tide-ruins allows valid deterministic turns 3ms
+   ✓ chapter ten combat profiles and gear > tide-guardian allows valid deterministic turns 4ms
+   ✓ chapter ten combat profiles and gear > tide-luminaria allows valid deterministic turns 2ms
+   ✓ chapter ten combat profiles and gear > crab executes its advertised existing-engine behavior 2ms
+   ✓ chapter ten combat profiles and gear > jelly executes its advertised existing-engine behavior 1ms
+   ✓ chapter ten combat profiles and gear > wraith executes its advertised existing-engine behavior 1ms
+   ✓ chapter ten combat profiles and gear > drone executes its advertised existing-engine behavior 1ms
+   ✓ chapter ten combat profiles and gear > lantern executes its advertised existing-engine behavior 1ms
+   ✓ chapter ten combat profiles and gear > hunter executes its advertised existing-engine behavior 1ms
+   ✓ chapter ten combat profiles and gear > guardian arms counter and a warned water AoE with existing per-hit guards/barriers 2ms
+   ✓ chapter ten combat profiles and gear > Luminaria starts with guard and retains phase-two charge through sleep into phase three 2ms
+   ✓ chapter ten combat profiles and gear > 'tidestar-bow' applies real combat stats and correct silhouette, owner restricted 18ms
+   ✓ chapter ten combat profiles and gear > 'azure-tide-shield-spear' applies real combat stats and correct silhouette, owner restricted 20ms
+   ✓ chapter ten combat profiles and gear > 'starlamp-rod' applies real combat stats and correct silhouette, owner restricted 71ms
+   × chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes 7849ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  4339ms
+   ✓ tenth symbol receipts > victory settles once and restores the road at a safe entry 2ms
+   ✓ tenth symbol receipts > defeat settles once and restores the road at a safe entry 1ms
+   ✓ tenth symbol receipts > interrupted contact grants no XP or result and no unsafe return 3ms
+   ✓ chapter10 deterministic prerequisite isolation > matches the original complete API setup exactly 52ms
+   ✓ chapter10 deterministic prerequisite isolation > does not share mutable party,inventory,choices or event receipts 2ms
+ ✓ tests/chapter-fifteen-v23.test.ts (102 tests) 9370ms
+   ✓ chapter fifteen progression and immutable choices > all thirty-two important choice combinations clear without mandatory quests or overwritten responses  863ms
+   ✓ chapter fifteen progression and immutable choices > 'sq-knight-oath' rewards once both before and after clear  445ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 1 clears both quest routes from a genuine legacy level 50 without mandatory nodes  508ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 2 clears both quest routes from a genuine legacy level 50 without mandatory nodes  634ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 3 clears both quest routes from a genuine legacy level 50 without mandatory nodes  492ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 5 clears both quest routes from a genuine legacy level 50 without mandatory nodes  475ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 7 clears both quest routes from a genuine legacy level 50 without mandatory nodes  340ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 8 clears both quest routes from a genuine legacy level 50 without mandatory nodes  395ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 9 clears both quest routes from a genuine legacy level 50 without mandatory nodes  470ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 10 clears both quest routes from a genuine legacy level 50 without mandatory nodes  374ms
+   ✓ fifteen battle scripts, weapons and settlement > seed 11 clears both quest routes from a genuine legacy level 50 without mandatory nodes  316ms
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+v1.4 chapter seeds quests=false: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+v1.4 chapter seeds quests=true: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ✓ tests/chapter-six-v14.test.ts (56 tests) 3424ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false  1019ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true  1069ms
+ ✓ tests/chapter-twelve-v20.test.ts (44 tests) 6350ms
+   ✓ chapter twelve story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced  469ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  3425ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1551ms
+ ✓ tests/chapter-eleven-v19.test.ts (38 tests) 4065ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1721ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1672ms
+ ✓ tests/exploration-v21.test.ts (82 tests) 7314ms
+   ✓ fifty shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets  434ms
+   ✓ fifty shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets  507ms
+   ✓ confirmed light paths and survey safety > c13-duals derives stopped independently of the clock and save flags  395ms
+   ✓ confirmed light paths and survey safety > all fifty maps roundtrip without persisting survey fields or losing receipts  305ms
+ ✓ tests/exploration-v22.test.ts (92 tests) 11147ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-camp' entry/objects/patrols are reachable and all exits preserve valid targets  346ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-garden' entry/objects/patrols are reachable and all exits preserve valid targets  1414ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets  1105ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-tower' entry/objects/patrols are reachable and all exits preserve valid targets  402ms
+   ✓ fifty-eight shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets  899ms
+   ✓ fifty-eight shared maps and approach policy > 'star-path' entry/objects/patrols are reachable and all exits preserve valid targets  359ms
+   ✓ fifty-eight shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI  349ms
+ ✓ tests/chapter-seventeen-combat-v25.test.ts (50 tests) 9560ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > terminal-plaza is winnable atLv50 using chapter16 gear and no nodes  386ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > terminal-last-judge is winnable atLv50 using chapter16 gear and no nodes  488ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > 'destiny-rod' equips its owner exactly once across reload  461ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed1 wins all nine encounters without chapter17 gear  500ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed5 wins all nine encounters without chapter17 gear  563ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed7 wins all nine encounters without chapter17 gear  307ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed10 wins all nine encounters without chapter17 gear  319ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed11 wins all nine encounters without chapter17 gear  743ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed12 wins all nine encounters without chapter17 gear  347ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed13 wins all nine encounters without chapter17 gear  1322ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed14 wins all nine encounters without chapter17 gear  474ms
+   ✓ terminal enemies use shared damage, reservations and all player systems > seed15 wins all nine encounters without chapter17 gear  333ms
+ ❯ tests/chapter-thirteen-v21.test.ts (39 tests | 1 failed) 12173ms
+   ✓ chapter thirteen story, save and choices > future notice never labels implemented chapters as unavailable 1ms
+   ✓ chapter thirteen story, save and choices > registers exact sixteen locations, twenty-eight events, five choices, three quests and no chapter fifteen 2ms
+   ✓ chapter thirteen story, save and choices > twelfth clear gates thirteenth and locked maps/locations cannot be entered 122ms
+   ✓ chapter thirteen story, save and choices > all events grant six wins and three weapons once without changing older chapters  1054ms
+   ✓ chapter thirteen story, save and choices > all thirty-two choice combinations complete and confirmed choices cannot be replaced  1369ms
+   ✓ chapter thirteen story, save and choices > puzzle rejects wrong order, resets safely via reload and completes once 12ms
+   ✓ chapter thirteen story, save and choices > 'sq-stopped-clock' is completable before and after clear with one reward 25ms
+   ✓ chapter thirteen story, save and choices > 'sq-lost-chart' is completable before and after clear with one reward 21ms
+   ✓ chapter thirteen story, save and choices > 'sq-noel-log' is completable before and after clear with one reward 17ms
+   ✓ chapter thirteen story, save and choices > potion cap leaves the report unclaimed 6ms
+   ✓ chapter thirteen story, save and choices > ether cap leaves the report unclaimed 9ms
+   ✓ chapter thirteen story, save and choices > eight journal articles and exploration completion reveal only confirmed facts 13ms
+   ✓ chapter thirteen story, save and choices > v2.0 save and unknown thirteenth fields preserve twelve chapters and do not invent choices/tides 11ms
+   ✓ chapter thirteen combat profiles and gear > six regular enemies/two bosses reuse existing elements/statuses 2ms
+   ✓ chapter thirteen combat profiles and gear > gear-rail allows valid deterministic turns 16ms
+   ✓ chapter thirteen combat profiles and gear > gear-city allows valid deterministic turns 8ms
+   ✓ chapter thirteen combat profiles and gear > gear-workshop allows valid deterministic turns 3ms
+   ✓ chapter thirteen combat profiles and gear > gear-observatory allows valid deterministic turns 4ms
+   ✓ chapter thirteen combat profiles and gear > gear-guardian allows valid deterministic turns 19ms
+   ✓ chapter thirteen combat profiles and gear > gear-zero allows valid deterministic turns 15ms
+   ✓ chapter thirteen combat profiles and gear > scout executes its real behavior 28ms
+   ✓ chapter thirteen combat profiles and gear > guard executes its real behavior 1ms
+   ✓ chapter thirteen combat profiles and gear > drone executes its real behavior 1ms
+   ✓ chapter thirteen combat profiles and gear > repair executes its real behavior 1ms
+   ✓ chapter thirteen combat profiles and gear > phantom executes its real behavior 1ms
+   ✓ chapter thirteen combat profiles and gear > eater executes its real behavior 0ms
+   ✓ chapter thirteen combat profiles and gear > guardian uses magic, guards before its warned AoE and respects barriers 13ms
+   ✓ chapter thirteen combat profiles and gear > Celestial Zero starts with a single attack and retains phase-two charge through sleep into phase three 2ms
+   ✓ chapter thirteen combat profiles and gear > 'starengine-duals' applies real combat stats and correct silhouette, owner restricted 9ms
+   ✓ chapter thirteen combat profiles and gear > 'celestial-shield-rapier' applies real combat stats and correct silhouette, owner restricted 9ms
+   ✓ chapter thirteen combat profiles and gear > 'starchart-mace' applies real combat stats and correct silhouette, owner restricted 7ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  3942ms
+   × chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes 5285ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ thirteenth symbol receipts > victory settles once and restores the road at a safe entry 5ms
+   ✓ thirteenth symbol receipts > defeat settles once and restores the road at a safe entry 3ms
+   ✓ thirteenth symbol receipts > interrupted contact grants no XP or result and no unsafe return 33ms
+   ✓ populated legacy progression > retains all ninety acquired nodes, old claimed quests and equipped quantities through chapter clear and reload 18ms
+   ✓ chapter13 deterministic prerequisite isolation > matches the original complete API setup exactly 60ms
+   ✓ chapter13 deterministic prerequisite isolation > does not share mutable party,inventory,choices or event receipts 19ms
+ ✓ tests/chapter-nine-v17.test.ts (45 tests) 4424ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption  2023ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=true, no high-level tree assumption  1582ms
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 3883ms
+ ✓ tests/transit-v22.test.ts (28 tests) 1860ms
+ ✓ tests/free-exploration-v28.test.ts (298 tests) 6229ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-sanctuary' restores old no-world saves at the current location without changing persistent progress  528ms
+   ✓ v2.8 first six chapters share the walking engine > 'walk-c6-core' restores old no-world saves at the current location without changing persistent progress  1342ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-fio-keepsake' requires real proximity for every existing objective and keeps reward idempotent  309ms
+   ✓ v2.8 first six chapters share the walking engine > 'sq-nadia-map' requires real proximity for every existing objective and keeps reward idempotent  300ms
+ ❯ tests/chapter-eight-v16.test.ts (47 tests | 1 failed) 12217ms
+   ✓ chapter eight story and compatibility > registers eight chapters and sixteen exact locations / twenty-two stable events 7ms
+   ✓ chapter eight story and compatibility > only opens after chapter seven, never before  315ms
+   ✓ chapter eight story and compatibility > completes all events with unique rewards, old chapter state and receipts unchanged 260ms
+   ✓ chapter eight story and compatibility > all 32 choices can finish without overwriting a confirmed choice  823ms
+   ✓ chapter eight story and compatibility > 'sq-airship-keepsake' works before and after clear and grants only once 19ms
+   ✓ chapter eight story and compatibility > 'sq-cloud-delivery' works before and after clear and grants only once 52ms
+   ✓ chapter eight story and compatibility > 'sq-wing-records' works before and after clear and grants only once 20ms
+   ✓ chapter eight story and compatibility > potion capacity refusal keeps the reward unclaimed 7ms
+   ✓ chapter eight story and compatibility > ether capacity refusal keeps the reward unclaimed 7ms
+   ✓ chapter eight story and compatibility > journal has seven gated articles and no future character revelations 14ms
+   ✓ chapter eight story and compatibility > old v1.5 world, party, tree and all seven chapters survive without invented eighth-chapter data 5ms
+   ✓ chapter eight story and compatibility > corrupt eighth IDs are removed without losing the seven completed chapters 39ms
+   ✓ new enemies and unchanged combat engine > six ordinary enemies and two bosses use only existing elements 2ms
+   ✓ new enemies and unchanged combat engine > sky-island resolves valid actions under fixed randomness 12ms
+   ✓ new enemies and unchanged combat engine > sky-bridge resolves valid actions under fixed randomness 5ms
+   ✓ new enemies and unchanged combat engine > sky-windway resolves valid actions under fixed randomness 5ms
+   ✓ new enemies and unchanged combat engine > sky-sentry resolves valid actions under fixed randomness 7ms
+   ✓ new enemies and unchanged combat engine > sky-orb resolves valid actions under fixed randomness 2ms
+   ✓ new enemies and unchanged combat engine > sky-aero resolves valid actions under fixed randomness 2ms
+   ✓ new enemies and unchanged combat engine > sky-astraeia resolves valid actions under fixed randomness 2ms
+   ✓ new enemies and unchanged combat engine > drone warns before a ranged charge and armor raises a counter stance 3ms
+   ✓ new enemies and unchanged combat engine > Astraeia keeps a reserved phase-two attack across sleep and phase three 1ms
+   ✓ new enemies and unchanged combat engine > 'skysoar-sword' is owner-restricted, repeatable equip never accumulates stats 8ms
+   ✓ new enemies and unchanged combat engine > 'azurewing-shield-flail' is owner-restricted, repeatable equip never accumulates stats 6ms
+   ✓ new enemies and unchanged combat engine > 'starwind-rod' is owner-restricted, repeatable equip never accumulates stats 9ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes  4662ms
+   × new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes 5493ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ shared two-chapter maps and side-view policies > all six map definitions have reachable objects and symbols without walls crossed 45ms
+   ✓ shared two-chapter maps and side-view policies > chapter eight is gated and switching chapters always enters a valid safe pose 2ms
+   ✓ shared two-chapter maps and side-view policies > all chapters retain defeated and opened IDs while switching or loading another map 144ms
+   ✓ shared two-chapter maps and side-view policies > victory from an eighth-chapter symbol settles once at its source map 5ms
+   ✓ shared two-chapter maps and side-view policies > defeat from an eighth-chapter symbol settles once at its source map 6ms
+   ✓ shared two-chapter maps and side-view policies > reloading an unconfirmed eighth battle recovers without EXP or win and retains seventh flags 58ms
+   ✓ shared two-chapter maps and side-view policies > eighth map corrupt pose NaN/+0 returns safely without losing either chapter 28ms
+   ✓ shared two-chapter maps and side-view policies > eighth map corrupt pose Infinity/+0 returns safely without losing either chapter 2ms
+   ✓ shared two-chapter maps and side-view policies > eighth map corrupt pose -500/400 returns safely without losing either chapter 1ms
+   ✓ shared two-chapter maps and side-view policies > eighth map corrupt pose 256/192 returns safely without losing either chapter 7ms
+   ✓ shared two-chapter maps and side-view policies > eighth map corrupt pose 5000/5000 returns safely without losing either chapter 1ms
+   ✓ shared two-chapter maps and side-view policies > an eighth event cannot start from a seventh map source even at identical coordinates 2ms
+   ✓ shared two-chapter maps and side-view policies > 320px side coordinates separate all allies and 1/2/3/6 opponents 1ms
+   ✓ shared two-chapter maps and side-view policies > 390px side coordinates separate all allies and 1/2/3/6 opponents 1ms
+   ✓ shared two-chapter maps and side-view policies > 430px side coordinates separate all allies and 1/2/3/6 opponents 0ms
+   ✓ shared two-chapter maps and side-view policies > 768px side coordinates separate all allies and 1/2/3/6 opponents 0ms
+   ✓ shared two-chapter maps and side-view policies > all nine weapon families have distinct visual metadata and stable placeholder replacements 1ms
+   ✓ shared two-chapter maps and side-view policies > visual plans preserve actual hit count, critical, counter target, miss, cover and element 3ms
+   ✓ chapter8 deterministic prerequisite isolation > matches the original complete API setup exactly 109ms
+   ✓ chapter8 deterministic prerequisite isolation > does not share mutable party,inventory,choices or event receipts 6ms
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false
+v1.5 full chapter quests=false: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+v1.5 full chapter quests=true: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds
+v1.5 grove-trail: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds
+v1.5 grove-roots: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+v1.5 grove-sentry: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds
+v1.5 grove-orb: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+v1.5 grove-granguard: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds
+v1.5 grove-seles: 20/20
+
+ ❯ tests/chapter-seven-v15.test.ts (45 tests | 1 failed) 15404ms
+   ✓ chapter seven prerequisite fixture isolation > cached prerequisite equals the original six-chapter API setup 89ms
+   ✓ chapter seven prerequisite fixture isolation > nested scenario mutations do not reach a second copy or the baseline 2ms
+   ✓ chapter seven complete content and old progression > registers seven chapters, sixteen exact locations and twenty-two distinct real events 4ms
+   ✓ chapter seven complete content and old progression > requires chapter six clear and denies visits, map entry, choices and boss launch while locked 74ms
+   ✓ chapter seven complete content and old progression > finishes every event without optional quests and keeps chapters one through six identical 13ms
+   ✓ chapter seven complete content and old progression > keeps reward/EXP receipts exactly once for the final boss 5ms
+   ✓ chapter seven complete content and old progression > tree/gear/level/item data and no-save lab remain isolated 55ms
+   ✓ grove enemies, phases and existing combat rules > wolf executes a real isolated combat action 6ms
+   ✓ grove enemies, phases and existing combat rules > slime executes a real isolated combat action 4ms
+   ✓ grove enemies, phases and existing combat rules > spore executes a real isolated combat action 5ms
+   ✓ grove enemies, phases and existing combat rules > sentry executes a real isolated combat action 4ms
+   ✓ grove enemies, phases and existing combat rules > moth executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > orb executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > wolf hits twice, vines cause paralysis, spores cause poison/silence, moth uses wind weakness 8ms
+   ✓ grove enemies, phases and existing combat rules > oldwood sentry guards and counters once with the existing cover/status rules 4ms
+   ✓ grove enemies, phases and existing combat rules > root orb uses regular earth magic, signals and releases a reserved spell 1ms
+   ✓ grove enemies, phases and existing combat rules > GranGuard retains its cannon through freezing 10ms
+   ✓ grove enemies, phases and existing combat rules > Seles progresses three phases and preserves a phase-two reservation after sleep and phase change 40ms
+   ✓ grove enemies, phases and existing combat rules > boss magic respects taunt, cover, guard and real status resistance/infliction 2ms
+   ✓ weapons, optional quests and five immutable choices > '翠星の双剣' is granted once, restricted by owner and exact family 16ms
+   ✓ weapons, optional quests and five immutable choices > '樹護の盾槍' is granted once, restricted by owner and exact family 13ms
+   ✓ weapons, optional quests and five immutable choices > '星樹のワンド' is granted once, restricted by owner and exact family 13ms
+   ✓ weapons, optional quests and five immutable choices > weapons have tradeoffs relative to chapter six, not unconditional upgrades 1ms
+   ✓ weapons, optional quests and five immutable choices > dual normal hits and Fang remain two hits; wand actually increases healing and adjusts magic 55ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-fine-meeting' persists either selection immediately and cannot be replaced 26ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-gran-question' persists either selection immediately and cannot be replaced 33ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-rina-judgment' persists either selection immediately and cannot be replaced 63ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-mei-reading' persists either selection immediately and cannot be replaced 85ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-final-promise' persists either selection immediately and cannot be replaced 94ms
+   × weapons, optional quests and five immutable choices > all 32 choice combinations can finish without optional quests or lost rewards 5245ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ weapons, optional quests and five immutable choices > 'sq-herb-basket' can be completed before or after clear and never grants twice  320ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-guardian-oath' can be completed before or after clear and never grants twice 43ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-star-flower' can be completed before or after clear and never grants twice 59ms
+   ✓ weapons, optional quests and five immutable choices > potion reward cap rejects the entire grant and claimed flag 24ms
+   ✓ weapons, optional quests and five immutable choices > ether reward cap rejects the entire grant and claimed flag 67ms
+   ✓ weapons, optional quests and five immutable choices > journal reveals only actual events and exploration uses 16+22+3 without changing old denominators 17ms
+   ✓ weapons, optional quests and five immutable choices > v1.5 keeps rows as the active layout while providing a separate anchor policy for future side view 1ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false  4494ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true  2954ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds  336ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds 204ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds 177ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds 178ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds 208ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds 292ms
+ ✓ tests/chapter-four-v12.test.ts (43 tests) 6582ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false  1417ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true  2446ms
+   ✓ chapter four deterministic multi-seed balance > chapter-three-cleared starter party can beat crystal-machine over 20 seeds  1002ms
+   ✓ chapter four deterministic multi-seed balance > chapter-three-cleared starter party can beat crystal-echoria over 20 seeds  911ms
+ ✓ tests/chapter-three-v11.test.ts (46 tests) 7461ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = false  1049ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true  3108ms
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-warden over 20 seeds  351ms
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-sky over 20 seeds  1998ms
+ ✓ tests/exploration-v20.test.ts (74 tests) 4927ms
+   ✓ forty-two shared maps and approach policy > 'gloom-road' entry/objects/patrols are reachable and all exits preserve valid targets  321ms
+   ✓ forty-two shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI  496ms
+ ✓ tests/exploration-v18.test.ts (58 tests) 5931ms
+   ✓ deterministic tides and save safety > all twenty-six maps survive repeated save and chapter switching with canonical receipts  484ms
+   ✓ shared objective guide > 'chapter-07' reveals the first available goal, not later plot or boss names  985ms
+   ✓ shared objective guide > 'chapter-18' reveals the first available goal, not later plot or boss names  418ms
+ ✓ tests/exploration-v25.test.ts (168 tests) 5917ms
+   ✓ 82 maps and independent confirmed fate routes > 'pale-sanctuary' keeps all objects,symbol routes,exits and reload positions reachable  501ms
+ ✓ tests/exploration-v24.test.ts (114 tests) 3231ms
+   ✓ 74 connected maps use the same effective grid and save rules > 'star-path' has reachable objects,symbol routes,valid exits and roundtrip positions  404ms
+ ✓ tests/chapter-seventeen-v25.test.ts (66 tests) 1718ms
+   ✓ chapter seventeen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  675ms
+ ✓ tests/exploration-v19.test.ts (61 tests) 10086ms
+   ✓ thirty-four shared maps and approach policy > 'sky-island' entry/objects/patrols are reachable and all exits preserve valid targets  1760ms
+   ✓ confirmed resonance and shared interaction > follows the live patrol position rather than its spawn marker  913ms
+   ✓ confirmed resonance and shared interaction > all thirty-four maps preserve receipts and safe positions through repeated saves  3855ms
+ ✓ tests/exploration-v26.test.ts (344 tests) 3093ms
+ ✓ tests/skills-v06.test.ts (45 tests) 1718ms
+   ✓ new skill battle simulations > completes level 3 battles across fixed seeds without invalid resources  437ms
+   ✓ new skill battle simulations > completes level 5 battles across fixed seeds without invalid resources  438ms
+   ✓ new skill battle simulations > completes level 7 battles across fixed seeds without invalid resources  354ms
+   ✓ new skill battle simulations > completes level 10 battles across fixed seeds without invalid resources  408ms
+stdout | tests/final-integration-v26.test.ts > fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+Fresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 2875ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  2787ms
+ ✓ tests/chapter-two-v10.test.ts (29 tests) 992ms
+   ✓ deterministic chapter balance > completes the full chapter over 20 seeds with no high-level tree investment  450ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 9703ms
+   ✓ final chapter data and preserved progression > choice combination7 reaches the common ending without overwriting older choices  872ms
+   ✓ final chapter data and preserved progression > choice combination16 reaches the common ending without overwriting older choices  645ms
+   ✓ final chapter data and preserved progression > choice combination19 reaches the common ending without overwriting older choices  560ms
+   ✓ final chapter data and preserved progression > 'sq-last-delivery' completes afterClear=false and preserves full-inventory pending rewards  1399ms
+   ✓ final chapter data and preserved progression > 'sq-record-heirs' completes afterClear=false and preserves full-inventory pending rewards  1261ms
+   ✓ final chapter data and preserved progression > 'sq-tomorrow-gift' completes afterClear=true and preserves full-inventory pending rewards  649ms
+ ✓ tests/railway-v21.test.ts (21 tests) 7488ms
+   ✓ starvein railway uses existing progress and transitions > no railway or destination exists before repair  308ms
+   ✓ starvein railway uses existing progress and transitions > gear-rail is derived from the existing map and safely reachable  329ms
+   ✓ starvein railway uses existing progress and transitions > gear-station is derived from the existing map and safely reachable  479ms
+   ✓ starvein railway uses existing progress and transitions > gear-workshop is derived from the existing map and safely reachable  671ms
+   ✓ starvein railway uses existing progress and transitions > gear-core is derived from the existing map and safely reachable  581ms
+   ✓ starvein railway uses existing progress and transitions > reservation and interruption do not change progress, quantities or source position  300ms
+   ✓ starvein railway uses existing progress and transitions > gear-market is not a selectable station even when its place is unlocked  1339ms
+   ✓ starvein railway uses existing progress and transitions > pending battles block travel and stale origin tickets cannot commit  314ms
+   ✓ starvein railway uses existing progress and transitions > current station is labelled but cannot waste a trip  427ms
+   ✓ starvein railway uses existing progress and transitions > unknown railway flags cannot forge repair or unlock a station on reload  541ms
+ ❯ tests/exploration-v23.test.ts (103 tests | 2 failed) 19818ms
+   ✓ sixty-six maps share one effective terrain and route engine > preserves the original fifty-eight IDs and registers exactly eight new maps 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > every chapter-fifteen event in a walking location has its real interaction, including the clear epilogue 78ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-camp' has reachable live targets, safe paths and valid exits 49ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-trail' has reachable live targets, safe paths and valid exits 45ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-ruins' has reachable live targets, safe paths and valid exits 65ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-port' has reachable live targets, safe paths and valid exits 32ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-island' has reachable live targets, safe paths and valid exits 57ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-ruins' has reachable live targets, safe paths and valid exits 22ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-village' has reachable live targets, safe paths and valid exits 24ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-garden' has reachable live targets, safe paths and valid exits 20ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-town' has reachable live targets, safe paths and valid exits 48ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-tower' has reachable live targets, safe paths and valid exits 15ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-cave' has reachable live targets, safe paths and valid exits 28ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-path' has reachable live targets, safe paths and valid exits 56ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-city' has reachable live targets, safe paths and valid exits 38ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-market' has reachable live targets, safe paths and valid exits 54ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-waterway' has reachable live targets, safe paths and valid exits 40ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-mine' has reachable live targets, safe paths and valid exits 64ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-archive' has reachable live targets, safe paths and valid exits 96ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-core' has reachable live targets, safe paths and valid exits 15ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-road' has reachable live targets, safe paths and valid exits 93ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-town' has reachable live targets, safe paths and valid exits 45ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-port' has reachable live targets, safe paths and valid exits 40ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-beach' has reachable live targets, safe paths and valid exits 63ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-observatory' has reachable live targets, safe paths and valid exits 24ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-cave' has reachable live targets, safe paths and valid exits 78ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-ruins' has reachable live targets, safe paths and valid exits 26ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-core' has reachable live targets, safe paths and valid exits 20ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-road' has reachable live targets, safe paths and valid exits 59ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-village' has reachable live targets, safe paths and valid exits 22ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-field' has reachable live targets, safe paths and valid exits 85ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-stones' has reachable live targets, safe paths and valid exits 29ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-ravine' has reachable live targets, safe paths and valid exits 10ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-sanctuary' has reachable live targets, safe paths and valid exits 13ms
+   × sixty-six maps share one effective terrain and route engine > 'pale-archive' has reachable live targets, safe paths and valid exits 5462ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-core' has reachable live targets, safe paths and valid exits  472ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-road' has reachable live targets, safe paths and valid exits  1115ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-village' has reachable live targets, safe paths and valid exits 214ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-woods' has reachable live targets, safe paths and valid exits  368ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-lake' has reachable live targets, safe paths and valid exits 30ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-roots' has reachable live targets, safe paths and valid exits 43ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-shrine' has reachable live targets, safe paths and valid exits 38ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-archive' has reachable live targets, safe paths and valid exits 104ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-core' has reachable live targets, safe paths and valid exits  464ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-rail' has reachable live targets, safe paths and valid exits 191ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-station' has reachable live targets, safe paths and valid exits 17ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-city' has reachable live targets, safe paths and valid exits  390ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-market' has reachable live targets, safe paths and valid exits 18ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-lower' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-workshop' has reachable live targets, safe paths and valid exits 69ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-observatory' has reachable live targets, safe paths and valid exits  1417ms
+   × sixty-six maps share one effective terrain and route engine > 'gear-core' has reachable live targets, safe paths and valid exits 5302ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-gateway' has reachable live targets, safe paths and valid exits 298ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-shore' has reachable live targets, safe paths and valid exits 69ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-dock' has reachable live targets, safe paths and valid exits 111ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-hall' has reachable live targets, safe paths and valid exits 62ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-gravity' has reachable live targets, safe paths and valid exits 30ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-records' has reachable live targets, safe paths and valid exits 28ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-sanctuary' has reachable live targets, safe paths and valid exits 66ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-core' has reachable live targets, safe paths and valid exits 25ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-gate' has reachable live targets, safe paths and valid exits 57ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-court' has reachable live targets, safe paths and valid exits 30ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-corridor' has reachable live targets, safe paths and valid exits 30ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-mirror' has reachable live targets, safe paths and valid exits 53ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-archive' has reachable live targets, safe paths and valid exits 37ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-garden' has reachable live targets, safe paths and valid exits 52ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-sanctum' has reachable live targets, safe paths and valid exits 28ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-core' has reachable live targets, safe paths and valid exits 21ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-gate' has touch-sized adjacent approaches and roundtrips without persisting its survey 77ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-court' has touch-sized adjacent approaches and roundtrips without persisting its survey 33ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-corridor' has touch-sized adjacent approaches and roundtrips without persisting its survey 143ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-mirror' has touch-sized adjacent approaches and roundtrips without persisting its survey 37ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-archive' has touch-sized adjacent approaches and roundtrips without persisting its survey 72ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-garden' has touch-sized adjacent approaches and roundtrips without persisting its survey 48ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-sanctum' has touch-sized adjacent approaches and roundtrips without persisting its survey 70ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-core' has touch-sized adjacent approaches and roundtrips without persisting its survey 17ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-field-record derives and restores chaotic without clock/random/unknown flag authority 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-awakening derives and restores synced without clock/random/unknown flag authority 37ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-key derives and restores inverted without clock/random/unknown flag authority 9ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-clear derives and restores stable without clock/random/unknown flag authority 9ms
+   ✓ sixty-six maps share one effective terrain and route engine > awakening opens the record alcove, closes one lane, preserves bypass and repairs unsafe saved position 23ms
+   ✓ sixty-six maps share one effective terrain and route engine > anchor opens its own pocket while leaving every unchosen door reachable 35ms
+   ✓ sixty-six maps share one effective terrain and route engine > observe opens its own pocket while leaving every unchosen door reachable 82ms
+   ✓ sixty-six maps share one effective terrain and route engine > choice opens its own pocket while leaving every unchosen door reachable 62ms
+   ✓ sixty-six maps share one effective terrain and route engine > all five mapped quest objectives point to the correct chapter, quest and location and collect using object IDs 54ms
+   ✓ sixty-six maps share one effective terrain and route engine > minimap sees the same newly-opened gate and its unchanged real walking history 26ms
+   ✓ sixty-six maps share one effective terrain and route engine > does not reveal undiscovered terrain, exits or hidden plot targets 3ms
+   ✓ sixty-six maps share one effective terrain and route engine > keeps old tides, resonance, light, celestial and gravity states and their chapters intact 24ms
+   ✓ sixty-six maps share one effective terrain and route engine > preserves railway and ark control after chapter fifteen without cross-network travel or new rewards 17ms
+   ✓ sixty-six maps share one effective terrain and route engine > shared movement retains grace, input stop and side corridors in the new field 3ms
+   ✓ new patrols complete their cycle on grid centers > 'void-gate' patrol visits all corners repeatedly instead of stalling between tile centers 84ms
+   ✓ new patrols complete their cycle on grid centers > 'void-mirror' patrol visits all corners repeatedly instead of stalling between tile centers 79ms
+   ✓ new patrols complete their cycle on grid centers > 'void-sanctum' patrol visits all corners repeatedly instead of stalling between tile centers 86ms
+   ✓ phase-aware shared destination guidance > points to the known local event and never leaks later story text 5ms
+   ✓ phase-aware shared destination guidance > uses a reachable open exit when the next known event is on another map 9ms
+   ✓ phase-aware shared destination guidance > recomputes terrain after synchronization and inversion without retaining a closed destination 16ms
+   ✓ phase-aware shared destination guidance > offers a reachable device rather than an inaccessible objective 4ms
+   ✓ phase-aware shared destination guidance > does not recalculate known terrain while only the player marker changes 1ms
+   ✓ phase-aware shared destination guidance > keeps cached guides and surveys independent from the no-save verification copy 16ms
+   ✓ hides unreached NPC and unaccepted quest markers without leaking future names 3ms
+   ✓ phase inversion opens the normal lane and closes a different lane, then stabilization restores both 149ms
+   ✓ an unreachable selected endpoint redirects to the available phase device with matching minimap target 31ms
+   ✓ phase devices have abstract icons while the four real NPC interactions retain human placeholders 3ms
+ ❯ tests/exploration-v17.test.ts (29 tests | 1 failed) 15984ms
+   ✓ eighteen genuine shared walking maps > defines five seventh, five eighth and eight ninth maps with stable unique IDs 5ms
+   ✓ eighteen genuine shared walking maps > 'grove-camp' entry, objects, exits, enemies and patrol waypoints are all reachable 78ms
+   ✓ eighteen genuine shared walking maps > 'grove-trail' entry, objects, exits, enemies and patrol waypoints are all reachable 115ms
+   ✓ eighteen genuine shared walking maps > 'grove-ruins' entry, objects, exits, enemies and patrol waypoints are all reachable 64ms
+   ✓ eighteen genuine shared walking maps > 'sky-port' entry, objects, exits, enemies and patrol waypoints are all reachable 35ms
+   ✓ eighteen genuine shared walking maps > 'sky-island' entry, objects, exits, enemies and patrol waypoints are all reachable 71ms
+   ✓ eighteen genuine shared walking maps > 'sky-ruins' entry, objects, exits, enemies and patrol waypoints are all reachable 44ms
+   ✓ eighteen genuine shared walking maps > 'grove-village' entry, objects, exits, enemies and patrol waypoints are all reachable 54ms
+   ✓ eighteen genuine shared walking maps > 'grove-garden' entry, objects, exits, enemies and patrol waypoints are all reachable 17ms
+   ✓ eighteen genuine shared walking maps > 'sky-town' entry, objects, exits, enemies and patrol waypoints are all reachable  4861ms
+   ✓ eighteen genuine shared walking maps > 'sky-tower' entry, objects, exits, enemies and patrol waypoints are all reachable 100ms
+   ✓ eighteen genuine shared walking maps > 'star-cave' entry, objects, exits, enemies and patrol waypoints are all reachable 17ms
+   ✓ eighteen genuine shared walking maps > 'star-path' entry, objects, exits, enemies and patrol waypoints are all reachable 123ms
+   ✓ eighteen genuine shared walking maps > 'star-city' entry, objects, exits, enemies and patrol waypoints are all reachable 18ms
+   ✓ eighteen genuine shared walking maps > 'star-market' entry, objects, exits, enemies and patrol waypoints are all reachable 58ms
+   ✓ eighteen genuine shared walking maps > 'star-waterway' entry, objects, exits, enemies and patrol waypoints are all reachable 211ms
+   ✓ eighteen genuine shared walking maps > 'star-mine' entry, objects, exits, enemies and patrol waypoints are all reachable  390ms
+   ✓ eighteen genuine shared walking maps > 'star-archive' entry, objects, exits, enemies and patrol waypoints are all reachable  2859ms
+   ✓ eighteen genuine shared walking maps > 'star-core' entry, objects, exits, enemies and patrol waypoints are all reachable 171ms
+   × eighteen genuine shared walking maps > all data-defined exits validate, reject foreign source and invalid destinations without mutation 5091ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ eighteen genuine shared walking maps > explicit object, map, chapter and location prerequisites gate exits deterministically 144ms
+   ✓ eighteen genuine shared walking maps > rerouting mid-cell along a narrow corridor continues forward instead of backing up 40ms
+   ✓ eighteen genuine shared walking maps > off-centre rerouting around corners never cuts walls 230ms
+   ✓ eighteen genuine shared walking maps > 320px camera clamps every map at entry and far corners 4ms
+   ✓ eighteen genuine shared walking maps > 390px camera clamps every map at entry and far corners 3ms
+   ✓ eighteen genuine shared walking maps > 430px camera clamps every map at entry and far corners 4ms
+   ✓ eighteen genuine shared walking maps > 768px camera clamps every map at entry and far corners 4ms
+   ✓ eighteen genuine shared walking maps > ninth chase uses collision paths, respects leash and returns, menus stop all simulation 76ms
+   ✓ eighteen genuine shared walking maps > ninth hidden/dead/offscreen symbols do not update or trigger and contacts latch once 1ms
+ ✓ tests/adventure-v08.test.ts (39 tests) 616ms
+ ✓ tests/free-exploration-v27.test.ts (41 tests) 487ms
+ ✓ tests/skill-tree-v09.test.ts (112 tests) 7310ms
+   ✓ all 90 nodes produce an actual numeric or combat difference > 'mei-healing-heal-cost': 'ヒールの消費MP−1（元コストの半分以上）'  396ms
+   ✓ all 90 nodes produce an actual numeric or combat difference > 'mei-healing-mercy': 'すべての回復スキルの回復量＋10%'  3877ms
+   ✓ integration, safety caps and save compatibility > round-trips 90 learned IDs without SP inflation or losing other progress  492ms
+   ✓ integration, safety caps and save compatibility > lab neither reads tree effects nor writes learned IDs into the main save  455ms
+ ✓ tests/battle.test.ts (15 tests) 219ms
+ ✓ tests/equipment-v07.test.ts (67 tests) 144ms
+ ✓ tests/foundation.test.ts (30 tests) 71ms
+ ✓ tests/lab-v04.test.ts (21 tests) 81ms
+ ✓ tests/attack-modifier.test.ts (5 tests) 26ms
+ ✓ tests/battle-presentation.test.ts (16 tests) 25ms
+ ✓ tests/map-driver-v25.test.ts (5 tests) 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 7 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/chapter-eight-v16.test.ts > new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/chapter-eight-v16.test.ts:51:22
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/7]⎯
+
+ FAIL  tests/chapter-seven-v15.test.ts > weapons, optional quests and five immutable choices > all 32 choice combinations can finish without optional quests or lost rewards
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/chapter-seven-v15.test.ts:48:2
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/7]⎯
+
+ FAIL  tests/chapter-ten-v18.test.ts > chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/chapter-ten-v18.test.ts:47:22
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/7]⎯
+
+ FAIL  tests/chapter-thirteen-v21.test.ts > chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/chapter-thirteen-v21.test.ts:49:22
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/7]⎯
+
+ FAIL  tests/exploration-v17.test.ts > eighteen genuine shared walking maps > all data-defined exits validate, reject foreign source and invalid destinations without mutation
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/exploration-v17.test.ts:17:2
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/7]⎯
+
+ FAIL  tests/exploration-v23.test.ts > sixty-six maps share one effective terrain and route engine > 'pale-archive' has reachable live targets, safe paths and valid exits
+ FAIL  tests/exploration-v23.test.ts > sixty-six maps share one effective terrain and route engine > 'gear-core' has reachable live targets, safe paths and valid exits
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/exploration-v23.test.ts:31:30
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/7]⎯
+
+
+ Test Files  6 failed | 39 passed (45)
+      Tests  7 failed | 2937 passed (2944)
+   Start at  10:22:24
+   Duration  361.04s (transform 5.49s, setup 0ms, collect 37.16s, tests 256.86s, environment 53ms, prepare 24.52s)
+

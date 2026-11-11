@@ -1,0 +1,56 @@
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/free-exploration-v28.test.ts (298 tests) 4114ms
+ ✓ tests/chapter-four-v12.test.ts (43 tests) 3289ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false  802ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true  775ms
+   ✓ chapter four deterministic multi-seed balance > chapter-three-cleared starter party can beat crystal-machine over 20 seeds  363ms
+   ✓ chapter four deterministic multi-seed balance > chapter-three-cleared starter party can beat crystal-echoria over 20 seeds  342ms
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+v1.4 chapter seeds quests=false: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+v1.4 chapter seeds quests=true: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ✓ tests/chapter-six-v14.test.ts (56 tests) 7529ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false  1178ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true  4190ms
+   ✓ fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment  351ms
+ ✓ tests/chapter-three-v11.test.ts (46 tests) 3077ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = false  869ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true  714ms
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-warden over 20 seeds  734ms
+ ✓ tests/chapter-five-v13.test.ts (50 tests) 10758ms
+   ✓ deterministic sandstorm exploration and compass > temple storm is released by a local landmark and persists across repeated reloads  352ms
+   ✓ deterministic sandstorm exploration and compass > compass has four direction cycles and three increasing hints; wrong/short answers never commit  828ms
+   ✓ sahara enemies, reactions and phased bosses > scorpion inflicts poison and jackal resolves two actual hits  500ms
+   ✓ weapons, choices, quests, journal and save compatibility > all 16 dialogue combinations can finish the same main story without lost rewards  627ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false  1692ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true  2280ms
+   ✓ multi-seed chapter-five battle balance > chapter-four-cleared starter party can beat sahara-gardion over 20 seeds  549ms
+   ✓ multi-seed chapter-five battle balance > chapter-four-cleared starter party can beat sahara-zaira over 20 seeds  584ms
+ ✓ tests/chapter-two-v10.test.ts (29 tests) 1614ms
+   ✓ deterministic chapter balance > completes the full chapter over 20 seeds with no high-level tree investment  916ms
+   ✓ deterministic chapter balance > lets a fresh chapter-one-cleared party beat each boss over 20 seeds  512ms
+
+ Test Files  6 passed (6)
+      Tests  522 passed (522)
+   Start at  10:19:47
+   Duration  39.69s (transform 2.77s, setup 0ms, collect 5.49s, tests 30.38s, environment 4ms, prepare 1.70s)
+

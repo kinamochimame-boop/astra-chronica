@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {puzzleUI} from './v26-ui-driver.mjs';
 import {manifest} from './v26-manifest.mjs';
 import {state,waitMap,selectLocation,contactSymbol,openNearbyStory,useNearbyObject} from './map-driver-v15.mjs';
-export async function installEarlyTestRandom(page){await page.addInitScript(()=>{let seed=2808;Math.random=()=>document.querySelector('.battle-top')?0.99:((seed=(1664525*seed+1013904223)>>>0)/4294967296)});}
+export async function installEarlyTestRandom(page){await page.addInitScript(()=>{let seed=2808;Math.random=()=>document.querySelector('.battle-top,#lab-step')?0.99:((seed=(1664525*seed+1013904223)>>>0)/4294967296)});}
 export async function earlyTap(page,name){
  if(name==='この地点に再挑戦'&&await page.getByRole('button',{name:'探索から再挑戦',exact:true}).count()){
   const p=await page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1'))),id=p.world.returnInfo.eventId;
