@@ -35,7 +35,13 @@ export async function earlyQuestCollect(page,id){
  await earlyTap(page,'サブクエスト');await page.locator(`[data-quest-id="${q.id}"]`).tap();
 }
 
-export const earlyConditionPanel=(page,id)=>openEarlyEvent(page,id);
+export async function earlyConditionPanel(page,id){
+ if(await page.locator('#world-event[open]').count()){
+  const p=await page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1'))),dialogue=page.locator('#world-event[open] .dialogue[data-event-id]');
+  if(p.world?.event?.id===id||await dialogue.count()&&await dialogue.getAttribute('data-event-id')===id)return;
+ }
+ await openEarlyEvent(page,id);
+}
 export async function assertEarlyRestricted(page,id){
  const c=manifest.chapters.find(c=>c.events.some(e=>e.id===id)),e=c.events.find(e=>e.id===id);
  if(e.encounter){assert.equal((await state(page)).symbols.find(s=>s.eventId===id).state,'hidden');assert.equal(await page.locator('.battle-top').count(),0);return;}

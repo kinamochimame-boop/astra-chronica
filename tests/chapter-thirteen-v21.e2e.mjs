@@ -1,3 +1,4 @@
+import {earlyTap} from './early-exploration-driver.mjs';
 import {legacyWorldIds} from './world-receipts.mjs';
 import {assertFinalChapterUnlock} from './finale-navigation.mjs';
 import {prepareBattleClock,waitAfterBattleInput} from './browser-clock.mjs';
@@ -9,7 +10,7 @@ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'
 const base=process.env.BASE_URL||'http://localhost:4173';
 async function route(all){
  const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await prepareBattleClock(page);page.setDefaultNavigationTimeout(90000);const errors=[];page.on('pageerror',e=>{errors.push(e.message);console.log('Runtime error',e.stack)});await page.addInitScript(()=>{let seed=715;Math.random=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296}});
- const tap=name=>page.getByRole('button',{name,exact:true}).tap(),saved=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')));
+ const tap=name=>earlyTap(page,name),saved=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('astra-chronica:v1')));
  const photo=async name=>{console.log(`Route ${all?'all':'none'}: ${name}`);if(!all){await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`docs/screenshots/chapter-thirteen-${name}.png`,fullPage:true,animations:'disabled'})}};
  const dialogue=async()=>{for(let n=0;n<20&&await page.locator('#dialogue-next').isVisible();n++){const options=page.locator('[data-option-id]:visible:enabled');if(await options.count()){await photo('choice-390');await options.nth(all?1:0).tap();}await page.locator('#dialogue-next').tap()}};
  const event=async id=>{await openStory(page,id);await dialogue()},next=()=>nextLocation(page);
