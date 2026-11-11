@@ -1,0 +1,31 @@
+name: v2.8 early chapters (no deployment)
+on:
+  push:
+    branches: [feature/v28-chapters-two-six-free-exploration]
+permissions:
+  contents: read
+concurrency:
+  group: free-exploration-v28
+  cancel-in-progress: true
+jobs:
+  unit:
+    if: github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test > unit.log 2>&1
+      - run: npm run build > build.log 2>&1
+        if: always()
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v28-unit-initial
+          path: |
+            unit.log
+            build.log
+          retention-days: 14
