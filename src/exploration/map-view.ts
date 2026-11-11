@@ -64,7 +64,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  const flush=()=>{dirty=false;if(!disposed&&!persist())say('保存できません。現在の探索は続けられます。')};
  const pause=()=>{runtime.paused=true;runtime.stop();sync(0,true);flush()};
  const resume=()=>{runtime.paused=document.hidden;nearKey='';sync(0,true)};
- const eventClose=()=>{eventDialog.close();if(p.world?.event&&done().includes(p.world.event.id))p.world.event=undefined;if(initialTide!==tidePhase(p.adventure)+resonancePhase(p.adventure)+lightPathPhase(p.adventure)+celestialPhase(p.adventure)+gravityPhase(p.adventure)+phaseKey(p.adventure)+memoryPhase(p.adventure)+fatePhase(p.adventure)+fateRoute(p.choices)+reformPhase(p.adventure)){flush();actions.travel(map.id);return;}flush();resume()};
+ const eventClose=()=>{eventDialog.close();if(p.world?.event&&done().includes(p.world.event.id))p.world.event=undefined;const refreshed=activeMap(mapById(map.id)!,p.adventure,p.choices);if(map.grid.some((row,y)=>row!==refreshed.grid[y])||initialTide!==tidePhase(p.adventure)+resonancePhase(p.adventure)+lightPathPhase(p.adventure)+celestialPhase(p.adventure)+gravityPhase(p.adventure)+phaseKey(p.adventure)+memoryPhase(p.adventure)+fatePhase(p.adventure)+fateRoute(p.choices)+reformPhase(p.adventure)){flush();actions.travel(map.id);return;}flush();resume()};
  const inspect=(o:MapObject)=>{
   if(disposed||runtime.paused||runtime.locked)return;
   const condition=objectConditionReason(p,map,o);if(condition){runtime.stop();host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;say(condition);sync(0,true);return}

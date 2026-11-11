@@ -11,13 +11,13 @@ import {activeMap} from './active-map';
 import {mapOpen} from './exploration-save';
 const arrow=(from:Point,to:Point)=>{const x=to.x-from.x,y=to.y-from.y;if(Math.hypot(x,y)<32)return '◎';return ['→','↘','↓','↙','←','↖','↑','↗'][(Math.round(Math.atan2(y,x)/(Math.PI/4))+8)%8]};
 export interface NavigationTarget {point:Point;name:string;kind:'object'|'chest'|'exit'|'device'}
-const cache=new WeakMap<Progress,{key:string;grid:WalkMap['grid'];target?:NavigationTarget}>();
+const cache=new WeakMap<Progress,{key:string;terrain:string;target?:NavigationTarget}>();
 /** One target drives the text and minimap. Only open, physically reachable links are eligible. */
 export function navigationTarget(p:Progress,map:WalkMap,hero:Point,live:readonly {x:number;y:number;definition:{id:string}}[]=[]):NavigationTarget|undefined{
  const chapter=chapters.find(c=>c.id===map.chapterId)!,state=chapterState(p.adventure,chapter),goal=mainObjective(p.adventure,chapter);
- const key=[map.id,goal.eventId,Math.floor(hero.x/map.tile),Math.floor(hero.y/map.tile),state.completed.join(','),live.map(s=>s.definition.id+':'+Math.floor(s.x/map.tile)+':'+Math.floor(s.y/map.tile)).join(',')].join('|'),old=cache.get(p);
- if(old?.key===key&&old.grid===map.grid)return old.target;
- const target=resolve();cache.set(p,{key,grid:map.grid,target});return target;
+ const key=[map.id,goal.eventId,Math.floor(hero.x/map.tile),Math.floor(hero.y/map.tile),state.completed.join(','),live.map(s=>s.definition.id+':'+Math.floor(s.x/map.tile)+':'+Math.floor(s.y/map.tile)).join(',')].join('|'),old=cache.get(p),terrain=map.grid.join('\n');
+ if(old?.key===key&&old.terrain===terrain)return old.target;
+ const target=resolve();cache.set(p,{key,terrain,target});return target;
  function resolve():NavigationTarget|undefined{
   if(!goal.eventId||!goal.locationId)return;
   const local=map.objects.find(o=>o.eventId===goal.eventId)??map.symbols.find(s=>s.eventId===goal.eventId);

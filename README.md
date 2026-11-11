@@ -332,3 +332,9 @@ BASE_URL=http://localhost:4173 npm run test:capture-v23
 第2〜6章の64地点を既存の歩行エンジンへ接続しました（全161マップ）。地面タップで移動し、NPC・宝箱・装置・依頼の対象へ接近して調べ、隣接出口で次の地点へ進みます。砂嵐・時流・パズルも既存の条件と会話画面を使用します。全18章の物語・戦闘・報酬・セーブキー・version2は維持します。詳細は[FREE_EXPLORATION_V28.md](docs/FREE_EXPLORATION_V28.md)。
 
 `node tests/free-exploration-v28.e2e.mjs`で5章の旧セーブ復元とタッチ操作を確認できます。既存の`npm run test:journey-v26`は新規データから全18章を実際に遊ぶ通し検証です。どちらも先にビルドと4173のプレビューを起動してください。全既存ブラウザ検証には5173の開発サーバーも必要です。
+
+## v2.9：滑らかな自由移動
+
+障害物のない地点へは直接移動し、壁がある場合は半径を考慮した8方向A*と安全な経路平滑化で回避します。移動速度130px/秒、既存4方向のSD表示、全161マップ・18章・保存キーとversion2を維持します。[SMOOTH_NAVIGATION_V29.md](docs/SMOOTH_NAVIGATION_V29.md)を参照してください。
+
+`npm run test:navigation` は320/390/430pxの実タッチによる直線移動・再タップ・セーブ再開を検証します。先に `npm run build` と4173のプレビューを起動してください。全既存を含む87ファイルは `npm run test:browser-all`、単体テストは `npm test` で実行します。全ブラウザテストには5173の開発サーバーも必要です。

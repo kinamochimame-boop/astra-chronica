@@ -1,0 +1,11 @@
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ✓ tests/smooth-navigation-v29.test.ts (181 tests) 1084ms
+ ✓ tests/exploration-v15.test.ts (33 tests) 627ms
+
+ Test Files  2 passed (2)
+      Tests  214 passed (214)
+   Start at  23:07:40
+   Duration  4.67s (transform 1.44s, setup 0ms, collect 2.14s, tests 1.71s, environment 1ms, prepare 279ms)
+
