@@ -1,4 +1,4 @@
-name: v2.8 early chapters (no deployment)
+name: v2.8 chapters two through six (no deployment)
 on:
   push:
     branches: [feature/v28-chapters-two-six-free-exploration]
@@ -9,23 +9,93 @@ concurrency:
   cancel-in-progress: true
 jobs:
   unit:
-    if: github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    if: github.ref == 'refs/heads/feature/v28-chapters-two-six-free-exploration' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
     runs-on: ubuntu-latest
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test > unit.log 2>&1
-      - run: npm run build > build.log 2>&1
-        if: always()
+      - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs
+      - run: node tests/ci-v28.mjs unit
+        env:
+          V26_HEAD_SHA: ${{ github.sha }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: v28-unit-initial
+          name: v28-unit
+          path: .ci-v28/unit
+          include-hidden-files: true
+          retention-days: 14
+  browsers:
+    needs: unit
+    if: github.ref == 'refs/heads/feature/v28-chapters-two-six-free-exploration' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        group: [early, fresh, layouts, new, webgl, old-0, old-1, old-2, old-3, old-4, old-5]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Provide native Chromium compatibility path
+        run: |
+          CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+          sudo ln -sf "$CHROME_PATH" /usr/bin/chromium
+      - run: node tests/ci-v28.mjs "${{ matrix.group }}"
+        env:
+          V26_HEAD_SHA: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v28-${{ matrix.group }}
+          path: .ci-v28/${{ matrix.group }}
+          include-hidden-files: true
+          retention-days: 14
+  collect:
+    if: always() && github.ref == 'refs/heads/feature/v28-chapters-two-six-free-exploration' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    needs: [unit, browsers]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v28-*
+          path: .ci-v28-results
+      - name: Verify receipts and prepare final evidence
+        run: node tests/ci-v28-collect.mjs
+        env:
+          V26_HEAD_SHA: ${{ github.sha }}
+          V26_PR_URL: https://github.com/kinamochimame-boop/astra-chronica/compare/main...feature/v28-chapters-two-six-free-exploration
+          V26_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v28-verified-final-evidence
           path: |
-            unit.log
-            build.log
+            docs/FREE_EXPLORATION_V28.md
+            docs/CHANGED_FILES_V28.txt
+            docs/test-results/v28-ci.json
+            docs/test-results/v28-ci
+            docs/screenshots/free-exploration-v28-*.png
           retention-days: 14
