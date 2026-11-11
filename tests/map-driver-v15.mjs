@@ -1,6 +1,6 @@
 async function waitContactBattle(page){
- await page.waitForFunction(()=>!!document.querySelector('.battle-top')||!!document.querySelector('.map-event-dialog #dialogue-next'));
- if(await page.locator('.map-event-dialog #dialogue-next').count())for(let n=0;n<12&&await page.locator('.map-event-dialog #dialogue-next').count();n++)await page.locator('.map-event-dialog #dialogue-next').tap();
+ await page.waitForFunction(()=>!!document.querySelector('.battle-top')||!!document.querySelector('#world-event[open] .map-event-dialog #dialogue-next'));
+ if(await page.locator('#world-event[open] .map-event-dialog #dialogue-next').isVisible())for(let n=0;n<12&&await page.locator('#world-event[open] .map-event-dialog #dialogue-next').isVisible();n++)await page.locator('#world-event[open] .map-event-dialog #dialogue-next').tap();
  await page.locator('.battle-top').waitFor();
 }
 import assert from 'node:assert/strict';

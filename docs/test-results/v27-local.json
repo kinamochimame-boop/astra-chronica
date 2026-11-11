@@ -226,5 +226,23 @@
     }
   ],
   "merged": false,
-  "published": false
+  "published": false,
+  "ci_first_attempt": {
+    "run": 42956765608,
+    "head": "1cef49db3a5975a1b274321be895ca3a4e4d80b2",
+    "conclusion": "WebGL group failed; other jobs may be cancelled by corrected push",
+    "cause": "test driver mistook closed NPC dialogue DOM for active battle introduction",
+    "fix": "require #world-event[open] and visible next button; no game changes/assertion or deadline changes",
+    "corrected_local_webgl_success": true,
+    "evidence": [
+      {
+        "file": "docs/test-results/v27-local/v27-ci-first-webgl-failed.log",
+        "sha256": "24db7b4cb9208a1a46f01062987187366438dd0e134d225c680d6f3a59cc3527"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-webgl-closed-dialog-fix.log",
+        "sha256": "20938943c97b79c794a921a49e8ce96a73a3c8f40cc30db8a4636044add244b1"
+      }
+    ]
+  }
 }
