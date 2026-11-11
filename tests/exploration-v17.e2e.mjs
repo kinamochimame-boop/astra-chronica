@@ -1,3 +1,4 @@
+import {legacyWorldIds} from './world-receipts.mjs';
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 import {completedSave,priorSave} from './chapter-nine-fixture.mjs';
@@ -18,7 +19,7 @@ try{
   if(npc){await useObject(page,npc);assert.ok(await page.locator('#dialogue-next').isVisible());while(await page.locator('#dialogue-next').isVisible())await page.locator('#dialogue-next').tap();if(inspect){await useObject(page,inspect);assert.ok((await page.locator('#world-notice').textContent()).length>10)}const snapshot=await saved();await page.reload();await tap('ゲーム開始 · 続きから');await tap('冒険へ出発');await waitMap(page);assert.equal((await state(page)).mapId,id);assert.ok(Math.abs((await state(page)).hero.x-snapshot.world.x)<1);await useObject(page,exit);await waitMap(page);assert.equal((await state(page)).mapId,destination)}
   await tap('探索メニュー');assert.ok((await state(page)).paused);const paused=(await state(page)).hero;await page.keyboard.press('ArrowRight');await page.waitForTimeout(100);assert.deepEqual((await state(page)).hero,paused);await tap('探索に戻る');console.log(`PASS ${id} at 320/390/430/768: touch, aspect, camera, pause${npc?', NPC/inspect/reload/exit':''}`);
  }
- const final=await saved();assert.deepEqual(final.party,prior.party);assert.deepEqual(final.equipment,prior.equipment);assert.deepEqual(final.skillTree,prior.skillTree);assert.deepEqual(final.choices,prior.choices);assert.equal(final.wins,prior.wins);assert.equal(final.world.defeated.length,10);assert.equal(final.world.opened.length,4);assert.deepEqual(errors,[]);
+ const final=await saved();assert.deepEqual(final.party,prior.party);assert.deepEqual(final.equipment,prior.equipment);assert.deepEqual(final.skillTree,prior.skillTree);assert.deepEqual(final.choices,prior.choices);assert.equal(final.wins,prior.wins);assert.equal(legacyWorldIds(final.world.defeated).length,10);assert.equal(legacyWorldIds(final.world.opened).length,4);assert.deepEqual(errors,[]);
  // Move the camera to authored scenery as well as checking the safe entry view.
  if(!await page.locator('#world-viewport').count()){await tap('章選択');await page.locator('[data-chapter-id="chapter-09"]').tap();await waitMap(page)}
  for(const [loc,id,x,y] of [['entrance','star-cave',432,432],['square','star-city',560,432],['waterway','star-waterway',496,400],['crystal','star-mine',592,496],['archive','star-archive',592,432],['core','star-core',624,432]]){await selectLocation(page,'c9-'+loc);await walkTo(page,{x,y});await page.screenshot({path:`docs/screenshots/exploration-v17-${id}-detail-390.png`,fullPage:true,animations:'disabled'})}

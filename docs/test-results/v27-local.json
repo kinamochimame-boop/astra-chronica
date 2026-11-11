@@ -270,5 +270,51 @@
         "sha256": "3bd213de733652ad811ea8dc6b8a6f969e214d5460c0637bef87b81b498cf86b"
       }
     ]
+  },
+  "ci_receipts_attempt": {
+    "run": 42959700160,
+    "head": "b9c50bc3f40893fb0038ba70f4dac014bc5356e8",
+    "conclusion": "old0/old2 failed legacy world totals; full run not reported passed",
+    "cause": "three first-chapter defeat IDs and one chest ID now correctly join canonical world receipts",
+    "fix": "exact four-ID projection for legacy assertions, retaining all original legacy expected counts/IDs; unknown IDs are not hidden",
+    "strict_new_receipts": "first-chapter defeated3/opened1 exact matches in unit and browser",
+    "local_old_map_cases": 136,
+    "local_c1_route_passed": true,
+    "unit_rerun": {
+      "passed": 2518,
+      "files": 44,
+      "default_timeout_ms": 5000
+    },
+    "build_success": true,
+    "evidence": [
+      {
+        "file": "docs/test-results/v27-local/v27-ci-third-receipts-failed.log",
+        "sha256": "a01dc28a1a8588809854bc8570cd596c8ed957f32b53903a3a272423c053ed0c"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-ci-third-receipts-old2-failed.log",
+        "sha256": "5c7985a1402570cc9bcf6abdbff68edaf348e36750dc6a2c4f96239cacd5c6e6"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-legacy-receipts-browser.log",
+        "sha256": "0b2ba59027c146c5314f4548c081c543c89ba1916f8d575afab3f7f93cd2ac30"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-c1-receipts-browser.log",
+        "sha256": "9c6239d0153cdba8400fe8cb10ec9b17289bdd798d4cf3831fe25dcdd0932257"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-unit-receipts-final.log",
+        "sha256": "1ca3e520242040b5b0d0bafd398390fe23153daa0a6bda3c2ed83c7875f0cd61"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-receipts-unit-added.log",
+        "sha256": "d4d09bedf78dbef3ebe43697ccec80cf0cff625435bfb9ce5d207ffd29d5a17b"
+      },
+      {
+        "file": "docs/test-results/v27-local/v27-build-receipt-fix.log",
+        "sha256": "5ae6f1aaf4421fe68e374050f137b14a0cdad8aa7bb8bd6f1bb76f1ba61f1d85"
+      }
+    ]
   }
 }
