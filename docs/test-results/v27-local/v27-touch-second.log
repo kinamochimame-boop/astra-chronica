@@ -1,0 +1,94 @@
+stage:three widths
+stage:390 restored
+stage:departure approach
+stage:departure completed
+stage:location entrance
+FAIL v27 TypeError: Cannot read properties of undefined (reading 'enemies')
+    at fightUI (file:///workspace/astra-chronica/tests/v26-ui-driver.mjs:25:145)
+    at async chapterOneRoute (file:///workspace/astra-chronica/tests/free-exploration-v27.e2e.mjs:28:340)
+    at async file:///workspace/astra-chronica/tests/free-exploration-v27.e2e.mjs:44:60
+BATTLE · ROUND 1
+
+霧の森・入口
+☰
+メニュー
+
+コマンドを選択：アステル
+
+次の行動：
+味 ▶
+アステル
+味
+リナ
+敵
+森の番狼
+味
+メイ
+敵
+霧まといのスライム
+霧まといのスライム
+敵 · ◎対象
+HP 190 / 190
+状態なし
+影羽コウモリ
+敵
+HP 110 / 110
+状態なし
+森の番狼
+敵
+HP 140 / 140
+状態なし
+アステル
+▶ 行動中
+HP 167 / 180
+MP 24 / 24
+星力 10 / 100
+状態なし
+リナ
+タンク
+HP 240 / 240
+MP 30 / 30
+星力 0 / 100
+状態なし
+メイ
+魔法攻撃
+HP 150 / 150
+MP 48 / 48
+星力 0 / 100
+状態なし
+★ 必殺 · 星断の一閃
+星力 100
+未習得（Lv.10）
+通常攻撃
+ATTACK
+強撃
+MP 6
+防御
+MP 0
+連牙斬
+MP 8
+未習得（Lv.3）
+破甲撃
+MP 10
+未習得（Lv.5）
+疾風斬
+MP 9
+未習得（Lv.7）
+
+通常攻撃 · MP0｜敵単体に攻撃（装備：旅人の剣）。対象：霧まといのスライム
+
+通常攻撃を実行
+
+影羽コウモリ → アステル：通常攻撃 13
+
+ログ ⌃
+file:///workspace/astra-chronica/tests/v26-ui-driver.mjs:25
+  const enemyName=await page.locator('.enemy-card:not(.fallen) .enemy strong').first().textContent(),enemy=manifest.encounters[event.encounter].enemies.find(e=>e.name===enemyName),one=await page.locator('.enemy-card:not(.fallen)').count()===1;
+                                                                                                                                                ^
+
+TypeError: Cannot read properties of undefined (reading 'enemies')
+    at fightUI (file:///workspace/astra-chronica/tests/v26-ui-driver.mjs:25:145)
+    at async chapterOneRoute (file:///workspace/astra-chronica/tests/free-exploration-v27.e2e.mjs:28:340)
+    at async file:///workspace/astra-chronica/tests/free-exploration-v27.e2e.mjs:44:60
+
+Node.js v24.22.1

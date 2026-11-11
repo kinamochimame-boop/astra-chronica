@@ -1,0 +1,37 @@
+MAP_DIAGNOSTIC {
+  state: undefined,
+  client: [ 386, 452 ],
+  canvas: [ 390, 457, 387.4375, 454 ],
+  scroll: 1,
+  body: '✧\n' +
+    'ASTRA CHRONICA\n' +
+    '星詠みの遺した約束\n' +
+    'PROTOTYPE\n' +
+    'ver. 2.7\n' +
+    '\n' +
+    'CHAPTER 01 · EXPLORE\n' +
+    '\n' +
+    '霧の森・入口\n' +
+    '☰\n' +
+    '目的：霧の中の気配 ｜ 霧の森・入口 — 敵と戦う。近くへ歩いて対象をタップ。 ｜ → 目的の対象：霧の中の気配\n' +
+    '地図\n' +
+    '\n' +
+    '地面をタップして歩きましょう。\n' +
+    '\n' +
+    '地面をタップして歩く · 矢印／WASDでも移動\n' +
+    '人・装置・宝箱・出口は輪の範囲に近づいてタップ\n' +
+    '\n' +
+    '✦ 星の記憶は、あなたとともに。'
+}
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.waitForFunction: Timeout 30000ms exceeded.
+    at waitMap (/workspace/astra-chronica/tests/map-driver-v15.mjs:9:48)
+    at /workspace/astra-chronica/tests/skill-tree-v09.e2e.mjs:19:269 {
+  log: [],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

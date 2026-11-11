@@ -1,0 +1,1181 @@
+
+> astra-chronica@0.1.0 test
+> vitest run --pool=threads --maxWorkers=1 --no-file-parallelism
+
+
+ RUN  v3.2.7 /workspace/astra-chronica
+
+ ❯ tests/exploration-v22.test.ts (92 tests | 1 failed) 2353ms
+   ✓ fifty-eight shared maps and approach policy > keeps fifty old maps and adds eight ark maps with unique IDs 3ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-camp' entry/objects/patrols are reachable and all exits preserve valid targets 127ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-trail' entry/objects/patrols are reachable and all exits preserve valid targets 40ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 30ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-port' entry/objects/patrols are reachable and all exits preserve valid targets 28ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-island' entry/objects/patrols are reachable and all exits preserve valid targets 29ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 28ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-village' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'grove-garden' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'sky-tower' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty-eight shared maps and approach policy > 'star-path' entry/objects/patrols are reachable and all exits preserve valid targets 29ms
+   ✓ fifty-eight shared maps and approach policy > 'star-city' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty-eight shared maps and approach policy > 'star-market' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'star-waterway' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'star-mine' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'star-archive' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'star-core' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-road' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-town' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-port' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-beach' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-cave' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 28ms
+   ✓ fifty-eight shared maps and approach policy > 'tide-core' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-road' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-village' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-field' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-stones' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-ravine' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-sanctuary' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-archive' entry/objects/patrols are reachable and all exits preserve valid targets 31ms
+   ✓ fifty-eight shared maps and approach policy > 'pale-core' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-road' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-village' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-woods' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-lake' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-roots' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-shrine' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-archive' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty-eight shared maps and approach policy > 'gloom-core' entry/objects/patrols are reachable and all exits preserve valid targets 43ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-rail' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-station' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-city' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-market' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-lower' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-workshop' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'gear-core' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-gateway' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-shore' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-dock' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-hall' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-gravity' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-records' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-sanctuary' entry/objects/patrols are reachable and all exits preserve valid targets 28ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-core' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-gateway' supports safe adjacent approaches without auto-activation 9ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-shore' supports safe adjacent approaches without auto-activation 2ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-dock' supports safe adjacent approaches without auto-activation 9ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-hall' supports safe adjacent approaches without auto-activation 12ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-gravity' supports safe adjacent approaches without auto-activation 5ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-records' supports safe adjacent approaches without auto-activation 9ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-sanctuary' supports safe adjacent approaches without auto-activation 12ms
+   ✓ fifty-eight shared maps and approach policy > 'ark-core' supports safe adjacent approaches without auto-activation 7ms
+   ✓ fifty-eight shared maps and approach policy > failed destination checks are pure and an invalid target entry cannot be committed 23ms
+   ✓ fifty-eight shared maps and approach policy > re-tap, corridor turns, FPS and four-width camera bounds remain consistent 5ms
+   ✓ fifty-eight shared maps and approach policy > post-entry contact grace pauses with menus and latches a single contact when it ends 1ms
+   ✓ fifty-eight shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI 88ms
+   ✓ confirmed gravity routes and survey safety > c14-bow derives normal independently of the clock and save flags 31ms
+   ✓ confirmed gravity routes and survey safety > c14-gravity-shift derives reversed independently of the clock and save flags 26ms
+   ✓ confirmed gravity routes and survey safety > c14-gravity-stabilize derives stable independently of the clock and save flags 22ms
+   ✓ confirmed gravity routes and survey safety > c14-clear derives controlled independently of the clock and save flags 23ms
+   ✓ confirmed gravity routes and survey safety > gravity corridor closure keeps a permanent bypass reachable 24ms
+   ✓ confirmed gravity routes and survey safety > linked archive path opens without removing the ordinary way out 23ms
+   ✓ confirmed gravity routes and survey safety > corrupt positions on closed light paths restore to permanent safe entries 20ms
+   ✓ confirmed gravity routes and survey safety > keeps old tides, resonance, time devices, landmarks and thirteen chapters intact 23ms
+   ✓ confirmed gravity routes and survey safety > does not reveal terrain or targets before the player discovers them 22ms
+   ✓ confirmed gravity routes and survey safety > cannot discover hidden cells behind an intervening solid wall 0ms
+   ✓ confirmed gravity routes and survey safety > separates actual walked tiles from nearby discovered floor 0ms
+   ✓ confirmed gravity routes and survey safety > survives remounts and another map within one Progress object 22ms
+   ✓ confirmed gravity routes and survey safety > never persists surveys or mixes them into another save or Lab owner 23ms
+   ✓ confirmed gravity routes and survey safety > uses restored player coordinates for the minimap and normalizes invalid input 27ms
+   ✓ confirmed gravity routes and survey safety > only shows exits that are both known and unlocked 21ms
+   ✓ confirmed gravity routes and survey safety > objective marker follows a known live enemy, never its unknown spawn point 21ms
+   ✓ confirmed gravity routes and survey safety > terrain changes are reflected even in a remembered area 21ms
+   ✓ confirmed gravity routes and survey safety > substep observers record every walked tile at low frame rates without changing movement 23ms
+   × confirmed gravity routes and survey safety > all fifty-eight maps roundtrip without persisting survey fields or losing receipts 136ms
+     → expected [ 'trail-patrol', …(37) ] to have a length of 35 but got 38
+   ✓ ark quest object ownership > every mapped quest objective belongs to this chapter, quest and location 1ms
+   ✓ ark quest object ownership > each quest can collect all mapped objectives through their real object IDs 36ms
+ ❯ tests/chapter-nine-v17.test.ts (45 tests | 5 failed) 2266ms
+   ✓ chapter nine formal story > keeps chapter nine among ten registered chapters, sixteen exact locations and twenty-six genuine events 4ms
+   ✓ chapter nine formal story > eighth clear gates the ninth; locked locations stay closed and chapter twelve is absent 28ms
+   ✓ chapter nine formal story > completes once, preserves eight chapters and all legacy state, and round trips 27ms
+   ✓ chapter nine formal story > all 32 choice combinations finish and confirmed answers never change 104ms
+   ✓ chapter nine formal story > puzzle rejects wrong order and repeated pieces without rewards, supports retry, then completes once 4ms
+   ✓ chapter nine formal story > 'sq-underground-lamp' completes before or after chapter clear with exactly one reward 11ms
+   ✓ chapter nine formal story > 'sq-lost-maintenance' completes before or after chapter clear with exactly one reward 9ms
+   ✓ chapter nine formal story > 'sq-noa-promise' completes before or after chapter clear with exactly one reward 9ms
+   ✓ chapter nine formal story > potion reward cap does not consume the claim 3ms
+   ✓ chapter nine formal story > ether reward cap does not consume the claim 4ms
+   ✓ chapter nine formal story > eight journal articles unlock progressively, no future revelations or invented choices 5ms
+   ✓ chapter nine formal story > old v1.6 save remains version two with no fabricated ninth progress 2ms
+   ✓ chapter nine formal story > unknown event, map, coordinate and choice values cannot destroy earlier chapters 2ms
+   ✓ ninth combat and boss mechanics > six regular enemies and two bosses reuse seven elements and existing status IDs 1ms
+   ✓ ninth combat and boss mechanics > vein-path has valid fixed-seed enemy and player turns 6ms
+   ✓ ninth combat and boss mechanics > vein-waterway has valid fixed-seed enemy and player turns 3ms
+   ✓ ninth combat and boss mechanics > vein-mine has valid fixed-seed enemy and player turns 1ms
+   ✓ ninth combat and boss mechanics > vein-guardian has valid fixed-seed enemy and player turns 2ms
+   ✓ ninth combat and boss mechanics > vein-lab has valid fixed-seed enemy and player turns 1ms
+   ✓ ninth combat and boss mechanics > vein-memoria has valid fixed-seed enemy and player turns 1ms
+   ✓ ninth combat and boss mechanics > sentry performs its advertised guard, charge, multihit, magic or status behavior 1ms
+   ✓ ninth combat and boss mechanics > orb performs its advertised guard, charge, multihit, magic or status behavior 0ms
+   ✓ ninth combat and boss mechanics > bat performs its advertised guard, charge, multihit, magic or status behavior 0ms
+   ✓ ninth combat and boss mechanics > eater performs its advertised guard, charge, multihit, magic or status behavior 0ms
+   ✓ ninth combat and boss mechanics > slime performs its advertised guard, charge, multihit, magic or status behavior 0ms
+   ✓ ninth combat and boss mechanics > guardian sleep preserves the pending AoE and dead allies are excluded 1ms
+   ✓ ninth combat and boss mechanics > guardian charge warns all allies and arms one physical counter, then actually hits all survivors 1ms
+   ✓ ninth combat and boss mechanics > AoE ignores taunt redirection but respects per-hit cover, guard and one-use barrier 1ms
+   ✓ ninth combat and boss mechanics > Memoria starts defensively and keeps a phase-two reservation through sleep and phase three 1ms
+   ✓ ninth combat and boss mechanics > 'starvein-duals' owner/family, noncumulative stats and side-view silhouette remain correct 3ms
+   ✓ ninth combat and boss mechanics > 'crystalwall-shield-rapier' owner/family, noncumulative stats and side-view silhouette remain correct 3ms
+   ✓ ninth combat and boss mechanics > 'memory-crystal-mace' owner/family, noncumulative stats and side-view silhouette remain correct 3ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=false, no high-level tree assumption  982ms
+   ✓ ninth combat and boss mechanics > twenty full chapter seeds, optional quests=true, no high-level tree assumption  889ms
+   ✓ chapter nine map receipts and saves > victory receipt settles once and returns to the path safely 2ms
+   ✓ chapter nine map receipts and saves > defeat receipt settles once and returns to the path safely 1ms
+   ✓ chapter nine map receipts and saves > interrupted battle recovers without EXP/win and cannot later accept its old receipt 2ms
+   × chapter nine map receipts and saves > switches all 18 maps and serializes five times without losing canonical receipts or legacy data 111ms
+     → expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+   × chapter nine map receipts and saves > invalid ninth pose NaN/+0 recovers without losing completed rewards 5ms
+     → expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+   × chapter nine map receipts and saves > invalid ninth pose -500/100 recovers without losing completed rewards 5ms
+     → expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+   × chapter nine map receipts and saves > invalid ninth pose 5000/5000 recovers without losing completed rewards 5ms
+     → expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+   × chapter nine map receipts and saves > invalid ninth pose 16/16 recovers without losing completed rewards 4ms
+     → expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+   ✓ chapter nine map receipts and saves > nearby-only archive puzzle and quest APIs cannot be bypassed from the list 2ms
+   ✓ chapter9 deterministic prerequisite isolation > matches the original complete API setup exactly 12ms
+   ✓ chapter9 deterministic prerequisite isolation > does not share mutable party,inventory,choices or event receipts 1ms
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false
+v1.5 full chapter quests=false: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true
+v1.5 full chapter quests=true: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds
+v1.5 grove-trail: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds
+v1.5 grove-roots: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds
+v1.5 grove-sentry: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds
+v1.5 grove-orb: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds
+v1.5 grove-granguard: 20/20
+
+stdout | tests/chapter-seven-v15.test.ts > multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds
+v1.5 grove-seles: 20/20
+
+ ❯ tests/chapter-seven-v15.test.ts (45 tests | 1 failed) 2206ms
+   ✓ chapter seven prerequisite fixture isolation > cached prerequisite equals the original six-chapter API setup 21ms
+   ✓ chapter seven prerequisite fixture isolation > nested scenario mutations do not reach a second copy or the baseline 1ms
+   ✓ chapter seven complete content and old progression > registers seven chapters, sixteen exact locations and twenty-two distinct real events 2ms
+   ✓ chapter seven complete content and old progression > requires chapter six clear and denies visits, map entry, choices and boss launch while locked 11ms
+   × chapter seven complete content and old progression > finishes every event without optional quests and keeps chapters one through six identical 15ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   ✓ chapter seven complete content and old progression > keeps reward/EXP receipts exactly once for the final boss 5ms
+   ✓ chapter seven complete content and old progression > tree/gear/level/item data and no-save lab remain isolated 10ms
+   ✓ grove enemies, phases and existing combat rules > wolf executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > slime executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > spore executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > sentry executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > moth executes a real isolated combat action 0ms
+   ✓ grove enemies, phases and existing combat rules > orb executes a real isolated combat action 1ms
+   ✓ grove enemies, phases and existing combat rules > wolf hits twice, vines cause paralysis, spores cause poison/silence, moth uses wind weakness 3ms
+   ✓ grove enemies, phases and existing combat rules > oldwood sentry guards and counters once with the existing cover/status rules 2ms
+   ✓ grove enemies, phases and existing combat rules > root orb uses regular earth magic, signals and releases a reserved spell 1ms
+   ✓ grove enemies, phases and existing combat rules > GranGuard retains its cannon through freezing 1ms
+   ✓ grove enemies, phases and existing combat rules > Seles progresses three phases and preserves a phase-two reservation after sleep and phase change 2ms
+   ✓ grove enemies, phases and existing combat rules > boss magic respects taunt, cover, guard and real status resistance/infliction 1ms
+   ✓ weapons, optional quests and five immutable choices > '翠星の双剣' is granted once, restricted by owner and exact family 5ms
+   ✓ weapons, optional quests and five immutable choices > '樹護の盾槍' is granted once, restricted by owner and exact family 4ms
+   ✓ weapons, optional quests and five immutable choices > '星樹のワンド' is granted once, restricted by owner and exact family 3ms
+   ✓ weapons, optional quests and five immutable choices > weapons have tradeoffs relative to chapter six, not unconditional upgrades 0ms
+   ✓ weapons, optional quests and five immutable choices > dual normal hits and Fang remain two hits; wand actually increases healing and adjusts magic 6ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-fine-meeting' persists either selection immediately and cannot be replaced 3ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-gran-question' persists either selection immediately and cannot be replaced 4ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-rina-judgment' persists either selection immediately and cannot be replaced 5ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-mei-reading' persists either selection immediately and cannot be replaced 8ms
+   ✓ weapons, optional quests and five immutable choices > 'c7-final-promise' persists either selection immediately and cannot be replaced 6ms
+   ✓ weapons, optional quests and five immutable choices > all 32 choice combinations can finish without optional quests or lost rewards 83ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-herb-basket' can be completed before or after clear and never grants twice 8ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-guardian-oath' can be completed before or after clear and never grants twice 7ms
+   ✓ weapons, optional quests and five immutable choices > 'sq-star-flower' can be completed before or after clear and never grants twice 7ms
+   ✓ weapons, optional quests and five immutable choices > potion reward cap rejects the entire grant and claimed flag 3ms
+   ✓ weapons, optional quests and five immutable choices > ether reward cap rejects the entire grant and claimed flag 3ms
+   ✓ weapons, optional quests and five immutable choices > journal reveals only actual events and exploration uses 16+22+3 without changing old denominators 5ms
+   ✓ weapons, optional quests and five immutable choices > v1.5 keeps rows as the active layout while providing a separate anchor policy for future side view 0ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=false  684ms
+   ✓ multi-seed chapter-seven balance > whole chapter over 20 seeds with quests=true  639ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-trail over 20 seeds 94ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-roots over 20 seeds 69ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-sentry over 20 seeds 78ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-orb over 20 seeds 81ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-granguard over 20 seeds 134ms
+   ✓ multi-seed chapter-seven balance > sixth-chapter-clear starter gear beats grove-seles over 20 seeds 185ms
+ ❯ tests/exploration-v21.test.ts (82 tests | 1 failed) 2042ms
+   ✓ fifty shared maps and approach policy > keeps forty-two old maps and adds eight gear maps with unique IDs 3ms
+   ✓ fifty shared maps and approach policy > 'grove-camp' entry/objects/patrols are reachable and all exits preserve valid targets 64ms
+   ✓ fifty shared maps and approach policy > 'grove-trail' entry/objects/patrols are reachable and all exits preserve valid targets 37ms
+   ✓ fifty shared maps and approach policy > 'grove-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 35ms
+   ✓ fifty shared maps and approach policy > 'sky-port' entry/objects/patrols are reachable and all exits preserve valid targets 30ms
+   ✓ fifty shared maps and approach policy > 'sky-island' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'sky-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 31ms
+   ✓ fifty shared maps and approach policy > 'grove-village' entry/objects/patrols are reachable and all exits preserve valid targets 32ms
+   ✓ fifty shared maps and approach policy > 'grove-garden' entry/objects/patrols are reachable and all exits preserve valid targets 33ms
+   ✓ fifty shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets 40ms
+   ✓ fifty shared maps and approach policy > 'sky-tower' entry/objects/patrols are reachable and all exits preserve valid targets 29ms
+   ✓ fifty shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets 34ms
+   ✓ fifty shared maps and approach policy > 'star-path' entry/objects/patrols are reachable and all exits preserve valid targets 28ms
+   ✓ fifty shared maps and approach policy > 'star-city' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ fifty shared maps and approach policy > 'star-market' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty shared maps and approach policy > 'star-waterway' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty shared maps and approach policy > 'star-mine' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'star-archive' entry/objects/patrols are reachable and all exits preserve valid targets 28ms
+   ✓ fifty shared maps and approach policy > 'star-core' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'tide-road' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'tide-town' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty shared maps and approach policy > 'tide-port' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'tide-beach' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'tide-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty shared maps and approach policy > 'tide-cave' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'tide-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 36ms
+   ✓ fifty shared maps and approach policy > 'tide-core' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty shared maps and approach policy > 'pale-road' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty shared maps and approach policy > 'pale-village' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty shared maps and approach policy > 'pale-field' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty shared maps and approach policy > 'pale-stones' entry/objects/patrols are reachable and all exits preserve valid targets 32ms
+   ✓ fifty shared maps and approach policy > 'pale-ravine' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'pale-sanctuary' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'pale-archive' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty shared maps and approach policy > 'pale-core' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ fifty shared maps and approach policy > 'gloom-road' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty shared maps and approach policy > 'gloom-village' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'gloom-woods' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty shared maps and approach policy > 'gloom-lake' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ fifty shared maps and approach policy > 'gloom-roots' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'gloom-shrine' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ fifty shared maps and approach policy > 'gloom-archive' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'gloom-core' entry/objects/patrols are reachable and all exits preserve valid targets 33ms
+   ✓ fifty shared maps and approach policy > 'gear-rail' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ fifty shared maps and approach policy > 'gear-station' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'gear-city' entry/objects/patrols are reachable and all exits preserve valid targets 33ms
+   ✓ fifty shared maps and approach policy > 'gear-market' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'gear-lower' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'gear-workshop' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ fifty shared maps and approach policy > 'gear-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ fifty shared maps and approach policy > 'gear-core' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ fifty shared maps and approach policy > 'gear-rail' supports safe adjacent approaches without auto-activation 7ms
+   ✓ fifty shared maps and approach policy > 'gear-station' supports safe adjacent approaches without auto-activation 2ms
+   ✓ fifty shared maps and approach policy > 'gear-city' supports safe adjacent approaches without auto-activation 9ms
+   ✓ fifty shared maps and approach policy > 'gear-market' supports safe adjacent approaches without auto-activation 11ms
+   ✓ fifty shared maps and approach policy > 'gear-lower' supports safe adjacent approaches without auto-activation 8ms
+   ✓ fifty shared maps and approach policy > 'gear-workshop' supports safe adjacent approaches without auto-activation 16ms
+   ✓ fifty shared maps and approach policy > 'gear-observatory' supports safe adjacent approaches without auto-activation 16ms
+   ✓ fifty shared maps and approach policy > 'gear-core' supports safe adjacent approaches without auto-activation 7ms
+   ✓ fifty shared maps and approach policy > failed destination checks are pure and an invalid target entry cannot be committed 27ms
+   ✓ fifty shared maps and approach policy > re-tap, corridor turns, FPS and four-width camera bounds remain consistent 7ms
+   ✓ fifty shared maps and approach policy > post-entry contact grace pauses with menus and latches a single contact when it ends 1ms
+   ✓ fifty shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI 89ms
+   ✓ confirmed light paths and survey safety > c13-duals derives stopped independently of the clock and save flags 27ms
+   ✓ confirmed light paths and survey safety > c13-aux-power derives partial independently of the clock and save flags 25ms
+   ✓ confirmed light paths and survey safety > c13-chart-sync derives synchronized independently of the clock and save flags 23ms
+   ✓ confirmed light paths and survey safety > c13-clear derives complete independently of the clock and save flags 48ms
+   ✓ confirmed light paths and survey safety > dark lake path is actually blocked, while the high route remains reachable 29ms
+   ✓ confirmed light paths and survey safety > linked archive path opens without removing the ordinary way out 21ms
+   ✓ confirmed light paths and survey safety > corrupt positions on closed light paths restore to permanent safe entries 18ms
+   ✓ confirmed light paths and survey safety > keeps old tides, resonance, time devices, landmarks and eleven chapters intact 20ms
+   ✓ confirmed light paths and survey safety > does not reveal terrain or targets before the player discovers them 19ms
+   ✓ confirmed light paths and survey safety > cannot discover hidden cells behind an intervening solid wall 0ms
+   ✓ confirmed light paths and survey safety > separates actual walked tiles from nearby discovered floor 0ms
+   ✓ confirmed light paths and survey safety > survives remounts and another map within one Progress object 19ms
+   ✓ confirmed light paths and survey safety > never persists surveys or mixes them into another save or Lab owner 21ms
+   ✓ confirmed light paths and survey safety > uses restored player coordinates for the minimap and normalizes invalid input 23ms
+   ✓ confirmed light paths and survey safety > only shows exits that are both known and unlocked 19ms
+   ✓ confirmed light paths and survey safety > objective marker follows a known live enemy, never its unknown spawn point 19ms
+   ✓ confirmed light paths and survey safety > terrain changes are reflected even in a remembered area 21ms
+   ✓ confirmed light paths and survey safety > substep observers record every walked tile at low frame rates without changing movement 19ms
+   × confirmed light paths and survey safety > all fifty maps roundtrip without persisting survey fields or losing receipts 111ms
+     → expected [ 'trail-patrol', …(32) ] to have a length of 30 but got 33
+ ❯ tests/chapter-eight-v16.test.ts (47 tests | 7 failed) 1887ms
+   ✓ chapter eight story and compatibility > registers eight chapters and sixteen exact locations / twenty-two stable events 3ms
+   ✓ chapter eight story and compatibility > only opens after chapter seven, never before 26ms
+   ✓ chapter eight story and compatibility > completes all events with unique rewards, old chapter state and receipts unchanged 25ms
+   ✓ chapter eight story and compatibility > all 32 choices can finish without overwriting a confirmed choice 93ms
+   ✓ chapter eight story and compatibility > 'sq-airship-keepsake' works before and after clear and grants only once 9ms
+   ✓ chapter eight story and compatibility > 'sq-cloud-delivery' works before and after clear and grants only once 7ms
+   ✓ chapter eight story and compatibility > 'sq-wing-records' works before and after clear and grants only once 6ms
+   ✓ chapter eight story and compatibility > potion capacity refusal keeps the reward unclaimed 2ms
+   ✓ chapter eight story and compatibility > ether capacity refusal keeps the reward unclaimed 2ms
+   ✓ chapter eight story and compatibility > journal has seven gated articles and no future character revelations 5ms
+   ✓ chapter eight story and compatibility > old v1.5 world, party, tree and all seven chapters survive without invented eighth-chapter data 2ms
+   ✓ chapter eight story and compatibility > corrupt eighth IDs are removed without losing the seven completed chapters 1ms
+   ✓ new enemies and unchanged combat engine > six ordinary enemies and two bosses use only existing elements 1ms
+   ✓ new enemies and unchanged combat engine > sky-island resolves valid actions under fixed randomness 6ms
+   ✓ new enemies and unchanged combat engine > sky-bridge resolves valid actions under fixed randomness 2ms
+   ✓ new enemies and unchanged combat engine > sky-windway resolves valid actions under fixed randomness 1ms
+   ✓ new enemies and unchanged combat engine > sky-sentry resolves valid actions under fixed randomness 1ms
+   ✓ new enemies and unchanged combat engine > sky-orb resolves valid actions under fixed randomness 1ms
+   ✓ new enemies and unchanged combat engine > sky-aero resolves valid actions under fixed randomness 1ms
+   ✓ new enemies and unchanged combat engine > sky-astraeia resolves valid actions under fixed randomness 1ms
+   ✓ new enemies and unchanged combat engine > drone warns before a ranged charge and armor raises a counter stance 1ms
+   ✓ new enemies and unchanged combat engine > Astraeia keeps a reserved phase-two attack across sleep and phase three 1ms
+   ✓ new enemies and unchanged combat engine > 'skysoar-sword' is owner-restricted, repeatable equip never accumulates stats 2ms
+   ✓ new enemies and unchanged combat engine > 'azurewing-shield-flail' is owner-restricted, repeatable equip never accumulates stats 3ms
+   ✓ new enemies and unchanged combat engine > 'starwind-rod' is owner-restricted, repeatable equip never accumulates stats 2ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=false, without high-level nodes  861ms
+   ✓ new enemies and unchanged combat engine > 20 full chapter seeds, optional quests=true, without high-level nodes  763ms
+   ✓ shared two-chapter maps and side-view policies > all six map definitions have reachable objects and symbols without walls crossed 18ms
+   ✓ shared two-chapter maps and side-view policies > chapter eight is gated and switching chapters always enters a valid safe pose 1ms
+   × shared two-chapter maps and side-view policies > all chapters retain defeated and opened IDs while switching or loading another map 11ms
+     → expected [ Array(9) ] to have a length of 6 but got 9
+   ✓ shared two-chapter maps and side-view policies > victory from an eighth-chapter symbol settles once at its source map 1ms
+   ✓ shared two-chapter maps and side-view policies > defeat from an eighth-chapter symbol settles once at its source map 1ms
+   × shared two-chapter maps and side-view policies > reloading an unconfirmed eighth battle recovers without EXP or win and retains seventh flags 4ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   × shared two-chapter maps and side-view policies > eighth map corrupt pose NaN/+0 returns safely without losing either chapter 1ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   × shared two-chapter maps and side-view policies > eighth map corrupt pose Infinity/+0 returns safely without losing either chapter 1ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   × shared two-chapter maps and side-view policies > eighth map corrupt pose -500/400 returns safely without losing either chapter 1ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   × shared two-chapter maps and side-view policies > eighth map corrupt pose 256/192 returns safely without losing either chapter 1ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   × shared two-chapter maps and side-view policies > eighth map corrupt pose 5000/5000 returns safely without losing either chapter 1ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+   ✓ shared two-chapter maps and side-view policies > an eighth event cannot start from a seventh map source even at identical coordinates 1ms
+   ✓ shared two-chapter maps and side-view policies > 320px side coordinates separate all allies and 1/2/3/6 opponents 1ms
+   ✓ shared two-chapter maps and side-view policies > 390px side coordinates separate all allies and 1/2/3/6 opponents 0ms
+   ✓ shared two-chapter maps and side-view policies > 430px side coordinates separate all allies and 1/2/3/6 opponents 1ms
+   ✓ shared two-chapter maps and side-view policies > 768px side coordinates separate all allies and 1/2/3/6 opponents 0ms
+   ✓ shared two-chapter maps and side-view policies > all nine weapon families have distinct visual metadata and stable placeholder replacements 1ms
+   ✓ shared two-chapter maps and side-view policies > visual plans preserve actual hit count, critical, counter target, miss, cover and element 1ms
+   ✓ chapter8 deterministic prerequisite isolation > matches the original complete API setup exactly 9ms
+   ✓ chapter8 deterministic prerequisite isolation > does not share mutable party,inventory,choices or event receipts 1ms
+ ✓ tests/exploration-v25.test.ts (168 tests) 3341ms
+   ✓ 82 maps and independent confirmed fate routes > 'void-archive' keeps all objects,symbol routes,exits and reload positions reachable  302ms
+ ❯ tests/exploration-v20.test.ts (74 tests | 1 failed) 1669ms
+   ✓ forty-two shared maps and approach policy > keeps thirty-four old maps and adds eight gloom maps with unique IDs 3ms
+   ✓ forty-two shared maps and approach policy > 'grove-camp' entry/objects/patrols are reachable and all exits preserve valid targets 61ms
+   ✓ forty-two shared maps and approach policy > 'grove-trail' entry/objects/patrols are reachable and all exits preserve valid targets 34ms
+   ✓ forty-two shared maps and approach policy > 'grove-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 29ms
+   ✓ forty-two shared maps and approach policy > 'sky-port' entry/objects/patrols are reachable and all exits preserve valid targets 39ms
+   ✓ forty-two shared maps and approach policy > 'sky-island' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ forty-two shared maps and approach policy > 'sky-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 27ms
+   ✓ forty-two shared maps and approach policy > 'grove-village' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ forty-two shared maps and approach policy > 'grove-garden' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ forty-two shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ forty-two shared maps and approach policy > 'sky-tower' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ forty-two shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ forty-two shared maps and approach policy > 'star-path' entry/objects/patrols are reachable and all exits preserve valid targets 25ms
+   ✓ forty-two shared maps and approach policy > 'star-city' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ forty-two shared maps and approach policy > 'star-market' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ forty-two shared maps and approach policy > 'star-waterway' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ forty-two shared maps and approach policy > 'star-mine' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ forty-two shared maps and approach policy > 'star-archive' entry/objects/patrols are reachable and all exits preserve valid targets 32ms
+   ✓ forty-two shared maps and approach policy > 'star-core' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ forty-two shared maps and approach policy > 'tide-road' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ forty-two shared maps and approach policy > 'tide-town' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ forty-two shared maps and approach policy > 'tide-port' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ forty-two shared maps and approach policy > 'tide-beach' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ forty-two shared maps and approach policy > 'tide-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ forty-two shared maps and approach policy > 'tide-cave' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ forty-two shared maps and approach policy > 'tide-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ forty-two shared maps and approach policy > 'tide-core' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ forty-two shared maps and approach policy > 'pale-road' entry/objects/patrols are reachable and all exits preserve valid targets 30ms
+   ✓ forty-two shared maps and approach policy > 'pale-village' entry/objects/patrols are reachable and all exits preserve valid targets 31ms
+   ✓ forty-two shared maps and approach policy > 'pale-field' entry/objects/patrols are reachable and all exits preserve valid targets 24ms
+   ✓ forty-two shared maps and approach policy > 'pale-stones' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ forty-two shared maps and approach policy > 'pale-ravine' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ forty-two shared maps and approach policy > 'pale-sanctuary' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ forty-two shared maps and approach policy > 'pale-archive' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ forty-two shared maps and approach policy > 'pale-core' entry/objects/patrols are reachable and all exits preserve valid targets 31ms
+   ✓ forty-two shared maps and approach policy > 'gloom-road' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ forty-two shared maps and approach policy > 'gloom-village' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ forty-two shared maps and approach policy > 'gloom-woods' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ forty-two shared maps and approach policy > 'gloom-lake' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ forty-two shared maps and approach policy > 'gloom-roots' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ forty-two shared maps and approach policy > 'gloom-shrine' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ forty-two shared maps and approach policy > 'gloom-archive' entry/objects/patrols are reachable and all exits preserve valid targets 35ms
+   ✓ forty-two shared maps and approach policy > 'gloom-core' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ forty-two shared maps and approach policy > 'gloom-road' supports safe adjacent approaches without auto-activation 9ms
+   ✓ forty-two shared maps and approach policy > 'gloom-village' supports safe adjacent approaches without auto-activation 2ms
+   ✓ forty-two shared maps and approach policy > 'gloom-woods' supports safe adjacent approaches without auto-activation 9ms
+   ✓ forty-two shared maps and approach policy > 'gloom-lake' supports safe adjacent approaches without auto-activation 12ms
+   ✓ forty-two shared maps and approach policy > 'gloom-roots' supports safe adjacent approaches without auto-activation 5ms
+   ✓ forty-two shared maps and approach policy > 'gloom-shrine' supports safe adjacent approaches without auto-activation 9ms
+   ✓ forty-two shared maps and approach policy > 'gloom-archive' supports safe adjacent approaches without auto-activation 18ms
+   ✓ forty-two shared maps and approach policy > 'gloom-core' supports safe adjacent approaches without auto-activation 12ms
+   ✓ forty-two shared maps and approach policy > failed destination checks are pure and an invalid target entry cannot be committed 22ms
+   ✓ forty-two shared maps and approach policy > re-tap, corridor turns, FPS and four-width camera bounds remain consistent 6ms
+   ✓ forty-two shared maps and approach policy > post-entry contact grace pauses with menus and latches a single contact when it ends 1ms
+   ✓ forty-two shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI 88ms
+   ✓ confirmed light paths and survey safety > c12-sword derives dark independently of the clock and save flags 36ms
+   ✓ confirmed light paths and survey safety > c12-lake-light derives glimmer independently of the clock and save flags 29ms
+   ✓ confirmed light paths and survey safety > c12-vault-code derives linked independently of the clock and save flags 24ms
+   ✓ confirmed light paths and survey safety > c12-clear derives renewed independently of the clock and save flags 20ms
+   ✓ confirmed light paths and survey safety > dark lake path is actually blocked, while the high route remains reachable 27ms
+   ✓ confirmed light paths and survey safety > linked archive path opens without removing the ordinary way out 19ms
+   ✓ confirmed light paths and survey safety > corrupt positions on closed light paths restore to permanent safe entries 16ms
+   ✓ confirmed light paths and survey safety > keeps old tides, resonance, time devices, landmarks and eleven chapters intact 18ms
+   ✓ confirmed light paths and survey safety > does not reveal terrain or targets before the player discovers them 16ms
+   ✓ confirmed light paths and survey safety > cannot discover hidden cells behind an intervening solid wall 0ms
+   ✓ confirmed light paths and survey safety > separates actual walked tiles from nearby discovered floor 0ms
+   ✓ confirmed light paths and survey safety > survives remounts and another map within one Progress object 16ms
+   ✓ confirmed light paths and survey safety > never persists surveys or mixes them into another save or Lab owner 21ms
+   ✓ confirmed light paths and survey safety > uses restored player coordinates for the minimap and normalizes invalid input 22ms
+   ✓ confirmed light paths and survey safety > only shows exits that are both known and unlocked 16ms
+   ✓ confirmed light paths and survey safety > objective marker follows a known live enemy, never its unknown spawn point 17ms
+   ✓ confirmed light paths and survey safety > terrain changes are reflected even in a remembered area 18ms
+   ✓ confirmed light paths and survey safety > substep observers record every walked tile at low frame rates without changing movement 17ms
+   × confirmed light paths and survey safety > all forty-two maps roundtrip without persisting survey fields or losing receipts 106ms
+     → expected [ 'trail-patrol', …(27) ] to have a length of 25 but got 28
+ ❯ tests/exploration-v18.test.ts (58 tests | 1 failed) 1103ms
+   ✓ twenty-six shared maps and approach policy > keeps eighteen old maps and adds eight coastal maps with unique IDs 3ms
+   ✓ twenty-six shared maps and approach policy > 'grove-camp' entry/objects/patrols are reachable and all exits preserve valid targets 44ms
+   ✓ twenty-six shared maps and approach policy > 'grove-trail' entry/objects/patrols are reachable and all exits preserve valid targets 23ms
+   ✓ twenty-six shared maps and approach policy > 'grove-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ twenty-six shared maps and approach policy > 'sky-port' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ twenty-six shared maps and approach policy > 'sky-island' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ twenty-six shared maps and approach policy > 'sky-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ twenty-six shared maps and approach policy > 'grove-village' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ twenty-six shared maps and approach policy > 'grove-garden' entry/objects/patrols are reachable and all exits preserve valid targets 14ms
+   ✓ twenty-six shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets 15ms
+   ✓ twenty-six shared maps and approach policy > 'sky-tower' entry/objects/patrols are reachable and all exits preserve valid targets 15ms
+   ✓ twenty-six shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ twenty-six shared maps and approach policy > 'star-path' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ twenty-six shared maps and approach policy > 'star-city' entry/objects/patrols are reachable and all exits preserve valid targets 14ms
+   ✓ twenty-six shared maps and approach policy > 'star-market' entry/objects/patrols are reachable and all exits preserve valid targets 13ms
+   ✓ twenty-six shared maps and approach policy > 'star-waterway' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ twenty-six shared maps and approach policy > 'star-mine' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ twenty-six shared maps and approach policy > 'star-archive' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ twenty-six shared maps and approach policy > 'star-core' entry/objects/patrols are reachable and all exits preserve valid targets 15ms
+   ✓ twenty-six shared maps and approach policy > 'tide-road' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ twenty-six shared maps and approach policy > 'tide-town' entry/objects/patrols are reachable and all exits preserve valid targets 12ms
+   ✓ twenty-six shared maps and approach policy > 'tide-port' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ twenty-six shared maps and approach policy > 'tide-beach' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ twenty-six shared maps and approach policy > 'tide-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ twenty-six shared maps and approach policy > 'tide-cave' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ twenty-six shared maps and approach policy > 'tide-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ twenty-six shared maps and approach policy > 'tide-core' entry/objects/patrols are reachable and all exits preserve valid targets 14ms
+   ✓ twenty-six shared maps and approach policy > 'tide-road' supports safe adjacent approaches without auto-activation 7ms
+   ✓ twenty-six shared maps and approach policy > 'tide-town' supports safe adjacent approaches without auto-activation 2ms
+   ✓ twenty-six shared maps and approach policy > 'tide-port' supports safe adjacent approaches without auto-activation 11ms
+   ✓ twenty-six shared maps and approach policy > 'tide-beach' supports safe adjacent approaches without auto-activation 12ms
+   ✓ twenty-six shared maps and approach policy > 'tide-observatory' supports safe adjacent approaches without auto-activation 5ms
+   ✓ twenty-six shared maps and approach policy > 'tide-cave' supports safe adjacent approaches without auto-activation 10ms
+   ✓ twenty-six shared maps and approach policy > 'tide-ruins' supports safe adjacent approaches without auto-activation 8ms
+   ✓ twenty-six shared maps and approach policy > 'tide-core' supports safe adjacent approaches without auto-activation 8ms
+   ✓ twenty-six shared maps and approach policy > failed destination checks are pure and an invalid target entry cannot be committed 13ms
+   ✓ twenty-six shared maps and approach policy > re-tap, corridor turns, FPS and four-width camera bounds remain consistent 4ms
+   ✓ twenty-six shared maps and approach policy > post-entry contact grace pauses with menus and latches a single contact when it ends 1ms
+   ✓ twenty-six shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI 86ms
+   ✓ deterministic tides and save safety > normal → high → low → normal follows confirmed events, never elapsed real time 16ms
+   ✓ deterministic tides and save safety > high tide blocks only the low shortcut while all NPCs and escape exits stay reachable 13ms
+   ✓ deterministic tides and save safety > low tide opens the shortcut and reloading reproduces the exact grid and objective 17ms
+   ✓ deterministic tides and save safety > a saved hero standing on newly flooded ground moves to the permanent safe entry 14ms
+   ✓ deterministic tides and save safety > tides never change old chapter grids, time-state devices, landmarks or completed receipts 13ms
+   × deterministic tides and save safety > all twenty-six maps survive repeated save and chapter switching with canonical receipts 117ms
+     → expected [ 'trail-patrol', …(17) ] to have a length of 15 but got 18
+   ✓ shared objective guide > 'chapter-07' reveals the first available goal, not later plot or boss names 9ms
+   ✓ shared objective guide > 'chapter-08' reveals the first available goal, not later plot or boss names 9ms
+   ✓ shared objective guide > 'chapter-09' reveals the first available goal, not later plot or boss names 11ms
+   ✓ shared objective guide > 'chapter-10' reveals the first available goal, not later plot or boss names 13ms
+   ✓ shared objective guide > 'chapter-11' reveals the first available goal, not later plot or boss names 16ms
+   ✓ shared objective guide > 'chapter-12' reveals the first available goal, not later plot or boss names 16ms
+   ✓ shared objective guide > 'chapter-13' reveals the first available goal, not later plot or boss names 20ms
+   ✓ shared objective guide > 'chapter-14' reveals the first available goal, not later plot or boss names 22ms
+   ✓ shared objective guide > 'chapter-15' reveals the first available goal, not later plot or boss names 25ms
+   ✓ shared objective guide > 'chapter-16' reveals the first available goal, not later plot or boss names 40ms
+   ✓ shared objective guide > 'chapter-17' reveals the first available goal, not later plot or boss names 38ms
+   ✓ shared objective guide > 'chapter-18' reveals the first available goal, not later plot or boss names 44ms
+   ✓ shared objective guide > malformed incomplete event lists do not reveal a locked future destination 12ms
+ ✓ tests/exploration-v24.test.ts (114 tests) 1187ms
+ ❯ tests/exploration-v19.test.ts (61 tests | 1 failed) 1155ms
+   ✓ thirty-four shared maps and approach policy > keeps twenty-six old maps and adds eight pale maps with unique IDs 2ms
+   ✓ thirty-four shared maps and approach policy > 'grove-camp' entry/objects/patrols are reachable and all exits preserve valid targets 39ms
+   ✓ thirty-four shared maps and approach policy > 'grove-trail' entry/objects/patrols are reachable and all exits preserve valid targets 26ms
+   ✓ thirty-four shared maps and approach policy > 'grove-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ thirty-four shared maps and approach policy > 'sky-port' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ thirty-four shared maps and approach policy > 'sky-island' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ thirty-four shared maps and approach policy > 'sky-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ thirty-four shared maps and approach policy > 'grove-village' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'grove-garden' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'sky-town' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'sky-tower' entry/objects/patrols are reachable and all exits preserve valid targets 15ms
+   ✓ thirty-four shared maps and approach policy > 'star-cave' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ thirty-four shared maps and approach policy > 'star-path' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ thirty-four shared maps and approach policy > 'star-city' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'star-market' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'star-waterway' entry/objects/patrols are reachable and all exits preserve valid targets 21ms
+   ✓ thirty-four shared maps and approach policy > 'star-mine' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ thirty-four shared maps and approach policy > 'star-archive' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ thirty-four shared maps and approach policy > 'star-core' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ thirty-four shared maps and approach policy > 'tide-road' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ thirty-four shared maps and approach policy > 'tide-town' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ thirty-four shared maps and approach policy > 'tide-port' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ thirty-four shared maps and approach policy > 'tide-beach' entry/objects/patrols are reachable and all exits preserve valid targets 19ms
+   ✓ thirty-four shared maps and approach policy > 'tide-observatory' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ thirty-four shared maps and approach policy > 'tide-cave' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'tide-ruins' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ thirty-four shared maps and approach policy > 'tide-core' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ thirty-four shared maps and approach policy > 'pale-road' entry/objects/patrols are reachable and all exits preserve valid targets 18ms
+   ✓ thirty-four shared maps and approach policy > 'pale-village' entry/objects/patrols are reachable and all exits preserve valid targets 14ms
+   ✓ thirty-four shared maps and approach policy > 'pale-field' entry/objects/patrols are reachable and all exits preserve valid targets 20ms
+   ✓ thirty-four shared maps and approach policy > 'pale-stones' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ thirty-four shared maps and approach policy > 'pale-ravine' entry/objects/patrols are reachable and all exits preserve valid targets 15ms
+   ✓ thirty-four shared maps and approach policy > 'pale-sanctuary' entry/objects/patrols are reachable and all exits preserve valid targets 17ms
+   ✓ thirty-four shared maps and approach policy > 'pale-archive' entry/objects/patrols are reachable and all exits preserve valid targets 22ms
+   ✓ thirty-four shared maps and approach policy > 'pale-core' entry/objects/patrols are reachable and all exits preserve valid targets 16ms
+   ✓ thirty-four shared maps and approach policy > 'pale-road' supports safe adjacent approaches without auto-activation 7ms
+   ✓ thirty-four shared maps and approach policy > 'pale-village' supports safe adjacent approaches without auto-activation 2ms
+   ✓ thirty-four shared maps and approach policy > 'pale-field' supports safe adjacent approaches without auto-activation 9ms
+   ✓ thirty-four shared maps and approach policy > 'pale-stones' supports safe adjacent approaches without auto-activation 11ms
+   ✓ thirty-four shared maps and approach policy > 'pale-ravine' supports safe adjacent approaches without auto-activation 6ms
+   ✓ thirty-four shared maps and approach policy > 'pale-sanctuary' supports safe adjacent approaches without auto-activation 10ms
+   ✓ thirty-four shared maps and approach policy > 'pale-archive' supports safe adjacent approaches without auto-activation 17ms
+   ✓ thirty-four shared maps and approach policy > 'pale-core' supports safe adjacent approaches without auto-activation 8ms
+   ✓ thirty-four shared maps and approach policy > failed destination checks are pure and an invalid target entry cannot be committed 15ms
+   ✓ thirty-four shared maps and approach policy > re-tap, corridor turns, FPS and four-width camera bounds remain consistent 6ms
+   ✓ thirty-four shared maps and approach policy > post-entry contact grace pauses with menus and latches a single contact when it ends 1ms
+   ✓ thirty-four shared maps and approach policy > new patrol/chase avoids water and walls, returns within leash and suppresses offscreen AI 89ms
+   ✓ confirmed resonance and shared interaction > uses inland pilgrimage signage rather than coastal template names 1ms
+   ✓ confirmed resonance and shared interaction > c11-blades derives silent and survives reload 20ms
+   ✓ confirmed resonance and shared interaction > c11-stones-reading derives faint and survives reload 18ms
+   ✓ confirmed resonance and shared interaction > c11-vault-code derives linked and survives reload 15ms
+   ✓ confirmed resonance and shared interaction > c11-clear derives calm and survives reload 17ms
+   ✓ confirmed resonance and shared interaction > silent stones close the shortcut, faint opens it and high route stays reachable 20ms
+   ✓ confirmed resonance and shared interaction > linked resonance opens archive passage without blocking the main route 15ms
+   ✓ confirmed resonance and shared interaction > restores a corrupt saved pose on sealed tiles to the permanent entry 13ms
+   ✓ confirmed resonance and shared interaction > does not trust unknown resonance flags, alter tides, landmarks or time states 17ms
+   ✓ confirmed resonance and shared interaction > cannot interact through an intervening wall even within 52 pixels 0ms
+   ✓ confirmed resonance and shared interaction > local objective points at the NPC and updates immediately to the enemy 15ms
+   ✓ confirmed resonance and shared interaction > follows the live patrol position rather than its spawn marker 14ms
+   ✓ confirmed resonance and shared interaction > guides through a valid exit toward another map, never a locked shortcut 19ms
+   × confirmed resonance and shared interaction > all thirty-four maps preserve receipts and safe positions through repeated saves 143ms
+     → expected [ 'trail-patrol', …(22) ] to have a length of 20 but got 23
+ ❯ tests/exploration-v23.test.ts (103 tests | 1 failed) 807ms
+   × sixty-six maps share one effective terrain and route engine > preserves the original fifty-eight IDs and registers exactly eight new maps 11ms
+     → expected [ { id: 'grove-camp', …(11) }, …(96) ] to have a length of 90 but got 97
+   ✓ sixty-six maps share one effective terrain and route engine > every chapter-fifteen event in a walking location has its real interaction, including the clear epilogue 11ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-camp' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-trail' has reachable live targets, safe paths and valid exits 13ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-ruins' has reachable live targets, safe paths and valid exits 11ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-port' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-island' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-ruins' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-village' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'grove-garden' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-town' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'sky-tower' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-cave' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-path' has reachable live targets, safe paths and valid exits 19ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-city' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-market' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-waterway' has reachable live targets, safe paths and valid exits 9ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-mine' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-archive' has reachable live targets, safe paths and valid exits 12ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'star-core' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-road' has reachable live targets, safe paths and valid exits 9ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-town' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-port' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-beach' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-observatory' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-cave' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-ruins' has reachable live targets, safe paths and valid exits 17ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'tide-core' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-road' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-village' has reachable live targets, safe paths and valid exits 3ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-field' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-stones' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-ravine' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-sanctuary' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-archive' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'pale-core' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-road' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-village' has reachable live targets, safe paths and valid exits 3ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-woods' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-lake' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-roots' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-shrine' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-archive' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gloom-core' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-rail' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-station' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-city' has reachable live targets, safe paths and valid exits 9ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-market' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-lower' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-workshop' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-observatory' has reachable live targets, safe paths and valid exits 9ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'gear-core' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-gateway' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-shore' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-dock' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-hall' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-gravity' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-records' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-sanctuary' has reachable live targets, safe paths and valid exits 8ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'ark-core' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-gate' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-court' has reachable live targets, safe paths and valid exits 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-corridor' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-mirror' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-archive' has reachable live targets, safe paths and valid exits 10ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-garden' has reachable live targets, safe paths and valid exits 6ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-sanctum' has reachable live targets, safe paths and valid exits 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-core' has reachable live targets, safe paths and valid exits 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-gate' has touch-sized adjacent approaches and roundtrips without persisting its survey 16ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-court' has touch-sized adjacent approaches and roundtrips without persisting its survey 17ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-corridor' has touch-sized adjacent approaches and roundtrips without persisting its survey 18ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-mirror' has touch-sized adjacent approaches and roundtrips without persisting its survey 15ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-archive' has touch-sized adjacent approaches and roundtrips without persisting its survey 15ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-garden' has touch-sized adjacent approaches and roundtrips without persisting its survey 13ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-sanctum' has touch-sized adjacent approaches and roundtrips without persisting its survey 14ms
+   ✓ sixty-six maps share one effective terrain and route engine > 'void-core' has touch-sized adjacent approaches and roundtrips without persisting its survey 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-field-record derives and restores chaotic without clock/random/unknown flag authority 3ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-awakening derives and restores synced without clock/random/unknown flag authority 3ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-key derives and restores inverted without clock/random/unknown flag authority 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > c15-clear derives and restores stable without clock/random/unknown flag authority 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > awakening opens the record alcove, closes one lane, preserves bypass and repairs unsafe saved position 7ms
+   ✓ sixty-six maps share one effective terrain and route engine > anchor opens its own pocket while leaving every unchosen door reachable 13ms
+   ✓ sixty-six maps share one effective terrain and route engine > observe opens its own pocket while leaving every unchosen door reachable 13ms
+   ✓ sixty-six maps share one effective terrain and route engine > choice opens its own pocket while leaving every unchosen door reachable 12ms
+   ✓ sixty-six maps share one effective terrain and route engine > all five mapped quest objectives point to the correct chapter, quest and location and collect using object IDs 15ms
+   ✓ sixty-six maps share one effective terrain and route engine > minimap sees the same newly-opened gate and its unchanged real walking history 4ms
+   ✓ sixty-six maps share one effective terrain and route engine > does not reveal undiscovered terrain, exits or hidden plot targets 1ms
+   ✓ sixty-six maps share one effective terrain and route engine > keeps old tides, resonance, light, celestial and gravity states and their chapters intact 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > preserves railway and ark control after chapter fifteen without cross-network travel or new rewards 5ms
+   ✓ sixty-six maps share one effective terrain and route engine > shared movement retains grace, input stop and side corridors in the new field 2ms
+   ✓ new patrols complete their cycle on grid centers > 'void-gate' patrol visits all corners repeatedly instead of stalling between tile centers 29ms
+   ✓ new patrols complete their cycle on grid centers > 'void-mirror' patrol visits all corners repeatedly instead of stalling between tile centers 27ms
+   ✓ new patrols complete their cycle on grid centers > 'void-sanctum' patrol visits all corners repeatedly instead of stalling between tile centers 24ms
+   ✓ phase-aware shared destination guidance > points to the known local event and never leaks later story text 1ms
+   ✓ phase-aware shared destination guidance > uses a reachable open exit when the next known event is on another map 2ms
+   ✓ phase-aware shared destination guidance > recomputes terrain after synchronization and inversion without retaining a closed destination 7ms
+   ✓ phase-aware shared destination guidance > offers a reachable device rather than an inaccessible objective 1ms
+   ✓ phase-aware shared destination guidance > does not recalculate known terrain while only the player marker changes 1ms
+   ✓ phase-aware shared destination guidance > keeps cached guides and surveys independent from the no-save verification copy 7ms
+   ✓ hides unreached NPC and unaccepted quest markers without leaking future names 2ms
+   ✓ phase inversion opens the normal lane and closes a different lane, then stabilization restores both 9ms
+   ✓ an unreachable selected endpoint redirects to the available phase device with matching minimap target 4ms
+   ✓ phase devices have abstract icons while the four real NPC interactions retain human placeholders 0ms
+ ❯ tests/exploration-v15.test.ts (33 tests | 10 failed) 312ms
+   ✓ real maps, collision and movement > defines three connected full-size maps with reachable objects and enemies 16ms
+   ✓ real maps, collision and movement > A* detours around a building without corner cutting or wall penetration 3ms
+   ✓ real maps, collision and movement > rejects water, outside bounds, NaN and Infinity and stops a previous route safely 2ms
+   ✓ real maps, collision and movement > updates destination during movement and is independent of normal frame rate 2ms
+   ✓ real maps, collision and movement > camera follows and clamps at all edges for four viewport widths 2ms
+   ✓ real maps, collision and movement > pausing stops movement, enemy AI and new contacts; large background gaps cannot teleport 1ms
+   ✓ enemy entities and contact latch > waiting, patrol and chase modes are represented by real symbols 0ms
+   ✓ enemy entities and contact latch > patrol moves through waypoints without leaving its leash or crossing obstacles 42ms
+   ✓ enemy entities and contact latch > chase routes around walls and returns when the player leaves its range 7ms
+   ✓ enemy entities and contact latch > offscreen symbols are not continuously simulated and defeated ones cannot start combat 2ms
+   ✓ enemy entities and contact latch > contact starts only once and rejects movement until a new map session 3ms
+   ✓ enemy entities and contact latch > substeps low-frame-rate movement so a patrol and hero cannot pass through each other 0ms
+   ✓ enemy entities and contact latch > inactive symbols never block a route or trigger a battle 0ms
+   ✓ formal map events and exactly-once battle transition > rejects maps before chapter unlock and exits before their location prerequisites 24ms
+   ✓ formal map events and exactly-once battle transition > NPC and choices need actual proximity, not only a location selection 14ms
+   ✓ formal map events and exactly-once battle transition > ordinary battle API cannot bypass the symbol and duplicate contact cannot allocate a second serial 12ms
+   ✓ formal map events and exactly-once battle transition > rejects forged contacts with the wrong map, enemy, distance, wall or nonfinite position 9ms
+   ✓ formal map events and exactly-once battle transition > victory settles once and restores a safe map pose 13ms
+   ✓ formal map events and exactly-once battle transition > defeat settles once and restores a safe map pose 15ms
+   × formal map events and exactly-once battle transition > reload during combat abandons only the unconfirmed map receipt without granting or counting a result 18ms
+     → expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+   ✓ formal map events and exactly-once battle transition > nearby map objectives use the existing quest API and cannot be collected remotely 12ms
+   × formal map events and exactly-once battle transition > chest rewards derive opened state from the same event and cannot be repeated through either UI 12ms
+     → expected [ 'ruins-chest', 'c1-chest-object' ] to deeply equal [ 'ruins-chest' ]
+   × world save migration and normalization > old six-chapter progress gains no invented world state and enters the camp at its valid default 15ms
+     → expected { mapId: 'mistwood-depths', …(6) } to be undefined
+   × world save migration and normalization > normalizes invalid map/pose 'unknown' 50 without damaging six chapters 9ms
+     → expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+   × world save migration and normalization > normalizes invalid map/pose 'grove-camp' NaN without damaging six chapters 8ms
+     → expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+   × world save migration and normalization > normalizes invalid map/pose 'grove-camp' Infinity without damaging six chapters 9ms
+     → expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+   × world save migration and normalization > normalizes invalid map/pose 'grove-camp' -500 without damaging six chapters 7ms
+     → expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+   × world save migration and normalization > normalizes invalid map/pose 'grove-camp' 256 without damaging six chapters 8ms
+     → expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+   × world save migration and normalization > drops all world data when chapter seven is locked 2ms
+     → expected { Object (mapId, x, ...) } to be undefined
+   ✓ world save migration and normalization > preserves a valid pose and bounded dialogue page, filtering unknown or impossible pages 10ms
+   ✓ world save migration and normalization > respawning patrol/chase symbols cannot overlap a saved hero after reload 8ms
+   ✓ world save migration and normalization > reentering after an external menu or chapter switch cannot spawn an enemy on the hero 7ms
+   × world save migration and normalization > five round trips retain coordinates, defeat/chest receipts, gear, tree, quests and old chapter state 16ms
+     → expected [ Array(6) ] to have a length of 3 but got 6
+ ❯ tests/chapter-three-v11.test.ts (46 tests | 2 failed) 916ms
+   ✓ chapter-three registration and progression > registers 12 ordered locations and keeps Fio an NPC in the fixed three-hero party 4ms
+   ✓ chapter-three registration and progression > opens only after chapter two clear and rejects locked APIs 10ms
+   ✓ chapter-three registration and progression > visits all 12 in sequence and clears without accepting any quest 5ms
+   ✓ chapter-three registration and progression > supports a failed battle, interrupted attempt and exactly one replacement reward 6ms
+   ✓ chapter-three registration and progression > rotation puzzle rejects wrong/short answers, permits retry and persists solved state 6ms
+   ✓ chapter-three registration and progression > '風裂きの双剣' is acquired once and equipped by its original role 4ms
+   ✓ chapter-three registration and progression > '天守の盾槍' is acquired once and equipped by its original role 3ms
+   ✓ chapter-three registration and progression > '星風のワンド' is acquired once and equipped by its original role 3ms
+   ✓ six enemy behaviors and boss telegraphs > lizard participates in a real independent battle clone 4ms
+   ✓ six enemy behaviors and boss telegraphs > golem participates in a real independent battle clone 3ms
+   ✓ six enemy behaviors and boss telegraphs > wisp participates in a real independent battle clone 2ms
+   ✓ six enemy behaviors and boss telegraphs > bird participates in a real independent battle clone 3ms
+   ✓ six enemy behaviors and boss telegraphs > slime participates in a real independent battle clone 2ms
+   ✓ six enemy behaviors and boss telegraphs > soldier participates in a real independent battle clone 2ms
+   ✓ six enemy behaviors and boss telegraphs > lizard evasion affects physical only, each hit uses actual events 3ms
+   ✓ six enemy behaviors and boss telegraphs > wind attacks use existing wind affinity 2ms
+   ✓ six enemy behaviors and boss telegraphs > bird resolves two half-scale hits, wakes sleep once and grants damage star per hit 2ms
+   ✓ six enemy behaviors and boss telegraphs > bird stops remaining hits on defeat and never switches targets 2ms
+   ✓ six enemy behaviors and boss telegraphs > soldier telegraphs its heavy attack and retains it across sleep 2ms
+   ✓ six enemy behaviors and boss telegraphs > warden uses guard+charge → heavy/open → recovery, distinct from city keeper 2ms
+   ✓ six enemy behaviors and boss telegraphs > sky boss has three phases and honors the originally reserved attack after phase change/skips 3ms
+   ✓ six enemy behaviors and boss telegraphs > new dual blades keep normal attacks at two hits and star gain once 3ms
+   ✓ six enemy behaviors and boss telegraphs > shield spear improves cover and the wand improves elemental magic 3ms
+   ✓ optional side quests and atomic rewards > all three are locked before chapter three opens 0ms
+   ✓ optional side quests and atomic rewards > 'sq-windvane' can be accepted before main completion and survives reload 2ms
+   ✓ optional side quests and atomic rewards > 'sq-fio-keepsake' can be accepted before main completion and survives reload 2ms
+   ✓ optional side quests and atomic rewards > 'sq-sky-fragments' can be accepted before main completion and survives reload 2ms
+   ✓ optional side quests and atomic rewards > rejects locked/remote/duplicate collection and honors objective dependencies 2ms
+   ✓ optional side quests and atomic rewards > 'sq-windvane' remains completable after chapter clear and rewards once 4ms
+   ✓ optional side quests and atomic rewards > 'sq-fio-keepsake' remains completable after chapter clear and rewards once 3ms
+   ✓ optional side quests and atomic rewards > 'sq-sky-fragments' remains completable after chapter clear and rewards once 4ms
+   ✓ optional side quests and atomic rewards > failed reward receipt leaves all progress and inventory unchanged, then retries safely 2ms
+   ✓ optional side quests and atomic rewards > quest EXP grows levels/SP without adding battles or duplicating payouts 2ms
+   ✓ optional side quests and atomic rewards > normalizes unknown, unaccepted, unearned or dependency-invalid quest flags 2ms
+   ✓ exploration records and save compatibility > counts actual locations/main events/quests once; treasure and boss are subsets 3ms
+   × exploration records and save compatibility > old partial visits are explicitly unknown rather than falsely unvisited 10ms
+     → expected false to be true // Object.is equality
+   × exploration records and save compatibility > tracks new visits and preserves partial legacy coverage on future visits 2ms
+     → expected true to be false // Object.is equality
+   ✓ exploration records and save compatibility > loads old v1 without losing chapter one/two, gear, items or growth 3ms
+   ✓ exploration records and save compatibility > loads old v2 without losing chapter one/two, gear, items or growth 3ms
+   ✓ exploration records and save compatibility > round-trips three chapters, partial quests, exploration, equipment/tree and receipts 5ms
+   ✓ exploration records and save compatibility > rejects forged chapter-three unlock and corrupted visits while retaining other data 2ms
+   ✓ exploration records and save compatibility > lab cannot mutate quests, items, records, growth or tree 5ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = false  301ms
+   ✓ chapter-three multi-seed balance > completes chapter over 20 seeds, all quests before final = true 274ms
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-warden over 20 seeds 88ms
+   ✓ chapter-three multi-seed balance > initial chapter-two-cleared party can beat valley-sky over 20 seeds 114ms
+ ✓ tests/chapter-five-v13.test.ts (50 tests) 1820ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=false  552ms
+   ✓ multi-seed chapter-five battle balance > completes chapter over 20 seeds, all quests=true  511ms
+ ✓ tests/chapter-sixteen-v24.test.ts (107 tests) 5066ms
+   ✓ chapter sixteen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  325ms
+ ✓ tests/chapter-fifteen-v23.test.ts (102 tests) 3873ms
+ ✓ tests/chapter-fourteen-v22.test.ts (41 tests) 3290ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1508ms
+   ✓ chapter fourteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1454ms
+ ✓ tests/chapter-thirteen-v21.test.ts (39 tests) 2852ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1232ms
+   ✓ chapter thirteen combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  1267ms
+ ✓ tests/finale-combat-v26.test.ts (54 tests) 2420ms
+ ✓ tests/chapter-eleven-v19.test.ts (38 tests) 2245ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  1021ms
+   ✓ chapter eleven combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  883ms
+ ✓ tests/chapter-twelve-v20.test.ts (44 tests) 2297ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  988ms
+   ✓ chapter twelve combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  934ms
+ ✓ tests/chapter-seventeen-combat-v25.test.ts (50 tests) 2390ms
+ ✓ tests/chapter-ten-v18.test.ts (37 tests) 2090ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=false, without mandatory high-level nodes  949ms
+   ✓ chapter ten combat profiles and gear > twenty full chapter seeds, quests=true, without mandatory high-level nodes  882ms
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false
+v1.4 chapter seeds quests=false: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true
+v1.4 chapter seeds quests=true: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-bridge using chapter-five-clear starter equipment
+v1.4 chrono-bridge: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-market using chapter-five-clear starter equipment
+v1.4 chrono-market: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-canal using chapter-five-clear starter equipment
+v1.4 chrono-canal: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-clockguard using chapter-five-clear starter equipment
+v1.4 chrono-clockguard: 20/20
+
+stdout | tests/chapter-six-v14.test.ts > fixed-seed chapter-six balance > 20 seeded victories for chrono-luciel using chapter-five-clear starter equipment
+v1.4 chrono-luciel: 20/20
+
+ ✓ tests/chapter-six-v14.test.ts (56 tests) 1782ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=false  567ms
+   ✓ fixed-seed chapter-six balance > 20 full-chapter seeds with quests=true  528ms
+ ✓ tests/chapter-four-v12.test.ts (43 tests) 1114ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=false  367ms
+   ✓ chapter four deterministic multi-seed balance > two-route full chapter over 20 seeds, quests=true  341ms
+ ✓ tests/exploration-v26.test.ts (216 tests) 1770ms
+stdout | tests/final-integration-v26.test.ts > fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)
+Fresh API journey: {"chapters":18,"battles":109,"cleared":true}
+
+ ✓ tests/final-integration-v26.test.ts (2 tests) 1671ms
+   ✓ fresh game API simulation earns every chapter victory/XP, buys only earned nodes, retains save history and reaches THE END (not a browser test)  1611ms
+ ✓ tests/transit-v22.test.ts (28 tests) 1324ms
+ ✓ tests/chapter-seventeen-v25.test.ts (66 tests) 1431ms
+   ✓ chapter seventeen authored progression and save compatibility > all32 dialogue routes clear and confirmed choices never change  554ms
+ ✓ tests/chapter-eighteen-v26.test.ts (102 tests) 1402ms
+ ✓ tests/railway-v21.test.ts (21 tests) 903ms
+ ✓ tests/chapter-two-v10.test.ts (29 tests) 786ms
+   ✓ deterministic chapter balance > completes the full chapter over 20 seeds with no high-level tree investment  402ms
+ ✓ tests/exploration-v17.test.ts (29 tests) 515ms
+ ✓ tests/skills-v06.test.ts (45 tests) 767ms
+ ✓ tests/free-exploration-v27.test.ts (41 tests) 186ms
+ ✓ tests/adventure-v08.test.ts (39 tests) 202ms
+ ✓ tests/battle.test.ts (15 tests) 189ms
+ ✓ tests/skill-tree-v09.test.ts (112 tests) 118ms
+ ✓ tests/equipment-v07.test.ts (67 tests) 37ms
+ ✓ tests/foundation.test.ts (30 tests) 31ms
+ ✓ tests/lab-v04.test.ts (21 tests) 24ms
+ ✓ tests/battle-presentation.test.ts (16 tests) 15ms
+ ✓ tests/attack-modifier.test.ts (5 tests) 11ms
+ ✓ tests/map-driver-v25.test.ts (5 tests) 5ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 31 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > all chapters retain defeated and opened IDs while switching or loading another map
+AssertionError: expected [ Array(9) ] to have a length of 6 but got 9
+
+- Expected
++ Received
+
+- 6
++ 9
+
+ ❯ tests/chapter-eight-v16.test.ts:55:175
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/31]⎯
+
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > reloading an unconfirmed eighth battle recovers without EXP or win and retains seventh flags
+AssertionError: expected [ Array(6) ] to have a length of 3 but got 6
+
+- Expected
++ Received
+
+- 3
++ 6
+
+ ❯ tests/chapter-eight-v16.test.ts:57:539
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/31]⎯
+
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > eighth map corrupt pose NaN/+0 returns safely without losing either chapter
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > eighth map corrupt pose Infinity/+0 returns safely without losing either chapter
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > eighth map corrupt pose -500/400 returns safely without losing either chapter
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > eighth map corrupt pose 256/192 returns safely without losing either chapter
+ FAIL  tests/chapter-eight-v16.test.ts > shared two-chapter maps and side-view policies > eighth map corrupt pose 5000/5000 returns safely without losing either chapter
+AssertionError: expected [ Array(6) ] to have a length of 3 but got 6
+
+- Expected
++ Received
+
+- 3
++ 6
+
+ ❯ tests/chapter-eight-v16.test.ts:58:464
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/31]⎯
+
+ FAIL  tests/chapter-nine-v17.test.ts > chapter nine map receipts and saves > switches all 18 maps and serializes five times without losing canonical receipts or legacy data
+AssertionError: expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+
+- Expected
++ Received
+
+- 10
++ 13
+
+ ❯ tests/chapter-nine-v17.test.ts:55:374
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/31]⎯
+
+ FAIL  tests/chapter-nine-v17.test.ts > chapter nine map receipts and saves > invalid ninth pose NaN/+0 recovers without losing completed rewards
+ FAIL  tests/chapter-nine-v17.test.ts > chapter nine map receipts and saves > invalid ninth pose -500/100 recovers without losing completed rewards
+ FAIL  tests/chapter-nine-v17.test.ts > chapter nine map receipts and saves > invalid ninth pose 5000/5000 recovers without losing completed rewards
+ FAIL  tests/chapter-nine-v17.test.ts > chapter nine map receipts and saves > invalid ninth pose 16/16 recovers without losing completed rewards
+AssertionError: expected [ 'trail-patrol', …(12) ] to have a length of 10 but got 13
+
+- Expected
++ Received
+
+- 10
++ 13
+
+ ❯ tests/chapter-nine-v17.test.ts:56:396
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/31]⎯
+
+ FAIL  tests/chapter-seven-v15.test.ts > chapter seven complete content and old progression > finishes every event without optional quests and keeps chapters one through six identical
+AssertionError: expected [ Array(6) ] to have a length of 3 but got 6
+
+- Expected
++ Received
+
+- 3
++ 6
+
+ ❯ tests/chapter-seven-v15.test.ts:29:638
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/31]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > exploration records and save compatibility > old partial visits are explicitly unknown rather than falsely unvisited
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/chapter-three-v11.test.ts:66:199
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/31]⎯
+
+ FAIL  tests/chapter-three-v11.test.ts > exploration records and save compatibility > tracks new visits and preserves partial legacy coverage on future visits
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/chapter-three-v11.test.ts:67:420
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/31]⎯
+
+ FAIL  tests/exploration-v15.test.ts > formal map events and exactly-once battle transition > reload during combat abandons only the unconfirmed map receipt without granting or counting a result
+AssertionError: expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "c1-first-battle-symbol",
++   "c1-fork-battle-symbol",
++   "c1-guardian-symbol",
++ ]
+
+ ❯ tests/exploration-v15.test.ts:42:691
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/31]⎯
+
+ FAIL  tests/exploration-v15.test.ts > formal map events and exactly-once battle transition > chest rewards derive opened state from the same event and cannot be repeated through either UI
+AssertionError: expected [ 'ruins-chest', 'c1-chest-object' ] to deeply equal [ 'ruins-chest' ]
+
+- Expected
++ Received
+
+  [
+    "ruins-chest",
++   "c1-chest-object",
+  ]
+
+ ❯ tests/exploration-v15.test.ts:44:382
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/31]⎯
+
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > old six-chapter progress gains no invented world state and enters the camp at its valid default
+AssertionError: expected { mapId: 'mistwood-depths', …(6) } to be undefined
+
+- Expected: 
+undefined
+
++ Received: 
+{
+  "defeated": [
+    "c1-first-battle-symbol",
+    "c1-fork-battle-symbol",
+    "c1-guardian-symbol",
+  ],
+  "facing": "right",
+  "mapId": "mistwood-depths",
+  "opened": [
+    "c1-chest-object",
+  ],
+  "returnInfo": {
+    "chapterId": "chapter-01",
+    "encounterId": "forest-guardian",
+    "eventId": "c1-guardian",
+    "mapId": "mistwood-depths",
+    "outcome": "victory",
+    "pose": {
+      "facing": "right",
+      "x": 400,
+      "y": 304,
+    },
+    "serial": 3,
+    "symbolId": "c1-guardian-symbol",
+  },
+  "x": 112,
+  "y": 304,
+}
+
+ ❯ tests/exploration-v15.test.ts:47:201
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/31]⎯
+
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > normalizes invalid map/pose 'unknown' 50 without damaging six chapters
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > normalizes invalid map/pose 'grove-camp' NaN without damaging six chapters
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > normalizes invalid map/pose 'grove-camp' Infinity without damaging six chapters
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > normalizes invalid map/pose 'grove-camp' -500 without damaging six chapters
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > normalizes invalid map/pose 'grove-camp' 256 without damaging six chapters
+AssertionError: expected [ 'c1-first-battle-symbol', …(2) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "c1-first-battle-symbol",
++   "c1-fork-battle-symbol",
++   "c1-guardian-symbol",
++ ]
+
+ ❯ tests/exploration-v15.test.ts:48:537
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/31]⎯
+
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > drops all world data when chapter seven is locked
+AssertionError: expected { Object (mapId, x, ...) } to be undefined
+
+- Expected: 
+undefined
+
++ Received: 
+{
+  "defeated": [],
+  "facing": "right",
+  "mapId": "mistwood-camp",
+  "opened": [],
+  "x": 112,
+  "y": 304,
+}
+
+ ❯ tests/exploration-v15.test.ts:49:130
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/31]⎯
+
+ FAIL  tests/exploration-v15.test.ts > world save migration and normalization > five round trips retain coordinates, defeat/chest receipts, gear, tree, quests and old chapter state
+AssertionError: expected [ Array(6) ] to have a length of 3 but got 6
+
+- Expected
++ Received
+
+- 3
++ 6
+
+ ❯ tests/exploration-v15.test.ts:53:430
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/31]⎯
+
+ FAIL  tests/exploration-v18.test.ts > deterministic tides and save safety > all twenty-six maps survive repeated save and chapter switching with canonical receipts
+AssertionError: expected [ 'trail-patrol', …(17) ] to have a length of 15 but got 18
+
+- Expected
++ Received
+
+- 15
++ 18
+
+ ❯ tests/exploration-v18.test.ts:34:342
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/31]⎯
+
+ FAIL  tests/exploration-v19.test.ts > confirmed resonance and shared interaction > all thirty-four maps preserve receipts and safe positions through repeated saves
+AssertionError: expected [ 'trail-patrol', …(22) ] to have a length of 20 but got 23
+
+- Expected
++ Received
+
+- 20
++ 23
+
+ ❯ tests/exploration-v19.test.ts:44:307
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/31]⎯
+
+ FAIL  tests/exploration-v20.test.ts > confirmed light paths and survey safety > all forty-two maps roundtrip without persisting survey fields or losing receipts
+AssertionError: expected [ 'trail-patrol', …(27) ] to have a length of 25 but got 28
+
+- Expected
++ Received
+
+- 25
++ 28
+
+ ❯ tests/exploration-v20.test.ts:52:401
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/31]⎯
+
+ FAIL  tests/exploration-v21.test.ts > confirmed light paths and survey safety > all fifty maps roundtrip without persisting survey fields or losing receipts
+AssertionError: expected [ 'trail-patrol', …(32) ] to have a length of 30 but got 33
+
+- Expected
++ Received
+
+- 30
++ 33
+
+ ❯ tests/exploration-v21.test.ts:51:409
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/31]⎯
+
+ FAIL  tests/exploration-v22.test.ts > confirmed gravity routes and survey safety > all fifty-eight maps roundtrip without persisting survey fields or losing receipts
+AssertionError: expected [ 'trail-patrol', …(37) ] to have a length of 35 but got 38
+
+- Expected
++ Received
+
+- 35
++ 38
+
+ ❯ tests/exploration-v22.test.ts:53:415
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/31]⎯
+
+ FAIL  tests/exploration-v23.test.ts > sixty-six maps share one effective terrain and route engine > preserves the original fifty-eight IDs and registers exactly eight new maps
+AssertionError: expected [ { id: 'grove-camp', …(11) }, …(96) ] to have a length of 90 but got 97
+
+- Expected
++ Received
+
+- 90
++ 97
+
+ ❯ tests/exploration-v23.test.ts:29:105
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/31]⎯
+
+
+ Test Files  11 failed | 33 passed (44)
+      Tests  31 failed | 2487 passed (2518)
+   Start at  03:42:25
+   Duration  84.17s (transform 1.88s, setup 0ms, collect 9.59s, tests 63.87s, environment 26ms, prepare 3.66s)
+

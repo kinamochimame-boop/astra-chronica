@@ -1,0 +1,19 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.waitFor: Timeout 45000ms exceeded.
+Call log:
+[2m  - waiting for getByRole('button', { name: 'この地点に再挑戦', exact: true }) to be visible[22m
+
+    at touch (/workspace/astra-chronica/tests/v26-ui-driver.mjs:7:16)
+    at tap (/workspace/astra-chronica/tests/v26-ui-driver.mjs:15:31)
+    at chapterOneRoute (/workspace/astra-chronica/tests/free-exploration-v27.e2e.mjs:27:296)
+    at async file:///workspace/astra-chronica/tests/free-exploration-v27.e2e.mjs:44:60 {
+  log: [
+    "  - waiting for getByRole('button', { name: 'この地点に再挑戦', exact: true }) to be visible"
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v24.22.1

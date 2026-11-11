@@ -25,7 +25,7 @@ export function mountAdventure(host:HTMLElement,p:Progress,persist:()=>boolean,o
   const get=<T extends HTMLElement=HTMLElement>(q:string)=>host.querySelector<T>(q)!;
   for(const [n,l] of chapter.locations.entries()){
    const open=locationOpen(progress,chapter,l.id),done=chapter.events.filter(e=>e.locationId===l.id).every(e=>progress.completed.includes(e.id));
-   const button=document.createElement('button');button.className='location-button';button.dataset.locationId=l.id;button.disabled=!open;button.setAttribute('aria-current',String(l.id===location.id));button.textContent=`${n+1}. ${l.name} ${!open?'🔒 未解放':done?'✓ 完了':'◇ 未完了'}`;
+   const button=document.createElement('button');button.className='location-button';button.dataset.locationId=l.id;button.disabled=!open||(chapter.id==='chapter-01'&&!options?.eventId&&l.id!==location.id&&!p.adventure.exploration?.[chapter.id]?.visited.includes(l.id));button.setAttribute('aria-current',String(l.id===location.id));button.textContent=`${n+1}. ${l.name} ${!open?'🔒 未解放':done?'✓ 完了':'◇ 未完了'}`;
    button.onclick=()=>{if(visitLocation(p.adventure,chapter,l.id)){dialogue=undefined;puzzleEvent=undefined;notice='';store();const m=mapForLocation(chapter.id,l.id);if(m&&options?.onMapLocation){options.onMapLocation(m.id);return}render()}};get('.location-list').append(button);
   }
   const storm=sandstormState(p.adventure,chapter.id,location.id);

@@ -1,3 +1,4 @@
+import {positionForChapterOne,chapterOneContact} from './chapter-one-test-setup';
 import {describe,it,expect} from 'vitest';
 import {chapterOne,chapters,type Chapter} from '../src/data/chapter-one';
 import {chapterTwo} from '../src/data/chapter-two';
@@ -27,7 +28,7 @@ const sideQuests=allQuests.filter(q=>q.chapterId==='chapter-06');
 const dialogueChoices=allChoices.filter(q=>q.chapterId==='chapter-06');
 const ev=(r:ActionResult)=>{expect(r.ok).toBe(true);if(!r.ok)throw Error(r.reason);return r.event};
 function until(b:Battle,id:string){for(let n=0;n<30&&!b.result&&b.current?.id!==id;n++)b.waitTurn();expect(b.current?.id).toBe(id)}
-function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){visitLocation(p.adventure,ch,e.locationId);if(ch.id===chapterFive.id&&e.puzzle)discoverLandmark(p.adventure,'c5-temple-windmark');if(ch.id===c.id&&e.id==='c6-canal-tune')changeTimeState(p.adventure,'c6-canal-clock','flowing');if(ch.id===c.id&&e.puzzle)changeTimeState(p.adventure,'c6-corridor-clock','flowing');if(!chapterState(p.adventure,ch).completed.includes(e.id)){if(e.choiceId&&!p.choices[e.choiceId])expect(recordChoice(p,e.choiceId,allChoices.find(q=>q.id===e.choiceId)!.options[0].id)).toBe(true);if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id)!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
+function complete(p:Progress,ch:Chapter,last=ch.events.at(-1)!.id){for(const e of ch.events){visitLocation(p.adventure,ch,e.locationId);if(ch.id===chapterFive.id&&e.puzzle)discoverLandmark(p.adventure,'c5-temple-windmark');if(ch.id===c.id&&e.id==='c6-canal-tune')changeTimeState(p.adventure,'c6-canal-clock','flowing');if(ch.id===c.id&&e.puzzle)changeTimeState(p.adventure,'c6-corridor-clock','flowing');if(!chapterState(p.adventure,ch).completed.includes(e.id)){positionForChapterOne(p,ch,e.id);if(e.choiceId&&!p.choices[e.choiceId])expect(recordChoice(p,e.choiceId,allChoices.find(q=>q.id===e.choiceId)!.options[0].id)).toBe(true);if(e.encounter){const serial=beginAdventureBattle(p,ch,e.id,chapterOneContact(e.id))!;expect(resolveAdventureBattle(p,serial,'victory').applied).toBe(true)}else expect(completeEvent(p,ch,e.id,e.puzzle?.solution).ok).toBe(true)}if(e.id===last)break}}
 function buildLegacy(){const p=fresh();for(const ch of [chapterOne,chapterTwo,chapterThree,chapterFour,chapterFive])complete(p,ch);return p}
 // Build the deterministic prerequisite once; battle seeds always receive independent data.
 const legacyBaseline=buildLegacy();
