@@ -30,7 +30,7 @@ export async function fightAtb(page,event={id:'ATB encounter'},options={}){
 /** Controlled real manual hit for equipment/tree assertions, then pause for inspection. */
 export async function manualAtbAttack(page,id='astel'){
  await waitAtb(page);await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1000));let s=await atbState(page);if(s.auto)await page.locator('#atb-auto').tap();await page.locator('#atb-pause').tap();await page.locator(`[data-queue-actor="${id}"] > button`).first().tap();
- for(let n=0;n<80;n++){s=await atbState(page);const u=s.units.find(u=>u.id===id);if(u.progress>=1&&u.busyUntil<=s.time)break;await page.clock.runFor(100);}
+ const chargeSteps=Math.ceil(s.units.find(u=>u.id===id).interval*10)+10;for(let n=0;n<chargeSteps;n++){s=await atbState(page);const u=s.units.find(u=>u.id===id);if(u.progress>=1&&u.busyUntil<=s.time)break;await page.clock.runFor(100);}
  const button=page.locator('button[data-command="attack"]');assert.ok(await button.isEnabled(),'manual normal attack must become ready');await button.tap();await page.clock.runFor(300);await page.locator('#atb-pause').tap();await page.clock.resume();return page.locator('.atb-screen').evaluate(el=>JSON.parse(el.dataset.events).filter(e=>e.actor===el.dataset.actorId&&e.command==='attack').at(-1));
 }
 /** Observe real enemy AI with AUTO OFF, then freeze on the matching actual event. */
