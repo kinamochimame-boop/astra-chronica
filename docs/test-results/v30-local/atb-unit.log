@@ -1,9 +1,9 @@
 
  RUN  v3.2.7 /workspace/astra-chronica
 
- ✓ tests/atb-v30.test.ts (39 tests) 107ms
+ ✓ tests/atb-v30.test.ts (43 tests) 181ms
 
  Test Files  1 passed (1)
-      Tests  39 passed (39)
-   Start at  04:25:58
-   Duration  1.96s (transform 1.08s, setup 0ms, collect 1.49s, tests 107ms, environment 1ms, prepare 132ms)
+      Tests  43 passed (43)
+   Start at  04:57:14
+   Duration  1.94s (transform 991ms, setup 0ms, collect 1.34s, tests 181ms, environment 0ms, prepare 142ms)

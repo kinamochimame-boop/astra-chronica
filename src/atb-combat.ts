@@ -51,7 +51,7 @@ export class AtbCombat {
  private flush(){if(this.disposed||this.paused)return;for(const u of this.battle.units){const s=this.slot(u.id);if(u.hp<=0){for(const r of s.queue)s.ep=Math.min(15,s.ep+r.cost);s.queue=[];continue}if(s.busyUntil>this.time+1e-8)continue;
    const r=s.queue[0];if(r){
     if(this.reservationBlocked(u)){if(s.progress>=1-1e-8&&(!this.ally(u)||this.auto))this.normal(u);continue;}
-    const targets=this.targets(u.id,r.command);let target=targets.find(t=>t.id===r.targetId);if(!target&&skills[r.command].target==='enemy')target=targets[0];
+    const targets=this.targets(u.id,r.command);let target=targets.find(t=>t.id===r.targetId);if(!target&&(skills[r.command].target==='enemy'||skills[r.command].target==='allAllies'))target=targets[0];
     if(!target){this.cancel(u.id,r.id);continue}
     const result=this.battle.resolveRealtime(u.id,r.command,target.id);s.queue.shift();
     if(result.ok){s.busyUntil=this.time+ATB_RULES.motion;s.cooldowns[r.command]=this.time+skillCooldown(u,r.command);this.publish(result.event)}else{s.ep=Math.min(15,s.ep+r.cost);this.battle.log.push(result.reason)}
