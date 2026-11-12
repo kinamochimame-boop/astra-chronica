@@ -37,7 +37,7 @@ import {mountAdventure} from '../adventure-view';
 import {collectQuestObjective} from '../side-quests';
 import {mapById} from './map-data';
 import {mapOpen} from './exploration-save';
-import {closeEnough,distance,cell,center,canInteract} from './collision';
+import {closeEnough,distance,canInteract} from './collision';
 import {MapRuntime} from './map-runtime';
 import type {MapObject,SymbolContact} from './types';
 import './exploration.css';
@@ -64,7 +64,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  const flush=()=>{dirty=false;if(!disposed&&!persist())say('保存できません。現在の探索は続けられます。')};
  const pause=()=>{runtime.paused=true;runtime.stop();sync(0,true);flush()};
  const resume=()=>{runtime.paused=document.hidden;nearKey='';sync(0,true)};
- const eventClose=()=>{eventDialog.close();if(p.world?.event&&done().includes(p.world.event.id))p.world.event=undefined;if(initialTide!==tidePhase(p.adventure)+resonancePhase(p.adventure)+lightPathPhase(p.adventure)+celestialPhase(p.adventure)+gravityPhase(p.adventure)+phaseKey(p.adventure)+memoryPhase(p.adventure)+fatePhase(p.adventure)+fateRoute(p.choices)+reformPhase(p.adventure)){flush();actions.travel(map.id);return;}flush();resume()};
+ const eventClose=()=>{eventDialog.close();if(p.world?.event&&done().includes(p.world.event.id))p.world.event=undefined;const refreshed=activeMap(mapById(map.id)!,p.adventure,p.choices);if(map.grid.some((row,y)=>row!==refreshed.grid[y])||initialTide!==tidePhase(p.adventure)+resonancePhase(p.adventure)+lightPathPhase(p.adventure)+celestialPhase(p.adventure)+gravityPhase(p.adventure)+phaseKey(p.adventure)+memoryPhase(p.adventure)+fatePhase(p.adventure)+fateRoute(p.choices)+reformPhase(p.adventure)){flush();actions.travel(map.id);return;}flush();resume()};
  const inspect=(o:MapObject)=>{
   if(disposed||runtime.paused||runtime.locked)return;
   const condition=objectConditionReason(p,map,o);if(condition){runtime.stop();host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;say(condition);sync(0,true);return}
@@ -123,7 +123,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  const scene=new WalkScene(),game=new Phaser.Game({type:Phaser.AUTO,width:390,height:480,parent:viewport,scene,backgroundColor:'#16392c',banner:false,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},input:{touch:{capture:false}}});
  const resize=()=>{if(game.isBooted&&viewport.clientWidth){const height=Math.round(390*viewport.clientHeight/viewport.clientWidth);game.scale.setGameSize(390,height);game.scale.updateBounds()}};const observer=new ResizeObserver(resize);observer.observe(viewport);game.events.once(Phaser.Core.Events.READY,resize);
  host.querySelector<HTMLButtonElement>('#world-approach')!.onclick=()=>{if(!approachTarget||runtime.paused||runtime.locked)return;const reason=objectConditionReason(p,map,approachTarget);if(reason){say(reason);return}const goal=approachPoint(map,runtime.hero,approachTarget);if(!goal){say('対象へ近づける通路がありません。別の出口や手順を確かめてください。');return}runtime.moveTo(goal);host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;say('近くまで移動します。到着後、もう一度対象をタップしてください。');sync(0,true)};
- const key=(e:KeyboardEvent)=>{const dirs:Record<string,[number,number]>={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]};const dir=dirs[e.key];if(!dir||runtime.paused||runtime.locked||disposed)return;e.preventDefault();if(e.repeat&&runtime.hero.path.length)return;const c=cell(map,runtime.hero);runtime.moveTo(center(map,{x:c.x+dir[0],y:c.y+dir[1]}));say(runtime.notice);sync(0,true)};
+ const key=(e:KeyboardEvent)=>{const dirs:Record<string,[number,number]>={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]};const dir=dirs[e.key];if(!dir||runtime.paused||runtime.locked||disposed)return;e.preventDefault();if(e.repeat&&runtime.hero.path.length)return;runtime.moveTo({x:runtime.hero.x+dir[0]*map.tile,y:runtime.hero.y+dir[1]*map.tile});say(runtime.notice);sync(0,true)};
  const refreshInputBounds=()=>{if(game.isBooted)game.scale.updateBounds()};viewport.addEventListener('touchstart',refreshInputBounds,{capture:true,passive:true});viewport.addEventListener('mousedown',refreshInputBounds,true);
  const visibility=()=>{if(document.hidden)pause();else if(!menu.open&&!eventDialog.open&&!host.querySelector<HTMLDialogElement>('#railway-dialog')?.open)resume()};
  const hide=()=>{runtime.stop();sync(0,true);flush()};window.addEventListener('keydown',key);document.addEventListener('visibilitychange',visibility);window.addEventListener('pagehide',hide);

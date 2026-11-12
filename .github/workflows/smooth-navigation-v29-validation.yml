@@ -1,0 +1,112 @@
+name: v2.9 smooth navigation (no deployment)
+on:
+  push:
+    branches: [feature/v29-smooth-navigation]
+permissions:
+  contents: read
+concurrency:
+  group: smooth-navigation-v29
+  cancel-in-progress: true
+jobs:
+  unit:
+    if: github.ref == 'refs/heads/feature/v29-smooth-navigation' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    outputs:
+      browser_groups: ${{ steps.matrix.outputs.groups }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: matrix
+        run: node tests/ci-v29-matrix.mjs >> "$GITHUB_OUTPUT"
+      - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs
+      - run: node tests/ci-v29.mjs unit
+        env:
+          V26_HEAD_SHA: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v29-unit
+          path: .ci-v29/unit
+          include-hidden-files: true
+          retention-days: 14
+  browsers:
+    needs: unit
+    if: github.ref == 'refs/heads/feature/v29-smooth-navigation' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        group: ${{ fromJSON(needs.unit.outputs.browser_groups) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium and OS dependencies
+        run: |
+          for attempt in 1 2 3; do
+            if npx playwright install --with-deps chromium; then exit 0; fi
+            if [ "$attempt" = 3 ]; then exit 1; fi
+            sleep 10
+          done
+      - name: Provide native Chromium compatibility path
+        run: |
+          V28_CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+          sudo ln -sf "$V28_CHROME_PATH" /usr/bin/chromium
+      - run: node tests/ci-v29.mjs "${{ matrix.group }}"
+        env:
+          V26_HEAD_SHA: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v29-${{ matrix.group }}
+          path: .ci-v29/${{ matrix.group }}
+          include-hidden-files: true
+          retention-days: 14
+  collect:
+    if: always() && github.ref == 'refs/heads/feature/v29-smooth-navigation' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    needs: [unit, browsers]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v29-*
+          path: .ci-v29-results
+      - name: Verify receipts and prepare final evidence
+        run: node tests/ci-v29-collect.mjs
+        env:
+          V26_HEAD_SHA: ${{ github.sha }}
+          V26_PR_URL: https://github.com/kinamochimame-boop/astra-chronica/compare/main...feature/v29-smooth-navigation
+          V26_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: v29-verified-final-evidence
+          path: |
+            docs/SMOOTH_NAVIGATION_V29.md
+            docs/CHANGED_FILES_V29.txt
+            docs/test-results/v29-ci.json
+            docs/test-results/v29-ci
+            docs/screenshots/smooth-navigation-v29-*.png
+            docs/screenshots/free-exploration-v28-*.png
+          retention-days: 14

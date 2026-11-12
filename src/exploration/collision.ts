@@ -9,5 +9,17 @@ export function clearCircle(map:WalkMap,p:Point,radius=10){
 }
 export function cameraFor(map:WalkMap,hero:Point,width:number,height:number){return {x:Math.max(0,Math.min(map.width*map.tile-width,hero.x-width/2)),y:Math.max(0,Math.min(map.height*map.tile-height,hero.y-height/2))}}
 export const closeEnough=(a:Point,b:Point,radius=52)=>distance(a,b)<=radius;
-/** Ray samples narrower than a tile prevent interaction through walls, without changing movement collision. */
-export function canInteract(map:WalkMap,a:Point,b:Point,radius=52){if(!closeEnough(a,b,radius))return false;const steps=Math.max(1,Math.ceil(distance(a,b)/4));for(let i=0;i<=steps;i++){const c=cell(map,{x:a.x+(b.x-a.x)*i/steps,y:a.y+(b.y-a.y)*i/steps});if(!walkable(map,c.x,c.y))return false}return true}
+/** Exact unobstructed interaction ray, including thin corner crossings between old samples. */
+export function canInteract(map:WalkMap,a:Point,b:Point,radius=52){return closeEnough(a,b,radius)&&clearSegment(map,a,b,1e-6)}
+/** Exact swept-circle clearance against closed tile rectangles (tangency is allowed). */
+export function clearSegment(map:WalkMap,a:Point,b:Point,radius=10){
+ if(!Number.isFinite(radius)||radius<=0||!clearCircle(map,a,radius)||!clearCircle(map,b,radius))return false;
+ const pointSegment2=(p:Point)=>{const dx=b.x-a.x,dy=b.y-a.y,d=dx*dx+dy*dy,t=d?Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.y-a.y)*dy)/d)):0;return (p.x-a.x-t*dx)**2+(p.y-a.y-t*dy)**2};
+ for(let y=Math.floor((Math.min(a.y,b.y)-radius)/map.tile);y<=Math.floor((Math.max(a.y,b.y)+radius)/map.tile);y++)for(let x=Math.floor((Math.min(a.x,b.x)-radius)/map.tile);x<=Math.floor((Math.max(a.x,b.x)+radius)/map.tile);x++){
+  if(walkable(map,x,y))continue;const left=x*map.tile,right=left+map.tile,top=y*map.tile,bottom=top+map.tile;
+  let lo=0,hi=1;for(const [p,d,min,max] of [[a.x,b.x-a.x,left,right],[a.y,b.y-a.y,top,bottom]]){if(d===0){if(p<min||p>max){lo=1;hi=0;break}}else{const u=(min-p)/d,v=(max-p)/d;lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));}}
+  if(lo<=hi)return false;
+  const rectDistance2=(p:Point)=>Math.max(left-p.x,0,p.x-right)**2+Math.max(top-p.y,0,p.y-bottom)**2;
+  if(Math.min(rectDistance2(a),rectDistance2(b),...[[left,top],[left,bottom],[right,top],[right,bottom]].map(([x,y])=>pointSegment2({x,y})))<radius*radius-1e-9)return false;
+ }return true;
+}

@@ -1,0 +1,19 @@
+
+> astra-chronica@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 153 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.62 kB │ gzip:   0.46 kB
+dist/assets/index-DtlFLb1K.css     34.79 kB │ gzip:   8.77 kB
+dist/assets/index-BlcSlkx1.js     750.96 kB │ gzip: 209.26 kB
+dist/assets/phaser-DFK5Ua9d.js  1,208.06 kB │ gzip: 332.17 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 9.90s

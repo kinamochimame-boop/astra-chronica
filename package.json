@@ -95,7 +95,8 @@
     "test:exploration-v26": "node tests/exploration-v26.e2e.mjs",
     "test:reform-v26": "node tests/star-reform-v26.e2e.mjs",
     "test:journey-v26": "node tests/full-journey-v26.e2e.mjs",
-    "test:browser-v26": "node tests/browser-suite.mjs --v26"
+    "test:browser-v26": "node tests/browser-suite.mjs --v26",
+    "test:navigation": "node tests/smooth-navigation-v29.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"
