@@ -1,3 +1,4 @@
+import {fightAtb,waitAtb} from './atb-driver-v30.mjs';
 import assert from 'node:assert/strict';
 import {manifest} from './v26-manifest.mjs';
 import {selectLocation,openNearbyStory,contactSymbol,state,waitMap,useNearbyObject} from './map-driver-v15.mjs';
@@ -15,26 +16,8 @@ export const saved=page=>page.evaluate(()=>JSON.parse(localStorage.getItem('astr
 export const tap=(page,name)=>touch(page,page.getByRole('button',{name,exact:true}));
 export async function menuAction(page,name){if(await page.locator('#world-viewport').count())await tap(page,'探索メニュー');await tap(page,name)}
 export async function overflow(page){assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow')}
-export async function choose(page,id){const b=page.locator(`[data-command="${id}"]`);if(await b.count()&&await b.isEnabled()){await touch(page,b);await page.clock.runFor(80);return true}return false}
-export async function fightUI(page,event,{capturePhase,onTurn}={}){
- const phases=new Set();const canvas=page.locator('.battle-art canvas');await canvas.waitFor();assert.equal(await canvas.getAttribute('data-layout'),'side');
- for(let turn=0;turn<450;turn++){
-  let ready=false;for(let tick=0;tick<30;tick++){ready=await page.evaluate(()=>!!document.querySelector('.result-screen')||!!document.querySelector('.turn-banner')?.textContent?.includes('コマンドを選択'));if(ready)break;await battleTick(page)}assert.ok(ready,'automatic battle turn must return a real command or result');if(await page.locator('.result-screen').count())break;
-  const phase=await page.locator('.battle-art').getAttribute('data-finale-phase');if(phase&&!phases.has(+phase)){phases.add(+phase);await capturePhase?.(+phase,page)}
-  const actor=await page.locator('.turn-banner').textContent(),texts=await page.locator('.ally').allTextContents();const party=texts.map(t=>{const h=t.match(/HP (\d+) \/ (\d+)/),m=t.match(/MP (\d+) \/ (\d+)/);return {hp:+h[1],max:+h[2],mp:+m[1]}}),w=party.map((p,i)=>({...p,i})).filter(p=>p.hp>0&&p.hp/p.max<.65).sort((a,b)=>a.hp/a.max-b.hp/b.max);
-  const enemyName=await page.locator('.enemy-card:not(.fallen) .enemy strong').first().textContent(),enemy=manifest.encounters[event.encounter].enemies.find(e=>e.name===enemyName),one=await page.locator('.enemy-card:not(.fallen)').count()===1;
-  let ally;
-  if(await onTurn?.({page,actor,party,phase:+phase,turn})){await choose(page,'defend')}
-  else if(w[0]&&w[0].hp/w[0].max<.4&&await choose(page,'potion'))ally=w[0].i;
-  else if(party[2].hp>0&&party[2].mp<8&&await choose(page,'ether'))ally=2;
-  else if(actor.includes('アステル')){if(!await choose(page,'starSlash')&&!await choose(page,'strong'))await choose(page,'attack')}
-  else if(actor.includes('リナ')){const badges=await page.locator('[data-unit-id="rina"] .status-details').getAttribute('aria-label');if(!await choose(page,'oathShield')&&!(one&&!badges.includes('挑発')&&await choose(page,'taunt')))await choose(page,'attack')}
-  else if(actor.includes('メイ')){if(w.length>1&&await choose(page,'miracle')){}else if(w[0]&&await choose(page,'heal'))ally=w[0].i;else if((enemy?.affinities.water??1)>1&&await choose(page,'ice')){}else if((enemy?.affinities.wind??1)>1&&await choose(page,'thunder')){}else if(!await choose(page,'fire'))await choose(page,'attack')}
-  if(ally!==undefined)await touch(page,page.locator('.ally').nth(ally));else {const target=page.locator('.enemy-card:not(.fallen) .enemy:enabled').first();if(await target.count())await touch(page,target)}
-  assert.ok(await page.locator('.execute-command').isEnabled(),'selected legal command');await touch(page,page.locator('.execute-command'));await battleTick(page);
- }
- await page.locator('.result-screen').waitFor();assert.equal(await page.getByRole('heading',{name:'野営地で立て直そう',exact:true}).count(),0,`battle lost: ${event.id}`);console.log('UI victory',event.id);return phases;
-}
+export async function choose(page,id){const b=page.locator(`button[data-command="${id}"]`);if(await b.count()&&await b.isEnabled()){await touch(page,b);await page.clock.runFor(80);return true}return false}
+export async function fightUI(page,event,{capturePhase,onTurn}={}){return fightAtb(page,event,{capturePhase,onTurn});}
 export async function dialogueUI(page,option=0){let pages=0;for(;pages<100&&await page.locator('#dialogue-next').isVisible();pages++){const choices=page.locator('[data-option-id]:visible:enabled');if(await choices.count())await touch(page,choices.nth(option));await touch(page,page.locator('#dialogue-next'));await page.clock.runFor(40)}assert.ok(pages<100,'dialogue budget');return pages}
 export async function puzzleUI(page,e){const p=e.puzzle;if(p.mode==='rotate'||p.mode==='cycle'){for(const [i,piece] of p.pieces.entries()){const states=p.mode==='rotate'?['north','east','south','west']:p.states.map(s=>s.id);const wanted=states.indexOf(p.solution[i]);for(let n=0;n<wanted;n++)await touch(page,page.locator(`[data-piece-id="${piece.id}"]`))}}else for(const id of p.solution)await touch(page,page.locator(`[data-piece-id="${id}"]`));assert.ok(await page.locator('#puzzle-solve').isEnabled());await touch(page,page.locator('#puzzle-solve'));await page.clock.runFor(40)}
 export async function preflight(page,c,e){if(e.encounter)return;const special=manifest.landmarks.some(d=>d.chapterId===c.id&&d.locationId===e.locationId)||manifest.timeDevices.some(d=>d.chapterId===c.id&&d.locationId===e.locationId);if(!special)return;
@@ -43,7 +26,7 @@ export async function preflight(page,c,e){if(e.encounter)return;const special=ma
  if(await page.locator('#world-event[open]').count())await tap(page,'探索マップへ戻る');
 }
 export async function eventUI(page,c,e,{option=0,onBattle,onDialogue,fightOptions}={}){const p=await saved(page);if(p.adventure.chapters[c.id]?.currentLocationId!==e.locationId)await selectLocation(page,e.locationId);await preflight(page,c,e);
- if(e.encounter){let pages=0;if(await page.locator('#world-viewport').count()){const symbol=(await state(page)).symbols.find(s=>s.eventId===e.id);assert.ok(symbol,e.id);await contactSymbol(page,symbol.id)}else {await openNearbyStory(page,e.id);pages=await dialogueUI(page,option)}await page.locator('.battle-top').waitFor();await onBattle?.(e);await fightUI(page,e,fightOptions);return {battle:true,pages}}
+ if(e.encounter){let pages=0;if(await page.locator('#world-viewport').count()){const symbol=(await state(page)).symbols.find(s=>s.eventId===e.id);assert.ok(symbol,e.id);await contactSymbol(page,symbol.id)}else {await openNearbyStory(page,e.id);pages=await dialogueUI(page,option)}await page.locator('.battle-top').waitFor();await waitAtb(page);await onBattle?.(e);await fightUI(page,e,fightOptions);return {battle:true,pages}}
  await openNearbyStory(page,e.id);await onDialogue?.(page,e);const pages=await dialogueUI(page,option);if(e.puzzle)await puzzleUI(page,e);if(await page.locator('#world-viewport').count())await waitMap(page);assert.ok((await saved(page)).adventure.chapters[c.id].completed.includes(e.id),e.id);return {battle:false,pages};
 }
 export async function endingUI(page,{skipCredits=false,photoPrefix,onPage,onAdvance}={}){let count=0;for(;count<160;count++){if(await page.locator('#ending-return').count())break;await page.locator('#ending-next').waitFor();const e=await page.locator('#content').getAttribute('data-ending-event'),index=await page.locator('#content').getAttribute('data-ending-page');await onPage?.({id:e,page:+index,text:await page.locator('#ending-text').innerText()});if(photoPrefix&&index==='0')await page.screenshot({path:`docs/screenshots/${photoPrefix}-${e}-390.png`,fullPage:true,animations:'disabled'});if(skipCredits&&e==='c18-credits')await touch(page,page.locator('#credits-skip'));else await touch(page,page.locator('#ending-next'));await page.clock.runFor(100);await onAdvance?.(e,await saved(page))}assert.ok(count<160,'ending budget');assert.ok((await saved(page)).adventure.chapters['chapter-18'].completed.includes('c18-clear'));return count}

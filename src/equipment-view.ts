@@ -15,7 +15,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   const current=withSkillTree(equippedUnit(base,state.equipped[hero]),progress.skillTree[hero]),next=withSkillTree(equippedUnit(base,candidate),progress.skillTree[hero]),weapon=weaponById(candidate);
   const reason=equipReason(state,hero,candidate),same=candidate===state.equipped[hero];
   host.classList.add('equipment-screen');
-  host.innerHTML=`<p class="eyebrow">EQUIPMENT</p><h1>星旅の装備</h1><p class="hint">装備は戦闘外で変更できます。所持数には装備中の分も含みます。</p><nav class="equipment-heroes" aria-label="装備キャラクター"></nav>
+  host.innerHTML=`<p class="eyebrow">EQUIPMENT</p><h1>星旅の装備</h1><p class="hint">装備は戦闘外で変更できます。本編ATBでは最大MP補正も技CT短縮に反映します。所持数には装備中の分も含みます。</p><nav class="equipment-heroes" aria-label="装備キャラクター"></nav>
   <section class="equipment-current"><h2>${template.name} Lv.${base.level}の現在装備</h2><p id="equipment-current-name"></p></section>
   <h2>所持武器・武器図鑑</h2><div class="weapon-list" role="group" aria-label="武器選択"></div>
   <section class="equipment-preview"><h2>装備前 → 装備後</h2><p id="equipment-selected"></p><table><caption>能力値比較（星脈を含む・一時補正を除く）</caption><thead><tr><th>能力</th><th>現在</th><th>変更後</th><th>差分</th></tr></thead><tbody></tbody></table><p id="equipment-description"></p><p id="equipment-reason" role="status"></p><button id="equipment-equip" class="primary">装備する</button><button id="equipment-remove" class="secondary">装備を解除</button></section>

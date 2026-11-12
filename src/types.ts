@@ -32,7 +32,7 @@ export interface DamageTrace {
 export interface BattleEvent {
   actor: string; target: string; command: Command; amount: number;
   kind: 'damage' | 'heal' | 'status'; critical: boolean; covered: boolean; logs: string[];
-  actionName?:string;resource?:'hp'|'mp'; hint?:string; label?: string; element?: Element; affinity?: number; damageTrace?:DamageTrace; effects?:BattleEvent[];reactions?:BattleEvent[]; hpLoss?:number; ultimate?:boolean; taunted?:boolean; hitIndex?:number;
+  actionName?:string;epDrain?:number;resource?:'hp'|'mp'|'ep'; hint?:string; label?: string; element?: Element; affinity?: number; damageTrace?:DamageTrace; effects?:BattleEvent[];reactions?:BattleEvent[]; hpLoss?:number; ultimate?:boolean; taunted?:boolean; hitIndex?:number;
 }
 export type ActionResult = { ok: true; event: BattleEvent } | { ok: false; reason: string };
 

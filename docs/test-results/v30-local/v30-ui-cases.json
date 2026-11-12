@@ -1,0 +1,142 @@
+{
+  "sourceHash": "2e88a647dcc6673cf0b6cc43e007902aa70baa17e5b29db3faa5fad59f8bc2f6",
+  "cases": [
+    {
+      "width": 320,
+      "maxQueued": 4,
+      "afterCancel": {
+        "id": "astel",
+        "name": "アステル",
+        "hp": 10000,
+        "maxHp": 10000,
+        "mp": 0,
+        "maxMp": 111,
+        "attack": 119,
+        "defense": 39,
+        "speed": 53,
+        "interval": 0.9056603773584906,
+        "statuses": [],
+        "ep": 8,
+        "progress": 0,
+        "busyUntil": 2,
+        "queue": [
+          {
+            "id": 1,
+            "command": "strong",
+            "targetId": "enemy0",
+            "cost": 2
+          },
+          {
+            "id": 2,
+            "command": "fang",
+            "targetId": "enemy0",
+            "cost": 2
+          },
+          {
+            "id": 3,
+            "command": "armorBreak",
+            "targetId": "enemy0",
+            "cost": 3
+          }
+        ],
+        "cooldowns": {},
+        "restricted": false
+      }
+    },
+    {
+      "width": 390,
+      "maxQueued": 4,
+      "afterCancel": {
+        "id": "astel",
+        "name": "アステル",
+        "hp": 10000,
+        "maxHp": 10000,
+        "mp": 0,
+        "maxMp": 111,
+        "attack": 119,
+        "defense": 39,
+        "speed": 53,
+        "interval": 0.9056603773584906,
+        "statuses": [],
+        "ep": 8,
+        "progress": 0,
+        "busyUntil": 2,
+        "queue": [
+          {
+            "id": 1,
+            "command": "strong",
+            "targetId": "enemy0",
+            "cost": 2
+          },
+          {
+            "id": 2,
+            "command": "fang",
+            "targetId": "enemy0",
+            "cost": 2
+          },
+          {
+            "id": 3,
+            "command": "armorBreak",
+            "targetId": "enemy0",
+            "cost": 3
+          }
+        ],
+        "cooldowns": {},
+        "restricted": false
+      }
+    },
+    {
+      "width": 430,
+      "maxQueued": 4,
+      "afterCancel": {
+        "id": "astel",
+        "name": "アステル",
+        "hp": 10000,
+        "maxHp": 10000,
+        "mp": 0,
+        "maxMp": 111,
+        "attack": 119,
+        "defense": 39,
+        "speed": 53,
+        "interval": 0.9056603773584906,
+        "statuses": [],
+        "ep": 8,
+        "progress": 0,
+        "busyUntil": 2,
+        "queue": [
+          {
+            "id": 1,
+            "command": "strong",
+            "targetId": "enemy0",
+            "cost": 2
+          },
+          {
+            "id": 2,
+            "command": "fang",
+            "targetId": "enemy0",
+            "cost": 2
+          },
+          {
+            "id": 3,
+            "command": "armorBreak",
+            "targetId": "enemy0",
+            "cost": 3
+          }
+        ],
+        "cooldowns": {},
+        "restricted": false
+      }
+    }
+  ],
+  "concurrent": {
+    "times": [
+      1,
+      1
+    ],
+    "actors": [
+      "astel",
+      "rina"
+    ]
+  },
+  "pageErrors": []
+}

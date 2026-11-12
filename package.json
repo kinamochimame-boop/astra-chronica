@@ -96,6 +96,8 @@
     "test:reform-v26": "node tests/star-reform-v26.e2e.mjs",
     "test:journey-v26": "node tests/full-journey-v26.e2e.mjs",
     "test:browser-v26": "node tests/browser-suite.mjs --v26",
+    "test:atb": "node tests/atb-v30.e2e.mjs",
+    "test:atb-ui": "node tests/atb-ui-v30.e2e.mjs",
     "test:navigation": "node tests/smooth-navigation-v29.e2e.mjs"
   },
   "dependencies": {
