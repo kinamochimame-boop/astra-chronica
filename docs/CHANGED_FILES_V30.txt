@@ -92,6 +92,7 @@ tests/exploration-v25.smoke.mjs
 tests/exploration-v26.smoke.mjs
 tests/finale-boss-v26.e2e.mjs
 tests/full-journey-v26.e2e.mjs
+tests/map-driver-v15.mjs
 tests/sideview-v16.smoke.mjs
 tests/skill-tree-v09.e2e.mjs
 tests/v26-ui-driver.mjs

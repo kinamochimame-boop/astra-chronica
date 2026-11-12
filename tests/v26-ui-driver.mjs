@@ -1,4 +1,4 @@
-import {fightAtb} from './atb-driver-v30.mjs';
+import {fightAtb,waitAtb} from './atb-driver-v30.mjs';
 import assert from 'node:assert/strict';
 import {manifest} from './v26-manifest.mjs';
 import {selectLocation,openNearbyStory,contactSymbol,state,waitMap,useNearbyObject} from './map-driver-v15.mjs';
@@ -26,7 +26,7 @@ export async function preflight(page,c,e){if(e.encounter)return;const special=ma
  if(await page.locator('#world-event[open]').count())await tap(page,'探索マップへ戻る');
 }
 export async function eventUI(page,c,e,{option=0,onBattle,onDialogue,fightOptions}={}){const p=await saved(page);if(p.adventure.chapters[c.id]?.currentLocationId!==e.locationId)await selectLocation(page,e.locationId);await preflight(page,c,e);
- if(e.encounter){let pages=0;if(await page.locator('#world-viewport').count()){const symbol=(await state(page)).symbols.find(s=>s.eventId===e.id);assert.ok(symbol,e.id);await contactSymbol(page,symbol.id)}else {await openNearbyStory(page,e.id);pages=await dialogueUI(page,option)}await page.locator('.battle-top').waitFor();await onBattle?.(e);await fightUI(page,e,fightOptions);return {battle:true,pages}}
+ if(e.encounter){let pages=0;if(await page.locator('#world-viewport').count()){const symbol=(await state(page)).symbols.find(s=>s.eventId===e.id);assert.ok(symbol,e.id);await contactSymbol(page,symbol.id)}else {await openNearbyStory(page,e.id);pages=await dialogueUI(page,option)}await page.locator('.battle-top').waitFor();await waitAtb(page);await onBattle?.(e);await fightUI(page,e,fightOptions);return {battle:true,pages}}
  await openNearbyStory(page,e.id);await onDialogue?.(page,e);const pages=await dialogueUI(page,option);if(e.puzzle)await puzzleUI(page,e);if(await page.locator('#world-viewport').count())await waitMap(page);assert.ok((await saved(page)).adventure.chapters[c.id].completed.includes(e.id),e.id);return {battle:false,pages};
 }
 export async function endingUI(page,{skipCredits=false,photoPrefix,onPage,onAdvance}={}){let count=0;for(;count<160;count++){if(await page.locator('#ending-return').count())break;await page.locator('#ending-next').waitFor();const e=await page.locator('#content').getAttribute('data-ending-event'),index=await page.locator('#content').getAttribute('data-ending-page');await onPage?.({id:e,page:+index,text:await page.locator('#ending-text').innerText()});if(photoPrefix&&index==='0')await page.screenshot({path:`docs/screenshots/${photoPrefix}-${e}-390.png`,fullPage:true,animations:'disabled'});if(skipCredits&&e==='c18-credits')await touch(page,page.locator('#credits-skip'));else await touch(page,page.locator('#ending-next'));await page.clock.runFor(100);await onAdvance?.(e,await saved(page))}assert.ok(count<160,'ending budget');assert.ok((await saved(page)).adventure.chapters['chapter-18'].completed.includes('c18-clear'));return count}
