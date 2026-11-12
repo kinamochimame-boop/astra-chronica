@@ -16,6 +16,9 @@ export type {Unit,Command,ActionResult,BattleEvent} from './types';
 /** Each successful action advances exactly once. Invalid commands never consume a turn or MP. */
 export interface BattleSetup {name:string;enemies:readonly Unit[]}
 export class Battle {
+  private realtimeMode=false;
+  private realtimeActor?:Unit;
+  enableRealtime(){this.realtimeMode=true;}
   readonly encounterName:string;
   private charged=new Map<string,number>();
   private items:Consumables=initialConsumables();
@@ -39,7 +42,7 @@ export class Battle {
   }
   isLearned(unit:Unit,command:Command){return this.availableCommands(unit).includes(command)&&this.skillAccess(unit,command)}
   resetBattleResources(){for(const u of this.units){u.star=0;u.tauntRounds=undefined;u.barrierCharges=undefined;if(u.counterReady)u.counterReady=false}}
-  private gainStar(unit:Unit,amount:number){if(this.allies.includes(unit))unit.star=Math.min(STAR_POWER.max,unit.star+amount+Math.min(TREE_LIMITS.starBonus,treeValue(unit,'starGain')))}
+  private gainStar(unit:Unit,amount:number){if(!this.realtimeActor&&this.allies.includes(unit))unit.star=Math.min(STAR_POWER.max,unit.star+amount+Math.min(TREE_LIMITS.starBonus,treeValue(unit,'starGain')))}
   get experienceReward(){return this.enemies.reduce((sum,e)=>sum+e.experienceReward,0)}
   applyStatus(targetId:string,id:StatusId,chance?:number,turns?:number):boolean {
     const target=this.units.find(u=>u.id===targetId);if(!target||this.result)return false;
@@ -74,8 +77,9 @@ export class Battle {
   get result(): 'victory' | 'defeat' | null {
     return this.enemies.every(e => e.hp === 0) ? 'victory' : this.allies.every(a => a.hp === 0) ? 'defeat' : null;
   }
-  get current(): Unit | undefined { return this.result ? undefined : this.units.find(u => u.id === this.queue[0]); }
-  get phase(): 'player' | 'enemy' | 'finished' {
+  get current(): Unit | undefined { return this.result ? undefined : this.realtimeActor??(this.realtimeMode?undefined:this.units.find(u => u.id === this.queue[0])); }
+  get phase(): 'player' | 'enemy' | 'finished' | 'realtime' {
+    if(this.realtimeMode&&!this.realtimeActor&&!this.result)return 'realtime';
     return !this.current ? 'finished' : this.allies.includes(this.current) ? 'player' : 'enemy';
   }
   private order() { return this.units.filter(u => u.hp > 0).sort((a, b) => statValue(b,'speed') - statValue(a,'speed')); }
@@ -94,12 +98,12 @@ export class Battle {
     if (targetKind === 'self') return [actor];
     if (targetKind === 'allAllies') return this.allies.filter(u=>u.hp>0);
     const pool = targetKind === 'enemy' ? this.enemies : this.allies;
-    return pool.filter(u => u.hp > 0 && (command!=='potion'||u.hp<u.maxHp) && (command!=='ether'||u.mp<u.maxMp) && (command !== 'cover' || u !== actor));
+    return pool.filter(u => u.hp > 0 && (command!=='potion'||u.hp<u.maxHp) && (command!=='ether'||!!this.realtimeActor||u.mp<u.maxMp) && (command !== 'cover' || u !== actor));
   }
   mpCost(command:Command,actor=this.current){return actor?skillMpCost(actor,command):skills[command].cost}
   canUse(command: Command): boolean {
     const actor = this.current;
-    return this.phase === 'player' && !this.blocked && !!actor && this.isLearned(actor,command) && actor.star>=(skills[command].starCost??0) && actor.mp >= this.mpCost(command,actor) && !(isSilenced(actor)&&['magic','heal'].includes(skills[command].kind)) && this.targets(command).length > 0 && !(skills[command].target==='allAllies'&&skills[command].kind==='heal'&&!this.targets(command).some(u=>u.hp<u.maxHp||(skills[command].cleanse&&u.statuses.length>0)));
+    return this.phase === 'player' && !this.blocked && !!actor && this.isLearned(actor,command) && (!!this.realtimeActor||(actor.star>=(skills[command].starCost??0) && actor.mp >= this.mpCost(command,actor))) && !(isSilenced(actor)&&['magic','heal'].includes(skills[command].kind)) && this.targets(command).length > 0 && !(skills[command].target==='allAllies'&&skills[command].kind==='heal'&&!this.targets(command).some(u=>u.hp<u.maxHp||(skills[command].cleanse&&u.statuses.length>0)));
   }
   act(command: Command, targetId?: string, expectedActor = this.current?.id): ActionResult {
     const actor = this.current;
@@ -109,11 +113,11 @@ export class Battle {
     if(!targets.length)return {ok:false,reason:'生存している対象を選んでください。'};
     if(skill.kind==='heal'&&!targets.some(u=>u.hp<u.maxHp||(skill.cleanse&&u.statuses.length>0)))return {ok:false,reason:'HPが満タンです。別の味方を選んでください。'};
     if(isItem(command))this.items[command]--;
-    actor.mp-=this.mpCost(command,actor);actor.star-=skill.starCost??0;
+    if(!this.realtimeActor){actor.mp-=this.mpCost(command,actor);actor.star-=skill.starCost??0;}
     const target=targets[0],event=this.makeEvent(actor,target,command);
-    if(skill.starCost)event.logs.push(`${actor.name}の必殺技 ${skill.name}！ 星力${skill.starCost}消費。`);
+    if(skill.starCost)event.logs.push(this.realtimeActor?`${actor.name}の必殺技 ${skill.name}！（EPは予約時に支払い済み）`:`${actor.name}の必殺技 ${skill.name}！ 星力${skill.starCost}消費。`);
     if(skill.kind==='itemHp'||skill.kind==='itemMp'){
-      const resource=skill.kind==='itemHp'?'hp':'mp',max=resource==='hp'?target.maxHp:target.maxMp;event.kind='heal';event.resource=resource;event.amount=Math.min(skill.power??0,max-target[resource]);target[resource]+=event.amount;event.logs.push(`${actor.name}は${skill.name}を使った！ ${target.name}の${resource.toUpperCase()}が${event.amount}回復。残り${isItem(command)?this.items[command]:0}個。`);
+      const resource=skill.kind==='itemHp'?'hp':'mp',max=resource==='hp'?target.maxHp:target.maxMp;event.kind='heal';event.resource=resource;event.amount=Math.min(skill.power??0,max-target[resource]);if(this.realtimeActor&&command==='ether'){event.amount=0;event.resource='ep';}else target[resource]+=event.amount;event.logs.push(this.realtimeActor&&command==='ether'?`${actor.name}は${skill.name}を使った。残り${this.items.ether}個。`:`${actor.name}は${skill.name}を使った！ ${target.name}の${resource.toUpperCase()}が${event.amount}回復。残り${isItem(command)?this.items[command]:0}個。`);
     }else if(skill.kind==='guard'){
       actor.guarding=command==='guard'?'guard':'defend';event.logs.push(`${actor.name}は${skill.name}！ 次の行動まで身を守る。`);
     }else if(skill.kind==='cover'){
@@ -148,11 +152,25 @@ export class Battle {
     }
     if(['guard','cover','taunt'].includes(skill.kind))this.applyEffects(event,actor,target,skill);
     for(const effect of skill.selfModifiers??[])if(modify(actor,{...effect,turns:effect.turns+treeValue(actor,'modifierDuration',e=>e.command===command)}))event.logs.push(`${actor.name}の能力値が変化した。`);
-    if(!skill.starCost&&!isItem(command)){
+    if(!this.realtimeActor&&!skill.starCost&&!isItem(command)){
       if(command==='attack'){if((event.effects??[event]).some(hit=>(hit.hpLoss??0)>0))this.gainStar(actor,STAR_POWER.attack)}
       else this.gainStar(actor,skill.kind==='guard'?STAR_POWER.defend:STAR_POWER.skill);
     }
     return this.complete(event);
+  }
+  /** ATB adapter: one atomic calculation; no queue advancement, MP or legacy star charge.
+   * Duration ticking belongs to the scheduler's independent normal opportunities. */
+  resolveRealtime(actorId:string,command:Command,targetId?:string,opportunity=false):ActionResult {
+    const actor=this.units.find(u=>u.id===actorId);
+    if(!actor||actor.hp<=0||this.result||this.realtimeActor)return {ok:false,reason:'行動者が無効です。'};
+    const oldBlocked=this.blocked;this.realtimeActor=actor;
+    try {
+      if(opportunity){actor.guarding=undefined;actor.covering=undefined;actor.counterReady=false;}
+      this.blocked=opportunity?blockingStatus(actor,this.random):undefined;
+      const result=this.blocked?this.skipTurn():this.allies.includes(actor)?this.act(command,targetId,actorId):this.enemyAct(actorId);
+      if(opportunity&&result.ok){const lines=endTurn(actor);result.event.logs.push(...lines);this.log.push(...lines);}
+      return result;
+    }finally{this.realtimeActor=undefined;this.blocked=oldBlocked;}
   }
   private makeEvent(actor:Unit,target:Unit,command:Command):BattleEvent {
     return {actor:actor.id,target:target.id,command,amount:0,kind:'status',critical:false,covered:false,logs:[],...(skills[command].starCost?{ultimate:true}:{})};
@@ -235,7 +253,7 @@ export class Battle {
     this.damage(event,actor,target,(magical?skill.power!:(reserved&&script?.chargePhysical?reserved*physicalRate:script?.singlePower!==undefined?script.singlePower*physicalRate:statValue(actor,'attack')*(phase===3?1.15:1)))*cover,skill);
     this.applyEffects(event,actor,target,skill);this.drainStar(event,target,phase>=2&&magical?script?.starDrain:undefined);return this.complete(event);
   }
-  private drainStar(event:BattleEvent,target:Unit,amount=0){if((event.hpLoss??0)<=0||target.hp<=0||amount<=0)return;const lost=Math.min(target.star,Math.max(0,Math.round(amount)));if(lost>0){target.star-=lost;event.logs.push(`${target.name}の星力が${lost}吸収された。`)}}
+  private drainStar(event:BattleEvent,target:Unit,amount=0){if((event.hpLoss??0)<=0||target.hp<=0||amount<=0)return;if(this.realtimeActor){event.epDrain=Math.ceil(amount/10);return}const lost=Math.min(target.star,Math.max(0,Math.round(amount)));if(lost>0){target.star-=lost;event.logs.push(`${target.name}の星力が${lost}吸収された。`)}}
   private applyEffects(event:BattleEvent,actor:Unit,target:Unit,skill:Skill){
     if(target.hp<=0||event.label==='ミス')return;
     const effects=[...(skill.statuses??[]),...(skill.kind==='physical'?actor.attackStatuses??[]:[])];
@@ -287,9 +305,10 @@ export class Battle {
   private complete(event: BattleEvent): ActionResult {
     const actor=this.units.find(u=>u.id===event.actor)!;
     if(actor.enemyPattern==='astraEnd'){const phase=finalePhase(actor);if(!this.finaleSeen.has(phase)){this.finaleSeen.add(phase);event.logs.unshift(`第${phase}段階：${FINALE_PHASES[phase-1]}`,...finaleLines[phase-1]);}}
-    event.logs.push(...endTurn(actor,()=>this.gainStar(actor,STAR_POWER.damage)));
+    if(!this.realtimeActor)event.logs.push(...endTurn(actor,()=>this.gainStar(actor,STAR_POWER.damage)));
     if(actor.hp===0){actor.tauntRounds=undefined;actor.barrierCharges=undefined;if(actor.counterReady)actor.counterReady=false;}
     this.log.push(...event.logs); if (this.log.length > 100) this.log.splice(0, this.log.length - 100);
+    if(this.realtimeActor){if(this.result)this.resetBattleResources();return {ok:true,event};}
     this.queue.shift(); this.queue = this.queue.filter(id => this.units.some(u => u.id === id && u.hp > 0));
     if (!this.result && !this.queue.length) {
       for(const u of this.units)if((u.tauntRounds??0)>0){u.tauntRounds=(u.tauntRounds??0)-1;if(u.tauntRounds===0){const line=`${u.name}の挑発が期限切れで解除された。`;event.logs.push(line);this.log.push(line)}}

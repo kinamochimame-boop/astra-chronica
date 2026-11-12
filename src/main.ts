@@ -33,7 +33,10 @@ import {load,save} from './save';
 import {cloneUnit} from './data/combat';
 import {gainExperience,requiredExperience,growUnit} from './progression';
 import {mountLab} from './lab';
-import {BattleView} from './battle-view';
+import {AtbView} from './atb-view';
+import {AtbCombat} from './atb-combat';
+import {ATB_RULES} from './atb-rules';
+import './atb-ui.css';
 import {statusSnapshot,statusNotices} from './battle-presentation';
 import {Stage} from './visuals';
 import './style.css';
@@ -42,14 +45,17 @@ const app=document.querySelector<HTMLDivElement>('#app')!;
 let progress=load(),battle:Battle,selected=0,busy=false;
 let command:Command='attack',targetId='',battleSession=0;
 let turnTimer:number|undefined;
-let battleView:BattleView|undefined;
+let battleView:AtbView|undefined;
+let atb:AtbCombat|undefined;
+let currentBattleSetup:BattleSetup|undefined;
+let stopAtb:(()=>void)|undefined;
 let actingId:string|undefined,actionRound=1;
 let activeChapter:Chapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapters.find(c=>c.id===mapById(progress.world?.mapId)?.chapterId)??[...chapters].reverse().find(c=>progress.adventure.chapters[c.id])??chapterOne;
 let adventureBattle:{serial:number;eventId:string}|undefined;
 let worldDispose:(()=>void)|undefined;
 let endingDispose:(()=>void)|undefined;
 let screen='title';let storageOK=true;
-app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 2.9</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
+app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 3.0</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
 const content=document.querySelector<HTMLElement>('#content')!;
 const stage=new Stage();
 const game=new Phaser.Game({type:Phaser.AUTO,width:390,height:310,transparent:true,scene:stage,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},banner:false,parent:document.createElement('div')});
@@ -68,7 +74,7 @@ function home(){screen='home';busy=false;heading('STARGAZER’S CAMP','星灯り
 function status(){content.insertAdjacentHTML('beforeend',`<p class="save-note">${storageOK?'進行はこのブラウザに自動保存されます':'保存できません。現在のプレイは続行できます'}</p>`)}
 function title(){screen='title';heading('A PROMISE WRITTEN IN THE STARS','アストラ<br>クロニカ');content.insertAdjacentHTML('beforeend','<p class="subtitle">〜星詠みの遺した約束〜</p>');draw();content.insertAdjacentHTML('beforeend','<p class="prologue">あの日、星に誓った。<br>もう一度、君と夜明けを見ると。</p>');if(gameCleared(progress))content.insertAdjacentHTML('beforeend','<p class="clear-data-badge">✧ クリア済みデータがあります</p>');button(progress.started?'ゲーム開始 · 続きから':'ゲーム開始',()=>{progress.started=true;persist();home()});status()}
 function formation(){screen='formation';heading('PARTY','旅の仲間');draw();content.insertAdjacentHTML('beforeend',`<article><p>編成は仮画面です。三人の役割は固定です。</p>${partyUnits().map(h=>`<h2>${h.name} Lv.${h.level} <small>${h.role}</small></h2><p>使用武器：${h.weapons.join('／')}<br>HP ${h.maxHp} · MP ${h.maxMp}<br>攻撃力 ${h.attack} · 防御力 ${h.defense} · 素早さ ${h.speed}</p>`).join('')}<p>武器はホームの「装備」から変更できます。</p></article>`);button('ホームへ戻る',home)}
-function cancelTurn(){battleSession++;if(turnTimer!==undefined)window.clearTimeout(turnTimer);turnTimer=undefined}
+function cancelTurn(){if(stage.sys?.isActive()){stage.tweens.timeScale=1;stage.time.timeScale=1;}stopAtb?.();stopAtb=undefined;atb?.dispose();atb=undefined;battleSession++;if(turnTimer!==undefined)window.clearTimeout(turnTimer);turnTimer=undefined}
 function showQuests(back:()=>void){cancelTurn();screen='quests';heading('QUESTS','サブクエスト');mountSideQuests(content,progress,persist,back)}
 function showRecords(back:()=>void){cancelTurn();screen='records';heading('RECORDS','探索記録');mountExplorationRecords(content,progress,back,back===home?'ホームへ戻る':'探索へ戻る')}
 function showJournal(back:()=>void){cancelTurn();screen='journal';heading('JOURNAL','冒険手帳');mountJournal(content,progress,back,back===home?'ホームへ戻る':'探索へ戻る')}
@@ -82,53 +88,24 @@ function openMap(id:string){leaveWorld();content.classList.remove('adventure-scr
 
 function startAdventure(eventId:string,source?:SymbolContact){const e=activeChapter.events.find(e=>e.id===eventId);const serial=beginAdventureBattle(progress,activeChapter,eventId,source);if(serial===undefined||!e?.encounter){adventure();return}adventureBattle={serial,eventId};persist();launchBattle(encounterSetup(e.encounter,progress.choices))}
 function start(){adventureBattle=undefined;launchBattle()}
-function launchBattle(setup?:BattleSetup){leaveWorld();cancelTurn();battleView?.dispose();battleView=undefined;actingId=undefined;battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);selected=0;busy=false;command='attack';targetId=battle.enemies[0].id;screen='battle';renderBattle();scheduleEnemy()}
-function chooseCommand(next:Command){
- if(busy||!battle.current)return;
- command=next;if(skills[command].target==='allAllies'){targetId='all-allies';renderBattle();return}
- const targets=battle.targets(command);
- targetId=targets.some(u=>u.id===targetId)?targetId:(command==='heal'?targets.find(u=>u.hp<u.maxHp)?.id:undefined)||targets[0]?.id||'';
- renderBattle();
+function launchBattle(setup?:BattleSetup){
+ leaveWorld();cancelTurn();battleView?.dispose();actingId=undefined;currentBattleSetup=setup;
+ battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);
+ screen='battle';busy=false;selected=0;
+ const units=battle.units,combat=atb=new AtbCombat(battle),view=battleView=new AtbView(content,canvasHost,combat,()=>finish('defeat'));
+ game.events.emit('stage',units,0,3);
+ combat.onEvent=event=>{if(screen!=='battle'||atb!==combat)return;if(isItem(event.command)){progress.consumables=battle.itemInventory();persist()}view.present(event);game.events.emit('battle-effect',event);};
+ let frame=0,last=0,closed=false,ending=false;
+ const resetClock=()=>{last=0};const onPageHide=()=>cancelTurn();
+ document.addEventListener('visibilitychange',resetClock);window.addEventListener('pagehide',onPageHide);
+ stopAtb=()=>{closed=true;cancelAnimationFrame(frame);document.removeEventListener('visibilitychange',resetClock);window.removeEventListener('pagehide',onPageHide);};
+ const tick=(now:number)=>{if(closed||screen!=='battle'||atb!==combat)return;const elapsed=last?Math.max(0,(now-last)/1000):0,seconds=elapsed>ATB_RULES.suspensionGap?0:elapsed;last=now;
+  const ready=stage.sys?.isActive();if(ready){stage.tweens.timeScale=combat.paused||document.hidden?0:combat.speed;stage.time.timeScale=combat.paused||document.hidden?0:combat.speed;}if(!document.hidden)combat.advance(seconds);view.update();if(ready){if(stage.units!==units)game.events.emit('stage',units,0,3);stage.syncRealtime(combat.targetId,units.filter(u=>combat.slot(u.id).busyUntil>combat.time).map(u=>u.id));}
+  if(battle.result&&!ending){ending=true;const session=battleSession;turnTimer=window.setTimeout(()=>{if(session===battleSession&&screen==='battle')finish(battle.result!)},BALANCE.animationMs/combat.speed);}
+  if(!ending)frame=requestAnimationFrame(tick);
+ };frame=requestAnimationFrame(tick);
 }
-function renderBattle(){
- if(!battleView){
-  battleView=new BattleView(content,canvasHost,{
-   choose:chooseCommand,
-   target:id=>{if(!busy&&skills[command].target!=='allAllies'&&battle.targets(command).some(u=>u.id===id)){targetId=id;renderBattle()}},
-   execute:()=>{
-    if(busy||screen!=='battle'||battle.phase!=='player'||!battle.current)return;
-    const before=statusSnapshot(battle.units),round=battle.round;
-    perform(battle.act(command,targetId,battle.current.id),before,round);
-   },
-   retreat:()=>finish('defeat'),
-  });
- }
- if(!busy)selected=battle.units.findIndex(u=>u.id===battle.current?.id);
- battleView.update({battle,command,targetId,busy,actingId,actionRound});
- game.events.emit('stage',battle.units,selected,battle.units.findIndex(u=>u.id===targetId),skills[command].target==='allAllies'?battle.allies.filter(u=>u.hp>0).map(u=>u.id):[]);
-}
-game.events.on('unit-tap',(id:string)=>{if(screen==='battle'&&!busy&&skills[command].target!=='allAllies'&&battle.targets(command).some(u=>u.id===id)){targetId=id;renderBattle()}});
-function perform(result:ActionResult,before:ReturnType<typeof statusSnapshot>,round:number){
- if(screen!=='battle'||busy)return;
- if(!result.ok){battle.log.push(result.reason);renderBattle();return}
- busy=true;
- const event=result.event;if(isItem(event.command)){progress.consumables=battle.itemInventory();persist()}actingId=event.actor;actionRound=round;
- selected=battle.units.findIndex(u=>u.id===event.actor);
- renderBattle();game.events.emit('battle-effect',event);battleView!.present(event,statusNotices(before,battle.units));
- const session=battleSession;
- turnTimer=window.setTimeout(()=>{
-  if(session!==battleSession||screen!=='battle')return;
-  busy=false;battleView?.clearEffects();actingId=undefined;
-  if(battle.result){finish(battle.result);return}
-  command='attack';targetId=battle.enemies.find(e=>e.hp>0)?.id||'';
-  renderBattle();scheduleEnemy();
- },BALANCE.animationMs);
-}
-function scheduleEnemy(){
- if(screen!=='battle'||busy||(battle.phase!=='enemy'&&!battle.blocked))return;
- const session=battleSession,actor=battle.current!.id;
- turnTimer=window.setTimeout(()=>{if(session!==battleSession||screen!=='battle'||busy)return;const before=statusSnapshot(battle.units),round=battle.round;perform(battle.blocked?battle.skipTurn():battle.enemyAct(actor),before,round)},450);
-}
+game.events.on('unit-tap',(id:string)=>{if(screen==='battle')battleView?.target(id)});
 function finish(result:'victory'|'defeat'){if(adventureBattle){finishAdventure(result);return}finishRegular(result)}
 function finishRegular(result:'victory'|'defeat'){if(screen!=='battle')return;cancelTurn();battle.resetBattleResources();screen='result';busy=false;progress.battles++;let rewardText='';if(result==='victory'){progress.wins++;const xp=battle.experienceReward;rewardText=`一人につき経験値 ${xp} 獲得。<br>`+battle.allies.map(h=>{const p=progress.party[h.id];const levels=gainExperience(p,xp);return `${h.name} Lv.${p.level}${levels?`（${levels}レベルアップ！）`:''} EXP ${p.experience}/${requiredExperience(p.level)}`}).join('<br>')}persist();heading(result==='victory'?'VICTORY':'DEFEAT',result==='victory'?'星明かりの勝利':'まだ、旅は終わらない');draw(battle.allies);content.classList.add('result-screen');content.insertAdjacentHTML('beforeend',`<article><h2>${result==='victory'?'約束へ、一歩。':'もう一度、星を見上げて。'}</h2><p>${result==='victory'?'アステルたちは霧を払い、森の奥に小さな星の欠片を見つけた。':'三人は野営地に戻り、次の旅に備える。'}</p><p>${rewardText}</p><p>累計勝利 ${progress.wins}回</p></article>`);button('ホームへ戻る',home);button('もう一度挑む',start,'secondary');status()}
 function finishAdventure(result:'victory'|'defeat'){
@@ -142,4 +119,5 @@ function finishAdventure(result:'victory'|'defeat'){
  if(settled.cleared&&activeChapter.id==='chapter-02')content.classList.add('city-clear');if(settled.cleared&&activeChapter.id==='chapter-03')content.classList.add('wind-clear');if(settled.cleared&&activeChapter.id==='chapter-04')content.classList.add('crystal-clear');if(settled.cleared&&activeChapter.id==='chapter-05')content.classList.add('desert-clear');if(settled.cleared&&activeChapter.id==='chapter-06')content.classList.add('dawn-clear');content.append(text);if(activeChapter.id==='chapter-18'&&context.eventId==='c18-final-boss'&&result==='victory'){content.classList.add('finale-victory');button('エンディングへ',()=>showEnding());}button('冒険へ戻る',adventure);if(result==='defeat')symbolForEvent(context.eventId)?button('探索から再挑戦',adventure,'secondary'):button('この地点に再挑戦',()=>startAdventure(context.eventId),'secondary');button('ホームへ戻る',home,'secondary');status();
 }
 
+window.addEventListener('pageshow',event=>{if(event.persisted&&screen==='battle')launchBattle(currentBattleSetup)});
 title();

@@ -1,3 +1,4 @@
+import {fightAtb} from './atb-driver-v30.mjs';
 import {earlyTap} from './early-exploration-driver.mjs';
 import {legacyWorldIds} from './world-receipts.mjs';
 import {assertFinalChapterUnlock} from './finale-navigation.mjs';
@@ -19,16 +20,7 @@ async function route(all){
  const openQuests=async()=>{if(await page.locator('#world-viewport').count())await openMenu();await tap('サブクエスト')};
  const layout=async()=>{for(const width of [320,390,430,768]){await page.setViewportSize({width,height:width===768?1024:844});if(await page.locator('#world-viewport').count())await waitMap(page);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));if(await page.locator('#world-viewport').count()){const s=await state(page);assert.ok(s.hero.x-s.camera.x>=0&&s.hero.x-s.camera.x<=s.width&&s.hero.y-s.camera.y>=0&&s.hero.y-s.camera.y<=s.height);const r=await page.locator('#world-menu-button').boundingBox();assert.ok(r.height>=44);const canvas=await page.locator('#world-viewport canvas').boundingBox();assert.ok(Math.abs(canvas.height/canvas.width-s.height/s.width)<.02,'canvas and logical map aspect ratios must match');}}await page.setViewportSize({width:390,height:844});await page.waitForTimeout(300);};
  const choose=async name=>{const b=page.getByRole('button',{name,exact:true});if(await b.count()&&await b.isEnabled()){await b.tap();return true}return false};
- const fight=async()=>{const canvas=page.locator('.battle-art canvas');assert.equal(await canvas.getAttribute('data-layout'),'side');const actors=JSON.parse(await canvas.getAttribute('data-actors'));assert.ok(actors.slice(0,3).every(a=>a.x<195));assert.ok(actors.slice(3).every(a=>a.x>195));for(let n=0;n<180;n++){
-  await page.waitForFunction(()=>document.querySelector('.result-screen')||document.querySelector('.turn-banner')?.textContent?.includes('コマンドを選択'),undefined,{timeout:60000});if(await page.locator('.result-screen').count())break;
-  const actor=await page.locator('.turn-banner').textContent(),texts=await page.locator('.ally').allTextContents(),party=texts.map(t=>{const h=t.match(/HP (\d+) \/ (\d+)/),m=t.match(/MP (\d+) \/ (\d+)/);return {hp:+h[1],max:+h[2],mp:+m[1]}}),w=party.map((v,i)=>({...v,i})).filter(v=>v.hp>0&&v.hp/v.max<0.65).sort((a,b)=>a.hp/a.max-b.hp/b.max);
-  if(w[0]&&w[0].hp/w[0].max<0.4&&await choose('星露の小瓶'))await page.locator('.ally').nth(w[0].i).tap();
-  else if(party[2].hp>0&&party[2].mp<8&&await choose('灯火の雫'))await page.locator('.ally').nth(2).tap();
-  else if(actor.includes('アステル')){if(!await choose('星断の一閃 星力100')&&!await choose('強撃 MP6'))await choose('通常攻撃')}
-  else if(actor.includes('メイ')){if(w.length>1&&await choose('星詠みの奇跡 星力100')){}else if(w[0]&&await choose('ヒール MP8'))await page.locator('.ally').nth(w[0].i).tap();else if(!await choose('アイス MP8')&&!await choose('ファイア MP7'))await choose('通常攻撃')}
-  else if(actor.includes('リナ')){const badges=await page.locator('[data-unit-id="rina"] .status-details').getAttribute('aria-label');if(!await choose('不落の誓盾 星力100')&&(badges.includes('挑発')||!await choose('挑発 MP6')))await choose('通常攻撃')}
-  await page.locator('.execute-command').tap();await waitAfterBattleInput(page);
- }await page.locator('.result-screen').waitFor();assert.equal(await page.getByRole('heading',{name:'野営地で立て直そう'}).count(),0);console.log(`Route ${all?'all-quests':'no-quests'}: battle victory`)};
+ const fight=async()=>{return fightAtb(page,{id:'chapter-fourteen-v22.e2e'});};
 
 
  const menuAction=async label=>{if(await page.locator('#world-viewport').count())await openMenu();await tap(label)};

@@ -1,0 +1,21 @@
+{
+  "baseMain": "b79d9430b906c916c18777f1624a12dd841adc05",
+  "baselineArtifact": 13902752881,
+  "sourceHash": "1a2b9eee2b1213e627c79e3010ed7c651de8d732fd29f3d8f3a840290889719f",
+  "unchangedDataKeys": [
+    "chapters",
+    "maps",
+    "weapons",
+    "choices",
+    "quests",
+    "timeDevices",
+    "landmarks",
+    "treeNodes",
+    "treeBranches",
+    "encounters"
+  ],
+  "maps": 161,
+  "unchanged": true,
+  "saveKey": "astra-chronica:v1",
+  "version": 2
+}

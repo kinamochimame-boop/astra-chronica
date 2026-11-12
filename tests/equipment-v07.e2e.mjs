@@ -1,8 +1,9 @@
+import {manualAtbAttack} from './atb-driver-v30.mjs';
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
 try {
- const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+ const page=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});await page.clock.install();
  const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.addInitScript(()=>{Math.random=()=>0.99});
  await page.goto(process.env.BASE_URL||'http://localhost:4173');
  await page.evaluate(()=>localStorage.setItem('astra-chronica:v1',JSON.stringify({version:2,started:true,wins:4,battles:9,party:{astel:{level:1,experience:13},rina:{level:3,experience:17},mei:{level:7,experience:31}}})));
@@ -19,7 +20,7 @@ try {
  await choose('twinmoon-daggers');await page.locator('#equipment-equip').tap();assert.match(await page.locator('#equipment-description').textContent(),/0.5倍×2/);
  await page.getByRole('button',{name:'メイ',exact:true}).tap();await choose('prayer-mace');assert.match(await page.locator('tr[data-stat="最大HP"]').textContent(),/237/);await page.locator('#equipment-equip').tap();await page.locator('#equipment-remove').tap();assert.equal(await page.locator('#equipment-current-name').textContent(),'装備なし');await choose('starlight-wand');await page.locator('#equipment-equip').tap();
  await page.locator('#equipment-back').tap();await page.getByRole('button',{name:'戦闘開始'}).tap();
- await page.locator('.execute-command').tap();const effects=await page.locator('.fx-value').allTextContents();assert.deepEqual(effects,['18','18']);assert.equal(await page.getByRole('progressbar',{name:'アステル 星力',exact:true}).getAttribute('aria-valuenow'),'15');
+ await manualAtbAttack(page);const effects=await page.locator('.fx-value').allTextContents();assert.deepEqual(effects,['18','18']);assert.equal(await page.getByRole('progressbar',{name:'アステル EP',exact:true}).getAttribute('aria-valuenow'),'2');
  await page.getByRole('button',{name:'戦闘メニュー'}).tap();await page.getByRole('button',{name:'撤退する（敗北）'}).tap();await page.getByRole('button',{name:'ホームへ戻る'}).tap();
  saved=await page.evaluate(()=>JSON.stringify({...localStorage}));await page.evaluate(()=>{window.equipmentWrites=[];const original=Storage.prototype.setItem;Storage.prototype.setItem=function(...args){window.equipmentWrites.push(args[0]);return original.apply(this,args)}});
  await page.getByRole('button',{name:'戦闘基盤テスト（保存なし）'}).tap();await page.locator('#lab-step').tap();assert.match(await page.locator('#lab-notice').textContent(),/32ダメージ/);await page.locator('#lab-level').selectOption('10');await page.locator('#lab-star').tap();await page.locator('#lab-back').tap();assert.equal(await page.evaluate(()=>JSON.stringify({...localStorage})),saved);assert.deepEqual(await page.evaluate(()=>window.equipmentWrites),[]);

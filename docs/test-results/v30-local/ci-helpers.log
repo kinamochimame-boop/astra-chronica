@@ -1,0 +1,14 @@
+✔ server cleanup closes direct listener (162.944024ms)
+✔ server cleanup closes descendant listener (119.867641ms)
+✔ server cleanup closes exited-parent listener (146.075221ms)
+✔ correctly labeled captures retain their filename (1.238628ms)
+✔ the historical dual-blade capture is labeled with its actual 768px width (0.143743ms)
+✔ unrelated or unexpected dimensions still fail validation (2.452988ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 656.11313
