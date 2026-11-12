@@ -5,6 +5,7 @@ src/atb-rules.ts
 tests/atb-driver-v30.mjs
 tests/atb-ui-v30.e2e.mjs
 tests/atb-v30.e2e.mjs
+tests/browser.e2e.mjs
 tests/ci-v30-collect.mjs
 tests/ci-v30.mjs
 tests/weapon-ct-v31.test.ts
