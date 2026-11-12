@@ -1,7 +1,6 @@
 .github/workflows/battle-opening-v32-validation.yml
 docs/BATTLE_OPENING_V32.md
 docs/CHANGED_FILES_V32.txt
-docs/screenshots/atb-v30-320.png
 src/atb-combat.ts
 src/atb-ui.css
 src/atb-view.ts
