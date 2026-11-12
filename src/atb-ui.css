@@ -7,3 +7,5 @@
 .atb-screen .turn-banner{display:none}.atb-screen .hp{height:3px;margin:1px 0}.atb-screen .resource-label{line-height:10px;font-size:8px}.atb-screen .unit-card em{height:10px;line-height:10px}.atb-screen .status-details{height:44px;min-height:44px}.atb-screen .log-strip{height:44px;padding:0}.atb-screen .atb-queues{height:44px;max-height:44px}.atb-screen .atb-queue{flex-direction:row;overflow-x:auto;scrollbar-width:none}.atb-screen .atb-queue>button{flex:0 0 auto;min-width:64px}
 .atb-screen[data-paused="true"] .combat-fx{animation-play-state:paused}
 .atb-screen .battle-top>div{min-width:0;flex:1}.atb-screen .battle-top h1{font-size:17px;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.battle-start-overlay{position:absolute;inset:0;z-index:4;display:grid;place-content:center;gap:8px;background:#071526cc;text-align:center}.battle-start-overlay[hidden]{display:none}.battle-start-overlay p,.battle-start-overlay small{margin:0;color:#f6e4b7}.battle-start-overlay button{min-height:48px;min-width:180px}
