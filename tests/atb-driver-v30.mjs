@@ -39,3 +39,14 @@ export async function waitAtbEvent(page,predicate){
  let event;for(let n=0;n<600;n++){const events=await page.locator('.atb-screen').evaluate(el=>JSON.parse(el.dataset.events??'[]'));event=events.find(predicate);if(event)break;await page.clock.runFor(100);}
  assert.ok(event,'expected ATB enemy action within60 simulation seconds; observed '+await page.locator('.atb-screen').evaluate(el=>JSON.stringify(JSON.parse(el.dataset.events??'[]').slice(-6).map(e=>({actor:e.actor,label:e.label,hint:e.hint})))));await page.locator('#atb-pause').tap();await page.clock.resume();return event;
 }
+
+/** Match every actual hit, including dual blades and reactions, by its event identity. */
+export async function assertAtbHitPopups(page,event){
+ const parts=(event.effects??[event]).flatMap(part=>[part,...(part.reactions??[])]);
+ for(const part of parts){
+  const attrs={'data-actor-id':part.actor,'data-target-id':part.target,'data-hit-index':String(part.hitIndex??1),'data-effect-command':part.command,'data-action-name':part.actionName??''};
+  const selector='.combat-fx'+Object.entries(attrs).map(([key,value])=>`[${key}=${JSON.stringify(value)}]`).join('')+' .fx-value';
+  const expected=part.label==='ミス'?'MISS':part.kind==='heal'?`+${part.amount}`:part.kind==='damage'?String(part.amount):part.label;
+  assert.equal(await page.locator(selector).last().textContent(),expected,`actual ${part.actor}→${part.target} hit ${part.hitIndex??1}`);
+ }
+}
