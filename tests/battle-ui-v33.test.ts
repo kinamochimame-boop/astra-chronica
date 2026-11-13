@@ -1,0 +1,21 @@
+import {describe,it,expect} from 'vitest';
+import {Battle} from '../src/battle';
+import {AtbCombat} from '../src/atb-combat';
+import {atbCardState,observedEpGain} from '../src/atb-ui-state';
+function setup(){const b=new Battle(()=>.99);for(const u of b.units){u.hp=u.maxHp=100000;u.speed=20;}const c=new AtbCombat(b);c.auto=false;return {b,c,u:b.allies[0]}}
+describe('v3.3 read-only UI state',()=>{
+ it('start waiting never advertises a ready action',()=>{const {c,u}=setup();expect(atbCardState(c,u)).toMatchObject({phase:'waiting',ready:false,canAttempt:false,remaining:4});c.advance(100);expect(atbCardState(c,u).remaining).toBe(4)});
+ it.each([0,.25,.5,.75,1])('opening remaining at progress %s uses chargeInterval',p=>{const {c,u}=setup();c.start();c.slot(u.id).progress=p;expect(atbCardState(c,u).remaining).toBe(4*(1-p))});
+ it('normal attack returns to normal CT and acting state',()=>{const {c,u}=setup();c.start();c.advance(4);expect(atbCardState(c,u)).toMatchObject({phase:'ready',canAttempt:true});c.attack(u.id);expect(atbCardState(c,u)).toMatchObject({phase:'acting',interval:8,remaining:8,ready:false})});
+ it('zero opening CT is ready after start and never before',()=>{const {c,u}=setup();u.speed=100;expect(atbCardState(c,u).ready).toBe(false);c.start();expect(atbCardState(c,u)).toMatchObject({remaining:0,ready:true,canAttempt:true})});
+ it('KO, result and disposal remove glow and action affordance',()=>{const {b,c,u}=setup();c.start();c.slot(u.id).progress=1;u.hp=0;expect(atbCardState(c,u).phase).toBe('fallen');expect(atbCardState(c,u).ready).toBe(false);u.hp=1;for(const e of b.enemies)e.hp=0;expect(atbCardState(c,u).phase).toBe('finished');expect(atbCardState(c,u).canAttempt).toBe(false);for(const e of b.enemies)e.hp=1;c.dispose();expect(atbCardState(c,u).ready).toBe(false)});
+ it.each(['sleep','freeze'] as const)('%s restricts glow but allows a ready manual opportunity for natural expiry',id=>{const {c,u}=setup();c.start();u.statuses=[{id,remaining:3}];c.slot(u.id).progress=1;expect(atbCardState(c,u)).toMatchObject({phase:'restricted',ready:false,canAttempt:true});c.attack(u.id);expect(u.statuses[0].remaining).toBe(2)});
+ it('paralysis requires the real engine decision, presentation consumes no RNG',()=>{const {c,u}=setup();c.start();u.statuses=[{id:'paralysis',remaining:3}];c.slot(u.id).progress=1;expect(atbCardState(c,u)).toMatchObject({phase:'checking',ready:false,canAttempt:true});expect(u.statuses[0].remaining).toBe(3)});
+ it('pause freezes the same underlying progress',()=>{const {c,u}=setup();c.start();c.advance(1);c.paused=true;const a=atbCardState(c,u);c.advance(100);expect(atbCardState(c,u)).toEqual(a);expect(a).toMatchObject({phase:'paused',remaining:3,canAttempt:false})});
+ it.each([1,2,3] as const)('speed x%s displays simulation seconds',speed=>{const {c,u}=setup();c.start();c.speed=speed;c.advance(1/speed);expect(atbCardState(c,u).remaining).toBeCloseTo(3)});
+ it('latest SPD changes remaining while preserving fractional progress',()=>{const {c,u}=setup();c.start();c.slot(u.id).progress=.5;expect(atbCardState(c,u).remaining).toBe(2);u.modifiers=[{stat:'speed',amount:.25,remaining:3}];expect(atbCardState(c,u).remaining).toBeCloseTo(1.2)});
+ it.each([NaN,Infinity,-1,2])('invalid progress %s never renders invalid time',p=>{const {c,u}=setup();c.slot(u.id).progress=p;const d=atbCardState(c,u);expect(Number.isFinite(d.remaining)).toBe(true);expect(d.remaining).toBeGreaterThanOrEqual(0);expect(d.ctText).not.toMatch(/NaN|Infinity|-/)});
+ it('lowHP threshold and selected actor are separate from simulation',()=>{const {c,u}=setup();u.hp=u.maxHp/4;expect(atbCardState(c,u).lowHp).toBe(true);u.hp++;expect(atbCardState(c,u).lowHp).toBe(false)});
+ it('rendering repeatedly never mutates battle, reservations or persistence',()=>{const {b,c,u}=setup();c.start();c.slot(u.id).ep=15;c.reserve(u.id,'strong',b.enemies[0].id);const before=JSON.stringify({units:b.units,slots:[...c.slots],time:c.time});for(let i=0;i<100;i++)atbCardState(c,u);expect(JSON.stringify({units:b.units,slots:[...c.slots],time:c.time})).toBe(before)});
+ it.each([[0,2,2],[14,15,1],[15,15,0],[8,6,0],[NaN,15,0],[2,Infinity,0]])('observed EP %s→%s displays only actual credit %s',(before,after,gain)=>expect(observedEpGain(before,after)).toBe(gain));
+});

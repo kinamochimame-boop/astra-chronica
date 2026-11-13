@@ -6,7 +6,7 @@ export async function waitAtb(page,{pause=true,start=true}={}){await page.locato
 export async function atbReserve(page,actor,command,target){
  if(!await page.locator('.atb-screen').count())return false;
  const before=await atbState(page),u=before.units.find(u=>u.id===actor);if(!u||u.hp<=0||u.queue.some(r=>r.command===command))return false;
- await page.locator(`[data-queue-actor="${actor}"] > button`).first().tap();const skill=page.locator(`button[data-command="${command}"]`);if(!await skill.count())return false;await skill.tap();if(target){const t=page.locator(`button[data-target-id="${target}"]`);if(!await t.count()||!await t.isEnabled())return false;await t.tap();}
+ await page.locator(`[data-unit-id="${actor}"] .ally`).first().tap();const skill=page.locator(`button[data-command="${command}"]`);if(!await skill.count())return false;await skill.tap();if(target){const t=page.locator(`[data-command-target="${target}"], .enemy[data-target-id="${target}"]`);if(!await t.count()||!await t.isEnabled())return false;await t.tap();}
  const execute=page.locator('.execute-command');if(!await execute.isEnabled())return false;await execute.tap();return true;
 }
 /** Real controls, real clocks, no model writes. Preserves phase callbacks and victory assertions. */
@@ -35,7 +35,7 @@ export async function fightAtb(page,event={id:'ATB encounter'},options={}){
 
 /** Controlled real manual hit for equipment/tree assertions, then pause for inspection. */
 export async function manualAtbAttack(page,id='astel'){
- await waitAtb(page);await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1000));let s=await atbState(page);if(s.auto)await page.locator('#atb-auto').tap();await page.locator('#atb-pause').tap();await page.locator(`[data-queue-actor="${id}"] > button`).first().tap();
+ await waitAtb(page);await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1000));let s=await atbState(page);if(s.auto)await page.locator('#atb-auto').tap();await page.locator('#atb-pause').tap();await page.locator(`[data-unit-id="${id}"] .ally`).first().tap();
  const chargeSteps=Math.ceil(s.units.find(u=>u.id===id).interval*10)+10;for(let n=0;n<chargeSteps;n++){s=await atbState(page);const u=s.units.find(u=>u.id===id);if(u.progress>=1&&u.busyUntil<=s.time)break;await page.clock.runFor(100);}
  const button=page.locator('button[data-command="attack"]');assert.ok(await button.isEnabled(),'manual normal attack must become ready');await button.tap();await page.locator('#atb-pause').tap();await page.clock.runFor(300);await page.clock.resume();return page.locator('.atb-screen').evaluate(el=>JSON.parse(el.dataset.events).filter(e=>e.actor===el.dataset.actorId&&e.command==='attack').at(-1));
 }
