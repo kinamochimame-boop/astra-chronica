@@ -1,0 +1,14 @@
+.github/workflows/enemy-tactical-ai-v35-validation.yml
+docs/CHANGED_FILES_V35.txt
+docs/ENEMY_AI_V35.md
+docs/ENEMY_AI_V35_COMPARISON.json
+src/battle.ts
+src/data/encounters.ts
+src/enemy-ai.ts
+src/types.ts
+tests/ci-v30-collect.mjs
+tests/ci-v30-matrix.mjs
+tests/ci-v30.mjs
+tests/enemy-ai-v35-simulation.ts
+tests/enemy-ai-v35.e2e.mjs
+tests/enemy-ai-v35.test.ts
