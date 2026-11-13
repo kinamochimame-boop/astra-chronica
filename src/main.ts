@@ -93,14 +93,14 @@ function launchBattle(setup?:BattleSetup){
  battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);
  screen='battle';busy=false;selected=0;
  const units=battle.units,combat=atb=new AtbCombat(battle),view=battleView=new AtbView(content,canvasHost,combat,()=>finish('defeat'));
- game.events.emit('stage',units,0,3);
+ if(stage.sys?.isActive()){stage.tweens.timeScale=0;stage.time.timeScale=0;}game.events.emit('stage',units,0,3);
  combat.onEvent=event=>{if(screen!=='battle'||atb!==combat)return;if(isItem(event.command)){progress.consumables=battle.itemInventory();persist()}view.present(event);game.events.emit('battle-effect',event);};
  let frame=0,last=0,closed=false,ending=false;
  const resetClock=()=>{last=0};const onPageHide=()=>cancelTurn();
  document.addEventListener('visibilitychange',resetClock);window.addEventListener('pagehide',onPageHide);
- stopAtb=()=>{closed=true;cancelAnimationFrame(frame);document.removeEventListener('visibilitychange',resetClock);window.removeEventListener('pagehide',onPageHide);};
+ stopAtb=()=>{closed=true;cancelAnimationFrame(frame);document.removeEventListener('visibilitychange',resetClock);window.removeEventListener('pagehide',onPageHide);if(stage.sys?.isActive()){stage.tweens.timeScale=1;stage.time.timeScale=1;}};
  const tick=(now:number)=>{if(closed||screen!=='battle'||atb!==combat)return;const elapsed=last?Math.max(0,(now-last)/1000):0,seconds=elapsed>ATB_RULES.suspensionGap?0:elapsed;last=now;
-  const ready=stage.sys?.isActive();if(ready){stage.tweens.timeScale=combat.paused||document.hidden?0:combat.speed;stage.time.timeScale=combat.paused||document.hidden?0:combat.speed;}if(!document.hidden)combat.advance(seconds);view.update();if(ready){if(stage.units!==units)game.events.emit('stage',units,0,3);stage.syncRealtime(combat.targetId,units.filter(u=>combat.slot(u.id).busyUntil>combat.time).map(u=>u.id));}
+  const ready=stage.sys?.isActive();if(ready){stage.tweens.timeScale=!combat.started||combat.paused||document.hidden?0:combat.speed;stage.time.timeScale=!combat.started||combat.paused||document.hidden?0:combat.speed;}if(!document.hidden)combat.advance(seconds);view.update();if(ready){if(stage.units!==units)game.events.emit('stage',units,0,3);stage.syncRealtime(combat.targetId,units.filter(u=>combat.slot(u.id).busyUntil>combat.time).map(u=>u.id));}
   if(battle.result&&!ending){ending=true;const session=battleSession;turnTimer=window.setTimeout(()=>{if(session===battleSession&&screen==='battle')finish(battle.result!)},BALANCE.animationMs/combat.speed);}
   if(!ending)frame=requestAnimationFrame(tick);
  };frame=requestAnimationFrame(tick);

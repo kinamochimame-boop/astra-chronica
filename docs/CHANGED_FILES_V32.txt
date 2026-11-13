@@ -1,0 +1,15 @@
+.github/workflows/battle-opening-v32-validation.yml
+docs/BATTLE_OPENING_V32.md
+docs/CHANGED_FILES_V32.txt
+src/atb-combat.ts
+src/atb-ui.css
+src/atb-view.ts
+src/main.ts
+tests/atb-driver-v30.mjs
+tests/atb-ui-v30.fixture.ts
+tests/atb-v30.e2e.mjs
+tests/atb-v30.test.ts
+tests/battle-opening-v32.test.ts
+tests/ci-v30-collect.mjs
+tests/ci-v30.mjs
+tests/weapon-ct-v31.test.ts

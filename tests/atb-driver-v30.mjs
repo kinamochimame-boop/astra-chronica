@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 export const atbFightReceipts=[];
 export const atbState=page=>page.locator('.atb-screen').evaluate(el=>JSON.parse(el.dataset.atbState));
-export async function waitAtb(page,{pause=true}={}){await page.locator('.atb-screen').waitFor();await page.waitForFunction(()=>!!document.querySelector('.atb-screen')?.dataset.atbState);if(pause&&!(await atbState(page)).paused)await page.locator('#atb-pause').tap();}
+export async function waitAtb(page,{pause=true,start=true}={}){await page.locator('.atb-screen').waitFor();await page.waitForFunction(()=>!!document.querySelector('.atb-screen')?.dataset.atbState);if(start&&!(await atbState(page)).started){await page.clock.pauseAt(await page.evaluate(()=>Date.now()+1000));await page.locator('#atb-start').tap();if(pause)await page.locator('#atb-pause').tap();await page.clock.resume();}else if(pause&&(await atbState(page)).started&&!(await atbState(page)).paused)await page.locator('#atb-pause').tap();}
+
 export async function atbReserve(page,actor,command,target){
  if(!await page.locator('.atb-screen').count())return false;
  const before=await atbState(page),u=before.units.find(u=>u.id===actor);if(!u||u.hp<=0||u.queue.some(r=>r.command===command))return false;

@@ -6,7 +6,7 @@ import {chromium} from '@playwright/test';
 import {browserShards} from './ci-v30-matrix.mjs';
 import {productionFingerprint} from './production-fingerprint.mjs';
 import {startServer,stopServer} from './ci-process.mjs';
-const release=process.env.VALIDATION_VERSION??'v30';if(!['v30','v31'].includes(release))throw Error('Unknown validation version');
+const release=process.env.VALIDATION_VERSION??'v30';if(!['v30','v31','v32'].includes(release))throw Error('Unknown validation version');
 const group=process.argv[2],dir='.ci-'+release+'/'+group;mkdirSync(dir,{recursive:true});
 const sourceHash=productionFingerprint(),start=new Date().toISOString(),servers=[];
 const result={group,sourceHash,commit:process.env.GITHUB_SHA,head:process.env.V26_HEAD_SHA,start,success:false,commands:[],files:[],screenshots:[],runtime:{node:process.version,platform:process.platform}};

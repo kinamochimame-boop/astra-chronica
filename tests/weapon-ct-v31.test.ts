@@ -1,12 +1,14 @@
 import {describe,it,expect} from 'vitest';
 import {Battle} from '../src/battle';
 import {AtbCombat} from '../src/atb-combat';
+/** Existing assertions exercise normal cycles, after the one-off opening. */
+function steadyCombat(b:Battle){const c=new AtbCombat(b);for(const s of c.slots.values())s.firstAttack=false;c.start();return c;}
 import {ATB_RULES,WEAPON_CT,attackInterval,epCost,skillCooldown} from '../src/atb-rules';
 import {allWeapons,DEFAULT_WEAPONS,type WeaponFamily} from '../src/data/weapons';
 import {fresh,load,SAVE_KEY} from '../src/save';
 import {statValue} from '../src/effects';
 const approved:Record<WeaponFamily,number>={dualBlades:6,sword:8,bow:10,shieldRapier:7,shieldSpear:8,shieldFlail:11,wand:7,rod:9,mace:10};
-function setup(){const b=new Battle(()=>.99);for(const u of b.units){u.hp=u.maxHp=100000;u.attack=10;}for(const u of b.allies){u.speed=20;u.weaponId=DEFAULT_WEAPONS[u.id as keyof typeof DEFAULT_WEAPONS];}return {b,c:new AtbCombat(b)}}
+function setup(){const b=new Battle(()=>.99);for(const u of b.units){u.hp=u.maxHp=100000;u.attack=10;}for(const u of b.allies){u.speed=20;u.weaponId=DEFAULT_WEAPONS[u.id as keyof typeof DEFAULT_WEAPONS];}return {b,c:steadyCombat(b)}}
 describe('v3.1 approved weapon CT',()=>{
  it.each(Object.entries(approved))('%s has approved baseline %s at SPD20, half/double SPD', (family,ct)=>{const {b}=setup();const w=allWeapons.find(w=>w.family===family)!,u=b.allies.find(u=>u.id===w.owner)!;u.weaponId=w.id;expect(WEAPON_CT[family as WeaponFamily]).toBe(ct);for(const [spd,factor] of [[20,1],[10,2],[40,.5]]){u.speed=spd;expect(attackInterval(u)).toBe(ct*factor)}});
  it('every weapon including chapter18 inherits its family CT once',()=>{const {b}=setup();for(const w of allWeapons){const u=b.allies.find(u=>u.id===w.owner)!;u.weaponId=w.id;expect(attackInterval(u)).toBe(approved[w.family]);}expect(allWeapons.length).toBeGreaterThan(50)});
