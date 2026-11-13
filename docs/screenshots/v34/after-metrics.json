@@ -1,0 +1,946 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "kind": "default",
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 99.328125,
+      "height": 72,
+      "bottom": 127,
+      "right": 106.328125
+    },
+    "party": {
+      "x": 7,
+      "y": 357,
+      "width": 99.328125,
+      "height": 100,
+      "bottom": 457,
+      "right": 106.328125
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 220,
+      "bottom": 352,
+      "right": 313
+    },
+    "commands": {
+      "x": 7,
+      "y": 482,
+      "width": 306,
+      "height": 94,
+      "bottom": 576,
+      "right": 313
+    },
+    "execute": {
+      "x": 7,
+      "y": 520,
+      "width": 306,
+      "height": 48,
+      "bottom": 568,
+      "right": 313
+    },
+    "horizontal": false,
+    "scroll": 151,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 218,
+      "bottom": 351,
+      "right": 312
+    }
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "kind": "default",
+    "viewport": {
+      "width": 320,
+      "height": 844
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 99.328125,
+      "height": 72,
+      "bottom": 127,
+      "right": 106.328125
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 99.328125,
+      "height": 100,
+      "bottom": 582,
+      "right": 106.328125
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 345,
+      "bottom": 477,
+      "right": 313
+    },
+    "commands": {
+      "x": 7,
+      "y": 607,
+      "width": 306,
+      "height": 94,
+      "bottom": 701,
+      "right": 313
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 306,
+      "height": 48,
+      "bottom": 834,
+      "right": 313
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 343,
+      "bottom": 476,
+      "right": 312
+    }
+  },
+  {
+    "width": 320,
+    "height": 932,
+    "kind": "default",
+    "viewport": {
+      "width": 320,
+      "height": 932
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 99.328125,
+      "height": 72,
+      "bottom": 127,
+      "right": 106.328125
+    },
+    "party": {
+      "x": 7,
+      "y": 570,
+      "width": 99.328125,
+      "height": 100,
+      "bottom": 670,
+      "right": 106.328125
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 433,
+      "bottom": 565,
+      "right": 313
+    },
+    "commands": {
+      "x": 7,
+      "y": 695,
+      "width": 306,
+      "height": 94,
+      "bottom": 789,
+      "right": 313
+    },
+    "execute": {
+      "x": 7,
+      "y": 874,
+      "width": 306,
+      "height": 48,
+      "bottom": 922,
+      "right": 313
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 431,
+      "bottom": 564,
+      "right": 312
+    }
+  },
+  {
+    "width": 375,
+    "height": 568,
+    "kind": "default",
+    "viewport": {
+      "width": 375,
+      "height": 568
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 117.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 124.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 357,
+      "width": 117,
+      "height": 100,
+      "bottom": 457,
+      "right": 124
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 220,
+      "bottom": 352,
+      "right": 368
+    },
+    "commands": {
+      "x": 7,
+      "y": 482,
+      "width": 361,
+      "height": 94,
+      "bottom": 576,
+      "right": 368
+    },
+    "execute": {
+      "x": 7,
+      "y": 520,
+      "width": 361,
+      "height": 48,
+      "bottom": 568,
+      "right": 368
+    },
+    "horizontal": false,
+    "scroll": 151,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 218,
+      "bottom": 351,
+      "right": 367
+    }
+  },
+  {
+    "width": 375,
+    "height": 844,
+    "kind": "default",
+    "viewport": {
+      "width": 375,
+      "height": 844
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 117.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 124.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 117,
+      "height": 100,
+      "bottom": 582,
+      "right": 124
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 345,
+      "bottom": 477,
+      "right": 368
+    },
+    "commands": {
+      "x": 7,
+      "y": 607,
+      "width": 361,
+      "height": 94,
+      "bottom": 701,
+      "right": 368
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 361,
+      "height": 48,
+      "bottom": 834,
+      "right": 368
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 343,
+      "bottom": 476,
+      "right": 367
+    }
+  },
+  {
+    "width": 375,
+    "height": 932,
+    "kind": "default",
+    "viewport": {
+      "width": 375,
+      "height": 932
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 117.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 124.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 570,
+      "width": 117,
+      "height": 100,
+      "bottom": 670,
+      "right": 124
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 433,
+      "bottom": 565,
+      "right": 368
+    },
+    "commands": {
+      "x": 7,
+      "y": 695,
+      "width": 361,
+      "height": 94,
+      "bottom": 789,
+      "right": 368
+    },
+    "execute": {
+      "x": 7,
+      "y": 874,
+      "width": 361,
+      "height": 48,
+      "bottom": 922,
+      "right": 368
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 431,
+      "bottom": 564,
+      "right": 367
+    }
+  },
+  {
+    "width": 390,
+    "height": 568,
+    "kind": "default",
+    "viewport": {
+      "width": 390,
+      "height": 568
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 357,
+      "width": 122,
+      "height": 100,
+      "bottom": 457,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 220,
+      "bottom": 352,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 482,
+      "width": 376,
+      "height": 94,
+      "bottom": 576,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 520,
+      "width": 376,
+      "height": 48,
+      "bottom": 568,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 151,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 218,
+      "bottom": 351,
+      "right": 382
+    }
+  },
+  {
+    "width": 390,
+    "height": 568,
+    "kind": "queue",
+    "viewport": {
+      "width": 390,
+      "height": 568
+    },
+    "enemy": {
+      "x": 7,
+      "y": -146,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": -74,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 156,
+      "width": 122,
+      "height": 100,
+      "bottom": 256,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": -69,
+      "width": 376,
+      "height": 220,
+      "bottom": 151,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 281,
+      "width": 376,
+      "height": 94,
+      "bottom": 375,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 512,
+      "width": 376,
+      "height": 48,
+      "bottom": 560,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 203,
+    "canvas": {
+      "x": 8,
+      "y": -68,
+      "width": 374,
+      "height": 218,
+      "bottom": 150,
+      "right": 382
+    }
+  },
+  {
+    "width": 390,
+    "height": 568,
+    "kind": "skill",
+    "viewport": {
+      "width": 390,
+      "height": 568
+    },
+    "enemy": {
+      "x": 7,
+      "y": -96,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": -24,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 206,
+      "width": 122,
+      "height": 100,
+      "bottom": 306,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": -19,
+      "width": 376,
+      "height": 220,
+      "bottom": 201,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 331,
+      "width": 376,
+      "height": 94,
+      "bottom": 425,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 510,
+      "width": 376,
+      "height": 48,
+      "bottom": 558,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 151,
+    "canvas": {
+      "x": 8,
+      "y": -18,
+      "width": 374,
+      "height": 218,
+      "bottom": 200,
+      "right": 382
+    }
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "kind": "default",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 122,
+      "height": 100,
+      "bottom": 582,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 345,
+      "bottom": 477,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 607,
+      "width": 376,
+      "height": 94,
+      "bottom": 701,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 376,
+      "height": 48,
+      "bottom": 834,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 343,
+      "bottom": 476,
+      "right": 382
+    }
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "kind": "queue",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 430,
+      "width": 122,
+      "height": 100,
+      "bottom": 530,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 293,
+      "bottom": 425,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 555,
+      "width": 376,
+      "height": 94,
+      "bottom": 649,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 376,
+      "height": 48,
+      "bottom": 834,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 291,
+      "bottom": 424,
+      "right": 382
+    }
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "kind": "skill",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 122,
+      "height": 100,
+      "bottom": 582,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 345,
+      "bottom": 477,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 607,
+      "width": 376,
+      "height": 94,
+      "bottom": 701,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 376,
+      "height": 48,
+      "bottom": 834,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 343,
+      "bottom": 476,
+      "right": 382
+    }
+  },
+  {
+    "width": 390,
+    "height": 932,
+    "kind": "default",
+    "viewport": {
+      "width": 390,
+      "height": 932
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 122.65625,
+      "height": 72,
+      "bottom": 127,
+      "right": 129.65625
+    },
+    "party": {
+      "x": 7,
+      "y": 570,
+      "width": 122,
+      "height": 100,
+      "bottom": 670,
+      "right": 129
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 433,
+      "bottom": 565,
+      "right": 383
+    },
+    "commands": {
+      "x": 7,
+      "y": 695,
+      "width": 376,
+      "height": 94,
+      "bottom": 789,
+      "right": 383
+    },
+    "execute": {
+      "x": 7,
+      "y": 874,
+      "width": 376,
+      "height": 48,
+      "bottom": 922,
+      "right": 383
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 431,
+      "bottom": 564,
+      "right": 382
+    }
+  },
+  {
+    "width": 430,
+    "height": 568,
+    "kind": "default",
+    "viewport": {
+      "width": 430,
+      "height": 568
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 135.984375,
+      "height": 72,
+      "bottom": 127,
+      "right": 142.984375
+    },
+    "party": {
+      "x": 7,
+      "y": 357,
+      "width": 135.328125,
+      "height": 100,
+      "bottom": 457,
+      "right": 142.328125
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 220,
+      "bottom": 352,
+      "right": 423
+    },
+    "commands": {
+      "x": 7,
+      "y": 482,
+      "width": 416,
+      "height": 94,
+      "bottom": 576,
+      "right": 423
+    },
+    "execute": {
+      "x": 7,
+      "y": 520,
+      "width": 416,
+      "height": 48,
+      "bottom": 568,
+      "right": 423
+    },
+    "horizontal": false,
+    "scroll": 151,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 218,
+      "bottom": 351,
+      "right": 422
+    }
+  },
+  {
+    "width": 430,
+    "height": 844,
+    "kind": "default",
+    "viewport": {
+      "width": 430,
+      "height": 844
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 135.984375,
+      "height": 72,
+      "bottom": 127,
+      "right": 142.984375
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 135.328125,
+      "height": 100,
+      "bottom": 582,
+      "right": 142.328125
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 345,
+      "bottom": 477,
+      "right": 423
+    },
+    "commands": {
+      "x": 7,
+      "y": 607,
+      "width": 416,
+      "height": 94,
+      "bottom": 701,
+      "right": 423
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 416,
+      "height": 48,
+      "bottom": 834,
+      "right": 423
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 343,
+      "bottom": 476,
+      "right": 422
+    }
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "kind": "default",
+    "viewport": {
+      "width": 430,
+      "height": 932
+    },
+    "enemy": {
+      "x": 7,
+      "y": 55,
+      "width": 135.984375,
+      "height": 72,
+      "bottom": 127,
+      "right": 142.984375
+    },
+    "party": {
+      "x": 7,
+      "y": 570,
+      "width": 135.328125,
+      "height": 100,
+      "bottom": 670,
+      "right": 142.328125
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 433,
+      "bottom": 565,
+      "right": 423
+    },
+    "commands": {
+      "x": 7,
+      "y": 695,
+      "width": 416,
+      "height": 94,
+      "bottom": 789,
+      "right": 423
+    },
+    "execute": {
+      "x": 7,
+      "y": 874,
+      "width": 416,
+      "height": 48,
+      "bottom": 922,
+      "right": 423
+    },
+    "horizontal": false,
+    "scroll": 0,
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 431,
+      "bottom": 564,
+      "right": 422
+    }
+  }
+]

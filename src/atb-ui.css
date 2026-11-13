@@ -52,3 +52,34 @@
 @keyframes ep-rise{0%{translate:0 4px;opacity:1}75%{opacity:1}100%{translate:0 -12px;opacity:0}}
 @media(max-width:350px){#content.atb-screen{padding-inline:6px;gap:4px}.atb-screen .party{gap:4px}.atb-screen .resource-label{font-size:9px}.atb-screen .unit-card em{font-size:8px}.atb-screen .ct-label{font-size:9px}.atb-screen .command{font-size:10px}.atb-screen .atb-selection{font-size:10px}.atb-screen .execute-command{font-size:11px;letter-spacing:0}.atb-screen .hint{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.atb-screen .ep-gain,.atb-screen .combat-fx{animation:none!important}.atb-screen .party-card{transition:none}.atb-screen .party-card.healing{box-shadow:inset 0 0 0 2px #9af4c0}}
+/* v3.4: the shell scrolls when the content minimum exceeds the safe viewport. */
+.shell.battle-mode.atb-layout{height:100svh;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.atb-layout #content.atb-screen{height:auto;min-height:100%;padding:6px;gap:5px;overflow:visible}
+.atb-screen .battle-top{position:sticky;top:0;z-index:5;gap:4px;height:44px;background:#10263bf5;border-radius:5px}
+.atb-screen .battle-top>div:first-child{flex:1;min-width:0}.atb-screen .battle-top h1{font-size:13px;line-height:17px;letter-spacing:0}.atb-screen .battle-top .eyebrow{font-size:8px;letter-spacing:.4px;line-height:11px;margin:0}
+.atb-screen .battle-top>.atb-toolbar{flex:0 0 auto;gap:3px}.atb-screen .atb-toolbar button{flex:none;width:48px;min-width:44px;height:44px;padding:2px;font-size:10px;line-height:1.25}.atb-screen .menu-button{min-width:44px;width:44px;padding:0;height:44px}
+.atb-screen .enemies{gap:4px}.atb-screen .enemy-card{flex-basis:calc((100% - 8px)/3)}
+.atb-screen .enemy{height:70px;min-height:70px;padding:5px 4px 3px}.atb-screen .enemy strong{font-size:11px;text-align:left;padding-right:22px;line-height:15px}.atb-screen .enemy .hp-label{font-size:9px;line-height:13px;margin-top:2px}.atb-screen .enemy em{height:12px;line-height:12px;font-size:8px;text-align:left;margin:2px 0 0}
+.atb-screen .unit-card .status-details{position:absolute;right:0;top:0;z-index:1;width:44px;height:44px;min-height:44px;min-width:44px;padding:3px 1px 0 18px;align-items:flex-start;gap:0;border:0;background:transparent;border-radius:4px;font-size:8px;color:#f4dfaa}
+.atb-screen .status-details .status-symbol{min-width:16px;height:17px;font-size:9px;padding:0 1px}.atb-screen [hidden]{display:none!important}
+.atb-screen .party-card .ally{padding:5px 4px 3px}.atb-screen .ally strong{text-align:left;padding-right:20px;font-size:12px;line-height:15px}.atb-screen .ally em{height:12px;line-height:12px;font-size:9px;margin:1px 0 2px}.atb-screen .party-card .resource-label{font-size:10px;line-height:13px;margin-top:0}.atb-screen .party-card .hp{height:4px;margin:1px 0 3px}.atb-screen .party-card .atb{height:4px;margin-bottom:0}
+.atb-screen .party-card.fallen{box-shadow:none}
+.atb-screen .battle-art{flex:1 0 220px;min-height:220px;height:auto;border-radius:12px}.atb-screen .stage-slot{position:absolute;inset:0}
+.atb-screen .battle-controls{flex:none;overflow:visible}.atb-screen .commands{min-height:94px;max-height:94px;grid-template-columns:repeat(3,minmax(0,1fr));overscroll-behavior:contain;touch-action:pan-y}
+.atb-screen .atb-selection{font-size:10px;line-height:16px;margin:0 0 4px}
+.atb-screen .hint{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:10px;line-height:14px;min-height:28px;max-height:28px;margin:3px 0}
+.atb-tools{display:flex;gap:4px;align-items:stretch;height:44px;margin:3px 0}.atb-tools button{min-height:44px;margin:0;border:1px solid #688296;border-radius:5px;background:#16354b;color:#eedbb0;padding:3px 5px;font-size:10px;line-height:1.35}.atb-tools .skill-details{flex:none;min-width:60px}.atb-tools .queue-summary{flex:1;min-width:0;font-size:10px}.atb-tools .log-toggle{min-width:48px;margin-left:auto}
+.atb-screen .atb-queues{height:auto;max-height:144px;overflow:auto;grid-template-columns:1fr;gap:4px;padding:3px;background:#0b2137;border:1px solid #6c7a72;border-radius:5px;overscroll-behavior:contain;touch-action:pan-y}
+.atb-screen .atb-queue{overflow-x:auto;min-height:44px;flex-direction:row;overscroll-behavior:contain}.atb-screen .atb-queue>button[data-reservation-id]{min-width:120px;max-width:155px;font-size:11px}
+.atb-screen .execute-command{position:sticky;bottom:0;z-index:4;min-height:48px;height:48px;margin-top:4px;box-shadow:0 0 0 4px #0c2035,0 -5px 12px #071525b0;letter-spacing:.4px}
+.atb-screen .battle-controls{padding-bottom:4px}
+.atb-screen .ep-gain{top:26px}
+@media(max-width:350px){.atb-screen .ally strong{font-size:11px}.atb-screen .party-card .resource-label{font-size:9px}.atb-screen .ally em{font-size:8px}.atb-screen .enemy strong{font-size:10px}.atb-screen .enemy .hp-label{font-size:8px}.atb-screen .hint{font-size:9px}.atb-screen .atb-toolbar button{width:44px;font-size:9px}.atb-screen .battle-top h1{font-size:12px}}
+/* Sticky controls remain inside the notch/home-indicator insets while scrolling. */
+.shell.battle-mode.atb-layout{--atb-safe-top:env(safe-area-inset-top,0px);--atb-safe-bottom:env(safe-area-inset-bottom,0px);padding-top:var(--atb-safe-top);padding-bottom:var(--atb-safe-bottom)}
+.atb-screen .battle-top{top:var(--atb-safe-top,0px)}
+.atb-screen .execute-command{bottom:var(--atb-safe-bottom,0px)}
+.atb-screen .unit-card .status-details{padding:3px 1px 0;justify-content:flex-end}
+/* Queue rows scroll horizontally; the list can also scroll vertically. */
+.atb-screen .atb-queues{touch-action:auto;max-height:156px}
+.shell.battle-mode.atb-layout{scroll-padding-top:calc(var(--atb-safe-top) + 48px);scroll-padding-bottom:calc(var(--atb-safe-bottom) + 60px)}
