@@ -1,0 +1,55 @@
+name: Verify published v3.3 (no deployment)
+on:
+  push:
+    branches: [verify/v33-live-pages]
+permissions:
+  contents: read
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Verify published files equal the tested main build
+        env:
+          BASE_URL: https://kinamochimame-boop.github.io/astra-chronica/
+        run: |
+          node --input-type=module <<'JS'
+          import {readdirSync,readFileSync,writeFileSync} from 'node:fs';
+          import {createHash} from 'node:crypto';
+          import assert from 'node:assert/strict';
+          const rows=[];const sha=b=>createHash('sha256').update(b).digest('hex');
+          async function scan(dir){for(const entry of readdirSync(dir,{withFileTypes:true})){const path=dir+'/'+entry.name;if(entry.isDirectory()){await scan(path);continue;}const url=new URL(path.slice(5),process.env.BASE_URL);const r=await fetch(url,{cache:'no-store'});assert.equal(r.status,200,url.href);const local=sha(readFileSync(path)),remote=sha(Buffer.from(await r.arrayBuffer()));assert.equal(remote,local,url.href);rows.push({url:url.href,sha256:remote,status:r.status});}}
+          await scan('dist');writeFileSync('/tmp/v33-live-assets.json',JSON.stringify(rows,null,2));console.log('PASS live published files',rows);
+          JS
+      - name: Run existing browser regression against public Pages
+        env:
+          BASE_URL: https://kinamochimame-boop.github.io/astra-chronica/
+          BATTLE_VIRTUAL_CLOCK: '1'
+          BATTLE_CLOCK_SKIP_FRAMES: '1'
+        run: |
+          CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+          export CHROMIUM_PATH="$CHROME_PATH"
+          node tests/browser.e2e.mjs
+          node --input-type=module <<'JS'
+          import {readFileSync,writeFileSync} from 'node:fs';
+          const text=readFileSync('tests/atb-v30.e2e.mjs','utf8');
+          if(!text.includes('[320,390,430]'))throw Error('Expected original width matrix');
+          writeFileSync('tests/.live-pages-v33-check.mjs',text.replace('[320,390,430]','[320,375,390,430]'));
+          JS
+          node tests/.live-pages-v33-check.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v33-public-pages-verification
+          path: |
+            /tmp/v33-live-assets.json
+            /tmp/v30-touch-cases.json
+            docs/screenshots/atb-v30-*.png
+          retention-days: 14
