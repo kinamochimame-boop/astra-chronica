@@ -43,3 +43,13 @@ navigationTargetが選んだ目的対象または解放済みの出口に、appr
 ## 制約
 
 iPhone Safari実機は未確認。Chromiumのタッチ端末で代替検証する。探索履歴は発見したセルのみで、未来のマップ構造は表示しない。経路表示の切替は画面内設定で永続保存しない。既存Phaserチャンクサイズ警告は残る。mainへのマージ・本番公開は行わない。
+
+## 変更ファイル
+
+- `src/exploration/map-runtime.ts`：安全な近傍候補とキャンセル。
+- `src/exploration/minimap.ts`、`minimap-view.ts`：履歴復元、安全経路、拡大地図、経路切替。
+- `src/exploration/survey-save.ts`、`src/save.ts`：任意履歴の正規化と読込。
+- `src/exploration/map-view.ts`、`exploration.css`：保存統合、フィールド誘導、操作UIと停止・再開。
+- `tests/exploration-v38.test.ts`、`exploration-v38.e2e.mjs`、`minimap-v20.e2e.mjs`：新規検証と履歴仕様の更新。
+- `tests/ci-v30*.mjs`、`ci-workflow.check.mjs`、`.github/workflows/exploration-v38-validation.yml`：全既存テストと新規検証の収集、本番非反映の維持。
+- 本書と `docs/screenshots/v38/`：検証説明と画像。
