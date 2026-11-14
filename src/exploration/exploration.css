@@ -18,3 +18,5 @@
 #world-minimap-panel button{pointer-events:auto;min-height:44px;width:calc(50% - 2px);margin:2px 1px;font-size:10px;letter-spacing:0;padding:2px;touch-action:manipulation}#world-map-expanded{width:min(92vw,640px);max-height:85svh;overflow:auto}#world-map-expanded svg{display:block;width:100%;max-height:65svh;background:#08141f}#world-map-expanded button,#world-safe-candidate,#world-stop{min-height:44px}#world-map-expanded h2{font-size:14px;overflow-wrap:anywhere}
 
 #world-minimap-tools{display:flex;gap:4px;margin-top:4px}#world-minimap-tools[hidden]{display:none}#world-minimap-tools button{min-height:44px;flex:1;font-size:12px;letter-spacing:0;margin:0}
+
+#world-map-expanded{background:#10283a;color:#edf3ff;border:1px solid #c4ad78;border-radius:8px;padding:16px}#world-map-expanded::backdrop{background:#06111bd9}#world-map-expanded button{width:100%;background:#193b55;color:#f1d9a0;border:1px solid #c4ad78;border-radius:6px}

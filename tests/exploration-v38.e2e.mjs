@@ -19,7 +19,8 @@ try{
   await page.reload();await tap('ゲーム開始 · 続きから');await tap('冒険へ出発');await waitMap(page);await page.locator('#world-minimap-toggle').tap();await page.waitForFunction(()=>!!document.querySelector('#world-minimap').dataset.state);
   const after=await page.locator('#world-minimap').evaluate(e=>JSON.parse(e.dataset.state));assert.ok(after.walked>=count);assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   for(const id of ['world-minimap-toggle','world-stop'])assert.ok((await page.locator(`#${id}`).boundingBox()).height>=44);
-  await page.screenshot({path:`docs/screenshots/v38/navigation-${width}.png`,fullPage:true,animations:'disabled'});assert.deepEqual(errors,[]);results.push({width,walkedBefore:count,walkedAfter:after.walked,pageErrors:errors,touch:true,routeToggle:true,expandedPauseResume:true});await page.close();
+  await page.screenshot({path:`docs/screenshots/v38/navigation-${width}.png`,fullPage:true,animations:'disabled'});await tap('探索メニュー');await tap('ホームへ戻る');await page.evaluate(()=>localStorage.removeItem('astra-chronica:v1'));await page.reload();await tap('ゲーム開始');await tap('冒険へ出発');await waitMap(page);await page.locator('#world-minimap-toggle').tap();await page.waitForFunction(()=>!!document.querySelector('#world-minimap-route')?.getAttribute('d'));assert.ok((await page.locator('#world-minimap-route').getAttribute('d')).startsWith('M'));await page.screenshot({path:`docs/screenshots/v38/objective-${width}.png`,fullPage:true,animations:'disabled'});
+  assert.deepEqual(errors,[]);results.push({width,walkedBefore:count,walkedAfter:after.walked,pageErrors:errors,touch:true,routeToggle:true,objectiveVisible:true,expandedPauseResume:true});await page.close();
  }
  await writeFile('/tmp/v38-exploration-ui.json',JSON.stringify({results},null,2));console.log('PASS v3.8 touch navigation, persisted survey, enlarged map pause/resume, route toggle, four widths');
 }finally{await browser.close()}
