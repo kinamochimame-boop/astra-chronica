@@ -113,7 +113,7 @@ jobs:
             docs/ENEMY_AI_V35_COMPARISON.json
             docs/COMBAT_BALANCE_V36.json
             docs/COMBAT_BALANCE_V36.csv
-            docs/CHANGED_FILES_V37.txt
+            docs/CHANGED_FILES_V38.txt
             docs/test-results/v38-ci.json
             docs/test-results/v38-ci
             docs/screenshots/free-exploration-v28-*.png
@@ -124,6 +124,7 @@ jobs:
             docs/screenshots/actor-scale-v351-*.png
             docs/screenshots/v351/*
             docs/screenshots/exploration-v38-*.png
+            docs/screenshots/growth-builds-v37-*.png
             docs/screenshots/v37/*
             docs/screenshots/v38/*
             docs/screenshots/battle-ui-v33-*.png
