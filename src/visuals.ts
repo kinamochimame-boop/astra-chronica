@@ -1,4 +1,5 @@
 import {battleAnchor,type BattleLayout} from './battle-layout';
+import {battleActorScales} from './battle-actor-scale';
 import {battleEventParts} from './types';
 import {actorStyle,drawActor} from './battle-actors';
 import {animationPlan,elementColor} from './battle-animations';
@@ -14,8 +15,8 @@ export class Stage extends Phaser.Scene {
  paint(){
  this.generation++;this.time.removeAllEvents();this.figures.clear();this.rings.clear();this.homes.clear();this.tweens.killAll();this.children.removeAll(true);
  const height=this.scale.gameSize.height,hasEnemies=this.units.length>3,enemyCount=this.units.length-3,g=this.add.graphics();g.fillStyle(0x102b40);g.fillRect(0,0,390,height);g.lineStyle(1,0x809dba,.15);for(let y=15;y<height;y+=35)g.lineBetween(0,y,390,y+30);g.lineStyle(1,0xdbc68a,.2);g.lineBetween(195,5,195,height-5);
- const models=this.units.map((u,i)=>{
-  const anchor=battleAnchor(i,height,hasEnemies,this.layout,enemyCount),active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id),style=actorStyle(u,i<3),c=drawActor(this,u,i<3).setPosition(anchor.x,anchor.y).setScale(hasEnemies?Math.min(.9,height/300)*(i>=3&&(u.experienceReward??0)>=800?1.12:1):1).setAlpha(u.hp>0?1:.25);this.figures.set(u.id,c);this.homes.set(u.id,anchor);
+ const scales=battleActorScales(this.units,height,this.layout),models=this.units.map((u,i)=>{
+  const anchor=battleAnchor(i,height,hasEnemies,this.layout,enemyCount),active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id),style=actorStyle(u,i<3),c=drawActor(this,u,i<3).setPosition(anchor.x,anchor.y).setScale(scales[i]).setAlpha(u.hp>0?1:.25);this.figures.set(u.id,c);this.homes.set(u.id,anchor);
   if(u.hp>0)c.setSize(90,94).setInteractive().on('pointerup',()=>this.game.events.emit('unit-tap',u.id));
   const ring=this.add.graphics();this.rings.set(u.id,ring);ring.lineStyle(3,targeted?0xf2d58c:0x8cddec,targeted||active?1:.2);ring.strokeEllipse(0,30,70,14);if(targeted){ring.fillStyle(0xf6d98c);ring.fillTriangle(-5,-53,5,-53,0,-45)}c.addAt(ring,0);
   if(u.guarding||u.covering){const shield=this.add.graphics();shield.lineStyle(3,0x9cdcf2,.8);shield.strokeRoundedRect(12,-36,28,63,9);c.add(shield)}

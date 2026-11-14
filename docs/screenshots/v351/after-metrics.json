@@ -1,0 +1,2010 @@
+[
+  {
+    "figures": {
+      "width": 390,
+      "height": 245,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 49,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 122.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 196,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 61.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 122.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 183.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 191
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 193
+    },
+    "party": {
+      "x": 7,
+      "y": 330,
+      "width": 306,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 306,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 634,
+      "width": 306,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 320,
+    "height": 193,
+    "kind": "normal",
+    "file": "after-normal-h193-320.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 382,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 76.4,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 191,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 305.6,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 95.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 191,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 286.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 298
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 300
+    },
+    "party": {
+      "x": 7,
+      "y": 437,
+      "width": 306,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 306,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 741,
+      "width": 306,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 320,
+    "height": 300,
+    "kind": "normal",
+    "file": "after-normal-h300-320.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 440,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 88,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 220,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 352,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 110,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 220,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 330,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 306,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 306,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 306,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 320,
+    "height": 345,
+    "kind": "normal",
+    "file": "after-normal-h345-320.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 440,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 88,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 220,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 352,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 220,
+          "scale": 0.7280000000000001,
+          "displayWidth": 65.52000000000001,
+          "displayHeight": 68.432,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 304,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 306,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 306,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 306,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 306,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 320,
+    "height": 345,
+    "kind": "boss",
+    "file": "after-boss-h345-320.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 207,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 41.400000000000006,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 103.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 165.60000000000002,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 51.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 103.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 155.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 191
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 193
+    },
+    "party": {
+      "x": 7,
+      "y": 330,
+      "width": 361,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 361,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 634,
+      "width": 361,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 375,
+    "height": 193,
+    "kind": "normal",
+    "file": "after-normal-h193-375.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 324,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 64.8,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 162,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 259.2,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 81,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 162,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 243,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 298
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 300
+    },
+    "party": {
+      "x": 7,
+      "y": 437,
+      "width": 361,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 361,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 741,
+      "width": 361,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 375,
+    "height": 300,
+    "kind": "normal",
+    "file": "after-normal-h300-375.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 373,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 74.60000000000001,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 186.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 298.40000000000003,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 93.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 186.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 279.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 361,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 361,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 361,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 375,
+    "height": 345,
+    "kind": "normal",
+    "file": "after-normal-h345-375.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 373,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 74.60000000000001,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 186.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 298.40000000000003,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 186.5,
+          "scale": 0.7280000000000001,
+          "displayWidth": 65.52000000000001,
+          "displayHeight": 68.432,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 359,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 361,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 361,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 361,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 361,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 375,
+    "height": 345,
+    "kind": "boss",
+    "file": "after-boss-h345-375.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 199,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 39.800000000000004,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 99.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 159.20000000000002,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 49.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 99.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 149.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 191
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 193
+    },
+    "party": {
+      "x": 7,
+      "y": 330,
+      "width": 376,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 376,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 634,
+      "width": 376,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 390,
+    "height": 193,
+    "kind": "normal",
+    "file": "after-normal-h193-390.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 311,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 62.2,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 155.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 248.8,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 77.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 155.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 233.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 298
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 300
+    },
+    "party": {
+      "x": 7,
+      "y": 437,
+      "width": 376,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 376,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 741,
+      "width": 376,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 390,
+    "height": 300,
+    "kind": "normal",
+    "file": "after-normal-h300-390.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 358,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 71.60000000000001,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 179,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 286.40000000000003,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 89.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 179,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 268.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 376,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 376,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 376,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 390,
+    "height": 345,
+    "kind": "normal",
+    "file": "after-normal-h345-390.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 358,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 71.60000000000001,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 179,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 286.40000000000003,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 179,
+          "scale": 0.7280000000000001,
+          "displayWidth": 65.52000000000001,
+          "displayHeight": 68.432,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 374,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 376,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 376,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 376,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 376,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 390,
+    "height": 345,
+    "kind": "boss",
+    "file": "after-boss-h345-390.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 180,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 36,
+          "scale": 0.6079545454545454,
+          "displayWidth": 54.715909090909086,
+          "displayHeight": 57.147727272727266,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 90,
+          "scale": 0.6079545454545454,
+          "displayWidth": 54.715909090909086,
+          "displayHeight": 57.147727272727266,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 144,
+          "scale": 0.6079545454545454,
+          "displayWidth": 54.715909090909086,
+          "displayHeight": 57.147727272727266,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 45,
+          "scale": 0.6079545454545454,
+          "displayWidth": 54.715909090909086,
+          "displayHeight": 57.147727272727266,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 90,
+          "scale": 0.6079545454545454,
+          "displayWidth": 54.715909090909086,
+          "displayHeight": 57.147727272727266,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 135,
+          "scale": 0.6079545454545454,
+          "displayWidth": 54.715909090909086,
+          "displayHeight": 57.147727272727266,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 191
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 193
+    },
+    "party": {
+      "x": 7,
+      "y": 330,
+      "width": 416,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 416,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 634,
+      "width": 416,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 430,
+    "height": 193,
+    "kind": "normal",
+    "file": "after-normal-h193-430.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 281,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 56.2,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 140.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 224.8,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 70.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 140.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 210.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 298
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 300
+    },
+    "party": {
+      "x": 7,
+      "y": 437,
+      "width": 416,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 416,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 741,
+      "width": 416,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 430,
+    "height": 300,
+    "kind": "normal",
+    "file": "after-normal-h300-430.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 323,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 64.60000000000001,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 161.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 258.40000000000003,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 80.75,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy1",
+          "x": 302,
+          "y": 161.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy2",
+          "x": 302,
+          "y": 242.25,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 416,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 416,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 416,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 430,
+    "height": 345,
+    "kind": "normal",
+    "file": "after-normal-h345-430.png"
+  },
+  {
+    "figures": {
+      "width": 390,
+      "height": 323,
+      "units": [
+        {
+          "id": "astel",
+          "x": 78,
+          "y": 64.60000000000001,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "rina",
+          "x": 78,
+          "y": 161.5,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "mei",
+          "x": 78,
+          "y": 258.40000000000003,
+          "scale": 0.65,
+          "displayWidth": 58.5,
+          "displayHeight": 61.1,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        },
+        {
+          "id": "enemy0",
+          "x": 302,
+          "y": 161.5,
+          "scale": 0.7280000000000001,
+          "displayWidth": 65.52000000000001,
+          "displayHeight": 68.432,
+          "interactive": true,
+          "hitArea": {
+            "x": 0,
+            "y": 0,
+            "width": 90,
+            "height": 94
+          }
+        }
+      ]
+    },
+    "canvas": {
+      "x": 8,
+      "y": 133,
+      "width": 414,
+      "height": 343
+    },
+    "field": {
+      "x": 7,
+      "y": 132,
+      "width": 416,
+      "height": 345
+    },
+    "party": {
+      "x": 7,
+      "y": 482,
+      "width": 416,
+      "height": 100
+    },
+    "enemies": {
+      "x": 7,
+      "y": 55,
+      "width": 416,
+      "height": 72
+    },
+    "execute": {
+      "x": 7,
+      "y": 786,
+      "width": 416,
+      "height": 48
+    },
+    "horizontal": false,
+    "width": 430,
+    "height": 345,
+    "kind": "boss",
+    "file": "after-boss-h345-430.png"
+  }
+]
