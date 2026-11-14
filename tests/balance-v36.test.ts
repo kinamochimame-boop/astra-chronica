@@ -1,5 +1,5 @@
+/// <reference types="vite/client" />
 import {describe,it,expect} from 'vitest';
-import {readFileSync} from 'node:fs';
 import {Battle,type BattleEvent} from '../src/battle';
 import {AtbCombat} from '../src/atb-combat';
 import {ULTIMATE_EP,epCost,WEAPON_CT,attackInterval} from '../src/atb-rules';
@@ -9,6 +9,7 @@ import {treeNodes} from '../src/data/skill-tree';
 import {normalizeHeroNodes} from '../src/skill-tree';
 import {allWeapons,weapons,HERO_IDS} from '../src/data/weapons';
 import {contexts,simulate,summaryContext,weaponWindow,skillTrials} from './balance-v36/harness';
+const oldSaves=import.meta.glob<string>('./balance-v36/old-save-chapter-*.json',{query:'?raw',import:'default',eager:true});
 function setup(){const party=initialParty();for(const u of Object.values(party))u.level=10;const b=new Battle(()=>.99,party);for(const e of b.enemies)e.hp=e.maxHp=100000;const c=new AtbCombat(b);c.auto=false;c.start();return {b,c}}
 
 describe('v3.6 individual ultimate EP tuning, no combat rule changes',()=>{
@@ -36,7 +37,7 @@ describe('v3.6 honest reproducible measurement',()=>{
  it('dual blades preserve two actual hits, while single-hit weapon and skill do not duplicate',()=>{const d=weaponWindow('twinmoon-daggers',20,30,'auto'),s=weaponWindow('travelers-sword',20,30,'auto');expect(d.hits).toBe(d.attacks*2);expect(s.hits).toBe(s.attacks);expect(weaponWindow('travelers-sword',20,30,'tactical').skills.strong).toBeGreaterThan(0)});
  it.each([0,54,108])('old saves at encounter index %s retain progress/equipment/tree/items',index=>{const p=contexts('balanced')[index].progress;let value='';expect(save(p,{setItem:(key,data)=>{expect(key).toBe(SAVE_KEY);value=data}})).toBe(true);const restored=load({getItem:()=>value});expect(restored.version).toBe(2);expect(restored.party).toEqual(p.party);expect(restored.equipment).toEqual(p.equipment);expect(restored.skillTree).toEqual(p.skillTree);expect(restored.consumables).toEqual(p.consumables);expect(restored.adventure).toEqual(fresh().adventure);expect(allWeapons.length).toBeGreaterThan(9)});
  it.each(['01','09','18'])('actual v3.5.1 chapter %s save retains chapter flags and all owned growth data',chapter=>{
-  const raw=JSON.parse(readFileSync(new URL('./balance-v36/old-save-chapter-'+chapter+'.json',import.meta.url),'utf8'));
+  const raw=JSON.parse(oldSaves['./balance-v36/old-save-chapter-'+chapter+'.json']);
   const p=load({getItem:()=>JSON.stringify(raw)});
   for(const key of ['party','equipment','skillTree','consumables','quests','choices','wins','battles'] as const)expect(p[key]).toEqual(raw[key]);
   for(const [id,state] of Object.entries(raw.adventure.chapters) as [string,{completed:string[]}][])expect(p.adventure.chapters[id].completed).toEqual(state.completed);
