@@ -1,14 +1,15 @@
-import {cameraFor,clearCircle,distance} from './collision';
+import {cameraFor,clearCircle,distance,cell,center} from './collision';
 import {findPath} from './pathfinding';
 import {advance,type Mover} from './movement';
 import {createSymbols,stepSymbol} from './enemy-symbols';
 import type {Point,Pose,SymbolContact,WalkMap} from './types';
 export class MapRuntime {
- private destination?:Point;private terrain='';
+ suggestion?:Point;private destination?:Point;private terrain='';
  hero:Mover;symbols;paused=false;locked=false;notice='';contactGrace=0;onVisit?: (point:Point)=>void;camera={x:0,y:0};
  constructor(public map:WalkMap,pose:Pose,readonly available:(event:string)=>boolean,readonly defeated:(id:string)=>boolean,contactGrace=0){this.contactGrace=Math.max(0,contactGrace);this.hero={...pose,path:[]};this.symbols=createSymbols(map);this.terrain=map.grid.join('\n')}
- moveTo(point:Point){if(this.paused||this.locked)return false;const path=findPath(this.map,this.hero,point);this.hero.path=path??[];this.destination=path?{...point}:undefined;this.notice=path?'':'そこへは進めません。歩ける地面を選んでください。';return !!path;}
- stop(){this.hero.path=[];this.destination=undefined}
+ moveTo(point:Point){if(this.paused||this.locked)return false;this.suggestion=undefined;const path=findPath(this.map,this.hero,point);this.hero.path=path??[];this.destination=path?{...point}:undefined;this.notice=path?'':'そこへは進めません。歩ける地面を選んでください。';
+ if(!path&&Number.isFinite(point.x)&&Number.isFinite(point.y)&&!clearCircle(this.map,point)){const at=cell(this.map,point),candidates:Point[]=[];for(let y=Math.max(0,at.y-2);y<=Math.min(this.map.height-1,at.y+2);y++)for(let x=Math.max(0,at.x-2);x<=Math.min(this.map.width-1,at.x+2);x++)candidates.push(center(this.map,{x,y}));candidates.sort((a,b)=>distance(a,point)-distance(b,point)||a.y-b.y||a.x-b.x);this.suggestion=candidates.find(q=>clearCircle(this.map,q)&&!!findPath(this.map,this.hero,q));if(this.suggestion)this.notice='そこへは進めません。近くの安全な地点を候補にしました。移動する場合は確認してください。'}return !!path;}
+ stop(){this.suggestion=undefined;this.hero.path=[];this.destination=undefined}
  updateMap(map:WalkMap){if(map.id!==this.map.id||map.tile!==this.map.tile||map.width!==this.map.width||map.height!==this.map.height)return false;this.map=map;this.refreshTerrain();return true;}
  private refreshTerrain(){const key=this.map.grid.join('\n');if(key===this.terrain)return;this.terrain=key;this.hero.path=this.destination?findPath(this.map,this.hero,this.destination)??[]:[];for(const s of this.symbols){s.path=[];s.goalCell=undefined;}if(this.destination&&distance(this.hero,this.destination)>.001&&!this.hero.path.length)this.notice='通路が変わりました。歩ける地面を選んでください。';}
  step(seconds:number,width:number,height:number):SymbolContact|undefined {

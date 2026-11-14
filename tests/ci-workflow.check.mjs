@@ -29,3 +29,12 @@ test('v3.7 growth integration collects every browser shard and preserves deploym
  assert.ok(yaml.includes('VALIDATION_VERSION: v37'));
  assert.ok(!yaml.includes('actions/deploy-pages'));
 });
+
+test('v3.8 exploration collects every browser shard, survey receipt and no deployment',()=>{
+ const yaml=readFileSync('.github/workflows/exploration-v38-validation.yml','utf8');
+ assert.ok(yaml.includes('needs: [unit, browsers, balance]'));
+ assert.ok(yaml.includes('pattern: v38-*\n          path: .ci-v38-results'));
+ assert.ok(yaml.includes('npm run test:browser-all -- --ci-group'));
+ assert.ok(yaml.includes('VALIDATION_VERSION: v38'));
+ assert.ok(!yaml.includes('actions/deploy-pages'));
+});

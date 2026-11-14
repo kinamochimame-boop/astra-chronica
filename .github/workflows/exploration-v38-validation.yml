@@ -1,0 +1,155 @@
+name: v3.8 exploration quality (no deployment)
+on:
+  push:
+    branches: [feature/v38-exploration-quality]
+permissions:
+  contents: read
+concurrency:
+  group: exploration-v38
+  cancel-in-progress: true
+jobs:
+  unit:
+    if: github.ref == 'refs/heads/feature/v38-exploration-quality' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    outputs:
+      browser_groups: ${{ steps.matrix.outputs.groups }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - id: matrix
+        run: node tests/ci-v30-matrix.mjs >> "$GITHUB_OUTPUT"
+      - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs tests/ci-workflow.check.mjs
+      - run: node tests/ci-v30.mjs unit
+        env:
+          VALIDATION_VERSION: v38
+          V26_HEAD_SHA: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v38-unit
+          path: .ci-v38/unit
+          include-hidden-files: true
+          retention-days: 14
+  browsers:
+    needs: unit
+    if: github.ref == 'refs/heads/feature/v38-exploration-quality' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        group: ${{ fromJSON(needs.unit.outputs.browser_groups) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium and OS dependencies
+        run: |
+          for attempt in 1 2 3; do
+            if npx playwright install --with-deps chromium; then exit 0; fi
+            if [ "$attempt" = 3 ]; then exit 1; fi
+            sleep 10
+          done
+      - name: Provide native Chromium compatibility path
+        run: |
+          V28_CHROME_PATH=$(node --input-type=module -e "import {chromium} from '@playwright/test';process.stdout.write(chromium.executablePath())")
+          sudo ln -sf "$V28_CHROME_PATH" /usr/bin/chromium
+      - run: npm run test:browser-all -- --ci-group "${{ matrix.group }}"
+        env:
+          VALIDATION_VERSION: v38
+          V26_HEAD_SHA: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v38-${{ matrix.group }}
+          path: .ci-v38/${{ matrix.group }}
+          include-hidden-files: true
+          retention-days: 14
+  collect:
+    if: always() && github.ref == 'refs/heads/feature/v38-exploration-quality' && github.repository == 'kinamochimame-boop/astra-chronica' && github.event.repository.private == false
+    needs: [unit, browsers, balance]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v38-*
+          path: .ci-v38-results
+      - name: Verify receipts and prepare final evidence
+        run: node tests/ci-v30-collect.mjs
+        env:
+          VALIDATION_VERSION: v38
+          V26_HEAD_SHA: ${{ github.sha }}
+          V26_PR_URL: https://github.com/kinamochimame-boop/astra-chronica/compare/main...feature/v38-exploration-quality
+          V26_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: v38-verified-final-evidence
+          path: |
+            docs/EXPLORATION_V38.md
+            docs/COMBAT_BALANCE_V36.md
+            docs/ENEMY_AI_V35_COMPARISON.json
+            docs/COMBAT_BALANCE_V36.json
+            docs/COMBAT_BALANCE_V36.csv
+            docs/CHANGED_FILES_V37.txt
+            docs/test-results/v38-ci.json
+            docs/test-results/v38-ci
+            docs/screenshots/free-exploration-v28-*.png
+            docs/screenshots/smooth-navigation-v29-*.png
+            docs/screenshots/atb-v30-*.png
+            docs/screenshots/battle-layout-v34-*.png
+            docs/screenshots/v34/*
+            docs/screenshots/actor-scale-v351-*.png
+            docs/screenshots/v351/*
+            docs/screenshots/exploration-v38-*.png
+            docs/screenshots/v37/*
+            docs/screenshots/v38/*
+            docs/screenshots/battle-ui-v33-*.png
+          retention-days: 14
+
+  balance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node tests/ci-v30.mjs balance
+        env:
+          VALIDATION_VERSION: v38
+          V26_HEAD_SHA: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v38-balance
+          path: .ci-v38/balance
+          include-hidden-files: true
+          retention-days: 14
