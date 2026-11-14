@@ -44,3 +44,4 @@ tests/capture-actor-scale-v351.mjs
 tests/ci-v30-collect.mjs
 tests/ci-v30-matrix.mjs
 tests/ci-v30.mjs
+tests/ci-workflow.check.mjs

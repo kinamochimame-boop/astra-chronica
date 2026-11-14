@@ -26,7 +26,7 @@ jobs:
       - run: npm ci
       - id: matrix
         run: node tests/ci-v30-matrix.mjs >> "$GITHUB_OUTPUT"
-      - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs
+      - run: node --test tests/ci-process.check.mjs tests/ci-screenshot.check.mjs tests/ci-workflow.check.mjs
       - run: node tests/ci-v30.mjs unit
         env:
           VALIDATION_VERSION: v351
@@ -95,7 +95,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           pattern: v351-*
-          path: .ci-v3511-results
+          path: .ci-v351-results
       - name: Verify receipts and prepare final evidence
         run: node tests/ci-v30-collect.mjs
         env:
