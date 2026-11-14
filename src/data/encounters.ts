@@ -30,4 +30,4 @@ export const encounters:Record<string,{name:string;enemies:Unit[]}>= {
  'forest-fork':{name:'森の分かれ道',enemies:[forestEnemies.wolf,forestEnemies.bat,forestEnemies.wolf].map(u=>({...cloneUnit(u),experienceReward:50}))},
  'forest-guardian':{name:'霧の森・最深部',enemies:[forestEnemies.guardian]},
 };
-export function encounterSetup(id:string,choices:Record<string,string>={}){const e=encounters[id];return e?{name:e.name,enemies:e.enemies.map((u,i)=>({...cloneUnit(u),id:`enemy${i}`,...(id==='terminal-last-judge'?{fateRoute:choices['c17-branch']==='listen'?'shelter' as const:'direct' as const}:{} )}))}:undefined}
+export function encounterSetup(id:string,choices:Record<string,string>={}){const e=encounters[id];return e?{name:e.name,enemies:e.enemies.map((u,i)=>({...cloneUnit(u),enemyTemplateId:u.id,id:`enemy${i}`,...(id==='terminal-last-judge'?{fateRoute:choices['c17-branch']==='listen'?'shelter' as const:'direct' as const}:{} )}))}:undefined}

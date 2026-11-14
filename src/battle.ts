@@ -1,3 +1,4 @@
+import {EnemyTactics,chooseEnemyTarget,enemyDecisionLog} from './enemy-ai';
 import {finalePhase,finaleScriptKey,finaleLines,FINALE_PHASES} from './data/finale-boss';
 import {enemyScripts,enemyChargePlan,enemyChargeName} from './data/enemy-scripts';
 import {isItem,normalizeConsumables,initialConsumables,type Consumables} from './consumables';
@@ -24,6 +25,7 @@ export class Battle {
   private items:Consumables=initialConsumables();
   itemInventory(){return {...this.items}}
   availableCommands(unit:Unit){return [...commandsFor(unit),...(this.allies.includes(unit)?(['potion','ether'] as Command[]).filter(c=>isItem(c)&&this.items[c]>0):[])]}
+  private tactics=new EnemyTactics();
   private enemyActions=new Map<string,number>();
   readonly allies:Unit[];
   readonly enemies:Unit[];
@@ -41,7 +43,7 @@ export class Battle {
     this.refill();this.prepareTurn();
   }
   isLearned(unit:Unit,command:Command){return this.availableCommands(unit).includes(command)&&this.skillAccess(unit,command)}
-  resetBattleResources(){for(const u of this.units){u.star=0;u.tauntRounds=undefined;u.barrierCharges=undefined;if(u.counterReady)u.counterReady=false}}
+  resetBattleResources(){this.tactics.clear();for(const u of this.units){u.star=0;u.tauntRounds=undefined;u.barrierCharges=undefined;if(u.counterReady)u.counterReady=false}}
   private gainStar(unit:Unit,amount:number){if(!this.realtimeActor&&this.allies.includes(unit))unit.star=Math.min(STAR_POWER.max,unit.star+amount+Math.min(TREE_LIMITS.starBonus,treeValue(unit,'starGain')))}
   get experienceReward(){return this.enemies.reduce((sum,e)=>sum+e.experienceReward,0)}
   applyStatus(targetId:string,id:StatusId,chance?:number,turns?:number):boolean {
@@ -180,6 +182,7 @@ export class Battle {
     if (this.phase !== 'enemy' || this.blocked || !actor || actor.id !== expectedActor) return { ok: false, reason: '敵の行動ではありません。' };
     const action=(this.enemyActions.get(actor.id)??0)+1;this.enemyActions.set(actor.id,action);
     if((actor.enemyPattern==='sandSoldier'||actor.enemyPattern==='gearGuard'||actor.enemyPattern==='groveGuard'||actor.enemyPattern==='skyGuard'||actor.enemyPattern==='archiveGuard')&&action%3===2){actor.guarding='defend';actor.counterReady=true;return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'反撃態勢',hint:(actor.enemyPattern==='groveGuard'||actor.enemyPattern==='skyGuard'||actor.enemyPattern==='archiveGuard')?'歩哨が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。':actor.enemyPattern==='gearGuard'?'守衛が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。':'砂兵が防御！ 次の本人の行動機会まで最初の物理被弾に1回反撃。魔法・回復で備えよう。',logs:[`${actor.name}は盾を構えた。最初の物理被弾に1回反撃する。`]})}
+    if(this.tactics.shouldGuard(actor,action,this.random)){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'防御態勢',logs:[`${actor.name}は守りを固めた！ 次の本人の行動機会まで身を守る。`]})}
     if(actor.enemyMagic||actor.enemyPattern==='resonanceMachine'||actor.enemyPattern==='echoria'||actor.enemyPattern==='gardion'||actor.enemyPattern==='zaira'||!!enemyScripts[actor.enemyPattern??''])return this.crystalAct(actor,action);
     if(actor.enemyPattern==='mistGuardian'&&action%3===2)return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'霧の吸収',hint:'次は霧裂き！ 防御やガードで備えよう。',logs:[`${actor.name}は霧を吸い込んでいる！ 次の行動は強烈な「霧裂き」。防御やガードで備えよう。`]});
     if(actor.enemyPattern==='canalKeeper'&&action%3===2){actor.guarding='defend';return this.complete({actor:actor.id,target:actor.id,command:'defend',amount:0,kind:'status',critical:false,covered:false,label:'防御態勢',hint:'番人が盾を閉じた。次の本人の行動まで被ダメージ半減。回復や防御で備えよう。',logs:[`${actor.name}は防御態勢に入った。盾が開くタイミングを待とう。`]})}
@@ -203,11 +206,12 @@ export class Battle {
     const heavy=actor.enemyPattern==='mistGuardian'&&action%3===0;
     const living = this.allies.filter(u => u.hp > 0);
     const taunter=living.find(u=>(u.tauntRounds??0)>0);
-    const original = taunter||living[Math.min(living.length - 1, Math.floor(this.random() * living.length))];
+    const decision=chooseEnemyTarget(actor,living,this.random,actor.attackStatuses),original=decision.target!;
     const protector = this.allies.find(u => u.hp > 0 && u.covering === original.id);
     const target = protector || original;
     const event: BattleEvent = { actor: actor.id, target: target.id, command: 'attack', amount: 0, kind: 'damage', critical: false, covered: !!protector, logs: [] };
     if(taunter){event.taunted=true;event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`)}
+    event.logs.push(...enemyDecisionLog(actor,decision));
     if (protector) event.logs.push(`${protector.name}が${original.name}をかばった！`);
     if(valleyPower>1)event.logs.push(`${actor.name}の${actor.enemyPattern==='windWarden'?'風圧剣':'重斬撃'}！`);
     if(phase)event.logs.push(`${actor.name} 第${phase}段階${sky?(bellPower>=1.8?'：天穹の嵐！':bellPower>=1.4?'：風圧波！':'：基本攻撃。'):bellPower>=1.4?bellPower>=1.9?'：終鐘！':'：警鐘波！':'：基本攻撃。'}`);
@@ -235,7 +239,7 @@ export class Battle {
     const magical=actor.enemyPattern==='astraEnd'&&!!reserved||!(reserved&&script?.chargePhysical)&&!(script?.physicalFirst&&phase===1)&& (!!actor.enemyMagic||!!script?.alwaysMagic||!!reserved||(singer&&action%2===0));
     const skill:Skill=magical?{...skills.fire,name:actor.enemyMagic?.name??(script?(reserved?(enemyChargeName(script,reserved)):script.spell):desert?(machine?'土砂砲':reserved?(reserved>=90?'星砂終式':'幻影砂陣'):'砂流術'):actor.enemyMagic?.element==='earth'?'星砂弾':actor.enemyMagic?.element==='wind'?'蜃風術':machine?'共鳴砲':reserved?(reserved>=80?'終奏':'眠り歌'):'共鳴光'),element:script?.alternateElement&&action%2===0?script.alternateElement:script?.element??actor.enemyMagic?.element??(desert?'earth':'light'),power:reserved??(script?(phase===3?script.finalNormalPower:script.normalPower):undefined)??actor.enemyMagic?.power??(desert?(phase===3?64:52):(phase===3?52:44)),modifiers:singer&&phase>=2?script?.normalModifiers:actor.enemyMagic?.modifiers,statuses:singer&&phase>=2?(script?script.statuses:desert?[{id:'blind',chance:0.25,turns:2},{id:'silence',chance:0.2,turns:2}]:[{id:'sleep',chance:0.2,turns:2},{id:'silence',chance:0.2,turns:2}]):actor.enemyMagic?.statuses??[]}:reserved&&script?.chargePhysical?{...skills.attack,name:script.charge,power:reserved}:skills.attack;
     const physicalRate=(script?.chargePhysical||script?.singlePower!==undefined)?statValue(actor,'attack')/Math.max(1,actor.attack):1;
-    const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),original=taunter??living[Math.min(living.length-1,Math.floor(this.random()*living.length))],protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
+    const living=this.allies.filter(u=>u.hp>0),taunter=living.find(u=>(u.tauntRounds??0)>0),decision=chooseEnemyTarget(actor,living,this.random,skill.statuses),original=decision.target!,protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
     if(reserved&&script?.chargeAll){
       const effects:BattleEvent[]=[];
       for(const original of living){if(original.hp<=0)continue;const protector=this.allies.find(u=>u.hp>0&&u.covering===original.id),target=protector??original;
@@ -247,6 +251,7 @@ export class Battle {
     }
     const event=this.makeEvent(actor,target,magical?'fire':'attack');event.actionName=skill.name;event.covered=!!protector;event.taunted=!!taunter;
     if(taunter)event.logs.push(`${actor.name}は${taunter.name}の挑発に引き寄せられた！`);
+    event.logs.push(...enemyDecisionLog(actor,decision));
     if(protector)event.logs.push(`${protector.name}が${original.name}をかばった！`);
     if(singer)event.logs.push(`${actor.name} 第${phase}段階。${skill.name}！`);
     const cover=protector?Math.max(TREE_LIMITS.coverMinimum,BALANCE.coverMultiplier-treeValue(protector,'coverReduction')-(equippedWeapon(protector)?.effects.coverReduction??0)):1;

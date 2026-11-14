@@ -7,7 +7,7 @@ export type TargetKind = 'enemy' | 'ally' | 'self' | 'allAllies';
 export interface StatusInstance { id: StatusId; remaining: number }
 export interface Modifier { stat: Stat; amount: number; remaining: number }
 export interface Unit {
-  id: string; name: string; role: string; weapons: string[];
+  id: string; enemyTemplateId?:string; name: string; role: string; weapons: string[];
   maxHp: number; hp: number; maxMp: number; mp: number;
   attack: number; defense: number; speed: number; color: number; texture?: string; weaponId?:string; fateRoute?:'direct'|'shelter'; enemyPattern?:'astraEnd'|'eternalGuardian'|'fateGuardian'|'lastJudge'|'lastJudgeShelter'|'collapseSoldier'|'endApostle'|'graveSentinel'|'endObserver'|'mistGuardian'|'canalKeeper'|'bellGuardian'|'ruinSoldier'|'windWarden'|'skyGuardian'|'resonanceMachine'|'echoria'|'gardion'|'zaira'|'sandSoldier'|'clockDrone'|'clockGuard'|'luciel'|'gearGuard'|'groveGuard'|'rootOrb'|'granGuard'|'seles'|'skyDrone'|'skyGuard'|'aeroGuard'|'astraeia'|'archiveGuard'|'starOrb'|'recordGuardian'|'memoria'|'tideGuardian'|'luminaria'|'silenceGuard'|'requiem'|'gloomLarva'|'rootSentinel'|'astravore'|'chartEater'|'astroSentinel'|'celestialZero'|'astralWatcher'|'regaliaGuard'|'crownBreaker'|'voidWatcher'|'gravityGuard'|'noaZero';enemyMagic?:{name?:string;power:number;element:Element;statuses?:StatusEffect[];modifiers?:ModifierEffect[]};phaseEvasion?:{threshold:number;chance:number};counterReady?:boolean; evasion?:number;normalAttackHits?:number;
   treeEffects?:TreeEffect[]; treeBonuses?:Partial<Record<TreeStat,number>>;
