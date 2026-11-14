@@ -28,7 +28,7 @@ const growth=v37?JSON.parse(readFileSync(byFile('growth-builds-v37.e2e.mjs').pat
 if(growth){assert.equal(growth.sourceHash,hash);assert.deepEqual(growth.pageErrors,[]);assert.deepEqual(growth.cases.map(c=>c.width),[320,375,390,430]);for(const c of growth.cases)for(const k of ['save','rename','apply','reset','cancelReset','compare','fullRefund','inventoryPreserved','reload','saveFailureRollback','staleBattleGuard','actualBattleStats','corruptRejected'])assert.equal(c[k],true);}
 
 const exploration=v38?JSON.parse(readFileSync(byFile('exploration-v38.e2e.mjs').path+'/exploration-v38.json')):undefined;
-if(exploration){assert.deepEqual(exploration.results.map(c=>c.width),[320,375,390,430]);for(const c of exploration.results){assert.deepEqual(c.pageErrors,[]);assert.ok(c.walkedAfter>=c.walkedBefore&&c.walkedBefore>1);assert.ok(c.touch&&c.routeToggle&&c.objectiveVisible&&c.expandedPauseResume)}}
+if(exploration){assert.deepEqual(exploration.results.map(c=>c.width),[320,375,390,430]);for(const c of exploration.results){assert.deepEqual(c.pageErrors,[]);assert.ok(c.walkedAfter>=c.walkedBefore&&c.walkedBefore>1);assert.ok(c.touch&&c.safeCandidate&&c.routeToggle&&c.objectiveVisible&&c.expandedPauseResume)}}
 let balance;
 if(v36){
  balance=JSON.parse(readFileSync(by('balance').path+'/balance.json'));
