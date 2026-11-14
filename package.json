@@ -99,7 +99,8 @@
     "test:atb": "node tests/atb-v30.e2e.mjs",
     "test:atb-ui": "node tests/atb-ui-v30.e2e.mjs",
     "test:navigation": "node tests/smooth-navigation-v29.e2e.mjs",
-    "test:balance": "node tests/balance-v36.simulation.mjs"
+    "test:balance": "node tests/balance-v36.simulation.mjs",
+    "test:builds": "node tests/growth-builds-v37.e2e.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

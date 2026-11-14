@@ -1,3 +1,4 @@
+import {mountBuildManager,type GrowthViewOptions,type GrowthViewState} from './growth-builds-view';
 import {withSkillTree} from './skill-tree';
 import {heroes,cloneUnit} from './data/combat';
 import {HERO_IDS,WEAPON_FAMILIES,allWeapons,weaponById,type HeroId} from './data/weapons';
@@ -6,11 +7,12 @@ import {growUnit} from './progression';
 import type {Progress} from './save';
 import './equipment.css';
 /** Out-of-battle screen only. Battle receives its own derived copies on start. */
-export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>boolean,onBack:()=>void){
+export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>boolean,onBack:()=>void,options:GrowthViewOptions={}){
  let hero:HeroId='astel',candidate:string|null=progress.equipment.equipped.astel,notice='';
- const state=progress.equipment;
+ const buildStates:Partial<Record<HeroId,GrowthViewState>>={};
  const write=(message:string)=>{notice=message+(persist()?'（保存済み）':'（保存できません。現在の装備はこの画面内で有効です）');render()};
  function render(){
+  const state=progress.equipment;
   const template=heroes.find(h=>h.id===hero)!,base=growUnit(cloneUnit(template),progress.party[hero]);
   const current=withSkillTree(equippedUnit(base,state.equipped[hero]),progress.skillTree[hero]),next=withSkillTree(equippedUnit(base,candidate),progress.skillTree[hero]),weapon=weaponById(candidate);
   const reason=equipReason(state,hero,candidate),same=candidate===state.equipped[hero];
@@ -40,6 +42,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   const remove=get<HTMLButtonElement>('#equipment-remove');remove.disabled=state.equipped[hero]===null;remove.onclick=()=>{equipWeapon(state,hero,null);candidate=null;write('装備を解除しました。')};
   get('#equipment-notice').textContent=notice;
   get('#equipment-unlock').onclick=()=>{const changed=unlockTestWeapons(state);write(changed?'検証用武器を解放しました。':'9種類はすべて所持済みです。')};
+  const builds=document.createElement('section');get('#equipment-back').before(builds);mountBuildManager(builds,progress,hero,persist,()=>{notice='';candidate=progress.equipment.equipped[hero];render()},{...options,state:buildStates[hero]??={}});
   get('#equipment-back').onclick=()=>{host.classList.remove('equipment-screen');onBack()};
  }
  render();return ()=>host.classList.remove('equipment-screen');

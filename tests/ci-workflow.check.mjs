@@ -20,3 +20,12 @@ test('v3.6 balance receipt and full browser command are collected without deploy
  assert.ok(yaml.includes('path: .ci-v36/balance'));
  assert.ok(!yaml.includes('actions/deploy-pages'));
 });
+
+test('v3.7 growth integration collects every browser shard and preserves deployment isolation',()=>{
+ const yaml=readFileSync('.github/workflows/growth-builds-v37-validation.yml','utf8');
+ assert.ok(yaml.includes('needs: [unit, browsers, balance]'));
+ assert.ok(yaml.includes('pattern: v37-*\n          path: .ci-v37-results'));
+ assert.ok(yaml.includes('npm run test:browser-all -- --ci-group'));
+ assert.ok(yaml.includes('VALIDATION_VERSION: v37'));
+ assert.ok(!yaml.includes('actions/deploy-pages'));
+});
