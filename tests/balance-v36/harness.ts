@@ -141,7 +141,7 @@ export function weaponWindow(weaponId:string,level:number,seconds:30|60,policy:P
  }c.advance(Math.min(.25,seconds-c.time));if(++steps>241)throw Error('window stalled')}
  // With no drains/items/cancellations, credited EP follows exact conservation.
  epCredited=c.slot(actor.id).ep+epSpent;
- return {weapon:weapon.id,family:weapon.family,owner:weapon.owner,level,seconds,policy,ct:attackInterval(actor),attacks,hits,damage,epPotential:hits,epCredited,epSpent,epRemaining:c.slot(actor.id).ep,skills:used,hp:actor.hp,maxHp:actor.maxHp,healingRate:weapon.effects.healingRate??1,magicRate:weapon.effects.magicRate??1,defense:actor.defense};
+ return {weapon:weapon.id,family:weapon.family,owner:weapon.owner,level,seconds,policy,seed,ct:attackInterval(actor),attacks,hits,damage,epPotential:hits,epCredited,epSpent,epRemaining:c.slot(actor.id).ep,skills:used,hp:actor.hp,maxHp:actor.maxHp,healingRate:weapon.effects.healingRate??1,magicRate:weapon.effects.magicRate??1,defense:actor.defense};
 }
 
 /** One legal cast at Lv20, with a declared EP15/HP deficit training fixture. Actual event values. */
