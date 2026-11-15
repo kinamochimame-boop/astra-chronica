@@ -12,12 +12,13 @@ import {normalizeSurveyHistory} from './exploration/survey-save';
 import {normalizeTrackedQuest} from './adventure-compass';
 import {mapById,walkMaps} from './exploration/map-data';
 import {normalizeWorld,mapOpen} from './exploration/exploration-save';
+export const MAX_BACKUP_NODES=walkMaps.reduce((sum,map)=>sum+2*map.width*map.height,50000);
 export const BACKUP_GAME='astra-chronica',BACKUP_FORMAT=1,MAX_BACKUP_BYTES=2*1024*1024,PRE_IMPORT_KEY='astra-chronica:before-import:v1';
 export interface Backup {game:typeof BACKUP_GAME;formatVersion:1;createdAt:string;progress:Progress}
 const object=(v:unknown):v is Record<string,unknown>=>!!v&&typeof v==='object'&&!Array.isArray(v);
 function fail(message:string):never{throw new Error(message)}
 /** Bounded traversal runs before any normalizer. No property copying from untrusted objects. */
-function inspect(root:unknown){let nodes=0;const stack:[unknown,number][]=[[root,0]];while(stack.length){const [v,depth]=stack.pop()!;if(++nodes>150000||depth>24)fail('データ構造が大きすぎるか深すぎます');if(typeof v==='number'&&(!Number.isFinite(v)||Math.abs(v)>Number.MAX_SAFE_INTEGER))fail('不正な数値です');if(typeof v==='string'&&v.length>200000)fail('文字列が長すぎます');if(v&&typeof v==='object'){for(const key of Object.keys(v)){if(['__proto__','prototype','constructor'].includes(key))fail('安全でないキーを含みます');stack.push([(v as Record<string,unknown>)[key],depth+1])}}}}
+function inspect(root:unknown){let nodes=0;const stack:[unknown,number][]=[[root,0]];while(stack.length){const [v,depth]=stack.pop()!;if(++nodes>MAX_BACKUP_NODES||depth>24)fail('データ構造が大きすぎるか深すぎます');if(typeof v==='number'&&(!Number.isFinite(v)||Math.abs(v)>Number.MAX_SAFE_INTEGER))fail('不正な数値です');if(typeof v==='string'&&v.length>200000)fail('文字列が長すぎます');if(v&&typeof v==='object'){for(const key of Object.keys(v)){if(['__proto__','prototype','constructor'].includes(key))fail('安全でないキーを含みます');stack.push([(v as Record<string,unknown>)[key],depth+1])}}}}
 function equivalent(a:unknown,b:unknown):boolean{if(a===b)return true;if(Array.isArray(a)&&Array.isArray(b)){if(a.length!==b.length)return false;if(a.every(x=>typeof x!=='object')&&b.every(x=>typeof x!=='object')){const left=[...a].sort(),right=[...b].sort();return left.every((x,i)=>x===right[i])}return a.every((x,i)=>equivalent(x,b[i]))}if(object(a)&&object(b)){const keys=Object.keys(a);return keys.length===Object.keys(b).length&&keys.every(k=>Object.hasOwn(b,k)&&equivalent(a[k],b[k]))}return false}
 /** Strict import validation is intentionally separate from load()'s fresh-on-corruption fallback. */
 export function validateProgress(raw:unknown):Progress {
@@ -36,7 +37,7 @@ export function validateProgress(raw:unknown):Progress {
 export function parseBackup(text:string):Backup {
  if(new TextEncoder().encode(text).byteLength>MAX_BACKUP_BYTES)fail('ファイルは2MiB以下にしてください');let raw:unknown;try{raw=JSON.parse(text)}catch{fail('JSONファイルを読み取れません')};inspect(raw);if(!object(raw)||raw.game!==BACKUP_GAME)fail('アストラクロニカのバックアップではありません');if(raw.formatVersion!==BACKUP_FORMAT)fail('未対応のバックアップ形式です');if(typeof raw.createdAt!=='string'||raw.createdAt.length>40||!Number.isFinite(Date.parse(raw.createdAt)))fail('作成日時が不正です');return {game:BACKUP_GAME,formatVersion:1,createdAt:raw.createdAt,progress:validateProgress(raw.progress)};
 }
-export function createBackup(p:Progress,date=new Date()):{text:string;filename:string}{const backup:Backup={game:BACKUP_GAME,formatVersion:1,createdAt:date.toISOString(),progress:validateProgress(JSON.parse(JSON.stringify(p)))},text=JSON.stringify(backup,null,2);if(new TextEncoder().encode(text).byteLength>MAX_BACKUP_BYTES)fail('バックアップが2MiBを超えています');return {text,filename:`astra-chronica-save-${date.toISOString().slice(0,16).replace(/[-:T]/g,'')}.json`}}
+export function createBackup(p:Progress,date=new Date()):{text:string;filename:string}{const backup:Backup={game:BACKUP_GAME,formatVersion:1,createdAt:date.toISOString(),progress:validateProgress(JSON.parse(JSON.stringify(p)))},text=JSON.stringify(backup);if(new TextEncoder().encode(text).byteLength>MAX_BACKUP_BYTES)fail('バックアップが2MiBを超えています');return {text,filename:`astra-chronica-save-${date.toISOString().slice(0,16).replace(/[-:T]/g,'')}.json`}}
 export type BackupStorage=Pick<Storage,'getItem'|'setItem'|'removeItem'>;
 /** localStorage single-key writes are atomic. A verified predecessor is protected before promotion. */
 export function importBackup(backup:Backup,storage:BackupStorage,confirmed:boolean):{ok:true;progress:Progress}|{ok:false;reason:string}{

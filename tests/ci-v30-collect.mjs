@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {productionFingerprint} from './production-fingerprint.mjs';
-const release=process.env.VALIDATION_VERSION??'v30',v40=release==='v40',v39=release==='v39'||v40,v38=release==='v38'||v39,v37=release==='v37'||v38,v36=release==='v36'||v37,v351=release==='v351'||v36,v35=release==='v35'||v351,v34=release==='v34'||v35,v33=release==='v33'||v34,v32=release==='v32'||v33,v31=release==='v31'||v32,unitCount=v40?3548:v39?3506:v38?3491:v37?3475:v36?3433:v351?3403:v35?3381:v34?3273:v33?3260:v32?3231:v31?3205:3169,unitFiles=v40?59:v39?57:v38?56:v37?55:v36?54:v351?53:v35?52:v34?51:v33?50:v32?49:v31?48:47;
+const release=process.env.VALIDATION_VERSION??'v30',v40=release==='v40',v39=release==='v39'||v40,v38=release==='v38'||v39,v37=release==='v37'||v38,v36=release==='v36'||v37,v351=release==='v351'||v36,v35=release==='v35'||v351,v34=release==='v34'||v35,v33=release==='v33'||v34,v32=release==='v32'||v33,v31=release==='v31'||v32,unitCount=v40?3549:v39?3506:v38?3491:v37?3475:v36?3433:v351?3403:v35?3381:v34?3273:v33?3260:v32?3231:v31?3205:3169,unitFiles=v40?59:v39?57:v38?56:v37?55:v36?54:v351?53:v35?52:v34?51:v33?50:v32?49:v31?48:47;
 const root='.ci-'+release+'-results',groups=readdirSync(root).map(n=>({path:root+'/'+n,data:JSON.parse(readFileSync(root+'/'+n+'/receipt.json'))}));
 const sha=b=>createHash('sha256').update(b).digest('hex'),hash=productionFingerprint(),head=process.env.V26_HEAD_SHA;
 assert.equal(groups.length,v36?28:27);assert.equal(new Set(groups.map(g=>g.data.group)).size,v36?28:27);
