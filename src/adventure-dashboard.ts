@@ -1,0 +1,7 @@
+import type {Progress} from './save';
+import {mountCompass} from './adventure-compass-view';
+import {adventureCompass,questStatus} from './adventure-compass';
+import {heroes} from './data/combat';
+import {weaponById,type HeroId} from './data/weapons';
+import {remainingSP} from './skill-tree';
+export function mountDashboard(host:HTMLElement,p:Progress,resume:()=>void){mountCompass(host,p,true);const b=document.createElement('button');b.className='primary';b.id='adventure-resume';b.textContent='冒険を再開';b.onclick=resume;host.append(b);const party=document.createElement('section');party.className='dashboard-party';party.setAttribute('aria-label','パーティ状況');for(const h of heroes){const id=h.id as HeroId,card=document.createElement('article'),title=document.createElement('h2'),text=document.createElement('p');title.textContent=`${h.name} Lv.${p.party[id].level}`;text.textContent=`${weaponById(p.equipment.equipped[id])?.name??'装備なし'} ／ 残りSP ${remainingSP(p.skillTree,id,p.party[id].level)}`;card.append(title,text);party.append(card)}host.append(party);const quests=document.createElement('details'),summary=document.createElement('summary');summary.textContent='依頼の状況';quests.append(summary);for(const q of adventureCompass(p).quests){const text=document.createElement('p');text.textContent=`${q.name}：${questStatus(p,q)}`;quests.append(text)}if(quests.childElementCount===1){const text=document.createElement('p');text.textContent='冒険を進めると依頼が解放されます。';quests.append(text)}host.append(quests)}

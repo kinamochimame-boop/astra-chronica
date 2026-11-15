@@ -4,23 +4,26 @@ import {chapters} from '../data/chapter-one';
 import {chapterState,eventOpen,locationOpen} from '../adventure';
 import {mainObjective} from './objective';
 import {mapById,walkMaps} from './map-data';
-import {transitionReason,objectConditionReason} from './transitions';
+import {transitionReason,objectConditionReason,objectRevealed} from './transitions';
 import {findPath} from './pathfinding';
 import {approachPoint} from './approach';
 import {activeMap} from './active-map';
 import {mapOpen} from './exploration-save';
 const arrow=(from:Point,to:Point)=>{const x=to.x-from.x,y=to.y-from.y;if(Math.hypot(x,y)<32)return '◎';return ['→','↘','↓','↙','←','↖','↑','↗'][(Math.round(Math.atan2(y,x)/(Math.PI/4))+8)%8]};
+export interface NavigationGoal {eventId?:string;locationId?:string;questId?:string;objectiveId?:string}
 export interface NavigationTarget {point:Point;name:string;kind:'object'|'chest'|'exit'|'device'}
 const cache=new WeakMap<Progress,{key:string;terrain:string;target?:NavigationTarget}>();
+const questCache=new WeakMap<Progress,{key:string;terrain:string;target?:NavigationTarget}>();
 /** One target drives the text and minimap. Only open, physically reachable links are eligible. */
-export function navigationTarget(p:Progress,map:WalkMap,hero:Point,live:readonly {x:number;y:number;definition:{id:string}}[]=[]):NavigationTarget|undefined{
- const chapter=chapters.find(c=>c.id===map.chapterId)!,state=chapterState(p.adventure,chapter),goal=mainObjective(p.adventure,chapter);
- const key=[map.id,goal.eventId,Math.floor(hero.x/map.tile),Math.floor(hero.y/map.tile),state.completed.join(','),live.map(s=>s.definition.id+':'+Math.floor(s.x/map.tile)+':'+Math.floor(s.y/map.tile)).join(',')].join('|'),old=cache.get(p),terrain=map.grid.join('\n');
+export function navigationTarget(p:Progress,map:WalkMap,hero:Point,live:readonly {x:number;y:number;definition:{id:string}}[]=[],override?:NavigationGoal):NavigationTarget|undefined{
+ const chapter=chapters.find(c=>c.id===map.chapterId)!,state=chapterState(p.adventure,chapter),goal:NavigationGoal=override??mainObjective(p.adventure,chapter);
+ const key=[map.id,goal.eventId,goal.locationId,goal.questId,goal.objectiveId,Math.floor(hero.x/map.tile),Math.floor(hero.y/map.tile),state.completed.join(','),live.map(s=>s.definition.id+':'+Math.floor(s.x/map.tile)+':'+Math.floor(s.y/map.tile)).join(',')].join('|'),memo=override?questCache:cache,old=memo.get(p),terrain=map.grid.join('\n');
  if(old?.key===key&&old.terrain===terrain)return old.target;
- const target=resolve();cache.set(p,{key,terrain,target});return target;
+ const target=resolve();memo.set(p,{key,terrain,target});return target;
  function resolve():NavigationTarget|undefined{
-  if(!goal.eventId||!goal.locationId)return;
-  const local=map.objects.find(o=>o.eventId===goal.eventId)??map.symbols.find(s=>s.eventId===goal.eventId);
+  if(!goal.locationId||!goal.eventId&&!goal.questId)return;
+  const local=map.objects.find(o=>goal.eventId?o.eventId===goal.eventId:o.questId===goal.questId&&o.objectiveId===goal.objectiveId&&objectRevealed(p,map,o))??(goal.eventId?map.symbols.find(s=>s.eventId===goal.eventId):undefined);
+  if(override?.questId&&map.locationId===goal.locationId&&!local)return;
   if(local){const point=live.find(s=>s.definition.id===local.id)??local;
    if(approachPoint(map,hero,point))return {point,name:local.name,kind:'kind'in local&&local.kind==='chest'?'chest':'object'};
    // A closed target never becomes a false route. Offer an available, reachable device instead.
