@@ -1,8 +1,9 @@
+import {changeGrowthWeapon,unlockGrowthWeapons} from './growth-edit';
 import {mountBuildManager,type GrowthViewOptions,type GrowthViewState} from './growth-builds-view';
 import {withSkillTree} from './skill-tree';
 import {heroes,cloneUnit} from './data/combat';
 import {HERO_IDS,WEAPON_FAMILIES,allWeapons,weaponById,type HeroId} from './data/weapons';
-import {equipReason,equipWeapon,equippedUnit,equippedWeapon,unlockTestWeapons} from './equipment';
+import {equipReason,equippedUnit,equippedWeapon} from './equipment';
 import {growUnit} from './progression';
 import type {Progress} from './save';
 import './equipment.css';
@@ -10,7 +11,7 @@ import './equipment.css';
 export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>boolean,onBack:()=>void,options:GrowthViewOptions={}){
  let hero:HeroId='astel',candidate:string|null=progress.equipment.equipped.astel,notice='';
  const buildStates:Partial<Record<HeroId,GrowthViewState>>={};
- const write=(message:string)=>{notice=message+(persist()?'（保存済み）':'（保存できません。現在の装備はこの画面内で有効です）');render()};
+ const write=(result:ReturnType<typeof changeGrowthWeapon>,message:string)=>{notice=result.ok?message+'（保存済み）':result.reason;render()};
  function render(){
   const state=progress.equipment;
   const template=heroes.find(h=>h.id===hero)!,base=growUnit(cloneUnit(template),progress.party[hero]);
@@ -21,16 +22,16 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   <section class="equipment-current"><h2>${template.name} Lv.${base.level}の現在装備</h2><p id="equipment-current-name"></p></section>
   <h2>所持武器・武器図鑑</h2><div class="weapon-list" role="group" aria-label="武器選択"></div>
   <section class="equipment-preview"><h2>装備前 → 装備後</h2><p id="equipment-selected"></p><table><caption>能力値比較（星脈を含む・一時補正を除く）</caption><thead><tr><th>能力</th><th>現在</th><th>変更後</th><th>差分</th></tr></thead><tbody></tbody></table><p id="equipment-description"></p><p id="equipment-reason" role="status"></p><button id="equipment-equip" class="primary">装備する</button><button id="equipment-remove" class="secondary">装備を解除</button></section>
-  <p id="equipment-notice" role="status"></p><details class="equipment-test"><summary>装備検証用の武器解放</summary><p>9種類を各1個以上所持できるようにします。戦績・レベルは変わりません。追加分は本編の所持品として保存されます。繰り返しても増殖しません。</p><button id="equipment-unlock" class="secondary">検証用武器9種を解放・保存</button></details><button id="equipment-back" class="secondary">ホームへ戻る</button>`;
+  <p id="equipment-notice" role="status"></p><details class="equipment-test"><summary>装備検証用の武器解放</summary><p>9種類を各1個以上所持できるようにします。戦績・レベルは変わりません。追加分は本編の所持品として保存されます。繰り返しても増殖しません。</p><button id="equipment-unlock" class="secondary">検証用武器9種を解放・保存</button></details><button id="equipment-back" class="secondary">${options.backLabel??'ホームへ戻る'}</button>`;
   const get=<T extends HTMLElement=HTMLElement>(selector:string)=>host.querySelector<T>(selector)!;
-  for(const id of HERO_IDS){const button=document.createElement('button');button.textContent=heroes.find(h=>h.id===id)!.name;button.setAttribute('aria-pressed',String(hero===id));button.onclick=()=>{hero=id;candidate=state.equipped[id];render()};get('.equipment-heroes').append(button)}
+  for(const id of HERO_IDS){const button=document.createElement('button');button.textContent=heroes.find(h=>h.id===id)!.name;button.setAttribute('aria-pressed',String(hero===id));button.onclick=()=>{if(!button.isConnected||options.inBattle?.())return;hero=id;candidate=state.equipped[id];render()};get('.equipment-heroes').append(button)}
   get('#equipment-current-name').textContent=weaponById(current.weaponId)?.name??'装備なし';
   for(const w of allWeapons){
    const card=document.createElement('button');card.className='weapon-choice';card.dataset.weaponId=w.id;card.setAttribute('aria-pressed',String(candidate===w.id));
    const used=HERO_IDS.filter(id=>state.equipped[id]===w.id).length,why=equipReason(state,hero,w.id);
    // Unusable weapons remain inspectable; the equip action below is disabled with a reason.
    card.textContent=`◇ ${w.name} ｜ ${WEAPON_FAMILIES[w.family]}\n所持${state.inventory[w.id]??0}（装備中${used}）${why?' · '+why:''}`;
-   card.onclick=()=>{candidate=w.id;render()};get('.weapon-list').append(card);
+   card.onclick=()=>{if(!card.isConnected||options.inBattle?.())return;candidate=w.id;render()};get('.weapon-list').append(card);
   }
   get('#equipment-selected').textContent=`選択：${weapon?.name??'装備なし'}`;
   const rate=(u:typeof base,key:'healingRate'|'magicRate')=>Math.round(((equippedWeapon(u)?.effects[key]??1)-1)*100);
@@ -38,12 +39,12 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   for(const [name,before,after,suffix] of rows){const row=document.createElement('tr');row.dataset.stat=name;for(const value of [name,`${before}${suffix}`,`${after}${suffix}`,`${after-before>0?'+':''}${after-before}${suffix}`]){const cell=document.createElement('td');cell.textContent=value;row.append(cell)}get('tbody').append(row)}
   get('#equipment-description').textContent=weapon?.description??'武器補正と武器特性がなくなります。';
   get('#equipment-reason').textContent=reason||(same?'現在装備中です':'装備できます');
-  const equip=get<HTMLButtonElement>('#equipment-equip');equip.disabled=!!reason||same;equip.onclick=()=>{if(equipWeapon(state,hero,candidate))write('装備を変更しました。')};
-  const remove=get<HTMLButtonElement>('#equipment-remove');remove.disabled=state.equipped[hero]===null;remove.onclick=()=>{equipWeapon(state,hero,null);candidate=null;write('装備を解除しました。')};
+  const equip=get<HTMLButtonElement>('#equipment-equip');equip.disabled=!!reason||same;equip.onclick=()=>{if(!equip.isConnected||!host.contains(equip)||options.inBattle?.())return;write(changeGrowthWeapon(progress,hero,candidate,persist,{inBattle:options.inBattle?.()??false}),'装備を変更しました。')};
+  const remove=get<HTMLButtonElement>('#equipment-remove');remove.disabled=state.equipped[hero]===null;remove.onclick=()=>{if(!remove.isConnected||!host.contains(remove)||options.inBattle?.())return;const result=changeGrowthWeapon(progress,hero,null,persist,{inBattle:options.inBattle?.()??false});if(result.ok)candidate=null;write(result,'装備を解除しました。')};
   get('#equipment-notice').textContent=notice;
-  get('#equipment-unlock').onclick=()=>{const changed=unlockTestWeapons(state);write(changed?'検証用武器を解放しました。':'9種類はすべて所持済みです。')};
+  const unlock=get<HTMLButtonElement>('#equipment-unlock');unlock.onclick=()=>{if(!unlock.isConnected||!host.contains(unlock)||options.inBattle?.())return;write(unlockGrowthWeapons(progress,persist,{inBattle:options.inBattle?.()??false}),'検証用武器を解放しました。')};
   const builds=document.createElement('section');get('#equipment-back').before(builds);mountBuildManager(builds,progress,hero,persist,()=>{notice='';candidate=progress.equipment.equipped[hero];render()},{...options,state:buildStates[hero]??={}});
-  get('#equipment-back').onclick=()=>{host.classList.remove('equipment-screen');onBack()};
+  const back=get<HTMLButtonElement>('#equipment-back');back.onclick=()=>{if(!back.isConnected||options.inBattle?.())return;host.classList.remove('equipment-screen');onBack()};
  }
  render();return ()=>host.classList.remove('equipment-screen');
 }

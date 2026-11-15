@@ -1,3 +1,4 @@
+import {ManagedExplorationGame} from './managed-game';
 import {explorationRestriction,explorationState} from '../exploration-conditions';
 import {isEarlyWalkingChapter} from './early-chapters';
 import {reformPhase,reformLabel} from './star-reform';
@@ -123,7 +124,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
    }viewport.classList.add('encounter-flash');say('敵に接触しました。戦闘へ移ります。');transitionTimer=window.setTimeout(()=>{if(!disposed)actions.battle(contact)},reduced?0:160);}
   }
  }
- const scene=new WalkScene(),game=new Phaser.Game({type:Phaser.AUTO,width:390,height:480,parent:viewport,scene,backgroundColor:'#16392c',banner:false,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},input:{touch:{capture:false}}});
+ const scene=new WalkScene(),game=new ManagedExplorationGame({type:Phaser.AUTO,width:390,height:480,parent:viewport,scene,backgroundColor:'#16392c',banner:false,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},input:{touch:{capture:false}}});
  const resize=()=>{if(game.isBooted&&viewport.clientWidth){const height=Math.round(390*viewport.clientHeight/viewport.clientWidth);game.scale.setGameSize(390,height);game.scale.updateBounds()}};const observer=new ResizeObserver(resize);observer.observe(viewport);game.events.once(Phaser.Core.Events.READY,resize);
  host.querySelector<HTMLButtonElement>('#world-approach')!.onclick=()=>{if(!approachTarget||runtime.paused||runtime.locked)return;const reason=objectConditionReason(p,map,approachTarget);if(reason){say(reason);return}const goal=approachPoint(map,runtime.hero,approachTarget);if(!goal){say('対象へ近づける通路がありません。別の出口や手順を確かめてください。');return}runtime.moveTo(goal);host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;say('近くまで移動します。到着後、もう一度対象をタップしてください。');sync(0,true)};
  const key=(e:KeyboardEvent)=>{const dirs:Record<string,[number,number]>={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]};const dir=dirs[e.key];if(!dir||runtime.paused||runtime.locked||disposed)return;e.preventDefault();if(e.repeat&&runtime.hero.path.length)return;runtime.moveTo({x:runtime.hero.x+dir[0]*map.tile,y:runtime.hero.y+dir[1]*map.tile});say(runtime.notice);sync(0,true)};

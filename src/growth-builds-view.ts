@@ -7,7 +7,7 @@ import {applyBuild,buildReason,buildsFor,growthStats,growthTransaction,renameBui
 import type {Progress} from './save';
 import './growth-builds.css';
 export interface GrowthViewState {index?:number;notice?:string;panelOpen?:boolean;overviewOpen?:boolean;comparisonOpen?:boolean}
-export interface GrowthViewOptions {state?:GrowthViewState;inBattle?:()=>boolean;onTree?:()=>void;onEquipment?:()=>void}
+export interface GrowthViewOptions {backLabel?:string;state?:GrowthViewState;inBattle?:()=>boolean;onTree?:()=>void;onEquipment?:()=>void}
 const signed=(n:number)=>n>0?'+'+n:String(n);
 /** Shared by tree and equipment; snapshots contain IDs only, not derived bonuses or inventory. */
 export function mountBuildManager(host:HTMLElement,p:Progress,hero:HeroId,persist:()=>boolean,onChanged:()=>void,options:GrowthViewOptions={}){
@@ -35,7 +35,7 @@ export function mountBuildManager(host:HTMLElement,p:Progress,hero:HeroId,persis
    get<HTMLButtonElement>('.growth-save').disabled=context().inBattle;
    get<HTMLButtonElement>('.growth-rename').disabled=context().inBattle;
    get('.growth-rename').onclick=()=>write(()=>renameBuild(p,hero,index,get<HTMLInputElement>('.growth-name').value,context()),'ビルド名を保存しました。');
-   get('.growth-save').onclick=()=>{
+   get('.growth-save').onclick=()=>{if(!host.isConnected||context().inBattle)return;
     if(slot.saved){const dialog=get<HTMLDialogElement>('.growth-confirm');get('.growth-confirm h2').textContent='ビルド上書きの確認';get('.growth-confirm p').textContent=`「${slot.name}」を現在の構成で上書きします。武器やSPは増えません。`;get('.growth-confirm-yes').textContent='上書きを実行';get('.growth-confirm-yes').onclick=()=>{dialog.close();write(()=>saveBuild(p,hero,index,context()),'現在の構成をビルドに保存しました。')};dialog.showModal();}
     else write(()=>saveBuild(p,hero,index,context()),'現在の構成をビルドに保存しました。');
    };
@@ -48,17 +48,18 @@ export function mountBuildManager(host:HTMLElement,p:Progress,hero:HeroId,persis
     const effects=document.createElement('p');effects.textContent=specials(slot.nodes,slot.weaponId);body.append(effects);
    }
   }
-  get('.growth-reset').onclick=()=>{
+  get('.growth-reset').onclick=()=>{if(!host.isConnected||context().inBattle)return;
    const dialog=get<HTMLDialogElement>('.growth-confirm');get('.growth-confirm h2').textContent='スキル振り直しの確認';get('.growth-confirm p').textContent=`${heroName}の習得ノードをすべて解除し、${total-remaining}SPを全額返却します。無料です。保存済みビルドは残ります。`;
    get('.growth-confirm-yes').textContent='振り直しを実行';get('.growth-confirm-yes').onclick=()=>{dialog.close();write(()=>resetTree(p,hero,true,context()),'スキルを振り直し、使用SPを全額返却しました。')};dialog.showModal();
   };
   get<HTMLButtonElement>('.growth-reset').disabled=context().inBattle;
   get('.growth-confirm-no').onclick=()=>get<HTMLDialogElement>('.growth-confirm').close();
-  for(const [label,callback] of [['装備画面で武器を変更',options.onEquipment],['スキルツリーで育成',options.onTree]] as const)if(callback){const b=document.createElement('button');b.className='secondary';b.textContent=label;b.onclick=callback;get('.growth-links').append(b)}
+  for(const [label,callback] of [['装備画面で武器を変更',options.onEquipment],['スキルツリーで育成',options.onTree]] as const)if(callback){const b=document.createElement('button');b.className='secondary';b.textContent=label;b.onclick=()=>{if(host.isConnected&&!context().inBattle)callback()};get('.growth-links').append(b)}
   get('.growth-notice').textContent=notice;
   get<HTMLDetailsElement>('.growth-panel').open=state.panelOpen??false;get<HTMLDetailsElement>('.growth-overview').open=state.overviewOpen??false;get<HTMLDetailsElement>('.growth-comparison').open=state.comparisonOpen??false;
  }
  function write(action:()=>GrowthResult,success:string){
+  if(!host.isConnected)return;
   const result=growthTransaction(p,persist,action);notice=result.ok?success:result.reason;state.index=index;state.notice=notice;state.panelOpen=host.querySelector<HTMLDetailsElement>('.growth-panel')!.open;state.overviewOpen=host.querySelector<HTMLDetailsElement>('.growth-overview')!.open;state.comparisonOpen=host.querySelector<HTMLDetailsElement>('.growth-comparison')!.open;
   if(result.ok){onChanged();return}render();
  }
