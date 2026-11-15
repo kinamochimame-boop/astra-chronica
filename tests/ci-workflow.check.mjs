@@ -38,3 +38,11 @@ test('v3.8 exploration collects every browser shard, survey receipt and no deplo
  assert.ok(yaml.includes('VALIDATION_VERSION: v38'));
  assert.ok(!yaml.includes('actions/deploy-pages'));
 });
+
+test('v3.9 integration validates all shards and keeps Pages deployment isolated',()=>{
+ const yaml=readFileSync('.github/workflows/integration-v39-validation.yml','utf8');
+ assert.ok(yaml.includes('needs: [unit, browsers, balance]'));
+ assert.ok(yaml.includes('pattern: v39-*\n          path: .ci-v39-results'));
+ assert.ok(yaml.includes('npm run test:browser-all -- --ci-group'));
+ assert.ok(!yaml.includes('actions/deploy-pages'));
+});
