@@ -12,13 +12,14 @@ import {normalizeSurveyHistory} from './exploration/survey-save';
 import {normalizeTrackedQuest} from './adventure-compass';
 import {mapById,walkMaps} from './exploration/map-data';
 import {normalizeWorld,mapOpen} from './exploration/exploration-save';
+const MAX_BACKUP_ARRAY=Math.max(1024,...walkMaps.map(map=>map.width*map.height));
 export const MAX_BACKUP_NODES=walkMaps.reduce((sum,map)=>sum+2*map.width*map.height,50000);
 export const BACKUP_GAME='astra-chronica',BACKUP_FORMAT=1,MAX_BACKUP_BYTES=2*1024*1024,PRE_IMPORT_KEY='astra-chronica:before-import:v1';
 export interface Backup {game:typeof BACKUP_GAME;formatVersion:1;createdAt:string;progress:Progress}
 const object=(v:unknown):v is Record<string,unknown>=>!!v&&typeof v==='object'&&!Array.isArray(v);
 function fail(message:string):never{throw new Error(message)}
 /** Bounded traversal runs before any normalizer. No property copying from untrusted objects. */
-function inspect(root:unknown){let nodes=0;const stack:[unknown,number][]=[[root,0]];while(stack.length){const [v,depth]=stack.pop()!;if(++nodes>MAX_BACKUP_NODES||depth>24)fail('データ構造が大きすぎるか深すぎます');if(typeof v==='number'&&(!Number.isFinite(v)||Math.abs(v)>Number.MAX_SAFE_INTEGER))fail('不正な数値です');if(typeof v==='string'&&v.length>200000)fail('文字列が長すぎます');if(v&&typeof v==='object'){for(const key of Object.keys(v)){if(['__proto__','prototype','constructor'].includes(key))fail('安全でないキーを含みます');stack.push([(v as Record<string,unknown>)[key],depth+1])}}}}
+function inspect(root:unknown){let nodes=0;const stack:[unknown,number][]=[[root,0]];while(stack.length){const [v,depth]=stack.pop()!;if(++nodes>MAX_BACKUP_NODES||depth>24)fail('データ構造が大きすぎるか深すぎます');if(typeof v==='number'&&(!Number.isFinite(v)||Math.abs(v)>Number.MAX_SAFE_INTEGER))fail('不正な数値です');if(typeof v==='string'&&v.length>200000)fail('文字列が長すぎます');if(v&&typeof v==='object'){if(Array.isArray(v)&&v.length>MAX_BACKUP_ARRAY)fail('配列が大きすぎます');const keys=Object.keys(v);if(!Array.isArray(v)&&keys.length>1024)fail('オブジェクト項目が多すぎます');for(const key of keys){if(['__proto__','prototype','constructor'].includes(key))fail('安全でないキーを含みます');stack.push([(v as Record<string,unknown>)[key],depth+1])}}}}
 function equivalent(a:unknown,b:unknown):boolean{if(a===b)return true;if(Array.isArray(a)&&Array.isArray(b)){if(a.length!==b.length)return false;if(a.every(x=>typeof x!=='object')&&b.every(x=>typeof x!=='object')){const left=[...a].sort(),right=[...b].sort();return left.every((x,i)=>x===right[i])}return a.every((x,i)=>equivalent(x,b[i]))}if(object(a)&&object(b)){const keys=Object.keys(a);return keys.length===Object.keys(b).length&&keys.every(k=>Object.hasOwn(b,k)&&equivalent(a[k],b[k]))}return false}
 /** Strict import validation is intentionally separate from load()'s fresh-on-corruption fallback. */
 export function validateProgress(raw:unknown):Progress {
