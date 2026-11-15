@@ -1,0 +1,23 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {mkdirSync,writeFileSync,readFileSync} from 'node:fs';
+import {productionFingerprint} from './production-fingerprint.mjs';
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']}),cases=[],errors=[];
+const base=process.env.BASE_URL||'http://localhost:5173',dev=process.env.UI_TEST_URL||'http://localhost:5173';
+try{for(const width of [320,375,390,430]){const page=await browser.newPage({viewport:{width,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});page.on('pageerror',e=>errors.push(e.message));const tap=name=>page.getByRole('button',{name,exact:true}).tap(),saved=()=>page.evaluate(()=>localStorage.getItem('astra-chronica:v1'));
+ await page.goto(base);await tap('ゲーム開始');await tap('セーブデータ管理');
+ const dl=page.waitForEvent('download');await tap('セーブデータを書き出す');const download=await dl;const backup=JSON.parse(readFileSync(await download.path(),'utf8'));assert.equal(backup.game,'astra-chronica');assert.equal(backup.progress.version,2);
+ const original=await saved(),next=structuredClone(backup);next.progress.wins=2;next.progress.battles=3;
+ const file=content=>page.locator('#backup-file').setInputFiles({name:'backup.json',mimeType:'application/json',buffer:Buffer.from(content)});
+ await file(JSON.stringify(next));await page.locator('#backup-confirm').waitFor();assert.equal(await saved(),original);await page.evaluate(()=>{window.v40OldConfirm=document.querySelector('#backup-confirm').onclick});await tap('読み込みを取り消す');assert.equal(await saved(),original);
+ for(const bad of ['{',JSON.stringify({...next,game:'other'}),JSON.stringify({...next,progress:{...next.progress,wins:-1}})]){await file(bad);assert.equal(await page.locator('#backup-confirm').count(),0);assert.equal(await saved(),original)}
+ await file(JSON.stringify(next));await page.locator('#backup-confirm').waitFor();await page.evaluate(()=>window.v40OldConfirm());assert.equal(await saved(),original);await page.evaluate(()=>{window.v40Set=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw Error('quota')}});await tap('現在のセーブを置き換えて読み込む');assert.match(await page.locator('#backup-notice').textContent(),/現在のセーブは変更していません/);assert.equal(await saved(),original);await tap('セーブデータを書き出す');assert.match(await page.locator('#backup-notice').textContent(),/未保存状態/);await page.evaluate(()=>{Storage.prototype.setItem=window.v40Set});
+ await file(JSON.stringify(next));await tap('現在のセーブを置き換えて読み込む');await page.getByRole('heading',{name:'星灯りの野営地',exact:true}).waitFor();assert.equal(JSON.parse(await saved()).wins,2);await page.reload();await tap('ゲーム開始 · 続きから');assert.equal(JSON.parse(await saved()).wins,2);
+ await tap('セーブデータ管理');await tap('前回読み込み前のデータを確認');await page.locator('#backup-confirm').waitFor();assert.match(await page.locator('#backup-preview').textContent(),/勝利 0回/);await tap('読み込みを取り消す');
+ // A canonical v3.7/v3.8 legacy fixture, explicitly not a fresh-play claim.
+ const legacy=await page.evaluate(async dev=>{const {fresh}=await import(dev+'/src/save.ts'),{saveBuild}=await import(dev+'/src/growth-builds.ts'),{walkMaps}=await import(dev+'/src/exploration/map-data.ts');const p=fresh();p.started=true;p.party.astel.level=5;saveBuild(p,'astel',0,{inBattle:false});const m=walkMaps[0];p.survey={[m.id]:{format:1,width:m.width,height:m.height,seen:[1,2],walked:[1]}};return p},dev);
+ await file(JSON.stringify({...backup,progress:legacy}));await tap('現在のセーブを置き換えて読み込む');const restored=JSON.parse(await saved());assert.deepEqual(restored.builds,legacy.builds);assert.deepEqual(restored.survey,legacy.survey);
+ await tap('セーブデータ管理');await file(JSON.stringify({...backup,progress:legacy}));assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);const box=await page.locator('#backup-confirm').boundingBox();assert.ok(box.height>=44);mkdirSync('docs/screenshots/v40',{recursive:true});await page.screenshot({path:`docs/screenshots/v40/backup-${width}.png`,fullPage:true,animations:'disabled'});await tap('読み込みを取り消す');await tap('ホームへ戻る');
+ cases.push({width,export:true,cancel:true,corruptRejected:true,quotaProtected:true,staleGuard:true,import:true,reload:true,builds:true,survey:true,previousProtected:true});await page.close();}
+ assert.deepEqual(errors,[]);writeFileSync('/tmp/v40-backup.json',JSON.stringify({sourceHash:productionFingerprint(),cases,pageErrors:errors}));console.log('PASS v4.0 backup: 4 widths/export/strict preview/cancel/quota/restore/legacy builds+survey/previous protection/pageErrors0');
+}finally{await browser.close()}
