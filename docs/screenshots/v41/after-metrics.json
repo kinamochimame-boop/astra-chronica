@@ -1,6 +1,6 @@
 {
   "phase": "after",
-  "sourceHash": "a45f757bd14128d069c1037314d3e69631deee8da77a5593bf9d942d1292e18b",
+  "sourceHash": "164c76c6657040512969e787433d19946e10ff01372ea007e86d29efe4f6eecf",
   "rows": [
     {
       "width": 320,
@@ -140,7 +140,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9781313
+          "heap": 10062845
         },
         "canvases": 1
       },
@@ -236,7 +236,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12798540
+          "heap": 13059716
         },
         "canvases": 1
       },
@@ -332,7 +332,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 11826178
+          "heap": 12263266
         },
         "canvases": 1
       },
@@ -428,7 +428,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 13331736
+          "heap": 13660355
         },
         "canvases": 1
       },
@@ -436,17 +436,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 12987288
+        "heap": 13536968
       },
       "cycles": [
-        430,
+        427,
+        416,
+        417,
+        416,
+        417,
         432,
-        434,
-        434,
-        414,
-        403,
-        415,
-        416
+        419,
+        415
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
@@ -590,7 +590,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9761857
+          "heap": 9941581
         },
         "canvases": 1
       },
@@ -686,7 +686,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12871831
+          "heap": 13007607
         },
         "canvases": 1
       },
@@ -782,7 +782,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 11877437
+          "heap": 12035725
         },
         "canvases": 1
       },
@@ -878,7 +878,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 13835030
+          "heap": 13261298
         },
         "canvases": 1
       },
@@ -886,17 +886,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 13043307
+        "heap": 13201779
       },
       "cycles": [
-        435,
-        449,
-        417,
-        415,
-        418,
-        417,
         416,
-        417
+        417,
+        432,
+        420,
+        432,
+        436,
+        447,
+        484
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
@@ -1040,7 +1040,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9963277
+          "heap": 9796233
         },
         "canvases": 1
       },
@@ -1136,7 +1136,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 13040359
+          "heap": 12921584
         },
         "canvases": 1
       },
@@ -1232,7 +1232,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12147009
+          "heap": 13024278
         },
         "canvases": 1
       },
@@ -1328,7 +1328,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 14099893
+          "heap": 16027764
         },
         "canvases": 1
       },
@@ -1336,17 +1336,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 13311403
+        "heap": 11292380
       },
       "cycles": [
-        452,
-        417,
-        416,
-        416,
-        418,
-        416,
-        417,
-        416
+        567,
+        468,
+        509,
+        605,
+        695,
+        727,
+        895,
+        719
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
@@ -1490,7 +1490,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9965145
+          "heap": 10089665
         },
         "canvases": 1
       },
@@ -1586,7 +1586,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12988811
+          "heap": 13172075
         },
         "canvases": 1
       },
@@ -1682,7 +1682,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12017217
+          "heap": 13088629
         },
         "canvases": 1
       },
@@ -1778,7 +1778,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 13755566
+          "heap": 13860067
         },
         "canvases": 1
       },
@@ -1786,17 +1786,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 13181011
+        "heap": 11783707
       },
       "cycles": [
-        434,
-        415,
-        416,
-        434,
-        417,
-        401,
-        416,
-        416
+        656,
+        589,
+        469,
+        466,
+        505,
+        695,
+        467,
+        430
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,

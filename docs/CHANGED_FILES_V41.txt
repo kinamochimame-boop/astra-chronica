@@ -46,6 +46,7 @@ tests/adventure-compass-v40.e2e.mjs
 tests/adventure-ux-v41.e2e.mjs
 tests/adventure-ux-v41.measure.mjs
 tests/adventure-ux-v41.test.ts
+tests/browser.e2e.mjs
 tests/ci-v30-collect.mjs
 tests/ci-v30-matrix.mjs
 tests/ci-v30.mjs
