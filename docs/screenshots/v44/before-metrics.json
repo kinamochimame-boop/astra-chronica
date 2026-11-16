@@ -1,0 +1,120 @@
+{
+  "phase": "before",
+  "sourceHash": "b93a08ee417463def179ab8c27bb6931e5280af97afbdc5407ac1a942ca81c5b",
+  "mode": "normal fresh UI exploration/growth; separate declared combat fixture with one forced KO",
+  "rows": [
+    {
+      "width": 320,
+      "equipmentFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0EQUIPMENT星旅の装備装備は戦闘外で変更できます。本編ATBでは最大MP"
+      },
+      "treeHeroFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "treeBranchFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "approaching": "星詠みの遺した言葉の近くへ接近中です。到着後、もう一度調べてください。",
+      "retapApproachVisible": true,
+      "deadSelection": {
+        "target": "rina",
+        "reason": "有効な対象がいません",
+        "engineTargets": [
+          "astel",
+          "mei"
+        ]
+      }
+    },
+    {
+      "width": 375,
+      "equipmentFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0EQUIPMENT星旅の装備装備は戦闘外で変更できます。本編ATBでは最大MP"
+      },
+      "treeHeroFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "treeBranchFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "approaching": "星詠みの遺した言葉の近くへ接近中です。到着後、もう一度調べてください。",
+      "retapApproachVisible": true,
+      "deadSelection": {
+        "target": "rina",
+        "reason": "有効な対象がいません",
+        "engineTargets": [
+          "astel",
+          "mei"
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "equipmentFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0EQUIPMENT星旅の装備装備は戦闘外で変更できます。本編ATBでは最大MP"
+      },
+      "treeHeroFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "treeBranchFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "approaching": "星詠みの遺した言葉の近くへ接近中です。到着後、もう一度調べてください。",
+      "retapApproachVisible": true,
+      "deadSelection": {
+        "target": "rina",
+        "reason": "有効な対象がいません",
+        "engineTargets": [
+          "astel",
+          "mei"
+        ]
+      }
+    },
+    {
+      "width": 430,
+      "equipmentFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0EQUIPMENT星旅の装備装備は戦闘外で変更できます。本編ATBでは最大MP"
+      },
+      "treeHeroFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "treeBranchFocus": {
+        "tag": "BODY",
+        "label": null,
+        "text": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0STAR VEINS星脈スキルツリーアステルLv.1 · 残SP 0リナLv."
+      },
+      "approaching": "星詠みの遺した言葉の近くへ接近中です。到着後、もう一度調べてください。",
+      "retapApproachVisible": true,
+      "deadSelection": {
+        "target": "rina",
+        "reason": "有効な対象がいません",
+        "engineTargets": [
+          "astel",
+          "mei"
+        ]
+      }
+    }
+  ],
+  "pageErrors": []
+}
