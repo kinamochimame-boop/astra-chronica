@@ -1,0 +1,1483 @@
+{
+  "phase": "before",
+  "sourceHash": "bdbcef2a373410d7bacedfbfaf60aaaea0c93b7839ff2326ddef9d5abfd1b63b",
+  "rows": [
+    {
+      "width": 320,
+      "home": {
+        "scrollY": 0,
+        "height": 2003,
+        "scrollRange": 1159,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "冒険を再開",
+            "x": 13,
+            "y": 393,
+            "documentY": 393,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "冒険コンパス",
+            "x": 13,
+            "y": 1095.671875,
+            "documentY": 1095.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "セーブデータ管理",
+            "x": 13,
+            "y": 1159.671875,
+            "documentY": 1159.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "冒険へ出発",
+            "x": 13,
+            "y": 1223.671875,
+            "documentY": 1223.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "章選択",
+            "x": 13,
+            "y": 1287.671875,
+            "documentY": 1287.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "サブクエスト",
+            "x": 13,
+            "y": 1351.671875,
+            "documentY": 1351.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "探索記録",
+            "x": 13,
+            "y": 1415.671875,
+            "documentY": 1415.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "冒険手帳",
+            "x": 13,
+            "y": 1479.671875,
+            "documentY": 1479.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "戦闘開始　→",
+            "x": 13,
+            "y": 1543.671875,
+            "documentY": 1543.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "編成を見る",
+            "x": 13,
+            "y": 1607.671875,
+            "documentY": 1607.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "スキルツリー",
+            "x": 13,
+            "y": 1671.671875,
+            "documentY": 1671.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "装備",
+            "x": 13,
+            "y": 1735.671875,
+            "documentY": 1735.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "戦闘基盤テスト（保存なし）",
+            "x": 13,
+            "y": 1799.671875,
+            "documentY": 1799.671875,
+            "width": 294,
+            "height": 52
+          },
+          {
+            "name": "タイトルへ",
+            "x": 123.984375,
+            "y": 1857.671875,
+            "documentY": 1857.671875,
+            "width": 72.015625,
+            "height": 44
+          }
+        ],
+        "canvas": null,
+        "hud": null,
+        "duplicateNames": 3,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 9977403
+        },
+        "canvases": 1
+      },
+      "world": {
+        "scrollY": 0,
+        "height": 1017,
+        "scrollRange": 173,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 259,
+            "y": 90,
+            "documentY": 90,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 252,
+            "y": 277.421875,
+            "documentY": 277.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 13,
+            "y": 728.421875,
+            "documentY": 728.421875,
+            "width": 145,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 162,
+            "y": 728.421875,
+            "documentY": 728.421875,
+            "width": 145,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 13,
+            "y": 818.421875,
+            "documentY": 818.421875,
+            "width": 294,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 14,
+          "y": 271.421875,
+          "documentY": 271.421875,
+          "width": 293.140625,
+          "height": 454
+        },
+        "hud": {
+          "x": 13,
+          "y": 141,
+          "documentY": 141,
+          "width": 294,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 12918353
+        },
+        "canvases": 1
+      },
+      "expanded": {
+        "scrollY": 0,
+        "height": 1222,
+        "scrollRange": 378,
+        "horizontal": false,
+        "focus": "冒険コンパス",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 259,
+            "y": 90,
+            "documentY": 90,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 252,
+            "y": 482.421875,
+            "documentY": 482.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 13,
+            "y": 933.421875,
+            "documentY": 933.421875,
+            "width": 145,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 162,
+            "y": 933.421875,
+            "documentY": 933.421875,
+            "width": 145,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 13,
+            "y": 1023.421875,
+            "documentY": 1023.421875,
+            "width": 294,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 14,
+          "y": 476.421875,
+          "documentY": 476.421875,
+          "width": 293.140625,
+          "height": 454
+        },
+        "hud": {
+          "x": 13,
+          "y": 141,
+          "documentY": 141,
+          "width": 294,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 11891772
+        },
+        "canvases": 1
+      },
+      "returned": {
+        "scrollY": 173,
+        "height": 1017,
+        "scrollRange": 173,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": false,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 259,
+            "y": -83,
+            "documentY": 90,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 252,
+            "y": 104.421875,
+            "documentY": 277.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 13,
+            "y": 555.421875,
+            "documentY": 728.421875,
+            "width": 145,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 162,
+            "y": 555.421875,
+            "documentY": 728.421875,
+            "width": 145,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 13,
+            "y": 645.421875,
+            "documentY": 818.421875,
+            "width": 294,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 14,
+          "y": 98.421875,
+          "documentY": 271.421875,
+          "width": 293.140625,
+          "height": 454
+        },
+        "hud": {
+          "x": 13,
+          "y": -32,
+          "documentY": 141,
+          "width": 294,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 13407657
+        },
+        "canvases": 1
+      },
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12952500
+      },
+      "cycles": [
+        451,
+        434,
+        434,
+        431,
+        432,
+        418,
+        418,
+        399
+      ],
+      "staleBackInterrupted": true,
+      "equipmentRoundtripTaps": 3
+    },
+    {
+      "width": 375,
+      "home": {
+        "scrollY": 0,
+        "height": 2016,
+        "scrollRange": 1172,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "冒険を再開",
+            "x": 21,
+            "y": 375,
+            "documentY": 375,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "冒険コンパス",
+            "x": 21,
+            "y": 1108.671875,
+            "documentY": 1108.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "セーブデータ管理",
+            "x": 21,
+            "y": 1172.671875,
+            "documentY": 1172.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "冒険へ出発",
+            "x": 21,
+            "y": 1236.671875,
+            "documentY": 1236.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "章選択",
+            "x": 21,
+            "y": 1300.671875,
+            "documentY": 1300.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "サブクエスト",
+            "x": 21,
+            "y": 1364.671875,
+            "documentY": 1364.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "探索記録",
+            "x": 21,
+            "y": 1428.671875,
+            "documentY": 1428.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "冒険手帳",
+            "x": 21,
+            "y": 1492.671875,
+            "documentY": 1492.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "戦闘開始　→",
+            "x": 21,
+            "y": 1556.671875,
+            "documentY": 1556.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "編成を見る",
+            "x": 21,
+            "y": 1620.671875,
+            "documentY": 1620.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "スキルツリー",
+            "x": 21,
+            "y": 1684.671875,
+            "documentY": 1684.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "装備",
+            "x": 21,
+            "y": 1748.671875,
+            "documentY": 1748.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "戦闘基盤テスト（保存なし）",
+            "x": 21,
+            "y": 1812.671875,
+            "documentY": 1812.671875,
+            "width": 333,
+            "height": 52
+          },
+          {
+            "name": "タイトルへ",
+            "x": 151.484375,
+            "y": 1870.671875,
+            "documentY": 1870.671875,
+            "width": 72.015625,
+            "height": 44
+          }
+        ],
+        "canvas": null,
+        "hud": null,
+        "duplicateNames": 3,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 9798263
+        },
+        "canvases": 1
+      },
+      "world": {
+        "scrollY": 0,
+        "height": 1018,
+        "scrollRange": 174,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 306,
+            "y": 90.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 299,
+            "y": 278.421875,
+            "documentY": 278.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 729.421875,
+            "documentY": 729.421875,
+            "width": 164.5,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 189.5,
+            "y": 729.421875,
+            "documentY": 729.421875,
+            "width": 164.5,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 819.421875,
+            "documentY": 819.421875,
+            "width": 333,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 272.421875,
+          "documentY": 272.421875,
+          "width": 332.1875,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": 142,
+          "documentY": 142,
+          "width": 333,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 12777591
+        },
+        "canvases": 1
+      },
+      "expanded": {
+        "scrollY": 0,
+        "height": 1199,
+        "scrollRange": 355,
+        "horizontal": false,
+        "focus": "冒険コンパス",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 306,
+            "y": 90.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 299,
+            "y": 459.421875,
+            "documentY": 459.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 910.421875,
+            "documentY": 910.421875,
+            "width": 164.5,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 189.5,
+            "y": 910.421875,
+            "documentY": 910.421875,
+            "width": 164.5,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 1000.421875,
+            "documentY": 1000.421875,
+            "width": 333,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 453.421875,
+          "documentY": 453.421875,
+          "width": 332.1875,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": 142,
+          "documentY": 142,
+          "width": 333,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 11748966
+        },
+        "canvases": 1
+      },
+      "returned": {
+        "scrollY": 174,
+        "height": 1018,
+        "scrollRange": 174,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": false,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 306,
+            "y": -83.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 299,
+            "y": 104.421875,
+            "documentY": 278.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 555.421875,
+            "documentY": 729.421875,
+            "width": 164.5,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 189.5,
+            "y": 555.421875,
+            "documentY": 729.421875,
+            "width": 164.5,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 645.421875,
+            "documentY": 819.421875,
+            "width": 333,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 98.421875,
+          "documentY": 272.421875,
+          "width": 332.1875,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": -32,
+          "documentY": 142,
+          "width": 333,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 13507166
+        },
+        "canvases": 1
+      },
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12824482
+      },
+      "cycles": [
+        418,
+        416,
+        416,
+        433,
+        418,
+        417,
+        416,
+        417
+      ],
+      "staleBackInterrupted": true,
+      "equipmentRoundtripTaps": 3
+    },
+    {
+      "width": 390,
+      "home": {
+        "scrollY": 0,
+        "height": 2004,
+        "scrollRange": 1160,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "冒険を再開",
+            "x": 21,
+            "y": 375,
+            "documentY": 375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "冒険コンパス",
+            "x": 21,
+            "y": 1096.59375,
+            "documentY": 1096.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "セーブデータ管理",
+            "x": 21,
+            "y": 1160.59375,
+            "documentY": 1160.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "冒険へ出発",
+            "x": 21,
+            "y": 1224.59375,
+            "documentY": 1224.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "章選択",
+            "x": 21,
+            "y": 1288.59375,
+            "documentY": 1288.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "サブクエスト",
+            "x": 21,
+            "y": 1352.59375,
+            "documentY": 1352.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "探索記録",
+            "x": 21,
+            "y": 1416.59375,
+            "documentY": 1416.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "冒険手帳",
+            "x": 21,
+            "y": 1480.59375,
+            "documentY": 1480.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "戦闘開始　→",
+            "x": 21,
+            "y": 1544.59375,
+            "documentY": 1544.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "編成を見る",
+            "x": 21,
+            "y": 1608.59375,
+            "documentY": 1608.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "スキルツリー",
+            "x": 21,
+            "y": 1672.59375,
+            "documentY": 1672.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "装備",
+            "x": 21,
+            "y": 1736.59375,
+            "documentY": 1736.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "戦闘基盤テスト（保存なし）",
+            "x": 21,
+            "y": 1800.59375,
+            "documentY": 1800.59375,
+            "width": 348,
+            "height": 52
+          },
+          {
+            "name": "タイトルへ",
+            "x": 158.984375,
+            "y": 1858.59375,
+            "documentY": 1858.59375,
+            "width": 72.015625,
+            "height": 44
+          }
+        ],
+        "canvas": null,
+        "hud": null,
+        "duplicateNames": 3,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 10009263
+        },
+        "canvases": 1
+      },
+      "world": {
+        "scrollY": 0,
+        "height": 1018,
+        "scrollRange": 174,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 321,
+            "y": 90.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 314,
+            "y": 278.421875,
+            "documentY": 278.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 729.421875,
+            "documentY": 729.421875,
+            "width": 172,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 197,
+            "y": 729.421875,
+            "documentY": 729.421875,
+            "width": 172,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 819.421875,
+            "documentY": 819.421875,
+            "width": 348,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 272.421875,
+          "documentY": 272.421875,
+          "width": 347.84375,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": 142,
+          "documentY": 142,
+          "width": 348,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 13036691
+        },
+        "canvases": 1
+      },
+      "expanded": {
+        "scrollY": 0,
+        "height": 1199,
+        "scrollRange": 355,
+        "horizontal": false,
+        "focus": "冒険コンパス",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 321,
+            "y": 90.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 314,
+            "y": 459.421875,
+            "documentY": 459.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 910.421875,
+            "documentY": 910.421875,
+            "width": 172,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 197,
+            "y": 910.421875,
+            "documentY": 910.421875,
+            "width": 172,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 1000.421875,
+            "documentY": 1000.421875,
+            "width": 348,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 453.421875,
+          "documentY": 453.421875,
+          "width": 347.84375,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": 142,
+          "documentY": 142,
+          "width": 348,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 12623922
+        },
+        "canvases": 1
+      },
+      "returned": {
+        "scrollY": 174,
+        "height": 1018,
+        "scrollRange": 174,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": false,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 321,
+            "y": -83.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 314,
+            "y": 104.421875,
+            "documentY": 278.421875,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 555.421875,
+            "documentY": 729.421875,
+            "width": 172,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 197,
+            "y": 555.421875,
+            "documentY": 729.421875,
+            "width": 172,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 645.421875,
+            "documentY": 819.421875,
+            "width": 348,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 98.421875,
+          "documentY": 272.421875,
+          "width": 347.84375,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": -32,
+          "documentY": 142,
+          "width": 348,
+          "height": 68.421875
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 14966572
+        },
+        "canvases": 1
+      },
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13933118
+      },
+      "cycles": [
+        500,
+        416,
+        450,
+        418,
+        414,
+        416,
+        433,
+        416
+      ],
+      "staleBackInterrupted": true,
+      "equipmentRoundtripTaps": 3
+    },
+    {
+      "width": 430,
+      "home": {
+        "scrollY": 0,
+        "height": 2035,
+        "scrollRange": 1191,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "冒険を再開",
+            "x": 21,
+            "y": 375,
+            "documentY": 375,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "冒険コンパス",
+            "x": 21,
+            "y": 1128.390625,
+            "documentY": 1128.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "セーブデータ管理",
+            "x": 21,
+            "y": 1192.390625,
+            "documentY": 1192.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "冒険へ出発",
+            "x": 21,
+            "y": 1256.390625,
+            "documentY": 1256.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "章選択",
+            "x": 21,
+            "y": 1320.390625,
+            "documentY": 1320.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "サブクエスト",
+            "x": 21,
+            "y": 1384.390625,
+            "documentY": 1384.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "探索記録",
+            "x": 21,
+            "y": 1448.390625,
+            "documentY": 1448.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "冒険手帳",
+            "x": 21,
+            "y": 1512.390625,
+            "documentY": 1512.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "戦闘開始　→",
+            "x": 21,
+            "y": 1576.390625,
+            "documentY": 1576.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "編成を見る",
+            "x": 21,
+            "y": 1640.390625,
+            "documentY": 1640.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "スキルツリー",
+            "x": 21,
+            "y": 1704.390625,
+            "documentY": 1704.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "装備",
+            "x": 21,
+            "y": 1768.390625,
+            "documentY": 1768.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "戦闘基盤テスト（保存なし）",
+            "x": 21,
+            "y": 1832.390625,
+            "documentY": 1832.390625,
+            "width": 388,
+            "height": 52
+          },
+          {
+            "name": "タイトルへ",
+            "x": 178.984375,
+            "y": 1890.390625,
+            "documentY": 1890.390625,
+            "width": 72.015625,
+            "height": 44
+          }
+        ],
+        "canvas": null,
+        "hud": null,
+        "duplicateNames": 3,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 9791159
+        },
+        "canvases": 1
+      },
+      "world": {
+        "scrollY": 0,
+        "height": 1000,
+        "scrollRange": 156,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 361,
+            "y": 90.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 354,
+            "y": 260.28125,
+            "documentY": 260.28125,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 711.28125,
+            "documentY": 711.28125,
+            "width": 192,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 217,
+            "y": 711.28125,
+            "documentY": 711.28125,
+            "width": 192,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 801.28125,
+            "documentY": 801.28125,
+            "width": 388,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 254.28125,
+          "documentY": 254.28125,
+          "width": 387.4375,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": 142,
+          "documentY": 142,
+          "width": 388,
+          "height": 50.28125
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 12920547
+        },
+        "canvases": 1
+      },
+      "expanded": {
+        "scrollY": 0,
+        "height": 1181,
+        "scrollRange": 337,
+        "horizontal": false,
+        "focus": "冒険コンパス",
+        "focusVisible": true,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 361,
+            "y": 90.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 354,
+            "y": 441.28125,
+            "documentY": 441.28125,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 892.28125,
+            "documentY": 892.28125,
+            "width": 192,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 217,
+            "y": 892.28125,
+            "documentY": 892.28125,
+            "width": 192,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 982.28125,
+            "documentY": 982.28125,
+            "width": 388,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 435.28125,
+          "documentY": 435.28125,
+          "width": 387.4375,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": 142,
+          "documentY": 142,
+          "width": 388,
+          "height": 50.28125
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 12043134
+        },
+        "canvases": 1
+      },
+      "returned": {
+        "scrollY": 156,
+        "height": 1000,
+        "scrollRange": 156,
+        "horizontal": false,
+        "focus": "星灯りの野営地",
+        "focusVisible": false,
+        "buttons": [
+          {
+            "name": "☰",
+            "x": 361,
+            "y": -65.5,
+            "documentY": 90.5,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "地図",
+            "x": 354,
+            "y": 104.28125,
+            "documentY": 260.28125,
+            "width": 48,
+            "height": 44
+          },
+          {
+            "name": "経路 ON",
+            "x": 21,
+            "y": 555.28125,
+            "documentY": 711.28125,
+            "width": 192,
+            "height": 44
+          },
+          {
+            "name": "地図を拡大",
+            "x": 217,
+            "y": 555.28125,
+            "documentY": 711.28125,
+            "width": 192,
+            "height": 44
+          },
+          {
+            "name": "移動をキャンセル",
+            "x": 21,
+            "y": 645.28125,
+            "documentY": 801.28125,
+            "width": 388,
+            "height": 44
+          }
+        ],
+        "canvas": {
+          "x": 22,
+          "y": 98.28125,
+          "documentY": 254.28125,
+          "width": 387.4375,
+          "height": 454
+        },
+        "hud": {
+          "x": 21,
+          "y": -14,
+          "documentY": 142,
+          "width": 388,
+          "height": 50.28125
+        },
+        "duplicateNames": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 13102657
+        },
+        "canvases": 1
+      },
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13195498
+      },
+      "cycles": [
+        472,
+        444,
+        419,
+        430,
+        419,
+        399,
+        416,
+        417
+      ],
+      "staleBackInterrupted": true,
+      "equipmentRoundtripTaps": 3
+    }
+  ],
+  "pageErrors": []
+}

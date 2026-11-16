@@ -48,3 +48,5 @@ test('v3.9 integration validates all shards and keeps Pages deployment isolated'
 });
 
 test('v4.0 collects compass and strict backup tests without deployment',()=>{const yaml=readFileSync('.github/workflows/adventure-compass-v40-validation.yml','utf8');assert.ok(yaml.includes('needs: [unit, browsers, balance]'));assert.ok(yaml.includes('VALIDATION_VERSION: v40'));assert.ok(yaml.includes('npm run test:browser-all -- --ci-group'));assert.ok(yaml.includes('docs/SAVE_BACKUP_V40.md'));assert.ok(!yaml.includes('actions/deploy-pages'))});
+
+test('v4.1 preserves complete regression, UX measurements and no deployment',()=>{const y=readFileSync('.github/workflows/adventure-ux-v41-validation.yml','utf8');assert.ok(y.includes('needs: [unit, browsers, balance]'));assert.ok(y.includes('VALIDATION_VERSION: v41'));assert.ok(y.includes('npm run test:browser-all -- --ci-group'));assert.ok(y.includes('docs/screenshots/integration-v39-*.png'));assert.ok(y.includes('docs/screenshots/v41/*'));assert.ok(!y.includes('actions/deploy-pages'))});
