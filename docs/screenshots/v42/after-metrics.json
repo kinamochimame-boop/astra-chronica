@@ -1,6 +1,6 @@
 {
   "phase": "after",
-  "sourceHash": "ea5e363c60d5cbe9680c15a73440e26b23620e8a5a0fd51c33b20c883c0c0d8a",
+  "sourceHash": "a456665548c38d978c371d0110afd8e124edd7b2aa81d55e04676776bb487116",
   "rows": [
     {
       "width": 320,
@@ -38,7 +38,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 14945184
+          "heap": 13562334
         },
         "canvases": 0
       },
@@ -75,7 +75,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 13987254
+          "heap": 14143796
         },
         "canvases": 0
       },
@@ -94,7 +94,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 15913969
+          "heap": 15998711
         },
         "canvases": 0
       },
@@ -113,7 +113,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 15913969
+          "heap": 16278027
         },
         "canvases": 0
       },
@@ -143,7 +143,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19288916
+          "heap": 19697930
         },
         "canvases": 1
       },
@@ -201,7 +201,7 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 16051208
+        "heap": 15972698
       },
       "returned": {
         "scrollY": 0,
@@ -224,19 +224,19 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19288916
+          "heap": 19697930
         },
         "canvases": 1
       },
       "cycles": [
+        367,
         368,
-        368,
-        400,
+        382,
         365,
-        383,
         368,
-        365,
-        367
+        367,
+        371,
+        380
       ],
       "battle": {
         "scrollY": 0,
@@ -259,7 +259,7 @@
           "listeners": 7,
           "observers": 1,
           "intervals": 0,
-          "heap": 24595476
+          "heap": 19182752
         },
         "canvases": 1
       },
@@ -303,7 +303,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 15056976
+          "heap": 14994570
         },
         "canvases": 0
       },
@@ -340,7 +340,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 14147378
+          "heap": 14052116
         },
         "canvases": 0
       },
@@ -359,7 +359,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 16054069
+          "heap": 15956635
         },
         "canvases": 0
       },
@@ -378,7 +378,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 16292093
+          "heap": 16178831
         },
         "canvases": 0
       },
@@ -408,7 +408,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19731498
+          "heap": 19385379
         },
         "canvases": 1
       },
@@ -466,7 +466,7 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 16345963
+        "heap": 15992225
       },
       "returned": {
         "scrollY": 0,
@@ -489,19 +489,19 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19731498
+          "heap": 19385379
         },
         "canvases": 1
       },
       "cycles": [
-        371,
+        368,
+        353,
+        380,
         366,
+        385,
         367,
-        382,
-        384,
-        349,
-        384,
-        366
+        366,
+        382
       ],
       "battle": {
         "scrollY": 0,
@@ -524,7 +524,7 @@
           "listeners": 7,
           "observers": 1,
           "intervals": 0,
-          "heap": 23728967
+          "heap": 23453989
         },
         "canvases": 1
       },
@@ -568,7 +568,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 15012752
+          "heap": 13616486
         },
         "canvases": 0
       },
@@ -605,7 +605,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 14139458
+          "heap": 14217652
         },
         "canvases": 0
       },
@@ -624,7 +624,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 16065313
+          "heap": 16108211
         },
         "canvases": 0
       },
@@ -643,7 +643,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 16303245
+          "heap": 16351119
         },
         "canvases": 0
       },
@@ -673,7 +673,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19514714
+          "heap": 19815209
         },
         "canvases": 1
       },
@@ -731,7 +731,7 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 16271811
+        "heap": 16319501
       },
       "returned": {
         "scrollY": 0,
@@ -754,19 +754,19 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19514714
+          "heap": 19815209
         },
         "canvases": 1
       },
       "cycles": [
-        370,
-        366,
-        371,
-        397,
+        404,
         367,
-        351,
         365,
-        384
+        369,
+        382,
+        366,
+        350,
+        367
       ],
       "battle": {
         "scrollY": 0,
@@ -789,7 +789,7 @@
           "listeners": 7,
           "observers": 1,
           "intervals": 0,
-          "heap": 23547160
+          "heap": 23893513
         },
         "canvases": 1
       },
@@ -833,7 +833,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 14981004
+          "heap": 14982498
         },
         "canvases": 0
       },
@@ -870,7 +870,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 14031118
+          "heap": 14036208
         },
         "canvases": 0
       },
@@ -889,7 +889,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 15935557
+          "heap": 15991775
         },
         "canvases": 0
       },
@@ -908,7 +908,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 16157981
+          "heap": 16214127
         },
         "canvases": 0
       },
@@ -938,7 +938,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19386267
+          "heap": 19722873
         },
         "canvases": 1
       },
@@ -996,7 +996,7 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 16207271
+        "heap": 16218721
       },
       "returned": {
         "scrollY": 0,
@@ -1019,19 +1019,19 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 19386267
+          "heap": 19722873
         },
         "canvases": 1
       },
       "cycles": [
-        401,
+        354,
         366,
-        351,
+        382,
+        369,
+        382,
+        366,
         367,
-        389,
-        345,
-        367,
-        383
+        366
       ],
       "battle": {
         "scrollY": 0,
@@ -1054,7 +1054,7 @@
           "listeners": 7,
           "observers": 1,
           "intervals": 0,
-          "heap": 24157048
+          "heap": 18903042
         },
         "canvases": 1
       },
