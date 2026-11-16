@@ -1,0 +1,312 @@
+{
+  "phase": "after",
+  "sourceHash": "b93a08ee417463def179ab8c27bb6931e5280af97afbdc5407ac1a942ca81c5b",
+  "mode": "fresh UI, real time, dev-server read-only inspector, no progress injection",
+  "rows": [
+    {
+      "cycles": 0,
+      "ManagedExplorationGame": 1,
+      "Stage": [
+        {
+          "inputList": 3,
+          "activeInput": 3,
+          "figures": 3,
+          "children": 4,
+          "tweens": 0,
+          "timers": 0
+        }
+      ],
+      "nativeListeners": {
+        "window": {
+          "beforeunload": 1,
+          "keydown": 3,
+          "keyup": 2,
+          "mousedown": 3,
+          "mouseup": 3,
+          "touchstart": 3,
+          "touchend": 3,
+          "touchcancel": 3,
+          "resize": 2,
+          "blur": 2,
+          "focus": 2,
+          "__playwright_global_listeners_check__": 1,
+          "mousemove": 1,
+          "pointerdown": 1,
+          "pointerup": 1,
+          "click": 1,
+          "auxclick": 1,
+          "dblclick": 1,
+          "contextmenu": 1,
+          "pagehide": 1
+        },
+        "document": {
+          "pointerlockchange": 2,
+          "mozpointerlockchange": 2,
+          "webkitpointerlockchange": 2,
+          "webkitfullscreenchange": 2,
+          "webkitfullscreenerror": 2,
+          "mozfullscreenchange": 2,
+          "mozfullscreenerror": 2,
+          "fullscreenchange": 2,
+          "fullscreenerror": 2,
+          "MSFullscreenChange": 2,
+          "MSFullscreenError": 2,
+          "visibilitychange": 3
+        },
+        "body": {},
+        "canvas": {
+          "mousemove": 1,
+          "mousedown": 1,
+          "mouseup": 1,
+          "mouseover": 1,
+          "mouseout": 1,
+          "wheel": 1,
+          "touchstart": 1,
+          "touchmove": 1,
+          "touchcancel": 1,
+          "touchend": 1
+        }
+      },
+      "nativeWindowCount": 36,
+      "nativeDocumentCount": 25,
+      "nativeBodyCount": 0,
+      "nativeCanvasCount": 10,
+      "canvasWheel": 1,
+      "gcHeap": 10816876,
+      "nativeDOM": {
+        "documents": 1,
+        "nodes": 217,
+        "jsEventListeners": 139
+      }
+    },
+    {
+      "cycles": 30,
+      "ManagedExplorationGame": 1,
+      "Stage": [
+        {
+          "inputList": 3,
+          "activeInput": 3,
+          "figures": 3,
+          "children": 4,
+          "tweens": 0,
+          "timers": 0
+        }
+      ],
+      "nativeListeners": {
+        "window": {
+          "beforeunload": 1,
+          "keydown": 3,
+          "keyup": 2,
+          "mousedown": 3,
+          "mouseup": 3,
+          "touchstart": 3,
+          "touchend": 3,
+          "touchcancel": 3,
+          "resize": 2,
+          "blur": 2,
+          "focus": 2,
+          "__playwright_global_listeners_check__": 1,
+          "mousemove": 1,
+          "pointerdown": 1,
+          "pointerup": 1,
+          "click": 1,
+          "auxclick": 1,
+          "dblclick": 1,
+          "contextmenu": 1,
+          "pagehide": 1
+        },
+        "document": {
+          "pointerlockchange": 2,
+          "mozpointerlockchange": 2,
+          "webkitpointerlockchange": 2,
+          "webkitfullscreenchange": 2,
+          "webkitfullscreenerror": 2,
+          "mozfullscreenchange": 2,
+          "mozfullscreenerror": 2,
+          "fullscreenchange": 2,
+          "fullscreenerror": 2,
+          "MSFullscreenChange": 2,
+          "MSFullscreenError": 2,
+          "visibilitychange": 3
+        },
+        "body": {},
+        "canvas": {
+          "mousemove": 1,
+          "mousedown": 1,
+          "mouseup": 1,
+          "mouseover": 1,
+          "mouseout": 1,
+          "wheel": 1,
+          "touchstart": 1,
+          "touchmove": 1,
+          "touchcancel": 1,
+          "touchend": 1
+        }
+      },
+      "nativeWindowCount": 36,
+      "nativeDocumentCount": 25,
+      "nativeBodyCount": 0,
+      "nativeCanvasCount": 10,
+      "canvasWheel": 1,
+      "gcHeap": 12088764,
+      "nativeDOM": {
+        "documents": 1,
+        "nodes": 217,
+        "jsEventListeners": 139
+      }
+    },
+    {
+      "cycles": 60,
+      "ManagedExplorationGame": 1,
+      "Stage": [
+        {
+          "inputList": 3,
+          "activeInput": 3,
+          "figures": 3,
+          "children": 4,
+          "tweens": 0,
+          "timers": 0
+        }
+      ],
+      "nativeListeners": {
+        "window": {
+          "beforeunload": 1,
+          "keydown": 3,
+          "keyup": 2,
+          "mousedown": 3,
+          "mouseup": 3,
+          "touchstart": 3,
+          "touchend": 3,
+          "touchcancel": 3,
+          "resize": 2,
+          "blur": 2,
+          "focus": 2,
+          "__playwright_global_listeners_check__": 1,
+          "mousemove": 1,
+          "pointerdown": 1,
+          "pointerup": 1,
+          "click": 1,
+          "auxclick": 1,
+          "dblclick": 1,
+          "contextmenu": 1,
+          "pagehide": 1
+        },
+        "document": {
+          "pointerlockchange": 2,
+          "mozpointerlockchange": 2,
+          "webkitpointerlockchange": 2,
+          "webkitfullscreenchange": 2,
+          "webkitfullscreenerror": 2,
+          "mozfullscreenchange": 2,
+          "mozfullscreenerror": 2,
+          "fullscreenchange": 2,
+          "fullscreenerror": 2,
+          "MSFullscreenChange": 2,
+          "MSFullscreenError": 2,
+          "visibilitychange": 3
+        },
+        "body": {},
+        "canvas": {
+          "mousemove": 1,
+          "mousedown": 1,
+          "mouseup": 1,
+          "mouseover": 1,
+          "mouseout": 1,
+          "wheel": 1,
+          "touchstart": 1,
+          "touchmove": 1,
+          "touchcancel": 1,
+          "touchend": 1
+        }
+      },
+      "nativeWindowCount": 36,
+      "nativeDocumentCount": 25,
+      "nativeBodyCount": 0,
+      "nativeCanvasCount": 10,
+      "canvasWheel": 1,
+      "gcHeap": 12116384,
+      "nativeDOM": {
+        "documents": 1,
+        "nodes": 217,
+        "jsEventListeners": 139
+      }
+    },
+    {
+      "cycles": 90,
+      "ManagedExplorationGame": 1,
+      "Stage": [
+        {
+          "inputList": 3,
+          "activeInput": 3,
+          "figures": 3,
+          "children": 4,
+          "tweens": 0,
+          "timers": 0
+        }
+      ],
+      "nativeListeners": {
+        "window": {
+          "beforeunload": 1,
+          "keydown": 3,
+          "keyup": 2,
+          "mousedown": 3,
+          "mouseup": 3,
+          "touchstart": 3,
+          "touchend": 3,
+          "touchcancel": 3,
+          "resize": 2,
+          "blur": 2,
+          "focus": 2,
+          "__playwright_global_listeners_check__": 1,
+          "mousemove": 1,
+          "pointerdown": 1,
+          "pointerup": 1,
+          "click": 1,
+          "auxclick": 1,
+          "dblclick": 1,
+          "contextmenu": 1,
+          "pagehide": 1
+        },
+        "document": {
+          "pointerlockchange": 2,
+          "mozpointerlockchange": 2,
+          "webkitpointerlockchange": 2,
+          "webkitfullscreenchange": 2,
+          "webkitfullscreenerror": 2,
+          "mozfullscreenchange": 2,
+          "mozfullscreenerror": 2,
+          "fullscreenchange": 2,
+          "fullscreenerror": 2,
+          "MSFullscreenChange": 2,
+          "MSFullscreenError": 2,
+          "visibilitychange": 3
+        },
+        "body": {},
+        "canvas": {
+          "mousemove": 1,
+          "mousedown": 1,
+          "mouseup": 1,
+          "mouseover": 1,
+          "mouseout": 1,
+          "wheel": 1,
+          "touchstart": 1,
+          "touchmove": 1,
+          "touchcancel": 1,
+          "touchend": 1
+        }
+      },
+      "nativeWindowCount": 36,
+      "nativeDocumentCount": 25,
+      "nativeBodyCount": 0,
+      "nativeCanvasCount": 10,
+      "canvasWheel": 1,
+      "gcHeap": 12117712,
+      "nativeDOM": {
+        "documents": 1,
+        "nodes": 217,
+        "jsEventListeners": 139
+      }
+    }
+  ],
+  "pageErrors": []
+}

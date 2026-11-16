@@ -1,0 +1,127 @@
+{
+  "phase": "before",
+  "sourceHash": "ad9e6f057c92f4e264130f3f82ad10d75fb054cfc701dabb671285b9e4e332d4",
+  "clock": "real time",
+  "rows": [
+    {
+      "width": 320,
+      "before": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13045128,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12361511,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": "Cannot read properties of null (reading 'open')",
+      "bfcachePreserved": false,
+      "bfcacheControlsRespond": true
+    },
+    {
+      "width": 375,
+      "before": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12954211,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12097369,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": "Cannot read properties of null (reading 'open')",
+      "bfcachePreserved": false,
+      "bfcacheControlsRespond": true
+    },
+    {
+      "width": 390,
+      "before": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13081155,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12456945,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": "Cannot read properties of null (reading 'open')",
+      "bfcachePreserved": false,
+      "bfcacheControlsRespond": true
+    },
+    {
+      "width": 430,
+      "before": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12990755,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12029837,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": "Cannot read properties of null (reading 'open')",
+      "bfcachePreserved": false,
+      "bfcacheControlsRespond": true
+    }
+  ]
+}

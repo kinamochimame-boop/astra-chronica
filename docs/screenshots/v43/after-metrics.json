@@ -1,0 +1,127 @@
+{
+  "phase": "after",
+  "sourceHash": "b93a08ee417463def179ab8c27bb6931e5280af97afbdc5407ac1a942ca81c5b",
+  "clock": "real time",
+  "rows": [
+    {
+      "width": 320,
+      "before": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13114249,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12696596,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": null,
+      "bfcachePreserved": true,
+      "bfcacheControlsRespond": true
+    },
+    {
+      "width": 375,
+      "before": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13011191,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12097865,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": null,
+      "bfcachePreserved": true,
+      "bfcacheControlsRespond": true
+    },
+    {
+      "width": 390,
+      "before": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 12942931,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 11952697,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": null,
+      "bfcachePreserved": true,
+      "bfcacheControlsRespond": true
+    },
+    {
+      "width": 430,
+      "before": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13128523,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "after": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 13542869,
+        "frames": 1,
+        "timeouts": 0,
+        "dom": 90,
+        "canvases": 1,
+        "unhandled": 0,
+        "pendingPromises": null
+      },
+      "stale": null,
+      "bfcachePreserved": true,
+      "bfcacheControlsRespond": true
+    }
+  ]
+}

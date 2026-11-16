@@ -1,3 +1,4 @@
+import {ViewFrameLoop} from './view-frame-loop';
 import {ViewSession,captureReturnSpot,returnScroll,type ReturnSpot} from './adventure-view-navigation';
 import './adventure-quality.css';
 import {mountDashboard} from './adventure-dashboard';
@@ -53,7 +54,6 @@ let command:Command='attack',targetId='',battleSession=0;
 let turnTimer:number|undefined;
 let battleView:AtbView|undefined;
 let atb:AtbCombat|undefined;
-let currentBattleSetup:BattleSetup|undefined;
 let stopAtb:(()=>void)|undefined;
 let actingId:string|undefined,actionRound=1;
 let activeChapter:Chapter=chapters.find(c=>c.id===progress.adventure.selectedChapterId)??chapters.find(c=>c.id===mapById(progress.world?.mapId)?.chapterId)??[...chapters].reverse().find(c=>progress.adventure.chapters[c.id])??chapterOne;
@@ -105,21 +105,23 @@ function openMap(id:string){leaveWorld();content.classList.remove('adventure-scr
 function startAdventure(eventId:string,source?:SymbolContact){const e=activeChapter.events.find(e=>e.id===eventId);const serial=beginAdventureBattle(progress,activeChapter,eventId,source);if(serial===undefined||!e?.encounter){adventure();return}adventureBattle={serial,eventId};persist();launchBattle(encounterSetup(e.encounter,progress.choices))}
 function start(){adventureBattle=undefined;launchBattle()}
 function launchBattle(setup?:BattleSetup){
- leaveWorld();cancelTurn();views.enter();battleView?.dispose();actingId=undefined;currentBattleSetup=setup;
+ leaveWorld();cancelTurn();views.enter();battleView?.dispose();actingId=undefined;
  battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);
  screen='battle';busy=false;selected=0;
  const units=battle.units,combat=atb=new AtbCombat(battle),view=battleView=new AtbView(content,canvasHost,combat,views.guard(content,()=>finish('defeat')));
  if(stage.sys?.isActive()){stage.tweens.timeScale=0;stage.time.timeScale=0;}game.events.emit('stage',units,0,3);
  combat.onEvent=event=>{if(screen!=='battle'||atb!==combat)return;if(isItem(event.command)){progress.consumables=battle.itemInventory();persist()}view.present(event);game.events.emit('battle-effect',event);};
- let frame=0,last=0,closed=false,ending=false;
- const resetClock=()=>{last=0};const onPageHide=()=>cancelTurn();
- document.addEventListener('visibilitychange',resetClock);window.addEventListener('pagehide',onPageHide);
- stopAtb=()=>{closed=true;cancelAnimationFrame(frame);document.removeEventListener('visibilitychange',resetClock);window.removeEventListener('pagehide',onPageHide);if(stage.sys?.isActive()){stage.tweens.timeScale=1;stage.time.timeScale=1;}};
- const tick=(now:number)=>{if(closed||screen!=='battle'||atb!==combat)return;const elapsed=last?Math.max(0,(now-last)/1000):0,seconds=elapsed>ATB_RULES.suspensionGap?0:elapsed;last=now;
+ let last=0,closed=false,ending=false;
+ const suspend=()=>{last=0;frames.suspend();if(turnTimer!==undefined){window.clearTimeout(turnTimer);turnTimer=undefined;ending=false}if(stage.sys?.isActive()){stage.tweens.timeScale=0;stage.time.timeScale=0;}};
+ const resetClock=()=>{last=0;if(document.hidden)suspend();else frames.resume()};
+ const onPageHide=(event:PageTransitionEvent)=>{if(event.persisted)suspend();else cancelTurn()};
+ const onPageShow=(event:PageTransitionEvent)=>{if(event.persisted&&!closed){last=0;if(!document.hidden)frames.resume()}};
+ stopAtb=()=>{if(closed)return;closed=true;frames.dispose();document.removeEventListener('visibilitychange',resetClock);window.removeEventListener('pagehide',onPageHide);window.removeEventListener('pageshow',onPageShow);if(stage.sys?.isActive()){stage.tweens.timeScale=1;stage.time.timeScale=1;}};
+ const tick=(now:number)=>{if(closed||screen!=='battle'||atb!==combat)return false;const elapsed=last?Math.max(0,(now-last)/1000):0,seconds=elapsed>ATB_RULES.suspensionGap?0:elapsed;last=now;
   const ready=stage.sys?.isActive();if(ready){stage.tweens.timeScale=!combat.started||combat.paused||document.hidden?0:combat.speed;stage.time.timeScale=!combat.started||combat.paused||document.hidden?0:combat.speed;}if(!document.hidden)combat.advance(seconds);view.update();if(ready){if(stage.units!==units)game.events.emit('stage',units,0,3);stage.syncRealtime(combat.targetId,units.filter(u=>combat.slot(u.id).busyUntil>combat.time).map(u=>u.id));}
   if(battle.result&&!ending){ending=true;const session=battleSession;turnTimer=window.setTimeout(()=>{if(session===battleSession&&screen==='battle')finish(battle.result!)},BALANCE.animationMs/combat.speed);}
-  if(!ending)frame=requestAnimationFrame(tick);
- };frame=requestAnimationFrame(tick);
+  return !ending;
+ };const frames=new ViewFrameLoop(tick);document.addEventListener('visibilitychange',resetClock);window.addEventListener('pagehide',onPageHide);window.addEventListener('pageshow',onPageShow);if(!document.hidden)frames.resume();
 }
 game.events.on('unit-tap',(id:string)=>{if(screen==='battle')battleView?.target(id)});
 function finish(result:'victory'|'defeat'){if(adventureBattle){finishAdventure(result);return}finishRegular(result)}
@@ -135,5 +137,4 @@ function finishAdventure(result:'victory'|'defeat'){
  if(settled.cleared&&activeChapter.id==='chapter-02')content.classList.add('city-clear');if(settled.cleared&&activeChapter.id==='chapter-03')content.classList.add('wind-clear');if(settled.cleared&&activeChapter.id==='chapter-04')content.classList.add('crystal-clear');if(settled.cleared&&activeChapter.id==='chapter-05')content.classList.add('desert-clear');if(settled.cleared&&activeChapter.id==='chapter-06')content.classList.add('dawn-clear');content.append(text);if(activeChapter.id==='chapter-18'&&context.eventId==='c18-final-boss'&&result==='victory'){content.classList.add('finale-victory');button('エンディングへ',()=>showEnding());}button('冒険へ戻る',adventure);if(result==='defeat')symbolForEvent(context.eventId)?button('探索から再挑戦',adventure,'secondary'):button('この地点に再挑戦',()=>startAdventure(context.eventId),'secondary');button('ホームへ戻る',home,'secondary');status();
 }
 
-window.addEventListener('pageshow',event=>{if(event.persisted&&screen==='battle')launchBattle(currentBattleSetup)});
 title();
