@@ -1,3 +1,4 @@
+import {firstExplorationGuide} from '../player-guidance';
 import {interactionState} from './interaction-state';
 import {mountCompass} from '../adventure-compass-view';
 import {adventureCompass} from '../adventure-compass';
@@ -144,6 +145,6 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  if(actions.compass){const b=document.createElement('button');b.className='secondary';b.textContent='冒険コンパス';b.onclick=()=>{if(disposed||!b.isConnected)return;hide();menu.close();actions.compass!()};host.querySelector('.world-menu-items')!.append(b)}
  const network=networkForMap(map.id);if(network){const b=document.createElement('button');b.id=network.id==='railway'?'world-railway':'world-ark-control';b.className='secondary';b.textContent=network.label;b.onclick=()=>{if(disposed||runtime.locked)return;pause();menu.close();railwayDispose?.();railwayDispose=mountRailway(p,host,ticket=>actions.railTravel(ticket),resume,network)};host.querySelector('.world-menu-items')!.append(b)}
  for(const [label,action] of [['地点一覧',actions.list],['装備',actions.equipment],['スキルツリー',actions.tree],['サブクエスト',actions.quests],['冒険手帳',actions.journal],['探索記録',actions.records],['ホームへ戻る',actions.home]] as const){const b=document.createElement('button');b.className='secondary';b.textContent=label;b.onclick=()=>{if(disposed||!b.isConnected)return;hide();menu.close();action()};host.querySelector('.world-menu-items')!.append(b)}
- say(saved.recovered?'中断した戦闘を取り消し、安全な場所から再開しました。未確定の報酬は付与していません。':saved.event?'中断した会話は、対象の近くで再開できます。':'地面をタップして歩きましょう。');saved.recovered=undefined;
+ say(saved.recovered?'中断した戦闘を取り消し、安全な場所から再開しました。未確定の報酬は付与していません。':saved.event?'中断した会話は、対象の近くで再開できます。':firstExplorationGuide(p,map.chapterId,map.locationId)??'地面をタップして歩きましょう。');saved.recovered=undefined;
  return ()=>{if(disposed)return;hide();disposed=true;if(transitionTimer!==undefined)clearTimeout(transitionTimer);observer.disconnect();compassDetails.removeEventListener('toggle',compassToggle);compassDetails.removeEventListener('keydown',compassKey);railwayDispose?.();runtime.onVisit=undefined;minimap.dispose();viewport.removeEventListener('touchstart',refreshInputBounds,true);viewport.removeEventListener('mousedown',refreshInputBounds,true);if(finishTouch)touchCanvas?.removeEventListener('touchend',finishTouch);window.removeEventListener('keydown',key);document.removeEventListener('visibilitychange',visibility);window.removeEventListener('pagehide',hide);game.destroy(true);host.classList.remove('free-map-screen');};
 }

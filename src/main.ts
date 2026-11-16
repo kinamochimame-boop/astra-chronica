@@ -1,3 +1,6 @@
+import {gameVersionLabel} from './game-release';
+import {firstBattleGuide} from './player-guidance';
+import './player-guidance.css';
 import {ViewFrameLoop} from './view-frame-loop';
 import {ViewSession,captureReturnSpot,returnScroll,type ReturnSpot} from './adventure-view-navigation';
 import './adventure-quality.css';
@@ -61,7 +64,7 @@ let adventureBattle:{serial:number;eventId:string}|undefined;
 let worldDispose:(()=>void)|undefined;
 let endingDispose:(()=>void)|undefined;
 let screen='title';let storageOK=true;const views=new ViewSession();
-app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">PROTOTYPE<br>ver. 3.0</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
+app.innerHTML=`<div class="shell"><header><span class="sigil">✧</span><span>ASTRA CHRONICA<small>星詠みの遺した約束</small></span><span class="version">${gameVersionLabel()}</span></header><section id="content"></section><footer>✦ 星の記憶は、あなたとともに。</footer></div>`;
 const content=document.querySelector<HTMLElement>('#content')!;
 const stage=new Stage();
 const game=new Phaser.Game({type:Phaser.AUTO,width:390,height:310,transparent:true,scene:stage,scale:{mode:Phaser.Scale.FIT,autoCenter:Phaser.Scale.CENTER_BOTH},banner:false,parent:document.createElement('div')});
@@ -108,7 +111,7 @@ function launchBattle(setup?:BattleSetup){
  leaveWorld();cancelTurn();views.enter();battleView?.dispose();actingId=undefined;
  battle=new Battle(Math.random,progress.party,undefined,progress.equipment,setup,progress.skillTree,progress.consumables);
  screen='battle';busy=false;selected=0;
- const units=battle.units,combat=atb=new AtbCombat(battle),view=battleView=new AtbView(content,canvasHost,combat,views.guard(content,()=>finish('defeat')));
+ const units=battle.units,combat=atb=new AtbCombat(battle),view=battleView=new AtbView(content,canvasHost,combat,views.guard(content,()=>finish('defeat')),firstBattleGuide(progress));
  if(stage.sys?.isActive()){stage.tweens.timeScale=0;stage.time.timeScale=0;}game.events.emit('stage',units,0,3);
  combat.onEvent=event=>{if(screen!=='battle'||atb!==combat)return;if(isItem(event.command)){progress.consumables=battle.itemInventory();persist()}view.present(event);game.events.emit('battle-effect',event);};
  let last=0,closed=false,ending=false;

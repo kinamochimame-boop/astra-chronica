@@ -1,3 +1,4 @@
+import {homePlayerGuide} from './player-guidance';
 import type {Progress} from './save';
 import {mountCompass} from './adventure-compass-view';
 import {adventureCompass,questStatus} from './adventure-compass';
@@ -6,9 +7,10 @@ import {weaponById,type HeroId} from './data/weapons';
 import {remainingSP} from './skill-tree';
 export interface DashboardActions {tree?:()=>void;equipment?:()=>void;builds?:()=>void;quests?:()=>void}
 export function mountDashboard(host:HTMLElement,p:Progress,resume:()=>void,actions:DashboardActions={}){
- const d=adventureCompass(p);mountCompass(host,p,true);
+ const d=adventureCompass(p);
  const button=(parent:HTMLElement,name:string,action:()=>void,cls='secondary')=>{const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=name;b.onclick=()=>{if(b.isConnected){b.focus({preventScroll:true});action()}};parent.append(b);return b};
  button(host,'冒険を再開',resume,'primary').id='adventure-resume';
+ const guide=homePlayerGuide(p,d.chapter.id);if(guide){const tip=document.createElement('p');tip.className='player-tip';tip.id='home-player-guide';tip.textContent=guide;host.append(tip)}mountCompass(host,p,true);
  if(d.tracked){const track=document.createElement('aside');track.className='dashboard-tracking';track.setAttribute('aria-label','追跡中の依頼');const h=document.createElement('h2'),text=document.createElement('p');h.textContent=`依頼：${d.tracked.name}`;text.textContent=d.trackedGuide??'';track.append(h,text);if(actions.quests)button(track,'追跡中の依頼を開く',actions.quests);host.append(track)}
  const party=document.createElement('section');party.className='dashboard-party';party.setAttribute('aria-label','パーティ状況');
  for(const h of heroes){const id=h.id as HeroId,card=document.createElement('article'),title=document.createElement('h2'),text=document.createElement('p');title.textContent=`${h.name} Lv.${p.party[id].level}`;text.textContent=`${weaponById(p.equipment.equipped[id])?.name??'装備なし'} ／ 残りSP ${remainingSP(p.skillTree,id,p.party[id].level)}`;card.append(title,text);party.append(card)}host.append(party);

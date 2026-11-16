@@ -1,0 +1,28 @@
+import {describe,it,expect} from 'vitest';
+import {readFileSync} from 'node:fs';
+import {GAME_VERSION,gameVersionLabel} from '../src/game-release';
+import {homePlayerGuide,firstExplorationGuide,firstBattleGuide,BATTLE_HELP} from '../src/player-guidance';
+import {futureChaptersNotice} from '../src/chapter-selection';
+import {fresh,load,SAVE_KEY} from '../src/save';
+import {chapters} from '../src/data/chapter-one';
+import {ATB_RULES} from '../src/atb-rules';
+import {createBackup,parseBackup} from '../src/save-backup';
+const at=(completed:string[])=>{const p=fresh();p.adventure.chapters['chapter-01']={currentLocationId:'c1-camp',completed};return p};
+describe('v4.5 contextual guidance, release and unlocked chapters',()=>{
+ it('uses the one display release constant without the old prototype label',()=>{expect(gameVersionLabel()).toBe(`ver. ${GAME_VERSION}`);expect(gameVersionLabel()).not.toMatch(/PROTOTYPE|3\.0/)});
+ it('keeps README aligned with the display release',()=>expect(readFileSync('README.md','utf8')).toContain(`**v${GAME_VERSION}**`));
+ it('does not reinterpret the display version as a save or backup version',()=>{const p=fresh(),b=parseBackup(createBackup(p).text);expect(p.version).toBe(2);expect(b.formatVersion).toBe(1);expect(SAVE_KEY).toBe('astra-chronica:v1');expect(GAME_VERSION).not.toBe(String(p.version));expect(GAME_VERSION).not.toBe(String(b.formatVersion))});
+ it('guides a fresh player to resume and interact without naming later content',()=>{const text=homePlayerGuide(fresh(),'chapter-01')!;expect(text).toMatch(/冒険を再開/);expect(text).toMatch(/もう一度/);expect(text).not.toMatch(/サハリア|クリスタリア|最終|ボス/)});
+ it('stops the departure explanation after its existing event',()=>expect(homePlayerGuide(at(['c1-departure']),'chapter-01')).toBeUndefined());
+ it('suggests growth only after the first earned battle and with remaining SP',()=>{const p=at(['c1-departure','c1-first-battle']);p.party.astel.level=2;expect(homePlayerGuide(p,'chapter-01')).toMatch(/スキルツリー/)});
+ it('does not nag about growth without available SP',()=>expect(homePlayerGuide(at(['c1-departure','c1-first-battle']),'chapter-01')).toBeUndefined());
+ it('retires the early growth explanation after the next story step',()=>{const p=at(['c1-departure','c1-first-battle','c1-stele-story']);p.party.astel.level=2;expect(homePlayerGuide(p,'chapter-01')).toBeUndefined()});
+ it('does not use the first chapter guidance in later chapters',()=>expect(homePlayerGuide(fresh(),'chapter-18')).toBeUndefined());
+ it('shows interaction instructions only at the initial camp',()=>{const p=fresh();expect(firstExplorationGuide(p,'chapter-01','c1-camp')).toMatch(/もう一度/);expect(firstExplorationGuide(p,'chapter-01','c1-entrance')).toBeUndefined();expect(firstExplorationGuide(p,'chapter-02','c1-camp')).toBeUndefined()});
+ it('does not repeat the camp introduction after departure',()=>expect(firstExplorationGuide(at(['c1-departure']),'chapter-01','c1-camp')).toBeUndefined());
+ it('uses existing battle counts instead of persisting tutorial flags',()=>{expect(firstBattleGuide({battles:0})).toBe(true);expect(firstBattleGuide({battles:1})).toBe(false);expect(firstBattleGuide({battles:109})).toBe(false)});
+ it('describes existing limits from the engine and explains cancellation and pause',()=>{const text=BATTLE_HELP.map(s=>s.text).join(' ');expect(text).toContain(`最大${ATB_RULES.maxEp}`);expect(text).toContain(`最大${ATB_RULES.maxReservations}`);expect(text).toMatch(/消費EPが返/);expect(text).toMatch(/開く前の一時停止/)});
+ it('uses the existing chapter gates for the playable count',()=>{const p=fresh();expect(futureChaptersNotice(p)).toContain('現在選択できるのは1章');p.adventure.chapters['chapter-01']={currentLocationId:'c1-depths',completed:chapters[0].events.map(e=>e.id)};expect(futureChaptersNotice(p)).toContain('現在選択できるのは2章');expect(futureChaptersNotice()).toBe('全18章の冒険を選択できます。')});
+ it('gives a post-clear message without promising an unimplemented next chapter',()=>{const p=fresh();for(const c of chapters)p.adventure.chapters[c.id]={currentLocationId:c.locations.at(-1)!.id,completed:c.events.map(e=>e.id)};expect(futureChaptersNotice(p)).toContain('現在選択できるのは18章');expect(futureChaptersNotice(p)).not.toContain('次の章が解放')});
+ it('keeps old saves and progress immutable while deriving guidance',()=>{const p=load({getItem:()=>JSON.stringify({version:1,started:true,wins:2,battles:3})}),old=structuredClone(p);homePlayerGuide(p,'chapter-01');firstExplorationGuide(p,'chapter-01','c1-camp');firstBattleGuide(p);futureChaptersNotice(p);expect(p).toEqual(old);expect(parseBackup(createBackup(p).text).progress).toEqual(old);expect(p).not.toHaveProperty('tutorial')});
+});

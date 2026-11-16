@@ -1,0 +1,616 @@
+{
+  "sourceHash": "8727dda4d99e572666b5395a64c11fb51ce22bc25b48863350283d9db7a5bf54",
+  "before": {
+    "phase": "before",
+    "sourceHash": "1057a8ee7f1aa6322bc14c70cb474e5d8cd0d16d9ef0b167ac7c01117c4350d3",
+    "mode": "fresh normal UI plus explicit retained chapter callback diagnostic",
+    "rows": [
+      {
+        "width": 320,
+        "version": "PROTOTYPE\nver. 3.0",
+        "home": {
+          "resumeY": 372.5,
+          "firstControl": "目的地・次の行動",
+          "guide": ""
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 灰の街と消えた星図",
+            "第3章 風の峡谷と空渡りの遺跡",
+            "第4章 水晶の都と眠れる歌声",
+            "第5章 砂海の王都と失われた羅針盤",
+            "第6章 時忘れの都と止まった夜明け",
+            "第7章 翠影の樹海と忘れられた星の庭",
+            "第8章 天穹の浮島と星を運ぶ翼",
+            "第9章 星脈の地下都市と封じられた記憶",
+            "第10章 潮騒の観測所と沈黙する星灯",
+            "第11章 白銀の平原と声なき巡礼者",
+            "第12章 常闇の深森と星を喰む樹",
+            "第13章 星なき機巧都市と眠れる天球儀",
+            "第14章 逆さの星海と忘却の方舟",
+            "第15章 虚空の聖域と砕けた星の王冠",
+            "第16章 星の墓標と終焉の観測者",
+            "第17章 星の終着点と最後の約束",
+            "第18章 星詠みの遺した約束"
+          ],
+          "enabled": 1,
+          "hint": "全18章の冒険を選択できます。"
+        },
+        "battle": {
+          "guide": 0,
+          "help": 0
+        },
+        "staleError": null,
+        "staleChanged": true,
+        "world": "地面をタップして歩きましょう。"
+      },
+      {
+        "width": 375,
+        "version": "PROTOTYPE\nver. 3.0",
+        "home": {
+          "resumeY": 348.5,
+          "firstControl": "目的地・次の行動",
+          "guide": ""
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 灰の街と消えた星図",
+            "第3章 風の峡谷と空渡りの遺跡",
+            "第4章 水晶の都と眠れる歌声",
+            "第5章 砂海の王都と失われた羅針盤",
+            "第6章 時忘れの都と止まった夜明け",
+            "第7章 翠影の樹海と忘れられた星の庭",
+            "第8章 天穹の浮島と星を運ぶ翼",
+            "第9章 星脈の地下都市と封じられた記憶",
+            "第10章 潮騒の観測所と沈黙する星灯",
+            "第11章 白銀の平原と声なき巡礼者",
+            "第12章 常闇の深森と星を喰む樹",
+            "第13章 星なき機巧都市と眠れる天球儀",
+            "第14章 逆さの星海と忘却の方舟",
+            "第15章 虚空の聖域と砕けた星の王冠",
+            "第16章 星の墓標と終焉の観測者",
+            "第17章 星の終着点と最後の約束",
+            "第18章 星詠みの遺した約束"
+          ],
+          "enabled": 1,
+          "hint": "全18章の冒険を選択できます。"
+        },
+        "battle": {
+          "guide": 0,
+          "help": 0
+        },
+        "staleError": null,
+        "staleChanged": true,
+        "world": "地面をタップして歩きましょう。"
+      },
+      {
+        "width": 390,
+        "version": "PROTOTYPE\nver. 3.0",
+        "home": {
+          "resumeY": 348.5,
+          "firstControl": "目的地・次の行動",
+          "guide": ""
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 灰の街と消えた星図",
+            "第3章 風の峡谷と空渡りの遺跡",
+            "第4章 水晶の都と眠れる歌声",
+            "第5章 砂海の王都と失われた羅針盤",
+            "第6章 時忘れの都と止まった夜明け",
+            "第7章 翠影の樹海と忘れられた星の庭",
+            "第8章 天穹の浮島と星を運ぶ翼",
+            "第9章 星脈の地下都市と封じられた記憶",
+            "第10章 潮騒の観測所と沈黙する星灯",
+            "第11章 白銀の平原と声なき巡礼者",
+            "第12章 常闇の深森と星を喰む樹",
+            "第13章 星なき機巧都市と眠れる天球儀",
+            "第14章 逆さの星海と忘却の方舟",
+            "第15章 虚空の聖域と砕けた星の王冠",
+            "第16章 星の墓標と終焉の観測者",
+            "第17章 星の終着点と最後の約束",
+            "第18章 星詠みの遺した約束"
+          ],
+          "enabled": 1,
+          "hint": "全18章の冒険を選択できます。"
+        },
+        "battle": {
+          "guide": 0,
+          "help": 0
+        },
+        "staleError": null,
+        "staleChanged": true,
+        "world": "地面をタップして歩きましょう。"
+      },
+      {
+        "width": 430,
+        "version": "PROTOTYPE\nver. 3.0",
+        "home": {
+          "resumeY": 348.5,
+          "firstControl": "目的地・次の行動",
+          "guide": ""
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 灰の街と消えた星図",
+            "第3章 風の峡谷と空渡りの遺跡",
+            "第4章 水晶の都と眠れる歌声",
+            "第5章 砂海の王都と失われた羅針盤",
+            "第6章 時忘れの都と止まった夜明け",
+            "第7章 翠影の樹海と忘れられた星の庭",
+            "第8章 天穹の浮島と星を運ぶ翼",
+            "第9章 星脈の地下都市と封じられた記憶",
+            "第10章 潮騒の観測所と沈黙する星灯",
+            "第11章 白銀の平原と声なき巡礼者",
+            "第12章 常闇の深森と星を喰む樹",
+            "第13章 星なき機巧都市と眠れる天球儀",
+            "第14章 逆さの星海と忘却の方舟",
+            "第15章 虚空の聖域と砕けた星の王冠",
+            "第16章 星の墓標と終焉の観測者",
+            "第17章 星の終着点と最後の約束",
+            "第18章 星詠みの遺した約束"
+          ],
+          "enabled": 1,
+          "hint": "全18章の冒険を選択できます。"
+        },
+        "battle": {
+          "guide": 0,
+          "help": 0
+        },
+        "staleError": null,
+        "staleChanged": true,
+        "world": "地面をタップして歩きましょう。"
+      }
+    ],
+    "pageErrors": []
+  },
+  "after": {
+    "phase": "after",
+    "sourceHash": "8727dda4d99e572666b5395a64c11fb51ce22bc25b48863350283d9db7a5bf54",
+    "mode": "fresh normal UI plus explicit retained chapter callback diagnostic",
+    "rows": [
+      {
+        "width": 320,
+        "version": "ver. 4.5",
+        "home": {
+          "resumeY": 174.5,
+          "firstControl": "冒険を再開",
+          "guide": "「冒険を再開」から森へ。地面をタップして歩き、人の近くでもう一度調べると会話が始まります。"
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 未解放",
+            "第3章 未解放",
+            "第4章 未解放",
+            "第5章 未解放",
+            "第6章 未解放",
+            "第7章 未解放",
+            "第8章 未解放",
+            "第9章 未解放",
+            "第10章 未解放",
+            "第11章 未解放",
+            "第12章 未解放",
+            "第13章 未解放",
+            "第14章 未解放",
+            "第15章 未解放",
+            "第16章 未解放",
+            "第17章 未解放",
+            "第18章 未解放"
+          ],
+          "enabled": 1,
+          "hint": "全18章を収録。現在選択できるのは1章です。章をクリアすると次の章が解放されます。"
+        },
+        "battle": {
+          "guide": 1,
+          "help": 1
+        },
+        "staleError": null,
+        "staleChanged": false,
+        "world": "地面をタップして移動。人へ近づき、もう一度調べると会話が始まります。"
+      },
+      {
+        "width": 375,
+        "version": "ver. 4.5",
+        "home": {
+          "resumeY": 174.5,
+          "firstControl": "冒険を再開",
+          "guide": "「冒険を再開」から森へ。地面をタップして歩き、人の近くでもう一度調べると会話が始まります。"
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 未解放",
+            "第3章 未解放",
+            "第4章 未解放",
+            "第5章 未解放",
+            "第6章 未解放",
+            "第7章 未解放",
+            "第8章 未解放",
+            "第9章 未解放",
+            "第10章 未解放",
+            "第11章 未解放",
+            "第12章 未解放",
+            "第13章 未解放",
+            "第14章 未解放",
+            "第15章 未解放",
+            "第16章 未解放",
+            "第17章 未解放",
+            "第18章 未解放"
+          ],
+          "enabled": 1,
+          "hint": "全18章を収録。現在選択できるのは1章です。章をクリアすると次の章が解放されます。"
+        },
+        "battle": {
+          "guide": 1,
+          "help": 1
+        },
+        "staleError": null,
+        "staleChanged": false,
+        "world": "地面をタップして移動。人へ近づき、もう一度調べると会話が始まります。"
+      },
+      {
+        "width": 390,
+        "version": "ver. 4.5",
+        "home": {
+          "resumeY": 174.5,
+          "firstControl": "冒険を再開",
+          "guide": "「冒険を再開」から森へ。地面をタップして歩き、人の近くでもう一度調べると会話が始まります。"
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 未解放",
+            "第3章 未解放",
+            "第4章 未解放",
+            "第5章 未解放",
+            "第6章 未解放",
+            "第7章 未解放",
+            "第8章 未解放",
+            "第9章 未解放",
+            "第10章 未解放",
+            "第11章 未解放",
+            "第12章 未解放",
+            "第13章 未解放",
+            "第14章 未解放",
+            "第15章 未解放",
+            "第16章 未解放",
+            "第17章 未解放",
+            "第18章 未解放"
+          ],
+          "enabled": 1,
+          "hint": "全18章を収録。現在選択できるのは1章です。章をクリアすると次の章が解放されます。"
+        },
+        "battle": {
+          "guide": 1,
+          "help": 1
+        },
+        "staleError": null,
+        "staleChanged": false,
+        "world": "地面をタップして移動。人へ近づき、もう一度調べると会話が始まります。"
+      },
+      {
+        "width": 430,
+        "version": "ver. 4.5",
+        "home": {
+          "resumeY": 174.5,
+          "firstControl": "冒険を再開",
+          "guide": "「冒険を再開」から森へ。地面をタップして歩き、人の近くでもう一度調べると会話が始まります。"
+        },
+        "chapters": {
+          "lockedTitles": [
+            "第2章 未解放",
+            "第3章 未解放",
+            "第4章 未解放",
+            "第5章 未解放",
+            "第6章 未解放",
+            "第7章 未解放",
+            "第8章 未解放",
+            "第9章 未解放",
+            "第10章 未解放",
+            "第11章 未解放",
+            "第12章 未解放",
+            "第13章 未解放",
+            "第14章 未解放",
+            "第15章 未解放",
+            "第16章 未解放",
+            "第17章 未解放",
+            "第18章 未解放"
+          ],
+          "enabled": 1,
+          "hint": "全18章を収録。現在選択できるのは1章です。章をクリアすると次の章が解放されます。"
+        },
+        "battle": {
+          "guide": 1,
+          "help": 1
+        },
+        "staleError": null,
+        "staleChanged": false,
+        "world": "地面をタップして移動。人へ近づき、もう一度調べると会話が始まります。"
+      }
+    ],
+    "pageErrors": []
+  },
+  "cases": [
+    {
+      "width": 320,
+      "mode": "fresh normal story UI, one earned victory; no imported progress",
+      "wins": 1,
+      "firstGuide": true,
+      "helpPaused": true,
+      "reservation": {
+        "earned": 2,
+        "cost": 2,
+        "refunded": 2
+      },
+      "growthGuide": true,
+      "learnRollback": true,
+      "actualLearn": true,
+      "guideRetired": true,
+      "backup": true,
+      "reload": true,
+      "resources": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "returned": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "cycles": [
+        250,
+        216,
+        234,
+        269,
+        247,
+        232,
+        217,
+        228
+      ]
+    },
+    {
+      "width": 375,
+      "mode": "fresh normal story UI, one earned victory; no imported progress",
+      "wins": 1,
+      "firstGuide": true,
+      "helpPaused": true,
+      "reservation": {
+        "earned": 2,
+        "cost": 2,
+        "refunded": 2
+      },
+      "growthGuide": true,
+      "learnRollback": true,
+      "actualLearn": true,
+      "guideRetired": true,
+      "backup": true,
+      "reload": true,
+      "resources": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "returned": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "cycles": [
+        303,
+        237,
+        229,
+        268,
+        274,
+        255,
+        216,
+        221
+      ]
+    },
+    {
+      "width": 390,
+      "mode": "fresh normal story UI, one earned victory; no imported progress",
+      "wins": 1,
+      "firstGuide": true,
+      "helpPaused": true,
+      "reservation": {
+        "earned": 2,
+        "cost": 2,
+        "refunded": 2
+      },
+      "growthGuide": true,
+      "learnRollback": true,
+      "actualLearn": true,
+      "guideRetired": true,
+      "backup": true,
+      "reload": true,
+      "resources": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "returned": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "cycles": [
+        291,
+        261,
+        234,
+        265,
+        251,
+        214,
+        219,
+        216
+      ]
+    },
+    {
+      "width": 430,
+      "mode": "fresh normal story UI, one earned victory; no imported progress",
+      "wins": 1,
+      "firstGuide": true,
+      "helpPaused": true,
+      "reservation": {
+        "earned": 2,
+        "cost": 2,
+        "refunded": 2
+      },
+      "growthGuide": true,
+      "learnRollback": true,
+      "actualLearn": true,
+      "guideRetired": true,
+      "backup": true,
+      "reload": true,
+      "resources": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "returned": {
+        "listeners": 13,
+        "observers": 2,
+        "intervals": 0,
+        "heap": null
+      },
+      "cycles": [
+        233,
+        252,
+        215,
+        251,
+        235,
+        229,
+        218,
+        217
+      ]
+    }
+  ],
+  "layouts": [
+    {
+      "width": 320,
+      "height": 568,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 320,
+      "height": 667,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 375,
+      "height": 568,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 375,
+      "height": 844,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 390,
+      "height": 568,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 390,
+      "height": 667,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 430,
+      "height": 568,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 430,
+      "height": 667,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    },
+    {
+      "width": 430,
+      "height": 844,
+      "mode": "separate fresh real-time UI, first regular battle",
+      "resumeVisible": true,
+      "canvasStable": true,
+      "dialogInside": true,
+      "helpStatePreserved": true,
+      "startWorks": true
+    }
+  ],
+  "pageErrors": []
+}

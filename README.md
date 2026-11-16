@@ -1,6 +1,8 @@
 # アストラクロニカ 〜星詠みの遺した約束〜
 
-Vite + TypeScript + Phaser 3による、日本語・縦画面の3人パーティRPGの開発中プロトタイプです。有料サービスや外部画像・Webフォントへの依存はありません。
+Vite + TypeScript + Phaser 3による、日本語・縦画面の3人パーティRPGです。有料サービスや外部画像・Webフォントへの依存はありません。
+
+ゲーム内の表示版は **v4.5** です。表示は `src/game-release.ts` で一元管理し、パッケージ版・セーブの `version:2`・バックアップの `formatVersion:1` とは分離しています。
 
 ## 起動
 
@@ -376,3 +378,11 @@ BASE_URL=http://localhost:4173 npm run test:capture-v23
 対象への接近中に地面を再指定すると、以前の接近操作は表示から外れます。装備・星脈のキャラクター／系統切替では選択したボタンにフォーカスが残ります。戦闘中に回復対象が戦闘不能になるなど候補が変わった場合は、既存エンジンの候補へ選択を更新します。技の使用可否・EP・予約・保存形式・ゲーム数値は変更しません。
 
 専用試験：`npx vitest run tests/gameplay-v44.test.ts`、`node tests/gameplay-v44.e2e.mjs`（preview4173とdev5173を起動）。全既存試験は`npm run test:browser-all`で実行します。全103ブラウザファイルを分割CIでも省略せず実行します。条件・比較・制約は[GAMEPLAY_UX_V44.md](docs/GAMEPLAY_UX_V44.md)を参照してください。
+
+## v4.5 初回からエンディングまでの案内
+
+ホーム先頭の「冒険を再開」から現在の目的へ進めます。初回の野営地では、地面タップで歩き、人へ近づいてもう一度調べる操作を短く案内します。初回戦闘はスタートを押すだけで進行でき、「戦闘の操作」でCT・EP・予約・取消・一時停止を任意に確認できます。説明を閉じると元の一時停止状態へ戻ります。
+
+章選択は実際に解放された章数を表示し、未解放章の題名を先に公開しません。SPが増えた初期の場面では装備・星脈への入口を案内します。物語・数値・保存形式は変更しません。
+
+`npx vitest run tests/player-v45.test.ts`、`node tests/player-v45.e2e.mjs`（preview4173／dev5173起動）で専用試験を実行できます。`npm run test:browser-all`は既存を含む104ファイルを実行し、分割CIでも全件を維持します。条件と比較は[PLAYER_EXPERIENCE_V45.md](docs/PLAYER_EXPERIENCE_V45.md)を参照してください。
