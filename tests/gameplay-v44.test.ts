@@ -1,0 +1,23 @@
+import {describe,it,expect} from 'vitest';
+import {Battle} from '../src/battle';
+import {AtbCombat} from '../src/atb-combat';
+import {commandSelection} from '../src/atb-selection';
+import {fresh,load,SAVE_KEY} from '../src/save';
+import {createBackup,parseBackup} from '../src/save-backup';
+import {changeGrowthWeapon,learnGrowthNode} from '../src/growth-edit';
+import {growthStats} from '../src/growth-builds';
+const make=()=>new AtbCombat(new Battle(()=>.99,undefined,undefined,undefined,undefined,undefined,{potion:1,ether:1}));
+const select=(c:AtbCombat,actor:string,command:Parameters<typeof commandSelection>[0],fallback='')=>commandSelection(command,c.battle.availableCommands(c.battle.allies.find(u=>u.id===actor)!),cmd=>c.targets(actor,cmd),fallback);
+describe('v4.4 live UI selection and growth invariants',()=>{
+ it.each(['heal','potion'] as const)('%s reselects an engine-valid ally after KO',command=>{const c=make();c.battle.allies[0].hp--;c.battle.allies[1].hp=0;const s=select(c,'mei',{command,targetId:'rina'});expect(s.command).toBe(command);expect(c.targets('mei',command).some(u=>u.id===s.targetId)).toBe(true);expect(s.targetId).not.toBe('rina')});
+ it('reselects EP recovery when the selected ally reaches capacity',()=>{const c=make();c.slot('rina').ep=15;const s=select(c,'mei',{command:'ether',targetId:'rina'});expect(s.command).toBe('ether');expect(s.targetId).toBe('astel')});
+ it('does not invent an EP target when everyone is full',()=>{const c=make();for(const u of c.battle.allies)c.slot(u.id).ep=15;expect(select(c,'mei',{command:'ether',targetId:'rina'}).targetId).toBe('')});
+ it('keeps the selected skill through a target change',()=>{const c=make();c.battle.allies[0].hp=0;expect(select(c,'mei',{command:'heal',targetId:'astel'})).toEqual({command:'heal',targetId:'rina'})});
+ it('does not discard a valid remembered ally when the enemy target changes',()=>{const c=make();c.targetId=c.battle.enemies[1].id;expect(select(c,'mei',{command:'heal',targetId:'rina'},c.targetId)).toEqual({command:'heal',targetId:'rina'})});
+ it('does not consume resources or cancel a queued action while correcting selection',()=>{const c=make();c.start();c.slot('mei').ep=15;c.slot('mei').busyUntil=5;c.battle.allies[1].hp--;expect(c.reserve('mei','heal','rina').ok).toBe(true);c.battle.allies[1].hp=0;const old=JSON.stringify({time:c.time,slots:[...c.slots],units:c.battle.units});select(c,'mei',{command:'heal',targetId:'rina'});expect(JSON.stringify({time:c.time,slots:[...c.slots],units:c.battle.units})).toBe(old)});
+ it('does not bypass a sleep restriction by reselecting a target',()=>{const c=make();c.start();c.battle.allies[2].statuses=[{id:'sleep',remaining:3}];c.battle.allies[1].hp=0;const s=select(c,'mei',{command:'heal',targetId:'rina'});expect(c.reason('mei',s.command,s.targetId)).toBe('行動不能')});
+ it('keeps failed equipment editing atomic with its derived preview',()=>{const p=fresh();p.equipment.inventory['windcut-bow']=1;const old=structuredClone(p),stats=growthStats(p,'astel');expect(changeGrowthWeapon(p,'astel','windcut-bow',()=>false,{inBattle:false}).ok).toBe(false);expect(p).toEqual(old);expect(growthStats(p,'astel')).toEqual(stats)});
+ it('keeps failed node editing atomic with its derived preview',()=>{const p=fresh();p.party.astel.level=2;const old=structuredClone(p);expect(learnGrowthNode(p,'astel','astel-sword-edge',()=>false,{inBattle:false}).ok).toBe(false);expect(p).toEqual(old)});
+ it('does not alter another hero when equipment is changed',()=>{const p=fresh();p.equipment.inventory['windcut-bow']=1;const old=structuredClone(p.party),rina=growthStats(p,'rina');expect(changeGrowthWeapon(p,'astel','windcut-bow',()=>true,{inBattle:false}).ok).toBe(true);expect(p.party).toEqual(old);expect(growthStats(p,'rina')).toEqual(rina)});
+ it('keeps version2 and the backup envelope without UI fields',()=>{const p=load({getItem:()=>JSON.stringify({version:1,started:true,wins:2,battles:3})}),old=structuredClone(p),backup=parseBackup(createBackup(p).text);expect(backup.progress).toEqual(old);expect(backup.formatVersion).toBe(1);expect(p.version).toBe(2);expect(SAVE_KEY).toBe('astra-chronica:v1');expect(p).not.toHaveProperty('focusHero')});
+});

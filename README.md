@@ -370,3 +370,9 @@ BASE_URL=http://localhost:4173 npm run test:capture-v23
 独立ATB、命中ヒットごとのEP、最大4件の予約・取消・全額返却、同キャラのモーション排他、他キャラの同時発動を実装しています。全18章・161探索マップ・保存キーとschemaを維持します。正式なCT／EP資料が見つからない項目は暫定値として分離しています。
 
 `npm run test:atb` はpreview（4173）上のスマホ3幅の本編戦闘、`npm run test:atb-ui` はdev（5173）の保存なし統合テストです。ブラウザ全件は `npm run test:browser-all`、通常の単体は `npm test`、本番ビルドは `npm run build`。CIも全件実行し、成功後にPRを作成します。mainへのマージ・本番公開は行いません。
+
+## v4.4 探索・戦闘・育成の操作品質
+
+対象への接近中に地面を再指定すると、以前の接近操作は表示から外れます。装備・星脈のキャラクター／系統切替では選択したボタンにフォーカスが残ります。戦闘中に回復対象が戦闘不能になるなど候補が変わった場合は、既存エンジンの候補へ選択を更新します。技の使用可否・EP・予約・保存形式・ゲーム数値は変更しません。
+
+専用試験：`npx vitest run tests/gameplay-v44.test.ts`、`node tests/gameplay-v44.e2e.mjs`（preview4173とdev5173を起動）。全既存試験は`npm run test:browser-all`で実行します。全103ブラウザファイルを分割CIでも省略せず実行します。条件・比較・制約は[GAMEPLAY_UX_V44.md](docs/GAMEPLAY_UX_V44.md)を参照してください。

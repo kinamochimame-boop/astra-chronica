@@ -14,7 +14,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
  let hero:HeroId='astel',candidate:string|null=progress.equipment.equipped.astel,notice='';
  const buildStates:Partial<Record<HeroId,GrowthViewState>>={};
  const write=(result:ReturnType<typeof changeGrowthWeapon>,message:string)=>{notice=result.ok?message+'（保存済み）':result.reason;render();const feedback=host.querySelector<HTMLElement>('#equipment-notice')!;feedback.tabIndex=-1;feedback.scrollIntoView({block:'nearest'});feedback.focus({preventScroll:true})};
- function render(){
+ function render(focusHero=false){
   const listTop=host.querySelector('.weapon-list')?.scrollTop??0,comparisonOpen=host.querySelector<HTMLDetailsElement>('.party-growth-comparison')?.open??false;
   const state=progress.equipment;
   const template=heroes.find(h=>h.id===hero)!,base=growUnit(cloneUnit(template),progress.party[hero]);
@@ -27,7 +27,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   <section class="equipment-preview"><h2>装備前 → 装備後</h2><p id="equipment-selected"></p><table><caption>能力値比較（星脈を含む・一時補正を除く）</caption><thead><tr><th>能力</th><th>現在</th><th>変更後</th><th>差分</th></tr></thead><tbody></tbody></table><p id="equipment-description"></p><p id="equipment-reason" role="status"></p><button id="equipment-equip" class="primary">装備する</button><button id="equipment-remove" class="secondary">装備を解除</button></section>
   <p id="equipment-notice" role="status"></p><details class="equipment-test"><summary>装備検証用の武器解放</summary><p>9種類を各1個以上所持できるようにします。戦績・レベルは変わりません。追加分は本編の所持品として保存されます。繰り返しても増殖しません。</p><button id="equipment-unlock" class="secondary">検証用武器9種を解放・保存</button></details><button id="equipment-back" class="secondary">${options.backLabel??'ホームへ戻る'}</button>`;
   const get=<T extends HTMLElement=HTMLElement>(selector:string)=>host.querySelector<T>(selector)!;
-  for(const id of HERO_IDS){const button=document.createElement('button');const name=heroes.find(h=>h.id===id)!.name;button.textContent=name;button.setAttribute('aria-label',name);const meta=document.createElement('small');meta.className='growth-hero-meta';meta.id=`equipment-hero-${id}`;meta.textContent=`Lv.${progress.party[id].level} · 残SP ${remainingSP(progress.skillTree,id,progress.party[id].level)}`;button.setAttribute('aria-describedby',meta.id);button.append(meta);button.setAttribute('aria-pressed',String(hero===id));button.onclick=()=>{if(!button.isConnected||options.inBattle?.())return;hero=id;candidate=state.equipped[id];render()};get('.equipment-heroes').append(button)}
+  for(const id of HERO_IDS){const button=document.createElement('button');const name=heroes.find(h=>h.id===id)!.name;button.textContent=name;button.setAttribute('aria-label',name);button.dataset.growthHero=id;const meta=document.createElement('small');meta.className='growth-hero-meta';meta.id=`equipment-hero-${id}`;meta.textContent=`Lv.${progress.party[id].level} · 残SP ${remainingSP(progress.skillTree,id,progress.party[id].level)}`;button.setAttribute('aria-describedby',meta.id);button.append(meta);button.setAttribute('aria-pressed',String(hero===id));button.onclick=()=>{if(!button.isConnected||options.inBattle?.())return;hero=id;candidate=state.equipped[id];render(true)};get('.equipment-heroes').append(button)}
   mountGrowthComparison(get('.party-growth-slot'),progress).open=comparisonOpen;
   get('#equipment-current-name').textContent=weaponById(current.weaponId)?.name??'装備なし';
   for(const w of allWeapons){
@@ -49,6 +49,7 @@ export function mountEquipment(host:HTMLElement,progress:Progress,persist:()=>bo
   get('#equipment-notice').textContent=notice;
   const unlock=get<HTMLButtonElement>('#equipment-unlock');unlock.onclick=()=>{if(!unlock.isConnected||!host.contains(unlock)||options.inBattle?.())return;write(unlockGrowthWeapons(progress,persist,{inBattle:options.inBattle?.()??false}),'検証用武器を解放しました。')};
   const builds=document.createElement('section');get('#equipment-back').before(builds);mountBuildManager(builds,progress,hero,persist,()=>{notice='';candidate=progress.equipment.equipped[hero];render()},{...options,state:buildStates[hero]??={}});
+  if(focusHero)get(`[data-growth-hero="${hero}"]`).focus({preventScroll:true});
   const back=get<HTMLButtonElement>('#equipment-back');back.onclick=()=>{if(!back.isConnected||options.inBattle?.())return;host.classList.remove('equipment-screen');onBack()};
  }
  render();return ()=>host.classList.remove('equipment-screen');
