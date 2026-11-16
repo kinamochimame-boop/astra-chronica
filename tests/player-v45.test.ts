@@ -1,5 +1,4 @@
 import {describe,it,expect} from 'vitest';
-import {readFileSync} from 'node:fs';
 import {GAME_VERSION,gameVersionLabel} from '../src/game-release';
 import {homePlayerGuide,firstExplorationGuide,firstBattleGuide,BATTLE_HELP} from '../src/player-guidance';
 import {futureChaptersNotice} from '../src/chapter-selection';
@@ -7,10 +6,11 @@ import {fresh,load,SAVE_KEY} from '../src/save';
 import {chapters} from '../src/data/chapter-one';
 import {ATB_RULES} from '../src/atb-rules';
 import {createBackup,parseBackup} from '../src/save-backup';
+const readme=Object.values(import.meta.glob<string>('../README.md',{query:'?raw',eager:true,import:'default'}))[0];
 const at=(completed:string[])=>{const p=fresh();p.adventure.chapters['chapter-01']={currentLocationId:'c1-camp',completed};return p};
 describe('v4.5 contextual guidance, release and unlocked chapters',()=>{
  it('uses the one display release constant without the old prototype label',()=>{expect(gameVersionLabel()).toBe(`ver. ${GAME_VERSION}`);expect(gameVersionLabel()).not.toMatch(/PROTOTYPE|3\.0/)});
- it('keeps README aligned with the display release',()=>expect(readFileSync('README.md','utf8')).toContain(`**v${GAME_VERSION}**`));
+ it('keeps README aligned with the display release',()=>expect(readme).toContain(`**v${GAME_VERSION}**`));
  it('does not reinterpret the display version as a save or backup version',()=>{const p=fresh(),b=parseBackup(createBackup(p).text);expect(p.version).toBe(2);expect(b.formatVersion).toBe(1);expect(SAVE_KEY).toBe('astra-chronica:v1');expect(GAME_VERSION).not.toBe(String(p.version));expect(GAME_VERSION).not.toBe(String(b.formatVersion))});
  it('guides a fresh player to resume and interact without naming later content',()=>{const text=homePlayerGuide(fresh(),'chapter-01')!;expect(text).toMatch(/冒険を再開/);expect(text).toMatch(/もう一度/);expect(text).not.toMatch(/サハリア|クリスタリア|最終|ボス/)});
  it('stops the departure explanation after its existing event',()=>expect(homePlayerGuide(at(['c1-departure']),'chapter-01')).toBeUndefined());
