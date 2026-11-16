@@ -1,6 +1,6 @@
 {
   "phase": "after",
-  "sourceHash": "3b07d9778a53290963c4895cc78cd548dedd1c9a40d81a1262b6563ad3f8b23f",
+  "sourceHash": "33c7486a7042cd0fa24df83b32253e65c039d8f13e2a1c0c9165c8c0e02fdff3",
   "rows": [
     {
       "width": 320,
@@ -140,7 +140,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9793970
+          "heap": 10058677
         },
         "canvases": 1
       },
@@ -149,7 +149,7 @@
         "height": 1013,
         "scrollRange": 169,
         "horizontal": false,
-        "focus": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0CHAPTER 01 · EXPLORE星灯りの野営地☰目的：星詠みの遺した言",
+        "focus": "星灯りの野営地",
         "focusVisible": true,
         "buttons": [
           {
@@ -236,7 +236,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12812985
+          "heap": 13035060
         },
         "canvases": 1
       },
@@ -332,7 +332,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 11951571
+          "heap": 12274830
         },
         "canvases": 1
       },
@@ -428,7 +428,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 13636901
+          "heap": 13855382
         },
         "canvases": 1
       },
@@ -436,17 +436,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 13129441
+        "heap": 13438868
       },
       "cycles": [
-        449,
-        402,
-        431,
-        484,
-        417,
+        413,
         416,
+        432,
+        434,
         417,
-        418
+        419,
+        432,
+        433
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
@@ -590,7 +590,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9939734
+          "heap": 10015181
         },
         "canvases": 1
       },
@@ -599,7 +599,7 @@
         "height": 1014,
         "scrollRange": 170,
         "horizontal": false,
-        "focus": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0CHAPTER 01 · EXPLORE星灯りの野営地☰目的：星詠みの遺した言",
+        "focus": "星灯りの野営地",
         "focusVisible": true,
         "buttons": [
           {
@@ -686,7 +686,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12946392
+          "heap": 13039019
         },
         "canvases": 1
       },
@@ -782,7 +782,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12881610
+          "heap": 12275141
         },
         "canvases": 1
       },
@@ -878,7 +878,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 15796266
+          "heap": 14011022
         },
         "canvases": 1
       },
@@ -886,17 +886,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 14160896
+        "heap": 13442923
       },
       "cycles": [
-        450,
-        416,
-        415,
+        417,
+        433,
         418,
-        498,
-        419,
-        416,
-        416
+        414,
+        420,
+        400,
+        414,
+        419
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
@@ -1040,7 +1040,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 9938694
+          "heap": 10034421
         },
         "canvases": 1
       },
@@ -1049,7 +1049,7 @@
         "height": 1014,
         "scrollRange": 170,
         "horizontal": false,
-        "focus": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0CHAPTER 01 · EXPLORE星灯りの野営地☰目的：星詠みの遺した言",
+        "focus": "星灯りの野営地",
         "focusVisible": true,
         "buttons": [
           {
@@ -1136,7 +1136,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12999275
+          "heap": 12960183
         },
         "canvases": 1
       },
@@ -1232,7 +1232,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12149389
+          "heap": 11964805
         },
         "canvases": 1
       },
@@ -1328,7 +1328,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 13910099
+          "heap": 13487331
         },
         "canvases": 1
       },
@@ -1336,17 +1336,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 13314583
+        "heap": 13236059
       },
       "cycles": [
-        420,
-        497,
         433,
-        417,
         401,
-        449,
-        402,
-        399
+        415,
+        435,
+        433,
+        400,
+        416,
+        416
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
@@ -1490,7 +1490,7 @@
           "listeners": 5,
           "observers": 1,
           "intervals": 0,
-          "heap": 10001902
+          "heap": 9839205
         },
         "canvases": 1
       },
@@ -1499,7 +1499,7 @@
         "height": 1014,
         "scrollRange": 170,
         "horizontal": false,
-        "focus": "✧ASTRA CHRONICA星詠みの遺した約束PROTOTYPEver. 3.0CHAPTER 01 · EXPLORE星灯りの野営地☰目的：星詠みの遺した言",
+        "focus": "星灯りの野営地",
         "focusVisible": true,
         "buttons": [
           {
@@ -1586,7 +1586,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12997811
+          "heap": 12853250
         },
         "canvases": 1
       },
@@ -1682,7 +1682,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 12365697
+          "heap": 11834892
         },
         "canvases": 1
       },
@@ -1778,7 +1778,7 @@
           "listeners": 14,
           "observers": 2,
           "intervals": 0,
-          "heap": 14257239
+          "heap": 13443639
         },
         "canvases": 1
       },
@@ -1786,17 +1786,17 @@
         "listeners": 14,
         "observers": 2,
         "intervals": 0,
-        "heap": 13538223
+        "heap": 12998754
       },
       "cycles": [
-        450,
-        402,
-        399,
-        414,
+        417,
+        415,
         418,
-        416,
-        419,
-        447
+        432,
+        418,
+        415,
+        404,
+        416
       ],
       "staleBackInterrupted": false,
       "equipmentRoundtripTaps": 3,
