@@ -75,7 +75,7 @@ export function mountMap(host:HTMLElement,p:Progress,persist:()=>boolean,actions
  const inspect=(o:MapObject)=>{
   if(disposed||runtime.paused||runtime.locked||!objectRevealed(p,map,o))return;
   const condition=objectConditionReason(p,map,o);if(condition){moveFeedback=false;runtime.stop();host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;say(condition);sync(0,true);return}
-  if(!canInteract(map,runtime.hero,o)){approachTarget=o;host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=false;const goal=approachPoint(map,runtime.hero,o);if(goal){runtime.moveTo(goal);moveFeedback=runtime.hero.path.length>0;say(`${interactionState(p,map,runtime.hero,o)?.name??'対象'}へ接近中です。到着後、もう一度調べてください。`)}else say('壁や閉じた通路のため近くへ移動できません。通れる道を確かめてください。');return}host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;
+  if(!canInteract(map,runtime.hero,o)){approachTarget=o;host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=false;const goal=approachPoint(map,runtime.hero,o);if(goal){runtime.moveTo(goal);moveFeedback=runtime.hero.path.length>0;say(`${interactionState(p,map,runtime.hero,o)?.name??'対象'}の近くへ接近中です。到着後、もう一度調べてください。`)}else say('壁や閉じた通路のため近くへ移動できません。通れる道を確かめてください。');return}host.querySelector<HTMLButtonElement>('#world-approach')!.hidden=true;
   moveFeedback=false;runtime.stop();scene.pale?.pulse(o,frame);sync(0,true);
   if(o.kind==='exit'){
    const reason=transitionReason(p,map,o);if(reason){say(reason);return}flush();if(o.targetMap)actions.travel(o.targetMap);else if(o.targetLocation)actions.location(o.targetLocation);return;
