@@ -1,0 +1,1067 @@
+{
+  "phase": "before",
+  "sourceHash": "33c7486a7042cd0fa24df83b32253e65c039d8f13e2a1c0c9165c8c0e02fdff3",
+  "rows": [
+    {
+      "width": 320,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 5738,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 13,
+          "y": 5572.984375,
+          "width": 294,
+          "height": 613.59375,
+          "documentY": 5572.984375
+        },
+        "equip": {
+          "x": 26,
+          "y": 6059.578125,
+          "width": 268,
+          "height": 48,
+          "documentY": 6059.578125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 13,
+          "y": 490.984375,
+          "width": 294,
+          "height": 5070,
+          "documentY": 490.984375
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14932307
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 0,
+        "scrollRange": 5738,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": {
+          "x": 13,
+          "y": 5572.984375,
+          "width": 294,
+          "height": 613.59375,
+          "documentY": 5572.984375
+        },
+        "equip": {
+          "x": 26,
+          "y": 6059.578125,
+          "width": 268,
+          "height": 48,
+          "documentY": 6059.578125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 13,
+          "y": 490.984375,
+          "width": 294,
+          "height": 5070,
+          "documentY": 490.984375
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14182282
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 741,
+        "scrollRange": 1026,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15974264
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 741,
+        "scrollRange": 848,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16168928
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステル",
+        "リナ",
+        "メイ"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 169,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19197247
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "hudClosed": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "map": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "mapClosed": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "menu": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "menuClosed": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": null,
+        "text": "↗ 霧の森・入口へ"
+      },
+      "movementNotice": "",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 15969269
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 169,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19197247
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        383,
+        383,
+        367,
+        367,
+        385,
+        399,
+        367,
+        367
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 306,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 24126082
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 3,
+      "rememberedHeal": false,
+      "staleMenuError": "Cannot read properties of null (reading 'replaceChildren')"
+    },
+    {
+      "width": 375,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 4863,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 4686.4375,
+          "width": 333,
+          "height": 613.59375,
+          "documentY": 4686.4375
+        },
+        "equip": {
+          "x": 34,
+          "y": 5173.03125,
+          "width": 307,
+          "height": 48,
+          "documentY": 5173.03125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 468.1875,
+          "width": 333,
+          "height": 4206.25,
+          "documentY": 468.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14920623
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 0,
+        "scrollRange": 4863,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 4686.4375,
+          "width": 333,
+          "height": 613.59375,
+          "documentY": 4686.4375
+        },
+        "equip": {
+          "x": 34,
+          "y": 5173.03125,
+          "width": 307,
+          "height": 48,
+          "documentY": 5173.03125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 468.1875,
+          "width": 333,
+          "height": 4206.25,
+          "documentY": 468.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14110110
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 730,
+        "scrollRange": 1015,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15911352
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 730,
+        "scrollRange": 860,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15911352
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステル",
+        "リナ",
+        "メイ"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 170,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19204119
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "hudClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "map": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "mapClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "menu": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "menuClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": null,
+        "text": "↗ 霧の森・入口へ"
+      },
+      "movementNotice": "",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 15994704
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 170,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19204119
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        366,
+        368,
+        367,
+        366,
+        368,
+        365,
+        366,
+        368
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 361,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 23693496
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 3,
+      "rememberedHeal": false,
+      "staleMenuError": "Cannot read properties of null (reading 'replaceChildren')"
+    },
+    {
+      "width": 390,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 4863,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 4686.4375,
+          "width": 348,
+          "height": 613.59375,
+          "documentY": 4686.4375
+        },
+        "equip": {
+          "x": 34,
+          "y": 5173.03125,
+          "width": 322,
+          "height": 48,
+          "documentY": 5173.03125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 468.1875,
+          "width": 348,
+          "height": 4206.25,
+          "documentY": 468.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14896335
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 0,
+        "scrollRange": 4863,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 4686.4375,
+          "width": 348,
+          "height": 613.59375,
+          "documentY": 4686.4375
+        },
+        "equip": {
+          "x": 34,
+          "y": 5173.03125,
+          "width": 322,
+          "height": 48,
+          "documentY": 5173.03125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 468.1875,
+          "width": 348,
+          "height": 4206.25,
+          "documentY": 468.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14102674
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 730,
+        "scrollRange": 1015,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15910236
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 730,
+        "scrollRange": 860,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16097384
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステル",
+        "リナ",
+        "メイ"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 170,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 18620893
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "hudClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "map": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "mapClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menu": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menuClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": null,
+        "text": "↗ 霧の森・入口へ"
+      },
+      "movementNotice": "",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 16107640
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 170,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 18620893
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        370,
+        383,
+        366,
+        352,
+        348,
+        366,
+        353,
+        365
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 376,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 23722781
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 3,
+      "rememberedHeal": false,
+      "staleMenuError": "Cannot read properties of null (reading 'replaceChildren')"
+    },
+    {
+      "width": 430,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 4863,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 4686.4375,
+          "width": 388,
+          "height": 613.59375,
+          "documentY": 4686.4375
+        },
+        "equip": {
+          "x": 34,
+          "y": 5173.03125,
+          "width": 362,
+          "height": 48,
+          "documentY": 5173.03125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 468.1875,
+          "width": 388,
+          "height": 4206.25,
+          "documentY": 468.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14992159
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 0,
+        "scrollRange": 4863,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 4686.4375,
+          "width": 388,
+          "height": 613.59375,
+          "documentY": 4686.4375
+        },
+        "equip": {
+          "x": 34,
+          "y": 5173.03125,
+          "width": 362,
+          "height": 48,
+          "documentY": 5173.03125
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 468.1875,
+          "width": 388,
+          "height": 4206.25,
+          "documentY": 468.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14151358
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 707,
+        "scrollRange": 969,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15937832
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 707,
+        "scrollRange": 814,
+        "horizontal": false,
+        "focus": "BODY",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15937832
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステル",
+        "リナ",
+        "メイ"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 170,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19062422
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "hudClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "map": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "mapClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menu": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menuClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": null,
+        "text": "↗ 霧の森・入口へ"
+      },
+      "movementNotice": "",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 16114836
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 170,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19062422
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        371,
+        365,
+        353,
+        363,
+        367,
+        368,
+        348,
+        366
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 416,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 24283282
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 3,
+      "rememberedHeal": false,
+      "staleMenuError": "Cannot read properties of null (reading 'replaceChildren')"
+    }
+  ],
+  "pageErrors": []
+}

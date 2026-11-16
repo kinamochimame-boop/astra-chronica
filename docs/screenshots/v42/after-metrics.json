@@ -1,0 +1,1067 @@
+{
+  "phase": "after",
+  "sourceHash": "ea5e363c60d5cbe9680c15a73440e26b23620e8a5a0fd51c33b20c883c0c0d8a",
+  "rows": [
+    {
+      "width": 320,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 1039,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 13,
+          "y": 874.8125,
+          "width": 294,
+          "height": 613.59375,
+          "documentY": 874.8125
+        },
+        "equip": {
+          "x": 26,
+          "y": 1361.40625,
+          "width": 268,
+          "height": 48,
+          "documentY": 1361.40625
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 13,
+          "y": 558.984375,
+          "width": 294,
+          "height": 303.828125,
+          "documentY": 558.984375
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14945184
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 644,
+        "scrollRange": 1039,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": {
+          "x": 13,
+          "y": 230.8125,
+          "width": 294,
+          "height": 613.59375,
+          "documentY": 874.8125
+        },
+        "equip": {
+          "x": 26,
+          "y": 717.40625,
+          "width": 268,
+          "height": 48,
+          "documentY": 1361.40625
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 13,
+          "y": -85.015625,
+          "width": 294,
+          "height": 303.828125,
+          "documentY": 558.984375
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 13987254
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 806,
+        "scrollRange": 1091,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15913969
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 806,
+        "scrollRange": 913,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15913969
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステルLv.10 · 残SP 18",
+        "リナLv.10 · 残SP 18",
+        "メイLv.10 · 残SP 18"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 189,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19288916
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "hudClosed": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "map": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "mapClosed": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "menu": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "menuClosed": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": "blocked",
+        "text": "↗ 閉ざされた出口条件未達 · タップで理由"
+      },
+      "movementNotice": "移動中です。別の地面をタップすると行き先を変更できます。",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 16051208
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 189,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 14,
+          "y": 217,
+          "width": 293.140625,
+          "height": 454,
+          "documentY": 217
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19288916
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        368,
+        368,
+        400,
+        365,
+        383,
+        368,
+        365,
+        367
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 306,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 24595476
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 2,
+      "rememberedHeal": true,
+      "staleMenuError": null
+    },
+    {
+      "width": 375,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 1029,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 852.015625,
+          "width": 333,
+          "height": 613.59375,
+          "documentY": 852.015625
+        },
+        "equip": {
+          "x": 34,
+          "y": 1338.609375,
+          "width": 307,
+          "height": 48,
+          "documentY": 1338.609375
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 536.1875,
+          "width": 333,
+          "height": 303.828125,
+          "documentY": 536.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15056976
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 622,
+        "scrollRange": 1029,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 230.015625,
+          "width": 333,
+          "height": 613.59375,
+          "documentY": 852.015625
+        },
+        "equip": {
+          "x": 34,
+          "y": 716.609375,
+          "width": 307,
+          "height": 48,
+          "documentY": 1338.609375
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": -85.8125,
+          "width": 333,
+          "height": 303.828125,
+          "documentY": 536.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14147378
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 795,
+        "scrollRange": 1080,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16054069
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 795,
+        "scrollRange": 925,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16292093
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステルLv.10 · 残SP 18",
+        "リナLv.10 · 残SP 18",
+        "メイLv.10 · 残SP 18"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 190,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19731498
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "hudClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "map": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "mapClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "menu": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "menuClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": "blocked",
+        "text": "↗ 閉ざされた出口条件未達 · タップで理由"
+      },
+      "movementNotice": "移動中です。別の地面をタップすると行き先を変更できます。",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 16345963
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 190,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 332.1875,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19731498
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        371,
+        366,
+        367,
+        382,
+        384,
+        349,
+        384,
+        366
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 361,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 23728967
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 2,
+      "rememberedHeal": true,
+      "staleMenuError": null
+    },
+    {
+      "width": 390,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 1029,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 852.015625,
+          "width": 348,
+          "height": 613.59375,
+          "documentY": 852.015625
+        },
+        "equip": {
+          "x": 34,
+          "y": 1338.609375,
+          "width": 322,
+          "height": 48,
+          "documentY": 1338.609375
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 536.1875,
+          "width": 348,
+          "height": 303.828125,
+          "documentY": 536.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15012752
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 622,
+        "scrollRange": 1029,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 230.015625,
+          "width": 348,
+          "height": 613.59375,
+          "documentY": 852.015625
+        },
+        "equip": {
+          "x": 34,
+          "y": 716.609375,
+          "width": 322,
+          "height": 48,
+          "documentY": 1338.609375
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": -85.8125,
+          "width": 348,
+          "height": 303.828125,
+          "documentY": 536.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14139458
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 795,
+        "scrollRange": 1080,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16065313
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 795,
+        "scrollRange": 925,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16303245
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステルLv.10 · 残SP 18",
+        "リナLv.10 · 残SP 18",
+        "メイLv.10 · 残SP 18"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 190,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19514714
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "hudClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "map": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "mapClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menu": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menuClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": "blocked",
+        "text": "↗ 閉ざされた出口条件未達 · タップで理由"
+      },
+      "movementNotice": "移動中です。別の地面をタップすると行き先を変更できます。",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 16271811
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 190,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 347.84375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19514714
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        370,
+        366,
+        371,
+        397,
+        367,
+        351,
+        365,
+        384
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 376,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 23547160
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 2,
+      "rememberedHeal": true,
+      "staleMenuError": null
+    },
+    {
+      "width": 430,
+      "fixture": "UI-only Lv10/owned bow; no chapter progress injected",
+      "equipment": {
+        "scrollY": 0,
+        "scrollRange": 1029,
+        "horizontal": false,
+        "focus": "H1",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 852.015625,
+          "width": 388,
+          "height": 613.59375,
+          "documentY": 852.015625
+        },
+        "equip": {
+          "x": 34,
+          "y": 1338.609375,
+          "width": 362,
+          "height": 48,
+          "documentY": 1338.609375
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": 536.1875,
+          "width": 388,
+          "height": 303.828125,
+          "documentY": 536.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14981004
+        },
+        "canvases": 0
+      },
+      "selectedEquipment": {
+        "scrollY": 622,
+        "scrollRange": 1029,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": {
+          "x": 21,
+          "y": 230.015625,
+          "width": 388,
+          "height": 613.59375,
+          "documentY": 852.015625
+        },
+        "equip": {
+          "x": 34,
+          "y": 716.609375,
+          "width": 362,
+          "height": 48,
+          "documentY": 1338.609375
+        },
+        "commands": null,
+        "weaponList": {
+          "x": 21,
+          "y": -85.8125,
+          "width": 388,
+          "height": 303.828125,
+          "documentY": 536.1875
+        },
+        "weaponCount": 60,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 14031118
+        },
+        "canvases": 0
+      },
+      "tree": {
+        "scrollY": 772,
+        "scrollRange": 1034,
+        "horizontal": false,
+        "focus": "H2",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 15935557
+        },
+        "canvases": 0
+      },
+      "treeAfterAcquire": {
+        "scrollY": 772,
+        "scrollRange": 879,
+        "horizontal": false,
+        "focus": "P",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 5,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 16157981
+        },
+        "canvases": 0
+      },
+      "heroLabels": [
+        "アステルLv.10 · 残SP 18",
+        "リナLv.10 · 残SP 18",
+        "メイLv.10 · 残SP 18"
+      ],
+      "world": {
+        "scrollY": 0,
+        "scrollRange": 190,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19386267
+        },
+        "canvases": 1
+      },
+      "overlayRects": {
+        "hud": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "hudClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "map": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "mapClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menu": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "menuClosed": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        }
+      },
+      "blockedExit": {
+        "disabled": false,
+        "availability": "blocked",
+        "text": "↗ 閉ざされた出口条件未達 · タップで理由"
+      },
+      "movementNotice": "移動中です。別の地面をタップすると行き先を変更できます。",
+      "resourcesBefore": {
+        "listeners": 14,
+        "observers": 2,
+        "intervals": 0,
+        "heap": 16207271
+      },
+      "returned": {
+        "scrollY": 0,
+        "scrollRange": 190,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": {
+          "x": 22,
+          "y": 218,
+          "width": 387.4375,
+          "height": 454,
+          "documentY": 218
+        },
+        "preview": null,
+        "equip": null,
+        "commands": null,
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 14,
+          "observers": 2,
+          "intervals": 0,
+          "heap": 19386267
+        },
+        "canvases": 1
+      },
+      "cycles": [
+        401,
+        366,
+        351,
+        367,
+        389,
+        345,
+        367,
+        383
+      ],
+      "battle": {
+        "scrollY": 0,
+        "scrollRange": 0,
+        "horizontal": false,
+        "focus": "BUTTON",
+        "canvas": null,
+        "preview": null,
+        "equip": null,
+        "commands": {
+          "x": 7,
+          "y": 520,
+          "width": 416,
+          "height": 128,
+          "documentY": 520
+        },
+        "weaponList": null,
+        "weaponCount": 0,
+        "resources": {
+          "listeners": 7,
+          "observers": 1,
+          "intervals": 0,
+          "heap": 24157048
+        },
+        "canvases": 1
+      },
+      "actorRoundtripTaps": 2,
+      "rememberedHeal": true,
+      "staleMenuError": null
+    }
+  ],
+  "pageErrors": []
+}

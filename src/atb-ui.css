@@ -83,3 +83,6 @@
 /* Queue rows scroll horizontally; the list can also scroll vertically. */
 .atb-screen .atb-queues{touch-action:auto;max-height:156px}
 .shell.battle-mode.atb-layout{scroll-padding-top:calc(var(--atb-safe-top) + 48px);scroll-padding-bottom:calc(var(--atb-safe-bottom) + 60px)}
+
+/* v4.2: reasons remain visible inside the same stable 44px controls. */
+.atb-screen .commands .command{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:3px 1px}.atb-screen .command-name{display:block;line-height:12px;max-height:24px;overflow:hidden;max-width:100%}.atb-screen .command .command-reason{display:block;font-size:8px;line-height:9px;height:9px;max-width:100%;margin:0;color:#c6e2e1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.atb-screen .command.unavailable:not(.selected){background:#172d40;border-color:#647380}.atb-screen .command.unavailable .command-reason{color:#efc1a4}

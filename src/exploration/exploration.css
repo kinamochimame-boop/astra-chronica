@@ -20,3 +20,6 @@
 #world-minimap-tools{display:flex;gap:4px;margin-top:4px}#world-minimap-tools[hidden]{display:none}#world-minimap-tools button{min-height:44px;flex:1;font-size:12px;letter-spacing:0;margin:0}
 
 #world-map-expanded{background:#10283a;color:#edf3ff;border:1px solid #c4ad78;border-radius:8px;padding:16px}#world-map-expanded::backdrop{background:#06111bd9}#world-map-expanded button{width:100%;background:#193b55;color:#f1d9a0;border:1px solid #c4ad78;border-radius:6px}
+
+/* v4.2: explicit feedback without changing map geometry or interaction radii. */
+.free-map-screen #world-notice{min-height:44px}.world-target-state{display:block;font-size:9px;line-height:13px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.free-map-screen #world-nearby button{line-height:14px;min-height:46px;touch-action:manipulation}.free-map-screen #world-nearby [data-availability=ready]{border-color:#94ddd1;background:#204a50;color:#e5fff7}.free-map-screen #world-nearby [data-availability=blocked]{border-color:#7c7880;background:#22303e;color:#cec9bd}.free-map-screen #world-nearby [data-availability=blocked] .world-target-state{color:#ebc592}
