@@ -13,7 +13,8 @@ export class Stage extends Phaser.Scene {
  create(){this.paint();this.scale.on('resize',this.paint,this);this.events.once('shutdown',()=>{this.scale.off('resize',this.paint,this);this.time.removeAllEvents();this.tweens.killAll()});this.game.events.on('battle-effect',this.effect,this);this.game.events.on('stage',this.show,this);this.events.once('shutdown',()=>{this.game.events.off('battle-effect',this.effect,this);this.game.events.off('stage',this.show,this)})}
  show(units:Unit[],selected=0,enemy=-1,targets:string[]=[]){this.targets=targets;this.units=units;this.selected=selected;this.enemy=enemy;this.paint()}
  paint(){
- this.generation++;this.time.removeAllEvents();this.figures.clear();this.rings.clear();this.homes.clear();this.tweens.killAll();this.children.removeAll(true);
+ // Flush insertion before destruction: Phaser otherwise inserts an already-destroyed actor.
+ this.generation++;this.events.emit(Phaser.Scenes.Events.PRE_UPDATE,this.time.now,0);this.time.removeAllEvents();this.figures.clear();this.rings.clear();this.homes.clear();this.tweens.killAll();for(const child of [...this.children.getChildren()])child.destroy();
  const height=this.scale.gameSize.height,hasEnemies=this.units.length>3,enemyCount=this.units.length-3,g=this.add.graphics();g.fillStyle(0x102b40);g.fillRect(0,0,390,height);g.lineStyle(1,0x809dba,.15);for(let y=15;y<height;y+=35)g.lineBetween(0,y,390,y+30);g.lineStyle(1,0xdbc68a,.2);g.lineBetween(195,5,195,height-5);
  const scales=battleActorScales(this.units,height,this.layout),models=this.units.map((u,i)=>{
   const anchor=battleAnchor(i,height,hasEnemies,this.layout,enemyCount),active=i===this.selected,targeted=i===this.enemy||this.targets.includes(u.id),style=actorStyle(u,i<3),c=drawActor(this,u,i<3).setPosition(anchor.x,anchor.y).setScale(scales[i]).setAlpha(u.hp>0?1:.25);this.figures.set(u.id,c);this.homes.set(u.id,anchor);
@@ -23,6 +24,8 @@ export class Stage extends Phaser.Scene {
   if(u.hp>0&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)this.tweens.add({targets:c,y:c.y-(active?3:1.5),duration:900+i*80,yoyo:true,repeat:-1});
   return {id:u.id,...anchor,side:i<3?'ally':'enemy',alive:u.hp>0,targeted,active,...style};
  });this.game.canvas.dataset.actors=JSON.stringify(models);this.game.canvas.dataset.layout=hasEnemies?this.layout:'portraits';
+ // Commit only input/timer housekeeping; no UPDATE event or simulation tick is emitted.
+ this.events.emit(Phaser.Scenes.Events.PRE_UPDATE,this.time.now,0);
  }
  /** Realtime updates must not destroy another character's in-flight tween. */
  syncRealtime(targetId:string,actingIds:string[]){
