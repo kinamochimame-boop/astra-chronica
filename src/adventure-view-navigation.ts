@@ -5,5 +5,5 @@ export function returnScroll(spot:ReturnSpot,screen:string,mapId?:string){return
 export class ViewSession {
  private generation=0;
  enter(){this.generation++;return this.generation}
- guard(owner:Pick<HTMLElement,'isConnected'>,action:()=>void){const generation=this.generation;return ()=>{if(owner.isConnected&&generation===this.generation)action()}}
+ guard(owner:Pick<HTMLElement,'isConnected'>,action:()=>void,enabled:()=>boolean=()=>true){const generation=this.generation;return ()=>{if(owner.isConnected&&generation===this.generation&&enabled())action()}}
 }
